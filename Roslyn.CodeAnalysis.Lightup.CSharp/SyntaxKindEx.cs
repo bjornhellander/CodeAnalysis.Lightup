@@ -2,7 +2,7 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.CSharp
 {
-    public static class SyntaxKindEx
+    public class SyntaxKindEx
     {
         // TODO: Just added to be able to write tests. Remove when proper members are added.
         public const SyntaxKind None = (SyntaxKind)0;
