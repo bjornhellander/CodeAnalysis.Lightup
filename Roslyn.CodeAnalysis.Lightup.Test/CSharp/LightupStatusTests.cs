@@ -37,17 +37,18 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp
             Assert.AreEqual(shouldBeSupported, LightupStatus.SupportsCSharp12);
         }
 
-        private LanguageVersion GetExpectedSupportedLanguage()
+        private static LanguageVersion GetExpectedSupportedLanguage()
         {
             var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-            var assemblyNameSuffix = assemblyName.Substring(32);
+            var assemblyNameSuffix = assemblyName[32..];
             return assemblyNameSuffix switch
             {
                 "" => LanguageVersion.CSharp8,
+                ".3_8_0" => LanguageVersionEx.CSharp9,
                 ".4_0_1" => LanguageVersionEx.CSharp10,
                 ".4_4_0" => LanguageVersionEx.CSharp11,
                 ".4_8_0" => LanguageVersionEx.CSharp12,
-                _ => throw new ArgumentException(),
+                _ => throw new ArgumentException($"Unhandled test assembly version '{assemblyNameSuffix}'"),
             };
         }
     }
