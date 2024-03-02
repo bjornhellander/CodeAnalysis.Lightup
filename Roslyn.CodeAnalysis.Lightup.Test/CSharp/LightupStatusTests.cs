@@ -44,6 +44,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp
             return assemblyNameSuffix switch
             {
                 "" => LanguageVersion.CSharp8,
+                ".4_0_1" => LanguageVersionEx.CSharp10,
                 ".4_4_0" => LanguageVersionEx.CSharp11,
                 ".4_8_0" => LanguageVersionEx.CSharp12,
                 _ => throw new ArgumentException(),
