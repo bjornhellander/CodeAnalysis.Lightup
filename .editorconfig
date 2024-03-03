@@ -98,6 +98,12 @@ csharp_style_deconstructed_variable_declaration = true:suggestion
 csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 csharp_style_unused_value_expression_statement_preference = discard_variable:silent
 
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = warning
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = warning
+
 dotnet_diagnostic.CA1041.severity = warning
 dotnet_diagnostic.CA1050.severity = warning
 dotnet_diagnostic.CA1061.severity = warning
