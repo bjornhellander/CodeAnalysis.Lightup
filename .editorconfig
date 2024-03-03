@@ -105,6 +105,9 @@ dotnet_diagnostic.IDE0055.severity = warning
 # IDE0130: Namespace does not match folder structure
 dotnet_diagnostic.IDE0130.severity = warning
 
+# IDE0300: Simplify collection initialization
+dotnet_diagnostic.IDE0300.severity = warning
+
 dotnet_diagnostic.CA1041.severity = warning
 dotnet_diagnostic.CA1050.severity = warning
 dotnet_diagnostic.CA1061.severity = warning
