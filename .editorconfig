@@ -109,6 +109,9 @@ dotnet_diagnostic.CA1050.severity = warning
 dotnet_diagnostic.CA1061.severity = warning
 dotnet_diagnostic.CA1507.severity = warning
 
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
 # CA1822: Mark members as static
 dotnet_diagnostic.CA1822.severity = warning
 
