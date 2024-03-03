@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp.V4_8_0;
+namespace Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.CSharp;
 
 [TestClass]
-public class LightupStatusTests : V4_4_0.LightupStatusTests
+public class LightupStatusTests : V4_4_0.CSharp.LightupStatusTests
 {
     [TestMethod]
     public override void TestLanguageVersion()

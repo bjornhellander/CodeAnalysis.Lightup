@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test;
+namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
 
 public abstract class EnumTestsBase<TExtension, TNative, TInt>
 {

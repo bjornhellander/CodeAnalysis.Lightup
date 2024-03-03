@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp.V4_4_0;
+namespace Roslyn.CodeAnalysis.Lightup.Test.V4_4_0.CSharp;
 
 [TestClass]
-public class SyntaxKindExTests : V4_0_1.SyntaxKindExTests
+public class SyntaxKindExTests : V4_0_1.CSharp.SyntaxKindExTests
 {
 }
