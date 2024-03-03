@@ -17,19 +17,23 @@ public abstract class EnumTestsBase<TExtension, TNative, TInt>
         foreach (var field in fields)
         {
             var fieldName = field.Name;
-            var fieldValue = (TInt)field.GetValue(null);
+
+            var fieldObjValue = field.GetValue(null);
+            Assert.IsNotNull(fieldObjValue);
+            var fieldIntValue = (TInt)fieldObjValue;
 
             Assert.IsTrue(field.IsStatic && field.IsLiteral, $"All fields should be constants ({fieldName})");
             Assert.AreEqual(typeof(TNative), field.FieldType, $"All constants should be of type {nameof(TNative)} ({fieldName})");
 
             if (enumNames.Contains(fieldName))
             {
-                var enumValue = (TInt)Enum.Parse(typeof(TNative), fieldName);
-                Assert.AreEqual(enumValue, fieldValue, $"Constants should have expected value, when name is known ({fieldName})");
+                var enumObjValue = Enum.Parse(typeof(TNative), fieldName);
+                var enumIntValue = (TInt)enumObjValue;
+                Assert.AreEqual(enumIntValue, fieldIntValue, $"Constants should have expected value, when name is known ({fieldName})");
             }
             else
             {
-                var fieldHasKnownValue = enumIntValues.Contains(fieldValue);
+                var fieldHasKnownValue = enumIntValues.Contains(fieldIntValue);
                 Assert.IsFalse(fieldHasKnownValue, $"Constant should have unknown value, when name is unknown ({fieldName})");
             }
         }
