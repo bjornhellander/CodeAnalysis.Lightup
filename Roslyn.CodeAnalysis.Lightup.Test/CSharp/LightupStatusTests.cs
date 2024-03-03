@@ -12,7 +12,7 @@ public class LightupStatusTests
         CheckSupportedLanguageVersions(false, false, false, false);
     }
 
-    protected void CheckSupportedLanguageVersions(bool csharp9, bool csharp10, bool csharp11, bool csharp12)
+    protected static void CheckSupportedLanguageVersions(bool csharp9, bool csharp10, bool csharp11, bool csharp12)
     {
         Assert.AreEqual(csharp9, LightupStatus.SupportsCSharp9);
         Assert.AreEqual(csharp10, LightupStatus.SupportsCSharp10);
