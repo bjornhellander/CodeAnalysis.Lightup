@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test;
 
-[TestClass]
 public abstract class EnumTestsBase<TExtension, TNative, TInt>
 {
     [TestMethod]
