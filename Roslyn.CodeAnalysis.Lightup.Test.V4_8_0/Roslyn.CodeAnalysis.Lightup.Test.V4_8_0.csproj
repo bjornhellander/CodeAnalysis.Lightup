@@ -13,11 +13,11 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-		<PackageReference Include="Microsoft.CodeAnalysis" Version="3.8.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.8.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test\Roslyn.CodeAnalysis.Lightup.Test.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces", "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces\Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces.csproj", "{B4E02BB1-D031-480D-AD33-4EFF12581A64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0", "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj", "{F375961C-1693-490B-B2A5-C8FCDCD07696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0", "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj", "{F375961C-1693-490B-B2A5-C8FCDCD07696}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.V4_8_0", "Roslyn.CodeAnalysis.Lightup.Test.V4_8_0\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.csproj", "{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F}"
 EndProject
