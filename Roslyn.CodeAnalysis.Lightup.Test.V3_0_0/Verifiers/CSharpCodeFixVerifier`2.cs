@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test
+namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers
 {
     public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
         where TAnalyzer : DiagnosticAnalyzer, new()

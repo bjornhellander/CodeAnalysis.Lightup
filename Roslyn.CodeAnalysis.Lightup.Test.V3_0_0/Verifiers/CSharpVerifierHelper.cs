@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using System;
 using System.Collections.Immutable;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test
+namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers
 {
     internal static class CSharpVerifierHelper
     {

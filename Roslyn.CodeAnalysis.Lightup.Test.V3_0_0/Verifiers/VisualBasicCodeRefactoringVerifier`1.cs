@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.Testing;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test
+namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers
 {
     public static partial class VisualBasicCodeRefactoringVerifier<TCodeRefactoring>
         where TCodeRefactoring : CodeRefactoringProvider, new()

@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Microsoft.CodeAnalysis.VisualBasic.Testing;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test
+namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers
 {
     public static partial class VisualBasicAnalyzerVerifier<TAnalyzer>
         where TAnalyzer : DiagnosticAnalyzer, new()

@@ -1,6 +1,4 @@
-
-[*.{cs,vb}]
-#### Naming styles ####
+﻿#### Naming styles ####
 
 # Naming rules
 
@@ -103,6 +101,9 @@ dotnet_diagnostic.IDE0005.severity = warning
 
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = warning
+
+# IDE0130: Namespace does not match folder structure
+dotnet_diagnostic.IDE0130.severity = warning
 
 dotnet_diagnostic.CA1041.severity = warning
 dotnet_diagnostic.CA1050.severity = warning
