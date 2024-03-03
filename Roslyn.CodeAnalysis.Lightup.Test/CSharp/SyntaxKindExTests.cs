@@ -2,10 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Roslyn.CodeAnalysis.Lightup.CSharp;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp
+namespace Roslyn.CodeAnalysis.Lightup.Test.CSharp;
+
+[TestClass]
+public class SyntaxKindExTests : EnumTestsBase<SyntaxKindEx, SyntaxKind, ushort>
 {
-    [TestClass]
-    public class SyntaxKindExTests : EnumTestsBase<SyntaxKindEx, SyntaxKind, ushort>
-    {
-    }
 }
