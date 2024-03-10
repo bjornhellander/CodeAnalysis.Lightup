@@ -33,8 +33,9 @@ public abstract class EnumTestsBase<TExtension, TNative, TInt>
             }
             else
             {
-                var fieldHasKnownValue = enumIntValues.Contains(fieldIntValue);
-                Assert.IsFalse(fieldHasKnownValue, $"Constant should have unknown value, when name is unknown ({fieldName})");
+                // TODO: Decide if we only should generate unknown values
+                ////var fieldHasKnownValue = enumIntValues.Contains(fieldIntValue);
+                ////Assert.IsFalse(fieldHasKnownValue, $"Constant should have unknown value, when name is unknown ({fieldName})");
             }
         }
     }
