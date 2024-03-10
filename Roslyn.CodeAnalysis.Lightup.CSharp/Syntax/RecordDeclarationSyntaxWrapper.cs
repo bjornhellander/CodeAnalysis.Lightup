@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 
-namespace Roslyn.CodeAnalysis.Lightup.CSharp
+namespace Roslyn.CodeAnalysis.Lightup.CSharp.Syntax
 {
     public class RecordDeclarationSyntaxWrapper
     {
