@@ -27,12 +27,22 @@ internal class Program
         }
 
         var assembly = Assembly.LoadFrom(codeAnalysisAssemblyPath);
-        var types = assembly.GetTypes().Where(x => x.IsPublic && x.Name == "SyntaxKind").ToList();
+        var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
-            if (type.IsEnum)
+            var targetName = type.Name + "Ex";
+            var targetNamespace = GetTargetNamespace(type);
+
+            var source = GenerateType(type, targetName, targetNamespace);
+
+            if (source != null)
             {
-                GenerateEnum(type, sourcePath);
+                var targetFolder = GetTargetFolder(type, sourcePath);
+                if (!Directory.Exists(targetFolder))
+                {
+                    Directory.CreateDirectory(targetFolder);
+                }
+                File.WriteAllText(Path.Combine(targetFolder, targetName + ".cs"), source);
             }
         }
     }
@@ -61,17 +71,25 @@ internal class Program
         return testProjectFolders;
     }
 
-    private static void GenerateEnum(Type type, string sourcePath)
+    private static string? GenerateType(Type type, string targetName, string targetNamespace)
     {
-        var name = type.Name + "Ex";
+        if (type.IsEnum)
+        {
+            return GenerateEnum(type, targetName, targetNamespace);
+        }
 
+        return null;
+    }
+
+    private static string GenerateEnum(Type type, string targetName, string targetNamespace)
+    {
         var sb = new StringBuilder();
 
         sb.AppendLine($"using {type.Namespace};");
         sb.AppendLine();
-        sb.AppendLine($"namespace Roslyn.CodeAnalysis.Lightup.CSharp");
+        sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    public class {name}");
+        sb.AppendLine($"    public class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var field in type.GetFields().Where(x => x.IsStatic && x.IsPublic))
         {
@@ -81,7 +99,21 @@ internal class Program
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
 
-        var source = sb.ToString();
-        File.WriteAllText(Path.Combine(sourcePath, name + ".cs"), source);
+        var result = sb.ToString();
+        return result;
+    }
+
+    private static string GetTargetNamespace(Type type)
+    {
+        var sourceNamespace = type.Namespace!;
+        var targetNamespace = sourceNamespace.Replace("Microsoft.CodeAnalysis.CSharp", "Roslyn.CodeAnalysis.Lightup.CSharp");
+        return targetNamespace;
+    }
+
+    private static string GetTargetFolder(Type type, string targetProjectPath)
+    {
+        var sourceNamespace = type.Namespace!;
+        var targetFolder = sourceNamespace.Replace("Microsoft.CodeAnalysis.CSharp", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
+        return Path.Combine(targetProjectPath, targetFolder);
     }
 }
