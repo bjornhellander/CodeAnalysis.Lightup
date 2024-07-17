@@ -14,11 +14,17 @@ internal class Program
 
         var sourcePath = Path.Combine(rootFolder, "Roslyn.CodeAnalysis.Lightup.CSharp");
 
-        var testProjectNames = GetTestProjectNames(rootFolder);
-        var testProjectName = testProjectNames.Last();
+        var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x);
 
-        var types = Reflector.GetTypes(testProjectName, rootFolder);
-        Writer.Write(types, sourcePath);
+        var isFirst = true;
+        var types = new Dictionary<string, TypeDefinition>();
+        foreach (var testProjectName in testProjectNames)
+        {
+            Reflector.CollectTypes(testProjectName, rootFolder, types, isFirst);
+            isFirst = false;
+        }
+
+        Writer.Write(types.Values, sourcePath);
     }
 
     private static string GetRepositoryRoot()

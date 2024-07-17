@@ -8,17 +8,16 @@ using System.Text;
 namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 internal class Writer
 {
-    internal static void Write(List<Type> types, string sourcePath)
+    internal static void Write(IEnumerable<TypeDefinition> typeDefs, string sourcePath)
     {
-        foreach (var type in types)
+        foreach (var typeDef in typeDefs)
         {
-            var targetNamespace = GetTargetNamespace(type);
-
-            var result = GenerateType(type, targetNamespace);
+            var targetNamespace = GetTargetNamespace(typeDef.Type);
+            var result = GenerateType(typeDef, targetNamespace);
 
             if (result != null)
             {
-                var targetFolder = GetTargetFolder(type, sourcePath);
+                var targetFolder = GetTargetFolder(typeDef.Type, sourcePath);
                 if (!Directory.Exists(targetFolder))
                 {
                     Directory.CreateDirectory(targetFolder);
@@ -35,15 +34,15 @@ internal class Writer
         return targetNamespace;
     }
 
-    private static (string Name, string Source)? GenerateType(Type type, string targetNamespace)
+    private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, string targetNamespace)
     {
-        if (type.IsEnum)
+        if (typeDef is EnumTypeDefinition enumTypeDef)
         {
-            return GenerateEnum(type, targetNamespace);
+            return GenerateEnum(enumTypeDef, targetNamespace);
         }
-        else if (type.IsClass && type.Name == "RecordDeclarationSyntax")
+        else if (typeDef is ClassTypeDefinition && typeDef.Name == "RecordDeclarationSyntax")
         {
-            return GeneratedClass(type, targetNamespace);
+            return GeneratedClass(typeDef.Type, targetNamespace);
         }
         else
         {
@@ -51,8 +50,15 @@ internal class Writer
         }
     }
 
-    private static (string Name, string Source) GenerateEnum(Type type, string targetNamespace)
+    private static (string Name, string Source)? GenerateEnum(EnumTypeDefinition typeDef, string targetNamespace)
     {
+        var newValues = typeDef.Values.Where(x => x.Version != null).OrderBy(x => x.Value).ToList();
+        if (newValues.Count == 0)
+        {
+            return null;
+        }
+
+        var type = typeDef.Type;
         var targetName = type.Name + "Ex";
 
         var sb = new StringBuilder();
@@ -67,10 +73,9 @@ internal class Writer
         sb.AppendLine($"{{");
         sb.AppendLine($"    public class {targetName}");
         sb.AppendLine($"    {{");
-        foreach (var field in type.GetFields().Where(x => x.IsStatic && x.IsPublic))
+        foreach (var value in newValues)
         {
-            var value = Convert.ToInt32(field.GetValue(null));
-            sb.AppendLine($"        public const {type.Name} {field.Name} = ({type.Name}){value};");
+            sb.AppendLine($"        public const {type.Name} {value.Name} = ({type.Name}){value.Value};");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
