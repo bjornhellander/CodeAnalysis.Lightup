@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Text;
 
 namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Program
 {
+    private const string CodeAnalysisAssemblyName = "Microsoft.CodeAnalysis.dll";
     private const string CodeAnalysisCSharpAssemblyName = "Microsoft.CodeAnalysis.CSharp.dll";
 
     static void Main()
@@ -20,14 +22,25 @@ internal class Program
         var testProjectNames = GetTestProjectNames(rootFolder);
         var testProjectName = testProjectNames.Last();
         var testProjectFolder = Path.Combine(rootFolder, testProjectName);
-        var codeAnalysisAssemblyPaths = Directory.GetFiles(testProjectFolder, CodeAnalysisCSharpAssemblyName, SearchOption.AllDirectories);
+
+        var codeAnalysisAssemblyPaths = Directory.GetFiles(testProjectFolder, CodeAnalysisAssemblyName, SearchOption.AllDirectories);
         var codeAnalysisAssemblyPath = codeAnalysisAssemblyPaths.SingleOrDefault();
         if (codeAnalysisAssemblyPath == null)
+        {
+            throw new Exception($"Unable to find {CodeAnalysisAssemblyName} in {testProjectFolder}");
+        }
+
+        var codeAnalysisCSharpAssemblyPaths = Directory.GetFiles(testProjectFolder, CodeAnalysisCSharpAssemblyName, SearchOption.AllDirectories);
+        var codeAnalysisCSharpAssemblyPath = codeAnalysisCSharpAssemblyPaths.SingleOrDefault();
+        if (codeAnalysisCSharpAssemblyPath == null)
         {
             throw new Exception($"Unable to find {CodeAnalysisCSharpAssemblyName} in {testProjectFolder}");
         }
 
-        var assembly = Assembly.LoadFrom(codeAnalysisAssemblyPath);
+        var assemblyLoadContext = new AssemblyLoadContext("latest", true);
+        var assembly1 = assemblyLoadContext.LoadFromAssemblyPath(codeAnalysisAssemblyPath);
+        var assembly = assemblyLoadContext.LoadFromAssemblyPath(codeAnalysisCSharpAssemblyPath);
+
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
