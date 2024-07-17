@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Roslyn.CodeAnalysis.Lightup.CSharp.Syntax;
+using System;
 using System.Reflection;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
@@ -63,6 +64,14 @@ public class RecordDeclarationSyntaxExTests : V3_0_0.CSharp.RecordDeclarationSyn
         var obj = CreateInstance();
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
         Assert.AreEqual(obj.ParameterList, wrapper.ParameterList);
+    }
+
+    [TestMethod]
+    public virtual void TestClassOrStructGivenCompatibleInstanceKeyword()
+    {
+        var obj = CreateInstance();
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.ClassOrStructKeyword);
     }
 
     protected virtual RecordDeclarationSyntax CreateInstance()
