@@ -3,6 +3,6 @@
 namespace Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxExTests : V4_4_0.CSharp.RecordDeclarationSyntaxExTests
+public class RecordDeclarationSyntaxWrapperTests : V4_4_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
 }

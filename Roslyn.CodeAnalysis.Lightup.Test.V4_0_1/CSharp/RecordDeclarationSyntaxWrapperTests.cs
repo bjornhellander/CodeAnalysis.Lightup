@@ -7,7 +7,7 @@ using Roslyn.CodeAnalysis.Lightup.CSharp.Syntax;
 namespace Roslyn.CodeAnalysis.Lightup.Test.V4_0_1.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxExTests : V3_8_0.CSharp.RecordDeclarationSyntaxExTests
+public class RecordDeclarationSyntaxWrapperTests : V3_8_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestClassOrStructGivenCompatibleInstanceKeyword()

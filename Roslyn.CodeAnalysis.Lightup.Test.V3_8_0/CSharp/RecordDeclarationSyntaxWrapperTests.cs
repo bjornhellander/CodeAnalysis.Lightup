@@ -9,7 +9,7 @@ using System.Reflection;
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxExTests : V3_0_0.CSharp.RecordDeclarationSyntaxExTests
+public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public void TestIsGivenCompatibleObject()
