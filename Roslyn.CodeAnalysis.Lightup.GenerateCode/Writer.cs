@@ -37,19 +37,26 @@ internal class Writer
 
     private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, IReadOnlyDictionary<string, TypeDefinition> typeDefs, string targetNamespace)
     {
-        if (typeDef.AssemblyVersion == null)
-        {
-            // TODO: Handle updated types as well
-            return null;
-        }
-
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {
-            return GenerateEnum(enumTypeDef, targetNamespace);
+            if (typeDef.AssemblyVersion != null)
+            {
+                // TODO: Handle new types as well
+                return null;
+            }
+            else
+            {
+                return GenerateEnum(enumTypeDef, targetNamespace);
+            }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (classTypeDef.IsStatic)
+            if (typeDef.AssemblyVersion == null)
+            {
+                // TODO: Handle updated types as well
+                return null;
+            }
+            else if (classTypeDef.IsStatic)
             {
                 // TODO: Handle static classes as well
                 return null;
