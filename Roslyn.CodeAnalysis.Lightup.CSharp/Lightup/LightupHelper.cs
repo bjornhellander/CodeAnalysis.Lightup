@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    internal static class WrapperHelper
+    internal static class LightupHelper
     {
         private static readonly Assembly syntaxNodeAssembly = typeof(ClassDeclarationSyntax).Assembly;
 

@@ -122,16 +122,16 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = WrapperHelper.FindSyntaxType(WrappedTypeName);");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);");
         foreach (var property in instanceProperties)
         {
-            sb.AppendLine($"            {property.Name}Func = WrapperHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property)}>(WrappedType, nameof({property.Name}));");
+            sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property)}>(WrappedType, nameof({property.Name}));");
         }
         foreach (var method in instanceMethods)
         {
             var index = instanceMethods.IndexOf(method);
             var createMethod = method.ReturnType != typeof(void) ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-            sb.AppendLine($"            {method.Name}Func{index} = WrapperHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.GetParameters())}{(method.ReturnType != typeof(void) ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.GetParameters())}{(method.ReturnType != typeof(void) ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
@@ -150,11 +150,11 @@ internal class Writer
         sb.AppendLine($"            => obj.Unwrap();");
         sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
-        sb.AppendLine($"            => WrapperHelper.Is(obj, WrappedType);");
+        sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
         sb.AppendLine($"        public static {targetName} As(object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = WrapperHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
