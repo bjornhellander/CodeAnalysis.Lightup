@@ -94,7 +94,7 @@ internal class Writer
         }
         else
         {
-            // TODO: Handle other types if necessary
+            Assert.Fail("Unexpected type");
             return null;
         }
     }
