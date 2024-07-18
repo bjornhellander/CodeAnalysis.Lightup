@@ -1,22 +1,21 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Lightup;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
     public class LightupStatus
     {
-        private static readonly List<LanguageVersion> supportedLanguageVersions = Enum.GetValues(typeof(LanguageVersion)).Cast<LanguageVersion>().ToList();
-
         static LightupStatus()
         {
-            CodeAnalysisVersion = GetCodeAnalysisVersion();
-            SupportsCSharp9 = IsLanguageVersionSupported(LanguageVersionEx.CSharp9);
-            SupportsCSharp10 = IsLanguageVersionSupported(LanguageVersionEx.CSharp10);
-            SupportsCSharp11 = IsLanguageVersionSupported(LanguageVersionEx.CSharp11);
-            SupportsCSharp12 = IsLanguageVersionSupported(LanguageVersionEx.CSharp12);
+            CodeAnalysisVersion = typeof(SyntaxKind).Assembly.GetName().Version;
+
+            var supportedLanguageVersions = Enum.GetValues(typeof(LanguageVersion)).Cast<LanguageVersion>().ToList();
+            SupportsCSharp9 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp9);
+            SupportsCSharp10 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp10);
+            SupportsCSharp11 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp11);
+            SupportsCSharp12 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp12);
         }
 
         public static Version CodeAnalysisVersion { get; }
@@ -28,18 +27,5 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static bool SupportsCSharp11 { get; }
 
         public static bool SupportsCSharp12 { get; }
-
-        private static Version GetCodeAnalysisVersion()
-        {
-            var assembly = typeof(SyntaxKind).Assembly;
-            var version = assembly.GetName().Version;
-            return version;
-        }
-
-        private static bool IsLanguageVersionSupported(LanguageVersion languageVersion)
-        {
-            var result = supportedLanguageVersions.Contains(languageVersion);
-            return result;
-        }
     }
 }
