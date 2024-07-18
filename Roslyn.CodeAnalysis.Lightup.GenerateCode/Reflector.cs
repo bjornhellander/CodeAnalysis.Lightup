@@ -38,18 +38,17 @@ internal class Reflector
         var assemblyName = AssemblyNames[assemblyKind];
         var assemblyPaths = Directory.GetFiles(testProjectFolder, assemblyName, SearchOption.AllDirectories);
         var assemblyPath = assemblyPaths.SingleOrDefault();
-        if (assemblyPath == null)
-        {
-            throw new Exception($"Unable to find {assemblyName} in {testProjectFolder}");
-        }
+        Assert.IsTrue(assemblyPath != null, $"Could not find {assemblyName} in {testProjectFolder}");
 
         var assembly = assemblyLoadContext.LoadFromAssemblyPath(assemblyPath);
-        var assemblyVersion = assembly.GetName().Version ?? throw new NullReferenceException();
+        var assemblyVersion = assembly.GetName().Version;
+        Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
-            var name = type.FullName ?? throw new NullReferenceException();
+            var name = type.FullName;
+            Assert.IsTrue(name != null, "Could not get type's full name");
 
             if (!typeDefs.TryGetValue(name, out var typeDef))
             {
@@ -72,7 +71,7 @@ internal class Reflector
             }
             else
             {
-                throw new InvalidOperationException();
+                Assert.Fail("Unhandled type");
             }
         }
     }
@@ -99,7 +98,8 @@ internal class Reflector
         }
         else
         {
-            throw new InvalidOperationException();
+            Assert.Fail("Unhandled type");
+            return null;
         }
     }
 
@@ -117,11 +117,7 @@ internal class Reflector
             if (duplicateValueDef != null)
             {
                 // NOTE: Some enums have a value called Count, containing the number of defined values
-                if (duplicateValueDef.Value != value && name != "Count")
-                {
-                    throw new InvalidOperationException();
-                }
-
+                Assert.IsTrue(duplicateValueDef.Value == value || name == "Count", "Unexpected enum value");
                 continue;
             }
 
@@ -134,10 +130,7 @@ internal class Reflector
     {
         classTypeDef.Type = type;
 
-        if (classTypeDef.IsStatic != IsStaticType(type))
-        {
-            throw new InvalidOperationException();
-        }
+        Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
 
     private static bool IsStaticType(Type type)

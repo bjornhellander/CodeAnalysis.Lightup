@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -39,7 +38,8 @@ internal class Program
             folder = Path.GetDirectoryName(folder);
         }
 
-        throw new InvalidOperationException();
+        Assert.Fail("Can't find repository root");
+        return null;
     }
 
     private static List<string> GetTestProjectNames(string rootFolder)

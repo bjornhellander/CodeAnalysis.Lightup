@@ -104,7 +104,8 @@ internal class Writer
         var newValues = typeDef.Values.Where(x => x.Version != null).OrderBy(x => x.Value).ToList();
         var type = typeDef.Type;
         var targetName = type.Name + "Ex";
-        var underlyingTypeName = type.GetEnumUnderlyingType().FullName ?? throw new NullReferenceException();
+        var underlyingTypeName = type.GetEnumUnderlyingType().FullName;
+        Assert.IsTrue(underlyingTypeName != null, "Could not get enum's underlying type");
         var isFlagsEnum = type.GetCustomAttribute<FlagsAttribute>() != null;
 
         var sb = new StringBuilder();
@@ -406,7 +407,8 @@ internal class Writer
         }
         else if (type.IsArray)
         {
-            var elementType = type.GetElementType() ?? throw new NullReferenceException();
+            var elementType = type.GetElementType();
+            Assert.IsTrue(elementType != null, "Could not get array's element type");
             AppendTypeDeclText(sb, elementType, typeDefs);
             sb.Append("[]");
         }
@@ -429,7 +431,8 @@ internal class Writer
     {
         while (true)
         {
-            var baseType = type.BaseType ?? throw new NullReferenceException();
+            var baseType = type.BaseType;
+            Assert.IsTrue(baseType != null, "Could not get base type");
             if (!IsNewType(baseType, typeDefs))
             {
                 return baseType.Name;
