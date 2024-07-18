@@ -24,7 +24,7 @@ internal class Program
             isFirst = false;
         }
 
-        Writer.Write(types.Values, sourcePath);
+        Writer.Write(types, sourcePath);
     }
 
     private static string GetRepositoryRoot()

@@ -9,12 +9,12 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Writer
 {
-    internal static void Write(IEnumerable<TypeDefinition> typeDefs, string sourcePath)
+    internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string sourcePath)
     {
-        foreach (var typeDef in typeDefs)
+        foreach (var typeDef in typeDefs.Values)
         {
             var targetNamespace = GetTargetNamespace(typeDef.Type);
-            var result = GenerateType(typeDef, targetNamespace);
+            var result = GenerateType(typeDef, typeDefs, targetNamespace);
 
             if (result != null)
             {
@@ -35,7 +35,7 @@ internal class Writer
         return targetNamespace;
     }
 
-    private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, string targetNamespace)
+    private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, IReadOnlyDictionary<string, TypeDefinition> typeDefs, string targetNamespace)
     {
         if (typeDef.AssemblyVersion == null)
         {
@@ -54,9 +54,14 @@ internal class Writer
                 // TODO: Handle static classes as well
                 return null;
             }
-            else if (typeDef.Name == "RecordDeclarationSyntax")
+            else if (typeDef.Type.FullName!.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax.")
+                && typeDef.Type.Name != "FunctionPointerUnmanagedCallingConventionListSyntax"
+                && typeDef.Type.Name != "CollectionExpressionSyntax"
+                && typeDef.Type.Name != "FunctionPointerParameterListSyntax"
+                && typeDef.Type.Name != "FunctionPointerCallingConventionSyntax"
+                && typeDef.Type.Name != "FunctionPointerTypeSyntax")
             {
-                return GeneratedClass(typeDef.Type, targetNamespace);
+                return GeneratedClass(typeDef.Type, typeDefs, targetNamespace);
             }
             else
             {
@@ -103,13 +108,13 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static (string Name, string Source) GeneratedClass(Type type, string targetNamespace)
+    private static (string Name, string Source) GeneratedClass(Type type, IReadOnlyDictionary<string, TypeDefinition> typeDefs, string targetNamespace)
     {
         var targetName = type.Name + "Wrapper";
         var instanceProperties = GetInstanceProperties(type);
         var instanceMethods = GetInstanceMethods(type);
 
-        var baseTypeName = type.BaseType!.Name;
+        var baseTypeName = GetBaseTypeName(type, typeDefs);
 
         var sb = new StringBuilder();
 
@@ -129,13 +134,13 @@ internal class Writer
         sb.AppendLine($"        private static readonly Type? WrappedType;");
         foreach (var property in instanceProperties)
         {
-            var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName);
+            var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName, typeDefs);
             sb.AppendLine($"        private static readonly {funcDeclText} {property.Name}Func;");
         }
         foreach (var method in instanceMethods)
         {
             var index = instanceMethods.IndexOf(method);
-            var funcDeclText = GetMethodFuncDeclText(method, baseTypeName);
+            var funcDeclText = GetMethodFuncDeclText(method, baseTypeName, typeDefs);
             sb.AppendLine($"        private static readonly {funcDeclText} {method.Name}Func{index};");
         }
         sb.AppendLine();
@@ -146,13 +151,13 @@ internal class Writer
         sb.AppendLine($"            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);");
         foreach (var property in instanceProperties)
         {
-            sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property)}>(WrappedType, nameof({property.Name}));");
+            sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
         }
         foreach (var method in instanceMethods)
         {
             var index = instanceMethods.IndexOf(method);
             var createMethod = method.ReturnType != typeof(void) ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.GetParameters())}{(method.ReturnType != typeof(void) ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.GetParameters(), typeDefs)}{(method.ReturnType != typeof(void) ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
@@ -163,7 +168,7 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        public readonly {GetTypeDeclText(property)} {property.Name}");
+            sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"            => {property.Name}Func(WrappedObject);");
         }
         sb.AppendLine();
@@ -185,7 +190,7 @@ internal class Writer
         {
             var index = instanceMethods.IndexOf(method);
             sb.AppendLine();
-            sb.AppendLine($"        public readonly {(method.ReturnType != typeof(void) ? GetTypeDeclText(method.ReturnType, isNew: true) : "void")} {method.Name}({GetParametersDeclText(method.GetParameters())})");
+            sb.AppendLine($"        public readonly {(method.ReturnType != typeof(void) ? GetTypeDeclText(method.ReturnType, typeDefs) : "void")} {method.Name}({GetParametersDeclText(method.GetParameters(), typeDefs)})");
             sb.AppendLine($"            => {method.Name}Func{index}(WrappedObject, {string.Join(", ", method.GetParameters().Select(x => x.Name))});");
         }
         sb.AppendLine($"    }}");
@@ -220,14 +225,14 @@ internal class Writer
         return result;
     }
 
-    private static string GetPropertyFuncDeclText(PropertyInfo property, string baseTypeName)
+    private static string GetPropertyFuncDeclText(PropertyInfo property, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var nullabilityInfo = new NullabilityInfoContext().Create(property);
 
         var sb = new StringBuilder();
 
         sb.Append($"Func<{baseTypeName}?, ");
-        AppendTypeDeclText(sb, property.PropertyType);
+        AppendTypeDeclText(sb, property.PropertyType, typeDefs);
         sb.Append(nullabilityInfo.ReadState != NullabilityState.NotNull ? "?" : "");
         sb.Append('>');
 
@@ -235,7 +240,7 @@ internal class Writer
         return result;
     }
 
-    private static string GetMethodFuncDeclText(MethodInfo method, string baseTypeName)
+    private static string GetMethodFuncDeclText(MethodInfo method, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var nullabilityInfoContext = new NullabilityInfoContext();
 
@@ -247,7 +252,7 @@ internal class Writer
         foreach (var parameter in method.GetParameters())
         {
             sb.Append(", ");
-            AppendTypeDeclText(sb, parameter.ParameterType);
+            AppendTypeDeclText(sb, parameter.ParameterType, typeDefs);
             var nullabilityInfo = nullabilityInfoContext.Create(parameter);
             sb.Append(nullabilityInfo.WriteState != NullabilityState.NotNull ? "?" : "");
         }
@@ -255,7 +260,7 @@ internal class Writer
         if (method.ReturnType != typeof(void))
         {
             sb.Append(", ");
-            AppendTypeDeclText(sb, method.ReturnType, isNew: true);
+            AppendTypeDeclText(sb, method.ReturnType, typeDefs);
         }
 
         sb.Append('>');
@@ -264,7 +269,7 @@ internal class Writer
         return result;
     }
 
-    private static string GetParametersTypeDeclText(IEnumerable<ParameterInfo> parameters)
+    private static string GetParametersTypeDeclText(IEnumerable<ParameterInfo> parameters, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var nullabilityInfoContext = new NullabilityInfoContext();
 
@@ -276,7 +281,7 @@ internal class Writer
                 sb.Append(", ");
             }
 
-            AppendTypeDeclText(sb, parameter.ParameterType);
+            AppendTypeDeclText(sb, parameter.ParameterType, typeDefs);
             var nullabilityInfo = nullabilityInfoContext.Create(parameter);
             sb.Append(nullabilityInfo.WriteState != NullabilityState.NotNull ? "?" : "");
         }
@@ -285,7 +290,7 @@ internal class Writer
         return result;
     }
 
-    private static string GetParametersDeclText(IEnumerable<ParameterInfo> parameters)
+    private static string GetParametersDeclText(IEnumerable<ParameterInfo> parameters, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var nullabilityInfoContext = new NullabilityInfoContext();
 
@@ -297,7 +302,7 @@ internal class Writer
                 sb.Append(", ");
             }
 
-            AppendTypeDeclText(sb, parameter.ParameterType);
+            AppendTypeDeclText(sb, parameter.ParameterType, typeDefs);
             var nullabilityInfo = nullabilityInfoContext.Create(parameter);
             sb.Append(nullabilityInfo.WriteState != NullabilityState.NotNull ? "?" : "");
             sb.Append(' ');
@@ -308,26 +313,26 @@ internal class Writer
         return result;
     }
 
-    private static string GetTypeDeclText(PropertyInfo property)
+    private static string GetTypeDeclText(PropertyInfo property, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var nullabilityInfo = new NullabilityInfoContext().Create(property);
 
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, property.PropertyType);
+        AppendTypeDeclText(sb, property.PropertyType, typeDefs);
         sb.Append(nullabilityInfo.ReadState != NullabilityState.NotNull ? "?" : "");
         var result = sb.ToString();
         return result;
     }
 
-    private static string GetTypeDeclText(Type type, bool isNew = false)
+    private static string GetTypeDeclText(Type type, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, type, isNew);
+        AppendTypeDeclText(sb, type, typeDefs);
         var result = sb.ToString();
         return result;
     }
 
-    private static void AppendTypeDeclText(StringBuilder sb, Type type, bool isNew = false)
+    private static void AppendTypeDeclText(StringBuilder sb, Type type, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         if (type.IsGenericType)
         {
@@ -339,12 +344,19 @@ internal class Writer
                 {
                     sb.Append(", ");
                 }
-                AppendTypeDeclText(sb, type.GenericTypeArguments[i]);
+                AppendTypeDeclText(sb, type.GenericTypeArguments[i], typeDefs);
             }
             sb.Append('>');
         }
+        else if (type.IsArray)
+        {
+            var elementType = type.GetElementType() ?? throw new NullReferenceException();
+            AppendTypeDeclText(sb, elementType, typeDefs);
+            sb.Append("[]");
+        }
         else
         {
+            var isNew = IsNewType(type, typeDefs);
             sb.Append($"{type.Name}{(isNew ? "Wrapper" : "")}");
         }
     }
@@ -355,5 +367,24 @@ internal class Writer
         var targetNamespace = sourceNamespace + ".Lightup";
         var targetFolder = targetNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
         return Path.Combine(targetProjectPath, targetFolder);
+    }
+
+    private static string GetBaseTypeName(Type type, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    {
+        while (true)
+        {
+            var baseType = type.BaseType ?? throw new NullReferenceException();
+            if (!IsNewType(baseType, typeDefs))
+            {
+                return baseType.Name;
+            }
+
+            type = baseType;
+        }
+    }
+
+    private static bool IsNewType(Type type, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    {
+        return typeDefs.TryGetValue(type.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
     }
 }
