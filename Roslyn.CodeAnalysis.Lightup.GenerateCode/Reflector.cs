@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Loader;
@@ -73,7 +72,7 @@ internal class Reflector
             }
             else
             {
-                Debug.Fail("Unexpected situation");
+                throw new InvalidOperationException();
             }
         }
     }
@@ -88,10 +87,19 @@ internal class Reflector
         {
             return new ClassTypeDefinition(assemblyKind, version, type.Name, type, IsStaticType(type));
         }
+        else if (type.IsValueType)
+        {
+            // TODO: Handle structs
+            return null;
+        }
+        else if (type.IsInterface)
+        {
+            // TODO: Handle interfaces
+            return null;
+        }
         else
         {
-            // TODO: Check
-            return null;
+            throw new InvalidOperationException();
         }
     }
 
@@ -109,7 +117,11 @@ internal class Reflector
             if (duplicateValueDef != null)
             {
                 // NOTE: Some enums have a value called Count, containing the number of defined values
-                Debug.Assert(duplicateValueDef.Value == value || name == "Count");
+                if (duplicateValueDef.Value != value && name != "Count")
+                {
+                    throw new InvalidOperationException();
+                }
+
                 continue;
             }
 
@@ -122,7 +134,10 @@ internal class Reflector
     {
         classTypeDef.Type = type;
 
-        Debug.Assert(classTypeDef.IsStatic == IsStaticType(type));
+        if (classTypeDef.IsStatic != IsStaticType(type))
+        {
+            throw new InvalidOperationException();
+        }
     }
 
     private static bool IsStaticType(Type type)
