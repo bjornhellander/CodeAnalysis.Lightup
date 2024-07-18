@@ -1,7 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.CSharp.Syntax;
 using System;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;

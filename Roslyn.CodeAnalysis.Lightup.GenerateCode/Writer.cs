@@ -30,7 +30,7 @@ internal class Writer
     private static string GetTargetNamespace(Type type)
     {
         var sourceNamespace = type.Namespace!;
-        var targetNamespace = sourceNamespace.Replace("Microsoft.CodeAnalysis.CSharp", "Roslyn.CodeAnalysis.Lightup.CSharp");
+        var targetNamespace = sourceNamespace + ".Lightup";
         return targetNamespace;
     }
 
@@ -67,8 +67,6 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        sb.AppendLine($"using {type.Namespace};");
-        sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         sb.AppendLine($"    public class {targetName}");
@@ -98,9 +96,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        sb.AppendLine($"using Microsoft.CodeAnalysis;");
-        sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp;");
-        sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax;");
+        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
         sb.AppendLine($"using System;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
@@ -335,7 +331,8 @@ internal class Writer
     private static string GetTargetFolder(Type type, string targetProjectPath)
     {
         var sourceNamespace = type.Namespace!;
-        var targetFolder = sourceNamespace.Replace("Microsoft.CodeAnalysis.CSharp", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
+        var targetNamespace = sourceNamespace + ".Lightup";
+        var targetFolder = targetNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
         return Path.Combine(targetProjectPath, targetFolder);
     }
 }

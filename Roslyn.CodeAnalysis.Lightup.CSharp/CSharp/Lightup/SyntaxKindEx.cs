@@ -2,9 +2,7 @@
 
 #nullable enable
 
-using Microsoft.CodeAnalysis.CSharp;
-
-namespace Roslyn.CodeAnalysis.Lightup.CSharp
+namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     public class SyntaxKindEx
     {

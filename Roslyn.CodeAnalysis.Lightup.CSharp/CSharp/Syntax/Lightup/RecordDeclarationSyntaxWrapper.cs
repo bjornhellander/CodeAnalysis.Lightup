@@ -2,12 +2,10 @@
 
 #nullable enable
 
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Lightup;
 using System;
 
-namespace Roslyn.CodeAnalysis.Lightup.CSharp.Syntax
+namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     public readonly struct RecordDeclarationSyntaxWrapper
     {

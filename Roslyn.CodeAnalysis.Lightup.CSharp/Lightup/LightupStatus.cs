@@ -1,9 +1,10 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Lightup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Roslyn.CodeAnalysis.Lightup.CSharp
+namespace Microsoft.CodeAnalysis.Lightup
 {
     public class LightupStatus
     {
