@@ -6,6 +6,12 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.CSharp;
 public class LightupStatusTests : V4_4_0.CSharp.LightupStatusTests
 {
     [TestMethod]
+    public override void TestCodeAnalysisVersion()
+    {
+        CheckCodeAnalysisVersion(4, 8, 0, 0);
+    }
+
+    [TestMethod]
     public override void TestLanguageVersion()
     {
         CheckSupportedLanguageVersions(true, true, true, true);

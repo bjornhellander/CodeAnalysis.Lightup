@@ -1,5 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.CSharp;
+﻿using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
@@ -7,9 +8,21 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 public class LightupStatusTests
 {
     [TestMethod]
+    public virtual void TestCodeAnalysisVersion()
+    {
+        CheckCodeAnalysisVersion(3, 0, 0, 0);
+    }
+
+    [TestMethod]
     public virtual void TestLanguageVersion()
     {
         CheckSupportedLanguageVersions(false, false, false, false);
+    }
+
+    protected static void CheckCodeAnalysisVersion(int major, int minor, int build, int revision)
+    {
+        var expectedVersion = new Version(major, minor, build, revision);
+        Assert.AreEqual(expectedVersion, LightupStatus.CodeAnalysisVersion);
     }
 
     protected static void CheckSupportedLanguageVersions(bool csharp9, bool csharp10, bool csharp11, bool csharp12)

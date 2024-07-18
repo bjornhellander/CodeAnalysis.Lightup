@@ -1,14 +1,15 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.CSharp;
+using System;
 using System.Reflection;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxExTests : V3_0_0.CSharp.RecordDeclarationSyntaxExTests
+public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public void TestIsGivenCompatibleObject()
@@ -63,6 +64,14 @@ public class RecordDeclarationSyntaxExTests : V3_0_0.CSharp.RecordDeclarationSyn
         var obj = CreateInstance();
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
         Assert.AreEqual(obj.ParameterList, wrapper.ParameterList);
+    }
+
+    [TestMethod]
+    public virtual void TestClassOrStructGivenCompatibleInstanceKeyword()
+    {
+        var obj = CreateInstance();
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.ClassOrStructKeyword);
     }
 
     protected virtual RecordDeclarationSyntax CreateInstance()

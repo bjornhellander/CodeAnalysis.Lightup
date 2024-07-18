@@ -1,13 +1,13 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.CSharp;
 using System;
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxExTests
+public class RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public void TestIsGivenNullObject()
