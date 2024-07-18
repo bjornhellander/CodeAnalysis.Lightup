@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.GenerateCode", "Roslyn.CodeAnalysis.Lightup.GenerateCode\Roslyn.CodeAnalysis.Lightup.GenerateCode.csproj", "{D079273D-9CD2-42A6-87C3-59AD9688B0EC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Common", "Roslyn.CodeAnalysis.Lightup.Common\Roslyn.CodeAnalysis.Lightup.Common.csproj", "{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

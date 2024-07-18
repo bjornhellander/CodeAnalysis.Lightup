@@ -12,8 +12,6 @@ internal class Program
     {
         var rootFolder = GetRepositoryRoot();
 
-        var sourcePath = Path.Combine(rootFolder, "Roslyn.CodeAnalysis.Lightup.CSharp");
-
         var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x);
 
         var isFirst = true;
@@ -24,7 +22,7 @@ internal class Program
             isFirst = false;
         }
 
-        Writer.Write(types, sourcePath);
+        Writer.Write(types, rootFolder);
     }
 
     private static string GetRepositoryRoot()

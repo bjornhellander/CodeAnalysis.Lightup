@@ -9,45 +9,52 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Reflector
 {
-    private const string CodeAnalysisAssemblyName = "Microsoft.CodeAnalysis.dll";
-    private const string CodeAnalysisCSharpAssemblyName = "Microsoft.CodeAnalysis.CSharp.dll";
+    private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
+    {
+        [AssemblyKind.Common] = "Microsoft.CodeAnalysis.dll",
+        [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp.dll",
+    };
 
     public static void CollectTypes(
         string testProjectName,
         string rootFolder,
         Dictionary<string, TypeDefinition> typeDefs,
-        bool isBaselineAssembly)
+        bool isBaselineVersion)
+    {
+        var assemblyLoadContext = new AssemblyLoadContext(testProjectName);
+        CollectTypes(assemblyLoadContext, testProjectName, rootFolder, typeDefs, isBaselineVersion, AssemblyKind.Common);
+        CollectTypes(assemblyLoadContext, testProjectName, rootFolder, typeDefs, isBaselineVersion, AssemblyKind.CSharp);
+    }
+
+    private static void CollectTypes(
+        AssemblyLoadContext assemblyLoadContext,
+        string testProjectName,
+        string rootFolder,
+        Dictionary<string, TypeDefinition> typeDefs,
+        bool isBaselineVersion,
+        AssemblyKind assemblyKind)
     {
         var testProjectFolder = Path.Combine(rootFolder, testProjectName);
 
-        var codeAnalysisAssemblyPaths = Directory.GetFiles(testProjectFolder, CodeAnalysisAssemblyName, SearchOption.AllDirectories);
-        var codeAnalysisAssemblyPath = codeAnalysisAssemblyPaths.SingleOrDefault();
-        if (codeAnalysisAssemblyPath == null)
+        var assemblyName = AssemblyNames[assemblyKind];
+        var assemblyPaths = Directory.GetFiles(testProjectFolder, assemblyName, SearchOption.AllDirectories);
+        var assemblyPath = assemblyPaths.SingleOrDefault();
+        if (assemblyPath == null)
         {
-            throw new Exception($"Unable to find {CodeAnalysisAssemblyName} in {testProjectFolder}");
+            throw new Exception($"Unable to find {assemblyName} in {testProjectFolder}");
         }
 
-        var codeAnalysisCSharpAssemblyPaths = Directory.GetFiles(testProjectFolder, CodeAnalysisCSharpAssemblyName, SearchOption.AllDirectories);
-        var codeAnalysisCSharpAssemblyPath = codeAnalysisCSharpAssemblyPaths.SingleOrDefault();
-        if (codeAnalysisCSharpAssemblyPath == null)
-        {
-            throw new Exception($"Unable to find {CodeAnalysisCSharpAssemblyName} in {testProjectFolder}");
-        }
+        var assembly = assemblyLoadContext.LoadFromAssemblyPath(assemblyPath);
+        var assemblyVersion = assembly.GetName().Version ?? throw new NullReferenceException();
 
-        var assemblyLoadContext = new AssemblyLoadContext(testProjectName, true);
-        var codeAnalysisAssembly = assemblyLoadContext.LoadFromAssemblyPath(codeAnalysisAssemblyPath);
-        var codeAnalysisCSharpAssembly = assemblyLoadContext.LoadFromAssemblyPath(codeAnalysisCSharpAssemblyPath);
-
-        var assemblyVersion = codeAnalysisCSharpAssembly.GetName().Version ?? throw new NullReferenceException();
-
-        var types = codeAnalysisCSharpAssembly.GetTypes().Where(x => x.IsPublic).ToList();
+        var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
             var name = type.FullName ?? throw new NullReferenceException();
 
             if (!typeDefs.TryGetValue(name, out var typeDef))
             {
-                typeDef = CreateEmptyTypeDefinition(type, isBaselineAssembly ? null : assemblyVersion);
+                typeDef = CreateEmptyTypeDefinition(type, isBaselineVersion ? null : assemblyVersion, assemblyKind);
                 if (typeDef == null)
                 {
                     continue;
@@ -58,7 +65,7 @@ internal class Reflector
 
             if (typeDef is EnumTypeDefinition enumTypeDef)
             {
-                UpdateEnumType(enumTypeDef, type, isBaselineAssembly ? null : assemblyVersion);
+                UpdateEnumType(enumTypeDef, type, isBaselineVersion ? null : assemblyVersion);
             }
             else if (typeDef is ClassTypeDefinition classTypeDef)
             {
@@ -71,15 +78,15 @@ internal class Reflector
         }
     }
 
-    private static TypeDefinition? CreateEmptyTypeDefinition(Type type, Version? version)
+    private static TypeDefinition? CreateEmptyTypeDefinition(Type type, Version? version, AssemblyKind assemblyKind)
     {
         if (type.IsEnum)
         {
-            return new EnumTypeDefinition(version, type.Name, type);
+            return new EnumTypeDefinition(assemblyKind, version, type.Name, type);
         }
         else if (type.IsClass)
         {
-            return new ClassTypeDefinition(version, type.Name, type, IsStaticType(type));
+            return new ClassTypeDefinition(assemblyKind, version, type.Name, type, IsStaticType(type));
         }
         else
         {
@@ -101,7 +108,8 @@ internal class Reflector
             var duplicateValueDef = enumTypeDef.Values.SingleOrDefault(x => x.Name == name);
             if (duplicateValueDef != null)
             {
-                Debug.Assert(duplicateValueDef.Value == value);
+                // NOTE: Some enums have a value called Count, containing the number of defined values
+                Debug.Assert(duplicateValueDef.Value == value || name == "Count");
                 continue;
             }
 

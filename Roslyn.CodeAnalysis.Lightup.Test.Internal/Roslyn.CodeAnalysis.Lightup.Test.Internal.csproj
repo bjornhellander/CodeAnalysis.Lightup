@@ -5,11 +5,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj" />
-	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.csproj" />
-	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1.csproj" />
-	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0.csproj" />
-	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0\Roslyn.CodeAnalysis.Lightup.Test.V4_4_0.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.csproj" />
 	</ItemGroup>
 
 </Project>

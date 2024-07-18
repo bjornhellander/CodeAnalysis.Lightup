@@ -9,15 +9,32 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Writer
 {
-    internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string sourcePath)
+    private static readonly Dictionary<AssemblyKind, string> ProjectNames = new()
     {
-        foreach (var typeDef in typeDefs.Values)
+        [AssemblyKind.Common] = "Roslyn.CodeAnalysis.Lightup.Common",
+        [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.CSharp",
+    };
+
+    internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
+    {
+        Write(typeDefs, rootPath, AssemblyKind.Common);
+        Write(typeDefs, rootPath, AssemblyKind.CSharp);
+    }
+
+    private static void Write(
+        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        string rootPath,
+        AssemblyKind assemblyKind)
+    {
+        var relevantTypeDefs = typeDefs.Values.Where(x => x.AssemblyKind == assemblyKind).ToList();
+        foreach (var typeDef in relevantTypeDefs)
         {
             var targetNamespace = GetTargetNamespace(typeDef.Type);
             var result = GenerateType(typeDef, typeDefs, targetNamespace);
 
             if (result != null)
             {
+                var sourcePath = Path.Combine(rootPath, ProjectNames[assemblyKind]);
                 var targetFolder = GetTargetFolder(typeDef.Type, sourcePath);
                 if (!Directory.Exists(targetFolder))
                 {

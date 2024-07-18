@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>8.0</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<RootNamespace>Microsoft.CodeAnalysis</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>Roslyn.CodeAnalysis.Lightup.Common</PackageId>
+		<PackageVersion>1.0.0.0</PackageVersion>
+		<Authors>Björn Hellander</Authors>
+		<PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
+		<PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
+		<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
+		<RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Description>Roslyn.CodeAnalysis.Lightup.Common</Description>
+		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+		<Copyright>Copyright</Copyright>
+		<PackageTags>Roslyn, code analysis</PackageTags>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" />
+	</ItemGroup>
+
+</Project>

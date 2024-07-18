@@ -5,8 +5,8 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class EnumTypeDefinition : TypeDefinition
 {
-    public EnumTypeDefinition(Version? assemblyVersion, string name, Type type)
-        : base(assemblyVersion, name, type)
+    public EnumTypeDefinition(AssemblyKind assemblyKind, Version? assemblyVersion, string name, Type type)
+        : base(assemblyKind, assemblyVersion, name, type)
     {
     }
 
