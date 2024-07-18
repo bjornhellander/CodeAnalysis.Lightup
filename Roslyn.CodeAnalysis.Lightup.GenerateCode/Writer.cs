@@ -47,12 +47,26 @@ internal class Writer
         {
             return GenerateEnum(enumTypeDef, targetNamespace);
         }
-        else if (typeDef is ClassTypeDefinition && typeDef.Name == "RecordDeclarationSyntax")
+        else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            return GeneratedClass(typeDef.Type, targetNamespace);
+            if (classTypeDef.IsStatic)
+            {
+                // TODO: Handle static classes as well
+                return null;
+            }
+            else if (typeDef.Name == "RecordDeclarationSyntax")
+            {
+                return GeneratedClass(typeDef.Type, targetNamespace);
+            }
+            else
+            {
+                // TODO: Handle other classes as well
+                return null;
+            }
         }
         else
         {
+            // TODO: Handle other types if necessary
             return null;
         }
     }

@@ -79,7 +79,7 @@ internal class Reflector
         }
         else if (type.IsClass)
         {
-            return new ClassTypeDefinition(version, type.Name, type);
+            return new ClassTypeDefinition(version, type.Name, type, IsStaticType(type));
         }
         else
         {
@@ -113,5 +113,13 @@ internal class Reflector
     private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
     {
         classTypeDef.Type = type;
+
+        Debug.Assert(classTypeDef.IsStatic == IsStaticType(type));
+    }
+
+    private static bool IsStaticType(Type type)
+    {
+        var result = type.IsAbstract && type.IsSealed;
+        return result;
     }
 }
