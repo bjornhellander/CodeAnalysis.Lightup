@@ -31,12 +31,6 @@ public abstract class EnumTestsBase<TExtension, TNative, TInt>
                 var enumIntValue = (TInt)enumObjValue;
                 Assert.AreEqual(enumIntValue, fieldIntValue, $"Constants should have expected value, when name is known ({fieldName})");
             }
-            else
-            {
-                // TODO: Decide if we only should generate unknown values
-                ////var fieldHasKnownValue = enumIntValues.Contains(fieldIntValue);
-                ////Assert.IsFalse(fieldHasKnownValue, $"Constant should have unknown value, when name is unknown ({fieldName})");
-            }
         }
     }
 }
