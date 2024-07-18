@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 
 namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+
 internal class Writer
 {
     internal static void Write(IEnumerable<TypeDefinition> typeDefs, string sourcePath)
@@ -36,6 +37,12 @@ internal class Writer
 
     private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, string targetNamespace)
     {
+        if (typeDef.AssemblyVersion == null)
+        {
+            // TODO: Handle updated types as well
+            return null;
+        }
+
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {
             return GenerateEnum(enumTypeDef, targetNamespace);

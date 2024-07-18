@@ -47,7 +47,7 @@ internal class Reflector
 
             if (!typeDefs.TryGetValue(name, out var typeDef))
             {
-                typeDef = CreateEmptyTypeDefinition(type, assemblyVersion);
+                typeDef = CreateEmptyTypeDefinition(type, isBaselineAssembly ? null : assemblyVersion);
                 if (typeDef == null)
                 {
                     continue;
