@@ -17,6 +17,7 @@ internal class Writer
         [AssemblyKind.Common] = "Roslyn.CodeAnalysis.Lightup.Common",
         [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.CSharp",
         [AssemblyKind.Workspaces] = "Roslyn.CodeAnalysis.Lightup.Workspaces.Common",
+        [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
     // TODO: Handle these types

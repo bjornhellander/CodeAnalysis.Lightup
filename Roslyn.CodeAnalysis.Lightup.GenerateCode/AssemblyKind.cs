@@ -5,4 +5,5 @@ internal enum AssemblyKind
     Common,
     CSharp,
     Workspaces,
+    CSharpWorkspaces,
 }
