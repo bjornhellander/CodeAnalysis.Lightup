@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper> WithScopedKeywordFunc2;
         private static readonly Func<TypeSyntax?, TypeSyntax, ScopedTypeSyntaxWrapper> WithTypeFunc3;
 
-        private readonly TypeSyntax? WrappedObject;
+        private readonly TypeSyntax? wrappedObject;
 
         static ScopedTypeSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ScopedTypeSyntaxWrapper(TypeSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken ScopedKeyword
-            => ScopedKeywordFunc(WrappedObject);
+            => ScopedKeywordFunc(wrappedObject);
 
         public readonly TypeSyntax Type
-            => TypeFunc(WrappedObject);
+            => TypeFunc(wrappedObject);
 
         public static implicit operator TypeSyntax?(ScopedTypeSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public TypeSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ScopedTypeSyntaxWrapper Update(SyntaxToken scopedKeyword, TypeSyntax type)
-            => UpdateFunc1(WrappedObject, scopedKeyword, type);
+            => UpdateFunc1(wrappedObject, scopedKeyword, type);
 
         public readonly ScopedTypeSyntaxWrapper WithScopedKeyword(SyntaxToken scopedKeyword)
-            => WithScopedKeywordFunc2(WrappedObject, scopedKeyword);
+            => WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
 
         public readonly ScopedTypeSyntaxWrapper WithType(TypeSyntax type)
-            => WithTypeFunc3(WrappedObject, type);
+            => WithTypeFunc3(wrappedObject, type);
     }
 }

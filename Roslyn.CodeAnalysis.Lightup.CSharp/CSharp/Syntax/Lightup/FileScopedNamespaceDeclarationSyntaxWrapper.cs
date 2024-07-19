@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<MemberDeclarationSyntax?, SyntaxToken, FileScopedNamespaceDeclarationSyntaxWrapper> WithSemicolonTokenFunc13;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>, FileScopedNamespaceDeclarationSyntaxWrapper> WithUsingsFunc14;
 
-        private readonly MemberDeclarationSyntax? WrappedObject;
+        private readonly MemberDeclarationSyntax? wrappedObject;
 
         static FileScopedNamespaceDeclarationSyntaxWrapper()
         {
@@ -68,32 +68,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private FileScopedNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(WrappedObject);
+            => AttributeListsFunc(wrappedObject);
 
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
-            => ExternsFunc(WrappedObject);
+            => ExternsFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(WrappedObject);
+            => MembersFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(WrappedObject);
+            => ModifiersFunc(wrappedObject);
 
         public readonly NameSyntax Name
-            => NameFunc(WrappedObject);
+            => NameFunc(wrappedObject);
 
         public readonly SyntaxToken NamespaceKeyword
-            => NamespaceKeywordFunc(WrappedObject);
+            => NamespaceKeywordFunc(wrappedObject);
 
         public readonly SyntaxToken SemicolonToken
-            => SemicolonTokenFunc(WrappedObject);
+            => SemicolonTokenFunc(wrappedObject);
 
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
-            => UsingsFunc(WrappedObject);
+            => UsingsFunc(wrappedObject);
 
         public static implicit operator MemberDeclarationSyntax?(FileScopedNamespaceDeclarationSyntaxWrapper obj)
             => obj.Unwrap();
@@ -108,51 +108,51 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public MemberDeclarationSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
-            => AddAttributeListsFunc1(WrappedObject, items);
+            => AddAttributeListsFunc1(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(ExternAliasDirectiveSyntax[] items)
-            => AddExternsFunc2(WrappedObject, items);
+            => AddExternsFunc2(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
-            => AddMembersFunc3(WrappedObject, items);
+            => AddMembersFunc3(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
-            => AddModifiersFunc4(WrappedObject, items);
+            => AddModifiersFunc4(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(UsingDirectiveSyntax[] items)
-            => AddUsingsFunc5(WrappedObject, items);
+            => AddUsingsFunc5(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken semicolonToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members)
-            => UpdateFunc6(WrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
+            => UpdateFunc6(wrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc7(WrappedObject, attributeLists);
+            => WithAttributeListsFunc7(wrappedObject, attributeLists);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
-            => WithExternsFunc8(WrappedObject, externs);
+            => WithExternsFunc8(wrappedObject, externs);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
-            => WithMembersFunc9(WrappedObject, members);
+            => WithMembersFunc9(wrappedObject, members);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
-            => WithModifiersFunc10(WrappedObject, modifiers);
+            => WithModifiersFunc10(wrappedObject, modifiers);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
-            => WithNameFunc11(WrappedObject, name);
+            => WithNameFunc11(wrappedObject, name);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
-            => WithNamespaceKeywordFunc12(WrappedObject, namespaceKeyword);
+            => WithNamespaceKeywordFunc12(wrappedObject, namespaceKeyword);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
-            => WithSemicolonTokenFunc13(WrappedObject, semicolonToken);
+            => WithSemicolonTokenFunc13(wrappedObject, semicolonToken);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
-            => WithUsingsFunc14(WrappedObject, usings);
+            => WithUsingsFunc14(wrappedObject, usings);
     }
 }

@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> UpdateFunc1;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> WithExpressionFunc2;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static ExpressionElementSyntaxWrapper()
         {
@@ -30,11 +30,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ExpressionElementSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(WrappedObject);
+            => ExpressionFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(ExpressionElementSyntaxWrapper obj)
             => obj.Unwrap();
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ExpressionElementSyntaxWrapper Update(ExpressionSyntax expression)
-            => UpdateFunc1(WrappedObject, expression);
+            => UpdateFunc1(wrappedObject, expression);
 
         public readonly ExpressionElementSyntaxWrapper WithExpression(ExpressionSyntax expression)
-            => WithExpressionFunc2(WrappedObject, expression);
+            => WithExpressionFunc2(wrappedObject, expression);
     }
 }

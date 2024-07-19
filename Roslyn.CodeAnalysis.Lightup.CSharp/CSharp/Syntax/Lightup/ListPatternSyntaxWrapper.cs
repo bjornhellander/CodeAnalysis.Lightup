@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, SyntaxToken, ListPatternSyntaxWrapper> WithOpenBracketTokenFunc5;
         private static readonly Func<PatternSyntax?, SeparatedSyntaxList<PatternSyntax>, ListPatternSyntaxWrapper> WithPatternsFunc6;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static ListPatternSyntaxWrapper()
         {
@@ -44,20 +44,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ListPatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenFunc(WrappedObject);
+            => CloseBracketTokenFunc(wrappedObject);
 
         public readonly VariableDesignationSyntax? Designation
-            => DesignationFunc(WrappedObject);
+            => DesignationFunc(wrappedObject);
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenFunc(WrappedObject);
+            => OpenBracketTokenFunc(wrappedObject);
 
         public readonly SeparatedSyntaxList<PatternSyntax> Patterns
-            => PatternsFunc(WrappedObject);
+            => PatternsFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(ListPatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -72,27 +72,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ListPatternSyntaxWrapper AddPatterns(PatternSyntax[] items)
-            => AddPatternsFunc1(WrappedObject, items);
+            => AddPatternsFunc1(wrappedObject, items);
 
         public readonly ListPatternSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation)
-            => UpdateFunc2(WrappedObject, openBracketToken, patterns, closeBracketToken, designation);
+            => UpdateFunc2(wrappedObject, openBracketToken, patterns, closeBracketToken, designation);
 
         public readonly ListPatternSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
-            => WithCloseBracketTokenFunc3(WrappedObject, closeBracketToken);
+            => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
 
         public readonly ListPatternSyntaxWrapper WithDesignation(VariableDesignationSyntax? designation)
-            => WithDesignationFunc4(WrappedObject, designation);
+            => WithDesignationFunc4(wrappedObject, designation);
 
         public readonly ListPatternSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
-            => WithOpenBracketTokenFunc5(WrappedObject, openBracketToken);
+            => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
 
         public readonly ListPatternSyntaxWrapper WithPatterns(SeparatedSyntaxList<PatternSyntax> patterns)
-            => WithPatternsFunc6(WrappedObject, patterns);
+            => WithPatternsFunc6(wrappedObject, patterns);
     }
 }

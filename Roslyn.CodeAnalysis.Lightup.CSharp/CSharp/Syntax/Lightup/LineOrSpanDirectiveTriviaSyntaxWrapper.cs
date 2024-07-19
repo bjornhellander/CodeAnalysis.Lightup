@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithHashTokenFunc2;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithLineKeywordFunc3;
 
-        private readonly DirectiveTriviaSyntax? WrappedObject;
+        private readonly DirectiveTriviaSyntax? wrappedObject;
 
         static LineOrSpanDirectiveTriviaSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken File
-            => FileFunc(WrappedObject);
+            => FileFunc(wrappedObject);
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordFunc(WrappedObject);
+            => LineKeywordFunc(wrappedObject);
 
         public static implicit operator DirectiveTriviaSyntax?(LineOrSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public DirectiveTriviaSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
-            => WithEndOfDirectiveTokenFunc0(WrappedObject, endOfDirectiveToken);
+            => WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
 
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
-            => WithFileFunc1(WrappedObject, file);
+            => WithFileFunc1(wrappedObject, file);
 
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
-            => WithHashTokenFunc2(WrappedObject, hashToken);
+            => WithHashTokenFunc2(wrappedObject, hashToken);
 
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
-            => WithLineKeywordFunc3(WrappedObject, lineKeyword);
+            => WithLineKeywordFunc3(wrappedObject, lineKeyword);
     }
 }

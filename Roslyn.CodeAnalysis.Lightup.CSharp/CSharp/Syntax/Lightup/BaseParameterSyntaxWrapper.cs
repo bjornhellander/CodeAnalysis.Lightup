@@ -21,7 +21,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxTokenList, BaseParameterSyntaxWrapper> WithModifiersFunc3;
         private static readonly Func<CSharpSyntaxNode?, TypeSyntax?, BaseParameterSyntaxWrapper> WithTypeFunc4;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static BaseParameterSyntaxWrapper()
         {
@@ -38,17 +38,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private BaseParameterSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(WrappedObject);
+            => AttributeListsFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(WrappedObject);
+            => ModifiersFunc(wrappedObject);
 
         public readonly TypeSyntax? Type
-            => TypeFunc(WrappedObject);
+            => TypeFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(BaseParameterSyntaxWrapper obj)
             => obj.Unwrap();
@@ -63,21 +63,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly BaseParameterSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(WrappedObject, items);
+            => AddAttributeListsFunc0(wrappedObject, items);
 
         public readonly BaseParameterSyntaxWrapper AddModifiers(SyntaxToken[] items)
-            => AddModifiersFunc1(WrappedObject, items);
+            => AddModifiersFunc1(wrappedObject, items);
 
         public readonly BaseParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(WrappedObject, attributeLists);
+            => WithAttributeListsFunc2(wrappedObject, attributeLists);
 
         public readonly BaseParameterSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
-            => WithModifiersFunc3(WrappedObject, modifiers);
+            => WithModifiersFunc3(wrappedObject, modifiers);
 
         public readonly BaseParameterSyntaxWrapper WithType(TypeSyntax? type)
-            => WithTypeFunc4(WrappedObject, type);
+            => WithTypeFunc4(wrappedObject, type);
     }
 }

@@ -21,7 +21,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper> WithOpenParenTokenFunc3;
         private static readonly Func<PatternSyntax?, PatternSyntax, ParenthesizedPatternSyntaxWrapper> WithPatternFunc4;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static ParenthesizedPatternSyntaxWrapper()
         {
@@ -38,17 +38,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ParenthesizedPatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken CloseParenToken
-            => CloseParenTokenFunc(WrappedObject);
+            => CloseParenTokenFunc(wrappedObject);
 
         public readonly SyntaxToken OpenParenToken
-            => OpenParenTokenFunc(WrappedObject);
+            => OpenParenTokenFunc(wrappedObject);
 
         public readonly PatternSyntax Pattern
-            => PatternFunc(WrappedObject);
+            => PatternFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(ParenthesizedPatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -63,21 +63,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ParenthesizedPatternSyntaxWrapper Update(SyntaxToken openParenToken, PatternSyntax pattern, SyntaxToken closeParenToken)
-            => UpdateFunc1(WrappedObject, openParenToken, pattern, closeParenToken);
+            => UpdateFunc1(wrappedObject, openParenToken, pattern, closeParenToken);
 
         public readonly ParenthesizedPatternSyntaxWrapper WithCloseParenToken(SyntaxToken closeParenToken)
-            => WithCloseParenTokenFunc2(WrappedObject, closeParenToken);
+            => WithCloseParenTokenFunc2(wrappedObject, closeParenToken);
 
         public readonly ParenthesizedPatternSyntaxWrapper WithOpenParenToken(SyntaxToken openParenToken)
-            => WithOpenParenTokenFunc3(WrappedObject, openParenToken);
+            => WithOpenParenTokenFunc3(wrappedObject, openParenToken);
 
         public readonly ParenthesizedPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
-            => WithPatternFunc4(WrappedObject, pattern);
+            => WithPatternFunc4(wrappedObject, pattern);
     }
 }

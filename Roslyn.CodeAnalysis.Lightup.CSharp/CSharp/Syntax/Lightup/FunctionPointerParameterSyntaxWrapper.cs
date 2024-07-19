@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxTokenList, FunctionPointerParameterSyntaxWrapper> WithModifiersFunc5;
         private static readonly Func<CSharpSyntaxNode?, TypeSyntax, FunctionPointerParameterSyntaxWrapper> WithTypeFunc6;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static FunctionPointerParameterSyntaxWrapper()
         {
@@ -42,17 +42,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private FunctionPointerParameterSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(WrappedObject);
+            => AttributeListsFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(WrappedObject);
+            => ModifiersFunc(wrappedObject);
 
         public readonly TypeSyntax Type
-            => TypeFunc(WrappedObject);
+            => TypeFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterSyntaxWrapper obj)
             => obj.Unwrap();
@@ -67,27 +67,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly FunctionPointerParameterSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
-            => AddAttributeListsFunc1(WrappedObject, items);
+            => AddAttributeListsFunc1(wrappedObject, items);
 
         public readonly FunctionPointerParameterSyntaxWrapper AddModifiers(SyntaxToken[] items)
-            => AddModifiersFunc2(WrappedObject, items);
+            => AddModifiersFunc2(wrappedObject, items);
 
         public readonly FunctionPointerParameterSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type)
-            => UpdateFunc3(WrappedObject, attributeLists, modifiers, type);
+            => UpdateFunc3(wrappedObject, attributeLists, modifiers, type);
 
         public readonly FunctionPointerParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc4(WrappedObject, attributeLists);
+            => WithAttributeListsFunc4(wrappedObject, attributeLists);
 
         public readonly FunctionPointerParameterSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
-            => WithModifiersFunc5(WrappedObject, modifiers);
+            => WithModifiersFunc5(wrappedObject, modifiers);
 
         public readonly FunctionPointerParameterSyntaxWrapper WithType(TypeSyntax type)
-            => WithTypeFunc6(WrappedObject, type);
+            => WithTypeFunc6(wrappedObject, type);
     }
 }

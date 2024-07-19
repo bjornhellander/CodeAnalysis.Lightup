@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper> WithSemicolonTokenFunc21;
         private static readonly Func<TypeDeclarationSyntax?, TypeParameterListSyntax?, RecordDeclarationSyntaxWrapper> WithTypeParameterListFunc22;
 
-        private readonly TypeDeclarationSyntax? WrappedObject;
+        private readonly TypeDeclarationSyntax? wrappedObject;
 
         static RecordDeclarationSyntaxWrapper()
         {
@@ -94,47 +94,47 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private RecordDeclarationSyntaxWrapper(TypeDeclarationSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(WrappedObject);
+            => AttributeListsFunc(wrappedObject);
 
         public readonly BaseListSyntax? BaseList
-            => BaseListFunc(WrappedObject);
+            => BaseListFunc(wrappedObject);
 
         public readonly SyntaxToken ClassOrStructKeyword
-            => ClassOrStructKeywordFunc(WrappedObject);
+            => ClassOrStructKeywordFunc(wrappedObject);
 
         public readonly SyntaxToken CloseBraceToken
-            => CloseBraceTokenFunc(WrappedObject);
+            => CloseBraceTokenFunc(wrappedObject);
 
         public readonly SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClauses
-            => ConstraintClausesFunc(WrappedObject);
+            => ConstraintClausesFunc(wrappedObject);
 
         public readonly SyntaxToken Identifier
-            => IdentifierFunc(WrappedObject);
+            => IdentifierFunc(wrappedObject);
 
         public readonly SyntaxToken Keyword
-            => KeywordFunc(WrappedObject);
+            => KeywordFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(WrappedObject);
+            => MembersFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(WrappedObject);
+            => ModifiersFunc(wrappedObject);
 
         public readonly SyntaxToken OpenBraceToken
-            => OpenBraceTokenFunc(WrappedObject);
+            => OpenBraceTokenFunc(wrappedObject);
 
         public readonly ParameterListSyntax? ParameterList
-            => ParameterListFunc(WrappedObject);
+            => ParameterListFunc(wrappedObject);
 
         public readonly SyntaxToken SemicolonToken
-            => SemicolonTokenFunc(WrappedObject);
+            => SemicolonTokenFunc(wrappedObject);
 
         public readonly TypeParameterListSyntax? TypeParameterList
-            => TypeParameterListFunc(WrappedObject);
+            => TypeParameterListFunc(wrappedObject);
 
         public static implicit operator TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
             => obj.Unwrap();
@@ -149,75 +149,75 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public TypeDeclarationSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly RecordDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
-            => AddAttributeListsFunc1(WrappedObject, items);
+            => AddAttributeListsFunc1(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddBaseListTypes(BaseTypeSyntax[] items)
-            => AddBaseListTypesFunc2(WrappedObject, items);
+            => AddBaseListTypesFunc2(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddConstraintClauses(TypeParameterConstraintClauseSyntax[] items)
-            => AddConstraintClausesFunc3(WrappedObject, items);
+            => AddConstraintClausesFunc3(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
-            => AddMembersFunc4(WrappedObject, items);
+            => AddMembersFunc4(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
-            => AddModifiersFunc5(WrappedObject, items);
+            => AddModifiersFunc5(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddParameterListParameters(ParameterSyntax[] items)
-            => AddParameterListParametersFunc6(WrappedObject, items);
+            => AddParameterListParametersFunc6(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(TypeParameterSyntax[] items)
-            => AddTypeParameterListParametersFunc7(WrappedObject, items);
+            => AddTypeParameterListParametersFunc7(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
-            => UpdateFunc8(WrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            => UpdateFunc8(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken classOrStructKeyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
-            => UpdateFunc9(WrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            => UpdateFunc9(wrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         public readonly RecordDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc10(WrappedObject, attributeLists);
+            => WithAttributeListsFunc10(wrappedObject, attributeLists);
 
         public readonly RecordDeclarationSyntaxWrapper WithBaseList(BaseListSyntax? baseList)
-            => WithBaseListFunc11(WrappedObject, baseList);
+            => WithBaseListFunc11(wrappedObject, baseList);
 
         public readonly RecordDeclarationSyntaxWrapper WithClassOrStructKeyword(SyntaxToken classOrStructKeyword)
-            => WithClassOrStructKeywordFunc12(WrappedObject, classOrStructKeyword);
+            => WithClassOrStructKeywordFunc12(wrappedObject, classOrStructKeyword);
 
         public readonly RecordDeclarationSyntaxWrapper WithCloseBraceToken(SyntaxToken closeBraceToken)
-            => WithCloseBraceTokenFunc13(WrappedObject, closeBraceToken);
+            => WithCloseBraceTokenFunc13(wrappedObject, closeBraceToken);
 
         public readonly RecordDeclarationSyntaxWrapper WithConstraintClauses(SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses)
-            => WithConstraintClausesFunc14(WrappedObject, constraintClauses);
+            => WithConstraintClausesFunc14(wrappedObject, constraintClauses);
 
         public readonly RecordDeclarationSyntaxWrapper WithIdentifier(SyntaxToken identifier)
-            => WithIdentifierFunc15(WrappedObject, identifier);
+            => WithIdentifierFunc15(wrappedObject, identifier);
 
         public readonly RecordDeclarationSyntaxWrapper WithKeyword(SyntaxToken keyword)
-            => WithKeywordFunc16(WrappedObject, keyword);
+            => WithKeywordFunc16(wrappedObject, keyword);
 
         public readonly RecordDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
-            => WithMembersFunc17(WrappedObject, members);
+            => WithMembersFunc17(wrappedObject, members);
 
         public readonly RecordDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
-            => WithModifiersFunc18(WrappedObject, modifiers);
+            => WithModifiersFunc18(wrappedObject, modifiers);
 
         public readonly RecordDeclarationSyntaxWrapper WithOpenBraceToken(SyntaxToken openBraceToken)
-            => WithOpenBraceTokenFunc19(WrappedObject, openBraceToken);
+            => WithOpenBraceTokenFunc19(wrappedObject, openBraceToken);
 
         public readonly RecordDeclarationSyntaxWrapper WithParameterList(ParameterListSyntax? parameterList)
-            => WithParameterListFunc20(WrappedObject, parameterList);
+            => WithParameterListFunc20(wrappedObject, parameterList);
 
         public readonly RecordDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
-            => WithSemicolonTokenFunc21(WrappedObject, semicolonToken);
+            => WithSemicolonTokenFunc21(wrappedObject, semicolonToken);
 
         public readonly RecordDeclarationSyntaxWrapper WithTypeParameterList(TypeParameterListSyntax? typeParameterList)
-            => WithTypeParameterListFunc22(WrappedObject, typeParameterList);
+            => WithTypeParameterListFunc22(wrappedObject, typeParameterList);
     }
 }

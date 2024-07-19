@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithMinusTokenFunc9;
         private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper, LineSpanDirectiveTriviaSyntaxWrapper> WithStartFunc10;
 
-        private readonly DirectiveTriviaSyntax? WrappedObject;
+        private readonly DirectiveTriviaSyntax? wrappedObject;
 
         static LineSpanDirectiveTriviaSyntaxWrapper()
         {
@@ -62,35 +62,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private LineSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken CharacterOffset
-            => CharacterOffsetFunc(WrappedObject);
+            => CharacterOffsetFunc(wrappedObject);
 
         public readonly LineDirectivePositionSyntaxWrapper End
-            => EndFunc(WrappedObject);
+            => EndFunc(wrappedObject);
 
         public readonly SyntaxToken EndOfDirectiveToken
-            => EndOfDirectiveTokenFunc(WrappedObject);
+            => EndOfDirectiveTokenFunc(wrappedObject);
 
         public readonly SyntaxToken File
-            => FileFunc(WrappedObject);
+            => FileFunc(wrappedObject);
 
         public readonly SyntaxToken HashToken
-            => HashTokenFunc(WrappedObject);
+            => HashTokenFunc(wrappedObject);
 
         public readonly Boolean IsActive
-            => IsActiveFunc(WrappedObject);
+            => IsActiveFunc(wrappedObject);
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordFunc(WrappedObject);
+            => LineKeywordFunc(wrappedObject);
 
         public readonly SyntaxToken MinusToken
-            => MinusTokenFunc(WrappedObject);
+            => MinusTokenFunc(wrappedObject);
 
         public readonly LineDirectivePositionSyntaxWrapper Start
-            => StartFunc(WrappedObject);
+            => StartFunc(wrappedObject);
 
         public static implicit operator DirectiveTriviaSyntax?(LineSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();
@@ -105,39 +105,39 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public DirectiveTriviaSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper Update(SyntaxToken hashToken, SyntaxToken lineKeyword, LineDirectivePositionSyntaxWrapper start, SyntaxToken minusToken, LineDirectivePositionSyntaxWrapper end, SyntaxToken characterOffset, SyntaxToken file, SyntaxToken endOfDirectiveToken, Boolean isActive)
-            => UpdateFunc1(WrappedObject, hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
+            => UpdateFunc1(wrappedObject, hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithCharacterOffset(SyntaxToken characterOffset)
-            => WithCharacterOffsetFunc2(WrappedObject, characterOffset);
+            => WithCharacterOffsetFunc2(wrappedObject, characterOffset);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithEnd(LineDirectivePositionSyntaxWrapper end)
-            => WithEndFunc3(WrappedObject, end);
+            => WithEndFunc3(wrappedObject, end);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
-            => WithEndOfDirectiveTokenFunc4(WrappedObject, endOfDirectiveToken);
+            => WithEndOfDirectiveTokenFunc4(wrappedObject, endOfDirectiveToken);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
-            => WithFileFunc5(WrappedObject, file);
+            => WithFileFunc5(wrappedObject, file);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
-            => WithHashTokenFunc6(WrappedObject, hashToken);
+            => WithHashTokenFunc6(wrappedObject, hashToken);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithIsActive(Boolean isActive)
-            => WithIsActiveFunc7(WrappedObject, isActive);
+            => WithIsActiveFunc7(wrappedObject, isActive);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
-            => WithLineKeywordFunc8(WrappedObject, lineKeyword);
+            => WithLineKeywordFunc8(wrappedObject, lineKeyword);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithMinusToken(SyntaxToken minusToken)
-            => WithMinusTokenFunc9(WrappedObject, minusToken);
+            => WithMinusTokenFunc9(wrappedObject, minusToken);
 
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithStart(LineDirectivePositionSyntaxWrapper start)
-            => WithStartFunc10(WrappedObject, start);
+            => WithStartFunc10(wrappedObject, start);
     }
 }

@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, ExpressionColonSyntaxWrapper> WithColonTokenFunc2;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionColonSyntaxWrapper> WithExpressionFunc3;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static ExpressionColonSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken ColonToken
-            => ColonTokenFunc(WrappedObject);
+            => ColonTokenFunc(wrappedObject);
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(WrappedObject);
+            => ExpressionFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(ExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ExpressionColonSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken colonToken)
-            => UpdateFunc1(WrappedObject, expression, colonToken);
+            => UpdateFunc1(wrappedObject, expression, colonToken);
 
         public readonly ExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
-            => WithColonTokenFunc2(WrappedObject, colonToken);
+            => WithColonTokenFunc2(wrappedObject, colonToken);
 
         public readonly ExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
-            => WithExpressionFunc3(WrappedObject, expression);
+            => WithExpressionFunc3(wrappedObject, expression);
     }
 }
