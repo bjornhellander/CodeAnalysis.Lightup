@@ -13,6 +13,7 @@ internal class Reflector
     {
         [AssemblyKind.Common] = "Microsoft.CodeAnalysis",
         [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp",
+        [AssemblyKind.Workspaces] = "Microsoft.CodeAnalysis.Workspaces",
     };
 
     public static void CollectTypes(
