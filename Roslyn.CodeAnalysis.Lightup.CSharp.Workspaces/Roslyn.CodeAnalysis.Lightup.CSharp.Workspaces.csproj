@@ -21,6 +21,7 @@
 		<Copyright>Copyright</Copyright>
 		<PackageTags>Roslyn, code analysis</PackageTags>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
