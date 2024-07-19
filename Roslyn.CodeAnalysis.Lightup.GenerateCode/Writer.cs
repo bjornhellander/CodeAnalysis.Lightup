@@ -18,6 +18,16 @@ internal class Writer
         [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.CSharp",
     };
 
+    // TODO: Handle these types
+    private static readonly HashSet<string> TypesToSkip =
+    [
+        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.CollectionExpressionSyntax",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax",
+    ];
+
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
     {
         Write(typeDefs, rootPath, AssemblyKind.Common);
@@ -82,11 +92,7 @@ internal class Writer
                 return null;
             }
             else if (typeDef.Type.FullName!.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax.")
-                && typeDef.Type.Name != "FunctionPointerUnmanagedCallingConventionListSyntax"
-                && typeDef.Type.Name != "CollectionExpressionSyntax"
-                && typeDef.Type.Name != "FunctionPointerParameterListSyntax"
-                && typeDef.Type.Name != "FunctionPointerCallingConventionSyntax"
-                && typeDef.Type.Name != "FunctionPointerTypeSyntax")
+                && !TypesToSkip.Contains(typeDef.Type.FullName))
             {
                 return GeneratedClass(typeDef.Type, typeDefs, targetNamespace);
             }
