@@ -30,8 +30,10 @@ internal class Writer
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
     {
-        Write(typeDefs, rootPath, AssemblyKind.Common);
-        Write(typeDefs, rootPath, AssemblyKind.CSharp);
+        foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
+        {
+            Write(typeDefs, rootPath, assemblyKind);
+        }
     }
 
     private static void Write(

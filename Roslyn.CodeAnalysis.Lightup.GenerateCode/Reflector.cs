@@ -4,14 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Loader;
 
 internal class Reflector
 {
     private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
     {
-        [AssemblyKind.Common] = "Microsoft.CodeAnalysis.dll",
-        [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp.dll",
+        [AssemblyKind.Common] = "Microsoft.CodeAnalysis",
+        [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp",
     };
 
     public static void CollectTypes(
@@ -20,27 +21,38 @@ internal class Reflector
         Dictionary<string, TypeDefinition> typeDefs,
         bool isBaselineVersion)
     {
+        var testProjectFolder = Path.Combine(rootFolder, testProjectName, "bin");
+        var testAssemblyPaths = Directory.GetFiles(testProjectFolder, $"{testProjectName}.dll", SearchOption.AllDirectories);
+        var testAssemblyPath = testAssemblyPaths.SingleOrDefault();
+        Assert.IsTrue(testAssemblyPath != null, $"Could not find test assembly in {testProjectFolder}");
+        var testProjectBinFolder = Path.GetDirectoryName(testAssemblyPath);
+        Assert.IsTrue(testProjectBinFolder != null, "Could not get test projects's bin folder");
+
         var assemblyLoadContext = new AssemblyLoadContext(testProjectName);
-        CollectTypes(assemblyLoadContext, testProjectName, rootFolder, typeDefs, isBaselineVersion, AssemblyKind.Common);
-        CollectTypes(assemblyLoadContext, testProjectName, rootFolder, typeDefs, isBaselineVersion, AssemblyKind.CSharp);
+        assemblyLoadContext.Resolving += ResolveAssembly;
+
+        foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
+        {
+            CollectTypes(assemblyLoadContext, typeDefs, isBaselineVersion, assemblyKind);
+        }
+
+        Assembly? ResolveAssembly(AssemblyLoadContext context, AssemblyName assemblyName)
+        {
+            var assemblyPath = Path.Combine(testProjectBinFolder, assemblyName.Name + ".dll");
+            var assembly = context.LoadFromAssemblyPath(assemblyPath);
+            return assembly;
+        }
     }
 
     private static void CollectTypes(
         AssemblyLoadContext assemblyLoadContext,
-        string testProjectName,
-        string rootFolder,
         Dictionary<string, TypeDefinition> typeDefs,
         bool isBaselineVersion,
         AssemblyKind assemblyKind)
     {
-        var testProjectFolder = Path.Combine(rootFolder, testProjectName);
-
         var assemblyName = AssemblyNames[assemblyKind];
-        var assemblyPaths = Directory.GetFiles(testProjectFolder, assemblyName, SearchOption.AllDirectories);
-        var assemblyPath = assemblyPaths.SingleOrDefault();
-        Assert.IsTrue(assemblyPath != null, $"Could not find {assemblyName} in {testProjectFolder}");
 
-        var assembly = assemblyLoadContext.LoadFromAssemblyPath(assemblyPath);
+        var assembly = assemblyLoadContext.LoadFromAssemblyName(new AssemblyName(assemblyName));
         var assemblyVersion = assembly.GetName().Version;
         Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
