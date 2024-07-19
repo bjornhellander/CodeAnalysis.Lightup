@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Testing;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+
+using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
 
 public static partial class CSharpAnalyzerVerifier<TAnalyzer>
     where TAnalyzer : DiagnosticAnalyzer, new()

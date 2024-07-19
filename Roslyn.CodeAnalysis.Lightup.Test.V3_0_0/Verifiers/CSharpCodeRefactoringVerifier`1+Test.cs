@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis.CodeRefactorings;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+
+using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
 
 public static partial class CSharpCodeRefactoringVerifier<TCodeRefactoring>
     where TCodeRefactoring : CodeRefactoringProvider, new()

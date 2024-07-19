@@ -1,6 +1,6 @@
-﻿using System;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+using System;
 
 internal abstract class TypeDefinition
 {
@@ -12,8 +12,11 @@ internal abstract class TypeDefinition
         Type = type;
     }
 
-    public readonly AssemblyKind AssemblyKind;
-    public readonly Version? AssemblyVersion;
-    public readonly string Name;
-    public Type Type;
+    public AssemblyKind AssemblyKind { get; }
+
+    public Version? AssemblyVersion { get; }
+
+    public string Name { get; }
+
+    public Type Type { get; set; }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+using System;
+using System.Diagnostics.CodeAnalysis;
 
 internal class Assert
 {

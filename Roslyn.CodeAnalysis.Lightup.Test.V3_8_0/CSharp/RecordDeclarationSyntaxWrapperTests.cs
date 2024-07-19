@@ -1,12 +1,12 @@
-﻿using Microsoft.CodeAnalysis;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
+
+using System;
+using System.Reflection;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Reflection;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
 [TestClass]
 public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
@@ -120,7 +120,7 @@ public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarati
         Assert.AreEqual(IsMarkedAsNullable(property1), IsMarkedAsNullable(property2));
     }
 
-    static bool IsMarkedAsNullable(PropertyInfo p)
+    private static bool IsMarkedAsNullable(PropertyInfo p)
     {
         var nullabilityInfo = new NullabilityInfoContext().Create(p);
         return nullabilityInfo.ReadState is NullabilityState.Nullable;

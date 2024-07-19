@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
-
 internal class Program
 {
-    static void Main()
+    private static void Main()
     {
         var rootFolder = GetRepositoryRoot();
 

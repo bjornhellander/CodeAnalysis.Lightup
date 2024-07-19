@@ -1,11 +1,14 @@
-﻿using System;
+﻿// TODO: Review suppression
+#pragma warning disable SA1513 // Closing brace should be followed by blank line
+
+namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Writer
 {
@@ -40,6 +43,7 @@ internal class Writer
                 {
                     Directory.CreateDirectory(targetFolder);
                 }
+
                 File.WriteAllText(Path.Combine(targetFolder, result.Value.Name + ".cs"), result.Value.Source, Encoding.UTF8);
             }
         }

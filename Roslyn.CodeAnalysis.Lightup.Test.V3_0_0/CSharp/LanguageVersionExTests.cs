@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis.CSharp;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
+
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 [TestClass]
 public class LanguageVersionExTests : EnumTestsBase<LanguageVersionEx, LanguageVersion, int>

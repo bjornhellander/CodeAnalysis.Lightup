@@ -1,13 +1,13 @@
-﻿using Microsoft.CodeAnalysis;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
 using Microsoft.CodeAnalysis.VisualBasic.Testing;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
 
 public static partial class VisualBasicCodeFixVerifier<TAnalyzer, TCodeFix>
     where TAnalyzer : DiagnosticAnalyzer, new()

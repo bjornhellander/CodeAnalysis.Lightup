@@ -1,6 +1,6 @@
-﻿using System;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+using System;
 
 internal class EnumValueDefinition
 {
@@ -11,7 +11,9 @@ internal class EnumValueDefinition
         Value = value;
     }
 
-    public readonly Version? Version;
-    public readonly string Name;
-    public readonly int Value;
+    public Version? Version { get; }
+
+    public string Name { get; }
+
+    public int Value { get; }
 }

@@ -1,10 +1,10 @@
-﻿using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Lightup;
-using System;
-using System.Linq;
-
-namespace Microsoft.CodeAnalysis.Lightup
+﻿namespace Microsoft.CodeAnalysis.Lightup
 {
+    using System;
+    using System.Linq;
+    using Microsoft.CodeAnalysis.CSharp;
+    using Microsoft.CodeAnalysis.CSharp.Lightup;
+
     public class LightupStatus
     {
         static LightupStatus()

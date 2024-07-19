@@ -1,9 +1,9 @@
-﻿using Microsoft.CodeAnalysis.CodeFixes;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing.Verifiers;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
 
 public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
     where TAnalyzer : DiagnosticAnalyzer, new()

@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
+using System;
+using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public class LightupStatusTests

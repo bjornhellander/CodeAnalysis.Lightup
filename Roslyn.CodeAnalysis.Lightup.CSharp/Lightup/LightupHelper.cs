@@ -1,18 +1,18 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-
-namespace Microsoft.CodeAnalysis.Lightup
+﻿namespace Microsoft.CodeAnalysis.Lightup
 {
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using Microsoft.CodeAnalysis.CSharp.Syntax;
+
     internal static class LightupHelper
     {
-        private static readonly Assembly syntaxNodeAssembly = typeof(ClassDeclarationSyntax).Assembly;
+        private static readonly Assembly SyntaxNodeAssembly = typeof(ClassDeclarationSyntax).Assembly;
 
         internal static Type? FindSyntaxType(string wrappedTypeName)
         {
-            return FindType(syntaxNodeAssembly, wrappedTypeName);
+            return FindType(SyntaxNodeAssembly, wrappedTypeName);
         }
 
         internal static Type? FindType(Assembly assembly, string wrappedTypeName)

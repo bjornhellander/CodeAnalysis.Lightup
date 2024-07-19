@@ -1,10 +1,10 @@
-﻿using System;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Loader;
-
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 internal class Reflector
 {
