@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+using System;
+using System.Collections.Generic;
 
 internal class EnumTypeDefinition : TypeDefinition
 {
@@ -10,5 +10,5 @@ internal class EnumTypeDefinition : TypeDefinition
     {
     }
 
-    public readonly List<EnumValueDefinition> Values = [];
+    public List<EnumValueDefinition> Values { get; } = [];
 }

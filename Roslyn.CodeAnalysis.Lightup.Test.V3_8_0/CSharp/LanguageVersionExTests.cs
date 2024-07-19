@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public class LanguageVersionExTests : V3_0_0.CSharp.LanguageVersionExTests

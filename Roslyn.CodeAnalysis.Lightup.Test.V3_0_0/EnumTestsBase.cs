@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
+
 using System;
 using System.Linq;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 public abstract class EnumTestsBase<TExtension, TNative, TInt>
 {

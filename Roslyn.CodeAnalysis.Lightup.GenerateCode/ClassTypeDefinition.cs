@@ -1,6 +1,6 @@
-﻿using System;
+﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+using System;
 
 internal class ClassTypeDefinition : TypeDefinition
 {
@@ -10,5 +10,5 @@ internal class ClassTypeDefinition : TypeDefinition
         IsStatic = isStatic;
     }
 
-    public readonly bool IsStatic;
+    public bool IsStatic { get; }
 }

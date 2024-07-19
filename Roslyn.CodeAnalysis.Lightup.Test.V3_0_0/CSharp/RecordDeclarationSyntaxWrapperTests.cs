@@ -1,10 +1,10 @@
-﻿using Microsoft.CodeAnalysis;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
+
+using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 [TestClass]
 public class RecordDeclarationSyntaxWrapperTests

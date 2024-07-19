@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿namespace Roslyn.CodeAnalysis.Lightup.Test.Internal;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-
-namespace Roslyn.CodeAnalysis.Lightup.Test.Internal;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public class TestAssemblyTests
@@ -14,7 +14,8 @@ public class TestAssemblyTests
 
     static TestAssemblyTests()
     {
-        var types = new[] {
+        var types = new[]
+        {
             typeof(V3_0_0.CSharp.LightupStatusTests),
             typeof(V3_8_0.CSharp.LightupStatusTests),
             typeof(V4_0_1.CSharp.LightupStatusTests),
