@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax?, ImplicitObjectCreationExpressionSyntaxWrapper> WithInitializerFunc4;
         private static readonly Func<ExpressionSyntax?, SyntaxToken, ImplicitObjectCreationExpressionSyntaxWrapper> WithNewKeywordFunc5;
 
-        private readonly ExpressionSyntax? WrappedObject;
+        private readonly ExpressionSyntax? wrappedObject;
 
         static ImplicitObjectCreationExpressionSyntaxWrapper()
         {
@@ -40,17 +40,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private ImplicitObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ArgumentListSyntax ArgumentList
-            => ArgumentListFunc(WrappedObject);
+            => ArgumentListFunc(wrappedObject);
 
         public readonly InitializerExpressionSyntax? Initializer
-            => InitializerFunc(WrappedObject);
+            => InitializerFunc(wrappedObject);
 
         public readonly SyntaxToken NewKeyword
-            => NewKeywordFunc(WrappedObject);
+            => NewKeywordFunc(wrappedObject);
 
         public static implicit operator ExpressionSyntax?(ImplicitObjectCreationExpressionSyntaxWrapper obj)
             => obj.Unwrap();
@@ -65,24 +65,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public ExpressionSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
-            => AddArgumentListArgumentsFunc1(WrappedObject, items);
+            => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper Update(SyntaxToken newKeyword, ArgumentListSyntax argumentList, InitializerExpressionSyntax? initializer)
-            => UpdateFunc2(WrappedObject, newKeyword, argumentList, initializer);
+            => UpdateFunc2(wrappedObject, newKeyword, argumentList, initializer);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax argumentList)
-            => WithArgumentListFunc3(WrappedObject, argumentList);
+            => WithArgumentListFunc3(wrappedObject, argumentList);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax? initializer)
-            => WithInitializerFunc4(WrappedObject, initializer);
+            => WithInitializerFunc4(wrappedObject, initializer);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithNewKeyword(SyntaxToken newKeyword)
-            => WithNewKeywordFunc5(WrappedObject, newKeyword);
+            => WithNewKeywordFunc5(wrappedObject, newKeyword);
     }
 }

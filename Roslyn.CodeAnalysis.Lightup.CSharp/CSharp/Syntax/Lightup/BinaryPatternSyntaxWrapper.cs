@@ -21,7 +21,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, SyntaxToken, BinaryPatternSyntaxWrapper> WithOperatorTokenFunc3;
         private static readonly Func<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper> WithRightFunc4;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static BinaryPatternSyntaxWrapper()
         {
@@ -38,17 +38,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private BinaryPatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly PatternSyntax Left
-            => LeftFunc(WrappedObject);
+            => LeftFunc(wrappedObject);
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenFunc(WrappedObject);
+            => OperatorTokenFunc(wrappedObject);
 
         public readonly PatternSyntax Right
-            => RightFunc(WrappedObject);
+            => RightFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(BinaryPatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -63,21 +63,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly BinaryPatternSyntaxWrapper Update(PatternSyntax left, SyntaxToken operatorToken, PatternSyntax right)
-            => UpdateFunc1(WrappedObject, left, operatorToken, right);
+            => UpdateFunc1(wrappedObject, left, operatorToken, right);
 
         public readonly BinaryPatternSyntaxWrapper WithLeft(PatternSyntax left)
-            => WithLeftFunc2(WrappedObject, left);
+            => WithLeftFunc2(wrappedObject, left);
 
         public readonly BinaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
-            => WithOperatorTokenFunc3(WrappedObject, operatorToken);
+            => WithOperatorTokenFunc3(wrappedObject, operatorToken);
 
         public readonly BinaryPatternSyntaxWrapper WithRight(PatternSyntax right)
-            => WithRightFunc4(WrappedObject, right);
+            => WithRightFunc4(wrappedObject, right);
     }
 }

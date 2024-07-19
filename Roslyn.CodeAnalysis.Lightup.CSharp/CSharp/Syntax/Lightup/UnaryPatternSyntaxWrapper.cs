@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, SyntaxToken, UnaryPatternSyntaxWrapper> WithOperatorTokenFunc2;
         private static readonly Func<PatternSyntax?, PatternSyntax, UnaryPatternSyntaxWrapper> WithPatternFunc3;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static UnaryPatternSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private UnaryPatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenFunc(WrappedObject);
+            => OperatorTokenFunc(wrappedObject);
 
         public readonly PatternSyntax Pattern
-            => PatternFunc(WrappedObject);
+            => PatternFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(UnaryPatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly UnaryPatternSyntaxWrapper Update(SyntaxToken operatorToken, PatternSyntax pattern)
-            => UpdateFunc1(WrappedObject, operatorToken, pattern);
+            => UpdateFunc1(wrappedObject, operatorToken, pattern);
 
         public readonly UnaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
-            => WithOperatorTokenFunc2(WrappedObject, operatorToken);
+            => WithOperatorTokenFunc2(wrappedObject, operatorToken);
 
         public readonly UnaryPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
-            => WithPatternFunc3(WrappedObject, pattern);
+            => WithPatternFunc3(wrappedObject, pattern);
     }
 }

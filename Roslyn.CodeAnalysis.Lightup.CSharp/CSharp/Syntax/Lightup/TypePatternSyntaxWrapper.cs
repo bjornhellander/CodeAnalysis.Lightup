@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> UpdateFunc1;
         private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> WithTypeFunc2;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static TypePatternSyntaxWrapper()
         {
@@ -30,11 +30,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private TypePatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly TypeSyntax Type
-            => TypeFunc(WrappedObject);
+            => TypeFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(TypePatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly TypePatternSyntaxWrapper Update(TypeSyntax type)
-            => UpdateFunc1(WrappedObject, type);
+            => UpdateFunc1(wrappedObject, type);
 
         public readonly TypePatternSyntaxWrapper WithType(TypeSyntax type)
-            => WithTypeFunc2(WrappedObject, type);
+            => WithTypeFunc2(wrappedObject, type);
     }
 }

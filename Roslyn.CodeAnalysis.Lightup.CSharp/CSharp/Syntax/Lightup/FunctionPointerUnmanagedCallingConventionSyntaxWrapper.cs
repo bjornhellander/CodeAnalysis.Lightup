@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper> UpdateFunc1;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper> WithNameFunc2;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static FunctionPointerUnmanagedCallingConventionSyntaxWrapper()
         {
@@ -30,11 +30,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken Name
-            => NameFunc(WrappedObject);
+            => NameFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionSyntaxWrapper obj)
             => obj.Unwrap();
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(SyntaxToken name)
-            => UpdateFunc1(WrappedObject, name);
+            => UpdateFunc1(wrappedObject, name);
 
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(SyntaxToken name)
-            => WithNameFunc2(WrappedObject, name);
+            => WithNameFunc2(wrappedObject, name);
     }
 }

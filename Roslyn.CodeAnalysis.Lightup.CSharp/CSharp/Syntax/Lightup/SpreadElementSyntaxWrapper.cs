@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, SpreadElementSyntaxWrapper> WithExpressionFunc2;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, SpreadElementSyntaxWrapper> WithOperatorTokenFunc3;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static SpreadElementSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private SpreadElementSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(WrappedObject);
+            => ExpressionFunc(wrappedObject);
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenFunc(WrappedObject);
+            => OperatorTokenFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(SpreadElementSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly SpreadElementSyntaxWrapper Update(SyntaxToken operatorToken, ExpressionSyntax expression)
-            => UpdateFunc1(WrappedObject, operatorToken, expression);
+            => UpdateFunc1(wrappedObject, operatorToken, expression);
 
         public readonly SpreadElementSyntaxWrapper WithExpression(ExpressionSyntax expression)
-            => WithExpressionFunc2(WrappedObject, expression);
+            => WithExpressionFunc2(wrappedObject, expression);
 
         public readonly SpreadElementSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
-            => WithOperatorTokenFunc3(WrappedObject, operatorToken);
+            => WithOperatorTokenFunc3(wrappedObject, operatorToken);
     }
 }

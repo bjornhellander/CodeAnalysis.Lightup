@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<PatternSyntax?, SyntaxToken, SlicePatternSyntaxWrapper> WithDotDotTokenFunc2;
         private static readonly Func<PatternSyntax?, PatternSyntax?, SlicePatternSyntaxWrapper> WithPatternFunc3;
 
-        private readonly PatternSyntax? WrappedObject;
+        private readonly PatternSyntax? wrappedObject;
 
         static SlicePatternSyntaxWrapper()
         {
@@ -34,14 +34,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private SlicePatternSyntaxWrapper(PatternSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken DotDotToken
-            => DotDotTokenFunc(WrappedObject);
+            => DotDotTokenFunc(wrappedObject);
 
         public readonly PatternSyntax? Pattern
-            => PatternFunc(WrappedObject);
+            => PatternFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(SlicePatternSyntaxWrapper obj)
             => obj.Unwrap();
@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public PatternSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly SlicePatternSyntaxWrapper Update(SyntaxToken dotDotToken, PatternSyntax? pattern)
-            => UpdateFunc1(WrappedObject, dotDotToken, pattern);
+            => UpdateFunc1(wrappedObject, dotDotToken, pattern);
 
         public readonly SlicePatternSyntaxWrapper WithDotDotToken(SyntaxToken dotDotToken)
-            => WithDotDotTokenFunc2(WrappedObject, dotDotToken);
+            => WithDotDotTokenFunc2(wrappedObject, dotDotToken);
 
         public readonly SlicePatternSyntaxWrapper WithPattern(PatternSyntax? pattern)
-            => WithPatternFunc3(WrappedObject, pattern);
+            => WithPatternFunc3(wrappedObject, pattern);
     }
 }

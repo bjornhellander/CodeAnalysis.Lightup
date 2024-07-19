@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax, WithExpressionSyntaxWrapper> WithInitializerFunc4;
         private static readonly Func<ExpressionSyntax?, SyntaxToken, WithExpressionSyntaxWrapper> WithWithKeywordFunc5;
 
-        private readonly ExpressionSyntax? WrappedObject;
+        private readonly ExpressionSyntax? wrappedObject;
 
         static WithExpressionSyntaxWrapper()
         {
@@ -40,17 +40,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private WithExpressionSyntaxWrapper(ExpressionSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(WrappedObject);
+            => ExpressionFunc(wrappedObject);
 
         public readonly InitializerExpressionSyntax Initializer
-            => InitializerFunc(WrappedObject);
+            => InitializerFunc(wrappedObject);
 
         public readonly SyntaxToken WithKeyword
-            => WithKeywordFunc(WrappedObject);
+            => WithKeywordFunc(wrappedObject);
 
         public static implicit operator ExpressionSyntax?(WithExpressionSyntaxWrapper obj)
             => obj.Unwrap();
@@ -65,24 +65,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public ExpressionSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly WithExpressionSyntaxWrapper AddInitializerExpressions(ExpressionSyntax[] items)
-            => AddInitializerExpressionsFunc1(WrappedObject, items);
+            => AddInitializerExpressionsFunc1(wrappedObject, items);
 
         public readonly WithExpressionSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken withKeyword, InitializerExpressionSyntax initializer)
-            => UpdateFunc2(WrappedObject, expression, withKeyword, initializer);
+            => UpdateFunc2(wrappedObject, expression, withKeyword, initializer);
 
         public readonly WithExpressionSyntaxWrapper WithExpression(ExpressionSyntax expression)
-            => WithExpressionFunc3(WrappedObject, expression);
+            => WithExpressionFunc3(wrappedObject, expression);
 
         public readonly WithExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax initializer)
-            => WithInitializerFunc4(WrappedObject, initializer);
+            => WithInitializerFunc4(wrappedObject, initializer);
 
         public readonly WithExpressionSyntaxWrapper WithWithKeyword(SyntaxToken withKeyword)
-            => WithWithKeywordFunc5(WrappedObject, withKeyword);
+            => WithWithKeywordFunc5(wrappedObject, withKeyword);
     }
 }

@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper> WithInitializerFunc2;
         private static readonly Func<ExpressionSyntax?, SyntaxToken, BaseObjectCreationExpressionSyntaxWrapper> WithNewKeywordFunc3;
 
-        private readonly ExpressionSyntax? WrappedObject;
+        private readonly ExpressionSyntax? wrappedObject;
 
         static BaseObjectCreationExpressionSyntaxWrapper()
         {
@@ -36,17 +36,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private BaseObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ArgumentListSyntax? ArgumentList
-            => ArgumentListFunc(WrappedObject);
+            => ArgumentListFunc(wrappedObject);
 
         public readonly InitializerExpressionSyntax? Initializer
-            => InitializerFunc(WrappedObject);
+            => InitializerFunc(wrappedObject);
 
         public readonly SyntaxToken NewKeyword
-            => NewKeywordFunc(WrappedObject);
+            => NewKeywordFunc(wrappedObject);
 
         public static implicit operator ExpressionSyntax?(BaseObjectCreationExpressionSyntaxWrapper obj)
             => obj.Unwrap();
@@ -61,18 +61,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public ExpressionSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
-            => AddArgumentListArgumentsFunc0(WrappedObject, items);
+            => AddArgumentListArgumentsFunc0(wrappedObject, items);
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax? argumentList)
-            => WithArgumentListFunc1(WrappedObject, argumentList);
+            => WithArgumentListFunc1(wrappedObject, argumentList);
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax? initializer)
-            => WithInitializerFunc2(WrappedObject, initializer);
+            => WithInitializerFunc2(wrappedObject, initializer);
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithNewKeyword(SyntaxToken newKeyword)
-            => WithNewKeywordFunc3(WrappedObject, newKeyword);
+            => WithNewKeywordFunc3(wrappedObject, newKeyword);
     }
 }

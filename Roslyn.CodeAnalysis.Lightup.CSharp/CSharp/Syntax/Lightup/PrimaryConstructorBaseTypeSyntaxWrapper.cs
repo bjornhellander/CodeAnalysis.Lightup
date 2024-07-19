@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<BaseTypeSyntax?, ArgumentListSyntax, PrimaryConstructorBaseTypeSyntaxWrapper> WithArgumentListFunc3;
         private static readonly Func<BaseTypeSyntax?, TypeSyntax, PrimaryConstructorBaseTypeSyntaxWrapper> WithTypeFunc4;
 
-        private readonly BaseTypeSyntax? WrappedObject;
+        private readonly BaseTypeSyntax? wrappedObject;
 
         static PrimaryConstructorBaseTypeSyntaxWrapper()
         {
@@ -36,14 +36,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private PrimaryConstructorBaseTypeSyntaxWrapper(BaseTypeSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly ArgumentListSyntax ArgumentList
-            => ArgumentListFunc(WrappedObject);
+            => ArgumentListFunc(wrappedObject);
 
         public readonly TypeSyntax Type
-            => TypeFunc(WrappedObject);
+            => TypeFunc(wrappedObject);
 
         public static implicit operator BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
             => obj.Unwrap();
@@ -58,21 +58,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public BaseTypeSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
-            => AddArgumentListArgumentsFunc1(WrappedObject, items);
+            => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper Update(TypeSyntax type, ArgumentListSyntax argumentList)
-            => UpdateFunc2(WrappedObject, type, argumentList);
+            => UpdateFunc2(wrappedObject, type, argumentList);
 
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(ArgumentListSyntax argumentList)
-            => WithArgumentListFunc3(WrappedObject, argumentList);
+            => WithArgumentListFunc3(wrappedObject, argumentList);
 
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithType(TypeSyntax type)
-            => WithTypeFunc4(WrappedObject, type);
+            => WithTypeFunc4(wrappedObject, type);
     }
 }

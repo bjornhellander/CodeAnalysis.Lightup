@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, LineDirectivePositionSyntaxWrapper> WithLineFunc5;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, LineDirectivePositionSyntaxWrapper> WithOpenParenTokenFunc6;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static LineDirectivePositionSyntaxWrapper()
         {
@@ -46,23 +46,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private LineDirectivePositionSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken Character
-            => CharacterFunc(WrappedObject);
+            => CharacterFunc(wrappedObject);
 
         public readonly SyntaxToken CloseParenToken
-            => CloseParenTokenFunc(WrappedObject);
+            => CloseParenTokenFunc(wrappedObject);
 
         public readonly SyntaxToken CommaToken
-            => CommaTokenFunc(WrappedObject);
+            => CommaTokenFunc(wrappedObject);
 
         public readonly SyntaxToken Line
-            => LineFunc(WrappedObject);
+            => LineFunc(wrappedObject);
 
         public readonly SyntaxToken OpenParenToken
-            => OpenParenTokenFunc(WrappedObject);
+            => OpenParenTokenFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
             => obj.Unwrap();
@@ -77,27 +77,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly LineDirectivePositionSyntaxWrapper Update(SyntaxToken openParenToken, SyntaxToken line, SyntaxToken commaToken, SyntaxToken character, SyntaxToken closeParenToken)
-            => UpdateFunc1(WrappedObject, openParenToken, line, commaToken, character, closeParenToken);
+            => UpdateFunc1(wrappedObject, openParenToken, line, commaToken, character, closeParenToken);
 
         public readonly LineDirectivePositionSyntaxWrapper WithCharacter(SyntaxToken character)
-            => WithCharacterFunc2(WrappedObject, character);
+            => WithCharacterFunc2(wrappedObject, character);
 
         public readonly LineDirectivePositionSyntaxWrapper WithCloseParenToken(SyntaxToken closeParenToken)
-            => WithCloseParenTokenFunc3(WrappedObject, closeParenToken);
+            => WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
 
         public readonly LineDirectivePositionSyntaxWrapper WithCommaToken(SyntaxToken commaToken)
-            => WithCommaTokenFunc4(WrappedObject, commaToken);
+            => WithCommaTokenFunc4(wrappedObject, commaToken);
 
         public readonly LineDirectivePositionSyntaxWrapper WithLine(SyntaxToken line)
-            => WithLineFunc5(WrappedObject, line);
+            => WithLineFunc5(wrappedObject, line);
 
         public readonly LineDirectivePositionSyntaxWrapper WithOpenParenToken(SyntaxToken openParenToken)
-            => WithOpenParenTokenFunc6(WrappedObject, openParenToken);
+            => WithOpenParenTokenFunc6(wrappedObject, openParenToken);
     }
 }

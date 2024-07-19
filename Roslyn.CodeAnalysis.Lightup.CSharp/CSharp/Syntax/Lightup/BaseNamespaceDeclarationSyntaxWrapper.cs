@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<MemberDeclarationSyntax?, SyntaxToken, BaseNamespaceDeclarationSyntaxWrapper> WithNamespaceKeywordFunc10;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>, BaseNamespaceDeclarationSyntaxWrapper> WithUsingsFunc11;
 
-        private readonly MemberDeclarationSyntax? WrappedObject;
+        private readonly MemberDeclarationSyntax? wrappedObject;
 
         static BaseNamespaceDeclarationSyntaxWrapper()
         {
@@ -56,23 +56,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private BaseNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
-            => ExternsFunc(WrappedObject);
+            => ExternsFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(WrappedObject);
+            => MembersFunc(wrappedObject);
 
         public readonly NameSyntax Name
-            => NameFunc(WrappedObject);
+            => NameFunc(wrappedObject);
 
         public readonly SyntaxToken NamespaceKeyword
-            => NamespaceKeywordFunc(WrappedObject);
+            => NamespaceKeywordFunc(wrappedObject);
 
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
-            => UsingsFunc(WrappedObject);
+            => UsingsFunc(wrappedObject);
 
         public static implicit operator MemberDeclarationSyntax?(BaseNamespaceDeclarationSyntaxWrapper obj)
             => obj.Unwrap();
@@ -87,42 +87,42 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public MemberDeclarationSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(WrappedObject, items);
+            => AddAttributeListsFunc0(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddExterns(ExternAliasDirectiveSyntax[] items)
-            => AddExternsFunc1(WrappedObject, items);
+            => AddExternsFunc1(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
-            => AddMembersFunc2(WrappedObject, items);
+            => AddMembersFunc2(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
-            => AddModifiersFunc3(WrappedObject, items);
+            => AddModifiersFunc3(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddUsings(UsingDirectiveSyntax[] items)
-            => AddUsingsFunc4(WrappedObject, items);
+            => AddUsingsFunc4(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc5(WrappedObject, attributeLists);
+            => WithAttributeListsFunc5(wrappedObject, attributeLists);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
-            => WithExternsFunc6(WrappedObject, externs);
+            => WithExternsFunc6(wrappedObject, externs);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
-            => WithMembersFunc7(WrappedObject, members);
+            => WithMembersFunc7(wrappedObject, members);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
-            => WithModifiersFunc8(WrappedObject, modifiers);
+            => WithModifiersFunc8(wrappedObject, modifiers);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
-            => WithNameFunc9(WrappedObject, name);
+            => WithNameFunc9(wrappedObject, name);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
-            => WithNamespaceKeywordFunc10(WrappedObject, namespaceKeyword);
+            => WithNamespaceKeywordFunc10(wrappedObject, namespaceKeyword);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
-            => WithUsingsFunc11(WrappedObject, usings);
+            => WithUsingsFunc11(wrappedObject, usings);
     }
 }

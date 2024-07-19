@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper> WithColonTokenFunc0;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper> WithExpressionFunc1;
 
-        private readonly CSharpSyntaxNode? WrappedObject;
+        private readonly CSharpSyntaxNode? wrappedObject;
 
         static BaseExpressionColonSyntaxWrapper()
         {
@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private BaseExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken ColonToken
-            => ColonTokenFunc(WrappedObject);
+            => ColonTokenFunc(wrappedObject);
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(WrappedObject);
+            => ExpressionFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(BaseExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();
@@ -52,12 +52,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public CSharpSyntaxNode? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly BaseExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
-            => WithColonTokenFunc0(WrappedObject, colonToken);
+            => WithColonTokenFunc0(wrappedObject, colonToken);
 
         public readonly BaseExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
-            => WithExpressionFunc1(WrappedObject, expression);
+            => WithExpressionFunc1(wrappedObject, expression);
     }
 }

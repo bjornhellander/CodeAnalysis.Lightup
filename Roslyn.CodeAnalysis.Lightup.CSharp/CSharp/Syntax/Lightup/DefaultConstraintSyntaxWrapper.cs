@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper> UpdateFunc1;
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper> WithDefaultKeywordFunc2;
 
-        private readonly TypeParameterConstraintSyntax? WrappedObject;
+        private readonly TypeParameterConstraintSyntax? wrappedObject;
 
         static DefaultConstraintSyntaxWrapper()
         {
@@ -30,11 +30,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private DefaultConstraintSyntaxWrapper(TypeParameterConstraintSyntax? obj)
         {
-            WrappedObject = obj;
+            wrappedObject = obj;
         }
 
         public readonly SyntaxToken DefaultKeyword
-            => DefaultKeywordFunc(WrappedObject);
+            => DefaultKeywordFunc(wrappedObject);
 
         public static implicit operator TypeParameterConstraintSyntax?(DefaultConstraintSyntaxWrapper obj)
             => obj.Unwrap();
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public TypeParameterConstraintSyntax? Unwrap()
-            => WrappedObject;
+            => wrappedObject;
 
         public readonly void Accept(CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(WrappedObject, visitor);
+            => AcceptFunc0(wrappedObject, visitor);
 
         public readonly DefaultConstraintSyntaxWrapper Update(SyntaxToken defaultKeyword)
-            => UpdateFunc1(WrappedObject, defaultKeyword);
+            => UpdateFunc1(wrappedObject, defaultKeyword);
 
         public readonly DefaultConstraintSyntaxWrapper WithDefaultKeyword(SyntaxToken defaultKeyword)
-            => WithDefaultKeywordFunc2(WrappedObject, defaultKeyword);
+            => WithDefaultKeywordFunc2(wrappedObject, defaultKeyword);
     }
 }

@@ -205,7 +205,7 @@ internal class Writer
             sb.AppendLine($"        private static readonly {funcDeclText} {method.Name}Func{index};");
         }
         sb.AppendLine();
-        sb.AppendLine($"        private readonly {baseTypeName}? WrappedObject;");
+        sb.AppendLine($"        private readonly {baseTypeName}? wrappedObject;");
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
@@ -224,13 +224,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        private {targetName}({baseTypeName}? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedObject = obj;");
+        sb.AppendLine($"            wrappedObject = obj;");
         sb.AppendLine($"        }}");
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
             sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
-            sb.AppendLine($"            => {property.Name}Func(WrappedObject);");
+            sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
         sb.AppendLine();
         sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
@@ -246,13 +246,13 @@ internal class Writer
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        public {baseTypeName}? Unwrap()");
-        sb.AppendLine($"            => WrappedObject;");
+        sb.AppendLine($"            => wrappedObject;");
         foreach (var method in instanceMethods)
         {
             var index = instanceMethods.IndexOf(method);
             sb.AppendLine();
             sb.AppendLine($"        public readonly {(method.ReturnType != typeof(void) ? GetTypeDeclText(method.ReturnType, typeDefs) : "void")} {method.Name}({GetParametersDeclText(method.GetParameters(), typeDefs)})");
-            sb.AppendLine($"            => {method.Name}Func{index}(WrappedObject, {string.Join(", ", method.GetParameters().Select(x => x.Name))});");
+            sb.AppendLine($"            => {method.Name}Func{index}(wrappedObject, {string.Join(", ", method.GetParameters().Select(x => x.Name))});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
