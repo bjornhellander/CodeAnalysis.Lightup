@@ -16,6 +16,8 @@ internal class Writer
     {
         [AssemblyKind.Common] = "Roslyn.CodeAnalysis.Lightup.Common",
         [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.CSharp",
+        [AssemblyKind.Workspaces] = "Roslyn.CodeAnalysis.Lightup.Workspaces.Common",
+        [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
     // TODO: Handle these types
@@ -30,8 +32,10 @@ internal class Writer
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
     {
-        Write(typeDefs, rootPath, AssemblyKind.Common);
-        Write(typeDefs, rootPath, AssemblyKind.CSharp);
+        foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
+        {
+            Write(typeDefs, rootPath, assemblyKind);
+        }
     }
 
     private static void Write(

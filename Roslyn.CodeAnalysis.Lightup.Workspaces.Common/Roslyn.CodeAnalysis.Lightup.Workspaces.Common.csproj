@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackageId>Roslyn.CodeAnalysis.Lightup.CSharp.Workspace</PackageId>
+		<PackageId>Roslyn.CodeAnalysis.Lightup.Workspaces.Common</PackageId>
 		<PackageVersion>1.0.0.0</PackageVersion>
 		<Authors>Björn Hellander</Authors>
 		<PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
@@ -16,7 +16,7 @@
 		<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
 		<RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Description>Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces</Description>
+		<Description>Roslyn.CodeAnalysis.Lightup.Workspaces.Common</Description>
 		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
 		<Copyright>Copyright</Copyright>
 		<PackageTags>Roslyn, code analysis</PackageTags>
@@ -25,7 +25,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.0.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.0.0" />
 	</ItemGroup>
 
 </Project>
