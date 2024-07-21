@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		nuget.config = nuget.config
 		README.md = README.md
+		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.CSharp", "Roslyn.CodeAnalysis.Lightup.CSharp\Roslyn.CodeAnalysis.Lightup.CSharp.csproj", "{463C8FC6-7EB3-4697-BBCF-16E1912DEF71}"
