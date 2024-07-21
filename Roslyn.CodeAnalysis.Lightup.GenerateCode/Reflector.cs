@@ -66,7 +66,7 @@ internal class Reflector
 
             if (!typeDefs.TryGetValue(name, out var typeDef))
             {
-                typeDef = CreateEmptyTypeDefinition(type, isBaselineVersion ? null : assemblyVersion, assemblyKind);
+                typeDef = CreateEmptyTypeDefinition(assemblyKind, isBaselineVersion ? null : assemblyVersion, type);
                 if (typeDef == null)
                 {
                     continue;
@@ -90,15 +90,18 @@ internal class Reflector
         }
     }
 
-    private static TypeDefinition? CreateEmptyTypeDefinition(Type type, Version? version, AssemblyKind assemblyKind)
+    private static TypeDefinition? CreateEmptyTypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? version,
+        Type type)
     {
         if (type.IsEnum)
         {
-            return new EnumTypeDefinition(assemblyKind, version, type.Name, type);
+            return CreateEmptyEnumTypeDefinition(assemblyKind, version, type);
         }
         else if (type.IsClass)
         {
-            return new ClassTypeDefinition(assemblyKind, version, type.Name, type, IsStaticType(type));
+            return CreateEmptyClassTypeDefinition(assemblyKind, version, type);
         }
         else if (type.IsValueType)
         {
@@ -117,10 +120,45 @@ internal class Reflector
         }
     }
 
+    private static EnumTypeDefinition CreateEmptyEnumTypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? version,
+        Type type)
+    {
+        var underlyingTypeName = type.GetEnumUnderlyingType().FullName;
+        Assert.IsTrue(underlyingTypeName != null, "Could not get enum's underlying type");
+
+        var isFlagsEnum = type.GetCustomAttribute<FlagsAttribute>() != null;
+
+        return new EnumTypeDefinition(
+            assemblyKind,
+            version,
+            type.Name,
+            type.Namespace!,
+            type.FullName!,
+            underlyingTypeName,
+            isFlagsEnum);
+    }
+
+    private static ClassTypeDefinition CreateEmptyClassTypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? version,
+        Type type)
+    {
+        var baseClassRef = type.BaseType != null ? CreateTypeReference(type.BaseType) : null;
+
+        return new ClassTypeDefinition(
+            assemblyKind,
+            version,
+            type.Name,
+            type.Namespace!,
+            type.FullName!,
+            baseClassRef,
+            IsStaticType(type));
+    }
+
     private static void UpdateEnumType(EnumTypeDefinition enumTypeDef, Type type, Version? version)
     {
-        enumTypeDef.Type = type;
-
         var fields = type.GetFields().Where(x => x.IsStatic && x.IsPublic);
         foreach (var field in fields)
         {
@@ -142,7 +180,14 @@ internal class Reflector
 
     private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
     {
-        classTypeDef.Type = type;
+        // TODO: Check which members are actually new
+        var propertyDefs = CreatePropertyDefinitions(type);
+        classTypeDef.Properties.Clear();
+        classTypeDef.Properties.AddRange(propertyDefs);
+
+        var methodDefs = CreateMethodDefinitions(type);
+        classTypeDef.Methods.Clear();
+        classTypeDef.Methods.AddRange(methodDefs);
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
@@ -151,5 +196,163 @@ internal class Reflector
     {
         var result = type.IsAbstract && type.IsSealed;
         return result;
+    }
+
+    private static List<PropertyDefinition> CreatePropertyDefinitions(Type type)
+    {
+        var properties = type
+            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
+            .OfType<PropertyInfo>()
+            .OrderBy(x => x.Name)
+            .ToList();
+        var result = properties.Select(CreatePropertyDefinition).ToList();
+        return result;
+    }
+
+    private static PropertyDefinition CreatePropertyDefinition(PropertyInfo property)
+    {
+        var typeRef = CreateTypeReference(property.PropertyType);
+
+        var nullabilityInfo = new NullabilityInfoContext().Create(property);
+        var isNullable = nullabilityInfo.ReadState != NullabilityState.NotNull;
+
+        var accessor = property.GetMethod;
+        Assert.IsTrue(accessor != null, "");
+
+        var result = new PropertyDefinition(
+            property.Name,
+            typeRef,
+            isNullable,
+            accessor.IsStatic);
+        return result;
+    }
+
+    private static List<MethodDefinition> CreateMethodDefinitions(Type type)
+    {
+        // TODO: Handle generic methods
+        var methods = type
+            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
+            .OfType<MethodInfo>()
+            .Where(x => !x.Attributes.HasFlag(MethodAttributes.SpecialName))
+            .Where(x => !x.IsGenericMethod)
+            .OrderBy(x => x.Name).ThenBy(x => x.GetParameters().Length)
+            .ToList();
+        var result = methods.Select(CreateMethodDefinition).ToList();
+        return result;
+    }
+
+    private static MethodDefinition CreateMethodDefinition(MethodInfo method)
+    {
+        var returnTypeRef = method.ReturnType != typeof(void) ? CreateTypeReference(method.ReturnType) : null;
+
+        var parameters = method.GetParameters();
+        var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
+
+        var result = new MethodDefinition(
+            method.Name,
+            method.IsStatic,
+            returnTypeRef,
+            parameterDefs);
+        return result;
+    }
+
+    private static ParameterDefinition CreateParameterDefinitions(ParameterInfo parameter)
+    {
+        var name = parameter.Name;
+        Assert.IsTrue(name != null, "Could not get parameter name");
+
+        GetParameterModeAndProperType(parameter, out var parameterMode, out var parameterType);
+
+        var typeRef = CreateTypeReference(parameterType);
+
+        var nullabilityInfoContext = new NullabilityInfoContext();
+        var nullabilityInfo = nullabilityInfoContext.Create(parameter);
+        var isNullable = nullabilityInfo.WriteState != NullabilityState.NotNull;
+
+        return new ParameterDefinition(
+            name,
+            typeRef,
+            isNullable,
+            parameterMode);
+    }
+
+    private static void GetParameterModeAndProperType(
+        ParameterInfo parameter,
+        out ParameterMode parameterMode,
+        out Type parameterType)
+    {
+        switch ((parameter.ParameterType.IsByRef, parameter.IsIn, parameter.IsOut, parameter.IsRetval))
+        {
+            case (false, false, false, false):
+                parameterMode = ParameterMode.None;
+                parameterType = parameter.ParameterType;
+                return;
+
+            case (true, true, false, false):
+                parameterMode = ParameterMode.In;
+                break;
+
+            case (true, false, true, false):
+                parameterMode = ParameterMode.Out;
+                break;
+
+            default:
+                Assert.Fail("Unexpected parameter mode");
+                parameterMode = ParameterMode.None;
+                parameterType = parameter.ParameterType;
+                return;
+        }
+
+        var properType = parameter.ParameterType.GetElementType();
+        Assert.IsTrue(properType != null, "Could not get parameter's proper type");
+        parameterType = properType;
+    }
+
+    private static TypeReference CreateTypeReference(Type type)
+    {
+        if (type.IsByRef)
+        {
+            Assert.Fail("Unexpected by ref type");
+        }
+
+        if (type.IsGenericParameter)
+        {
+            return new GenericTypeParameterReference(type.Name);
+        }
+        else if (type.IsArray)
+        {
+            var elementType = type.GetElementType();
+            Assert.IsTrue(elementType != null, "Could not get array's element type");
+            var elementTypeRef = CreateTypeReference(elementType);
+
+            return new ArrayTypeReference(elementTypeRef);
+        }
+        else if (type.IsGenericType && !type.IsGenericTypeDefinition)
+        {
+            var originalType = type.GetGenericTypeDefinition();
+            var originalTypeRef = CreateTypeReference(originalType);
+
+            var typeName = type.Name.Substring(0, type.Name.IndexOf('`'));
+
+            var typeArgumentsRefs = type.GenericTypeArguments.Select(CreateTypeReference).ToList();
+
+            return new GenericTypeReference(originalTypeRef, typeArgumentsRefs);
+        }
+        else if (type.IsGenericType)
+        {
+            var typeName = type.Name.Substring(0, type.Name.IndexOf('`'));
+
+            var fullTypeName = type.FullName;
+            Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
+
+            return new NamedTypeReference(typeName, fullTypeName);
+        }
+        else
+        {
+            var fullTypeName = type.FullName;
+            Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
+
+            return new NamedTypeReference(type.Name, fullTypeName);
+        }
     }
 }

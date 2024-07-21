@@ -4,12 +4,18 @@ using System;
 
 internal abstract class TypeDefinition
 {
-    protected TypeDefinition(AssemblyKind assemblyKind, Version? assemblyVersion, string name, Type type)
+    protected TypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? assemblyVersion,
+        string name,
+        string @namespace,
+        string fullName)
     {
         AssemblyKind = assemblyKind;
         AssemblyVersion = assemblyVersion;
         Name = name;
-        Type = type;
+        Namespace = @namespace;
+        FullName = fullName;
     }
 
     public AssemblyKind AssemblyKind { get; }
@@ -18,5 +24,7 @@ internal abstract class TypeDefinition
 
     public string Name { get; }
 
-    public Type Type { get; set; }
+    public string Namespace { get; }
+
+    public string FullName { get; }
 }
