@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Testing;
 public static partial class CSharpCodeRefactoringVerifier<TCodeRefactoring>
     where TCodeRefactoring : CodeRefactoringProvider, new()
 {
-    public class Test : CSharpCodeRefactoringTest<TCodeRefactoring, DefaultVerifier>
+    internal class Test : CSharpCodeRefactoringTest<TCodeRefactoring, DefaultVerifier>
     {
         public Test()
         {

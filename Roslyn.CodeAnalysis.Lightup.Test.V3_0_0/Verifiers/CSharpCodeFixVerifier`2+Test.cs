@@ -9,7 +9,7 @@ public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
     where TAnalyzer : DiagnosticAnalyzer, new()
     where TCodeFix : CodeFixProvider, new()
 {
-    public class Test : CSharpCodeFixTest<TAnalyzer, TCodeFix, DefaultVerifier>
+    internal class Test : CSharpCodeFixTest<TAnalyzer, TCodeFix, DefaultVerifier>
     {
         public Test()
         {
