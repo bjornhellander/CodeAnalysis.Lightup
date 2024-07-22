@@ -214,8 +214,9 @@ internal class Reflector
         var typeRef = CreateTypeReference(property.PropertyType);
 
         var nullabilityInfo = new NullabilityInfoContext().Create(property);
-        var isNullable = nullabilityInfo.ReadState != NullabilityState.NotNull;
+        var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
 
+        // TODO: Handle setter as well
         var accessor = property.GetMethod;
         Assert.IsTrue(accessor != null, "");
 
@@ -243,6 +244,7 @@ internal class Reflector
 
     private static MethodDefinition CreateMethodDefinition(MethodInfo method)
     {
+        // TODO: Check nullability for return type
         var returnTypeRef = method.ReturnType != typeof(void) ? CreateTypeReference(method.ReturnType) : null;
 
         var parameters = method.GetParameters();
@@ -267,7 +269,7 @@ internal class Reflector
 
         var nullabilityInfoContext = new NullabilityInfoContext();
         var nullabilityInfo = nullabilityInfoContext.Create(parameter);
-        var isNullable = nullabilityInfo.WriteState != NullabilityState.NotNull;
+        var isNullable = !parameterType.IsValueType && nullabilityInfo.WriteState != NullabilityState.NotNull;
 
         return new ParameterDefinition(
             name,
