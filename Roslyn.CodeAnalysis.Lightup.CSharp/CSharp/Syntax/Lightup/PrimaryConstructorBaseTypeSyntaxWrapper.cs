@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.PrimaryConstructorBaseTypeSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<BaseTypeSyntax?, ArgumentListSyntax> ArgumentListFunc;
         private static readonly Func<BaseTypeSyntax?, TypeSyntax> TypeFunc;
         private static readonly Action<BaseTypeSyntax?, CSharpSyntaxVisitor> AcceptFunc0;

@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken> DefaultKeywordFunc;
         private static readonly Action<TypeParameterConstraintSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper> UpdateFunc1;

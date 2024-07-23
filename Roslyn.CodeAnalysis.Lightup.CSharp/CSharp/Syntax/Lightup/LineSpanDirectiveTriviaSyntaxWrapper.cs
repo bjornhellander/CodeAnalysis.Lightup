@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineSpanDirectiveTriviaSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> CharacterOffsetFunc;
         private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper> EndFunc;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> EndOfDirectiveTokenFunc;

@@ -34,18 +34,16 @@ public class LineSpanDirectiveTriviaSyntaxWrapperTests : V3_8_0.CSharp.LineSpanD
     }
 
     [TestMethod]
-    [Ignore]
     public void TestWithStartGivenCompatibleObject()
     {
         var obj = CreateInstance();
         var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
 
         var newValue = SyntaxFactory.LineDirectivePosition(
-            line: SyntaxFactory.Token(SyntaxKind.NumericLiteralToken),
-            character: SyntaxFactory.Token(SyntaxKind.NumericLiteralToken));
+            line: SyntaxFactory.Literal(123),
+            character: SyntaxFactory.Literal(456));
         var wrapper2 = wrapper.WithStart(LineDirectivePositionSyntaxWrapper.As(newValue));
-
-        Assert.AreSame(newValue, wrapper2.Start.Unwrap());
+        Assert.AreEqual("123", wrapper2.Start.Line.Text);
     }
 
     private static LineSpanDirectiveTriviaSyntax CreateInstance()

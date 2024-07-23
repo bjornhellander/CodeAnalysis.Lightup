@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<CSharpSyntaxNode?, SyntaxTokenList> ModifiersFunc;
         private static readonly Func<CSharpSyntaxNode?, TypeSyntax> TypeFunc;

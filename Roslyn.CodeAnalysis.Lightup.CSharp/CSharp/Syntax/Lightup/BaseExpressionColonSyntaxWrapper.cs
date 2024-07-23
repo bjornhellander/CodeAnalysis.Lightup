@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionColonSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken> ColonTokenFunc;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper> WithColonTokenFunc0;

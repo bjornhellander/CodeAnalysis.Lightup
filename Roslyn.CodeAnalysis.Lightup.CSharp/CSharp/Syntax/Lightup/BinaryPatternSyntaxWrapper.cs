@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BinaryPatternSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<PatternSyntax?, PatternSyntax> LeftFunc;
         private static readonly Func<PatternSyntax?, SyntaxToken> OperatorTokenFunc;
         private static readonly Func<PatternSyntax?, PatternSyntax> RightFunc;

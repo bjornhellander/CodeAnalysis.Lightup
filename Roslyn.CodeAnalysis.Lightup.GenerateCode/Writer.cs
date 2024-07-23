@@ -200,7 +200,7 @@ internal class Writer
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly Type? WrappedType;");
+        sb.AppendLine($"        public static readonly Type? WrappedType;");
         foreach (var property in instanceProperties)
         {
             var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName, typeDefs);

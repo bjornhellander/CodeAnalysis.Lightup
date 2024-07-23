@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<PatternSyntax?, SyntaxToken> OperatorTokenFunc;
         private static readonly Func<PatternSyntax?, PatternSyntax> PatternFunc;
         private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;

@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<PatternSyntax?, SyntaxToken> CloseBracketTokenFunc;
         private static readonly Func<PatternSyntax?, VariableDesignationSyntax?> DesignationFunc;
         private static readonly Func<PatternSyntax?, SyntaxToken> OpenBracketTokenFunc;

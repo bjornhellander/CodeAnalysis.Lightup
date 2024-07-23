@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.WithExpressionSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<ExpressionSyntax?, ExpressionSyntax> ExpressionFunc;
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax> InitializerFunc;
         private static readonly Func<ExpressionSyntax?, SyntaxToken> WithKeywordFunc;

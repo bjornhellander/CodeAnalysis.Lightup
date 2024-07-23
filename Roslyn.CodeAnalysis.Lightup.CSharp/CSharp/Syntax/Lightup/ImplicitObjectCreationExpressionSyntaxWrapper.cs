@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ImplicitObjectCreationExpressionSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<ExpressionSyntax?, ArgumentListSyntax> ArgumentListFunc;
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax?> InitializerFunc;
         private static readonly Func<ExpressionSyntax?, SyntaxToken> NewKeywordFunc;

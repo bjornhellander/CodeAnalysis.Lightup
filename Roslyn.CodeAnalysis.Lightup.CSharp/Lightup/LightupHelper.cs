@@ -89,7 +89,7 @@
 
             var type1 = typeof(T1);
             var paramTypes = new[] { type1 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -100,8 +100,10 @@
             var objParameter = Expression.Parameter(typeof(TObject), "obj");
             var arg1Parameter = Expression.Parameter(type1, "arg1");
 
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, TResult>>(wrappedReturnValue, objParameter, arg1Parameter);
@@ -123,9 +125,8 @@
 
             var type1 = typeof(T1);
             var type2 = typeof(T2);
-            var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -138,7 +139,10 @@
             var arg2Parameter = Expression.Parameter(type2, "arg2");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter);
@@ -161,9 +165,8 @@
             var type1 = typeof(T1);
             var type2 = typeof(T2);
             var type3 = typeof(T3);
-            var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2, type3 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -177,7 +180,11 @@
             var arg3Parameter = Expression.Parameter(type3, "arg3");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter);
@@ -201,9 +208,8 @@
             var type2 = typeof(T2);
             var type3 = typeof(T3);
             var type4 = typeof(T4);
-            var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2, type3 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -218,7 +224,12 @@
             var arg4Parameter = Expression.Parameter(type4, "arg4");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter);
@@ -226,6 +237,54 @@
             return func;
 
             static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+            {
+                throw new NullReferenceException();
+            }
+        }
+
+        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
+        {
+            if (wrappedType == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var type1 = typeof(T1);
+            var type2 = typeof(T2);
+            var type3 = typeof(T3);
+            var type4 = typeof(T4);
+            var type5 = typeof(T5);
+            var paramTypes = new[] { type1, type2, type3, type4, type5 };
+            var method = GetMethod(wrappedType, memberName, paramTypes);
+            if (method == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var wrapMethod = typeof(TWrapper).GetMethod("As");
+
+            var objParameter = Expression.Parameter(typeof(TObject), "obj");
+            var arg1Parameter = Expression.Parameter(type1, "arg1");
+            var arg2Parameter = Expression.Parameter(type2, "arg2");
+            var arg3Parameter = Expression.Parameter(type3, "arg3");
+            var arg4Parameter = Expression.Parameter(type4, "arg4");
+            var arg5Parameter = Expression.Parameter(type5, "arg5");
+
+            var instance = Expression.Convert(objParameter, wrappedType);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+            var arg5Value = GetNativeValue<T5>(arg5Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value, arg5Value);
+            var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
+
+            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter);
+            var func = lambda.Compile();
+            return func;
+
+            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
             {
                 throw new NullReferenceException();
             }
@@ -246,9 +305,8 @@
             var type6 = typeof(T6);
             var type7 = typeof(T7);
             var type8 = typeof(T8);
-            var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -267,7 +325,16 @@
             var arg8Parameter = Expression.Parameter(type8, "arg8");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+            var arg5Value = GetNativeValue<T5>(arg5Parameter);
+            var arg6Value = GetNativeValue<T6>(arg6Parameter);
+            var arg7Value = GetNativeValue<T7>(arg7Parameter);
+            var arg8Value = GetNativeValue<T8>(arg8Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value, arg5Value, arg6Value, arg7Value, arg8Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter);
@@ -298,7 +365,7 @@
             var type9 = typeof(T9);
             var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -318,7 +385,17 @@
             var arg9Parameter = Expression.Parameter(type9, "arg9");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+            var arg5Value = GetNativeValue<T5>(arg5Parameter);
+            var arg6Value = GetNativeValue<T6>(arg6Parameter);
+            var arg7Value = GetNativeValue<T7>(arg7Parameter);
+            var arg8Value = GetNativeValue<T8>(arg8Parameter);
+            var arg9Value = GetNativeValue<T9>(arg9Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value, arg5Value, arg6Value, arg7Value, arg8Value, arg9Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter);
@@ -326,49 +403,6 @@
             return func;
 
             static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var type13 = typeof(TResult);
-            var paramTypes = new[] { type1, type2, type3, type4, type5 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var wrapMethod = typeof(TWrapper).GetMethod("As");
-
-            var objParameter = Expression.Parameter(typeof(TObject), "obj");
-            var arg1Parameter = Expression.Parameter(type1, "arg1");
-            var arg2Parameter = Expression.Parameter(type2, "arg2");
-            var arg3Parameter = Expression.Parameter(type3, "arg3");
-            var arg4Parameter = Expression.Parameter(type4, "arg4");
-            var arg5Parameter = Expression.Parameter(type5, "arg5");
-
-            var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter);
-            var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
-
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
             {
                 throw new NullReferenceException();
             }
@@ -393,9 +427,8 @@
             var type10 = typeof(T10);
             var type11 = typeof(T11);
             var type12 = typeof(T12);
-            var type13 = typeof(TResult);
             var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9, type10, type11, type12 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -418,7 +451,20 @@
             var arg12Parameter = Expression.Parameter(type12, "arg12");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter, arg10Parameter, arg11Parameter, arg12Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+            var arg5Value = GetNativeValue<T5>(arg5Parameter);
+            var arg6Value = GetNativeValue<T6>(arg6Parameter);
+            var arg7Value = GetNativeValue<T7>(arg7Parameter);
+            var arg8Value = GetNativeValue<T8>(arg8Parameter);
+            var arg9Value = GetNativeValue<T9>(arg9Parameter);
+            var arg10Value = GetNativeValue<T10>(arg10Parameter);
+            var arg11Value = GetNativeValue<T11>(arg11Parameter);
+            var arg12Value = GetNativeValue<T12>(arg12Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value, arg5Value, arg6Value, arg7Value, arg8Value, arg9Value, arg10Value, arg11Value, arg12Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter, arg10Parameter, arg11Parameter, arg12Parameter);
@@ -452,7 +498,7 @@
             var type12 = typeof(T12);
             var type13 = typeof(T13);
             var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9, type10, type11, type12, type13 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -476,7 +522,21 @@
             var arg13Parameter = Expression.Parameter(type13, "arg13");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter, arg10Parameter, arg11Parameter, arg12Parameter, arg13Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+            var arg2Value = GetNativeValue<T2>(arg2Parameter);
+            var arg3Value = GetNativeValue<T3>(arg3Parameter);
+            var arg4Value = GetNativeValue<T4>(arg4Parameter);
+            var arg5Value = GetNativeValue<T5>(arg5Parameter);
+            var arg6Value = GetNativeValue<T6>(arg6Parameter);
+            var arg7Value = GetNativeValue<T7>(arg7Parameter);
+            var arg8Value = GetNativeValue<T8>(arg8Parameter);
+            var arg9Value = GetNativeValue<T9>(arg9Parameter);
+            var arg10Value = GetNativeValue<T10>(arg10Parameter);
+            var arg11Value = GetNativeValue<T11>(arg11Parameter);
+            var arg12Value = GetNativeValue<T12>(arg12Parameter);
+            var arg13Value = GetNativeValue<T13>(arg13Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value, arg2Value, arg3Value, arg4Value, arg5Value, arg6Value, arg7Value, arg8Value, arg9Value, arg10Value, arg11Value, arg12Value, arg13Value);
             var wrappedReturnValue = Expression.Call(null, wrapMethod, returnValue);
 
             var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>>(wrappedReturnValue, objParameter, arg1Parameter, arg2Parameter, arg3Parameter, arg4Parameter, arg5Parameter, arg6Parameter, arg7Parameter, arg8Parameter, arg9Parameter, arg10Parameter, arg11Parameter, arg12Parameter, arg13Parameter);
@@ -499,7 +559,7 @@
 
             var type1 = typeof(T1);
             var paramTypes = new[] { type1 };
-            var method = wrappedType.GetMethod(memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTypes);
             if (method == null)
             {
                 return FallbackAccessor;
@@ -509,7 +569,9 @@
             var arg1Parameter = Expression.Parameter(type1, "arg1");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var returnValue = Expression.Call(instance, method, arg1Parameter);
+            var arg1Value = GetNativeValue<T1>(arg1Parameter);
+
+            var returnValue = Expression.Call(instance, method, arg1Value);
 
             var lambda = Expression.Lambda<Action<TObject, T1>>(returnValue, objParameter, arg1Parameter);
             var func = lambda.Compile();
@@ -521,19 +583,63 @@
             }
         }
 
-        private static Expression GetPossiblyWrappedValue<TResult>(Expression nativeValue)
+        private static Expression GetPossiblyWrappedValue<T>(Expression input)
         {
-            var resultType = typeof(TResult);
-            var isWrappedType = resultType.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
+            var type = typeof(T);
+            var isWrappedType = IsWrapperType(type);
 
             if (!isWrappedType)
             {
-                return nativeValue;
+                return input;
             }
 
-            var wrapMethod = resultType.GetMethod("As");
-            var wrappedValue = Expression.Call(null, wrapMethod, nativeValue);
+            var wrapMethod = type.GetMethod("As");
+            var wrappedValue = Expression.Call(null, wrapMethod, input);
             return wrappedValue;
+        }
+
+        private static Expression GetNativeValue<T>(Expression input)
+        {
+            var type = typeof(T);
+            var isWrappedType = type.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
+
+            if (!isWrappedType)
+            {
+                return input;
+            }
+
+            var unwrapMethod = type.GetMethod("Unwrap");
+            var unwrappedValue = Expression.Call(input, unwrapMethod);
+
+            var nativeType = GetNativeType(type);
+            var nativeValue = Expression.Convert(unwrappedValue, nativeType);
+            return nativeValue;
+        }
+
+        private static MethodInfo GetMethod(Type wrappedType, string name, Type[] paramTypes)
+        {
+            var nativeParamTypes = paramTypes.Select(GetNativeType).ToArray();
+            var result = wrappedType.GetMethod(name, nativeParamTypes);
+            return result;
+        }
+
+        private static Type GetNativeType(Type input)
+        {
+            var isWrapperType = IsWrapperType(input);
+            if (!isWrapperType)
+            {
+                return input;
+            }
+
+            var field = input.GetField("WrappedType");
+            var nativeType = (Type)field.GetValue(null);
+            return nativeType;
+        }
+
+        private static bool IsWrapperType(Type type)
+        {
+            var result = type.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
+            return result;
         }
     }
 }

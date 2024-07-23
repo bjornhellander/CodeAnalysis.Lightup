@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>> ExternsFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>> MembersFunc;
         private static readonly Func<MemberDeclarationSyntax?, NameSyntax> NameFunc;
