@@ -67,9 +67,9 @@
             var objParameter = Expression.Parameter(typeof(TObject), "obj");
 
             var instance = Expression.Convert(objParameter, wrappedType);
-            var value = Expression.Property(instance, memberName);
-
-            var lambda = Expression.Lambda<Func<TObject, TResult>>(value, objParameter);
+            var propertyValue = Expression.Property(instance, memberName);
+            var possiblyWrappedValue = GetPossiblyWrappedValue<TResult>(propertyValue);
+            var lambda = Expression.Lambda<Func<TObject, TResult>>(possiblyWrappedValue, objParameter);
             var func = lambda.Compile();
             return func;
 
@@ -519,6 +519,21 @@
             {
                 throw new NullReferenceException();
             }
+        }
+
+        private static Expression GetPossiblyWrappedValue<TResult>(Expression nativeValue)
+        {
+            var resultType = typeof(TResult);
+            var isWrappedType = resultType.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
+
+            if (!isWrappedType)
+            {
+                return nativeValue;
+            }
+
+            var wrapMethod = resultType.GetMethod("As");
+            var wrappedValue = Expression.Call(null, wrapMethod, nativeValue);
+            return wrappedValue;
         }
     }
 }

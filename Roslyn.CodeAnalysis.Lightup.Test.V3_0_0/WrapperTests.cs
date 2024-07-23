@@ -12,8 +12,8 @@ public class WrapperTests
     // TODO: Add type from Workspaces.Common
     // TODO: Add type from CSharp.Workspaces
     [TestMethod]
-    [DataRow(typeof(OperationKindEx))] // From Common
-    [DataRow(typeof(SyntaxKindEx))] // From CSharp
+    [DataRow(typeof(OperationKindEx))] // From the Common project
+    [DataRow(typeof(SyntaxKindEx))] // From the CSharp project
     public void TestStaticConstructor(Type exampleType)
     {
         var dummyObj = new object();
