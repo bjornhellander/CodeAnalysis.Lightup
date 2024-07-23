@@ -23,9 +23,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
             NameFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(Name));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<FunctionPointerUnmanagedCallingConventionSyntaxWrapper, CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<FunctionPointerUnmanagedCallingConventionSyntaxWrapper, CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(Update));
-            WithNameFunc2 = LightupHelper.CreateMethodAccessor<FunctionPointerUnmanagedCallingConventionSyntaxWrapper, CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(WithName));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(Update));
+            WithNameFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(WithName));
         }
 
         private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)

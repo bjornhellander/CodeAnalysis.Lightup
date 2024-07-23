@@ -80,7 +80,7 @@
             }
         }
 
-        internal static Func<TObject, T1, TResult> CreateMethodAccessor<TWrapper, TObject, T1, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -107,7 +107,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -135,7 +135,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -164,7 +164,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -194,7 +194,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -225,7 +225,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -259,7 +259,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -295,7 +295,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -333,7 +333,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TWrapper, TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
+        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -372,8 +372,7 @@
             }
         }
 
-        // NOTE: TWrapper is unused, but leaving it to make code generation more uniform
-        internal static Action<TObject, T1> CreateVoidMethodAccessor<TWrapper, TObject, T1>(Type? wrappedType, string memberName)
+        internal static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {

@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
             ColonTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
             ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ExpressionColonSyntaxWrapper, CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<ExpressionColonSyntaxWrapper, CSharpSyntaxNode?, ExpressionSyntax, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(Update));
-            WithColonTokenFunc2 = LightupHelper.CreateMethodAccessor<ExpressionColonSyntaxWrapper, CSharpSyntaxNode?, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc3 = LightupHelper.CreateMethodAccessor<ExpressionColonSyntaxWrapper, CSharpSyntaxNode?, ExpressionSyntax, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(Update));
+            WithColonTokenFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
+            WithExpressionFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
         }
 
         private ExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

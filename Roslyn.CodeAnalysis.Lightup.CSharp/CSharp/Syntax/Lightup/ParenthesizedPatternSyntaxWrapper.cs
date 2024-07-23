@@ -29,11 +29,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             CloseParenTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(CloseParenToken));
             OpenParenTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OpenParenToken));
             PatternFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Pattern));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ParenthesizedPatternSyntaxWrapper, PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<ParenthesizedPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, PatternSyntax, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithCloseParenTokenFunc2 = LightupHelper.CreateMethodAccessor<ParenthesizedPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithCloseParenToken));
-            WithOpenParenTokenFunc3 = LightupHelper.CreateMethodAccessor<ParenthesizedPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithOpenParenToken));
-            WithPatternFunc4 = LightupHelper.CreateMethodAccessor<ParenthesizedPatternSyntaxWrapper, PatternSyntax?, PatternSyntax, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, PatternSyntax, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithCloseParenTokenFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithCloseParenToken));
+            WithOpenParenTokenFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithOpenParenToken));
+            WithPatternFunc4 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
         }
 
         private ParenthesizedPatternSyntaxWrapper(PatternSyntax? obj)

@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
             FileFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(File));
             LineKeywordFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
-            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<LineOrSpanDirectiveTriviaSyntaxWrapper, DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
-            WithFileFunc1 = LightupHelper.CreateMethodAccessor<LineOrSpanDirectiveTriviaSyntaxWrapper, DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
-            WithHashTokenFunc2 = LightupHelper.CreateMethodAccessor<LineOrSpanDirectiveTriviaSyntaxWrapper, DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
-            WithLineKeywordFunc3 = LightupHelper.CreateMethodAccessor<LineOrSpanDirectiveTriviaSyntaxWrapper, DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
+            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
+            WithFileFunc1 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
+            WithHashTokenFunc2 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
+            WithLineKeywordFunc3 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
         }
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)

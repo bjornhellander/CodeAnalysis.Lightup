@@ -28,10 +28,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ArgumentListFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax?>(WrappedType, nameof(ArgumentList));
             InitializerFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
             NewKeywordFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
-            AddArgumentListArgumentsFunc0 = LightupHelper.CreateMethodAccessor<BaseObjectCreationExpressionSyntaxWrapper, ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
-            WithArgumentListFunc1 = LightupHelper.CreateMethodAccessor<BaseObjectCreationExpressionSyntaxWrapper, ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
-            WithInitializerFunc2 = LightupHelper.CreateMethodAccessor<BaseObjectCreationExpressionSyntaxWrapper, ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
-            WithNewKeywordFunc3 = LightupHelper.CreateMethodAccessor<BaseObjectCreationExpressionSyntaxWrapper, ExpressionSyntax?, SyntaxToken, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
+            AddArgumentListArgumentsFunc0 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
+            WithArgumentListFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
+            WithInitializerFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
+            WithNewKeywordFunc3 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
         }
 
         private BaseObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)

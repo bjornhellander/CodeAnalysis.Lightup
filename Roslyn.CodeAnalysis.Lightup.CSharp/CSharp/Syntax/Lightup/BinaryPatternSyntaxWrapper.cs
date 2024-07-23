@@ -29,11 +29,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             LeftFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Left));
             OperatorTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
             RightFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Right));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<BinaryPatternSyntaxWrapper, PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<BinaryPatternSyntaxWrapper, PatternSyntax?, PatternSyntax, SyntaxToken, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithLeftFunc2 = LightupHelper.CreateMethodAccessor<BinaryPatternSyntaxWrapper, PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithLeft));
-            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<BinaryPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
-            WithRightFunc4 = LightupHelper.CreateMethodAccessor<BinaryPatternSyntaxWrapper, PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithRight));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, SyntaxToken, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithLeftFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithLeft));
+            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
+            WithRightFunc4 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithRight));
         }
 
         private BinaryPatternSyntaxWrapper(PatternSyntax? obj)

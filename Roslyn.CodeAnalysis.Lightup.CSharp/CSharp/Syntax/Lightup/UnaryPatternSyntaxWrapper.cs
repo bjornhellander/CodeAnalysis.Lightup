@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
             OperatorTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
             PatternFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Pattern));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<UnaryPatternSyntaxWrapper, PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UnaryPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, PatternSyntax, UnaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithOperatorTokenFunc2 = LightupHelper.CreateMethodAccessor<UnaryPatternSyntaxWrapper, PatternSyntax?, SyntaxToken, UnaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
-            WithPatternFunc3 = LightupHelper.CreateMethodAccessor<UnaryPatternSyntaxWrapper, PatternSyntax?, PatternSyntax, UnaryPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, PatternSyntax, UnaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithOperatorTokenFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, UnaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
+            WithPatternFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, UnaryPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
         }
 
         private UnaryPatternSyntaxWrapper(PatternSyntax? obj)

@@ -24,8 +24,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
             ColonTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
             ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
-            WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<BaseExpressionColonSyntaxWrapper, CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<BaseExpressionColonSyntaxWrapper, CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
+            WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
         }
 
         private BaseExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

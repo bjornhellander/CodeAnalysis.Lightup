@@ -226,7 +226,7 @@ internal class Writer
         {
             var index = instanceMethods.IndexOf(method);
             var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
