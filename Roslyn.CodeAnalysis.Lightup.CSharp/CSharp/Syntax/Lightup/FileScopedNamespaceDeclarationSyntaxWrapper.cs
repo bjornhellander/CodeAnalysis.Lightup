@@ -12,6 +12,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FileScopedNamespaceDeclarationSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>> ExternsFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>> MembersFunc;
@@ -20,6 +21,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<MemberDeclarationSyntax?, SyntaxToken> NamespaceKeywordFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxToken> SemicolonTokenFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>> UsingsFunc;
+
         private static readonly Action<MemberDeclarationSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<MemberDeclarationSyntax?, AttributeListSyntax[], FileScopedNamespaceDeclarationSyntaxWrapper> AddAttributeListsFunc1;
         private static readonly Func<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], FileScopedNamespaceDeclarationSyntaxWrapper> AddExternsFunc2;
@@ -41,6 +43,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static FileScopedNamespaceDeclarationSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             AttributeListsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
             ExternsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>>(WrappedType, nameof(Externs));
             MembersFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>>(WrappedType, nameof(Members));
@@ -49,6 +52,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(NamespaceKeyword));
             SemicolonTokenFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(SemicolonToken));
             UsingsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>>(WrappedType, nameof(Usings));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<MemberDeclarationSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, AttributeListSyntax[], FileScopedNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
             AddExternsFunc2 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], FileScopedNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddExterns));

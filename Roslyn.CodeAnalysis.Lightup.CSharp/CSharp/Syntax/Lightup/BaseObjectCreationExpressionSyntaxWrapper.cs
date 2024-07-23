@@ -12,9 +12,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<ExpressionSyntax?, ArgumentListSyntax?> ArgumentListFunc;
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax?> InitializerFunc;
         private static readonly Func<ExpressionSyntax?, SyntaxToken> NewKeywordFunc;
+
         private static readonly Func<ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper> AddArgumentListArgumentsFunc0;
         private static readonly Func<ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper> WithArgumentListFunc1;
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper> WithInitializerFunc2;
@@ -25,9 +27,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static BaseObjectCreationExpressionSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ArgumentListFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax?>(WrappedType, nameof(ArgumentList));
             InitializerFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
             NewKeywordFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
+
             AddArgumentListArgumentsFunc0 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
             WithArgumentListFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
             WithInitializerFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));

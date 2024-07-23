@@ -12,9 +12,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<CSharpSyntaxNode?, SyntaxTokenList> ModifiersFunc;
         private static readonly Func<CSharpSyntaxNode?, TypeSyntax> TypeFunc;
+
         private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<CSharpSyntaxNode?, AttributeListSyntax[], FunctionPointerParameterSyntaxWrapper> AddAttributeListsFunc1;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken[], FunctionPointerParameterSyntaxWrapper> AddModifiersFunc2;
@@ -28,9 +30,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static FunctionPointerParameterSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             AttributeListsFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
             ModifiersFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxTokenList>(WrappedType, nameof(Modifiers));
             TypeFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, TypeSyntax>(WrappedType, nameof(Type));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, AttributeListSyntax[], FunctionPointerParameterSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
             AddModifiersFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken[], FunctionPointerParameterSyntaxWrapper>(WrappedType, nameof(AddModifiers));

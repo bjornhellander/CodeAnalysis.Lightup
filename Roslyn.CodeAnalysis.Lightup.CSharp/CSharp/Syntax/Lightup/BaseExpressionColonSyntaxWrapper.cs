@@ -12,8 +12,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionColonSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken> ColonTokenFunc;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
+
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper> WithColonTokenFunc0;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper> WithExpressionFunc1;
 
@@ -22,8 +24,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static BaseExpressionColonSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ColonTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
             ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
+
             WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
             WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
         }

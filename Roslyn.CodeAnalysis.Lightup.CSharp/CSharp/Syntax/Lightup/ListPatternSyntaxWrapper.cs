@@ -12,10 +12,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<PatternSyntax?, SyntaxToken> CloseBracketTokenFunc;
         private static readonly Func<PatternSyntax?, VariableDesignationSyntax?> DesignationFunc;
         private static readonly Func<PatternSyntax?, SyntaxToken> OpenBracketTokenFunc;
         private static readonly Func<PatternSyntax?, SeparatedSyntaxList<PatternSyntax>> PatternsFunc;
+
         private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<PatternSyntax?, PatternSyntax[], ListPatternSyntaxWrapper> AddPatternsFunc1;
         private static readonly Func<PatternSyntax?, SyntaxToken, SeparatedSyntaxList<PatternSyntax>, SyntaxToken, VariableDesignationSyntax?, ListPatternSyntaxWrapper> UpdateFunc2;
@@ -29,10 +31,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static ListPatternSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(CloseBracketToken));
             DesignationFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, VariableDesignationSyntax?>(WrappedType, nameof(Designation));
             OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OpenBracketToken));
             PatternsFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SeparatedSyntaxList<PatternSyntax>>(WrappedType, nameof(Patterns));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             AddPatternsFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax[], ListPatternSyntaxWrapper>(WrappedType, nameof(AddPatterns));
             UpdateFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, SeparatedSyntaxList<PatternSyntax>, SyntaxToken, VariableDesignationSyntax?, ListPatternSyntaxWrapper>(WrappedType, nameof(Update));

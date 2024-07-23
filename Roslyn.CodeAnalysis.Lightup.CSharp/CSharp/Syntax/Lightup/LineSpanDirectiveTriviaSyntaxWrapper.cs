@@ -12,6 +12,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineSpanDirectiveTriviaSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> CharacterOffsetFunc;
         private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper> EndFunc;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> EndOfDirectiveTokenFunc;
@@ -21,6 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> LineKeywordFunc;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> MinusTokenFunc;
         private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper> StartFunc;
+
         private static readonly Action<DirectiveTriviaSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, SyntaxToken, SyntaxToken, Boolean, LineSpanDirectiveTriviaSyntaxWrapper> UpdateFunc1;
         private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithCharacterOffsetFunc2;
@@ -38,6 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static LineSpanDirectiveTriviaSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             CharacterOffsetFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(CharacterOffset));
             EndFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper>(WrappedType, nameof(End));
             EndOfDirectiveTokenFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(EndOfDirectiveToken));
@@ -47,6 +50,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             LineKeywordFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
             MinusTokenFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(MinusToken));
             StartFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper>(WrappedType, nameof(Start));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<DirectiveTriviaSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, SyntaxToken, SyntaxToken, Boolean, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(Update));
             WithCharacterOffsetFunc2 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithCharacterOffset));

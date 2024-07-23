@@ -12,11 +12,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>> ExternsFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>> MembersFunc;
         private static readonly Func<MemberDeclarationSyntax?, NameSyntax> NameFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxToken> NamespaceKeywordFunc;
         private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>> UsingsFunc;
+
         private static readonly Func<MemberDeclarationSyntax?, AttributeListSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddAttributeListsFunc0;
         private static readonly Func<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddExternsFunc1;
         private static readonly Func<MemberDeclarationSyntax?, MemberDeclarationSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddMembersFunc2;
@@ -35,11 +37,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static BaseNamespaceDeclarationSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ExternsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>>(WrappedType, nameof(Externs));
             MembersFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>>(WrappedType, nameof(Members));
             NameFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, NameSyntax>(WrappedType, nameof(Name));
             NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(NamespaceKeyword));
             UsingsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>>(WrappedType, nameof(Usings));
+
             AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, AttributeListSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
             AddExternsFunc1 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddExterns));
             AddMembersFunc2 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, MemberDeclarationSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddMembers));

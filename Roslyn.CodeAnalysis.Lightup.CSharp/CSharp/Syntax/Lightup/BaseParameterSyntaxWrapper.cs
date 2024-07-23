@@ -12,9 +12,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<CSharpSyntaxNode?, SyntaxTokenList> ModifiersFunc;
         private static readonly Func<CSharpSyntaxNode?, TypeSyntax?> TypeFunc;
+
         private static readonly Func<CSharpSyntaxNode?, AttributeListSyntax[], BaseParameterSyntaxWrapper> AddAttributeListsFunc0;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken[], BaseParameterSyntaxWrapper> AddModifiersFunc1;
         private static readonly Func<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>, BaseParameterSyntaxWrapper> WithAttributeListsFunc2;
@@ -26,9 +28,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static BaseParameterSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             AttributeListsFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
             ModifiersFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxTokenList>(WrappedType, nameof(Modifiers));
             TypeFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, TypeSyntax?>(WrappedType, nameof(Type));
+
             AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, AttributeListSyntax[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
             AddModifiersFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddModifiers));
             WithAttributeListsFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));

@@ -12,8 +12,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SpreadElementSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken> OperatorTokenFunc;
+
         private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, ExpressionSyntax, SpreadElementSyntaxWrapper> UpdateFunc1;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, SpreadElementSyntaxWrapper> WithExpressionFunc2;
@@ -24,8 +26,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static SpreadElementSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
             OperatorTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(OperatorToken));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(Update));
             WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(WithExpression));

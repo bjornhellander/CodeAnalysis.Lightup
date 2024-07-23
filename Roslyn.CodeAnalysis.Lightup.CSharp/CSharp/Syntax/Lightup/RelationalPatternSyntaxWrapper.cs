@@ -12,8 +12,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RelationalPatternSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<PatternSyntax?, ExpressionSyntax> ExpressionFunc;
         private static readonly Func<PatternSyntax?, SyntaxToken> OperatorTokenFunc;
+
         private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<PatternSyntax?, SyntaxToken, ExpressionSyntax, RelationalPatternSyntaxWrapper> UpdateFunc1;
         private static readonly Func<PatternSyntax?, ExpressionSyntax, RelationalPatternSyntaxWrapper> WithExpressionFunc2;
@@ -24,8 +26,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static RelationalPatternSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ExpressionFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, ExpressionSyntax>(WrappedType, nameof(Expression));
             OperatorTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ExpressionSyntax, RelationalPatternSyntaxWrapper>(WrappedType, nameof(Update));
             WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, ExpressionSyntax, RelationalPatternSyntaxWrapper>(WrappedType, nameof(WithExpression));

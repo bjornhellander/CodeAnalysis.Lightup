@@ -12,7 +12,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken> NameFunc;
+
         private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper> UpdateFunc1;
         private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper> WithNameFunc2;
@@ -22,7 +24,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static FunctionPointerUnmanagedCallingConventionSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             NameFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(Name));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(Update));
             WithNameFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionSyntaxWrapper>(WrappedType, nameof(WithName));

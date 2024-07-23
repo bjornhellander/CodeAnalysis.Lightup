@@ -12,9 +12,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.WithExpressionSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<ExpressionSyntax?, ExpressionSyntax> ExpressionFunc;
         private static readonly Func<ExpressionSyntax?, InitializerExpressionSyntax> InitializerFunc;
         private static readonly Func<ExpressionSyntax?, SyntaxToken> WithKeywordFunc;
+
         private static readonly Action<ExpressionSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<ExpressionSyntax?, ExpressionSyntax[], WithExpressionSyntaxWrapper> AddInitializerExpressionsFunc1;
         private static readonly Func<ExpressionSyntax?, ExpressionSyntax, SyntaxToken, InitializerExpressionSyntax, WithExpressionSyntaxWrapper> UpdateFunc2;
@@ -27,9 +29,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static WithExpressionSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, ExpressionSyntax>(WrappedType, nameof(Expression));
             InitializerFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax>(WrappedType, nameof(Initializer));
             WithKeywordFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(WithKeyword));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ExpressionSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             AddInitializerExpressionsFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ExpressionSyntax[], WithExpressionSyntaxWrapper>(WrappedType, nameof(AddInitializerExpressions));
             UpdateFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ExpressionSyntax, SyntaxToken, InitializerExpressionSyntax, WithExpressionSyntaxWrapper>(WrappedType, nameof(Update));

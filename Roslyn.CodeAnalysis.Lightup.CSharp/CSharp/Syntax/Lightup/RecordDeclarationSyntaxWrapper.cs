@@ -12,6 +12,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax";
 
         public static readonly Type? WrappedType;
+
         private static readonly Func<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<TypeDeclarationSyntax?, BaseListSyntax?> BaseListFunc;
         private static readonly Func<TypeDeclarationSyntax?, SyntaxToken> ClassOrStructKeywordFunc;
@@ -25,6 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<TypeDeclarationSyntax?, ParameterListSyntax?> ParameterListFunc;
         private static readonly Func<TypeDeclarationSyntax?, SyntaxToken> SemicolonTokenFunc;
         private static readonly Func<TypeDeclarationSyntax?, TypeParameterListSyntax?> TypeParameterListFunc;
+
         private static readonly Action<TypeDeclarationSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<TypeDeclarationSyntax?, AttributeListSyntax[], RecordDeclarationSyntaxWrapper> AddAttributeListsFunc1;
         private static readonly Func<TypeDeclarationSyntax?, BaseTypeSyntax[], RecordDeclarationSyntaxWrapper> AddBaseListTypesFunc2;
@@ -54,6 +56,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static RecordDeclarationSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             AttributeListsFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
             BaseListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, BaseListSyntax?>(WrappedType, nameof(BaseList));
             ClassOrStructKeywordFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(ClassOrStructKeyword));
@@ -67,6 +70,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ParameterListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, ParameterListSyntax?>(WrappedType, nameof(ParameterList));
             SemicolonTokenFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(SemicolonToken));
             TypeParameterListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, TypeParameterListSyntax?>(WrappedType, nameof(TypeParameterList));
+
             AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeDeclarationSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, AttributeListSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
             AddBaseListTypesFunc2 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, BaseTypeSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddBaseListTypes));
