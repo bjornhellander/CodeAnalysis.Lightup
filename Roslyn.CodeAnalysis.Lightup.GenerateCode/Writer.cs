@@ -201,7 +201,7 @@ internal class Writer
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
         sb.AppendLine($"        public static readonly Type? WrappedType;");
-        if (instanceMethods.Any())
+        if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
@@ -210,7 +210,7 @@ internal class Writer
                 sb.AppendLine($"        private static readonly {funcDeclText} {property.Name}Func;");
             }
         }
-        if (instanceMethods.Any())
+        if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
             foreach (var method in instanceMethods)
@@ -226,7 +226,7 @@ internal class Writer
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);");
-        if (instanceProperties.Any())
+        if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
@@ -234,7 +234,7 @@ internal class Writer
                 sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
             }
         }
-        if (instanceMethods.Any())
+        if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
             foreach (var method in instanceMethods)

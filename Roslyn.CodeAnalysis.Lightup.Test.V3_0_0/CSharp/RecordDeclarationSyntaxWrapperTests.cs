@@ -49,6 +49,15 @@ public class RecordDeclarationSyntaxWrapperTests
     }
 
     [TestMethod]
+    public void TestUpdateGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var visitor = new TestVisitor();
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Accept(visitor));
+    }
+
+    [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();

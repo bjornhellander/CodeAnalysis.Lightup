@@ -7,6 +7,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 [TestClass]
 public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
@@ -67,11 +68,21 @@ public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarati
     }
 
     [TestMethod]
-    public virtual void TestClassOrStructGivenCompatibleInstanceKeyword()
+    public virtual void TestClassOrStructKeywordGivenCompatibleObject()
     {
         var obj = CreateInstance();
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.ClassOrStructKeyword);
+    }
+
+    [TestMethod]
+    public void TestUpdateGivenCompatibleObject()
+    {
+        var obj = CreateInstance();
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var visitor = new TestVisitor();
+        wrapper.Accept(visitor);
+        Assert.AreEqual(1, visitor.VisitCount);
     }
 
     protected virtual RecordDeclarationSyntax CreateInstance()

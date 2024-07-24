@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class RecordDeclarationSyntaxWrapperTests : V3_8_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
-    public override void TestClassOrStructGivenCompatibleInstanceKeyword()
+    public override void TestClassOrStructKeywordGivenCompatibleObject()
     {
         var obj = base.CreateInstance();
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
