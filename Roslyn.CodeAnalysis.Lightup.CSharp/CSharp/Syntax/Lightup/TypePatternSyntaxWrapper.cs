@@ -11,8 +11,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypePatternSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<PatternSyntax?, TypeSyntax> TypeFunc;
+
         private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> UpdateFunc1;
         private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> WithTypeFunc2;
@@ -22,10 +24,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static TypePatternSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             TypeFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, TypeSyntax>(WrappedType, nameof(Type));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypePatternSyntaxWrapper, PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<TypePatternSyntaxWrapper, PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithTypeFunc2 = LightupHelper.CreateMethodAccessor<TypePatternSyntaxWrapper, PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(WithType));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithTypeFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(WithType));
         }
 
         private TypePatternSyntaxWrapper(PatternSyntax? obj)

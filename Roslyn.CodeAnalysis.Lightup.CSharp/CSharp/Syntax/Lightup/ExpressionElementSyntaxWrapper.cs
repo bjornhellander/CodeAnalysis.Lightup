@@ -11,8 +11,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionElementSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
+
         private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> UpdateFunc1;
         private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> WithExpressionFunc2;
@@ -22,10 +24,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static ExpressionElementSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ExpressionElementSyntaxWrapper, CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<ExpressionElementSyntaxWrapper, CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<ExpressionElementSyntaxWrapper, CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(WithExpression));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(Update));
+            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(WithExpression));
         }
 
         private ExpressionElementSyntaxWrapper(CSharpSyntaxNode? obj)

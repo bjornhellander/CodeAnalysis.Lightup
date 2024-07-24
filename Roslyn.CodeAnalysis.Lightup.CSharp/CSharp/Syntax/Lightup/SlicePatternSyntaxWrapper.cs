@@ -11,9 +11,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SlicePatternSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<PatternSyntax?, SyntaxToken> DotDotTokenFunc;
         private static readonly Func<PatternSyntax?, PatternSyntax?> PatternFunc;
+
         private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<PatternSyntax?, SyntaxToken, PatternSyntax?, SlicePatternSyntaxWrapper> UpdateFunc1;
         private static readonly Func<PatternSyntax?, SyntaxToken, SlicePatternSyntaxWrapper> WithDotDotTokenFunc2;
@@ -24,12 +26,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static SlicePatternSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             DotDotTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(DotDotToken));
             PatternFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax?>(WrappedType, nameof(Pattern));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<SlicePatternSyntaxWrapper, PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<SlicePatternSyntaxWrapper, PatternSyntax?, SyntaxToken, PatternSyntax?, SlicePatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithDotDotTokenFunc2 = LightupHelper.CreateMethodAccessor<SlicePatternSyntaxWrapper, PatternSyntax?, SyntaxToken, SlicePatternSyntaxWrapper>(WrappedType, nameof(WithDotDotToken));
-            WithPatternFunc3 = LightupHelper.CreateMethodAccessor<SlicePatternSyntaxWrapper, PatternSyntax?, PatternSyntax?, SlicePatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, PatternSyntax?, SlicePatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithDotDotTokenFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, SlicePatternSyntaxWrapper>(WrappedType, nameof(WithDotDotToken));
+            WithPatternFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax?, SlicePatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
         }
 
         private SlicePatternSyntaxWrapper(PatternSyntax? obj)

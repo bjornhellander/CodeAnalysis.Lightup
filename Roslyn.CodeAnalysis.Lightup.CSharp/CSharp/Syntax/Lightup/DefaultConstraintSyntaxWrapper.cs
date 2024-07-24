@@ -11,8 +11,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken> DefaultKeywordFunc;
+
         private static readonly Action<TypeParameterConstraintSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper> UpdateFunc1;
         private static readonly Func<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper> WithDefaultKeywordFunc2;
@@ -22,10 +24,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static DefaultConstraintSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             DefaultKeywordFunc = LightupHelper.CreateGetAccessor<TypeParameterConstraintSyntax?, SyntaxToken>(WrappedType, nameof(DefaultKeyword));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<DefaultConstraintSyntaxWrapper, TypeParameterConstraintSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<DefaultConstraintSyntaxWrapper, TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper>(WrappedType, nameof(Update));
-            WithDefaultKeywordFunc2 = LightupHelper.CreateMethodAccessor<DefaultConstraintSyntaxWrapper, TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper>(WrappedType, nameof(WithDefaultKeyword));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeParameterConstraintSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper>(WrappedType, nameof(Update));
+            WithDefaultKeywordFunc2 = LightupHelper.CreateMethodAccessor<TypeParameterConstraintSyntax?, SyntaxToken, DefaultConstraintSyntaxWrapper>(WrappedType, nameof(WithDefaultKeyword));
         }
 
         private DefaultConstraintSyntaxWrapper(TypeParameterConstraintSyntax? obj)

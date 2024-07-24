@@ -11,9 +11,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<TypeSyntax?, SyntaxToken> ScopedKeywordFunc;
         private static readonly Func<TypeSyntax?, TypeSyntax> TypeFunc;
+
         private static readonly Action<TypeSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<TypeSyntax?, SyntaxToken, TypeSyntax, ScopedTypeSyntaxWrapper> UpdateFunc1;
         private static readonly Func<TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper> WithScopedKeywordFunc2;
@@ -24,12 +26,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static ScopedTypeSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             ScopedKeywordFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(ScopedKeyword));
             TypeFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, TypeSyntax>(WrappedType, nameof(Type));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ScopedTypeSyntaxWrapper, TypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<ScopedTypeSyntaxWrapper, TypeSyntax?, SyntaxToken, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(Update));
-            WithScopedKeywordFunc2 = LightupHelper.CreateMethodAccessor<ScopedTypeSyntaxWrapper, TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithScopedKeyword));
-            WithTypeFunc3 = LightupHelper.CreateMethodAccessor<ScopedTypeSyntaxWrapper, TypeSyntax?, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithType));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(Update));
+            WithScopedKeywordFunc2 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithScopedKeyword));
+            WithTypeFunc3 = LightupHelper.CreateMethodAccessor<TypeSyntax?, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithType));
         }
 
         private ScopedTypeSyntaxWrapper(TypeSyntax? obj)

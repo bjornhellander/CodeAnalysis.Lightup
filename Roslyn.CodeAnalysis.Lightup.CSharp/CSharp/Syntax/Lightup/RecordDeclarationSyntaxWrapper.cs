@@ -11,7 +11,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax";
 
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
+
         private static readonly Func<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>> AttributeListsFunc;
         private static readonly Func<TypeDeclarationSyntax?, BaseListSyntax?> BaseListFunc;
         private static readonly Func<TypeDeclarationSyntax?, SyntaxToken> ClassOrStructKeywordFunc;
@@ -25,6 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly Func<TypeDeclarationSyntax?, ParameterListSyntax?> ParameterListFunc;
         private static readonly Func<TypeDeclarationSyntax?, SyntaxToken> SemicolonTokenFunc;
         private static readonly Func<TypeDeclarationSyntax?, TypeParameterListSyntax?> TypeParameterListFunc;
+
         private static readonly Action<TypeDeclarationSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
         private static readonly Func<TypeDeclarationSyntax?, AttributeListSyntax[], RecordDeclarationSyntaxWrapper> AddAttributeListsFunc1;
         private static readonly Func<TypeDeclarationSyntax?, BaseTypeSyntax[], RecordDeclarationSyntaxWrapper> AddBaseListTypesFunc2;
@@ -54,6 +56,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         static RecordDeclarationSyntaxWrapper()
         {
             WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+
             AttributeListsFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
             BaseListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, BaseListSyntax?>(WrappedType, nameof(BaseList));
             ClassOrStructKeywordFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(ClassOrStructKeyword));
@@ -67,29 +70,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ParameterListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, ParameterListSyntax?>(WrappedType, nameof(ParameterList));
             SemicolonTokenFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(SemicolonToken));
             TypeParameterListFunc = LightupHelper.CreateGetAccessor<TypeDeclarationSyntax?, TypeParameterListSyntax?>(WrappedType, nameof(TypeParameterList));
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, AttributeListSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
-            AddBaseListTypesFunc2 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, BaseTypeSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddBaseListTypes));
-            AddConstraintClausesFunc3 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, TypeParameterConstraintClauseSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddConstraintClauses));
-            AddMembersFunc4 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, MemberDeclarationSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc5 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddModifiers));
-            AddParameterListParametersFunc6 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, ParameterSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddParameterListParameters));
-            AddTypeParameterListParametersFunc7 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, TypeParameterSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddTypeParameterListParameters));
-            UpdateFunc8 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, SyntaxTokenList, SyntaxToken, SyntaxToken, TypeParameterListSyntax?, ParameterListSyntax?, BaseListSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, SyntaxToken, SyntaxList<MemberDeclarationSyntax>, SyntaxToken, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(Update));
-            UpdateFunc9 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, SyntaxTokenList, SyntaxToken, SyntaxToken, SyntaxToken, TypeParameterListSyntax?, ParameterListSyntax?, BaseListSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, SyntaxToken, SyntaxList<MemberDeclarationSyntax>, SyntaxToken, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(Update));
-            WithAttributeListsFunc10 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));
-            WithBaseListFunc11 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, BaseListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithBaseList));
-            WithClassOrStructKeywordFunc12 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithClassOrStructKeyword));
-            WithCloseBraceTokenFunc13 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithCloseBraceToken));
-            WithConstraintClausesFunc14 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithConstraintClauses));
-            WithIdentifierFunc15 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithIdentifier));
-            WithKeywordFunc16 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithKeyword));
-            WithMembersFunc17 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc18 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxTokenList, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithModifiers));
-            WithOpenBraceTokenFunc19 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithOpenBraceToken));
-            WithParameterListFunc20 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, ParameterListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithParameterList));
-            WithSemicolonTokenFunc21 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithSemicolonToken));
-            WithTypeParameterListFunc22 = LightupHelper.CreateMethodAccessor<RecordDeclarationSyntaxWrapper, TypeDeclarationSyntax?, TypeParameterListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithTypeParameterList));
+
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeDeclarationSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, AttributeListSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
+            AddBaseListTypesFunc2 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, BaseTypeSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddBaseListTypes));
+            AddConstraintClausesFunc3 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, TypeParameterConstraintClauseSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddConstraintClauses));
+            AddMembersFunc4 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, MemberDeclarationSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddMembers));
+            AddModifiersFunc5 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddModifiers));
+            AddParameterListParametersFunc6 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, ParameterSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddParameterListParameters));
+            AddTypeParameterListParametersFunc7 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, TypeParameterSyntax[], RecordDeclarationSyntaxWrapper>(WrappedType, nameof(AddTypeParameterListParameters));
+            UpdateFunc8 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, SyntaxTokenList, SyntaxToken, SyntaxToken, TypeParameterListSyntax?, ParameterListSyntax?, BaseListSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, SyntaxToken, SyntaxList<MemberDeclarationSyntax>, SyntaxToken, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(Update));
+            UpdateFunc9 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, SyntaxTokenList, SyntaxToken, SyntaxToken, SyntaxToken, TypeParameterListSyntax?, ParameterListSyntax?, BaseListSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, SyntaxToken, SyntaxList<MemberDeclarationSyntax>, SyntaxToken, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(Update));
+            WithAttributeListsFunc10 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxList<AttributeListSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));
+            WithBaseListFunc11 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, BaseListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithBaseList));
+            WithClassOrStructKeywordFunc12 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithClassOrStructKeyword));
+            WithCloseBraceTokenFunc13 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithCloseBraceToken));
+            WithConstraintClausesFunc14 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxList<TypeParameterConstraintClauseSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithConstraintClauses));
+            WithIdentifierFunc15 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithIdentifier));
+            WithKeywordFunc16 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithKeyword));
+            WithMembersFunc17 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithMembers));
+            WithModifiersFunc18 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxTokenList, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithModifiers));
+            WithOpenBraceTokenFunc19 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithOpenBraceToken));
+            WithParameterListFunc20 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, ParameterListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithParameterList));
+            WithSemicolonTokenFunc21 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, SyntaxToken, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithSemicolonToken));
+            WithTypeParameterListFunc22 = LightupHelper.CreateMethodAccessor<TypeDeclarationSyntax?, TypeParameterListSyntax?, RecordDeclarationSyntaxWrapper>(WrappedType, nameof(WithTypeParameterList));
         }
 
         private RecordDeclarationSyntaxWrapper(TypeDeclarationSyntax? obj)

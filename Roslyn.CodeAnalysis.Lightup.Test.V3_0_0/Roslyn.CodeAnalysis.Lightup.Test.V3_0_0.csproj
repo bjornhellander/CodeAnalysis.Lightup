@@ -9,8 +9,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Common\Roslyn.CodeAnalysis.Lightup.Common.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces\Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.CSharp\Roslyn.CodeAnalysis.Lightup.CSharp.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Workspaces.Common\Roslyn.CodeAnalysis.Lightup.Workspaces.Common.csproj" />
 	</ItemGroup>
 
 </Project>

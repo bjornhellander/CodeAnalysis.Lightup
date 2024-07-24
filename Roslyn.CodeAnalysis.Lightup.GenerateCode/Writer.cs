@@ -200,17 +200,25 @@ internal class Writer
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly Type? WrappedType;");
-        foreach (var property in instanceProperties)
+        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (instanceMethods.Count != 0)
         {
-            var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName, typeDefs);
-            sb.AppendLine($"        private static readonly {funcDeclText} {property.Name}Func;");
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName, typeDefs);
+                sb.AppendLine($"        private static readonly {funcDeclText} {property.Name}Func;");
+            }
         }
-        foreach (var method in instanceMethods)
+        if (instanceMethods.Count != 0)
         {
-            var index = instanceMethods.IndexOf(method);
-            var funcDeclText = GetMethodFuncDeclText(method, baseTypeName, typeDefs);
-            sb.AppendLine($"        private static readonly {funcDeclText} {method.Name}Func{index};");
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                var funcDeclText = GetMethodFuncDeclText(method, baseTypeName, typeDefs);
+                sb.AppendLine($"        private static readonly {funcDeclText} {method.Name}Func{index};");
+            }
         }
         sb.AppendLine();
         sb.AppendLine($"        private readonly {baseTypeName}? wrappedObject;");
@@ -218,15 +226,23 @@ internal class Writer
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);");
-        foreach (var property in instanceProperties)
+        if (instanceProperties.Count != 0)
         {
-            sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+            }
         }
-        foreach (var method in instanceMethods)
+        if (instanceMethods.Count != 0)
         {
-            var index = instanceMethods.IndexOf(method);
-            var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-            sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{targetName}, {baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            }
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
