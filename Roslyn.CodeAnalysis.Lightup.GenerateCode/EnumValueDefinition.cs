@@ -4,14 +4,14 @@ using System;
 
 internal class EnumValueDefinition
 {
-    public EnumValueDefinition(Version? version, string name, int value)
+    public EnumValueDefinition(Version? assemblyVersion, string name, int value)
     {
-        Version = version;
+        AssemblyVersion = assemblyVersion;
         Name = name;
         Value = value;
     }
 
-    public Version? Version { get; }
+    public Version? AssemblyVersion { get; }
 
     public string Name { get; }
 

@@ -6,9 +6,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class WorkspaceChangeKindEx
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const WorkspaceChangeKind AnalyzerConfigDocumentAdded = (WorkspaceChangeKind)18;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const WorkspaceChangeKind AnalyzerConfigDocumentRemoved = (WorkspaceChangeKind)19;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const WorkspaceChangeKind AnalyzerConfigDocumentReloaded = (WorkspaceChangeKind)20;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const WorkspaceChangeKind AnalyzerConfigDocumentChanged = (WorkspaceChangeKind)21;
     }
 }

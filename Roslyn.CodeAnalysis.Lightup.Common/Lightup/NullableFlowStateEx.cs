@@ -7,8 +7,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public enum NullableFlowStateEx : System.Byte
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         None = 0,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         NotNull = 1,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         MaybeNull = 2,
     }
 }

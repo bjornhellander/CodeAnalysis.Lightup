@@ -6,6 +6,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     public class SemanticEditKindEx
     {
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public const SemanticEditKind Replace = (SemanticEditKind)4;
     }
 }

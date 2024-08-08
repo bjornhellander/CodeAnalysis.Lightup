@@ -6,7 +6,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class SymbolDisplayPartKindEx
     {
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public const SymbolDisplayPartKind RecordClassName = (SymbolDisplayPartKind)31;
+
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public const SymbolDisplayPartKind RecordStructName = (SymbolDisplayPartKind)32;
     }
 }

@@ -8,9 +8,16 @@ namespace Microsoft.CodeAnalysis.Lightup
     [System.Flags]
     public enum IncrementalGeneratorOutputKindEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         None = 0,
+
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         Source = 1,
+
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         PostInit = 2,
+
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         Implementation = 4,
     }
 }

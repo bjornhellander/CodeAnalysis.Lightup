@@ -7,12 +7,25 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Added in Roslyn version 4.8.0.0</summary>
     public enum RuntimeCapabilityEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         ByRefFields = 1,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         CovariantReturnsOfClasses = 2,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         DefaultImplementationsOfInterfaces = 3,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         NumericIntPtr = 4,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         UnmanagedSignatureCallingConvention = 5,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         VirtualStaticsInInterfaces = 6,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         InlineArrayTypes = 7,
     }
 }
