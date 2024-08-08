@@ -4,6 +4,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 4.0.0.0</summary>
     [System.Flags]
     public enum IncrementalGeneratorOutputKindEx : System.Int32
     {

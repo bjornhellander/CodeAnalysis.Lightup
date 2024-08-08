@@ -97,7 +97,7 @@ internal class Writer
             else if (typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax.")
                 && !TypesToSkip.Contains(typeDef.FullName))
             {
-                return GeneratedClass(classTypeDef, typeDefs, targetNamespace);
+                return GenerateClass(classTypeDef, typeDefs, targetNamespace);
             }
             else
             {
@@ -125,6 +125,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
+        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         if (typeDef.IsFlagsEnum)
         {
             sb.AppendLine($"    [System.Flags]");
@@ -173,7 +174,7 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static (string Name, string Source) GeneratedClass(
+    private static (string Name, string Source) GenerateClass(
         ClassTypeDefinition typeDef,
         IReadOnlyDictionary<string, TypeDefinition> typeDefs,
         string targetNamespace)
@@ -196,6 +197,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
+        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");

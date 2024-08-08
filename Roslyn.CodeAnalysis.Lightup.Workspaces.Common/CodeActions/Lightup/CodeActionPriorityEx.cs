@@ -4,6 +4,7 @@
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
+    /// <summary>Added in Roslyn version 4.8.0.0</summary>
     public enum CodeActionPriorityEx : System.Int32
     {
         Lowest = 0,

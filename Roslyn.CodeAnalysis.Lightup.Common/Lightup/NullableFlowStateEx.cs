@@ -4,6 +4,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public enum NullableFlowStateEx : System.Byte
     {
         None = 0,
