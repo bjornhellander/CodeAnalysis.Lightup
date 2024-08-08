@@ -23,10 +23,7 @@ public class WrapperTests
         foreach (var type in types.Where(IsRelevantType))
         {
             var isMethod = type.GetMethod("Is");
-            if (isMethod != null)
-            {
-                isMethod.Invoke(null, [new object()]);
-            }
+            isMethod?.Invoke(null, [new object()]);
         }
     }
 
@@ -44,7 +41,7 @@ public class WrapperTests
 
         switch (type.Name)
         {
-            case "LightupHelper":
+            case "CommonLightupHelper":
             case "LightupStatus":
                 return false;
 

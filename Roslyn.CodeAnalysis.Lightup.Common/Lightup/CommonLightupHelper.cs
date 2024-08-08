@@ -4,24 +4,16 @@
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-    internal static class LightupHelper
+    public static class CommonLightupHelper
     {
-        private static readonly Assembly SyntaxNodeAssembly = typeof(ClassDeclarationSyntax).Assembly;
-
-        internal static Type? FindSyntaxType(string wrappedTypeName)
-        {
-            return FindType(SyntaxNodeAssembly, wrappedTypeName);
-        }
-
-        internal static Type? FindType(Assembly assembly, string wrappedTypeName)
+        public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
             var wrappedType = assembly.GetType(wrappedTypeName);
             return wrappedType;
         }
 
-        internal static bool Is(object? obj, Type? wrappedType)
+        public static bool Is(object? obj, Type? wrappedType)
         {
             if (obj == null)
             {
@@ -36,7 +28,7 @@
             return true;
         }
 
-        internal static TObject? As<TObject>(object? obj, Type? wrappedType)
+        public static TObject? As<TObject>(object? obj, Type? wrappedType)
             where TObject : class
         {
             if (!(obj is null) && obj.GetType().IsAssignableFrom(wrappedType))
@@ -49,7 +41,7 @@
             }
         }
 
-        internal static Func<TObject, TResult> CreateGetAccessor<TObject, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, TResult> CreateGetAccessor<TObject, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -80,7 +72,7 @@
             }
         }
 
-        internal static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -107,7 +99,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -135,7 +127,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -164,7 +156,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -194,7 +186,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -225,7 +217,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -259,7 +251,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -295,7 +287,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -333,7 +325,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -372,7 +364,7 @@
             }
         }
 
-        internal static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
+        public static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {

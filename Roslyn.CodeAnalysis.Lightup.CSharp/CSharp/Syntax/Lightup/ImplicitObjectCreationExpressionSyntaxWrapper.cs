@@ -28,18 +28,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ImplicitObjectCreationExpressionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            ArgumentListFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax>(WrappedType, nameof(ArgumentList));
-            InitializerFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
-            NewKeywordFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
+            ArgumentListFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax>(WrappedType, nameof(ArgumentList));
+            InitializerFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
+            NewKeywordFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ExpressionSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddArgumentListArgumentsFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, ArgumentListSyntax, InitializerExpressionSyntax?, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(Update));
-            WithArgumentListFunc3 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
-            WithInitializerFunc4 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
-            WithNewKeywordFunc5 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
+            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<ExpressionSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddArgumentListArgumentsFunc1 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
+            UpdateFunc2 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, ArgumentListSyntax, InitializerExpressionSyntax?, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(Update));
+            WithArgumentListFunc3 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
+            WithInitializerFunc4 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
+            WithNewKeywordFunc5 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, ImplicitObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
         }
 
         private ImplicitObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)
@@ -60,11 +60,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static ImplicitObjectCreationExpressionSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<ExpressionSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<ExpressionSyntax>(obj, WrappedType);
             return new ImplicitObjectCreationExpressionSyntaxWrapper(obj2);
         }
 

@@ -26,16 +26,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static PrimaryConstructorBaseTypeSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            ArgumentListFunc = LightupHelper.CreateGetAccessor<BaseTypeSyntax?, ArgumentListSyntax>(WrappedType, nameof(ArgumentList));
-            TypeFunc = LightupHelper.CreateGetAccessor<BaseTypeSyntax?, TypeSyntax>(WrappedType, nameof(Type));
+            ArgumentListFunc = CommonLightupHelper.CreateGetAccessor<BaseTypeSyntax?, ArgumentListSyntax>(WrappedType, nameof(ArgumentList));
+            TypeFunc = CommonLightupHelper.CreateGetAccessor<BaseTypeSyntax?, TypeSyntax>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<BaseTypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddArgumentListArgumentsFunc1 = LightupHelper.CreateMethodAccessor<BaseTypeSyntax?, ArgumentSyntax[], PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<BaseTypeSyntax?, TypeSyntax, ArgumentListSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(Update));
-            WithArgumentListFunc3 = LightupHelper.CreateMethodAccessor<BaseTypeSyntax?, ArgumentListSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
-            WithTypeFunc4 = LightupHelper.CreateMethodAccessor<BaseTypeSyntax?, TypeSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(WithType));
+            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<BaseTypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddArgumentListArgumentsFunc1 = CommonLightupHelper.CreateMethodAccessor<BaseTypeSyntax?, ArgumentSyntax[], PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
+            UpdateFunc2 = CommonLightupHelper.CreateMethodAccessor<BaseTypeSyntax?, TypeSyntax, ArgumentListSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(Update));
+            WithArgumentListFunc3 = CommonLightupHelper.CreateMethodAccessor<BaseTypeSyntax?, ArgumentListSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
+            WithTypeFunc4 = CommonLightupHelper.CreateMethodAccessor<BaseTypeSyntax?, TypeSyntax, PrimaryConstructorBaseTypeSyntaxWrapper>(WrappedType, nameof(WithType));
         }
 
         private PrimaryConstructorBaseTypeSyntaxWrapper(BaseTypeSyntax? obj)
@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static PrimaryConstructorBaseTypeSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<BaseTypeSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 

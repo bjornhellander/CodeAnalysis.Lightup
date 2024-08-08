@@ -25,15 +25,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ExpressionColonSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            ColonTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
-            ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
+            ColonTokenFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
+            ExpressionFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(Update));
-            WithColonTokenFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(Update));
+            WithColonTokenFunc2 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
+            WithExpressionFunc3 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
         }
 
         private ExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)
@@ -51,11 +51,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static ExpressionColonSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
             return new ExpressionColonSyntaxWrapper(obj2);
         }
 

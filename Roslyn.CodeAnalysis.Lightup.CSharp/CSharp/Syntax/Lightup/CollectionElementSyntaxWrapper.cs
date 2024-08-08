@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CollectionElementSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
         }
 
         private CollectionElementSyntaxWrapper(CSharpSyntaxNode? obj)
@@ -29,11 +29,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static CollectionElementSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
             return new CollectionElementSyntaxWrapper(obj2);
         }
 
