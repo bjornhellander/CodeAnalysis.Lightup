@@ -419,6 +419,22 @@
             }
 
             var wrapMethod = targetType.GetMethod("As");
+            if (wrapMethod == null)
+            {
+                throw new InvalidOperationException("Could not find method 'As' in wrapper");
+            }
+
+            var parameters = wrapMethod.GetParameters();
+            if (parameters.Length != 1)
+            {
+                throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+            }
+
+            if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
+            {
+                input = Expression.Convert(input, typeof(object));
+            }
+
             var wrappedValue = Expression.Call(null, wrapMethod, input);
             return wrappedValue;
         }

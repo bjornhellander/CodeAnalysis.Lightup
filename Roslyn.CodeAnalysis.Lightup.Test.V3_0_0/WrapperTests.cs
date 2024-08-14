@@ -39,6 +39,11 @@ public class WrapperTests
             return false;
         }
 
+        if (type.IsGenericType)
+        {
+            return false;
+        }
+
         switch (type.Name)
         {
             case "CommonLightupHelper":
