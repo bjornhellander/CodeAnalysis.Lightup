@@ -6,6 +6,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     public class BinaryOperatorKindEx
     {
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const BinaryOperatorKind UnsignedRightShift = (BinaryOperatorKind)25;
     }
 }

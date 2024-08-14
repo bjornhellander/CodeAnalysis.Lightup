@@ -7,6 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public readonly struct TypePatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypePatternSyntax";
@@ -23,13 +24,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypePatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            TypeFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, TypeSyntax>(WrappedType, nameof(Type));
+            TypeFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, TypeSyntax>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithTypeFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(WithType));
+            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithTypeFunc2 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(WithType));
         }
 
         private TypePatternSyntaxWrapper(PatternSyntax? obj)
@@ -44,11 +45,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static TypePatternSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<PatternSyntax>(obj, WrappedType);
             return new TypePatternSyntaxWrapper(obj2);
         }
 

@@ -7,6 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Added in Roslyn version 4.0.0.0</summary>
     public readonly struct LineOrSpanDirectiveTriviaSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineOrSpanDirectiveTriviaSyntax";
@@ -25,15 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static LineOrSpanDirectiveTriviaSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            FileFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(File));
-            LineKeywordFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
+            FileFunc = CommonLightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(File));
+            LineKeywordFunc = CommonLightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
 
-            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
-            WithFileFunc1 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
-            WithHashTokenFunc2 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
-            WithLineKeywordFunc3 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
+            WithEndOfDirectiveTokenFunc0 = CommonLightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
+            WithFileFunc1 = CommonLightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
+            WithHashTokenFunc2 = CommonLightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
+            WithLineKeywordFunc3 = CommonLightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
         }
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)
@@ -51,11 +52,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static LineOrSpanDirectiveTriviaSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<DirectiveTriviaSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<DirectiveTriviaSyntax>(obj, WrappedType);
             return new LineOrSpanDirectiveTriviaSyntaxWrapper(obj2);
         }
 

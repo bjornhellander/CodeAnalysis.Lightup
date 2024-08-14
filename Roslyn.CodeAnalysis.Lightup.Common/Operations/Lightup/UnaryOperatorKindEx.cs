@@ -6,6 +6,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     public class UnaryOperatorKindEx
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const UnaryOperatorKind Hat = (UnaryOperatorKind)7;
     }
 }

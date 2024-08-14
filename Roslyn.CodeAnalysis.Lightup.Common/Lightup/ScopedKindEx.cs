@@ -4,10 +4,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 4.4.0.0</summary>
     public enum ScopedKindEx : System.Byte
     {
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         None = 0,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         ScopedRef = 1,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         ScopedValue = 2,
     }
 }

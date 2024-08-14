@@ -7,6 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public readonly struct BinaryPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BinaryPatternSyntax";
@@ -27,17 +28,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static BinaryPatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            LeftFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Left));
-            OperatorTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
-            RightFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Right));
+            LeftFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Left));
+            OperatorTokenFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
+            RightFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Right));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, SyntaxToken, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithLeftFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithLeft));
-            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
-            WithRightFunc4 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithRight));
+            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, SyntaxToken, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithLeftFunc2 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithLeft));
+            WithOperatorTokenFunc3 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
+            WithRightFunc4 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, BinaryPatternSyntaxWrapper>(WrappedType, nameof(WithRight));
         }
 
         private BinaryPatternSyntaxWrapper(PatternSyntax? obj)
@@ -58,11 +59,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static BinaryPatternSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<PatternSyntax>(obj, WrappedType);
             return new BinaryPatternSyntaxWrapper(obj2);
         }
 

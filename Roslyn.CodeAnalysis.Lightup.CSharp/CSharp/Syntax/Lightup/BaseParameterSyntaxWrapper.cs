@@ -7,6 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public readonly struct BaseParameterSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterSyntax";
@@ -27,17 +28,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static BaseParameterSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            AttributeListsFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
-            ModifiersFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxTokenList>(WrappedType, nameof(Modifiers));
-            TypeFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, TypeSyntax?>(WrappedType, nameof(Type));
+            AttributeListsFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>>(WrappedType, nameof(AttributeLists));
+            ModifiersFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxTokenList>(WrappedType, nameof(Modifiers));
+            TypeFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, TypeSyntax?>(WrappedType, nameof(Type));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, AttributeListSyntax[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
-            AddModifiersFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddModifiers));
-            WithAttributeListsFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));
-            WithModifiersFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxTokenList, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithModifiers));
-            WithTypeFunc4 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, TypeSyntax?, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithType));
+            AddAttributeListsFunc0 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, AttributeListSyntax[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
+            AddModifiersFunc1 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken[], BaseParameterSyntaxWrapper>(WrappedType, nameof(AddModifiers));
+            WithAttributeListsFunc2 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxList<AttributeListSyntax>, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));
+            WithModifiersFunc3 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxTokenList, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithModifiers));
+            WithTypeFunc4 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, TypeSyntax?, BaseParameterSyntaxWrapper>(WrappedType, nameof(WithType));
         }
 
         private BaseParameterSyntaxWrapper(CSharpSyntaxNode? obj)
@@ -58,21 +59,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static BaseParameterSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
             return new BaseParameterSyntaxWrapper(obj2);
         }
 
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        public readonly BaseParameterSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly BaseParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
-        public readonly BaseParameterSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly BaseParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc1(wrappedObject, items);
 
         public readonly BaseParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)

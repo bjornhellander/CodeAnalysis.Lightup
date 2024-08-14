@@ -6,6 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class SymbolDisplayParameterOptionsEx
     {
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public const SymbolDisplayParameterOptions IncludeModifiers = (SymbolDisplayParameterOptions)2;
     }
 }

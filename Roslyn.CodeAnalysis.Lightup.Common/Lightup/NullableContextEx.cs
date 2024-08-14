@@ -4,15 +4,29 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     [System.Flags]
     public enum NullableContextEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         Disabled = 0,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         WarningsEnabled = 1,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         AnnotationsEnabled = 2,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         Enabled = 3,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         WarningsContextInherited = 4,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         AnnotationsContextInherited = 8,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         ContextInherited = 12,
     }
 }

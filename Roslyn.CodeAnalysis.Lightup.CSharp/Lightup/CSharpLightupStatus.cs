@@ -5,20 +5,16 @@
     using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.CSharp.Lightup;
 
-    public class LightupStatus
+    public class CSharpLightupStatus
     {
-        static LightupStatus()
+        static CSharpLightupStatus()
         {
-            CodeAnalysisVersion = typeof(SyntaxKind).Assembly.GetName().Version;
-
             var supportedLanguageVersions = Enum.GetValues(typeof(LanguageVersion)).Cast<LanguageVersion>().ToList();
             SupportsCSharp9 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp9);
             SupportsCSharp10 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp10);
             SupportsCSharp11 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp11);
             SupportsCSharp12 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp12);
         }
-
-        public static Version CodeAnalysisVersion { get; }
 
         public static bool SupportsCSharp9 { get; }
 

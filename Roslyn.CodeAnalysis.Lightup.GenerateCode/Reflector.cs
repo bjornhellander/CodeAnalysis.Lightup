@@ -263,6 +263,8 @@ internal class Reflector
         var name = parameter.Name;
         Assert.IsTrue(name != null, "Could not get parameter name");
 
+        var isParams = parameter.IsDefined(typeof(ParamArrayAttribute));
+
         GetParameterModeAndProperType(parameter, out var parameterMode, out var parameterType);
 
         var typeRef = CreateTypeReference(parameterType);
@@ -273,6 +275,7 @@ internal class Reflector
 
         return new ParameterDefinition(
             name,
+            isParams,
             typeRef,
             isNullable,
             parameterMode);

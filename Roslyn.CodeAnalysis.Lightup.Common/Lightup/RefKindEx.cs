@@ -6,6 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class RefKindEx
     {
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public const RefKind RefReadOnlyParameter = (RefKind)4;
     }
 }

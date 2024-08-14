@@ -4,10 +4,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public enum TextDocumentKindEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         Document = 0,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         AdditionalDocument = 1,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         AnalyzerConfigDocument = 2,
     }
 }

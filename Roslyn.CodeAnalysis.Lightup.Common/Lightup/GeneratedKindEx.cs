@@ -4,10 +4,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public enum GeneratedKindEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         Unknown = 0,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         NotGenerated = 1,
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         MarkedGenerated = 2,
     }
 }

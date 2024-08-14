@@ -4,11 +4,19 @@
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
+    /// <summary>Added in Roslyn version 4.8.0.0</summary>
     public enum CodeActionRequestPriorityEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         Lowest = 1,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         Low = 2,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         Default = 3,
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         High = 4,
     }
 }

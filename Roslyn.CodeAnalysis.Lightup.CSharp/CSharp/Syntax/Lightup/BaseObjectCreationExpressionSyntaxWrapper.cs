@@ -7,6 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Added in Roslyn version 3.8.0.0</summary>
     public readonly struct BaseObjectCreationExpressionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax";
@@ -26,16 +27,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static BaseObjectCreationExpressionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
 
-            ArgumentListFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax?>(WrappedType, nameof(ArgumentList));
-            InitializerFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
-            NewKeywordFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
+            ArgumentListFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, ArgumentListSyntax?>(WrappedType, nameof(ArgumentList));
+            InitializerFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, InitializerExpressionSyntax?>(WrappedType, nameof(Initializer));
+            NewKeywordFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(NewKeyword));
 
-            AddArgumentListArgumentsFunc0 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
-            WithArgumentListFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
-            WithInitializerFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
-            WithNewKeywordFunc3 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
+            AddArgumentListArgumentsFunc0 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentSyntax[], BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(AddArgumentListArguments));
+            WithArgumentListFunc1 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, ArgumentListSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithArgumentList));
+            WithInitializerFunc2 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, InitializerExpressionSyntax?, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithInitializer));
+            WithNewKeywordFunc3 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, BaseObjectCreationExpressionSyntaxWrapper>(WrappedType, nameof(WithNewKeyword));
         }
 
         private BaseObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)
@@ -56,18 +57,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static BaseObjectCreationExpressionSyntaxWrapper As(object? obj)
         {
-            var obj2 = LightupHelper.As<ExpressionSyntax>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<ExpressionSyntax>(obj, WrappedType);
             return new BaseObjectCreationExpressionSyntaxWrapper(obj2);
         }
 
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
-        public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
+        public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc0(wrappedObject, items);
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax? argumentList)

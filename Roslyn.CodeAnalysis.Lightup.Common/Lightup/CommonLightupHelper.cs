@@ -1,27 +1,20 @@
 ﻿namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-    internal static class LightupHelper
+    public static class CommonLightupHelper
     {
-        private static readonly Assembly SyntaxNodeAssembly = typeof(ClassDeclarationSyntax).Assembly;
-
-        internal static Type? FindSyntaxType(string wrappedTypeName)
-        {
-            return FindType(SyntaxNodeAssembly, wrappedTypeName);
-        }
-
-        internal static Type? FindType(Assembly assembly, string wrappedTypeName)
+        public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
             var wrappedType = assembly.GetType(wrappedTypeName);
             return wrappedType;
         }
 
-        internal static bool Is(object? obj, Type? wrappedType)
+        public static bool Is(object? obj, Type? wrappedType)
         {
             if (obj == null)
             {
@@ -36,10 +29,10 @@
             return true;
         }
 
-        internal static TObject? As<TObject>(object? obj, Type? wrappedType)
+        public static TObject? As<TObject>(object? obj, Type? wrappedType)
             where TObject : class
         {
-            if (!(obj is null) && obj.GetType().IsAssignableFrom(wrappedType))
+            if (!(obj is null) && wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
             {
                 return (TObject)obj;
             }
@@ -49,7 +42,7 @@
             }
         }
 
-        internal static Func<TObject, TResult> CreateGetAccessor<TObject, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, TResult> CreateGetAccessor<TObject, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -80,7 +73,7 @@
             }
         }
 
-        internal static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -107,7 +100,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -135,7 +128,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -164,7 +157,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -194,7 +187,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -225,7 +218,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -259,7 +252,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -295,7 +288,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -333,7 +326,7 @@
             }
         }
 
-        internal static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
+        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -372,7 +365,7 @@
             }
         }
 
-        internal static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
+        public static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
             {
@@ -427,6 +420,22 @@
             }
 
             var wrapMethod = targetType.GetMethod("As");
+            if (wrapMethod == null)
+            {
+                throw new InvalidOperationException("Could not find method 'As' in wrapper");
+            }
+
+            var parameters = wrapMethod.GetParameters();
+            if (parameters.Length != 1)
+            {
+                throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+            }
+
+            if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
+            {
+                input = Expression.Convert(input, typeof(object));
+            }
+
             var wrappedValue = Expression.Call(null, wrapMethod, input);
             return wrappedValue;
         }
@@ -439,11 +448,58 @@
                 return input;
             }
 
-            var unwrapMethod = type.GetMethod("Unwrap");
-            var unwrappedValue = Expression.Call(input, unwrapMethod);
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                // IEnumerable<X> where X is a wrapper
+                var wrapperItemType = type.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
 
-            var nativeValue = Expression.Convert(unwrappedValue, nativeType);
-            return nativeValue;
+                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    Expression.Convert(
+                        Expression.Call(conversionLambdaParameter, unwrapMethod),
+                        nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+
+                var result = Expression.Call(selectMethod, input, conversionLambda);
+                return result;
+            }
+            else if (type.IsArray)
+            {
+                // X[] where X is a wrapper
+                var wrapperItemType = type.GetElementType();
+                var nativeItemType = nativeType.GetElementType();
+
+                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    Expression.Convert(
+                        Expression.Call(conversionLambdaParameter, unwrapMethod),
+                        nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
+
+                var result = Expression.Call(toArrayMethod, temp1);
+
+                return result;
+            }
+            else
+            {
+                // A wrapper
+                var unwrapMethod = type.GetMethod("Unwrap");
+                var unwrappedValue = Expression.Call(input, unwrapMethod);
+
+                var nativeValue = Expression.Convert(unwrappedValue, nativeType);
+                return nativeValue;
+            }
         }
 
         private static MethodInfo GetMethod(Type wrappedType, string name, Type[] paramTypes)
@@ -455,21 +511,102 @@
 
         private static Type GetNativeType(Type input)
         {
-            var isWrapperType = IsWrapperType(input);
-            if (!isWrapperType)
+            if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             {
-                return input;
+                var elementType = input.GetGenericArguments()[0];
+                var nativeElementType = GetNativeType(elementType);
+                var nativeType = typeof(IEnumerable<>).MakeGenericType(nativeElementType);
+                return nativeType;
             }
+            else if (input.IsArray)
+            {
+                var elementType = input.GetElementType();
+                var nativeElementType = GetNativeType(elementType);
+                var nativeType = nativeElementType.MakeArrayType();
+                return nativeType;
+            }
+            else
+            {
+                var isWrapperType = IsWrapperType(input);
+                if (!isWrapperType)
+                {
+                    return input;
+                }
 
-            var field = input.GetField("WrappedType");
-            var nativeType = (Type)field.GetValue(null);
-            return nativeType;
+                var field = input.GetField("WrappedType");
+                var nativeType = (Type)field.GetValue(null);
+                return nativeType;
+            }
         }
 
         private static bool IsWrapperType(Type type)
         {
             var result = type.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
             return result;
+        }
+
+        private static MethodInfo GetEnumerableSelectMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetEnumerableSelectMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetEnumerableSelectMethod()
+        {
+            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableSelectMethod);
+            return result;
+        }
+
+        private static bool IsEnumerableSelectMethod(MethodInfo method)
+        {
+            if (method.Name != "Select")
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 2)
+            {
+                return false;
+            }
+
+            var parameterType = parameters[1].ParameterType;
+            if (parameterType.Name != "Func`2")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static MethodInfo GetEnumerableToArrayMethod(Type nativeItemType)
+        {
+            var genericMethod = GetEnumerableToArrayMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(nativeItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetEnumerableToArrayMethod()
+        {
+            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableToArrayMethod);
+            return result;
+        }
+
+        private static bool IsEnumerableToArrayMethod(MethodInfo method)
+        {
+            if (method.Name != "ToArray")
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 1)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

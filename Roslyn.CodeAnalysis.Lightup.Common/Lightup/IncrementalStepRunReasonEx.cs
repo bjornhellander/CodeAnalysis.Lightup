@@ -4,12 +4,22 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Added in Roslyn version 4.4.0.0</summary>
     public enum IncrementalStepRunReasonEx : System.Int32
     {
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         New = 0,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         Modified = 1,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         Unchanged = 2,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         Cached = 3,
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         Removed = 4,
     }
 }

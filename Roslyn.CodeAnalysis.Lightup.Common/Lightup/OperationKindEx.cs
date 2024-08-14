@@ -6,25 +6,64 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class OperationKindEx
     {
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind PropertySubpattern = (OperationKind)107;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind UsingDeclaration = (OperationKind)108;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind NegatedPattern = (OperationKind)109;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind BinaryPattern = (OperationKind)110;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind TypePattern = (OperationKind)111;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind RelationalPattern = (OperationKind)112;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public const OperationKind With = (OperationKind)113;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringHandlerCreation = (OperationKind)114;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringAddition = (OperationKind)115;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringAppendLiteral = (OperationKind)116;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringAppendFormatted = (OperationKind)117;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringAppendInvalid = (OperationKind)118;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind InterpolatedStringHandlerArgumentPlaceholder = (OperationKind)119;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind FunctionPointerInvocation = (OperationKind)120;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind ListPattern = (OperationKind)121;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind SlicePattern = (OperationKind)122;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind ImplicitIndexerReference = (OperationKind)123;
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public const OperationKind Utf8String = (OperationKind)124;
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public const OperationKind Attribute = (OperationKind)125;
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public const OperationKind InlineArrayAccess = (OperationKind)126;
     }
 }
