@@ -22,7 +22,6 @@ internal class Writer
     // TODO: Handle these types
     private static readonly HashSet<string> TypesToSkip =
     [
-        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax",
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax",
     ];
 
