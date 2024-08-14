@@ -23,7 +23,6 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax",
-        "Microsoft.CodeAnalysis.CSharp.Syntax.CollectionExpressionSyntax",
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax",
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax",
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax",
@@ -429,7 +428,15 @@ internal class Writer
     {
         if (typeRef is GenericTypeReference genericTypeRef)
         {
-            AppendTypeDeclText(sb, genericTypeRef.OriginalType, typeDefs);
+            if (IsSeparatedSyntaxList(genericTypeRef) && IsNewType(genericTypeRef.TypeArguments[0], typeDefs))
+            {
+                sb.Append("SeparatedSyntaxListWrapper");
+            }
+            else
+            {
+                AppendTypeDeclText(sb, genericTypeRef.OriginalType, typeDefs);
+            }
+
             sb.Append("<");
             for (var i = 0; i < genericTypeRef.TypeArguments.Count; i++)
             {
@@ -451,6 +458,21 @@ internal class Writer
             var isNew = IsNewType(namedTypeRef, typeDefs);
             sb.Append($"{namedTypeRef.Name}{(isNew ? "Wrapper" : "")}");
         }
+    }
+
+    private static bool IsSeparatedSyntaxList(GenericTypeReference genericTypeRef)
+    {
+        if (genericTypeRef.OriginalType is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        if (namedTypeRef.Name != "SeparatedSyntaxList")
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private static string GetTargetFolder(TypeDefinition typeDef, string targetProjectPath)
@@ -492,8 +514,13 @@ internal class Writer
         }
     }
 
-    private static bool IsNewType(NamedTypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static bool IsNewType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
-        return typeDefs.TryGetValue(typeRef.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
+        if (typeRef is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
     }
 }

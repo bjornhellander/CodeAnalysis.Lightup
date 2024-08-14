@@ -7,7 +7,7 @@
     // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
     {
-        private static readonly Type? WrappedType;
+        public static readonly Type? WrappedType;
 
         private static readonly Func<object?, int> CountAccessor;
         private static readonly Func<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>> AddRangeAccessor;

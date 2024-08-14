@@ -32,7 +32,7 @@
         public static TObject? As<TObject>(object? obj, Type? wrappedType)
             where TObject : class
         {
-            if (!(obj is null) && obj.GetType().IsAssignableFrom(wrappedType))
+            if (!(obj is null) && wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
             {
                 return (TObject)obj;
             }
@@ -467,6 +467,30 @@
                 var result = Expression.Call(selectMethod, input, conversionLambda);
                 return result;
             }
+            else if (type.IsArray)
+            {
+                // X[] where X is a wrapper
+                var wrapperItemType = type.GetElementType();
+                var nativeItemType = nativeType.GetElementType();
+
+                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    Expression.Convert(
+                        Expression.Call(conversionLambdaParameter, unwrapMethod),
+                        nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
+
+                var result = Expression.Call(toArrayMethod, temp1);
+
+                return result;
+            }
             else
             {
                 // A wrapper
@@ -492,6 +516,13 @@
                 var elementType = input.GetGenericArguments()[0];
                 var nativeElementType = GetNativeType(elementType);
                 var nativeType = typeof(IEnumerable<>).MakeGenericType(nativeElementType);
+                return nativeType;
+            }
+            else if (input.IsArray)
+            {
+                var elementType = input.GetElementType();
+                var nativeElementType = GetNativeType(elementType);
+                var nativeType = nativeElementType.MakeArrayType();
                 return nativeType;
             }
             else
@@ -542,6 +573,35 @@
 
             var parameterType = parameters[1].ParameterType;
             if (parameterType.Name != "Func`2")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static MethodInfo GetEnumerableToArrayMethod(Type nativeItemType)
+        {
+            var genericMethod = GetEnumerableToArrayMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(nativeItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetEnumerableToArrayMethod()
+        {
+            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableToArrayMethod);
+            return result;
+        }
+
+        private static bool IsEnumerableToArrayMethod(MethodInfo method)
+        {
+            if (method.Name != "ToArray")
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 1)
             {
                 return false;
             }
