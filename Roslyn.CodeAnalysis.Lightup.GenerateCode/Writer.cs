@@ -19,10 +19,8 @@ internal class Writer
         [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
-    // TODO: Handle these types
     private static readonly HashSet<string> TypesToSkip =
     [
-        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax",
     ];
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
