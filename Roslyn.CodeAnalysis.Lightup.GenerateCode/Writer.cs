@@ -23,7 +23,6 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax",
-        "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax",
         "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax",
     ];
 
@@ -323,7 +322,7 @@ internal class Writer
 
         sb.Append($"Func<{baseTypeName}?, ");
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
-        sb.Append(propertyDef.IsNullable ? "?" : "");
+        sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? "?" : "");
         sb.Append('>');
 
         var result = sb.ToString();
@@ -342,7 +341,7 @@ internal class Writer
             sb.Append(", ");
             Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
-            sb.Append(parameter.IsNullable ? "?" : "");
+            sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
         }
 
         if (methodDef.ReturnType != null)
@@ -371,7 +370,7 @@ internal class Writer
 
             Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
-            sb.Append(parameter.IsNullable ? "?" : "");
+            sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
         }
 
         var result = sb.ToString();
@@ -393,7 +392,7 @@ internal class Writer
             Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
             sb.Append(parameter.IsParams ? "params " : "");
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
-            sb.Append(parameter.IsNullable ? "?" : "");
+            sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
             sb.Append(' ');
             sb.Append(parameter.Name);
         }
@@ -408,7 +407,7 @@ internal class Writer
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
-        sb.Append(propertyDef.IsNullable ? "?" : "");
+        sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? "?" : "");
         var result = sb.ToString();
         return result;
     }
