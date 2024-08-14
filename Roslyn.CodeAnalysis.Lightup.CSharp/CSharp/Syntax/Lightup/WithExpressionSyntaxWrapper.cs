@@ -75,7 +75,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly WithExpressionSyntaxWrapper AddInitializerExpressions(ExpressionSyntax[] items)
+        public readonly WithExpressionSyntaxWrapper AddInitializerExpressions(params ExpressionSyntax[] items)
             => AddInitializerExpressionsFunc1(wrappedObject, items);
 
         public readonly WithExpressionSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken withKeyword, InitializerExpressionSyntax initializer)

@@ -75,7 +75,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
+        public readonly ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper Update(SyntaxToken newKeyword, ArgumentListSyntax argumentList, InitializerExpressionSyntax? initializer)

@@ -75,7 +75,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly CollectionExpressionSyntaxWrapper AddElements(CollectionElementSyntaxWrapper[] items)
+        public readonly CollectionExpressionSyntaxWrapper AddElements(params CollectionElementSyntaxWrapper[] items)
             => AddElementsFunc1(wrappedObject, items);
 
         public readonly CollectionExpressionSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements, SyntaxToken closeBracketToken)

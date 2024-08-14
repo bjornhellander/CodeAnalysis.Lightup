@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
-        public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
+        public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc0(wrappedObject, items);
 
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax? argumentList)

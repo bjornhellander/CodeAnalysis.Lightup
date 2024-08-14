@@ -159,25 +159,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly RecordDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddBaseListTypes(BaseTypeSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddBaseListTypes(params BaseTypeSyntax[] items)
             => AddBaseListTypesFunc2(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddConstraintClauses(TypeParameterConstraintClauseSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddConstraintClauses(params TypeParameterConstraintClauseSyntax[] items)
             => AddConstraintClausesFunc3(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc4(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc5(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddParameterListParameters(ParameterSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddParameterListParameters(params ParameterSyntax[] items)
             => AddParameterListParametersFunc6(wrappedObject, items);
 
-        public readonly RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(TypeParameterSyntax[] items)
+        public readonly RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(params TypeParameterSyntax[] items)
             => AddTypeParameterListParametersFunc7(wrappedObject, items);
 
         public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)

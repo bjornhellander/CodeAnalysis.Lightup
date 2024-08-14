@@ -77,10 +77,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly FunctionPointerParameterSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly FunctionPointerParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
-        public readonly FunctionPointerParameterSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly FunctionPointerParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc2(wrappedObject, items);
 
         public readonly FunctionPointerParameterSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type)

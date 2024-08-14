@@ -82,7 +82,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly ListPatternSyntaxWrapper AddPatterns(PatternSyntax[] items)
+        public readonly ListPatternSyntaxWrapper AddPatterns(params PatternSyntax[] items)
             => AddPatternsFunc1(wrappedObject, items);
 
         public readonly ListPatternSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation)

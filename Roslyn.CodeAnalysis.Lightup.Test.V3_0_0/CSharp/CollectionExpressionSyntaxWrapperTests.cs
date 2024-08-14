@@ -29,7 +29,7 @@ public class CollectionExpressionSyntaxWrapperTests
     {
         SyntaxNode? obj = null;
         var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements([]));
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements());
     }
 
     [TestMethod]

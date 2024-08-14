@@ -392,6 +392,7 @@ internal class Writer
             }
 
             Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
+            sb.Append(parameter.IsParams ? "params " : "");
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
             sb.Append(parameter.IsNullable ? "?" : "");
             sb.Append(' ');

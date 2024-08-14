@@ -21,7 +21,7 @@ public class CollectionExpressionSyntaxWrapperTests : V4_4_0.CSharp.CollectionEx
                 SyntaxFactory.Literal(13)));
         var newWrappedItem = CollectionElementSyntaxWrapper.As(newItem);
         Assert.IsNotNull(newWrappedItem.Unwrap());
-        wrapper = wrapper.AddElements([newWrappedItem]);
+        wrapper = wrapper.AddElements(newWrappedItem);
         obj = (CollectionExpressionSyntax?)wrapper.Unwrap();
         Assert.IsNotNull(obj);
         Assert.AreEqual(1, obj.Elements.Count);

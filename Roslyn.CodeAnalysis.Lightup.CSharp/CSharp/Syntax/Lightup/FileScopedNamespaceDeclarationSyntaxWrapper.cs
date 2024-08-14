@@ -118,19 +118,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
-        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(ExternAliasDirectiveSyntax[] items)
+        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc2(wrappedObject, items);
 
-        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
+        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc3(wrappedObject, items);
 
-        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc4(wrappedObject, items);
 
-        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(UsingDirectiveSyntax[] items)
+        public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc5(wrappedObject, items);
 
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken semicolonToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members)

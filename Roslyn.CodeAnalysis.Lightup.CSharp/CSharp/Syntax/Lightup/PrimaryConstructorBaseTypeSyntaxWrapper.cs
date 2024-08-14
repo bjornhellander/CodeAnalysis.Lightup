@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        public readonly PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(ArgumentSyntax[] items)
+        public readonly PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper Update(TypeSyntax type, ArgumentListSyntax argumentList)

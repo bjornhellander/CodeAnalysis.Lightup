@@ -70,10 +70,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        public readonly BaseParameterSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly BaseParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
-        public readonly BaseParameterSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly BaseParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc1(wrappedObject, items);
 
         public readonly BaseParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)

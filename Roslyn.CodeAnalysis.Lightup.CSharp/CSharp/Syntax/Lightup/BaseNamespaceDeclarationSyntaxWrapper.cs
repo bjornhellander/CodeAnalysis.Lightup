@@ -94,19 +94,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public MemberDeclarationSyntax? Unwrap()
             => wrappedObject;
 
-        public readonly BaseNamespaceDeclarationSyntaxWrapper AddAttributeLists(AttributeListSyntax[] items)
+        public readonly BaseNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
-        public readonly BaseNamespaceDeclarationSyntaxWrapper AddExterns(ExternAliasDirectiveSyntax[] items)
+        public readonly BaseNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc1(wrappedObject, items);
 
-        public readonly BaseNamespaceDeclarationSyntaxWrapper AddMembers(MemberDeclarationSyntax[] items)
+        public readonly BaseNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc2(wrappedObject, items);
 
-        public readonly BaseNamespaceDeclarationSyntaxWrapper AddModifiers(SyntaxToken[] items)
+        public readonly BaseNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc3(wrappedObject, items);
 
-        public readonly BaseNamespaceDeclarationSyntaxWrapper AddUsings(UsingDirectiveSyntax[] items)
+        public readonly BaseNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc4(wrappedObject, items);
 
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
