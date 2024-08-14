@@ -1,6 +1,7 @@
 ﻿namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -447,11 +448,34 @@
                 return input;
             }
 
-            var unwrapMethod = type.GetMethod("Unwrap");
-            var unwrappedValue = Expression.Call(input, unwrapMethod);
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                // IEnumerable<X> where X is a wrapper
+                var wrapperItemType = type.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
 
-            var nativeValue = Expression.Convert(unwrappedValue, nativeType);
-            return nativeValue;
+                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    Expression.Convert(
+                        Expression.Call(conversionLambdaParameter, unwrapMethod),
+                        nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+
+                var result = Expression.Call(selectMethod, input, conversionLambda);
+                return result;
+            }
+            else
+            {
+                // A wrapper
+                var unwrapMethod = type.GetMethod("Unwrap");
+                var unwrappedValue = Expression.Call(input, unwrapMethod);
+
+                var nativeValue = Expression.Convert(unwrappedValue, nativeType);
+                return nativeValue;
+            }
         }
 
         private static MethodInfo GetMethod(Type wrappedType, string name, Type[] paramTypes)
@@ -463,21 +487,66 @@
 
         private static Type GetNativeType(Type input)
         {
-            var isWrapperType = IsWrapperType(input);
-            if (!isWrapperType)
+            if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             {
-                return input;
+                var elementType = input.GetGenericArguments()[0];
+                var nativeElementType = GetNativeType(elementType);
+                var nativeType = typeof(IEnumerable<>).MakeGenericType(nativeElementType);
+                return nativeType;
             }
+            else
+            {
+                var isWrapperType = IsWrapperType(input);
+                if (!isWrapperType)
+                {
+                    return input;
+                }
 
-            var field = input.GetField("WrappedType");
-            var nativeType = (Type)field.GetValue(null);
-            return nativeType;
+                var field = input.GetField("WrappedType");
+                var nativeType = (Type)field.GetValue(null);
+                return nativeType;
+            }
         }
 
         private static bool IsWrapperType(Type type)
         {
             var result = type.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
             return result;
+        }
+
+        private static MethodInfo GetEnumerableSelectMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetEnumerableSelectMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetEnumerableSelectMethod()
+        {
+            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableSelectMethod);
+            return result;
+        }
+
+        private static bool IsEnumerableSelectMethod(MethodInfo method)
+        {
+            if (method.Name != "Select")
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 2)
+            {
+                return false;
+            }
+
+            var parameterType = parameters[1].ParameterType;
+            if (parameterType.Name != "Func`2")
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

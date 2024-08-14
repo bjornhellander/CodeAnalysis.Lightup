@@ -3,6 +3,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
@@ -39,6 +40,22 @@ public class SeparatedSyntaxListWrapperTests : V3_0_0.CSharp.SeparatedSyntaxList
             SyntaxFactory.Token(SyntaxKind.RecordKeyword),
             "abc"));
         wrapper = Wrapper.As(obj);
+        Assert.AreEqual(1, wrapper.Count);
+    }
+
+    [TestMethod]
+    public void TestAddRangeGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var wrapper = Wrapper.As(obj);
+        Assert.AreEqual(0, wrapper.Count);
+
+        var newNativeItem = SyntaxFactory.RecordDeclaration(
+            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
+            "abc");
+        var newWrappedItem = RecordDeclarationSyntaxWrapper.As(newNativeItem);
+
+        wrapper = wrapper.AddRange([newWrappedItem]);
         Assert.AreEqual(1, wrapper.Count);
     }
 }

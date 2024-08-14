@@ -34,6 +34,14 @@ public class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestAddRangeGivenNullObject()
+    {
+        object? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddRange([]));
+    }
+
+    [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();

@@ -4,12 +4,13 @@
     using System.Collections.Generic;
     using Microsoft.CodeAnalysis.Text;
 
-    // TODO: Implement more members
+    // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly Type? WrappedType;
 
         private static readonly Func<object?, int> CountAccessor;
+        private static readonly Func<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>> AddRangeAccessor;
 
         private readonly object? wrappedObject;
 
@@ -21,6 +22,7 @@
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = CommonLightupHelper.CreateGetAccessor<object?, int>(WrappedType, nameof(Count));
+            AddRangeAccessor = CommonLightupHelper.CreateMethodAccessor<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>>(WrappedType, nameof(AddRange));
         }
 
         private SeparatedSyntaxListWrapper(object? obj)
@@ -121,7 +123,7 @@
             => throw new NotImplementedException();
 
         public readonly SeparatedSyntaxListWrapper<TNode> AddRange(IEnumerable<TNode> nodes)
-            => throw new NotImplementedException();
+            => AddRangeAccessor(wrappedObject, nodes);
 
         public readonly SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
             => throw new NotImplementedException();
