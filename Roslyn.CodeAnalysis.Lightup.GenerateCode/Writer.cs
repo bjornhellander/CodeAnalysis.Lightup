@@ -109,7 +109,8 @@ internal class Writer
                 // TODO: Handle updated types as well
                 return null;
             }
-            else if (typeDef.Name == "IFunctionPointerTypeSymbol")
+            else if (typeDef.Name == "IFunctionPointerTypeSymbol"
+                || typeDef.Name == "IInterpolatedStringHandlerArgumentPlaceholderOperation")
             {
                 return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
             }
@@ -589,7 +590,8 @@ internal class Writer
         else if (typeRef is NamedTypeReference namedTypeRef)
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Name}{(isNew ? "Wrapper" : "")}");
+            var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
+            sb.Append($"{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
     }
 
@@ -698,5 +700,15 @@ internal class Writer
         }
 
         return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
+    }
+
+    private static bool IsEnumType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    {
+        if (typeRef is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef is EnumTypeDefinition;
     }
 }

@@ -419,6 +419,12 @@
                 return input;
             }
 
+            if (targetType.IsEnum)
+            {
+                var wrappedEnumValue = Expression.Convert(input, targetType);
+                return wrappedEnumValue;
+            }
+
             var wrapMethod = targetType.GetMethod("As");
             if (wrapMethod == null)
             {
