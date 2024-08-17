@@ -261,13 +261,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
         if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}Func = CommonLightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
             }
         }
         if (instanceMethods.Count != 0)
@@ -277,7 +277,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = CommonLightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -297,11 +297,11 @@ internal class Writer
         sb.AppendLine($"            => obj.Unwrap();");
         sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
-        sb.AppendLine($"            => CommonLightupHelper.Is(obj, WrappedType);");
+        sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
         sb.AppendLine($"        public static {targetName} As(object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = CommonLightupHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
@@ -390,13 +390,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
         if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}Func = CommonLightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
             }
         }
         if (instanceMethods.Count != 0)
@@ -406,7 +406,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = CommonLightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -426,11 +426,11 @@ internal class Writer
         ////sb.AppendLine($"            => obj.Unwrap();");
         ////sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
-        sb.AppendLine($"            => CommonLightupHelper.Is(obj, WrappedType);");
+        sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
         sb.AppendLine($"        public static {targetName} As(object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = CommonLightupHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();

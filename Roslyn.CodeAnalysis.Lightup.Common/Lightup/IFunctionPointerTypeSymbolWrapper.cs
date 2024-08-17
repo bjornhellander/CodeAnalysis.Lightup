@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IFunctionPointerTypeSymbolWrapper()
         {
-            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SignatureFunc = CommonLightupHelper.CreateGetAccessor<ITypeSymbol?, IMethodSymbol>(WrappedType, nameof(Signature));
+            SignatureFunc = LightupHelper.CreateGetAccessor<ITypeSymbol?, IMethodSymbol>(WrappedType, nameof(Signature));
         }
 
         private IFunctionPointerTypeSymbolWrapper(ITypeSymbol? obj)
@@ -34,11 +34,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => SignatureFunc(wrappedObject);
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static IFunctionPointerTypeSymbolWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<ITypeSymbol>(obj, WrappedType);
+            var obj2 = LightupHelper.As<ITypeSymbol>(obj, WrappedType);
             return new IFunctionPointerTypeSymbolWrapper(obj2);
         }
 

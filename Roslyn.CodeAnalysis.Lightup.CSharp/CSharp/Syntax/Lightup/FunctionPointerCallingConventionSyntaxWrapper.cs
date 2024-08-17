@@ -27,16 +27,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FunctionPointerCallingConventionSyntaxWrapper()
         {
-            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ManagedOrUnmanagedKeywordFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ManagedOrUnmanagedKeyword));
-            UnmanagedCallingConventionListFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(UnmanagedCallingConventionList));
+            ManagedOrUnmanagedKeywordFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ManagedOrUnmanagedKeyword));
+            UnmanagedCallingConventionListFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(UnmanagedCallingConventionList));
 
-            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddUnmanagedCallingConventionListCallingConventionsFunc1 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[], FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(AddUnmanagedCallingConventionListCallingConventions));
-            UpdateFunc2 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(Update));
-            WithManagedOrUnmanagedKeywordFunc3 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(WithManagedOrUnmanagedKeyword));
-            WithUnmanagedCallingConventionListFunc4 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(WithUnmanagedCallingConventionList));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddUnmanagedCallingConventionListCallingConventionsFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[], FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(AddUnmanagedCallingConventionListCallingConventions));
+            UpdateFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(Update));
+            WithManagedOrUnmanagedKeywordFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(WithManagedOrUnmanagedKeyword));
+            WithUnmanagedCallingConventionListFunc4 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(WithUnmanagedCallingConventionList));
         }
 
         private FunctionPointerCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)
@@ -54,11 +54,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static FunctionPointerCallingConventionSyntaxWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerCallingConventionSyntaxWrapper(obj2);
         }
 

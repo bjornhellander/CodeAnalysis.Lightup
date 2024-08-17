@@ -21,8 +21,8 @@
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = CommonLightupHelper.CreateGetAccessor<object?, int>(WrappedType, nameof(Count));
-            AddRangeAccessor = CommonLightupHelper.CreateMethodAccessor<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>>(WrappedType, nameof(AddRange));
+            CountAccessor = LightupHelper.CreateGetAccessor<object?, int>(WrappedType, nameof(Count));
+            AddRangeAccessor = LightupHelper.CreateMethodAccessor<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>>(WrappedType, nameof(AddRange));
         }
 
         private SeparatedSyntaxListWrapper(object? obj)

@@ -6,14 +6,8 @@
     using System.Linq.Expressions;
     using System.Reflection;
 
-    public static class CommonLightupHelper
+    public class LightupHelperBase
     {
-        public static Type? FindType(string wrappedTypeName)
-        {
-            return FindType(typeof(IOperation).Assembly, wrappedTypeName);
-        }
-
-        // TODO: Move the remaining members to another class
         public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
             var wrappedType = assembly.GetType(wrappedTypeName);

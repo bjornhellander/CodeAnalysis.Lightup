@@ -46,8 +46,7 @@ public class WrapperTests
 
         switch (type.Name)
         {
-            case "CommonLightupHelper":
-            case "LightupStatus":
+            case "LightupHelperBase":
                 return false;
 
             default:
