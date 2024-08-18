@@ -110,9 +110,7 @@ internal class Writer
                 return null;
             }
             else if (typeDef.Name == "IFunctionPointerTypeSymbol"
-                || typeDef.Name == "IInterpolatedStringHandlerArgumentPlaceholderOperation"
-                || typeDef.Name == "IPropertySubpatternOperation"
-                || typeDef.Name == "IRecursivePatternOperation")
+                || typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.Operations."))
             {
                 return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
             }
