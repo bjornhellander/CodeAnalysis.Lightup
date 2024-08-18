@@ -3,8 +3,10 @@
 #nullable enable
 
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Immutable;
+using System.Threading;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {

@@ -86,7 +86,8 @@ internal class Writer
                 // TODO: Handle updated types as well
                 return null;
             }
-            else if (typeDef.Name == "MethodInstrumentation")
+            else if (typeDef.Name == "MethodInstrumentation"
+                || typeDef.Name == "SourceProductionContext")
             {
                 return GenerateStruct(strructTypeDef, typeDefs, targetNamespace);
             }
@@ -246,8 +247,10 @@ internal class Writer
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine($"using System.Threading;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
