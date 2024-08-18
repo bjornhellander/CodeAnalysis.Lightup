@@ -386,6 +386,10 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
         sb.AppendLine($"using System;");
+        sb.AppendLine($"using System.Collections.Generic;");
+        sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine($"using System.Threading;");
+        sb.AppendLine($"using System.Threading.Tasks;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
