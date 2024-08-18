@@ -22,22 +22,40 @@ internal class Writer
     // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
+        "Microsoft.CodeAnalysis.AnalyzerConfig",
+        "Microsoft.CodeAnalysis.AnalyzerConfigSet",
+        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider",
+        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions",
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
+        "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
+        "Microsoft.CodeAnalysis.ErrorLogOptions",
+        "Microsoft.CodeAnalysis.GeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
         "Microsoft.CodeAnalysis.GeneratorInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorRunResult",
         "Microsoft.CodeAnalysis.GeneratorTimingInfo",
+        "Microsoft.CodeAnalysis.Host.LanguageServices",
+        "Microsoft.CodeAnalysis.Host.SolutionServices",
         "Microsoft.CodeAnalysis.IImportScope",
         "Microsoft.CodeAnalysis.IIncrementalGenerator",
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
         "Microsoft.CodeAnalysis.ISourceGenerator",
         "Microsoft.CodeAnalysis.ISupportedChangesService",
         "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
         "Microsoft.CodeAnalysis.ISyntaxReceiver",
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions",
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions",
+        "Microsoft.CodeAnalysis.SuppressionDescriptor",
+        "Microsoft.CodeAnalysis.SymbolEqualityComparer",
+        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
+        "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
+        "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider",
     ];
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
@@ -125,14 +143,9 @@ internal class Writer
                 // TODO: Handle static classes as well
                 return null;
             }
-            else if (typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax."))
-            {
-                return GenerateClass(classTypeDef, typeDefs, targetNamespace);
-            }
             else
             {
-                // TODO: Handle other classes as well
-                return null;
+                return GenerateClass(classTypeDef, typeDefs, targetNamespace);
             }
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
