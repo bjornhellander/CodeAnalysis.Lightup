@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Immutable;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -425,6 +426,30 @@
                 return wrappedEnumValue;
             }
 
+            if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var itemWrapMethod = wrapperItemType.GetMethod("As");
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    Expression.Convert(
+                        Expression.Call(itemWrapMethod, conversionLambdaParameter),
+                        wrapperItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
+
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
+
+                var result = Expression.Call(toArrayMethod, temp1);
+
+                return result;
+            }
+
             var wrapMethod = targetType.GetMethod("As");
             if (wrapMethod == null)
             {
@@ -608,6 +633,64 @@
 
             var parameters = method.GetParameters();
             if (parameters.Length != 1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static MethodInfo GetImmutableArraySelectMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetImmutableArraySelectMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetImmutableArraySelectMethod()
+        {
+            var result = typeof(ImmutableArrayExtensions).GetMethods().Single(IsImmutableArraySelectMethod);
+            return result;
+        }
+
+        private static bool IsImmutableArraySelectMethod(MethodInfo method)
+        {
+            if (method.Name != "Select")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static MethodInfo GetImmutableArrayToImmutableArrayMethod(Type nativeItemType)
+        {
+            var genericMethod = GetImmutableArrayToImmutableArrayMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(nativeItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetImmutableArrayToImmutableArrayMethod()
+        {
+            var result = typeof(ImmutableArray).GetMethods().Single(IsImmutableArrayToImmutableArrayMethod);
+            return result;
+        }
+
+        private static bool IsImmutableArrayToImmutableArrayMethod(MethodInfo method)
+        {
+            if (method.Name != "ToImmutableArray")
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 1)
+            {
+                return false;
+            }
+
+            var parameterType = parameters[0].ParameterType;
+            if (!parameterType.IsGenericType || parameterType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
             {
                 return false;
             }

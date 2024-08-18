@@ -4,6 +4,7 @@
 
 using Microsoft.CodeAnalysis.Lightup;
 using System;
+using System.Collections.Immutable;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {

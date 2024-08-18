@@ -111,7 +111,8 @@ internal class Writer
             }
             else if (typeDef.Name == "IFunctionPointerTypeSymbol"
                 || typeDef.Name == "IInterpolatedStringHandlerArgumentPlaceholderOperation"
-                || typeDef.Name == "IPropertySubpatternOperation")
+                || typeDef.Name == "IPropertySubpatternOperation"
+                || typeDef.Name == "IRecursivePatternOperation")
             {
                 return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
             }
@@ -359,6 +360,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
         sb.AppendLine($"using System;");
+        sb.AppendLine($"using System.Collections.Immutable;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
