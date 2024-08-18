@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Struct added in Roslyn version 3.8.0.0</summary>
     public readonly struct AnalyzerConfigOptionsResultWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult";

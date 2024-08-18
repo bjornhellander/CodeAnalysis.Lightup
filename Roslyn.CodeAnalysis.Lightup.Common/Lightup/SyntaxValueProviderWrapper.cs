@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Struct added in Roslyn version 4.0.0.0</summary>
     public readonly struct SyntaxValueProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxValueProvider";

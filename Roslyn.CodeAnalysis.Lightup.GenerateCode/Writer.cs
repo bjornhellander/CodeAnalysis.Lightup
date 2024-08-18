@@ -183,7 +183,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Enum added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         if (typeDef.IsFlagsEnum)
         {
             sb.AppendLine($"    [System.Flags]");
@@ -276,7 +276,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Struct added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -389,7 +389,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Class added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -519,7 +519,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Interface added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");

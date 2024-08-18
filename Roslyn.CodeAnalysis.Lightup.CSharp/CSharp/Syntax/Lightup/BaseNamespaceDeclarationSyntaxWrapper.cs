@@ -7,7 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
     public readonly struct BaseNamespaceDeclarationSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax";

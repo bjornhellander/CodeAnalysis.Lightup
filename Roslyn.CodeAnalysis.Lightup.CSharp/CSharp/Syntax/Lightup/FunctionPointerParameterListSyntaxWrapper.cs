@@ -7,7 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
     public readonly struct FunctionPointerParameterListSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax";

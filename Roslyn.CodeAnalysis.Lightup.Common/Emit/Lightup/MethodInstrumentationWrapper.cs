@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Added in Roslyn version 4.8.0.0</summary>
+    /// <summary>Struct added in Roslyn version 4.8.0.0</summary>
     public readonly struct MethodInstrumentationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.MethodInstrumentation";

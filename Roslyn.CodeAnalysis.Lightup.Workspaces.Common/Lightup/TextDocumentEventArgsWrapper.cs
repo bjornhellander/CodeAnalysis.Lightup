@@ -7,7 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Class added in Roslyn version 4.4.0.0</summary>
     public readonly struct TextDocumentEventArgsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";

@@ -7,7 +7,7 @@ using System;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
     public readonly struct AdditionalDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdditionalDocument";
