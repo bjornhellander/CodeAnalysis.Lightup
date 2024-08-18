@@ -25,14 +25,14 @@ internal class Writer
         "Microsoft.CodeAnalysis.AnalyzerConfig",
         "Microsoft.CodeAnalysis.AnalyzerConfigSet",
         "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider",
-        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions",
+        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // No base interface
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
         "Microsoft.CodeAnalysis.ErrorLogOptions",
-        "Microsoft.CodeAnalysis.GeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
@@ -41,21 +41,21 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorTimingInfo",
         "Microsoft.CodeAnalysis.Host.LanguageServices",
         "Microsoft.CodeAnalysis.Host.SolutionServices",
-        "Microsoft.CodeAnalysis.IImportScope",
-        "Microsoft.CodeAnalysis.IIncrementalGenerator",
+        "Microsoft.CodeAnalysis.IImportScope", // No base interface
+        "Microsoft.CodeAnalysis.IIncrementalGenerator", // No base interface
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
-        "Microsoft.CodeAnalysis.ISourceGenerator",
-        "Microsoft.CodeAnalysis.ISupportedChangesService",
-        "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
-        "Microsoft.CodeAnalysis.ISyntaxReceiver",
-        "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions",
-        "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions",
+        "Microsoft.CodeAnalysis.ISourceGenerator", // No base interface
+        "Microsoft.CodeAnalysis.ISupportedChangesService", // No base interface
+        "Microsoft.CodeAnalysis.ISyntaxContextReceiver", // No base interface
+        "Microsoft.CodeAnalysis.ISyntaxReceiver", // No base interface
+        "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
+        "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
         "Microsoft.CodeAnalysis.SymbolEqualityComparer",
         "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
         "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
-        "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider",
+        "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
