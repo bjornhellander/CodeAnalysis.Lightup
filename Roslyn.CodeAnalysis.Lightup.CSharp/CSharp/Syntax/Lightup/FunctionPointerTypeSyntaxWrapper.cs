@@ -31,20 +31,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FunctionPointerTypeSyntaxWrapper()
         {
-            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AsteriskTokenFunc = CommonLightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(AsteriskToken));
-            CallingConventionFunc = CommonLightupHelper.CreateGetAccessor<TypeSyntax?, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(CallingConvention));
-            DelegateKeywordFunc = CommonLightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(DelegateKeyword));
-            ParameterListFunc = CommonLightupHelper.CreateGetAccessor<TypeSyntax?, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(ParameterList));
+            AsteriskTokenFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(AsteriskToken));
+            CallingConventionFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, FunctionPointerCallingConventionSyntaxWrapper>(WrappedType, nameof(CallingConvention));
+            DelegateKeywordFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(DelegateKeyword));
+            ParameterListFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(ParameterList));
 
-            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<TypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddParameterListParametersFunc1 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerParameterSyntaxWrapper[], FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(AddParameterListParameters));
-            UpdateFunc2 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, SyntaxToken, FunctionPointerCallingConventionSyntaxWrapper, FunctionPointerParameterListSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(Update));
-            WithAsteriskTokenFunc3 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithAsteriskToken));
-            WithCallingConventionFunc4 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerCallingConventionSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithCallingConvention));
-            WithDelegateKeywordFunc5 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithDelegateKeyword));
-            WithParameterListFunc6 = CommonLightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerParameterListSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithParameterList));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddParameterListParametersFunc1 = LightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerParameterSyntaxWrapper[], FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(AddParameterListParameters));
+            UpdateFunc2 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, SyntaxToken, FunctionPointerCallingConventionSyntaxWrapper, FunctionPointerParameterListSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(Update));
+            WithAsteriskTokenFunc3 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithAsteriskToken));
+            WithCallingConventionFunc4 = LightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerCallingConventionSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithCallingConvention));
+            WithDelegateKeywordFunc5 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithDelegateKeyword));
+            WithParameterListFunc6 = LightupHelper.CreateMethodAccessor<TypeSyntax?, FunctionPointerParameterListSyntaxWrapper, FunctionPointerTypeSyntaxWrapper>(WrappedType, nameof(WithParameterList));
         }
 
         private FunctionPointerTypeSyntaxWrapper(TypeSyntax? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static FunctionPointerTypeSyntaxWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<TypeSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<TypeSyntax>(obj, WrappedType);
             return new FunctionPointerTypeSyntaxWrapper(obj2);
         }
 

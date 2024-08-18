@@ -28,17 +28,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ParenthesizedPatternSyntaxWrapper()
         {
-            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseParenTokenFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(CloseParenToken));
-            OpenParenTokenFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OpenParenToken));
-            PatternFunc = CommonLightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Pattern));
+            CloseParenTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(CloseParenToken));
+            OpenParenTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OpenParenToken));
+            PatternFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, PatternSyntax>(WrappedType, nameof(Pattern));
 
-            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, PatternSyntax, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithCloseParenTokenFunc2 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithCloseParenToken));
-            WithOpenParenTokenFunc3 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithOpenParenToken));
-            WithPatternFunc4 = CommonLightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, PatternSyntax, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(Update));
+            WithCloseParenTokenFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithCloseParenToken));
+            WithOpenParenTokenFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithOpenParenToken));
+            WithPatternFunc4 = LightupHelper.CreateMethodAccessor<PatternSyntax?, PatternSyntax, ParenthesizedPatternSyntaxWrapper>(WrappedType, nameof(WithPattern));
         }
 
         private ParenthesizedPatternSyntaxWrapper(PatternSyntax? obj)
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static ParenthesizedPatternSyntaxWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
             return new ParenthesizedPatternSyntaxWrapper(obj2);
         }
 

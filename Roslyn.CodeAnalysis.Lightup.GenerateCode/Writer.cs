@@ -63,7 +63,10 @@ internal class Writer
         return targetNamespace;
     }
 
-    private static (string Name, string Source)? GenerateType(TypeDefinition typeDef, IReadOnlyDictionary<string, TypeDefinition> typeDefs, string targetNamespace)
+    private static (string Name, string Source)? GenerateType(
+        TypeDefinition typeDef,
+        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        string targetNamespace)
     {
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {
@@ -99,6 +102,24 @@ internal class Writer
                 return null;
             }
         }
+        else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+        {
+            if (typeDef.AssemblyVersion == null)
+            {
+                // TODO: Handle updated types as well
+                return null;
+            }
+            else if (typeDef.Name == "IFunctionPointerTypeSymbol"
+                || typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.Operations."))
+            {
+                return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
+            }
+            else
+            {
+                // TODO: Handle other interfaces as well
+                return null;
+            }
+        }
         else
         {
             Assert.Fail("Unexpected type");
@@ -106,7 +127,9 @@ internal class Writer
         }
     }
 
-    private static (string Name, string Source) GenerateNewEnum(EnumTypeDefinition typeDef, string targetNamespace)
+    private static (string Name, string Source) GenerateNewEnum(
+        EnumTypeDefinition typeDef,
+        string targetNamespace)
     {
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
         var targetName = typeDef.Name + "Ex";
@@ -145,7 +168,9 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static (string Name, string Source)? GenerateUpdatedEnum(EnumTypeDefinition typeDef, string targetNamespace)
+    private static (string Name, string Source)? GenerateUpdatedEnum(
+        EnumTypeDefinition typeDef,
+        string targetNamespace)
     {
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
         if (newValues.Count == 0)
@@ -213,7 +238,7 @@ internal class Writer
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
         sb.AppendLine($"        public static readonly Type? WrappedType;");
-        if (instanceMethods.Count != 0)
+        if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
@@ -237,13 +262,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
         if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}Func = CommonLightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
             }
         }
         if (instanceMethods.Count != 0)
@@ -253,7 +278,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = CommonLightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -273,11 +298,11 @@ internal class Writer
         sb.AppendLine($"            => obj.Unwrap();");
         sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
-        sb.AppendLine($"            => CommonLightupHelper.Is(obj, WrappedType);");
+        sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
         sb.AppendLine($"        public static {targetName} As(object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = CommonLightupHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
@@ -311,6 +336,120 @@ internal class Writer
             .Where(x => !x.IsStatic)
             .ToList();
         return result;
+    }
+
+    private static (string Name, string Source) GenerateInterface(
+        InterfaceTypeDefinition typeDef,
+        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        string targetNamespace)
+    {
+        var targetName = typeDef.Name + "Wrapper";
+        var instanceProperties = typeDef.Properties;
+        var instanceMethods = typeDef.Methods;
+
+        var baseTypeName = GetWrappedObjectTypeName(typeDef);
+        Assert.IsTrue(baseTypeName != null, "Could not get base type");
+
+        var sb = new StringBuilder();
+
+        sb.AppendLine($"// <auto-generated/>");
+        sb.AppendLine();
+        sb.AppendLine($"#nullable enable");
+        sb.AppendLine();
+        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        sb.AppendLine($"using System;");
+        sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine();
+        sb.AppendLine($"namespace {targetNamespace}");
+        sb.AppendLine($"{{");
+        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    public readonly struct {targetName}");
+        sb.AppendLine($"    {{");
+        sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
+        sb.AppendLine();
+        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (instanceProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                var funcDeclText = GetPropertyFuncDeclText(property, baseTypeName, typeDefs);
+                sb.AppendLine($"        private static readonly {funcDeclText} {property.Name}Func;");
+            }
+        }
+        if (instanceMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                var funcDeclText = GetMethodFuncDeclText(method, baseTypeName, typeDefs);
+                sb.AppendLine($"        private static readonly {funcDeclText} {method.Name}Func{index};");
+            }
+        }
+        sb.AppendLine();
+        sb.AppendLine($"        private readonly {baseTypeName}? wrappedObject;");
+        sb.AppendLine();
+        sb.AppendLine($"        static {targetName}()");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        if (instanceProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{baseTypeName}?, {GetTypeDeclText(property, typeDefs)}>(WrappedType, nameof({property.Name}));");
+            }
+        }
+        if (instanceMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+            }
+        }
+        sb.AppendLine($"        }}");
+        sb.AppendLine();
+        sb.AppendLine($"        private {targetName}({baseTypeName}? obj)");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            wrappedObject = obj;");
+        sb.AppendLine($"        }}");
+        foreach (var property in instanceProperties)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
+            sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
+        }
+        sb.AppendLine();
+        ////sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
+        ////sb.AppendLine($"            => obj.Unwrap();");
+        ////sb.AppendLine();
+        sb.AppendLine($"        public static bool Is(object? obj)");
+        sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
+        sb.AppendLine();
+        sb.AppendLine($"        public static {targetName} As(object? obj)");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            return new {targetName}(obj2);");
+        sb.AppendLine($"        }}");
+        sb.AppendLine();
+        sb.AppendLine($"        public {baseTypeName}? Unwrap()");
+        sb.AppendLine($"            => wrappedObject;");
+        foreach (var methodDef in instanceMethods)
+        {
+            var index = instanceMethods.IndexOf(methodDef);
+            sb.AppendLine();
+            sb.AppendLine($"        public readonly {(methodDef.ReturnType != null ? GetTypeDeclText(methodDef.ReturnType, typeDefs) : "void")} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject, {string.Join(", ", methodDef.Parameters.Select(x => x.Name))});");
+        }
+        sb.AppendLine($"    }}");
+        sb.AppendLine($"}}");
+
+        var source = sb.ToString();
+        return (targetName, source);
     }
 
     private static string GetPropertyFuncDeclText(PropertyDefinition propertyDef, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
@@ -452,7 +591,8 @@ internal class Writer
         else if (typeRef is NamedTypeReference namedTypeRef)
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Name}{(isNew ? "Wrapper" : "")}");
+            var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
+            sb.Append($"{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
     }
 
@@ -510,6 +650,49 @@ internal class Writer
         }
     }
 
+    private static string? GetWrappedObjectTypeName(
+        InterfaceTypeDefinition typeDef)
+    {
+        var types = typeDef.Interfaces.OfType<NamedTypeReference>().ToList();
+        while (RemoveIndirectInterfaces(types))
+        {
+        }
+
+        if (types.Count == 1)
+        {
+            return types[0].Name;
+        }
+        else
+        {
+            return null;
+        }
+
+        static bool RemoveIndirectInterfaces(List<NamedTypeReference> typeRefs)
+        {
+            for (var i = 0; i < typeRefs.Count; i++)
+            {
+                var currTypeRef = typeRefs[i];
+
+                for (var j = 0; j < i; j++)
+                {
+                    var prevTypeRef = typeRefs[j];
+                    if (prevTypeRef.IsAssignableFrom(currTypeRef))
+                    {
+                        typeRefs.RemoveAt(j);
+                        return true;
+                    }
+                    else if (currTypeRef.IsAssignableFrom(prevTypeRef))
+                    {
+                        typeRefs.RemoveAt(i);
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    }
+
     private static bool IsNewType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
         if (typeRef is not NamedTypeReference namedTypeRef)
@@ -518,5 +701,15 @@ internal class Writer
         }
 
         return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
+    }
+
+    private static bool IsEnumType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    {
+        if (typeRef is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef is EnumTypeDefinition;
     }
 }

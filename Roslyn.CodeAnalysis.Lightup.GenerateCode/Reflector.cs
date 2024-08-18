@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -83,6 +84,10 @@ internal class Reflector
             {
                 UpdateClassType(classTypeDef, type);
             }
+            else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+            {
+                UpdateInterfaceType(interfaceTypeDef, type);
+            }
             else
             {
                 Assert.Fail("Unhandled type");
@@ -110,8 +115,7 @@ internal class Reflector
         }
         else if (type.IsInterface)
         {
-            // TODO: Handle interfaces
-            return null;
+            return CreateEmptyInterfaceTypeDefinition(assemblyKind, version, type);
         }
         else
         {
@@ -157,6 +161,23 @@ internal class Reflector
             IsStaticType(type));
     }
 
+    private static InterfaceTypeDefinition CreateEmptyInterfaceTypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? version,
+        Type type)
+    {
+        var interfaces = type.GetInterfaces();
+        var interfaceTypeRefs = interfaces.Select(CreateTypeReference).ToImmutableArray();
+
+        return new InterfaceTypeDefinition(
+            assemblyKind,
+            version,
+            type.Name,
+            type.Namespace!,
+            type.FullName!,
+            interfaceTypeRefs);
+    }
+
     private static void UpdateEnumType(EnumTypeDefinition enumTypeDef, Type type, Version? version)
     {
         var fields = type.GetFields().Where(x => x.IsStatic && x.IsPublic);
@@ -196,6 +217,18 @@ internal class Reflector
     {
         var result = type.IsAbstract && type.IsSealed;
         return result;
+    }
+
+    private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type)
+    {
+        // TODO: Check which members are actually new
+        var propertyDefs = CreatePropertyDefinitions(type);
+        interfaceTypeDef.Properties.Clear();
+        interfaceTypeDef.Properties.AddRange(propertyDefs);
+
+        var methodDefs = CreateMethodDefinitions(type);
+        interfaceTypeDef.Methods.Clear();
+        interfaceTypeDef.Methods.AddRange(methodDefs);
     }
 
     private static List<PropertyDefinition> CreatePropertyDefinitions(Type type)
@@ -322,7 +355,7 @@ internal class Reflector
 
         if (type.IsGenericParameter)
         {
-            return new GenericTypeParameterReference(type.Name);
+            return new GenericTypeParameterReference(type, type.Name);
         }
         else if (type.IsArray)
         {
@@ -330,7 +363,7 @@ internal class Reflector
             Assert.IsTrue(elementType != null, "Could not get array's element type");
             var elementTypeRef = CreateTypeReference(elementType);
 
-            return new ArrayTypeReference(elementTypeRef);
+            return new ArrayTypeReference(type, elementTypeRef);
         }
         else if (type.IsGenericType && !type.IsGenericTypeDefinition)
         {
@@ -341,7 +374,7 @@ internal class Reflector
 
             var typeArgumentsRefs = type.GenericTypeArguments.Select(CreateTypeReference).ToList();
 
-            return new GenericTypeReference(originalTypeRef, typeArgumentsRefs);
+            return new GenericTypeReference(type, originalTypeRef, typeArgumentsRefs);
         }
         else if (type.IsGenericType)
         {
@@ -350,14 +383,14 @@ internal class Reflector
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(typeName, fullTypeName);
+            return new NamedTypeReference(type, typeName, fullTypeName);
         }
         else
         {
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(type.Name, fullTypeName);
+            return new NamedTypeReference(type, type.Name, fullTypeName);
         }
     }
 }

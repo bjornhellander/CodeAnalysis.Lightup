@@ -26,15 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static SpreadElementSyntaxWrapper()
         {
-            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
-            OperatorTokenFunc = CommonLightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(OperatorToken));
+            ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
+            OperatorTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(OperatorToken));
 
-            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(WithExpression));
-            WithOperatorTokenFunc3 = CommonLightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, SpreadElementSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(Update));
+            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, SpreadElementSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, SpreadElementSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
         }
 
         private SpreadElementSyntaxWrapper(CSharpSyntaxNode? obj)
@@ -52,11 +52,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static SpreadElementSyntaxWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
             return new SpreadElementSyntaxWrapper(obj2);
         }
 

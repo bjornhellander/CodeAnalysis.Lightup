@@ -1,8 +1,11 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
+using System;
+
 internal class GenericTypeParameterReference : TypeReference
 {
-    public GenericTypeParameterReference(string name)
+    public GenericTypeParameterReference(Type nativeType, string name)
+        : base(nativeType)
     {
         Name = name;
     }

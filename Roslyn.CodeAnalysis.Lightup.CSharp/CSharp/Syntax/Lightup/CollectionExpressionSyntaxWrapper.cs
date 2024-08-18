@@ -29,18 +29,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CollectionExpressionSyntaxWrapper()
         {
-            WrappedType = CSharpLightupHelper.FindSyntaxType(WrappedTypeName);
+            WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(CloseBracketToken));
-            ElementsFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>>(WrappedType, nameof(Elements));
-            OpenBracketTokenFunc = CommonLightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(OpenBracketToken));
+            CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(CloseBracketToken));
+            ElementsFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>>(WrappedType, nameof(Elements));
+            OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<ExpressionSyntax?, SyntaxToken>(WrappedType, nameof(OpenBracketToken));
 
-            AcceptFunc0 = CommonLightupHelper.CreateVoidMethodAccessor<ExpressionSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddElementsFunc1 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, CollectionElementSyntaxWrapper[], CollectionExpressionSyntaxWrapper>(WrappedType, nameof(AddElements));
-            UpdateFunc2 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(Update));
-            WithCloseBracketTokenFunc3 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithCloseBracketToken));
-            WithElementsFunc4 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithElements));
-            WithOpenBracketTokenFunc5 = CommonLightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithOpenBracketToken));
+            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<ExpressionSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
+            AddElementsFunc1 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, CollectionElementSyntaxWrapper[], CollectionExpressionSyntaxWrapper>(WrappedType, nameof(AddElements));
+            UpdateFunc2 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(Update));
+            WithCloseBracketTokenFunc3 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithCloseBracketToken));
+            WithElementsFunc4 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper>, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithElements));
+            WithOpenBracketTokenFunc5 = LightupHelper.CreateMethodAccessor<ExpressionSyntax?, SyntaxToken, CollectionExpressionSyntaxWrapper>(WrappedType, nameof(WithOpenBracketToken));
         }
 
         private CollectionExpressionSyntaxWrapper(ExpressionSyntax? obj)
@@ -61,11 +61,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(object? obj)
-            => CommonLightupHelper.Is(obj, WrappedType);
+            => LightupHelper.Is(obj, WrappedType);
 
         public static CollectionExpressionSyntaxWrapper As(object? obj)
         {
-            var obj2 = CommonLightupHelper.As<ExpressionSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<ExpressionSyntax>(obj, WrappedType);
             return new CollectionExpressionSyntaxWrapper(obj2);
         }
 
