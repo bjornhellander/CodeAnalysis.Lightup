@@ -298,11 +298,13 @@ internal class Reflector
     private static List<MethodDefinition> CreateMethodDefinitions(Type type)
     {
         // TODO: Handle generic methods
+        // TODO: Handle methods overridden from System.Object
         var methods = type
             .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
             .OfType<MethodInfo>()
             .Where(x => !x.Attributes.HasFlag(MethodAttributes.SpecialName))
             .Where(x => !x.IsGenericMethod)
+            .Where(x => x.GetBaseDefinition().DeclaringType != typeof(object))
             .OrderBy(x => x.Name).ThenBy(x => x.GetParameters().Length)
             .ToList();
         var result = methods.Select(CreateMethodDefinition).ToList();

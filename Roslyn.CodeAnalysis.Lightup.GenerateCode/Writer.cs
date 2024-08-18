@@ -87,7 +87,8 @@ internal class Writer
                 return null;
             }
             else if (typeDef.Name == "MethodInstrumentation"
-                || typeDef.Name == "SourceProductionContext")
+                || typeDef.Name == "SourceProductionContext"
+                || typeDef.Name == "CompilationOutputInfo")
             {
                 return GenerateStruct(strructTypeDef, typeDefs, targetNamespace);
             }
@@ -300,7 +301,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?{(method.Parameters.Count > 0 ? ", " : "")}{GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -335,7 +336,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        public readonly {(methodDef.ReturnType != null ? GetTypeDeclText(methodDef.ReturnType, typeDefs) : "void")} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject, {string.Join(", ", methodDef.Parameters.Select(x => x.Name))});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject{(methodDef.Parameters.Count > 0 ? ", " : "")}{string.Join(", ", methodDef.Parameters.Select(x => x.Name))});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
