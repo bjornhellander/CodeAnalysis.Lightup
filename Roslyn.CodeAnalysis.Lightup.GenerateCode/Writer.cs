@@ -19,8 +19,19 @@ internal class Writer
         [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
+    // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
+        "Microsoft.CodeAnalysis.Diagnostics.Suppression",
+        "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
+        "Microsoft.CodeAnalysis.GeneratorExecutionContext",
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorRunResult",
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions",
+        "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions",
     ];
 
     internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
@@ -68,6 +79,11 @@ internal class Writer
         IReadOnlyDictionary<string, TypeDefinition> typeDefs,
         string targetNamespace)
     {
+        if (TypesToSkip.Contains(typeDef.FullName))
+        {
+            return null;
+        }
+
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {
             if (typeDef.AssemblyVersion != null)
@@ -79,23 +95,16 @@ internal class Writer
                 return GenerateUpdatedEnum(enumTypeDef, targetNamespace);
             }
         }
-        else if (typeDef is StructTypeDefinition strructTypeDef)
+        else if (typeDef is StructTypeDefinition structTypeDef)
         {
             if (typeDef.AssemblyVersion == null)
             {
                 // TODO: Handle updated types as well
                 return null;
             }
-            else if (typeDef.Name == "MethodInstrumentation"
-                || typeDef.Name == "SourceProductionContext"
-                || typeDef.Name == "CompilationOutputInfo")
-            {
-                return GenerateStruct(strructTypeDef, typeDefs, targetNamespace);
-            }
             else
             {
-                // TODO: Handle other interfaces as well
-                return null;
+                return GenerateStruct(structTypeDef, typeDefs, targetNamespace);
             }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
@@ -110,8 +119,7 @@ internal class Writer
                 // TODO: Handle static classes as well
                 return null;
             }
-            else if (typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax.")
-                && !TypesToSkip.Contains(typeDef.FullName))
+            else if (typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.CSharp.Syntax."))
             {
                 return GenerateClass(classTypeDef, typeDefs, targetNamespace);
             }
