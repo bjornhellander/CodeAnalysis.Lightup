@@ -393,6 +393,34 @@
             }
         }
 
+        public static Action<TObject, T1, T2> CreateVoidMethodAccessor<TObject, T1, T2>(Type? wrappedType, string memberName)
+        {
+            if (wrappedType == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var type1 = typeof(T1);
+            var type2 = typeof(T2);
+            var paramTypes = new[] { type1, type2 };
+
+            var method = GetMethod(wrappedType, memberName, paramTypes);
+            if (method == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(void));
+            var lambda = Expression.Lambda<Action<TObject, T1, T2>>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+
+            static void FallbackAccessor(TObject node, T1 arg1, T2 arg2)
+            {
+                throw new NullReferenceException();
+            }
+        }
+
         private static (Expression Body, ParameterExpression[] Parameters) CreateCallExpression(
             Type wrappedType,
             MethodInfo method,

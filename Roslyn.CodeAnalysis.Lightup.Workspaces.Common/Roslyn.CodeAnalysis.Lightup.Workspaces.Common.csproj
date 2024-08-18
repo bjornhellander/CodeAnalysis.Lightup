@@ -28,4 +28,8 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Common\Roslyn.CodeAnalysis.Lightup.Common.csproj" />
+	</ItemGroup>
+
 </Project>

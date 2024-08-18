@@ -65,6 +65,12 @@ internal class Reflector
             var name = type.FullName;
             Assert.IsTrue(name != null, "Could not get type's full name");
 
+            // TODO: Handle generic types as well
+            if (type.IsGenericType)
+            {
+                continue;
+            }
+
             if (!typeDefs.TryGetValue(name, out var typeDef))
             {
                 typeDef = CreateEmptyTypeDefinition(assemblyKind, isBaselineVersion ? null : assemblyVersion, type);
@@ -79,6 +85,10 @@ internal class Reflector
             if (typeDef is EnumTypeDefinition enumTypeDef)
             {
                 UpdateEnumType(enumTypeDef, type, isBaselineVersion ? null : assemblyVersion);
+            }
+            else if (typeDef is StructTypeDefinition structTypeDef)
+            {
+                UpdateStructType(structTypeDef, type);
             }
             else if (typeDef is ClassTypeDefinition classTypeDef)
             {
@@ -110,8 +120,7 @@ internal class Reflector
         }
         else if (type.IsValueType)
         {
-            // TODO: Handle structs
-            return null;
+            return CreateEmptyStructTypeDefinition(assemblyKind, version, type);
         }
         else if (type.IsInterface)
         {
@@ -142,6 +151,19 @@ internal class Reflector
             type.FullName!,
             underlyingTypeName,
             isFlagsEnum);
+    }
+
+    private static StructTypeDefinition CreateEmptyStructTypeDefinition(
+        AssemblyKind assemblyKind,
+        Version? version,
+        Type type)
+    {
+        return new StructTypeDefinition(
+            assemblyKind,
+            version,
+            type.Name,
+            type.Namespace!,
+            type.FullName!);
     }
 
     private static ClassTypeDefinition CreateEmptyClassTypeDefinition(
@@ -197,6 +219,18 @@ internal class Reflector
             var enumValueDef = new EnumValueDefinition(version, name, value);
             enumTypeDef.Values.Add(enumValueDef);
         }
+    }
+
+    private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type)
+    {
+        // TODO: Check which members are actually new
+        var propertyDefs = CreatePropertyDefinitions(type);
+        structTypeDef.Properties.Clear();
+        structTypeDef.Properties.AddRange(propertyDefs);
+
+        var methodDefs = CreateMethodDefinitions(type);
+        structTypeDef.Methods.Clear();
+        structTypeDef.Methods.AddRange(methodDefs);
     }
 
     private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
@@ -264,11 +298,13 @@ internal class Reflector
     private static List<MethodDefinition> CreateMethodDefinitions(Type type)
     {
         // TODO: Handle generic methods
+        // TODO: Handle methods overridden from System.Object
         var methods = type
             .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
             .OfType<MethodInfo>()
             .Where(x => !x.Attributes.HasFlag(MethodAttributes.SpecialName))
             .Where(x => !x.IsGenericMethod)
+            .Where(x => x.GetBaseDefinition().DeclaringType != typeof(object))
             .OrderBy(x => x.Name).ThenBy(x => x.GetParameters().Length)
             .ToList();
         var result = methods.Select(CreateMethodDefinition).ToList();
