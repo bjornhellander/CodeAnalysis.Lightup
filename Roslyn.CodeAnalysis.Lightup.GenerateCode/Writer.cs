@@ -29,7 +29,13 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorRunResult",
         "Microsoft.CodeAnalysis.GeneratorTimingInfo",
+        "Microsoft.CodeAnalysis.IImportScope",
+        "Microsoft.CodeAnalysis.IIncrementalGenerator",
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.ISourceGenerator",
+        "Microsoft.CodeAnalysis.ISupportedChangesService",
+        "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
+        "Microsoft.CodeAnalysis.ISyntaxReceiver",
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions",
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions",
     ];
@@ -136,15 +142,9 @@ internal class Writer
                 // TODO: Handle updated types as well
                 return null;
             }
-            else if (typeDef.Name == "IFunctionPointerTypeSymbol"
-                || typeDef.FullName.StartsWith("Microsoft.CodeAnalysis.Operations."))
-            {
-                return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
-            }
             else
             {
-                // TODO: Handle other interfaces as well
-                return null;
+                return GenerateInterface(interfaceTypeDef, typeDefs, targetNamespace);
             }
         }
         else
