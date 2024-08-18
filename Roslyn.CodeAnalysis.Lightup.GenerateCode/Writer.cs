@@ -22,16 +22,14 @@ internal class Writer
     // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
-        "Microsoft.CodeAnalysis.AnalyzerConfig",
         "Microsoft.CodeAnalysis.AnalyzerConfigSet",
-        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider",
+        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // using CodeAction
         "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // No base interface
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
-        "Microsoft.CodeAnalysis.ErrorLogOptions",
         "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
@@ -39,12 +37,12 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorRunResult",
         "Microsoft.CodeAnalysis.GeneratorTimingInfo",
-        "Microsoft.CodeAnalysis.Host.LanguageServices",
-        "Microsoft.CodeAnalysis.Host.SolutionServices",
+        "Microsoft.CodeAnalysis.Host.LanguageServices", // Wrong return type
+        "Microsoft.CodeAnalysis.Host.SolutionServices", // Wrong return type
         "Microsoft.CodeAnalysis.IImportScope", // No base interface
         "Microsoft.CodeAnalysis.IIncrementalGenerator", // No base interface
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
         "Microsoft.CodeAnalysis.ISourceGenerator", // No base interface
         "Microsoft.CodeAnalysis.ISupportedChangesService", // No base interface
         "Microsoft.CodeAnalysis.ISyntaxContextReceiver", // No base interface
@@ -376,7 +374,8 @@ internal class Writer
         var instanceMethods = GetInstanceMethods(typeDef);
 
         var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
-        Assert.IsTrue(baseTypeName != null, "Could not get base type");
+        var hasBaseType = baseTypeName != null;
+        baseTypeName ??= "object";
 
         var sb = new StringBuilder();
 
@@ -454,9 +453,12 @@ internal class Writer
             sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
-        sb.AppendLine();
-        sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
-        sb.AppendLine($"            => obj.Unwrap();");
+        if (hasBaseType)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
+            sb.AppendLine($"            => obj.Unwrap();");
+        }
         sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
         sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
@@ -784,6 +786,10 @@ internal class Writer
         ClassTypeDefinition typeDef,
         IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
+        if (typeDef.Name == "AnalyzerConfig")
+        {
+        }
+
         while (true)
         {
             var baseTypeRef = typeDef.BaseClass;
@@ -796,7 +802,14 @@ internal class Writer
                 case NamedTypeReference x:
                     if (!IsNewType(x, typeDefs))
                     {
-                        return x.Name;
+                        if (x.FullName == "System.Object")
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return x.Name;
+                        }
                     }
                     else
                     {
