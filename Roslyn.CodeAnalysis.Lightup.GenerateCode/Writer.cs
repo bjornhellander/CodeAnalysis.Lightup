@@ -39,14 +39,12 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorTimingInfo",
         "Microsoft.CodeAnalysis.Host.LanguageServices", // Wrong return type
         "Microsoft.CodeAnalysis.Host.SolutionServices", // Wrong return type
-        "Microsoft.CodeAnalysis.IImportScope", // No base interface
-        "Microsoft.CodeAnalysis.IIncrementalGenerator", // No base interface
-        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
+        "Microsoft.CodeAnalysis.IIncrementalGenerator", // Uses other new generator types
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
-        "Microsoft.CodeAnalysis.ISourceGenerator", // No base interface
-        "Microsoft.CodeAnalysis.ISupportedChangesService", // No base interface
-        "Microsoft.CodeAnalysis.ISyntaxContextReceiver", // No base interface
-        "Microsoft.CodeAnalysis.ISyntaxReceiver", // No base interface
+        "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
+        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
@@ -511,7 +509,8 @@ internal class Writer
         var instanceMethods = typeDef.Methods;
 
         var baseTypeName = GetWrappedObjectTypeName(typeDef);
-        Assert.IsTrue(baseTypeName != null, "Could not get base type");
+        var hasBaseType = baseTypeName != null;
+        baseTypeName ??= "object";
 
         var sb = new StringBuilder();
 
