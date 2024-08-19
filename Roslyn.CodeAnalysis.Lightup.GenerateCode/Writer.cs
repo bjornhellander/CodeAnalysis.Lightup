@@ -24,7 +24,6 @@ internal class Writer
     [
         "Microsoft.CodeAnalysis.AnalyzerConfigSet",
         "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // using CodeAction
-        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // No base interface
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
