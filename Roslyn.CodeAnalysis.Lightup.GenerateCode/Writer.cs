@@ -253,6 +253,7 @@ internal class Writer
         var instanceProperties = typeDef.Properties;
         var instanceMethods = typeDef.Methods;
 
+        // TODO: Investigate base type for struct
         ////var baseTypeName = GetWrappedObjectTypeName(typeDef);
         ////Assert.IsTrue(baseTypeName != null, "Could not get base type");
         var baseTypeName = "object";
@@ -507,9 +508,7 @@ internal class Writer
         var instanceProperties = typeDef.Properties;
         var instanceMethods = typeDef.Methods;
 
-        var baseTypeName = GetWrappedObjectTypeName(typeDef);
-        var hasBaseType = baseTypeName != null;
-        baseTypeName ??= "object";
+        var baseTypeName = GetWrappedObjectTypeName(typeDef) ?? "object";
 
         var sb = new StringBuilder();
 
@@ -585,9 +584,6 @@ internal class Writer
             sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
         sb.AppendLine();
-        ////sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
-        ////sb.AppendLine($"            => obj.Unwrap();");
-        ////sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
         sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
