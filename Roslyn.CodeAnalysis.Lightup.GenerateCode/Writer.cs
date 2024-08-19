@@ -23,7 +23,7 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         "Microsoft.CodeAnalysis.AnalyzerConfigSet",
-        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // using CodeAction
+        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // Missing using, Wrong return type
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
@@ -43,7 +43,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
         "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
-        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using
+        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using, Wrong return type
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
@@ -382,6 +382,10 @@ internal class Writer
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
+        {
+            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+        }
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Generic;");
         sb.AppendLine($"using System.Collections.Immutable;");
@@ -517,6 +521,11 @@ internal class Writer
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
+        {
+            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+            sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
+        }
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Immutable;");
         sb.AppendLine();

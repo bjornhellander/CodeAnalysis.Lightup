@@ -3,6 +3,7 @@
 #nullable enable
 
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.CodeActions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
