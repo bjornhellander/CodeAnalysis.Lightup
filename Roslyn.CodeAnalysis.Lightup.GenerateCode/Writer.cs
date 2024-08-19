@@ -23,33 +23,26 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         "Microsoft.CodeAnalysis.AnalyzerConfigSet",
-        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // Missing using, Wrong return type
+        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // Missing using
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
-        "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
-        "Microsoft.CodeAnalysis.Diagnostics.Suppression",
-        "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider", // Uses AnalyzerConfigOptions
         "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
-        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
-        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
-        "Microsoft.CodeAnalysis.GeneratorExecutionContext",
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
-        "Microsoft.CodeAnalysis.GeneratorRunResult",
-        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
-        "Microsoft.CodeAnalysis.Host.LanguageServices", // Wrong return type
-        "Microsoft.CodeAnalysis.Host.SolutionServices", // Wrong return type
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // Uses GeneratorRunResult
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // Uses GeneratorTimingInfo
+        "Microsoft.CodeAnalysis.GeneratorExecutionContext", // Uses AnalyzerConfigOptionsProviderWrapper
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Uses other new generator types
+        "Microsoft.CodeAnalysis.GeneratorRunResult", // Uses other new generator types
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo", // Uses other new generator types
         "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
         "Microsoft.CodeAnalysis.IIncrementalGenerator", // Uses other new generator types
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
         "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
-        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using, Wrong return type
+        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.SuppressionDescriptor",
-        "Microsoft.CodeAnalysis.SymbolEqualityComparer",
-        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
-        "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
+        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator", // Method without parameters
+        "Microsoft.CodeAnalysis.SyntaxReceiverCreator", // Method without parameters
         "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
@@ -250,8 +243,9 @@ internal class Writer
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
-        var instanceProperties = typeDef.Properties;
-        var instanceMethods = typeDef.Methods;
+        //// TODO: Handle static members
+        var instanceProperties = GetInstanceProperties(typeDef);
+        var instanceMethods = GetInstanceMethods(typeDef);
 
         // TODO: Investigate base type for struct
         ////var baseTypeName = GetWrappedObjectTypeName(typeDef);
@@ -362,12 +356,30 @@ internal class Writer
         return (targetName, source);
     }
 
+    private static List<PropertyDefinition> GetInstanceProperties(StructTypeDefinition typeDef)
+    {
+        var result = typeDef.Properties
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
+    }
+
+    private static List<MethodDefinition> GetInstanceMethods(StructTypeDefinition typeDef)
+    {
+        var result = typeDef.Methods
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
+    }
+
     private static (string Name, string Source) GenerateClass(
         ClassTypeDefinition typeDef,
         IReadOnlyDictionary<string, TypeDefinition> typeDefs,
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
+
+        // TODO: Handle static members
         var instanceProperties = GetInstanceProperties(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
@@ -440,7 +452,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
