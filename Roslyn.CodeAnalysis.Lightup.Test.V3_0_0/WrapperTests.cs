@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using Microsoft.CodeAnalysis.CodeFixes.Lightup;
 using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,11 +10,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [TestClass]
 public class WrapperTests
 {
-    // TODO: Add type from Workspaces.Common
     // TODO: Add type from CSharp.Workspaces
     [TestMethod]
     [DataRow(typeof(OperationKindEx))] // From the Common project
     [DataRow(typeof(SyntaxKindEx))] // From the CSharp project
+    [DataRow(typeof(FixAllScopeEx))] // From the Workspaces.Common project
     public void TestStaticConstructor(Type exampleType)
     {
         var dummyObj = new object();
