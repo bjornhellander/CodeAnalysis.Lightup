@@ -74,6 +74,32 @@
             }
         }
 
+        public static Func<TObject, TResult> CreateMethodAccessor<TObject, TResult>(Type? wrappedType, string memberName)
+        {
+            if (wrappedType == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var paramTypes = Array.Empty<Type>();
+
+            var method = GetMethod(wrappedType, memberName, paramTypes);
+            if (method == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
+            var lambda = Expression.Lambda<Func<TObject, TResult>>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+
+            static TResult FallbackAccessor(TObject node)
+            {
+                throw new NullReferenceException();
+            }
+        }
+
         public static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
@@ -501,7 +527,7 @@
 
         private static Expression GetNativeValue(Expression input, Type type)
         {
-            var nativeType = GetNativeType(type);
+            var nativeType = GetNativeType(type)!; // Can not be null if we have gotten this far
             if (nativeType == type)
             {
                 return input;
@@ -561,19 +587,29 @@
             }
         }
 
-        private static MethodInfo GetMethod(Type wrappedType, string name, Type[] paramTypes)
+        private static MethodInfo? GetMethod(Type wrappedType, string name, Type[] paramTypes)
         {
             var nativeParamTypes = paramTypes.Select(GetNativeType).ToArray();
+            if (nativeParamTypes.Any(x => x == null))
+            {
+                return null;
+            }
+
             var result = wrappedType.GetMethod(name, nativeParamTypes);
             return result;
         }
 
-        private static Type GetNativeType(Type input)
+        private static Type? GetNativeType(Type input)
         {
             if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             {
                 var elementType = input.GetGenericArguments()[0];
                 var nativeElementType = GetNativeType(elementType);
+                if (nativeElementType == null)
+                {
+                    return null;
+                }
+
                 var nativeType = typeof(IEnumerable<>).MakeGenericType(nativeElementType);
                 return nativeType;
             }
@@ -581,6 +617,11 @@
             {
                 var elementType = input.GetElementType();
                 var nativeElementType = GetNativeType(elementType);
+                if (nativeElementType == null)
+                {
+                    return null;
+                }
+
                 var nativeType = nativeElementType.MakeArrayType();
                 return nativeType;
             }
@@ -593,7 +634,7 @@
                 }
 
                 var field = input.GetField("WrappedType");
-                var nativeType = (Type)field.GetValue(null);
+                var nativeType = (Type?)field.GetValue(null);
                 return nativeType;
             }
         }

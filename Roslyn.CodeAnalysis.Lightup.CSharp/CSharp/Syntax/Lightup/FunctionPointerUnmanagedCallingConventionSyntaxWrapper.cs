@@ -4,10 +4,14 @@
 
 using Microsoft.CodeAnalysis.Lightup;
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
     public readonly struct FunctionPointerUnmanagedCallingConventionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionSyntax";

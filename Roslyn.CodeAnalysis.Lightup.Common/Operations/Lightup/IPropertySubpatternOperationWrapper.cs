@@ -8,7 +8,7 @@ using System.Collections.Immutable;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Interface added in Roslyn version 3.8.0.0</summary>
     public readonly struct IPropertySubpatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPropertySubpatternOperation";

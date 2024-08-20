@@ -3,11 +3,16 @@
 #nullable enable
 
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.CodeActions;
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Class added in Roslyn version 4.4.0.0</summary>
     public readonly struct TextDocumentEventArgsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";

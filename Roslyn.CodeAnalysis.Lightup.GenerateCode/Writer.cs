@@ -22,39 +22,21 @@ internal class Writer
     // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
-        "Microsoft.CodeAnalysis.AnalyzerConfig",
-        "Microsoft.CodeAnalysis.AnalyzerConfigSet",
-        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider",
-        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // No base interface
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider",
-        "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
-        "Microsoft.CodeAnalysis.Diagnostics.Suppression",
-        "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
-        "Microsoft.CodeAnalysis.ErrorLogOptions",
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider", // Uses AnalyzerConfigOptions
         "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
-        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
-        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
-        "Microsoft.CodeAnalysis.GeneratorExecutionContext",
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
-        "Microsoft.CodeAnalysis.GeneratorRunResult",
-        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
-        "Microsoft.CodeAnalysis.Host.LanguageServices",
-        "Microsoft.CodeAnalysis.Host.SolutionServices",
-        "Microsoft.CodeAnalysis.IImportScope", // No base interface
-        "Microsoft.CodeAnalysis.IIncrementalGenerator", // No base interface
-        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
-        "Microsoft.CodeAnalysis.ISourceGenerator", // No base interface
-        "Microsoft.CodeAnalysis.ISupportedChangesService", // No base interface
-        "Microsoft.CodeAnalysis.ISyntaxContextReceiver", // No base interface
-        "Microsoft.CodeAnalysis.ISyntaxReceiver", // No base interface
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // Uses GeneratorRunResult
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // Uses GeneratorTimingInfo
+        "Microsoft.CodeAnalysis.GeneratorExecutionContext", // Uses AnalyzerConfigOptionsProviderWrapper
+        "Microsoft.CodeAnalysis.GeneratorRunResult", // Uses other new generator types
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo", // Uses other new generator types
+        "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
+        "Microsoft.CodeAnalysis.IIncrementalGenerator", // Uses other new generator types
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
+        "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.SuppressionDescriptor",
-        "Microsoft.CodeAnalysis.SymbolEqualityComparer",
-        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
-        "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
         "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
@@ -183,7 +165,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Enum added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         if (typeDef.IsFlagsEnum)
         {
             sb.AppendLine($"    [System.Flags]");
@@ -255,9 +237,11 @@ internal class Writer
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
-        var instanceProperties = typeDef.Properties;
-        var instanceMethods = typeDef.Methods;
+        //// TODO: Handle static members
+        var instanceProperties = GetInstanceProperties(typeDef);
+        var instanceMethods = GetInstanceMethods(typeDef);
 
+        // TODO: Investigate base type for struct
         ////var baseTypeName = GetWrappedObjectTypeName(typeDef);
         ////Assert.IsTrue(baseTypeName != null, "Could not get base type");
         var baseTypeName = "object";
@@ -276,7 +260,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Struct added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -366,17 +350,36 @@ internal class Writer
         return (targetName, source);
     }
 
+    private static List<PropertyDefinition> GetInstanceProperties(StructTypeDefinition typeDef)
+    {
+        var result = typeDef.Properties
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
+    }
+
+    private static List<MethodDefinition> GetInstanceMethods(StructTypeDefinition typeDef)
+    {
+        var result = typeDef.Methods
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
+    }
+
     private static (string Name, string Source) GenerateClass(
         ClassTypeDefinition typeDef,
         IReadOnlyDictionary<string, TypeDefinition> typeDefs,
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
+
+        // TODO: Handle static members
         var instanceProperties = GetInstanceProperties(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
         var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
-        Assert.IsTrue(baseTypeName != null, "Could not get base type");
+        var hasBaseType = baseTypeName != null;
+        baseTypeName ??= "object";
 
         var sb = new StringBuilder();
 
@@ -385,11 +388,19 @@ internal class Writer
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
+        {
+            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+        }
         sb.AppendLine($"using System;");
+        sb.AppendLine($"using System.Collections.Generic;");
+        sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine($"using System.Threading;");
+        sb.AppendLine($"using System.Threading.Tasks;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Class added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -435,7 +446,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?{(method.Parameters.Count > 0 ? ", " : "")}{GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -450,9 +461,12 @@ internal class Writer
             sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
-        sb.AppendLine();
-        sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
-        sb.AppendLine($"            => obj.Unwrap();");
+        if (hasBaseType)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
+            sb.AppendLine($"            => obj.Unwrap();");
+        }
         sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
         sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
@@ -470,7 +484,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        public readonly {(methodDef.ReturnType != null ? GetTypeDeclText(methodDef.ReturnType, typeDefs) : "void")} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject, {string.Join(", ", methodDef.Parameters.Select(x => x.Name))});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject{(methodDef.Parameters.Count > 0 ? ", " : "")}{string.Join(", ", methodDef.Parameters.Select(x => GetParameterNameText(x.Name)))});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -504,8 +518,7 @@ internal class Writer
         var instanceProperties = typeDef.Properties;
         var instanceMethods = typeDef.Methods;
 
-        var baseTypeName = GetWrappedObjectTypeName(typeDef);
-        Assert.IsTrue(baseTypeName != null, "Could not get base type");
+        var baseTypeName = GetWrappedObjectTypeName(typeDef) ?? "object";
 
         var sb = new StringBuilder();
 
@@ -514,12 +527,17 @@ internal class Writer
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
         sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
+        {
+            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+            sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
+        }
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Immutable;");
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    /// <summary>Interface added in Roslyn version {typeDef.AssemblyVersion}</summary>");
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -565,7 +583,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -581,9 +599,6 @@ internal class Writer
             sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
         sb.AppendLine();
-        ////sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
-        ////sb.AppendLine($"            => obj.Unwrap();");
-        ////sb.AppendLine();
         sb.AppendLine($"        public static bool Is(object? obj)");
         sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
@@ -687,11 +702,23 @@ internal class Writer
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
             sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
             sb.Append(' ');
-            sb.Append(parameter.Name);
+            sb.Append(GetParameterNameText(parameter.Name));
         }
 
         var result = sb.ToString();
         return result;
+    }
+
+    private static string GetParameterNameText(string name)
+    {
+        if (name == "object")
+        {
+            return "@object";
+        }
+        else
+        {
+            return name;
+        }
     }
 
     private static string GetTypeDeclText(
@@ -780,6 +807,10 @@ internal class Writer
         ClassTypeDefinition typeDef,
         IReadOnlyDictionary<string, TypeDefinition> typeDefs)
     {
+        if (typeDef.Name == "AnalyzerConfig")
+        {
+        }
+
         while (true)
         {
             var baseTypeRef = typeDef.BaseClass;
@@ -792,7 +823,14 @@ internal class Writer
                 case NamedTypeReference x:
                     if (!IsNewType(x, typeDefs))
                     {
-                        return x.Name;
+                        if (x.FullName == "System.Object")
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return x.Name;
+                        }
                     }
                     else
                     {
