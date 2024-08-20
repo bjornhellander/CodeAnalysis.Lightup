@@ -38,7 +38,6 @@ internal class Writer
         "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
         "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
-        "Microsoft.CodeAnalysis.ISupportedChangesService", // Missing using
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator", // Method without parameters
@@ -589,7 +588,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {targetName}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
