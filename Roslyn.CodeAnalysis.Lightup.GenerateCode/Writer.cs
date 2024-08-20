@@ -22,15 +22,13 @@ internal class Writer
     // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
-        "Microsoft.CodeAnalysis.AnalyzerConfigSet",
-        "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider", // Missing using
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider", // Uses AnalyzerConfigOptions
         "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // Uses GeneratorRunResult
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // Uses GeneratorTimingInfo
         "Microsoft.CodeAnalysis.GeneratorExecutionContext", // Uses AnalyzerConfigOptionsProviderWrapper
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Uses other new generator types
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Thows runtime exception
         "Microsoft.CodeAnalysis.GeneratorRunResult", // Uses other new generator types
         "Microsoft.CodeAnalysis.GeneratorTimingInfo", // Uses other new generator types
         "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
@@ -40,8 +38,6 @@ internal class Writer
         "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator", // Method without parameters
-        "Microsoft.CodeAnalysis.SyntaxReceiverCreator", // Method without parameters
         "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
@@ -451,7 +447,7 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 var createMethod = method.ReturnType != null ? "CreateMethodAccessor" : "CreateVoidMethodAccessor";
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?, {GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.{createMethod}<{baseTypeName}?{(method.Parameters.Count > 0 ? ", " : "")}{GetParametersTypeDeclText(method.Parameters, typeDefs)}{(method.ReturnType != null ? $", {GetTypeDeclText(method.ReturnType, typeDefs)}" : "")}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -489,7 +485,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        public readonly {(methodDef.ReturnType != null ? GetTypeDeclText(methodDef.ReturnType, typeDefs) : "void")} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject, {string.Join(", ", methodDef.Parameters.Select(x => x.Name))});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject{(methodDef.Parameters.Count > 0 ? ", " : "")}{string.Join(", ", methodDef.Parameters.Select(x => GetParameterNameText(x.Name)))});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -707,11 +703,23 @@ internal class Writer
             AppendTypeDeclText(sb, parameter.Type, typeDefs);
             sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
             sb.Append(' ');
-            sb.Append(parameter.Name);
+            sb.Append(GetParameterNameText(parameter.Name));
         }
 
         var result = sb.ToString();
         return result;
+    }
+
+    private static string GetParameterNameText(string name)
+    {
+        if (name == "object")
+        {
+            return "@object";
+        }
+        else
+        {
+            return name;
+        }
     }
 
     private static string GetTypeDeclText(

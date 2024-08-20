@@ -74,6 +74,32 @@
             }
         }
 
+        public static Func<TObject, TResult> CreateMethodAccessor<TObject, TResult>(Type? wrappedType, string memberName)
+        {
+            if (wrappedType == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var paramTypes = Array.Empty<Type>();
+
+            var method = GetMethod(wrappedType, memberName, paramTypes);
+            if (method == null)
+            {
+                return FallbackAccessor;
+            }
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
+            var lambda = Expression.Lambda<Func<TObject, TResult>>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+
+            static TResult FallbackAccessor(TObject node)
+            {
+                throw new NullReferenceException();
+            }
+        }
+
         public static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
         {
             if (wrappedType == null)
