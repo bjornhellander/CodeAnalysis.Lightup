@@ -28,7 +28,6 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // Uses GeneratorRunResult
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // Uses GeneratorTimingInfo
         "Microsoft.CodeAnalysis.GeneratorExecutionContext", // Uses AnalyzerConfigOptionsProviderWrapper
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Thows runtime exception
         "Microsoft.CodeAnalysis.GeneratorRunResult", // Uses other new generator types
         "Microsoft.CodeAnalysis.GeneratorTimingInfo", // Uses other new generator types
         "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
