@@ -1,12 +1,11 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class InterfaceTypeDefinition : BaseTypeDefinition
+internal class InterfaceTypeDefinition : TypeDefinition
 {
     public InterfaceTypeDefinition(
         AssemblyKind assemblyKind,
@@ -21,8 +20,4 @@ internal class InterfaceTypeDefinition : BaseTypeDefinition
     }
 
     public ImmutableArray<TypeReference> Interfaces { get; }
-
-    public List<PropertyDefinition> Properties { get; } = new();
-
-    public List<MethodDefinition> Methods { get; } = new();
 }

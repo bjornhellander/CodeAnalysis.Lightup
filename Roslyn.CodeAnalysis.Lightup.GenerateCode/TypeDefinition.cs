@@ -1,26 +1,23 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class ClassTypeDefinition : TypeDefinition
+internal abstract class TypeDefinition : BaseTypeDefinition
 {
-    public ClassTypeDefinition(
+    public TypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
         string name,
         string @namespace,
-        string fullName,
-        TypeReference? baseClass,
-        bool isStatic)
+        string fullName)
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
-        BaseClass = baseClass;
-        IsStatic = isStatic;
     }
 
-    public TypeReference? BaseClass { get; }
+    public List<PropertyDefinition> Properties { get; } = new();
 
-    public bool IsStatic { get; }
+    public List<MethodDefinition> Methods { get; } = new();
 }
