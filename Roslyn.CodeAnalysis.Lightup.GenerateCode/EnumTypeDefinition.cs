@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-internal class EnumTypeDefinition : TypeDefinition
+internal class EnumTypeDefinition : BaseTypeDefinition
 {
     public EnumTypeDefinition(
         AssemblyKind assemblyKind,

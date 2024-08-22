@@ -2,9 +2,9 @@
 
 using System;
 
-internal abstract class TypeDefinition
+internal abstract class BaseTypeDefinition
 {
-    protected TypeDefinition(
+    protected BaseTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
         string name,

@@ -40,7 +40,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
-    internal static void Write(IReadOnlyDictionary<string, TypeDefinition> typeDefs, string rootPath)
+    internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
     {
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
         {
@@ -49,7 +49,7 @@ internal class Writer
     }
 
     private static void Write(
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string rootPath,
         AssemblyKind assemblyKind)
     {
@@ -73,7 +73,7 @@ internal class Writer
         }
     }
 
-    private static string GetTargetNamespace(TypeDefinition typeDef)
+    private static string GetTargetNamespace(BaseTypeDefinition typeDef)
     {
         var sourceNamespace = typeDef.Namespace!;
         var targetNamespace = sourceNamespace + ".Lightup";
@@ -81,8 +81,8 @@ internal class Writer
     }
 
     private static (string Name, string Source)? GenerateType(
-        TypeDefinition typeDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        BaseTypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
         if (TypesToSkip.Contains(typeDef.FullName))
@@ -233,7 +233,7 @@ internal class Writer
 
     private static (string Name, string Source) GenerateStruct(
         StructTypeDefinition typeDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
@@ -364,7 +364,7 @@ internal class Writer
 
     private static (string Name, string Source) GenerateClass(
         ClassTypeDefinition typeDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
@@ -498,7 +498,7 @@ internal class Writer
 
     private static (string Name, string Source) GenerateInterface(
         InterfaceTypeDefinition typeDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
         var targetName = typeDef.Name + "Wrapper";
@@ -604,7 +604,7 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static void AppendUsingStatements(StringBuilder sb, TypeDefinition typeDef)
+    private static void AppendUsingStatements(StringBuilder sb, BaseTypeDefinition typeDef)
     {
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Generic;");
@@ -638,7 +638,7 @@ internal class Writer
         }
     }
 
-    private static string GetPropertyFuncDeclText(PropertyDefinition propertyDef, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static string GetPropertyFuncDeclText(PropertyDefinition propertyDef, string baseTypeName, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
 
@@ -651,7 +651,7 @@ internal class Writer
         return result;
     }
 
-    private static string GetMethodFuncDeclText(MethodDefinition methodDef, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static string GetMethodFuncDeclText(MethodDefinition methodDef, string baseTypeName, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
 
@@ -680,7 +680,7 @@ internal class Writer
 
     private static string GetParametersTypeDeclText(
         IEnumerable<ParameterDefinition> parameters,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         foreach (var parameter in parameters)
@@ -701,7 +701,7 @@ internal class Writer
 
     private static string GetParametersDeclText(
         IEnumerable<ParameterDefinition> parameters,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         foreach (var parameter in parameters)
@@ -737,7 +737,7 @@ internal class Writer
 
     private static string GetTypeDeclText(
         PropertyDefinition propertyDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
@@ -746,7 +746,7 @@ internal class Writer
         return result;
     }
 
-    private static string GetTypeDeclText(TypeReference type, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static string GetTypeDeclText(TypeReference type, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, type, typeDefs);
@@ -757,7 +757,7 @@ internal class Writer
     private static void AppendTypeDeclText(
         StringBuilder sb,
         TypeReference typeRef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeRef is GenericTypeReference genericTypeRef)
         {
@@ -809,7 +809,7 @@ internal class Writer
         return true;
     }
 
-    private static string GetTargetFolder(TypeDefinition typeDef, string targetProjectPath)
+    private static string GetTargetFolder(BaseTypeDefinition typeDef, string targetProjectPath)
     {
         var sourceNamespace = typeDef.Namespace!;
         var targetNamespace = sourceNamespace + ".Lightup";
@@ -819,7 +819,7 @@ internal class Writer
 
     private static string? GetBaseTypeName(
         ClassTypeDefinition typeDef,
-        IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeDef.Name == "AnalyzerConfig")
         {
@@ -902,7 +902,7 @@ internal class Writer
         }
     }
 
-    private static bool IsNewType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static bool IsNewType(TypeReference typeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeRef is not NamedTypeReference namedTypeRef)
         {
@@ -912,7 +912,7 @@ internal class Writer
         return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef.AssemblyVersion != null;
     }
 
-    private static bool IsEnumType(TypeReference typeRef, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
+    private static bool IsEnumType(TypeReference typeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeRef is not NamedTypeReference namedTypeRef)
         {

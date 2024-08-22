@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class InterfaceTypeDefinition : TypeDefinition
+internal class InterfaceTypeDefinition : BaseTypeDefinition
 {
     public InterfaceTypeDefinition(
         AssemblyKind assemblyKind,

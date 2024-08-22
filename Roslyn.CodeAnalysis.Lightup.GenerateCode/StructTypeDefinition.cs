@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class StructTypeDefinition : TypeDefinition
+internal class StructTypeDefinition : BaseTypeDefinition
 {
     public StructTypeDefinition(
         AssemblyKind assemblyKind,

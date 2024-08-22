@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class ClassTypeDefinition : TypeDefinition
+internal class ClassTypeDefinition : BaseTypeDefinition
 {
     public ClassTypeDefinition(
         AssemblyKind assemblyKind,

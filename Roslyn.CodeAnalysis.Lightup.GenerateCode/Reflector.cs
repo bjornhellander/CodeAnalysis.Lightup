@@ -21,7 +21,7 @@ internal class Reflector
     public static void CollectTypes(
         string testProjectName,
         string rootFolder,
-        Dictionary<string, TypeDefinition> typeDefs,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion)
     {
         var testProjectFolder = Path.Combine(rootFolder, testProjectName, "bin");
@@ -49,7 +49,7 @@ internal class Reflector
 
     private static void CollectTypes(
         AssemblyLoadContext assemblyLoadContext,
-        Dictionary<string, TypeDefinition> typeDefs,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion,
         AssemblyKind assemblyKind)
     {
@@ -105,7 +105,7 @@ internal class Reflector
         }
     }
 
-    private static TypeDefinition? CreateEmptyTypeDefinition(
+    private static BaseTypeDefinition? CreateEmptyTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
         Type type)
