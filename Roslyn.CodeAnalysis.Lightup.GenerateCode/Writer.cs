@@ -252,11 +252,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-        sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
-        sb.AppendLine($"using System;");
-        sb.AppendLine($"using System.Collections.Immutable;");
-        sb.AppendLine($"using System.Threading;");
+        AppendUsingStatements(sb, typeDef);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -387,16 +383,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
-        {
-            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
-        }
-        sb.AppendLine($"using System;");
-        sb.AppendLine($"using System.Collections.Generic;");
-        sb.AppendLine($"using System.Collections.Immutable;");
-        sb.AppendLine($"using System.Threading;");
-        sb.AppendLine($"using System.Threading.Tasks;");
+        AppendUsingStatements(sb, typeDef);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -526,14 +513,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-        if (typeDef.AssemblyKind == AssemblyKind.Workspaces)
-        {
-            sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
-            sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
-        }
-        sb.AppendLine($"using System;");
-        sb.AppendLine($"using System.Collections.Immutable;");
+        AppendUsingStatements(sb, typeDef);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -622,6 +602,40 @@ internal class Writer
 
         var source = sb.ToString();
         return (targetName, source);
+    }
+
+    private static void AppendUsingStatements(StringBuilder sb, TypeDefinition typeDef)
+    {
+        sb.AppendLine($"using System;");
+        sb.AppendLine($"using System.Collections.Generic;");
+        sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine($"using System.Threading;");
+        sb.AppendLine($"using System.Threading.Tasks;");
+
+        switch (typeDef.AssemblyKind)
+        {
+            case AssemblyKind.Common:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
+                break;
+
+            case AssemblyKind.CSharp:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                break;
+
+            case AssemblyKind.Workspaces:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
+                break;
+
+            case AssemblyKind.CSharpWorkspaces:
+                break;
+
+            default:
+                throw new NotImplementedException();
+        }
     }
 
     private static string GetPropertyFuncDeclText(PropertyDefinition propertyDef, string baseTypeName, IReadOnlyDictionary<string, TypeDefinition> typeDefs)
