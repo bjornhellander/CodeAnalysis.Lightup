@@ -1,7 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
@@ -16,8 +15,4 @@ internal class StructTypeDefinition : TypeDefinition
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
     }
-
-    public List<PropertyDefinition> Properties { get; } = new();
-
-    public List<MethodDefinition> Methods { get; } = new();
 }

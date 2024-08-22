@@ -1,7 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
 
@@ -21,8 +20,4 @@ internal class InterfaceTypeDefinition : TypeDefinition
     }
 
     public ImmutableArray<TypeReference> Interfaces { get; }
-
-    public List<PropertyDefinition> Properties { get; } = new();
-
-    public List<MethodDefinition> Methods { get; } = new();
 }

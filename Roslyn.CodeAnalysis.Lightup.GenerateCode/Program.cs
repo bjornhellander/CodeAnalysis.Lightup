@@ -14,7 +14,7 @@ internal class Program
         var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x);
 
         var isFirst = true;
-        var types = new Dictionary<string, TypeDefinition>();
+        var types = new Dictionary<string, BaseTypeDefinition>();
         foreach (var testProjectName in testProjectNames)
         {
             Reflector.CollectTypes(testProjectName, rootFolder, types, isFirst);

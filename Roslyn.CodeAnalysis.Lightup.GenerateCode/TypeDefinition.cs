@@ -1,30 +1,23 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
-internal abstract class TypeDefinition
+[DebuggerDisplay("{Name}")]
+internal abstract class TypeDefinition : BaseTypeDefinition
 {
-    protected TypeDefinition(
+    public TypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
         string name,
         string @namespace,
         string fullName)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
-        AssemblyKind = assemblyKind;
-        AssemblyVersion = assemblyVersion;
-        Name = name;
-        Namespace = @namespace;
-        FullName = fullName;
     }
 
-    public AssemblyKind AssemblyKind { get; }
+    public List<PropertyDefinition> Properties { get; } = new();
 
-    public Version? AssemblyVersion { get; }
-
-    public string Name { get; }
-
-    public string Namespace { get; }
-
-    public string FullName { get; }
+    public List<MethodDefinition> Methods { get; } = new();
 }

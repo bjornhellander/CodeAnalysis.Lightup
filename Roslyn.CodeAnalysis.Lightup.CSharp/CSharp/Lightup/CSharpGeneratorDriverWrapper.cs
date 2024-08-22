@@ -2,12 +2,12 @@
 
 #nullable enable
 
-using Microsoft.CodeAnalysis.Lightup;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
