@@ -46,7 +46,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly SourceHashAlgorithm ChecksumAlgorithm
-            => ChecksumAlgorithmGetterFunc(wrappedObject);
+        {
+            get => ChecksumAlgorithmGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

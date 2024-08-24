@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Argument
-            => ArgumentGetterFunc(wrappedObject);
+        {
+            get => ArgumentGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Instance
-            => InstanceGetterFunc(wrappedObject);
+        {
+            get => InstanceGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

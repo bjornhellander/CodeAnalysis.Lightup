@@ -61,13 +61,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly PatternSyntax Left
-            => LeftGetterFunc(wrappedObject);
+        {
+            get => LeftGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenGetterFunc(wrappedObject);
+        {
+            get => OperatorTokenGetterFunc(wrappedObject);
+        }
 
         public readonly PatternSyntax Right
-            => RightGetterFunc(wrappedObject);
+        {
+            get => RightGetterFunc(wrappedObject);
+        }
 
         public static implicit operator PatternSyntax?(BinaryPatternSyntaxWrapper obj)
             => obj.Unwrap();

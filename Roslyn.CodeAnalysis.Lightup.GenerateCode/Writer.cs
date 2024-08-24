@@ -352,7 +352,9 @@ internal class Writer
         {
             sb.AppendLine();
             sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
-            sb.AppendLine($"            => {property.Name}GetterFunc(wrappedObject);");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            get => {property.Name}GetterFunc(wrappedObject);");
+            sb.AppendLine($"        }}");
         }
         if (hasBaseType)
         {

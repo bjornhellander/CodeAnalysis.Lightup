@@ -64,13 +64,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> CallingConventions
-            => CallingConventionsGetterFunc(wrappedObject);
+        {
+            get => CallingConventionsGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenGetterFunc(wrappedObject);
+        {
+            get => CloseBracketTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenGetterFunc(wrappedObject);
+        {
+            get => OpenBracketTokenGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionListSyntaxWrapper obj)
             => obj.Unwrap();

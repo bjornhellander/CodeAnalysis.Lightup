@@ -43,10 +43,14 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public readonly String Language
-            => LanguageGetterFunc(wrappedObject);
+        {
+            get => LanguageGetterFunc(wrappedObject);
+        }
 
         public readonly SolutionServicesWrapper SolutionServices
-            => SolutionServicesGetterFunc(wrappedObject);
+        {
+            get => SolutionServicesGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

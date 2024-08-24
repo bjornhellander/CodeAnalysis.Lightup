@@ -40,7 +40,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly TextDocument Document
-            => DocumentGetterFunc(wrappedObject);
+        {
+            get => DocumentGetterFunc(wrappedObject);
+        }
 
         public static implicit operator EventArgs?(TextDocumentEventArgsWrapper obj)
             => obj.Unwrap();

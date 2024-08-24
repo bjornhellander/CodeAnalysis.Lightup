@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly SyntaxReference? DeclaringSyntaxReference
-            => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
+        {
+            get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
+        }
 
         public readonly String XmlNamespace
-            => XmlNamespaceGetterFunc(wrappedObject);
+        {
+            get => XmlNamespaceGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

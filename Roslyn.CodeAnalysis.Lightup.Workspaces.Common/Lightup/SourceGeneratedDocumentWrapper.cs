@@ -40,7 +40,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly String HintName
-            => HintNameGetterFunc(wrappedObject);
+        {
+            get => HintNameGetterFunc(wrappedObject);
+        }
 
         public static implicit operator Document?(SourceGeneratedDocumentWrapper obj)
             => obj.Unwrap();

@@ -58,16 +58,24 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public readonly Boolean RenameFile
-            => RenameFileGetterFunc(wrappedObject);
+        {
+            get => RenameFileGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean RenameInComments
-            => RenameInCommentsGetterFunc(wrappedObject);
+        {
+            get => RenameInCommentsGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean RenameInStrings
-            => RenameInStringsGetterFunc(wrappedObject);
+        {
+            get => RenameInStringsGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean RenameOverloads
-            => RenameOverloadsGetterFunc(wrappedObject);
+        {
+            get => RenameOverloadsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

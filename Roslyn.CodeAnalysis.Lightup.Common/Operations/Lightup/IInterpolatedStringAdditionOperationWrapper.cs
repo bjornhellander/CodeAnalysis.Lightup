@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Left
-            => LeftGetterFunc(wrappedObject);
+        {
+            get => LeftGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Right
-            => RightGetterFunc(wrappedObject);
+        {
+            get => RightGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

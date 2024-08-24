@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly String? AssemblyPath
-            => AssemblyPathGetterFunc(wrappedObject);
+        {
+            get => AssemblyPathGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

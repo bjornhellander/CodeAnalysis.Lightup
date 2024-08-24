@@ -38,7 +38,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation AppendCall
-            => AppendCallGetterFunc(wrappedObject);
+        {
+            get => AppendCallGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

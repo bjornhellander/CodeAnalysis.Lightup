@@ -88,19 +88,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
-            => ExternsGetterFunc(wrappedObject);
+        {
+            get => ExternsGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersGetterFunc(wrappedObject);
+        {
+            get => MembersGetterFunc(wrappedObject);
+        }
 
         public readonly NameSyntax Name
-            => NameGetterFunc(wrappedObject);
+        {
+            get => NameGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken NamespaceKeyword
-            => NamespaceKeywordGetterFunc(wrappedObject);
+        {
+            get => NamespaceKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
-            => UsingsGetterFunc(wrappedObject);
+        {
+            get => UsingsGetterFunc(wrappedObject);
+        }
 
         public static implicit operator MemberDeclarationSyntax?(BaseNamespaceDeclarationSyntaxWrapper obj)
             => obj.Unwrap();

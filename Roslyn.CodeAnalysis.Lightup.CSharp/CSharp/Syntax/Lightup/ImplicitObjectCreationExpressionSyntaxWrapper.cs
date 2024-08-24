@@ -64,13 +64,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ArgumentListSyntax ArgumentList
-            => ArgumentListGetterFunc(wrappedObject);
+        {
+            get => ArgumentListGetterFunc(wrappedObject);
+        }
 
         public readonly InitializerExpressionSyntax? Initializer
-            => InitializerGetterFunc(wrappedObject);
+        {
+            get => InitializerGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken NewKeyword
-            => NewKeywordGetterFunc(wrappedObject);
+        {
+            get => NewKeywordGetterFunc(wrappedObject);
+        }
 
         public static implicit operator ExpressionSyntax?(ImplicitObjectCreationExpressionSyntaxWrapper obj)
             => obj.Unwrap();

@@ -64,13 +64,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenGetterFunc(wrappedObject);
+        {
+            get => CloseBracketTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> Elements
-            => ElementsGetterFunc(wrappedObject);
+        {
+            get => ElementsGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenGetterFunc(wrappedObject);
+        {
+            get => OpenBracketTokenGetterFunc(wrappedObject);
+        }
 
         public static implicit operator ExpressionSyntax?(CollectionExpressionSyntaxWrapper obj)
             => obj.Unwrap();

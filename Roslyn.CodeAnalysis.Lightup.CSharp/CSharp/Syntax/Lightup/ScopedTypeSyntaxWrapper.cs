@@ -55,10 +55,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken ScopedKeyword
-            => ScopedKeywordGetterFunc(wrappedObject);
+        {
+            get => ScopedKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly TypeSyntax Type
-            => TypeGetterFunc(wrappedObject);
+        {
+            get => TypeGetterFunc(wrappedObject);
+        }
 
         public static implicit operator TypeSyntax?(ScopedTypeSyntaxWrapper obj)
             => obj.Unwrap();

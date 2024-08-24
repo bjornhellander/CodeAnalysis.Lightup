@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IVariableDeclarationGroupOperation DeclarationGroup
-            => DeclarationGroupGetterFunc(wrappedObject);
+        {
+            get => DeclarationGroupGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean IsAsynchronous
-            => IsAsynchronousGetterFunc(wrappedObject);
+        {
+            get => IsAsynchronousGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

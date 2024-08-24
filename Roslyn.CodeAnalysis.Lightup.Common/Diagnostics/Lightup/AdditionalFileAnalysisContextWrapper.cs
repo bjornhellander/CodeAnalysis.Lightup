@@ -56,19 +56,29 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly AdditionalText AdditionalFile
-            => AdditionalFileGetterFunc(wrappedObject);
+        {
+            get => AdditionalFileGetterFunc(wrappedObject);
+        }
 
         public readonly CancellationToken CancellationToken
-            => CancellationTokenGetterFunc(wrappedObject);
+        {
+            get => CancellationTokenGetterFunc(wrappedObject);
+        }
 
         public readonly Compilation Compilation
-            => CompilationGetterFunc(wrappedObject);
+        {
+            get => CompilationGetterFunc(wrappedObject);
+        }
 
         public readonly Nullable<TextSpan> FilterSpan
-            => FilterSpanGetterFunc(wrappedObject);
+        {
+            get => FilterSpanGetterFunc(wrappedObject);
+        }
 
         public readonly AnalyzerOptions Options
-            => OptionsGetterFunc(wrappedObject);
+        {
+            get => OptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -44,13 +44,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IMethodSymbol? CloneMethod
-            => CloneMethodGetterFunc(wrappedObject);
+        {
+            get => CloneMethodGetterFunc(wrappedObject);
+        }
 
         public readonly IObjectOrCollectionInitializerOperation Initializer
-            => InitializerGetterFunc(wrappedObject);
+        {
+            get => InitializerGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Operand
-            => OperandGetterFunc(wrappedObject);
+        {
+            get => OperandGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

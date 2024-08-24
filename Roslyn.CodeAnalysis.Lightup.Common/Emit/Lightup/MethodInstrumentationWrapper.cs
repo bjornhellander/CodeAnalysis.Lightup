@@ -38,7 +38,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         public readonly ImmutableArray<InstrumentationKind> Kinds
-            => KindsGetterFunc(wrappedObject);
+        {
+            get => KindsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

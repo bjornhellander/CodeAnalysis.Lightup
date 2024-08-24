@@ -61,13 +61,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseParenToken
-            => CloseParenTokenGetterFunc(wrappedObject);
+        {
+            get => CloseParenTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenParenToken
-            => OpenParenTokenGetterFunc(wrappedObject);
+        {
+            get => OpenParenTokenGetterFunc(wrappedObject);
+        }
 
         public readonly PatternSyntax Pattern
-            => PatternGetterFunc(wrappedObject);
+        {
+            get => PatternGetterFunc(wrappedObject);
+        }
 
         public static implicit operator PatternSyntax?(ParenthesizedPatternSyntaxWrapper obj)
             => obj.Unwrap();

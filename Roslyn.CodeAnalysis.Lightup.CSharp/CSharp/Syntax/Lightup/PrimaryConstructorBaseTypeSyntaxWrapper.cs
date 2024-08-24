@@ -58,10 +58,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ArgumentListSyntax ArgumentList
-            => ArgumentListGetterFunc(wrappedObject);
+        {
+            get => ArgumentListGetterFunc(wrappedObject);
+        }
 
         public readonly TypeSyntax Type
-            => TypeGetterFunc(wrappedObject);
+        {
+            get => TypeGetterFunc(wrappedObject);
+        }
 
         public static implicit operator BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
             => obj.Unwrap();

@@ -50,19 +50,29 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ISymbol? DeclaredSymbol
-            => DeclaredSymbolGetterFunc(wrappedObject);
+        {
+            get => DeclaredSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<IPatternOperation> DeconstructionSubpatterns
-            => DeconstructionSubpatternsGetterFunc(wrappedObject);
+        {
+            get => DeconstructionSubpatternsGetterFunc(wrappedObject);
+        }
 
         public readonly ISymbol? DeconstructSymbol
-            => DeconstructSymbolGetterFunc(wrappedObject);
+        {
+            get => DeconstructSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly ITypeSymbol MatchedType
-            => MatchedTypeGetterFunc(wrappedObject);
+        {
+            get => MatchedTypeGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<IPropertySubpatternOperationWrapper> PropertySubpatterns
-            => PropertySubpatternsGetterFunc(wrappedObject);
+        {
+            get => PropertySubpatternsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

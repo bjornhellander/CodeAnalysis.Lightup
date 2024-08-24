@@ -44,13 +44,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly ImmutableDictionary<String, String> AnalyzerOptions
-            => AnalyzerOptionsGetterFunc(wrappedObject);
+        {
+            get => AnalyzerOptionsGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<Diagnostic> Diagnostics
-            => DiagnosticsGetterFunc(wrappedObject);
+        {
+            get => DiagnosticsGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableDictionary<String, ReportDiagnostic> TreeOptions
-            => TreeOptionsGetterFunc(wrappedObject);
+        {
+            get => TreeOptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Member
-            => MemberGetterFunc(wrappedObject);
+        {
+            get => MemberGetterFunc(wrappedObject);
+        }
 
         public readonly IPatternOperation Pattern
-            => PatternGetterFunc(wrappedObject);
+        {
+            get => PatternGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

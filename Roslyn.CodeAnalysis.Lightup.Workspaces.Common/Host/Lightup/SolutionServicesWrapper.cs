@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public readonly IEnumerable<String> SupportedLanguages
-            => SupportedLanguagesGetterFunc(wrappedObject);
+        {
+            get => SupportedLanguagesGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

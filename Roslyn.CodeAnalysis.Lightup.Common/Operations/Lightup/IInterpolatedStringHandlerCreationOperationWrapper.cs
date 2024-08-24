@@ -47,16 +47,24 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Content
-            => ContentGetterFunc(wrappedObject);
+        {
+            get => ContentGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean HandlerAppendCallsReturnBool
-            => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
+        {
+            get => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation HandlerCreation
-            => HandlerCreationGetterFunc(wrappedObject);
+        {
+            get => HandlerCreationGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean HandlerCreationHasSuccessParameter
-            => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);
+        {
+            get => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

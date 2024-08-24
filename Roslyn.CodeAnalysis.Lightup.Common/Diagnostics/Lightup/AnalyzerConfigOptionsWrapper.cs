@@ -44,7 +44,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly IEnumerable<String> Keys
-            => KeysGetterFunc(wrappedObject);
+        {
+            get => KeysGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

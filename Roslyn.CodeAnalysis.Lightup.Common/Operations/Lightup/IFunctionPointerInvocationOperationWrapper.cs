@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ImmutableArray<IArgumentOperation> Arguments
-            => ArgumentsGetterFunc(wrappedObject);
+        {
+            get => ArgumentsGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Target
-            => TargetGetterFunc(wrappedObject);
+        {
+            get => TargetGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

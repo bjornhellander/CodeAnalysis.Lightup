@@ -38,7 +38,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ITypeSymbol MatchedType
-            => MatchedTypeGetterFunc(wrappedObject);
+        {
+            get => MatchedTypeGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

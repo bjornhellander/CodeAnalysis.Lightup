@@ -55,10 +55,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionGetterFunc(wrappedObject);
+        {
+            get => ExpressionGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenGetterFunc(wrappedObject);
+        {
+            get => OperatorTokenGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(SpreadElementSyntaxWrapper obj)
             => obj.Unwrap();

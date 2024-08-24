@@ -53,16 +53,24 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly Nullable<Int32> CharacterOffset
-            => CharacterOffsetGetterFunc(wrappedObject);
+        {
+            get => CharacterOffsetGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean IsHidden
-            => IsHiddenGetterFunc(wrappedObject);
+        {
+            get => IsHiddenGetterFunc(wrappedObject);
+        }
 
         public readonly FileLinePositionSpan MappedSpan
-            => MappedSpanGetterFunc(wrappedObject);
+        {
+            get => MappedSpanGetterFunc(wrappedObject);
+        }
 
         public readonly LinePositionSpan Span
-            => SpanGetterFunc(wrappedObject);
+        {
+            get => SpanGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

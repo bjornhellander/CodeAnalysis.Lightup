@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly String Path
-            => PathGetterFunc(wrappedObject);
+        {
+            get => PathGetterFunc(wrappedObject);
+        }
 
         public readonly SarifVersionEx SarifVersion
-            => SarifVersionGetterFunc(wrappedObject);
+        {
+            get => SarifVersionGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

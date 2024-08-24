@@ -47,16 +47,24 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ISymbol? DeclaredSymbol
-            => DeclaredSymbolGetterFunc(wrappedObject);
+        {
+            get => DeclaredSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly ISymbol? IndexerSymbol
-            => IndexerSymbolGetterFunc(wrappedObject);
+        {
+            get => IndexerSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly ISymbol? LengthSymbol
-            => LengthSymbolGetterFunc(wrappedObject);
+        {
+            get => LengthSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<IPatternOperation> Patterns
-            => PatternsGetterFunc(wrappedObject);
+        {
+            get => PatternsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -58,10 +58,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken ManagedOrUnmanagedKeyword
-            => ManagedOrUnmanagedKeywordGetterFunc(wrappedObject);
+        {
+            get => ManagedOrUnmanagedKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionList
-            => UnmanagedCallingConventionListGetterFunc(wrappedObject);
+        {
+            get => UnmanagedCallingConventionListGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerCallingConventionSyntaxWrapper obj)
             => obj.Unwrap();

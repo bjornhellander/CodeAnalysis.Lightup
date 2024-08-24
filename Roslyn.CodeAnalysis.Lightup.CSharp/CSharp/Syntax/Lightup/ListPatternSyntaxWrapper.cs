@@ -70,16 +70,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenGetterFunc(wrappedObject);
+        {
+            get => CloseBracketTokenGetterFunc(wrappedObject);
+        }
 
         public readonly VariableDesignationSyntax? Designation
-            => DesignationGetterFunc(wrappedObject);
+        {
+            get => DesignationGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenGetterFunc(wrappedObject);
+        {
+            get => OpenBracketTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SeparatedSyntaxList<PatternSyntax> Patterns
-            => PatternsGetterFunc(wrappedObject);
+        {
+            get => PatternsGetterFunc(wrappedObject);
+        }
 
         public static implicit operator PatternSyntax?(ListPatternSyntaxWrapper obj)
             => obj.Unwrap();

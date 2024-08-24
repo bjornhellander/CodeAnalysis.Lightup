@@ -70,16 +70,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken AsteriskToken
-            => AsteriskTokenGetterFunc(wrappedObject);
+        {
+            get => AsteriskTokenGetterFunc(wrappedObject);
+        }
 
         public readonly FunctionPointerCallingConventionSyntaxWrapper CallingConvention
-            => CallingConventionGetterFunc(wrappedObject);
+        {
+            get => CallingConventionGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken DelegateKeyword
-            => DelegateKeywordGetterFunc(wrappedObject);
+        {
+            get => DelegateKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly FunctionPointerParameterListSyntaxWrapper ParameterList
-            => ParameterListGetterFunc(wrappedObject);
+        {
+            get => ParameterListGetterFunc(wrappedObject);
+        }
 
         public static implicit operator TypeSyntax?(FunctionPointerTypeSyntaxWrapper obj)
             => obj.Unwrap();

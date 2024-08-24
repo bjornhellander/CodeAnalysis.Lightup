@@ -47,16 +47,24 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly ImmutableArray<IAliasSymbol> Aliases
-            => AliasesGetterFunc(wrappedObject);
+        {
+            get => AliasesGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<IAliasSymbol> ExternAliases
-            => ExternAliasesGetterFunc(wrappedObject);
+        {
+            get => ExternAliasesGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<ImportedNamespaceOrTypeWrapper> Imports
-            => ImportsGetterFunc(wrappedObject);
+        {
+            get => ImportsGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<ImportedXmlNamespaceWrapper> XmlNamespaces
-            => XmlNamespacesGetterFunc(wrappedObject);
+        {
+            get => XmlNamespacesGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

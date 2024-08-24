@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken DefaultKeyword
-            => DefaultKeywordGetterFunc(wrappedObject);
+        {
+            get => DefaultKeywordGetterFunc(wrappedObject);
+        }
 
         public static implicit operator TypeParameterConstraintSyntax?(DefaultConstraintSyntaxWrapper obj)
             => obj.Unwrap();

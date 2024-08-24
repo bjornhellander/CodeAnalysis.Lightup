@@ -55,10 +55,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken File
-            => FileGetterFunc(wrappedObject);
+        {
+            get => FileGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordGetterFunc(wrappedObject);
+        {
+            get => LineKeywordGetterFunc(wrappedObject);
+        }
 
         public static implicit operator DirectiveTriviaSyntax?(LineOrSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();

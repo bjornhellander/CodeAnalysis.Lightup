@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly Int32 ArgumentIndex
-            => ArgumentIndexGetterFunc(wrappedObject);
+        {
+            get => ArgumentIndexGetterFunc(wrappedObject);
+        }
 
         public readonly InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
-            => PlaceholderKindGetterFunc(wrappedObject);
+        {
+            get => PlaceholderKindGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

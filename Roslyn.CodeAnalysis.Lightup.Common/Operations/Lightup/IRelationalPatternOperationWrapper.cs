@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly BinaryOperatorKind OperatorKind
-            => OperatorKindGetterFunc(wrappedObject);
+        {
+            get => OperatorKindGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Value
-            => ValueGetterFunc(wrappedObject);
+        {
+            get => ValueGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

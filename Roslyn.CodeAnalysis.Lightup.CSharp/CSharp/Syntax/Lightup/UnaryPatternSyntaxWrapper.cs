@@ -55,10 +55,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenGetterFunc(wrappedObject);
+        {
+            get => OperatorTokenGetterFunc(wrappedObject);
+        }
 
         public readonly PatternSyntax Pattern
-            => PatternGetterFunc(wrappedObject);
+        {
+            get => PatternGetterFunc(wrappedObject);
+        }
 
         public static implicit operator PatternSyntax?(UnaryPatternSyntaxWrapper obj)
             => obj.Unwrap();

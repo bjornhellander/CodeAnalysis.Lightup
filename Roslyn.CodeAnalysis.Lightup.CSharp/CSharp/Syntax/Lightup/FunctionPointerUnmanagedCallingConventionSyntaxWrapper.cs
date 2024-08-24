@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken Name
-            => NameGetterFunc(wrappedObject);
+        {
+            get => NameGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionSyntaxWrapper obj)
             => obj.Unwrap();

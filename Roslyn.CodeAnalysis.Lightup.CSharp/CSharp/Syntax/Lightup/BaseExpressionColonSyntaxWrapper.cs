@@ -49,10 +49,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken ColonToken
-            => ColonTokenGetterFunc(wrappedObject);
+        {
+            get => ColonTokenGetterFunc(wrappedObject);
+        }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionGetterFunc(wrappedObject);
+        {
+            get => ExpressionGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(BaseExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();

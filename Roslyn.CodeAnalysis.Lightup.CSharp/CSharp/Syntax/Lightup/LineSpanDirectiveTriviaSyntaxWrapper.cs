@@ -97,31 +97,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CharacterOffset
-            => CharacterOffsetGetterFunc(wrappedObject);
+        {
+            get => CharacterOffsetGetterFunc(wrappedObject);
+        }
 
         public readonly LineDirectivePositionSyntaxWrapper End
-            => EndGetterFunc(wrappedObject);
+        {
+            get => EndGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken EndOfDirectiveToken
-            => EndOfDirectiveTokenGetterFunc(wrappedObject);
+        {
+            get => EndOfDirectiveTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken File
-            => FileGetterFunc(wrappedObject);
+        {
+            get => FileGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken HashToken
-            => HashTokenGetterFunc(wrappedObject);
+        {
+            get => HashTokenGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean IsActive
-            => IsActiveGetterFunc(wrappedObject);
+        {
+            get => IsActiveGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordGetterFunc(wrappedObject);
+        {
+            get => LineKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken MinusToken
-            => MinusTokenGetterFunc(wrappedObject);
+        {
+            get => MinusTokenGetterFunc(wrappedObject);
+        }
 
         public readonly LineDirectivePositionSyntaxWrapper Start
-            => StartGetterFunc(wrappedObject);
+        {
+            get => StartGetterFunc(wrappedObject);
+        }
 
         public static implicit operator DirectiveTriviaSyntax?(LineSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();

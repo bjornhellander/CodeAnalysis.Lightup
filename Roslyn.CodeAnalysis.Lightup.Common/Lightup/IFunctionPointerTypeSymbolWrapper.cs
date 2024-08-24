@@ -38,7 +38,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly IMethodSymbol Signature
-            => SignatureGetterFunc(wrappedObject);
+        {
+            get => SignatureGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

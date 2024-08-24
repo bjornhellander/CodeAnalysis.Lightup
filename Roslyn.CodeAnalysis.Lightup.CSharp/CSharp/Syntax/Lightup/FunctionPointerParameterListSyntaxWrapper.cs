@@ -64,13 +64,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken GreaterThanToken
-            => GreaterThanTokenGetterFunc(wrappedObject);
+        {
+            get => GreaterThanTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken LessThanToken
-            => LessThanTokenGetterFunc(wrappedObject);
+        {
+            get => LessThanTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> Parameters
-            => ParametersGetterFunc(wrappedObject);
+        {
+            get => ParametersGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterListSyntaxWrapper obj)
             => obj.Unwrap();

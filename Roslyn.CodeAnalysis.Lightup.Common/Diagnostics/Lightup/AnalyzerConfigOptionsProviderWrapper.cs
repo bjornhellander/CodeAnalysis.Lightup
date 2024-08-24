@@ -47,7 +47,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly AnalyzerConfigOptionsWrapper GlobalOptions
-            => GlobalOptionsGetterFunc(wrappedObject);
+        {
+            get => GlobalOptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -52,10 +52,14 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public readonly Boolean RenameMatchingTypeInComments
-            => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
+        {
+            get => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean RenameMatchingTypeInStrings
-            => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
+        {
+            get => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

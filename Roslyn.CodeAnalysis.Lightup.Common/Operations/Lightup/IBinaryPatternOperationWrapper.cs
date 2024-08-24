@@ -44,13 +44,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IPatternOperation LeftPattern
-            => LeftPatternGetterFunc(wrappedObject);
+        {
+            get => LeftPatternGetterFunc(wrappedObject);
+        }
 
         public readonly BinaryOperatorKind OperatorKind
-            => OperatorKindGetterFunc(wrappedObject);
+        {
+            get => OperatorKindGetterFunc(wrappedObject);
+        }
 
         public readonly IPatternOperation RightPattern
-            => RightPatternGetterFunc(wrappedObject);
+        {
+            get => RightPatternGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

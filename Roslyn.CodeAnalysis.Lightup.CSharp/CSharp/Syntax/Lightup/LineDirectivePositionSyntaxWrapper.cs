@@ -73,19 +73,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken Character
-            => CharacterGetterFunc(wrappedObject);
+        {
+            get => CharacterGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken CloseParenToken
-            => CloseParenTokenGetterFunc(wrappedObject);
+        {
+            get => CloseParenTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken CommaToken
-            => CommaTokenGetterFunc(wrappedObject);
+        {
+            get => CommaTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken Line
-            => LineGetterFunc(wrappedObject);
+        {
+            get => LineGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenParenToken
-            => OpenParenTokenGetterFunc(wrappedObject);
+        {
+            get => OpenParenTokenGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
             => obj.Unwrap();

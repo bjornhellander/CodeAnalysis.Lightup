@@ -47,10 +47,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly NullableAnnotationEx Annotation
-            => AnnotationGetterFunc(wrappedObject);
+        {
+            get => AnnotationGetterFunc(wrappedObject);
+        }
 
         public readonly NullableFlowStateEx FlowState
-            => FlowStateGetterFunc(wrappedObject);
+        {
+            get => FlowStateGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

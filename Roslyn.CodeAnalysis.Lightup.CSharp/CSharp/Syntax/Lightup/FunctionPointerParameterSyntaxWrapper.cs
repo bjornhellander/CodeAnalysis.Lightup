@@ -67,13 +67,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsGetterFunc(wrappedObject);
+        {
+            get => AttributeListsGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersGetterFunc(wrappedObject);
+        {
+            get => ModifiersGetterFunc(wrappedObject);
+        }
 
         public readonly TypeSyntax Type
-            => TypeGetterFunc(wrappedObject);
+        {
+            get => TypeGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterSyntaxWrapper obj)
             => obj.Unwrap();

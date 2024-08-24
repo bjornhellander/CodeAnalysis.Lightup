@@ -145,43 +145,69 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsGetterFunc(wrappedObject);
+        {
+            get => AttributeListsGetterFunc(wrappedObject);
+        }
 
         public readonly BaseListSyntax? BaseList
-            => BaseListGetterFunc(wrappedObject);
+        {
+            get => BaseListGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken ClassOrStructKeyword
-            => ClassOrStructKeywordGetterFunc(wrappedObject);
+        {
+            get => ClassOrStructKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken CloseBraceToken
-            => CloseBraceTokenGetterFunc(wrappedObject);
+        {
+            get => CloseBraceTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClauses
-            => ConstraintClausesGetterFunc(wrappedObject);
+        {
+            get => ConstraintClausesGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken Identifier
-            => IdentifierGetterFunc(wrappedObject);
+        {
+            get => IdentifierGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken Keyword
-            => KeywordGetterFunc(wrappedObject);
+        {
+            get => KeywordGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersGetterFunc(wrappedObject);
+        {
+            get => MembersGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersGetterFunc(wrappedObject);
+        {
+            get => ModifiersGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken OpenBraceToken
-            => OpenBraceTokenGetterFunc(wrappedObject);
+        {
+            get => OpenBraceTokenGetterFunc(wrappedObject);
+        }
 
         public readonly ParameterListSyntax? ParameterList
-            => ParameterListGetterFunc(wrappedObject);
+        {
+            get => ParameterListGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken SemicolonToken
-            => SemicolonTokenGetterFunc(wrappedObject);
+        {
+            get => SemicolonTokenGetterFunc(wrappedObject);
+        }
 
         public readonly TypeParameterListSyntax? TypeParameterList
-            => TypeParameterListGetterFunc(wrappedObject);
+        {
+            get => TypeParameterListGetterFunc(wrappedObject);
+        }
 
         public static implicit operator TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
             => obj.Unwrap();
