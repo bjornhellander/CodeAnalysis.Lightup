@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [TestClass]
 public class WrapperTests
 {
-    // TODO: Add type from CSharp.Workspaces
+    // TODO: Add a type from the CSharp.Workspaces project when we generate something there
     [TestMethod]
     [DataRow(typeof(OperationKindEx))] // From the Common project
     [DataRow(typeof(SyntaxKindEx))] // From the CSharp project
