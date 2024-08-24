@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate SyntaxToken NamespaceKeywordDelegate(MemberDeclarationSyntax? _obj);
         private delegate SyntaxList<UsingDirectiveSyntax> UsingsDelegate(MemberDeclarationSyntax? _obj);
 
-        private delegate BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(MemberDeclarationSyntax? _obj, AttributeListSyntax[] items);
-        private delegate BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(MemberDeclarationSyntax? _obj, ExternAliasDirectiveSyntax[] items);
-        private delegate BaseNamespaceDeclarationSyntaxWrapper AddMembersDelegate2(MemberDeclarationSyntax? _obj, MemberDeclarationSyntax[] items);
-        private delegate BaseNamespaceDeclarationSyntaxWrapper AddModifiersDelegate3(MemberDeclarationSyntax? _obj, SyntaxToken[] items);
-        private delegate BaseNamespaceDeclarationSyntaxWrapper AddUsingsDelegate4(MemberDeclarationSyntax? _obj, UsingDirectiveSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(MemberDeclarationSyntax? _obj, params AttributeListSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(MemberDeclarationSyntax? _obj, params ExternAliasDirectiveSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddMembersDelegate2(MemberDeclarationSyntax? _obj, params MemberDeclarationSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddModifiersDelegate3(MemberDeclarationSyntax? _obj, params SyntaxToken[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddUsingsDelegate4(MemberDeclarationSyntax? _obj, params UsingDirectiveSyntax[] items);
         private delegate BaseNamespaceDeclarationSyntaxWrapper WithAttributeListsDelegate5(MemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
         private delegate BaseNamespaceDeclarationSyntaxWrapper WithExternsDelegate6(MemberDeclarationSyntax? _obj, SyntaxList<ExternAliasDirectiveSyntax> externs);
         private delegate BaseNamespaceDeclarationSyntaxWrapper WithMembersDelegate7(MemberDeclarationSyntax? _obj, SyntaxList<MemberDeclarationSyntax> members);

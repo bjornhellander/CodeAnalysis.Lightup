@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate SyntaxToken OpenBracketTokenDelegate(ExpressionSyntax? _obj);
 
         private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate CollectionExpressionSyntaxWrapper AddElementsDelegate1(ExpressionSyntax? _obj, CollectionElementSyntaxWrapper[] items);
+        private delegate CollectionExpressionSyntaxWrapper AddElementsDelegate1(ExpressionSyntax? _obj, params CollectionElementSyntaxWrapper[] items);
         private delegate CollectionExpressionSyntaxWrapper UpdateDelegate2(ExpressionSyntax? _obj, SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements, SyntaxToken closeBracketToken);
         private delegate CollectionExpressionSyntaxWrapper WithCloseBracketTokenDelegate3(ExpressionSyntax? _obj, SyntaxToken closeBracketToken);
         private delegate CollectionExpressionSyntaxWrapper WithElementsDelegate4(ExpressionSyntax? _obj, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements);

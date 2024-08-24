@@ -328,7 +328,7 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        public readonly {GetTypeDeclText(property, typeDefs)} {property.Name}");
+            sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
         }
         if (hasBaseType)
@@ -353,7 +353,7 @@ internal class Writer
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
-            sb.AppendLine($"        public readonly {(methodDef.ReturnType != null ? GetTypeDeclText(methodDef.ReturnType, typeDefs) : "void")} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject{(methodDef.Parameters.Count > 0 ? ", " : "")}{string.Join(", ", methodDef.Parameters.Select(x => GetParameterNameText(x.Name)))});");
         }
         sb.AppendLine($"    }}");
@@ -529,9 +529,19 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
+        sb.Append(GetPropertyTypeDeclText(propertyDef, typeDefs));
+        sb.AppendLine($" {propertyDef.Name}Delegate({baseTypeName}? _obj);");
+    }
+
+    private static string GetPropertyTypeDeclText(
+        PropertyDefinition propertyDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var sb = new StringBuilder();
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
         sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? "?" : "");
-        sb.AppendLine($" {propertyDef.Name}Delegate({baseTypeName}? _obj);");
+        var result = sb.ToString();
+        return result;
     }
 
     private static void AppendMethodDelegateDeclaration(
@@ -542,50 +552,57 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
+        sb.Append(GetMethodReturnTypeDeclText(methodDef, typeDefs));
+        sb.Append($" {methodDef.Name}Delegate{index}({baseTypeName}? _obj");
+        sb.Append(GetParametersDeclText(methodDef.Parameters, typeDefs, addLeadingComma: true));
+        sb.AppendLine(");");
+    }
 
+    private static string GetMethodReturnTypeDeclText(
+        MethodDefinition methodDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
         if (methodDef.ReturnType != null)
         {
-            AppendTypeDeclText(sb, methodDef.ReturnType, typeDefs);
+            return GetTypeDeclText(methodDef.ReturnType, typeDefs);
         }
         else
         {
-            sb.Append("void");
+            return "void";
         }
-
-        sb.Append($" {methodDef.Name}Delegate{index}({baseTypeName}? _obj");
-
-        foreach (var parameter in methodDef.Parameters)
-        {
-            sb.Append(", ");
-            Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
-            AppendTypeDeclText(sb, parameter.Type, typeDefs);
-            sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "? " : " ");
-            sb.Append(GetParameterNameText(parameter.Name));
-        }
-
-        sb.AppendLine(");");
     }
 
     private static string GetParametersDeclText(
         IEnumerable<ParameterDefinition> parameters,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
+        bool addLeadingComma = false)
     {
         var sb = new StringBuilder();
         foreach (var parameter in parameters)
         {
-            if (sb.Length > 0)
+            if (sb.Length > 0 || addLeadingComma)
             {
                 sb.Append(", ");
             }
 
             Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
             sb.Append(parameter.IsParams ? "params " : "");
-            AppendTypeDeclText(sb, parameter.Type, typeDefs);
-            sb.Append(parameter.IsNullable && !IsNewType(parameter.Type, typeDefs) ? "?" : "");
+            sb.Append(GetParameterTypeDeclText(parameter, typeDefs));
             sb.Append(' ');
             sb.Append(GetParameterNameText(parameter.Name));
         }
 
+        var result = sb.ToString();
+        return result;
+    }
+
+    private static string GetParameterTypeDeclText(
+        ParameterDefinition parameterDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var sb = new StringBuilder();
+        AppendTypeDeclText(sb, parameterDef.Type, typeDefs);
+        sb.Append(parameterDef.IsNullable && !IsNewType(parameterDef.Type, typeDefs) ? "?" : "");
         var result = sb.ToString();
         return result;
     }
@@ -600,17 +617,6 @@ internal class Writer
         {
             return name;
         }
-    }
-
-    private static string GetTypeDeclText(
-        PropertyDefinition propertyDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
-    {
-        var sb = new StringBuilder();
-        AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
-        sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? "?" : "");
-        var result = sb.ToString();
-        return result;
     }
 
     private static string GetTypeDeclText(TypeReference type, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)

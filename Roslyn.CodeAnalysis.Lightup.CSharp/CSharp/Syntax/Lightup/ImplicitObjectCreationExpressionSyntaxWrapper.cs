@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate SyntaxToken NewKeywordDelegate(ExpressionSyntax? _obj);
 
         private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArgumentsDelegate1(ExpressionSyntax? _obj, ArgumentSyntax[] items);
+        private delegate ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArgumentsDelegate1(ExpressionSyntax? _obj, params ArgumentSyntax[] items);
         private delegate ImplicitObjectCreationExpressionSyntaxWrapper UpdateDelegate2(ExpressionSyntax? _obj, SyntaxToken newKeyword, ArgumentListSyntax argumentList, InitializerExpressionSyntax? initializer);
         private delegate ImplicitObjectCreationExpressionSyntaxWrapper WithArgumentListDelegate3(ExpressionSyntax? _obj, ArgumentListSyntax argumentList);
         private delegate ImplicitObjectCreationExpressionSyntaxWrapper WithInitializerDelegate4(ExpressionSyntax? _obj, InitializerExpressionSyntax? initializer);

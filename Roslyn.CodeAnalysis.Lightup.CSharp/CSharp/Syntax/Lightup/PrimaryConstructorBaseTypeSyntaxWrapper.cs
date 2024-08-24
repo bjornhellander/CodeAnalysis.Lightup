@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate TypeSyntax TypeDelegate(BaseTypeSyntax? _obj);
 
         private delegate void AcceptDelegate0(BaseTypeSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(BaseTypeSyntax? _obj, ArgumentSyntax[] items);
+        private delegate PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(BaseTypeSyntax? _obj, params ArgumentSyntax[] items);
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(BaseTypeSyntax? _obj, TypeSyntax type, ArgumentListSyntax argumentList);
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(BaseTypeSyntax? _obj, ArgumentListSyntax argumentList);
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(BaseTypeSyntax? _obj, TypeSyntax type);
