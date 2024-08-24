@@ -4,11 +4,17 @@ using System.Collections.Generic;
 
 internal class MethodDefinition
 {
-    public MethodDefinition(string name, bool isStatic, TypeReference? returnType, List<ParameterDefinition> parameters)
+    public MethodDefinition(
+        string name,
+        bool isStatic,
+        TypeReference? returnType,
+        bool isNullable,
+        List<ParameterDefinition> parameters)
     {
         Name = name;
         IsStatic = isStatic;
         ReturnType = returnType;
+        IsNullable = isNullable;
         Parameters = parameters;
     }
 
@@ -17,6 +23,8 @@ internal class MethodDefinition
     public bool IsStatic { get; }
 
     public TypeReference? ReturnType { get; }
+
+    public bool IsNullable { get; }
 
     public List<ParameterDefinition> Parameters { get; }
 }

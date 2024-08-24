@@ -562,14 +562,18 @@ internal class Writer
         MethodDefinition methodDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
+        var sb = new StringBuilder();
         if (methodDef.ReturnType != null)
         {
-            return GetTypeDeclText(methodDef.ReturnType, typeDefs);
+            AppendTypeDeclText(sb, methodDef.ReturnType, typeDefs);
+            sb.Append(methodDef.IsNullable && !IsNewType(methodDef.ReturnType, typeDefs) ? "?" : "");
         }
         else
         {
-            return "void";
+            sb.Append("void");
         }
+        var result = sb.ToString();
+        return result;
     }
 
     private static string GetParametersDeclText(
@@ -617,14 +621,6 @@ internal class Writer
         {
             return name;
         }
-    }
-
-    private static string GetTypeDeclText(TypeReference type, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
-    {
-        var sb = new StringBuilder();
-        AppendTypeDeclText(sb, type, typeDefs);
-        var result = sb.ToString();
-        return result;
     }
 
     private static void AppendTypeDeclText(

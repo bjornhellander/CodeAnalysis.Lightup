@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IAsyncResult BeginInvokeDelegate0(MulticastDelegate? _obj, AsyncCallback? callback, Object? @object);
+        private delegate IAsyncResult? BeginInvokeDelegate0(MulticastDelegate? _obj, AsyncCallback? callback, Object? @object);
         private delegate ISyntaxContextReceiverWrapper EndInvokeDelegate1(MulticastDelegate? _obj, IAsyncResult? result);
         private delegate ISyntaxContextReceiverWrapper InvokeDelegate2(MulticastDelegate? _obj);
 
@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public MulticastDelegate? Unwrap()
             => wrappedObject;
 
-        public readonly IAsyncResult BeginInvoke(AsyncCallback? callback, Object? @object)
+        public readonly IAsyncResult? BeginInvoke(AsyncCallback? callback, Object? @object)
             => BeginInvokeFunc0(wrappedObject, callback, @object);
 
         public readonly ISyntaxContextReceiverWrapper EndInvoke(IAsyncResult? result)

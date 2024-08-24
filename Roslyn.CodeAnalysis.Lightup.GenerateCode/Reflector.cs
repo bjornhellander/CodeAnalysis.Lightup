@@ -313,8 +313,11 @@ internal class Reflector
 
     private static MethodDefinition CreateMethodDefinition(MethodInfo method)
     {
-        // TODO: Check nullability for return type
         var returnTypeRef = method.ReturnType != typeof(void) ? CreateTypeReference(method.ReturnType) : null;
+
+        var nullabilityInfoContext = new NullabilityInfoContext();
+        var nullabilityInfo = nullabilityInfoContext.Create(method.ReturnParameter);
+        var isNullable = !method.ReturnType.IsValueType && nullabilityInfo.WriteState != NullabilityState.NotNull;
 
         var parameters = method.GetParameters();
         var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
@@ -323,6 +326,7 @@ internal class Reflector
             method.Name,
             method.IsStatic,
             returnTypeRef,
+            isNullable,
             parameterDefs);
         return result;
     }
