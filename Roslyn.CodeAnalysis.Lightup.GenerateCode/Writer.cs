@@ -1,4 +1,4 @@
-﻿// TODO: Review suppressions
+﻿// Fixed in StyleCop.Analyzes, but not yet released
 #pragma warning disable SA1513 // Closing brace should be followed by blank line
 #pragma warning disable SA1515 // Single-line comment should be preceded by blank line
 
@@ -61,9 +61,6 @@ internal class Writer
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
-
-        // TODO: Handle these types
-        "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -131,7 +128,7 @@ internal class Writer
         {
             if (typeDef.AssemblyVersion == null)
             {
-                // TODO: Handle updated types as well
+                // TODO: Handle updated structs as well
                 return null;
             }
             else
@@ -143,7 +140,7 @@ internal class Writer
         {
             if (typeDef.AssemblyVersion == null)
             {
-                // TODO: Handle updated types as well
+                // TODO: Handle updated classes as well
                 return null;
             }
             else if (classTypeDef.IsStatic)
@@ -160,7 +157,7 @@ internal class Writer
         {
             if (typeDef.AssemblyVersion == null)
             {
-                // TODO: Handle updated types as well
+                // TODO: Handle updated interfaces as well
                 return null;
             }
             else

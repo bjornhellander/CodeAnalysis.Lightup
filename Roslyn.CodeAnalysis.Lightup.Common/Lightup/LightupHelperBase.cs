@@ -162,9 +162,14 @@
 
                 var itemWrapMethod = wrapperItemType.GetMethod("As");
                 var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionRefValue = nativeItemType.IsValueType ?
+                    Expression.Convert(conversionLambdaParameter, typeof(object)) :
+                    (Expression)conversionLambdaParameter;
                 var conversionLambda = Expression.Lambda(
                     Expression.Convert(
-                        Expression.Call(itemWrapMethod, conversionLambdaParameter),
+                        Expression.Call(
+                            itemWrapMethod,
+                            conversionRefValue),
                         wrapperItemType),
                     conversionLambdaParameter);
 
