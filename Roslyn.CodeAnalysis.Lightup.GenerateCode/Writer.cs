@@ -1,5 +1,6 @@
-﻿// TODO: Review suppression
+﻿// TODO: Review suppressions
 #pragma warning disable SA1513 // Closing brace should be followed by blank line
+#pragma warning disable SA1515 // Single-line comment should be preceded by blank line
 
 namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
@@ -19,22 +20,46 @@ internal class Writer
         [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
-    // TODO: Check if these types should be generated
     private static readonly HashSet<string> TypesToSkip =
     [
+        // Irrelevant types related to source generators
+        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratedSourceResult",
+        "Microsoft.CodeAnalysis.GeneratorAttribute",
+        "Microsoft.CodeAnalysis.GeneratorAttributeSyntaxContext",
+        "Microsoft.CodeAnalysis.GeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratorDriverOptions",
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
+        "Microsoft.CodeAnalysis.GeneratorExecutionContext",
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorPostInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorRunResult",
+        "Microsoft.CodeAnalysis.GeneratorSyntaxContext",
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
+        "Microsoft.CodeAnalysis.IIncrementalGenerator",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorPostInitializationContext",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
+        "Microsoft.CodeAnalysis.IncrementalStepRunReason",
+        "Microsoft.CodeAnalysis.ISourceGenerator",
+        "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
+        "Microsoft.CodeAnalysis.ISyntaxReceiver",
+        "Microsoft.CodeAnalysis.SourceProductionContext",
+        "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
+        "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
+
+        // Irrelevant types related to diagnostic suppressors
+        "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
+        "Microsoft.CodeAnalysis.Diagnostics.Suppression",
+        "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
+        "Microsoft.CodeAnalysis.SuppressionDescriptor",
+
+        // TODO: Handle these types
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider", // Uses AnalyzerConfigOptions
-        "Microsoft.CodeAnalysis.GeneratorDriver", // Parameter mode
-        "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // Uses GeneratorRunResult
-        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // Uses GeneratorTimingInfo
-        "Microsoft.CodeAnalysis.GeneratorExecutionContext", // Uses AnalyzerConfigOptionsProviderWrapper
-        "Microsoft.CodeAnalysis.GeneratorRunResult", // Uses other new generator types
-        "Microsoft.CodeAnalysis.GeneratorTimingInfo", // Uses other new generator types
         "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
-        "Microsoft.CodeAnalysis.IIncrementalGenerator", // Uses other new generator types
-        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // ValueTuple, Uses new generic type
-        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // ValueTuple
-        "Microsoft.CodeAnalysis.ISourceGenerator", // Uses other new generator types
         "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
         "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
