@@ -5,11 +5,11 @@
 
     internal class LightupHelper : LightupHelperBase
     {
-        private static readonly Assembly CommonAssembly = typeof(IOperation).Assembly;
+        private static readonly Assembly WorkspacesCommonAssembly = typeof(WorkspaceChangeKind).Assembly;
 
         public static Type? FindType(string wrappedTypeName)
         {
-            return FindType(CommonAssembly, wrappedTypeName);
+            return FindType(WorkspacesCommonAssembly, wrappedTypeName);
         }
     }
 }
