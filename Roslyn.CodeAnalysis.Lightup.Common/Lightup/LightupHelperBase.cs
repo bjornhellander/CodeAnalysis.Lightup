@@ -58,6 +58,21 @@
             return func;
         }
 
+        public static TDelegate CreateSetAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
+        {
+            var instanceType = GetInstanceType<TDelegate>();
+            var paramTypes = GetParamTypes<TDelegate>();
+            var returnType = GetReturnType<TDelegate>();
+            var propertyInfo = wrappedType?.GetProperty(memberName);
+            var method = propertyInfo?.SetMethod;
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
         public static TDelegate CreateMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {

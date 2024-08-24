@@ -283,7 +283,6 @@ internal class Reflector
         var nullabilityInfo = new NullabilityInfoContext().Create(property);
         var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
 
-        // TODO: Handle setter as well
         var accessor = property.GetMethod;
         Assert.IsTrue(accessor != null, "");
 
@@ -291,6 +290,7 @@ internal class Reflector
             property.Name,
             typeRef,
             isNullable,
+            property.SetMethod?.IsPublic ?? false,
             accessor.IsStatic);
         return result;
     }
