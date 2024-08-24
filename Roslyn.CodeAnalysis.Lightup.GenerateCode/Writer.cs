@@ -263,6 +263,8 @@ internal class Writer
 
         // TODO: Handle static members
         var instanceProperties = GetInstanceProperties(typeDef);
+        var instanceIndexers = GetInstanceIndexers(typeDef);
+        Assert.IsTrue(instanceIndexers.Count == 0, "Unexpected indexers");
         var instanceMethods = GetInstanceMethods(typeDef);
 
         var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
@@ -512,6 +514,14 @@ internal class Writer
     private static List<PropertyDefinition> GetInstanceProperties(TypeDefinition typeDef)
     {
         var result = typeDef.Properties
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
+    }
+
+    private static List<IndexerDefinition> GetInstanceIndexers(TypeDefinition typeDef)
+    {
+        var result = typeDef.Indexers
             .Where(x => !x.IsStatic)
             .ToList();
         return result;

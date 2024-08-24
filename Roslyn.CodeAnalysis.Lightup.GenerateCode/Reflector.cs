@@ -228,6 +228,10 @@ internal class Reflector
         structTypeDef.Properties.Clear();
         structTypeDef.Properties.AddRange(propertyDefs);
 
+        var indexerDefs = CreateIndexerDefinitions(type);
+        structTypeDef.Indexers.Clear();
+        structTypeDef.Indexers.AddRange(indexerDefs);
+
         var methodDefs = CreateMethodDefinitions(type);
         structTypeDef.Methods.Clear();
         structTypeDef.Methods.AddRange(methodDefs);
@@ -239,6 +243,10 @@ internal class Reflector
         var propertyDefs = CreatePropertyDefinitions(type);
         classTypeDef.Properties.Clear();
         classTypeDef.Properties.AddRange(propertyDefs);
+
+        var indexerDefs = CreateIndexerDefinitions(type);
+        classTypeDef.Indexers.Clear();
+        classTypeDef.Indexers.AddRange(indexerDefs);
 
         var methodDefs = CreateMethodDefinitions(type);
         classTypeDef.Methods.Clear();
@@ -260,6 +268,10 @@ internal class Reflector
         interfaceTypeDef.Properties.Clear();
         interfaceTypeDef.Properties.AddRange(propertyDefs);
 
+        var indexerDefs = CreateIndexerDefinitions(type);
+        interfaceTypeDef.Indexers.Clear();
+        interfaceTypeDef.Indexers.AddRange(indexerDefs);
+
         var methodDefs = CreateMethodDefinitions(type);
         interfaceTypeDef.Methods.Clear();
         interfaceTypeDef.Methods.AddRange(methodDefs);
@@ -270,9 +282,22 @@ internal class Reflector
         var properties = type
             .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
             .OfType<PropertyInfo>()
+            .Where(x => x.GetIndexParameters().Length == 0)
             .OrderBy(x => x.Name)
             .ToList();
         var result = properties.Select(CreatePropertyDefinition).ToList();
+        return result;
+    }
+
+    private static List<IndexerDefinition> CreateIndexerDefinitions(Type type)
+    {
+        var properties = type
+            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
+            .OfType<PropertyInfo>()
+            .Where(x => x.GetIndexParameters().Length > 0)
+            .OrderBy(x => x.Name)
+            .ToList();
+        var result = properties.Select(CreateIndexerDefinition).ToList();
         return result;
     }
 
@@ -284,12 +309,35 @@ internal class Reflector
         var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
 
         var accessor = property.GetMethod;
-        Assert.IsTrue(accessor != null, "");
+        Assert.IsTrue(accessor != null, "Expected a getter");
 
         var result = new PropertyDefinition(
             property.Name,
             typeRef,
             isNullable,
+            property.SetMethod?.IsPublic ?? false,
+            accessor.IsStatic);
+        return result;
+    }
+
+    private static IndexerDefinition CreateIndexerDefinition(PropertyInfo property)
+    {
+        var typeRef = CreateTypeReference(property.PropertyType);
+
+        var nullabilityInfo = new NullabilityInfoContext().Create(property);
+        var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
+
+        var accessor = property.GetMethod;
+        Assert.IsTrue(accessor != null, "Expected a getter");
+
+        var parameters = property.GetIndexParameters();
+        var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
+
+        var result = new IndexerDefinition(
+            property.Name,
+            typeRef,
+            isNullable,
+            parameterDefs,
             property.SetMethod?.IsPublic ?? false,
             accessor.IsStatic);
         return result;

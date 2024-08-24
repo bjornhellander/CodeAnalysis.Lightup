@@ -19,5 +19,7 @@ internal abstract class TypeDefinition : BaseTypeDefinition
 
     public List<PropertyDefinition> Properties { get; } = new();
 
+    public List<IndexerDefinition> Indexers { get; } = new();
+
     public List<MethodDefinition> Methods { get; } = new();
 }
