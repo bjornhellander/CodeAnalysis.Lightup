@@ -247,6 +247,7 @@ internal class Reflector
     // TODO: Check which members are actually new
     private static void UpdateType(TypeDefinition typeDef, Type type)
     {
+        var fieldDefs = new List<FieldDefinition>();
         var eventDefs = new List<EventDefinition>();
         var propertyDefs = new List<PropertyDefinition>();
         var indexerDefs = new List<IndexerDefinition>();
@@ -260,6 +261,14 @@ internal class Reflector
         {
             switch (memberInfo)
             {
+                case FieldInfo field:
+                    fieldDefs.Add(CreateFieldDefinition(field));
+                    break;
+
+                case EventInfo @event:
+                    eventDefs.Add(CreateEventDefinition(@event));
+                    break;
+
                 case PropertyInfo property when property.GetIndexParameters().Length == 0:
                     propertyDefs.Add(CreatePropertyDefinition(property));
                     break;
@@ -282,13 +291,8 @@ internal class Reflector
                         break;
                     }
 
-                case EventInfo @event:
-                    eventDefs.Add(CreateEventDefinition(@event));
-                    break;
-
                 // TODO: Check if we need to handle anything else
                 case ConstructorInfo:
-                case FieldInfo:
                 case Type:
                     break;
 
@@ -297,6 +301,9 @@ internal class Reflector
                     break;
             }
         }
+
+        typeDef.Fields.Clear();
+        typeDef.Fields.AddRange(fieldDefs);
 
         typeDef.Events.Clear();
         typeDef.Events.AddRange(eventDefs);
@@ -309,6 +316,12 @@ internal class Reflector
 
         typeDef.Methods.Clear();
         typeDef.Methods.AddRange(methodDefs);
+    }
+
+    private static FieldDefinition CreateFieldDefinition(FieldInfo field)
+    {
+        var result = new FieldDefinition(field.Name, field.IsStatic);
+        return result;
     }
 
     private static EventDefinition CreateEventDefinition(EventInfo @event)

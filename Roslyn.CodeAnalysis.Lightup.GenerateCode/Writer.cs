@@ -262,8 +262,10 @@ internal class Writer
         var targetName = typeDef.Name + "Wrapper";
 
         // TODO: Handle static members
+        var instanceFields = GetInstanceFields(typeDef);
+        Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
         var events = GetEvents(typeDef);
-        Assert.IsTrue(events.Count == 0, "!");
+        Assert.IsTrue(events.Count == 0, "Unexpected events");
         var instanceProperties = GetInstanceProperties(typeDef);
         var instanceIndexers = GetInstanceIndexers(typeDef);
         Assert.IsTrue(instanceIndexers.Count == 0, "Unexpected indexers");
@@ -511,6 +513,14 @@ internal class Writer
 
             return false;
         }
+    }
+
+    private static List<FieldDefinition> GetInstanceFields(TypeDefinition typeDef)
+    {
+        var result = typeDef.Fields
+            .Where(x => !x.IsStatic)
+            .ToList();
+        return result;
     }
 
     private static List<EventDefinition> GetEvents(TypeDefinition typeDef)
