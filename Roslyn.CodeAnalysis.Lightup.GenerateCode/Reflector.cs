@@ -223,34 +223,12 @@ internal class Reflector
 
     private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
-        structTypeDef.Properties.Clear();
-        structTypeDef.Properties.AddRange(propertyDefs);
-
-        var indexerDefs = CreateIndexerDefinitions(type);
-        structTypeDef.Indexers.Clear();
-        structTypeDef.Indexers.AddRange(indexerDefs);
-
-        var methodDefs = CreateMethodDefinitions(type);
-        structTypeDef.Methods.Clear();
-        structTypeDef.Methods.AddRange(methodDefs);
+        UpdateType(structTypeDef, type);
     }
 
     private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
-        classTypeDef.Properties.Clear();
-        classTypeDef.Properties.AddRange(propertyDefs);
-
-        var indexerDefs = CreateIndexerDefinitions(type);
-        classTypeDef.Indexers.Clear();
-        classTypeDef.Indexers.AddRange(indexerDefs);
-
-        var methodDefs = CreateMethodDefinitions(type);
-        classTypeDef.Methods.Clear();
-        classTypeDef.Methods.AddRange(methodDefs);
+        UpdateType(classTypeDef, type);
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
@@ -263,18 +241,23 @@ internal class Reflector
 
     private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type)
     {
+        UpdateType(interfaceTypeDef, type);
+    }
+
+    private static void UpdateType(TypeDefinition typeDef, Type type)
+    {
         // TODO: Check which members are actually new
         var propertyDefs = CreatePropertyDefinitions(type);
-        interfaceTypeDef.Properties.Clear();
-        interfaceTypeDef.Properties.AddRange(propertyDefs);
+        typeDef.Properties.Clear();
+        typeDef.Properties.AddRange(propertyDefs);
 
         var indexerDefs = CreateIndexerDefinitions(type);
-        interfaceTypeDef.Indexers.Clear();
-        interfaceTypeDef.Indexers.AddRange(indexerDefs);
+        typeDef.Indexers.Clear();
+        typeDef.Indexers.AddRange(indexerDefs);
 
         var methodDefs = CreateMethodDefinitions(type);
-        interfaceTypeDef.Methods.Clear();
-        interfaceTypeDef.Methods.AddRange(methodDefs);
+        typeDef.Methods.Clear();
+        typeDef.Methods.AddRange(methodDefs);
     }
 
     private static List<PropertyDefinition> CreatePropertyDefinitions(Type type)
