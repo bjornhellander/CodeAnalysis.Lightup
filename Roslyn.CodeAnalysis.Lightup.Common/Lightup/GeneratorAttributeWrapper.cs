@@ -19,7 +19,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<Attribute?, String[]> LanguagesFunc;
+        private delegate String[] LanguagesDelegate(Attribute? _obj);
+
+        private static readonly LanguagesDelegate LanguagesFunc;
 
         private readonly Attribute? wrappedObject;
 
@@ -27,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguagesFunc = LightupHelper.CreateGetAccessor<Attribute?, String[]>(WrappedType, nameof(Languages));
+            LanguagesFunc = LightupHelper.CreateGetAccessor<LanguagesDelegate>(WrappedType, nameof(Languages));
         }
 
         private GeneratorAttributeWrapper(Attribute? obj)

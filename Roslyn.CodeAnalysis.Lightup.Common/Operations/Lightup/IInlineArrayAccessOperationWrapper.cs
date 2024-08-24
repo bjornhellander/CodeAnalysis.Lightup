@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IOperation> ArgumentFunc;
-        private static readonly Func<IOperation?, IOperation> InstanceFunc;
+        private delegate IOperation ArgumentDelegate(IOperation? _obj);
+        private delegate IOperation InstanceDelegate(IOperation? _obj);
+
+        private static readonly ArgumentDelegate ArgumentFunc;
+        private static readonly InstanceDelegate InstanceFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Argument));
-            InstanceFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Instance));
+            ArgumentFunc = LightupHelper.CreateGetAccessor<ArgumentDelegate>(WrappedType, nameof(Argument));
+            InstanceFunc = LightupHelper.CreateGetAccessor<InstanceDelegate>(WrappedType, nameof(Instance));
         }
 
         private IInlineArrayAccessOperationWrapper(IOperation? obj)

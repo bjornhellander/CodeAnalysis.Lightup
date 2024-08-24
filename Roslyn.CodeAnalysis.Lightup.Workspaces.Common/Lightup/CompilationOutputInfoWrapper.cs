@@ -21,10 +21,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, String?> AssemblyPathFunc;
+        private delegate String? AssemblyPathDelegate(object? _obj);
 
-        private static readonly Func<object?, CompilationOutputInfoWrapper, Boolean> EqualsFunc0;
-        private static readonly Func<object?, String?, CompilationOutputInfoWrapper> WithAssemblyPathFunc1;
+        private delegate Boolean EqualsDelegate0(object? _obj, CompilationOutputInfoWrapper other);
+        private delegate CompilationOutputInfoWrapper WithAssemblyPathDelegate1(object? _obj, String? path);
+
+        private static readonly AssemblyPathDelegate AssemblyPathFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
+        private static readonly WithAssemblyPathDelegate1 WithAssemblyPathFunc1;
 
         private readonly object? wrappedObject;
 
@@ -32,10 +37,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AssemblyPathFunc = LightupHelper.CreateGetAccessor<object?, String?>(WrappedType, nameof(AssemblyPath));
+            AssemblyPathFunc = LightupHelper.CreateGetAccessor<AssemblyPathDelegate>(WrappedType, nameof(AssemblyPath));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, CompilationOutputInfoWrapper, Boolean>(WrappedType, nameof(Equals));
-            WithAssemblyPathFunc1 = LightupHelper.CreateMethodAccessor<object?, String?, CompilationOutputInfoWrapper>(WrappedType, nameof(WithAssemblyPath));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            WithAssemblyPathFunc1 = LightupHelper.CreateMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, nameof(WithAssemblyPath));
         }
 
         private CompilationOutputInfoWrapper(object? obj)

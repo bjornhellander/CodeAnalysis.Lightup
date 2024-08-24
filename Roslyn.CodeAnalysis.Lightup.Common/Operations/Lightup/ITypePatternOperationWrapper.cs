@@ -19,7 +19,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IPatternOperation?, ITypeSymbol> MatchedTypeFunc;
+        private delegate ITypeSymbol MatchedTypeDelegate(IPatternOperation? _obj);
+
+        private static readonly MatchedTypeDelegate MatchedTypeFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -27,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MatchedTypeFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ITypeSymbol>(WrappedType, nameof(MatchedType));
+            MatchedTypeFunc = LightupHelper.CreateGetAccessor<MatchedTypeDelegate>(WrappedType, nameof(MatchedType));
         }
 
         private ITypePatternOperationWrapper(IPatternOperation? obj)

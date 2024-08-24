@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, CancellationToken> CancellationTokenFunc;
+        private delegate CancellationToken CancellationTokenDelegate(object? _obj);
 
-        private static readonly Action<object?, String, String> AddSourceFunc0;
-        private static readonly Action<object?, String, SourceText> AddSourceFunc1;
+        private delegate void AddSourceDelegate0(object? _obj, String hintName, String source);
+        private delegate void AddSourceDelegate1(object? _obj, String hintName, SourceText sourceText);
+
+        private static readonly CancellationTokenDelegate CancellationTokenFunc;
+
+        private static readonly AddSourceDelegate0 AddSourceFunc0;
+        private static readonly AddSourceDelegate1 AddSourceFunc1;
 
         private readonly object? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CancellationTokenFunc = LightupHelper.CreateGetAccessor<object?, CancellationToken>(WrappedType, nameof(CancellationToken));
+            CancellationTokenFunc = LightupHelper.CreateGetAccessor<CancellationTokenDelegate>(WrappedType, nameof(CancellationToken));
 
-            AddSourceFunc0 = LightupHelper.CreateVoidMethodAccessor<object?, String, String>(WrappedType, nameof(AddSource));
-            AddSourceFunc1 = LightupHelper.CreateVoidMethodAccessor<object?, String, SourceText>(WrappedType, nameof(AddSource));
+            AddSourceFunc0 = LightupHelper.CreateMethodAccessor<AddSourceDelegate0>(WrappedType, nameof(AddSource));
+            AddSourceFunc1 = LightupHelper.CreateMethodAccessor<AddSourceDelegate1>(WrappedType, nameof(AddSource));
         }
 
         private GeneratorPostInitializationContextWrapper(object? obj)

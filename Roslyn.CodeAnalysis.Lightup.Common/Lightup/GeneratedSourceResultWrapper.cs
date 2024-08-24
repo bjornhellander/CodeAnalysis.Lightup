@@ -19,9 +19,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, String> HintNameFunc;
-        private static readonly Func<object?, SourceText> SourceTextFunc;
-        private static readonly Func<object?, SyntaxTree> SyntaxTreeFunc;
+        private delegate String HintNameDelegate(object? _obj);
+        private delegate SourceText SourceTextDelegate(object? _obj);
+        private delegate SyntaxTree SyntaxTreeDelegate(object? _obj);
+
+        private static readonly HintNameDelegate HintNameFunc;
+        private static readonly SourceTextDelegate SourceTextFunc;
+        private static readonly SyntaxTreeDelegate SyntaxTreeFunc;
 
         private readonly object? wrappedObject;
 
@@ -29,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            HintNameFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(HintName));
-            SourceTextFunc = LightupHelper.CreateGetAccessor<object?, SourceText>(WrappedType, nameof(SourceText));
-            SyntaxTreeFunc = LightupHelper.CreateGetAccessor<object?, SyntaxTree>(WrappedType, nameof(SyntaxTree));
+            HintNameFunc = LightupHelper.CreateGetAccessor<HintNameDelegate>(WrappedType, nameof(HintName));
+            SourceTextFunc = LightupHelper.CreateGetAccessor<SourceTextDelegate>(WrappedType, nameof(SourceText));
+            SyntaxTreeFunc = LightupHelper.CreateGetAccessor<SyntaxTreeDelegate>(WrappedType, nameof(SyntaxTree));
         }
 
         private GeneratedSourceResultWrapper(object? obj)

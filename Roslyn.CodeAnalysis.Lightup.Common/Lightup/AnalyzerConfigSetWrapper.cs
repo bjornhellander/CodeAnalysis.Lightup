@@ -19,9 +19,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, AnalyzerConfigOptionsResultWrapper> GlobalConfigOptionsFunc;
+        private delegate AnalyzerConfigOptionsResultWrapper GlobalConfigOptionsDelegate(object? _obj);
 
-        private static readonly Func<object?, String, AnalyzerConfigOptionsResultWrapper> GetOptionsForSourcePathFunc0;
+        private delegate AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePathDelegate0(object? _obj, String sourcePath);
+
+        private static readonly GlobalConfigOptionsDelegate GlobalConfigOptionsFunc;
+
+        private static readonly GetOptionsForSourcePathDelegate0 GetOptionsForSourcePathFunc0;
 
         private readonly object? wrappedObject;
 
@@ -29,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalConfigOptionsFunc = LightupHelper.CreateGetAccessor<object?, AnalyzerConfigOptionsResultWrapper>(WrappedType, nameof(GlobalConfigOptions));
+            GlobalConfigOptionsFunc = LightupHelper.CreateGetAccessor<GlobalConfigOptionsDelegate>(WrappedType, nameof(GlobalConfigOptions));
 
-            GetOptionsForSourcePathFunc0 = LightupHelper.CreateMethodAccessor<object?, String, AnalyzerConfigOptionsResultWrapper>(WrappedType, nameof(GetOptionsForSourcePath));
+            GetOptionsForSourcePathFunc0 = LightupHelper.CreateMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, nameof(GetOptionsForSourcePath));
         }
 
         private AnalyzerConfigSetWrapper(object? obj)

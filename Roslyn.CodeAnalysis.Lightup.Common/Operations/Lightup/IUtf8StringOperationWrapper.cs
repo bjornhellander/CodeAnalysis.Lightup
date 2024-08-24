@@ -19,7 +19,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, String> ValueFunc;
+        private delegate String ValueDelegate(IOperation? _obj);
+
+        private static readonly ValueDelegate ValueFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -27,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ValueFunc = LightupHelper.CreateGetAccessor<IOperation?, String>(WrappedType, nameof(Value));
+            ValueFunc = LightupHelper.CreateGetAccessor<ValueDelegate>(WrappedType, nameof(Value));
         }
 
         private IUtf8StringOperationWrapper(IOperation? obj)

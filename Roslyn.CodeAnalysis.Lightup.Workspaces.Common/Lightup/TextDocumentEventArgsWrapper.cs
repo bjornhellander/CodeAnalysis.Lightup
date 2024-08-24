@@ -21,7 +21,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<EventArgs?, TextDocument> DocumentFunc;
+        private delegate TextDocument DocumentDelegate(EventArgs? _obj);
+
+        private static readonly DocumentDelegate DocumentFunc;
 
         private readonly EventArgs? wrappedObject;
 
@@ -29,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentFunc = LightupHelper.CreateGetAccessor<EventArgs?, TextDocument>(WrappedType, nameof(Document));
+            DocumentFunc = LightupHelper.CreateGetAccessor<DocumentDelegate>(WrappedType, nameof(Document));
         }
 
         private TextDocumentEventArgsWrapper(EventArgs? obj)

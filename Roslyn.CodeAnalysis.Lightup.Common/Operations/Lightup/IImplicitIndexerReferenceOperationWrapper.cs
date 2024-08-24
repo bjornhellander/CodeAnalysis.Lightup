@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IOperation> ArgumentFunc;
-        private static readonly Func<IOperation?, ISymbol> IndexerSymbolFunc;
-        private static readonly Func<IOperation?, IOperation> InstanceFunc;
-        private static readonly Func<IOperation?, ISymbol> LengthSymbolFunc;
+        private delegate IOperation ArgumentDelegate(IOperation? _obj);
+        private delegate ISymbol IndexerSymbolDelegate(IOperation? _obj);
+        private delegate IOperation InstanceDelegate(IOperation? _obj);
+        private delegate ISymbol LengthSymbolDelegate(IOperation? _obj);
+
+        private static readonly ArgumentDelegate ArgumentFunc;
+        private static readonly IndexerSymbolDelegate IndexerSymbolFunc;
+        private static readonly InstanceDelegate InstanceFunc;
+        private static readonly LengthSymbolDelegate LengthSymbolFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Argument));
-            IndexerSymbolFunc = LightupHelper.CreateGetAccessor<IOperation?, ISymbol>(WrappedType, nameof(IndexerSymbol));
-            InstanceFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Instance));
-            LengthSymbolFunc = LightupHelper.CreateGetAccessor<IOperation?, ISymbol>(WrappedType, nameof(LengthSymbol));
+            ArgumentFunc = LightupHelper.CreateGetAccessor<ArgumentDelegate>(WrappedType, nameof(Argument));
+            IndexerSymbolFunc = LightupHelper.CreateGetAccessor<IndexerSymbolDelegate>(WrappedType, nameof(IndexerSymbol));
+            InstanceFunc = LightupHelper.CreateGetAccessor<InstanceDelegate>(WrappedType, nameof(Instance));
+            LengthSymbolFunc = LightupHelper.CreateGetAccessor<LengthSymbolDelegate>(WrappedType, nameof(LengthSymbol));
         }
 
         private IImplicitIndexerReferenceOperationWrapper(IOperation? obj)

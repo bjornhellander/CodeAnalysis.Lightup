@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, ImmutableArray<IArgumentOperation>> ArgumentsFunc;
-        private static readonly Func<IOperation?, IOperation> TargetFunc;
+        private delegate ImmutableArray<IArgumentOperation> ArgumentsDelegate(IOperation? _obj);
+        private delegate IOperation TargetDelegate(IOperation? _obj);
+
+        private static readonly ArgumentsDelegate ArgumentsFunc;
+        private static readonly TargetDelegate TargetFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentsFunc = LightupHelper.CreateGetAccessor<IOperation?, ImmutableArray<IArgumentOperation>>(WrappedType, nameof(Arguments));
-            TargetFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Target));
+            ArgumentsFunc = LightupHelper.CreateGetAccessor<ArgumentsDelegate>(WrappedType, nameof(Arguments));
+            TargetFunc = LightupHelper.CreateGetAccessor<TargetDelegate>(WrappedType, nameof(Target));
         }
 
         private IFunctionPointerInvocationOperationWrapper(IOperation? obj)

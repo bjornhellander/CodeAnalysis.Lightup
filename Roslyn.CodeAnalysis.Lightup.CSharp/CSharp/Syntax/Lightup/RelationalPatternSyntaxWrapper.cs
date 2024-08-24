@@ -18,13 +18,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<PatternSyntax?, ExpressionSyntax> ExpressionFunc;
-        private static readonly Func<PatternSyntax?, SyntaxToken> OperatorTokenFunc;
+        private delegate ExpressionSyntax ExpressionDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken OperatorTokenDelegate(PatternSyntax? _obj);
 
-        private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<PatternSyntax?, SyntaxToken, ExpressionSyntax, RelationalPatternSyntaxWrapper> UpdateFunc1;
-        private static readonly Func<PatternSyntax?, ExpressionSyntax, RelationalPatternSyntaxWrapper> WithExpressionFunc2;
-        private static readonly Func<PatternSyntax?, SyntaxToken, RelationalPatternSyntaxWrapper> WithOperatorTokenFunc3;
+        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
+        private delegate RelationalPatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, SyntaxToken operatorToken, ExpressionSyntax expression);
+        private delegate RelationalPatternSyntaxWrapper WithExpressionDelegate2(PatternSyntax? _obj, ExpressionSyntax expression);
+        private delegate RelationalPatternSyntaxWrapper WithOperatorTokenDelegate3(PatternSyntax? _obj, SyntaxToken operatorToken);
+
+        private static readonly ExpressionDelegate ExpressionFunc;
+        private static readonly OperatorTokenDelegate OperatorTokenFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithExpressionDelegate2 WithExpressionFunc2;
+        private static readonly WithOperatorTokenDelegate3 WithOperatorTokenFunc3;
 
         private readonly PatternSyntax? wrappedObject;
 
@@ -32,13 +40,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, ExpressionSyntax>(WrappedType, nameof(Expression));
-            OperatorTokenFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, SyntaxToken>(WrappedType, nameof(OperatorToken));
+            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
+            OperatorTokenFunc = LightupHelper.CreateGetAccessor<OperatorTokenDelegate>(WrappedType, nameof(OperatorToken));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, ExpressionSyntax, RelationalPatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, ExpressionSyntax, RelationalPatternSyntaxWrapper>(WrappedType, nameof(WithExpression));
-            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<PatternSyntax?, SyntaxToken, RelationalPatternSyntaxWrapper>(WrappedType, nameof(WithOperatorToken));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
+            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
         }
 
         private RelationalPatternSyntaxWrapper(PatternSyntax? obj)

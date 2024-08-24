@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, SuppressionDescriptorWrapper> DescriptorFunc;
-        private static readonly Func<object?, Diagnostic> SuppressedDiagnosticFunc;
+        private delegate SuppressionDescriptorWrapper DescriptorDelegate(object? _obj);
+        private delegate Diagnostic SuppressedDiagnosticDelegate(object? _obj);
 
-        private static readonly Func<object?, SuppressionWrapper, Boolean> EqualsFunc0;
+        private delegate Boolean EqualsDelegate0(object? _obj, SuppressionWrapper other);
+
+        private static readonly DescriptorDelegate DescriptorFunc;
+        private static readonly SuppressedDiagnosticDelegate SuppressedDiagnosticFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly object? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DescriptorFunc = LightupHelper.CreateGetAccessor<object?, SuppressionDescriptorWrapper>(WrappedType, nameof(Descriptor));
-            SuppressedDiagnosticFunc = LightupHelper.CreateGetAccessor<object?, Diagnostic>(WrappedType, nameof(SuppressedDiagnostic));
+            DescriptorFunc = LightupHelper.CreateGetAccessor<DescriptorDelegate>(WrappedType, nameof(Descriptor));
+            SuppressedDiagnosticFunc = LightupHelper.CreateGetAccessor<SuppressedDiagnosticDelegate>(WrappedType, nameof(SuppressedDiagnostic));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, SuppressionWrapper, Boolean>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private SuppressionWrapper(object? obj)

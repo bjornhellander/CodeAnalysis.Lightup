@@ -19,11 +19,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IPatternOperation?, ISymbol?> DeclaredSymbolFunc;
-        private static readonly Func<IPatternOperation?, ImmutableArray<IPatternOperation>> DeconstructionSubpatternsFunc;
-        private static readonly Func<IPatternOperation?, ISymbol?> DeconstructSymbolFunc;
-        private static readonly Func<IPatternOperation?, ITypeSymbol> MatchedTypeFunc;
-        private static readonly Func<IPatternOperation?, ImmutableArray<IPropertySubpatternOperationWrapper>> PropertySubpatternsFunc;
+        private delegate ISymbol? DeclaredSymbolDelegate(IPatternOperation? _obj);
+        private delegate ImmutableArray<IPatternOperation> DeconstructionSubpatternsDelegate(IPatternOperation? _obj);
+        private delegate ISymbol? DeconstructSymbolDelegate(IPatternOperation? _obj);
+        private delegate ITypeSymbol MatchedTypeDelegate(IPatternOperation? _obj);
+        private delegate ImmutableArray<IPropertySubpatternOperationWrapper> PropertySubpatternsDelegate(IPatternOperation? _obj);
+
+        private static readonly DeclaredSymbolDelegate DeclaredSymbolFunc;
+        private static readonly DeconstructionSubpatternsDelegate DeconstructionSubpatternsFunc;
+        private static readonly DeconstructSymbolDelegate DeconstructSymbolFunc;
+        private static readonly MatchedTypeDelegate MatchedTypeFunc;
+        private static readonly PropertySubpatternsDelegate PropertySubpatternsFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -31,11 +37,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ISymbol?>(WrappedType, nameof(DeclaredSymbol));
-            DeconstructionSubpatternsFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ImmutableArray<IPatternOperation>>(WrappedType, nameof(DeconstructionSubpatterns));
-            DeconstructSymbolFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ISymbol?>(WrappedType, nameof(DeconstructSymbol));
-            MatchedTypeFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ITypeSymbol>(WrappedType, nameof(MatchedType));
-            PropertySubpatternsFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ImmutableArray<IPropertySubpatternOperationWrapper>>(WrappedType, nameof(PropertySubpatterns));
+            DeclaredSymbolFunc = LightupHelper.CreateGetAccessor<DeclaredSymbolDelegate>(WrappedType, nameof(DeclaredSymbol));
+            DeconstructionSubpatternsFunc = LightupHelper.CreateGetAccessor<DeconstructionSubpatternsDelegate>(WrappedType, nameof(DeconstructionSubpatterns));
+            DeconstructSymbolFunc = LightupHelper.CreateGetAccessor<DeconstructSymbolDelegate>(WrappedType, nameof(DeconstructSymbol));
+            MatchedTypeFunc = LightupHelper.CreateGetAccessor<MatchedTypeDelegate>(WrappedType, nameof(MatchedType));
+            PropertySubpatternsFunc = LightupHelper.CreateGetAccessor<PropertySubpatternsDelegate>(WrappedType, nameof(PropertySubpatterns));
         }
 
         private IRecursivePatternOperationWrapper(IPatternOperation? obj)

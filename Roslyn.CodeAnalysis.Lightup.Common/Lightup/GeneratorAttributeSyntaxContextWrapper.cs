@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, ImmutableArray<AttributeData>> AttributesFunc;
-        private static readonly Func<object?, SemanticModel> SemanticModelFunc;
-        private static readonly Func<object?, SyntaxNode> TargetNodeFunc;
-        private static readonly Func<object?, ISymbol> TargetSymbolFunc;
+        private delegate ImmutableArray<AttributeData> AttributesDelegate(object? _obj);
+        private delegate SemanticModel SemanticModelDelegate(object? _obj);
+        private delegate SyntaxNode TargetNodeDelegate(object? _obj);
+        private delegate ISymbol TargetSymbolDelegate(object? _obj);
+
+        private static readonly AttributesDelegate AttributesFunc;
+        private static readonly SemanticModelDelegate SemanticModelFunc;
+        private static readonly TargetNodeDelegate TargetNodeFunc;
+        private static readonly TargetSymbolDelegate TargetSymbolFunc;
 
         private readonly object? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributesFunc = LightupHelper.CreateGetAccessor<object?, ImmutableArray<AttributeData>>(WrappedType, nameof(Attributes));
-            SemanticModelFunc = LightupHelper.CreateGetAccessor<object?, SemanticModel>(WrappedType, nameof(SemanticModel));
-            TargetNodeFunc = LightupHelper.CreateGetAccessor<object?, SyntaxNode>(WrappedType, nameof(TargetNode));
-            TargetSymbolFunc = LightupHelper.CreateGetAccessor<object?, ISymbol>(WrappedType, nameof(TargetSymbol));
+            AttributesFunc = LightupHelper.CreateGetAccessor<AttributesDelegate>(WrappedType, nameof(Attributes));
+            SemanticModelFunc = LightupHelper.CreateGetAccessor<SemanticModelDelegate>(WrappedType, nameof(SemanticModel));
+            TargetNodeFunc = LightupHelper.CreateGetAccessor<TargetNodeDelegate>(WrappedType, nameof(TargetNode));
+            TargetSymbolFunc = LightupHelper.CreateGetAccessor<TargetSymbolDelegate>(WrappedType, nameof(TargetSymbol));
         }
 
         private GeneratorAttributeSyntaxContextWrapper(object? obj)

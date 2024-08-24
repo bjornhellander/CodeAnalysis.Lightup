@@ -21,9 +21,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, SourceHashAlgorithm> ChecksumAlgorithmFunc;
+        private delegate SourceHashAlgorithm ChecksumAlgorithmDelegate(object? _obj);
 
-        private static readonly Func<object?, LoadTextOptionsWrapper, Boolean> EqualsFunc0;
+        private delegate Boolean EqualsDelegate0(object? _obj, LoadTextOptionsWrapper other);
+
+        private static readonly ChecksumAlgorithmDelegate ChecksumAlgorithmFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly object? wrappedObject;
 
@@ -31,9 +35,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ChecksumAlgorithmFunc = LightupHelper.CreateGetAccessor<object?, SourceHashAlgorithm>(WrappedType, nameof(ChecksumAlgorithm));
+            ChecksumAlgorithmFunc = LightupHelper.CreateGetAccessor<ChecksumAlgorithmDelegate>(WrappedType, nameof(ChecksumAlgorithm));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, LoadTextOptionsWrapper, Boolean>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private LoadTextOptionsWrapper(object? obj)

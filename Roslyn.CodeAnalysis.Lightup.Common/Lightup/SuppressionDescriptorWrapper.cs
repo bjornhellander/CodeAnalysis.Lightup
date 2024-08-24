@@ -19,11 +19,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, String> IdFunc;
-        private static readonly Func<object?, LocalizableString> JustificationFunc;
-        private static readonly Func<object?, String> SuppressedDiagnosticIdFunc;
+        private delegate String IdDelegate(object? _obj);
+        private delegate LocalizableString JustificationDelegate(object? _obj);
+        private delegate String SuppressedDiagnosticIdDelegate(object? _obj);
 
-        private static readonly Func<object?, SuppressionDescriptorWrapper, Boolean> EqualsFunc0;
+        private delegate Boolean EqualsDelegate0(object? _obj, SuppressionDescriptorWrapper other);
+
+        private static readonly IdDelegate IdFunc;
+        private static readonly JustificationDelegate JustificationFunc;
+        private static readonly SuppressedDiagnosticIdDelegate SuppressedDiagnosticIdFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly object? wrappedObject;
 
@@ -31,11 +37,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IdFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(Id));
-            JustificationFunc = LightupHelper.CreateGetAccessor<object?, LocalizableString>(WrappedType, nameof(Justification));
-            SuppressedDiagnosticIdFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(SuppressedDiagnosticId));
+            IdFunc = LightupHelper.CreateGetAccessor<IdDelegate>(WrappedType, nameof(Id));
+            JustificationFunc = LightupHelper.CreateGetAccessor<JustificationDelegate>(WrappedType, nameof(Justification));
+            SuppressedDiagnosticIdFunc = LightupHelper.CreateGetAccessor<SuppressedDiagnosticIdDelegate>(WrappedType, nameof(SuppressedDiagnosticId));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, SuppressionDescriptorWrapper, Boolean>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private SuppressionDescriptorWrapper(object? obj)

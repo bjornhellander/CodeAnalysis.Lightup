@@ -21,8 +21,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, String> LanguageFunc;
-        private static readonly Func<object?, SolutionServicesWrapper> SolutionServicesFunc;
+        private delegate String LanguageDelegate(object? _obj);
+        private delegate SolutionServicesWrapper SolutionServicesDelegate(object? _obj);
+
+        private static readonly LanguageDelegate LanguageFunc;
+        private static readonly SolutionServicesDelegate SolutionServicesFunc;
 
         private readonly object? wrappedObject;
 
@@ -30,8 +33,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(Language));
-            SolutionServicesFunc = LightupHelper.CreateGetAccessor<object?, SolutionServicesWrapper>(WrappedType, nameof(SolutionServices));
+            LanguageFunc = LightupHelper.CreateGetAccessor<LanguageDelegate>(WrappedType, nameof(Language));
+            SolutionServicesFunc = LightupHelper.CreateGetAccessor<SolutionServicesDelegate>(WrappedType, nameof(SolutionServices));
         }
 
         private LanguageServicesWrapper(object? obj)

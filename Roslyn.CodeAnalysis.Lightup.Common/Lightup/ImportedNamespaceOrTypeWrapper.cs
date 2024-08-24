@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, SyntaxReference?> DeclaringSyntaxReferenceFunc;
-        private static readonly Func<object?, INamespaceOrTypeSymbol> NamespaceOrTypeFunc;
+        private delegate SyntaxReference? DeclaringSyntaxReferenceDelegate(object? _obj);
+        private delegate INamespaceOrTypeSymbol NamespaceOrTypeDelegate(object? _obj);
+
+        private static readonly DeclaringSyntaxReferenceDelegate DeclaringSyntaxReferenceFunc;
+        private static readonly NamespaceOrTypeDelegate NamespaceOrTypeFunc;
 
         private readonly object? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<object?, SyntaxReference?>(WrappedType, nameof(DeclaringSyntaxReference));
-            NamespaceOrTypeFunc = LightupHelper.CreateGetAccessor<object?, INamespaceOrTypeSymbol>(WrappedType, nameof(NamespaceOrType));
+            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            NamespaceOrTypeFunc = LightupHelper.CreateGetAccessor<NamespaceOrTypeDelegate>(WrappedType, nameof(NamespaceOrType));
         }
 
         private ImportedNamespaceOrTypeWrapper(object? obj)

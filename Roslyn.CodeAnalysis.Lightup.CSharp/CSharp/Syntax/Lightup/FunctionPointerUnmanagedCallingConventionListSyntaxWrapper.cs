@@ -18,16 +18,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>> CallingConventionsFunc;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken> CloseBracketTokenFunc;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken> OpenBracketTokenFunc;
+        private delegate SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> CallingConventionsDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken CloseBracketTokenDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken OpenBracketTokenDelegate(CSharpSyntaxNode? _obj);
 
-        private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[], FunctionPointerUnmanagedCallingConventionListSyntaxWrapper> AddCallingConventionsFunc1;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper> UpdateFunc2;
-        private static readonly Func<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper> WithCallingConventionsFunc3;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper> WithCloseBracketTokenFunc4;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper> WithOpenBracketTokenFunc5;
+        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
+        private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper AddCallingConventionsDelegate1(CSharpSyntaxNode? _obj, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items);
+        private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UpdateDelegate2(CSharpSyntaxNode? _obj, SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, SyntaxToken closeBracketToken);
+        private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCallingConventionsDelegate3(CSharpSyntaxNode? _obj, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions);
+        private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCloseBracketTokenDelegate4(CSharpSyntaxNode? _obj, SyntaxToken closeBracketToken);
+        private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithOpenBracketTokenDelegate5(CSharpSyntaxNode? _obj, SyntaxToken openBracketToken);
+
+        private static readonly CallingConventionsDelegate CallingConventionsFunc;
+        private static readonly CloseBracketTokenDelegate CloseBracketTokenFunc;
+        private static readonly OpenBracketTokenDelegate OpenBracketTokenFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly AddCallingConventionsDelegate1 AddCallingConventionsFunc1;
+        private static readonly UpdateDelegate2 UpdateFunc2;
+        private static readonly WithCallingConventionsDelegate3 WithCallingConventionsFunc3;
+        private static readonly WithCloseBracketTokenDelegate4 WithCloseBracketTokenFunc4;
+        private static readonly WithOpenBracketTokenDelegate5 WithOpenBracketTokenFunc5;
 
         private readonly CSharpSyntaxNode? wrappedObject;
 
@@ -35,16 +46,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionsFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>>(WrappedType, nameof(CallingConventions));
-            CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(CloseBracketToken));
-            OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(OpenBracketToken));
+            CallingConventionsFunc = LightupHelper.CreateGetAccessor<CallingConventionsDelegate>(WrappedType, nameof(CallingConventions));
+            CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenDelegate>(WrappedType, nameof(CloseBracketToken));
+            OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenDelegate>(WrappedType, nameof(OpenBracketToken));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddCallingConventionsFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[], FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(AddCallingConventions));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(Update));
-            WithCallingConventionsFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper>, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(WithCallingConventions));
-            WithCloseBracketTokenFunc4 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(WithCloseBracketToken));
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper>(WrappedType, nameof(WithOpenBracketToken));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddCallingConventionsFunc1 = LightupHelper.CreateMethodAccessor<AddCallingConventionsDelegate1>(WrappedType, nameof(AddCallingConventions));
+            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithCallingConventionsFunc3 = LightupHelper.CreateMethodAccessor<WithCallingConventionsDelegate3>(WrappedType, nameof(WithCallingConventions));
+            WithCloseBracketTokenFunc4 = LightupHelper.CreateMethodAccessor<WithCloseBracketTokenDelegate4>(WrappedType, nameof(WithCloseBracketToken));
+            WithOpenBracketTokenFunc5 = LightupHelper.CreateMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, nameof(WithOpenBracketToken));
         }
 
         private FunctionPointerUnmanagedCallingConventionListSyntaxWrapper(CSharpSyntaxNode? obj)

@@ -21,8 +21,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<FixAllProvider?, FixAllContext, Task<CodeAction>> GetFixAsyncFunc0;
-        private static readonly Func<FixAllProvider?, IEnumerable<FixAllScope>> GetSupportedFixAllScopesFunc1;
+        private delegate Task<CodeAction> GetFixAsyncDelegate0(FixAllProvider? _obj, FixAllContext fixAllContext);
+        private delegate IEnumerable<FixAllScope> GetSupportedFixAllScopesDelegate1(FixAllProvider? _obj);
+
+        private static readonly GetFixAsyncDelegate0 GetFixAsyncFunc0;
+        private static readonly GetSupportedFixAllScopesDelegate1 GetSupportedFixAllScopesFunc1;
 
         private readonly FixAllProvider? wrappedObject;
 
@@ -30,8 +33,8 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetFixAsyncFunc0 = LightupHelper.CreateMethodAccessor<FixAllProvider?, FixAllContext, Task<CodeAction>>(WrappedType, nameof(GetFixAsync));
-            GetSupportedFixAllScopesFunc1 = LightupHelper.CreateMethodAccessor<FixAllProvider?, IEnumerable<FixAllScope>>(WrappedType, nameof(GetSupportedFixAllScopes));
+            GetFixAsyncFunc0 = LightupHelper.CreateMethodAccessor<GetFixAsyncDelegate0>(WrappedType, nameof(GetFixAsync));
+            GetSupportedFixAllScopesFunc1 = LightupHelper.CreateMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, nameof(GetSupportedFixAllScopes));
         }
 
         private DocumentBasedFixAllProviderWrapper(FixAllProvider? obj)

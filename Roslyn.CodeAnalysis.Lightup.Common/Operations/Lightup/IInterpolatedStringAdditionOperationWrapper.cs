@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IOperation> LeftFunc;
-        private static readonly Func<IOperation?, IOperation> RightFunc;
+        private delegate IOperation LeftDelegate(IOperation? _obj);
+        private delegate IOperation RightDelegate(IOperation? _obj);
+
+        private static readonly LeftDelegate LeftFunc;
+        private static readonly RightDelegate RightFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Left));
-            RightFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Right));
+            LeftFunc = LightupHelper.CreateGetAccessor<LeftDelegate>(WrappedType, nameof(Left));
+            RightFunc = LightupHelper.CreateGetAccessor<RightDelegate>(WrappedType, nameof(Right));
         }
 
         private IInterpolatedStringAdditionOperationWrapper(IOperation? obj)

@@ -21,9 +21,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IWorkspaceService?, ApplyChangesKind, Boolean> CanApplyChangeFunc0;
-        private static readonly Func<IWorkspaceService?, CompilationOptions, CompilationOptions, Project, Boolean> CanApplyCompilationOptionChangeFunc1;
-        private static readonly Func<IWorkspaceService?, ParseOptions, ParseOptions, Project, Boolean> CanApplyParseOptionChangeFunc2;
+        private delegate Boolean CanApplyChangeDelegate0(IWorkspaceService? _obj, ApplyChangesKind kind);
+        private delegate Boolean CanApplyCompilationOptionChangeDelegate1(IWorkspaceService? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
+        private delegate Boolean CanApplyParseOptionChangeDelegate2(IWorkspaceService? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
+
+        private static readonly CanApplyChangeDelegate0 CanApplyChangeFunc0;
+        private static readonly CanApplyCompilationOptionChangeDelegate1 CanApplyCompilationOptionChangeFunc1;
+        private static readonly CanApplyParseOptionChangeDelegate2 CanApplyParseOptionChangeFunc2;
 
         private readonly IWorkspaceService? wrappedObject;
 
@@ -31,9 +35,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyChangeFunc0 = LightupHelper.CreateMethodAccessor<IWorkspaceService?, ApplyChangesKind, Boolean>(WrappedType, nameof(CanApplyChange));
-            CanApplyCompilationOptionChangeFunc1 = LightupHelper.CreateMethodAccessor<IWorkspaceService?, CompilationOptions, CompilationOptions, Project, Boolean>(WrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc2 = LightupHelper.CreateMethodAccessor<IWorkspaceService?, ParseOptions, ParseOptions, Project, Boolean>(WrappedType, nameof(CanApplyParseOptionChange));
+            CanApplyChangeFunc0 = LightupHelper.CreateMethodAccessor<CanApplyChangeDelegate0>(WrappedType, nameof(CanApplyChange));
+            CanApplyCompilationOptionChangeFunc1 = LightupHelper.CreateMethodAccessor<CanApplyCompilationOptionChangeDelegate1>(WrappedType, nameof(CanApplyCompilationOptionChange));
+            CanApplyParseOptionChangeFunc2 = LightupHelper.CreateMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, nameof(CanApplyParseOptionChange));
         }
 
         private ISupportedChangesServiceWrapper(IWorkspaceService? obj)

@@ -19,9 +19,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<MulticastDelegate?, AsyncCallback?, Object?, IAsyncResult> BeginInvokeFunc0;
-        private static readonly Func<MulticastDelegate?, IAsyncResult?, ISyntaxContextReceiverWrapper> EndInvokeFunc1;
-        private static readonly Func<MulticastDelegate?, ISyntaxContextReceiverWrapper> InvokeFunc2;
+        private delegate IAsyncResult BeginInvokeDelegate0(MulticastDelegate? _obj, AsyncCallback? callback, Object? @object);
+        private delegate ISyntaxContextReceiverWrapper EndInvokeDelegate1(MulticastDelegate? _obj, IAsyncResult? result);
+        private delegate ISyntaxContextReceiverWrapper InvokeDelegate2(MulticastDelegate? _obj);
+
+        private static readonly BeginInvokeDelegate0 BeginInvokeFunc0;
+        private static readonly EndInvokeDelegate1 EndInvokeFunc1;
+        private static readonly InvokeDelegate2 InvokeFunc2;
 
         private readonly MulticastDelegate? wrappedObject;
 
@@ -29,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            BeginInvokeFunc0 = LightupHelper.CreateMethodAccessor<MulticastDelegate?, AsyncCallback?, Object?, IAsyncResult>(WrappedType, nameof(BeginInvoke));
-            EndInvokeFunc1 = LightupHelper.CreateMethodAccessor<MulticastDelegate?, IAsyncResult?, ISyntaxContextReceiverWrapper>(WrappedType, nameof(EndInvoke));
-            InvokeFunc2 = LightupHelper.CreateMethodAccessor<MulticastDelegate?, ISyntaxContextReceiverWrapper>(WrappedType, nameof(Invoke));
+            BeginInvokeFunc0 = LightupHelper.CreateMethodAccessor<BeginInvokeDelegate0>(WrappedType, nameof(BeginInvoke));
+            EndInvokeFunc1 = LightupHelper.CreateMethodAccessor<EndInvokeDelegate1>(WrappedType, nameof(EndInvoke));
+            InvokeFunc2 = LightupHelper.CreateMethodAccessor<InvokeDelegate2>(WrappedType, nameof(Invoke));
         }
 
         private SyntaxContextReceiverCreatorWrapper(MulticastDelegate? obj)
