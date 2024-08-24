@@ -20,6 +20,12 @@ internal class Writer
         [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
     };
 
+    private static readonly Dictionary<ParameterMode, string> ParameterModeText = new()
+    {
+        [ParameterMode.None] = "",
+        [ParameterMode.Out] = "out ",
+    };
+
     private static readonly HashSet<string> TypesToSkip =
     [
         // Irrelevant types related to source generators
@@ -57,12 +63,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
 
         // TODO: Handle these types
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider", // Uses AnalyzerConfigOptions
         "Microsoft.CodeAnalysis.IImportScope", // ImmutableArray of value type
-        "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions", // Parameter mode
-        "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider", // Parameter mode
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -379,7 +380,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}(wrappedObject{(methodDef.Parameters.Count > 0 ? ", " : "")}{string.Join(", ", methodDef.Parameters.Select(x => GetParameterNameText(x.Name)))});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -609,13 +610,9 @@ internal class Writer
         var sb = new StringBuilder();
         foreach (var parameter in parameters)
         {
-            if (sb.Length > 0 || addLeadingComma)
-            {
-                sb.Append(", ");
-            }
-
-            Assert.IsTrue(parameter.Mode == ParameterMode.None, "Unhandled parameter mode");
+            sb.Append(sb.Length > 0 || addLeadingComma ? ", " : "");
             sb.Append(parameter.IsParams ? "params " : "");
+            sb.Append(ParameterModeText[parameter.Mode]);
             sb.Append(GetParameterTypeDeclText(parameter, typeDefs));
             sb.Append(' ');
             sb.Append(GetParameterNameText(parameter.Name));
@@ -632,6 +629,21 @@ internal class Writer
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, parameterDef.Type, typeDefs);
         sb.Append(parameterDef.IsNullable && !IsNewType(parameterDef.Type, typeDefs) ? "?" : "");
+        var result = sb.ToString();
+        return result;
+    }
+
+    private static string GetArgumentsText(
+        MethodDefinition methodDef)
+    {
+        var sb = new StringBuilder();
+        sb.Append("wrappedObject");
+        foreach (var parameterDef in methodDef.Parameters)
+        {
+            sb.Append($", ");
+            sb.Append(ParameterModeText[parameterDef.Mode]);
+            sb.Append(GetParameterNameText(parameterDef.Name));
+        }
         var result = sb.ToString();
         return result;
     }
