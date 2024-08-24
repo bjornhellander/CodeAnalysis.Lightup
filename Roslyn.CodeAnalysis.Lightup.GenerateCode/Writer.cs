@@ -262,6 +262,8 @@ internal class Writer
         var targetName = typeDef.Name + "Wrapper";
 
         // TODO: Handle static members
+        var events = GetEvents(typeDef);
+        Assert.IsTrue(events.Count == 0, "!");
         var instanceProperties = GetInstanceProperties(typeDef);
         var instanceIndexers = GetInstanceIndexers(typeDef);
         Assert.IsTrue(instanceIndexers.Count == 0, "Unexpected indexers");
@@ -509,6 +511,13 @@ internal class Writer
 
             return false;
         }
+    }
+
+    private static List<EventDefinition> GetEvents(TypeDefinition typeDef)
+    {
+        var result = typeDef.Events
+            .ToList();
+        return result;
     }
 
     private static List<PropertyDefinition> GetInstanceProperties(TypeDefinition typeDef)

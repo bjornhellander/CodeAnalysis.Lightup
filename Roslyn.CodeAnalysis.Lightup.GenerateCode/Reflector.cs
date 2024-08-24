@@ -247,6 +247,7 @@ internal class Reflector
     // TODO: Check which members are actually new
     private static void UpdateType(TypeDefinition typeDef, Type type)
     {
+        var eventDefs = new List<EventDefinition>();
         var propertyDefs = new List<PropertyDefinition>();
         var indexerDefs = new List<IndexerDefinition>();
         var methodDefs = new List<MethodDefinition>();
@@ -269,19 +270,24 @@ internal class Reflector
 
                 // TODO: Handle generic methods
                 // TODO: Handle methods overridden from System.Object
-                case MethodInfo method when
-                    !method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
-                    !method.IsGenericMethod &&
-                    method.GetBaseDefinition().DeclaringType != typeof(object):
-                    methodDefs.Add(CreateMethodDefinition(method));
-                    break;
+                case MethodInfo method:
+                    {
+                        if (!method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
+                            !method.IsGenericMethod &&
+                            method.GetBaseDefinition().DeclaringType != typeof(object))
+                        {
+                            methodDefs.Add(CreateMethodDefinition(method));
+                        }
 
-                case MethodInfo:
+                        break;
+                    }
+
+                case EventInfo @event:
+                    eventDefs.Add(CreateEventDefinition(@event));
                     break;
 
                 // TODO: Check if we need to handle anything else
                 case ConstructorInfo:
-                case EventInfo:
                 case FieldInfo:
                 case Type:
                     break;
@@ -292,6 +298,9 @@ internal class Reflector
             }
         }
 
+        typeDef.Events.Clear();
+        typeDef.Events.AddRange(eventDefs);
+
         typeDef.Properties.Clear();
         typeDef.Properties.AddRange(propertyDefs);
 
@@ -300,6 +309,12 @@ internal class Reflector
 
         typeDef.Methods.Clear();
         typeDef.Methods.AddRange(methodDefs);
+    }
+
+    private static EventDefinition CreateEventDefinition(EventInfo @event)
+    {
+        var result = new EventDefinition(@event.Name);
+        return result;
     }
 
     private static PropertyDefinition CreatePropertyDefinition(PropertyInfo property)

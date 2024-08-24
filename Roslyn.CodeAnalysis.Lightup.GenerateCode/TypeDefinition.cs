@@ -17,6 +17,8 @@ internal abstract class TypeDefinition : BaseTypeDefinition
     {
     }
 
+    public List<EventDefinition> Events { get; } = new();
+
     public List<PropertyDefinition> Properties { get; } = new();
 
     public List<IndexerDefinition> Indexers { get; } = new();
