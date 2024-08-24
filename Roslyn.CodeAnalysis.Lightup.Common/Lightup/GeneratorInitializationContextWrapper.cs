@@ -19,11 +19,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, CancellationToken> CancellationTokenFunc;
+        private delegate CancellationToken CancellationTokenDelegate(object? _obj);
 
-        private static readonly Action<object?, Action<GeneratorPostInitializationContextWrapper>> RegisterForPostInitializationFunc0;
-        private static readonly Action<object?, SyntaxReceiverCreatorWrapper> RegisterForSyntaxNotificationsFunc1;
-        private static readonly Action<object?, SyntaxContextReceiverCreatorWrapper> RegisterForSyntaxNotificationsFunc2;
+        private delegate void RegisterForPostInitializationDelegate0(object? _obj, Action<GeneratorPostInitializationContextWrapper> callback);
+        private delegate void RegisterForSyntaxNotificationsDelegate1(object? _obj, SyntaxReceiverCreatorWrapper receiverCreator);
+        private delegate void RegisterForSyntaxNotificationsDelegate2(object? _obj, SyntaxContextReceiverCreatorWrapper receiverCreator);
+
+        private static readonly CancellationTokenDelegate CancellationTokenFunc;
+
+        private static readonly RegisterForPostInitializationDelegate0 RegisterForPostInitializationFunc0;
+        private static readonly RegisterForSyntaxNotificationsDelegate1 RegisterForSyntaxNotificationsFunc1;
+        private static readonly RegisterForSyntaxNotificationsDelegate2 RegisterForSyntaxNotificationsFunc2;
 
         private readonly object? wrappedObject;
 
@@ -31,11 +37,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CancellationTokenFunc = LightupHelper.CreateGetAccessor<object?, CancellationToken>(WrappedType, nameof(CancellationToken));
+            CancellationTokenFunc = LightupHelper.CreateGetAccessor<CancellationTokenDelegate>(WrappedType, nameof(CancellationToken));
 
-            RegisterForPostInitializationFunc0 = LightupHelper.CreateVoidMethodAccessor<object?, Action<GeneratorPostInitializationContextWrapper>>(WrappedType, nameof(RegisterForPostInitialization));
-            RegisterForSyntaxNotificationsFunc1 = LightupHelper.CreateVoidMethodAccessor<object?, SyntaxReceiverCreatorWrapper>(WrappedType, nameof(RegisterForSyntaxNotifications));
-            RegisterForSyntaxNotificationsFunc2 = LightupHelper.CreateVoidMethodAccessor<object?, SyntaxContextReceiverCreatorWrapper>(WrappedType, nameof(RegisterForSyntaxNotifications));
+            RegisterForPostInitializationFunc0 = LightupHelper.CreateMethodAccessor<RegisterForPostInitializationDelegate0>(WrappedType, nameof(RegisterForPostInitialization));
+            RegisterForSyntaxNotificationsFunc1 = LightupHelper.CreateMethodAccessor<RegisterForSyntaxNotificationsDelegate1>(WrappedType, nameof(RegisterForSyntaxNotifications));
+            RegisterForSyntaxNotificationsFunc2 = LightupHelper.CreateMethodAccessor<RegisterForSyntaxNotificationsDelegate2>(WrappedType, nameof(RegisterForSyntaxNotifications));
         }
 
         private GeneratorInitializationContextWrapper(object? obj)

@@ -18,13 +18,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> FileFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> LineKeywordFunc;
+        private delegate SyntaxToken FileDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken LineKeywordDelegate(DirectiveTriviaSyntax? _obj);
 
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithEndOfDirectiveTokenFunc0;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithFileFunc1;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithHashTokenFunc2;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper> WithLineKeywordFunc3;
+        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(DirectiveTriviaSyntax? _obj, SyntaxToken endOfDirectiveToken);
+        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate1(DirectiveTriviaSyntax? _obj, SyntaxToken file);
+        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate2(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken);
+        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate3(DirectiveTriviaSyntax? _obj, SyntaxToken lineKeyword);
+
+        private static readonly FileDelegate FileFunc;
+        private static readonly LineKeywordDelegate LineKeywordFunc;
+
+        private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
+        private static readonly WithFileDelegate1 WithFileFunc1;
+        private static readonly WithHashTokenDelegate2 WithHashTokenFunc2;
+        private static readonly WithLineKeywordDelegate3 WithLineKeywordFunc3;
 
         private readonly DirectiveTriviaSyntax? wrappedObject;
 
@@ -32,13 +40,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FileFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(File));
-            LineKeywordFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
+            FileFunc = LightupHelper.CreateGetAccessor<FileDelegate>(WrappedType, nameof(File));
+            LineKeywordFunc = LightupHelper.CreateGetAccessor<LineKeywordDelegate>(WrappedType, nameof(LineKeyword));
 
-            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
-            WithFileFunc1 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
-            WithHashTokenFunc2 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
-            WithLineKeywordFunc3 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineOrSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
+            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, nameof(WithEndOfDirectiveToken));
+            WithFileFunc1 = LightupHelper.CreateMethodAccessor<WithFileDelegate1>(WrappedType, nameof(WithFile));
+            WithHashTokenFunc2 = LightupHelper.CreateMethodAccessor<WithHashTokenDelegate2>(WrappedType, nameof(WithHashToken));
+            WithLineKeywordFunc3 = LightupHelper.CreateMethodAccessor<WithLineKeywordDelegate3>(WrappedType, nameof(WithLineKeyword));
         }
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)

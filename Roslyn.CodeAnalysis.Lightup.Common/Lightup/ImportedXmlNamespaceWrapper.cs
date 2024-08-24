@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, SyntaxReference?> DeclaringSyntaxReferenceFunc;
-        private static readonly Func<object?, String> XmlNamespaceFunc;
+        private delegate SyntaxReference? DeclaringSyntaxReferenceDelegate(object? _obj);
+        private delegate String XmlNamespaceDelegate(object? _obj);
+
+        private static readonly DeclaringSyntaxReferenceDelegate DeclaringSyntaxReferenceFunc;
+        private static readonly XmlNamespaceDelegate XmlNamespaceFunc;
 
         private readonly object? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<object?, SyntaxReference?>(WrappedType, nameof(DeclaringSyntaxReference));
-            XmlNamespaceFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(XmlNamespace));
+            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            XmlNamespaceFunc = LightupHelper.CreateGetAccessor<XmlNamespaceDelegate>(WrappedType, nameof(XmlNamespace));
         }
 
         private ImportedXmlNamespaceWrapper(object? obj)

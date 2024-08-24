@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IPatternOperation?, IPatternOperation?> PatternFunc;
-        private static readonly Func<IPatternOperation?, ISymbol?> SliceSymbolFunc;
+        private delegate IPatternOperation? PatternDelegate(IPatternOperation? _obj);
+        private delegate ISymbol? SliceSymbolDelegate(IPatternOperation? _obj);
+
+        private static readonly PatternDelegate PatternFunc;
+        private static readonly SliceSymbolDelegate SliceSymbolFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PatternFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, IPatternOperation?>(WrappedType, nameof(Pattern));
-            SliceSymbolFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, ISymbol?>(WrappedType, nameof(SliceSymbol));
+            PatternFunc = LightupHelper.CreateGetAccessor<PatternDelegate>(WrappedType, nameof(Pattern));
+            SliceSymbolFunc = LightupHelper.CreateGetAccessor<SliceSymbolDelegate>(WrappedType, nameof(SliceSymbol));
         }
 
         private ISlicePatternOperationWrapper(IPatternOperation? obj)

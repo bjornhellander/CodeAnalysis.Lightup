@@ -18,11 +18,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<PatternSyntax?, TypeSyntax> TypeFunc;
+        private delegate TypeSyntax TypeDelegate(PatternSyntax? _obj);
 
-        private static readonly Action<PatternSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> UpdateFunc1;
-        private static readonly Func<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper> WithTypeFunc2;
+        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
+        private delegate TypePatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, TypeSyntax type);
+        private delegate TypePatternSyntaxWrapper WithTypeDelegate2(PatternSyntax? _obj, TypeSyntax type);
+
+        private static readonly TypeDelegate TypeFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithTypeDelegate2 WithTypeFunc2;
 
         private readonly PatternSyntax? wrappedObject;
 
@@ -30,11 +36,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TypeFunc = LightupHelper.CreateGetAccessor<PatternSyntax?, TypeSyntax>(WrappedType, nameof(Type));
+            TypeFunc = LightupHelper.CreateGetAccessor<TypeDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<PatternSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(Update));
-            WithTypeFunc2 = LightupHelper.CreateMethodAccessor<PatternSyntax?, TypeSyntax, TypePatternSyntaxWrapper>(WrappedType, nameof(WithType));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithTypeFunc2 = LightupHelper.CreateMethodAccessor<WithTypeDelegate2>(WrappedType, nameof(WithType));
         }
 
         private TypePatternSyntaxWrapper(PatternSyntax? obj)

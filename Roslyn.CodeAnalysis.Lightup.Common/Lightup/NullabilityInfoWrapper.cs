@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, NullableAnnotationEx> AnnotationFunc;
-        private static readonly Func<object?, NullableFlowStateEx> FlowStateFunc;
+        private delegate NullableAnnotationEx AnnotationDelegate(object? _obj);
+        private delegate NullableFlowStateEx FlowStateDelegate(object? _obj);
 
-        private static readonly Func<object?, NullabilityInfoWrapper, Boolean> EqualsFunc0;
+        private delegate Boolean EqualsDelegate0(object? _obj, NullabilityInfoWrapper other);
+
+        private static readonly AnnotationDelegate AnnotationFunc;
+        private static readonly FlowStateDelegate FlowStateFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly object? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnnotationFunc = LightupHelper.CreateGetAccessor<object?, NullableAnnotationEx>(WrappedType, nameof(Annotation));
-            FlowStateFunc = LightupHelper.CreateGetAccessor<object?, NullableFlowStateEx>(WrappedType, nameof(FlowState));
+            AnnotationFunc = LightupHelper.CreateGetAccessor<AnnotationDelegate>(WrappedType, nameof(Annotation));
+            FlowStateFunc = LightupHelper.CreateGetAccessor<FlowStateDelegate>(WrappedType, nameof(FlowState));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, NullabilityInfoWrapper, Boolean>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private NullabilityInfoWrapper(object? obj)

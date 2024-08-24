@@ -19,7 +19,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Action<object?, GeneratorSyntaxContextWrapper> OnVisitSyntaxNodeFunc0;
+        private delegate void OnVisitSyntaxNodeDelegate0(object? _obj, GeneratorSyntaxContextWrapper context);
+
+        private static readonly OnVisitSyntaxNodeDelegate0 OnVisitSyntaxNodeFunc0;
 
         private readonly object? wrappedObject;
 
@@ -27,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OnVisitSyntaxNodeFunc0 = LightupHelper.CreateVoidMethodAccessor<object?, GeneratorSyntaxContextWrapper>(WrappedType, nameof(OnVisitSyntaxNode));
+            OnVisitSyntaxNodeFunc0 = LightupHelper.CreateMethodAccessor<OnVisitSyntaxNodeDelegate0>(WrappedType, nameof(OnVisitSyntaxNode));
         }
 
         private ISyntaxContextReceiverWrapper(object? obj)

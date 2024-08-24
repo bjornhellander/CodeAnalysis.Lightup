@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, Int32> ArgumentIndexFunc;
-        private static readonly Func<IOperation?, InterpolatedStringArgumentPlaceholderKindEx> PlaceholderKindFunc;
+        private delegate Int32 ArgumentIndexDelegate(IOperation? _obj);
+        private delegate InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindDelegate(IOperation? _obj);
+
+        private static readonly ArgumentIndexDelegate ArgumentIndexFunc;
+        private static readonly PlaceholderKindDelegate PlaceholderKindFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentIndexFunc = LightupHelper.CreateGetAccessor<IOperation?, Int32>(WrappedType, nameof(ArgumentIndex));
-            PlaceholderKindFunc = LightupHelper.CreateGetAccessor<IOperation?, InterpolatedStringArgumentPlaceholderKindEx>(WrappedType, nameof(PlaceholderKind));
+            ArgumentIndexFunc = LightupHelper.CreateGetAccessor<ArgumentIndexDelegate>(WrappedType, nameof(ArgumentIndex));
+            PlaceholderKindFunc = LightupHelper.CreateGetAccessor<PlaceholderKindDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
         private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(IOperation? obj)

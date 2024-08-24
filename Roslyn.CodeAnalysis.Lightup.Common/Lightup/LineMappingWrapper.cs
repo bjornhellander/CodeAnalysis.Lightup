@@ -19,12 +19,19 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, Nullable<Int32>> CharacterOffsetFunc;
-        private static readonly Func<object?, Boolean> IsHiddenFunc;
-        private static readonly Func<object?, FileLinePositionSpan> MappedSpanFunc;
-        private static readonly Func<object?, LinePositionSpan> SpanFunc;
+        private delegate Nullable<Int32> CharacterOffsetDelegate(object? _obj);
+        private delegate Boolean IsHiddenDelegate(object? _obj);
+        private delegate FileLinePositionSpan MappedSpanDelegate(object? _obj);
+        private delegate LinePositionSpan SpanDelegate(object? _obj);
 
-        private static readonly Func<object?, LineMappingWrapper, Boolean> EqualsFunc0;
+        private delegate Boolean EqualsDelegate0(object? _obj, LineMappingWrapper other);
+
+        private static readonly CharacterOffsetDelegate CharacterOffsetFunc;
+        private static readonly IsHiddenDelegate IsHiddenFunc;
+        private static readonly MappedSpanDelegate MappedSpanFunc;
+        private static readonly SpanDelegate SpanFunc;
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly object? wrappedObject;
 
@@ -32,12 +39,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CharacterOffsetFunc = LightupHelper.CreateGetAccessor<object?, Nullable<Int32>>(WrappedType, nameof(CharacterOffset));
-            IsHiddenFunc = LightupHelper.CreateGetAccessor<object?, Boolean>(WrappedType, nameof(IsHidden));
-            MappedSpanFunc = LightupHelper.CreateGetAccessor<object?, FileLinePositionSpan>(WrappedType, nameof(MappedSpan));
-            SpanFunc = LightupHelper.CreateGetAccessor<object?, LinePositionSpan>(WrappedType, nameof(Span));
+            CharacterOffsetFunc = LightupHelper.CreateGetAccessor<CharacterOffsetDelegate>(WrappedType, nameof(CharacterOffset));
+            IsHiddenFunc = LightupHelper.CreateGetAccessor<IsHiddenDelegate>(WrappedType, nameof(IsHidden));
+            MappedSpanFunc = LightupHelper.CreateGetAccessor<MappedSpanDelegate>(WrappedType, nameof(MappedSpan));
+            SpanFunc = LightupHelper.CreateGetAccessor<SpanDelegate>(WrappedType, nameof(Span));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, LineMappingWrapper, Boolean>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private LineMappingWrapper(object? obj)

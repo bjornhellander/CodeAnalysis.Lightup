@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, SyntaxNode> NodeFunc;
-        private static readonly Func<object?, SemanticModel> SemanticModelFunc;
+        private delegate SyntaxNode NodeDelegate(object? _obj);
+        private delegate SemanticModel SemanticModelDelegate(object? _obj);
+
+        private static readonly NodeDelegate NodeFunc;
+        private static readonly SemanticModelDelegate SemanticModelFunc;
 
         private readonly object? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NodeFunc = LightupHelper.CreateGetAccessor<object?, SyntaxNode>(WrappedType, nameof(Node));
-            SemanticModelFunc = LightupHelper.CreateGetAccessor<object?, SemanticModel>(WrappedType, nameof(SemanticModel));
+            NodeFunc = LightupHelper.CreateGetAccessor<NodeDelegate>(WrappedType, nameof(Node));
+            SemanticModelFunc = LightupHelper.CreateGetAccessor<SemanticModelDelegate>(WrappedType, nameof(SemanticModel));
         }
 
         private GeneratorSyntaxContextWrapper(object? obj)

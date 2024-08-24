@@ -18,24 +18,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>> ExternsFunc;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>> MembersFunc;
-        private static readonly Func<MemberDeclarationSyntax?, NameSyntax> NameFunc;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxToken> NamespaceKeywordFunc;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>> UsingsFunc;
+        private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<MemberDeclarationSyntax> MembersDelegate(MemberDeclarationSyntax? _obj);
+        private delegate NameSyntax NameDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxToken NamespaceKeywordDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<UsingDirectiveSyntax> UsingsDelegate(MemberDeclarationSyntax? _obj);
 
-        private static readonly Func<MemberDeclarationSyntax?, AttributeListSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddAttributeListsFunc0;
-        private static readonly Func<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddExternsFunc1;
-        private static readonly Func<MemberDeclarationSyntax?, MemberDeclarationSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddMembersFunc2;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxToken[], BaseNamespaceDeclarationSyntaxWrapper> AddModifiersFunc3;
-        private static readonly Func<MemberDeclarationSyntax?, UsingDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper> AddUsingsFunc4;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<AttributeListSyntax>, BaseNamespaceDeclarationSyntaxWrapper> WithAttributeListsFunc5;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>, BaseNamespaceDeclarationSyntaxWrapper> WithExternsFunc6;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>, BaseNamespaceDeclarationSyntaxWrapper> WithMembersFunc7;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxTokenList, BaseNamespaceDeclarationSyntaxWrapper> WithModifiersFunc8;
-        private static readonly Func<MemberDeclarationSyntax?, NameSyntax, BaseNamespaceDeclarationSyntaxWrapper> WithNameFunc9;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxToken, BaseNamespaceDeclarationSyntaxWrapper> WithNamespaceKeywordFunc10;
-        private static readonly Func<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>, BaseNamespaceDeclarationSyntaxWrapper> WithUsingsFunc11;
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(MemberDeclarationSyntax? _obj, AttributeListSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(MemberDeclarationSyntax? _obj, ExternAliasDirectiveSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddMembersDelegate2(MemberDeclarationSyntax? _obj, MemberDeclarationSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddModifiersDelegate3(MemberDeclarationSyntax? _obj, SyntaxToken[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper AddUsingsDelegate4(MemberDeclarationSyntax? _obj, UsingDirectiveSyntax[] items);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithAttributeListsDelegate5(MemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithExternsDelegate6(MemberDeclarationSyntax? _obj, SyntaxList<ExternAliasDirectiveSyntax> externs);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithMembersDelegate7(MemberDeclarationSyntax? _obj, SyntaxList<MemberDeclarationSyntax> members);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithModifiersDelegate8(MemberDeclarationSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithNameDelegate9(MemberDeclarationSyntax? _obj, NameSyntax name);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeywordDelegate10(MemberDeclarationSyntax? _obj, SyntaxToken namespaceKeyword);
+        private delegate BaseNamespaceDeclarationSyntaxWrapper WithUsingsDelegate11(MemberDeclarationSyntax? _obj, SyntaxList<UsingDirectiveSyntax> usings);
+
+        private static readonly ExternsDelegate ExternsFunc;
+        private static readonly MembersDelegate MembersFunc;
+        private static readonly NameDelegate NameFunc;
+        private static readonly NamespaceKeywordDelegate NamespaceKeywordFunc;
+        private static readonly UsingsDelegate UsingsFunc;
+
+        private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
+        private static readonly AddExternsDelegate1 AddExternsFunc1;
+        private static readonly AddMembersDelegate2 AddMembersFunc2;
+        private static readonly AddModifiersDelegate3 AddModifiersFunc3;
+        private static readonly AddUsingsDelegate4 AddUsingsFunc4;
+        private static readonly WithAttributeListsDelegate5 WithAttributeListsFunc5;
+        private static readonly WithExternsDelegate6 WithExternsFunc6;
+        private static readonly WithMembersDelegate7 WithMembersFunc7;
+        private static readonly WithModifiersDelegate8 WithModifiersFunc8;
+        private static readonly WithNameDelegate9 WithNameFunc9;
+        private static readonly WithNamespaceKeywordDelegate10 WithNamespaceKeywordFunc10;
+        private static readonly WithUsingsDelegate11 WithUsingsFunc11;
 
         private readonly MemberDeclarationSyntax? wrappedObject;
 
@@ -43,24 +62,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExternsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>>(WrappedType, nameof(Externs));
-            MembersFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>>(WrappedType, nameof(Members));
-            NameFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, NameSyntax>(WrappedType, nameof(Name));
-            NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxToken>(WrappedType, nameof(NamespaceKeyword));
-            UsingsFunc = LightupHelper.CreateGetAccessor<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>>(WrappedType, nameof(Usings));
+            ExternsFunc = LightupHelper.CreateGetAccessor<ExternsDelegate>(WrappedType, nameof(Externs));
+            MembersFunc = LightupHelper.CreateGetAccessor<MembersDelegate>(WrappedType, nameof(Members));
+            NameFunc = LightupHelper.CreateGetAccessor<NameDelegate>(WrappedType, nameof(Name));
+            NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordDelegate>(WrappedType, nameof(NamespaceKeyword));
+            UsingsFunc = LightupHelper.CreateGetAccessor<UsingsDelegate>(WrappedType, nameof(Usings));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, AttributeListSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddAttributeLists));
-            AddExternsFunc1 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, ExternAliasDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddExterns));
-            AddMembersFunc2 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, MemberDeclarationSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc3 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxToken[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddModifiers));
-            AddUsingsFunc4 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, UsingDirectiveSyntax[], BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(AddUsings));
-            WithAttributeListsFunc5 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxList<AttributeListSyntax>, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithAttributeLists));
-            WithExternsFunc6 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxList<ExternAliasDirectiveSyntax>, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithExterns));
-            WithMembersFunc7 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxList<MemberDeclarationSyntax>, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc8 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxTokenList, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithModifiers));
-            WithNameFunc9 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, NameSyntax, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithName));
-            WithNamespaceKeywordFunc10 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxToken, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithNamespaceKeyword));
-            WithUsingsFunc11 = LightupHelper.CreateMethodAccessor<MemberDeclarationSyntax?, SyntaxList<UsingDirectiveSyntax>, BaseNamespaceDeclarationSyntaxWrapper>(WrappedType, nameof(WithUsings));
+            AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
+            AddExternsFunc1 = LightupHelper.CreateMethodAccessor<AddExternsDelegate1>(WrappedType, nameof(AddExterns));
+            AddMembersFunc2 = LightupHelper.CreateMethodAccessor<AddMembersDelegate2>(WrappedType, nameof(AddMembers));
+            AddModifiersFunc3 = LightupHelper.CreateMethodAccessor<AddModifiersDelegate3>(WrappedType, nameof(AddModifiers));
+            AddUsingsFunc4 = LightupHelper.CreateMethodAccessor<AddUsingsDelegate4>(WrappedType, nameof(AddUsings));
+            WithAttributeListsFunc5 = LightupHelper.CreateMethodAccessor<WithAttributeListsDelegate5>(WrappedType, nameof(WithAttributeLists));
+            WithExternsFunc6 = LightupHelper.CreateMethodAccessor<WithExternsDelegate6>(WrappedType, nameof(WithExterns));
+            WithMembersFunc7 = LightupHelper.CreateMethodAccessor<WithMembersDelegate7>(WrappedType, nameof(WithMembers));
+            WithModifiersFunc8 = LightupHelper.CreateMethodAccessor<WithModifiersDelegate8>(WrappedType, nameof(WithModifiers));
+            WithNameFunc9 = LightupHelper.CreateMethodAccessor<WithNameDelegate9>(WrappedType, nameof(WithName));
+            WithNamespaceKeywordFunc10 = LightupHelper.CreateMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, nameof(WithNamespaceKeyword));
+            WithUsingsFunc11 = LightupHelper.CreateMethodAccessor<WithUsingsDelegate11>(WrappedType, nameof(WithUsings));
         }
 
         private BaseNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)

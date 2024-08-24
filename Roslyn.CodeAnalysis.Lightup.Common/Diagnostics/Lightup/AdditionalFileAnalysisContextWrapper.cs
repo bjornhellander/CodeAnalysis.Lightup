@@ -19,13 +19,21 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, AdditionalText> AdditionalFileFunc;
-        private static readonly Func<object?, CancellationToken> CancellationTokenFunc;
-        private static readonly Func<object?, Compilation> CompilationFunc;
-        private static readonly Func<object?, Nullable<TextSpan>> FilterSpanFunc;
-        private static readonly Func<object?, AnalyzerOptions> OptionsFunc;
+        private delegate AdditionalText AdditionalFileDelegate(object? _obj);
+        private delegate CancellationToken CancellationTokenDelegate(object? _obj);
+        private delegate Compilation CompilationDelegate(object? _obj);
+        private delegate Nullable<TextSpan> FilterSpanDelegate(object? _obj);
+        private delegate AnalyzerOptions OptionsDelegate(object? _obj);
 
-        private static readonly Action<object?, Diagnostic> ReportDiagnosticFunc0;
+        private delegate void ReportDiagnosticDelegate0(object? _obj, Diagnostic diagnostic);
+
+        private static readonly AdditionalFileDelegate AdditionalFileFunc;
+        private static readonly CancellationTokenDelegate CancellationTokenFunc;
+        private static readonly CompilationDelegate CompilationFunc;
+        private static readonly FilterSpanDelegate FilterSpanFunc;
+        private static readonly OptionsDelegate OptionsFunc;
+
+        private static readonly ReportDiagnosticDelegate0 ReportDiagnosticFunc0;
 
         private readonly object? wrappedObject;
 
@@ -33,13 +41,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileFunc = LightupHelper.CreateGetAccessor<object?, AdditionalText>(WrappedType, nameof(AdditionalFile));
-            CancellationTokenFunc = LightupHelper.CreateGetAccessor<object?, CancellationToken>(WrappedType, nameof(CancellationToken));
-            CompilationFunc = LightupHelper.CreateGetAccessor<object?, Compilation>(WrappedType, nameof(Compilation));
-            FilterSpanFunc = LightupHelper.CreateGetAccessor<object?, Nullable<TextSpan>>(WrappedType, nameof(FilterSpan));
-            OptionsFunc = LightupHelper.CreateGetAccessor<object?, AnalyzerOptions>(WrappedType, nameof(Options));
+            AdditionalFileFunc = LightupHelper.CreateGetAccessor<AdditionalFileDelegate>(WrappedType, nameof(AdditionalFile));
+            CancellationTokenFunc = LightupHelper.CreateGetAccessor<CancellationTokenDelegate>(WrappedType, nameof(CancellationToken));
+            CompilationFunc = LightupHelper.CreateGetAccessor<CompilationDelegate>(WrappedType, nameof(Compilation));
+            FilterSpanFunc = LightupHelper.CreateGetAccessor<FilterSpanDelegate>(WrappedType, nameof(FilterSpan));
+            OptionsFunc = LightupHelper.CreateGetAccessor<OptionsDelegate>(WrappedType, nameof(Options));
 
-            ReportDiagnosticFunc0 = LightupHelper.CreateVoidMethodAccessor<object?, Diagnostic>(WrappedType, nameof(ReportDiagnostic));
+            ReportDiagnosticFunc0 = LightupHelper.CreateMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, nameof(ReportDiagnostic));
         }
 
         private AdditionalFileAnalysisContextWrapper(object? obj)

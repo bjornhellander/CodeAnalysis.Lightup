@@ -19,11 +19,17 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<DiagnosticAnalyzer?, ImmutableArray<DiagnosticDescriptor>> SupportedDiagnosticsFunc;
-        private static readonly Func<DiagnosticAnalyzer?, ImmutableArray<SuppressionDescriptorWrapper>> SupportedSuppressionsFunc;
+        private delegate ImmutableArray<DiagnosticDescriptor> SupportedDiagnosticsDelegate(DiagnosticAnalyzer? _obj);
+        private delegate ImmutableArray<SuppressionDescriptorWrapper> SupportedSuppressionsDelegate(DiagnosticAnalyzer? _obj);
 
-        private static readonly Action<DiagnosticAnalyzer?, AnalysisContext> InitializeFunc0;
-        private static readonly Action<DiagnosticAnalyzer?, SuppressionAnalysisContextWrapper> ReportSuppressionsFunc1;
+        private delegate void InitializeDelegate0(DiagnosticAnalyzer? _obj, AnalysisContext context);
+        private delegate void ReportSuppressionsDelegate1(DiagnosticAnalyzer? _obj, SuppressionAnalysisContextWrapper context);
+
+        private static readonly SupportedDiagnosticsDelegate SupportedDiagnosticsFunc;
+        private static readonly SupportedSuppressionsDelegate SupportedSuppressionsFunc;
+
+        private static readonly InitializeDelegate0 InitializeFunc0;
+        private static readonly ReportSuppressionsDelegate1 ReportSuppressionsFunc1;
 
         private readonly DiagnosticAnalyzer? wrappedObject;
 
@@ -31,11 +37,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SupportedDiagnosticsFunc = LightupHelper.CreateGetAccessor<DiagnosticAnalyzer?, ImmutableArray<DiagnosticDescriptor>>(WrappedType, nameof(SupportedDiagnostics));
-            SupportedSuppressionsFunc = LightupHelper.CreateGetAccessor<DiagnosticAnalyzer?, ImmutableArray<SuppressionDescriptorWrapper>>(WrappedType, nameof(SupportedSuppressions));
+            SupportedDiagnosticsFunc = LightupHelper.CreateGetAccessor<SupportedDiagnosticsDelegate>(WrappedType, nameof(SupportedDiagnostics));
+            SupportedSuppressionsFunc = LightupHelper.CreateGetAccessor<SupportedSuppressionsDelegate>(WrappedType, nameof(SupportedSuppressions));
 
-            InitializeFunc0 = LightupHelper.CreateVoidMethodAccessor<DiagnosticAnalyzer?, AnalysisContext>(WrappedType, nameof(Initialize));
-            ReportSuppressionsFunc1 = LightupHelper.CreateVoidMethodAccessor<DiagnosticAnalyzer?, SuppressionAnalysisContextWrapper>(WrappedType, nameof(ReportSuppressions));
+            InitializeFunc0 = LightupHelper.CreateMethodAccessor<InitializeDelegate0>(WrappedType, nameof(Initialize));
+            ReportSuppressionsFunc1 = LightupHelper.CreateMethodAccessor<ReportSuppressionsDelegate1>(WrappedType, nameof(ReportSuppressions));
         }
 
         private DiagnosticSuppressorWrapper(DiagnosticAnalyzer? obj)

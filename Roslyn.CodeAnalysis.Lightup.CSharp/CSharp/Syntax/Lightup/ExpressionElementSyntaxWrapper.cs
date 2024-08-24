@@ -18,11 +18,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
+        private delegate ExpressionSyntax ExpressionDelegate(CSharpSyntaxNode? _obj);
 
-        private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> UpdateFunc1;
-        private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper> WithExpressionFunc2;
+        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
+        private delegate ExpressionElementSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
+        private delegate ExpressionElementSyntaxWrapper WithExpressionDelegate2(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
+
+        private static readonly ExpressionDelegate ExpressionFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithExpressionDelegate2 WithExpressionFunc2;
 
         private readonly CSharpSyntaxNode? wrappedObject;
 
@@ -30,11 +36,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
+            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, ExpressionElementSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
         }
 
         private ExpressionElementSyntaxWrapper(CSharpSyntaxNode? obj)

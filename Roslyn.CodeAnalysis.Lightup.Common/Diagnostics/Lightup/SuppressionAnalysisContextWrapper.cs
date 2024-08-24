@@ -19,13 +19,21 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, CancellationToken> CancellationTokenFunc;
-        private static readonly Func<object?, Compilation> CompilationFunc;
-        private static readonly Func<object?, AnalyzerOptions> OptionsFunc;
-        private static readonly Func<object?, ImmutableArray<Diagnostic>> ReportedDiagnosticsFunc;
+        private delegate CancellationToken CancellationTokenDelegate(object? _obj);
+        private delegate Compilation CompilationDelegate(object? _obj);
+        private delegate AnalyzerOptions OptionsDelegate(object? _obj);
+        private delegate ImmutableArray<Diagnostic> ReportedDiagnosticsDelegate(object? _obj);
 
-        private static readonly Func<object?, SyntaxTree, SemanticModel> GetSemanticModelFunc0;
-        private static readonly Action<object?, SuppressionWrapper> ReportSuppressionFunc1;
+        private delegate SemanticModel GetSemanticModelDelegate0(object? _obj, SyntaxTree syntaxTree);
+        private delegate void ReportSuppressionDelegate1(object? _obj, SuppressionWrapper suppression);
+
+        private static readonly CancellationTokenDelegate CancellationTokenFunc;
+        private static readonly CompilationDelegate CompilationFunc;
+        private static readonly OptionsDelegate OptionsFunc;
+        private static readonly ReportedDiagnosticsDelegate ReportedDiagnosticsFunc;
+
+        private static readonly GetSemanticModelDelegate0 GetSemanticModelFunc0;
+        private static readonly ReportSuppressionDelegate1 ReportSuppressionFunc1;
 
         private readonly object? wrappedObject;
 
@@ -33,13 +41,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CancellationTokenFunc = LightupHelper.CreateGetAccessor<object?, CancellationToken>(WrappedType, nameof(CancellationToken));
-            CompilationFunc = LightupHelper.CreateGetAccessor<object?, Compilation>(WrappedType, nameof(Compilation));
-            OptionsFunc = LightupHelper.CreateGetAccessor<object?, AnalyzerOptions>(WrappedType, nameof(Options));
-            ReportedDiagnosticsFunc = LightupHelper.CreateGetAccessor<object?, ImmutableArray<Diagnostic>>(WrappedType, nameof(ReportedDiagnostics));
+            CancellationTokenFunc = LightupHelper.CreateGetAccessor<CancellationTokenDelegate>(WrappedType, nameof(CancellationToken));
+            CompilationFunc = LightupHelper.CreateGetAccessor<CompilationDelegate>(WrappedType, nameof(Compilation));
+            OptionsFunc = LightupHelper.CreateGetAccessor<OptionsDelegate>(WrappedType, nameof(Options));
+            ReportedDiagnosticsFunc = LightupHelper.CreateGetAccessor<ReportedDiagnosticsDelegate>(WrappedType, nameof(ReportedDiagnostics));
 
-            GetSemanticModelFunc0 = LightupHelper.CreateMethodAccessor<object?, SyntaxTree, SemanticModel>(WrappedType, nameof(GetSemanticModel));
-            ReportSuppressionFunc1 = LightupHelper.CreateVoidMethodAccessor<object?, SuppressionWrapper>(WrappedType, nameof(ReportSuppression));
+            GetSemanticModelFunc0 = LightupHelper.CreateMethodAccessor<GetSemanticModelDelegate0>(WrappedType, nameof(GetSemanticModel));
+            ReportSuppressionFunc1 = LightupHelper.CreateMethodAccessor<ReportSuppressionDelegate1>(WrappedType, nameof(ReportSuppression));
         }
 
         private SuppressionAnalysisContextWrapper(object? obj)

@@ -1,4 +1,7 @@
-﻿namespace Microsoft.CodeAnalysis.Lightup
+﻿#pragma warning disable SA1516 // Elements should be separated by blank line
+#pragma warning disable SA1201 // Elements should appear in the correct order
+
+namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
     using System.Collections.Generic;
@@ -9,8 +12,11 @@
     {
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, int> CountAccessor;
-        private static readonly Func<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>> AddRangeAccessor;
+        private delegate int CountDelegate(object? obj);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, IEnumerable<TNode> arg1);
+
+        private static readonly CountDelegate CountAccessor;
+        private static readonly AddRangeDelegate AddRangeAccessor;
 
         private readonly object? wrappedObject;
 
@@ -21,8 +27,8 @@
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = LightupHelper.CreateGetAccessor<object?, int>(WrappedType, nameof(Count));
-            AddRangeAccessor = LightupHelper.CreateMethodAccessor<object?, IEnumerable<TNode>, SeparatedSyntaxListWrapper<TNode>>(WrappedType, nameof(AddRange));
+            CountAccessor = LightupHelper.CreateGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            AddRangeAccessor = LightupHelper.CreateMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange));
         }
 
         private SeparatedSyntaxListWrapper(object? obj)

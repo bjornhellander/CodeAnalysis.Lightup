@@ -18,16 +18,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken> GreaterThanTokenFunc;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken> LessThanTokenFunc;
-        private static readonly Func<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>> ParametersFunc;
+        private delegate SyntaxToken GreaterThanTokenDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken LessThanTokenDelegate(CSharpSyntaxNode? _obj);
+        private delegate SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> ParametersDelegate(CSharpSyntaxNode? _obj);
 
-        private static readonly Action<CSharpSyntaxNode?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<CSharpSyntaxNode?, FunctionPointerParameterSyntaxWrapper[], FunctionPointerParameterListSyntaxWrapper> AddParametersFunc1;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>, SyntaxToken, FunctionPointerParameterListSyntaxWrapper> UpdateFunc2;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerParameterListSyntaxWrapper> WithGreaterThanTokenFunc3;
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, FunctionPointerParameterListSyntaxWrapper> WithLessThanTokenFunc4;
-        private static readonly Func<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>, FunctionPointerParameterListSyntaxWrapper> WithParametersFunc5;
+        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
+        private delegate FunctionPointerParameterListSyntaxWrapper AddParametersDelegate1(CSharpSyntaxNode? _obj, FunctionPointerParameterSyntaxWrapper[] items);
+        private delegate FunctionPointerParameterListSyntaxWrapper UpdateDelegate2(CSharpSyntaxNode? _obj, SyntaxToken lessThanToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters, SyntaxToken greaterThanToken);
+        private delegate FunctionPointerParameterListSyntaxWrapper WithGreaterThanTokenDelegate3(CSharpSyntaxNode? _obj, SyntaxToken greaterThanToken);
+        private delegate FunctionPointerParameterListSyntaxWrapper WithLessThanTokenDelegate4(CSharpSyntaxNode? _obj, SyntaxToken lessThanToken);
+        private delegate FunctionPointerParameterListSyntaxWrapper WithParametersDelegate5(CSharpSyntaxNode? _obj, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters);
+
+        private static readonly GreaterThanTokenDelegate GreaterThanTokenFunc;
+        private static readonly LessThanTokenDelegate LessThanTokenFunc;
+        private static readonly ParametersDelegate ParametersFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly AddParametersDelegate1 AddParametersFunc1;
+        private static readonly UpdateDelegate2 UpdateFunc2;
+        private static readonly WithGreaterThanTokenDelegate3 WithGreaterThanTokenFunc3;
+        private static readonly WithLessThanTokenDelegate4 WithLessThanTokenFunc4;
+        private static readonly WithParametersDelegate5 WithParametersFunc5;
 
         private readonly CSharpSyntaxNode? wrappedObject;
 
@@ -35,16 +46,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GreaterThanTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(GreaterThanToken));
-            LessThanTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(LessThanToken));
-            ParametersFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>>(WrappedType, nameof(Parameters));
+            GreaterThanTokenFunc = LightupHelper.CreateGetAccessor<GreaterThanTokenDelegate>(WrappedType, nameof(GreaterThanToken));
+            LessThanTokenFunc = LightupHelper.CreateGetAccessor<LessThanTokenDelegate>(WrappedType, nameof(LessThanToken));
+            ParametersFunc = LightupHelper.CreateGetAccessor<ParametersDelegate>(WrappedType, nameof(Parameters));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<CSharpSyntaxNode?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            AddParametersFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, FunctionPointerParameterSyntaxWrapper[], FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(AddParameters));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>, SyntaxToken, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(Update));
-            WithGreaterThanTokenFunc3 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(WithGreaterThanToken));
-            WithLessThanTokenFunc4 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(WithLessThanToken));
-            WithParametersFunc5 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper>, FunctionPointerParameterListSyntaxWrapper>(WrappedType, nameof(WithParameters));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddParametersFunc1 = LightupHelper.CreateMethodAccessor<AddParametersDelegate1>(WrappedType, nameof(AddParameters));
+            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithGreaterThanTokenFunc3 = LightupHelper.CreateMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, nameof(WithGreaterThanToken));
+            WithLessThanTokenFunc4 = LightupHelper.CreateMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, nameof(WithLessThanToken));
+            WithParametersFunc5 = LightupHelper.CreateMethodAccessor<WithParametersDelegate5>(WrappedType, nameof(WithParameters));
         }
 
         private FunctionPointerParameterListSyntaxWrapper(CSharpSyntaxNode? obj)

@@ -21,7 +21,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<Document?, String> HintNameFunc;
+        private delegate String HintNameDelegate(Document? _obj);
+
+        private static readonly HintNameDelegate HintNameFunc;
 
         private readonly Document? wrappedObject;
 
@@ -29,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            HintNameFunc = LightupHelper.CreateGetAccessor<Document?, String>(WrappedType, nameof(HintName));
+            HintNameFunc = LightupHelper.CreateGetAccessor<HintNameDelegate>(WrappedType, nameof(HintName));
         }
 
         private SourceGeneratedDocumentWrapper(Document? obj)

@@ -19,7 +19,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<ITypeSymbol?, IMethodSymbol> SignatureFunc;
+        private delegate IMethodSymbol SignatureDelegate(ITypeSymbol? _obj);
+
+        private static readonly SignatureDelegate SignatureFunc;
 
         private readonly ITypeSymbol? wrappedObject;
 
@@ -27,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SignatureFunc = LightupHelper.CreateGetAccessor<ITypeSymbol?, IMethodSymbol>(WrappedType, nameof(Signature));
+            SignatureFunc = LightupHelper.CreateGetAccessor<SignatureDelegate>(WrappedType, nameof(Signature));
         }
 
         private IFunctionPointerTypeSymbolWrapper(ITypeSymbol? obj)

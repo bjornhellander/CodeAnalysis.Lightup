@@ -21,10 +21,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, IEnumerable<String>> SupportedLanguagesFunc;
+        private delegate IEnumerable<String> SupportedLanguagesDelegate(object? _obj);
 
-        private static readonly Func<object?, String, LanguageServicesWrapper> GetLanguageServicesFunc0;
-        private static readonly Func<object?, String, Boolean> IsSupportedFunc1;
+        private delegate LanguageServicesWrapper GetLanguageServicesDelegate0(object? _obj, String languageName);
+        private delegate Boolean IsSupportedDelegate1(object? _obj, String languageName);
+
+        private static readonly SupportedLanguagesDelegate SupportedLanguagesFunc;
+
+        private static readonly GetLanguageServicesDelegate0 GetLanguageServicesFunc0;
+        private static readonly IsSupportedDelegate1 IsSupportedFunc1;
 
         private readonly object? wrappedObject;
 
@@ -32,10 +37,10 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SupportedLanguagesFunc = LightupHelper.CreateGetAccessor<object?, IEnumerable<String>>(WrappedType, nameof(SupportedLanguages));
+            SupportedLanguagesFunc = LightupHelper.CreateGetAccessor<SupportedLanguagesDelegate>(WrappedType, nameof(SupportedLanguages));
 
-            GetLanguageServicesFunc0 = LightupHelper.CreateMethodAccessor<object?, String, LanguageServicesWrapper>(WrappedType, nameof(GetLanguageServices));
-            IsSupportedFunc1 = LightupHelper.CreateMethodAccessor<object?, String, Boolean>(WrappedType, nameof(IsSupported));
+            GetLanguageServicesFunc0 = LightupHelper.CreateMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, nameof(GetLanguageServices));
+            IsSupportedFunc1 = LightupHelper.CreateMethodAccessor<IsSupportedDelegate1>(WrappedType, nameof(IsSupported));
         }
 
         private SolutionServicesWrapper(object? obj)

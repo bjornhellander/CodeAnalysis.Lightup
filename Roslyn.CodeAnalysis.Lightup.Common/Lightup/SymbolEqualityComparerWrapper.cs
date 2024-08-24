@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, ISymbol?, ISymbol?, Boolean> EqualsFunc0;
-        private static readonly Func<object?, ISymbol?, Int32> GetHashCodeFunc1;
+        private delegate Boolean EqualsDelegate0(object? _obj, ISymbol? x, ISymbol? y);
+        private delegate Int32 GetHashCodeDelegate1(object? _obj, ISymbol? obj);
+
+        private static readonly EqualsDelegate0 EqualsFunc0;
+        private static readonly GetHashCodeDelegate1 GetHashCodeFunc1;
 
         private readonly object? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<object?, ISymbol?, ISymbol?, Boolean>(WrappedType, nameof(Equals));
-            GetHashCodeFunc1 = LightupHelper.CreateMethodAccessor<object?, ISymbol?, Int32>(WrappedType, nameof(GetHashCode));
+            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            GetHashCodeFunc1 = LightupHelper.CreateMethodAccessor<GetHashCodeDelegate1>(WrappedType, nameof(GetHashCode));
         }
 
         private SymbolEqualityComparerWrapper(object? obj)

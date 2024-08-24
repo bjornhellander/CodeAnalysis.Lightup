@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<object?, String> PathFunc;
-        private static readonly Func<object?, SarifVersionEx> SarifVersionFunc;
+        private delegate String PathDelegate(object? _obj);
+        private delegate SarifVersionEx SarifVersionDelegate(object? _obj);
+
+        private static readonly PathDelegate PathFunc;
+        private static readonly SarifVersionDelegate SarifVersionFunc;
 
         private readonly object? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PathFunc = LightupHelper.CreateGetAccessor<object?, String>(WrappedType, nameof(Path));
-            SarifVersionFunc = LightupHelper.CreateGetAccessor<object?, SarifVersionEx>(WrappedType, nameof(SarifVersion));
+            PathFunc = LightupHelper.CreateGetAccessor<PathDelegate>(WrappedType, nameof(Path));
+            SarifVersionFunc = LightupHelper.CreateGetAccessor<SarifVersionDelegate>(WrappedType, nameof(SarifVersion));
         }
 
         private ErrorLogOptionsWrapper(object? obj)

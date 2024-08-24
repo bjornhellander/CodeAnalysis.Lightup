@@ -18,11 +18,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken> ColonTokenFunc;
-        private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax> ExpressionFunc;
+        private delegate SyntaxToken ColonTokenDelegate(CSharpSyntaxNode? _obj);
+        private delegate ExpressionSyntax ExpressionDelegate(CSharpSyntaxNode? _obj);
 
-        private static readonly Func<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper> WithColonTokenFunc0;
-        private static readonly Func<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper> WithExpressionFunc1;
+        private delegate BaseExpressionColonSyntaxWrapper WithColonTokenDelegate0(CSharpSyntaxNode? _obj, SyntaxToken colonToken);
+        private delegate BaseExpressionColonSyntaxWrapper WithExpressionDelegate1(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
+
+        private static readonly ColonTokenDelegate ColonTokenFunc;
+        private static readonly ExpressionDelegate ExpressionFunc;
+
+        private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
+        private static readonly WithExpressionDelegate1 WithExpressionFunc1;
 
         private readonly CSharpSyntaxNode? wrappedObject;
 
@@ -30,11 +36,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ColonTokenFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, SyntaxToken>(WrappedType, nameof(ColonToken));
-            ExpressionFunc = LightupHelper.CreateGetAccessor<CSharpSyntaxNode?, ExpressionSyntax>(WrappedType, nameof(Expression));
+            ColonTokenFunc = LightupHelper.CreateGetAccessor<ColonTokenDelegate>(WrappedType, nameof(ColonToken));
+            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
 
-            WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, SyntaxToken, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<CSharpSyntaxNode?, ExpressionSyntax, BaseExpressionColonSyntaxWrapper>(WrappedType, nameof(WithExpression));
+            WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<WithColonTokenDelegate0>(WrappedType, nameof(WithColonToken));
+            WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate1>(WrappedType, nameof(WithExpression));
         }
 
         private BaseExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

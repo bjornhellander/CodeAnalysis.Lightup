@@ -18,27 +18,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> CharacterOffsetFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper> EndFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> EndOfDirectiveTokenFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> FileFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> HashTokenFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, Boolean> IsActiveFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> LineKeywordFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken> MinusTokenFunc;
-        private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper> StartFunc;
+        private delegate SyntaxToken CharacterOffsetDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate LineDirectivePositionSyntaxWrapper EndDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken EndOfDirectiveTokenDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken FileDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken HashTokenDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate Boolean IsActiveDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken LineKeywordDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken MinusTokenDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate LineDirectivePositionSyntaxWrapper StartDelegate(DirectiveTriviaSyntax? _obj);
 
-        private static readonly Action<DirectiveTriviaSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, SyntaxToken, SyntaxToken, Boolean, LineSpanDirectiveTriviaSyntaxWrapper> UpdateFunc1;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithCharacterOffsetFunc2;
-        private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper, LineSpanDirectiveTriviaSyntaxWrapper> WithEndFunc3;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithEndOfDirectiveTokenFunc4;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithFileFunc5;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithHashTokenFunc6;
-        private static readonly Func<DirectiveTriviaSyntax?, Boolean, LineSpanDirectiveTriviaSyntaxWrapper> WithIsActiveFunc7;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithLineKeywordFunc8;
-        private static readonly Func<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper> WithMinusTokenFunc9;
-        private static readonly Func<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper, LineSpanDirectiveTriviaSyntaxWrapper> WithStartFunc10;
+        private delegate void AcceptDelegate0(DirectiveTriviaSyntax? _obj, CSharpSyntaxVisitor visitor);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper UpdateDelegate1(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken, SyntaxToken lineKeyword, LineDirectivePositionSyntaxWrapper start, SyntaxToken minusToken, LineDirectivePositionSyntaxWrapper end, SyntaxToken characterOffset, SyntaxToken file, SyntaxToken endOfDirectiveToken, Boolean isActive);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithCharacterOffsetDelegate2(DirectiveTriviaSyntax? _obj, SyntaxToken characterOffset);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithEndDelegate3(DirectiveTriviaSyntax? _obj, LineDirectivePositionSyntaxWrapper end);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate4(DirectiveTriviaSyntax? _obj, SyntaxToken endOfDirectiveToken);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithFileDelegate5(DirectiveTriviaSyntax? _obj, SyntaxToken file);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate6(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithIsActiveDelegate7(DirectiveTriviaSyntax? _obj, Boolean isActive);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate8(DirectiveTriviaSyntax? _obj, SyntaxToken lineKeyword);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithMinusTokenDelegate9(DirectiveTriviaSyntax? _obj, SyntaxToken minusToken);
+        private delegate LineSpanDirectiveTriviaSyntaxWrapper WithStartDelegate10(DirectiveTriviaSyntax? _obj, LineDirectivePositionSyntaxWrapper start);
+
+        private static readonly CharacterOffsetDelegate CharacterOffsetFunc;
+        private static readonly EndDelegate EndFunc;
+        private static readonly EndOfDirectiveTokenDelegate EndOfDirectiveTokenFunc;
+        private static readonly FileDelegate FileFunc;
+        private static readonly HashTokenDelegate HashTokenFunc;
+        private static readonly IsActiveDelegate IsActiveFunc;
+        private static readonly LineKeywordDelegate LineKeywordFunc;
+        private static readonly MinusTokenDelegate MinusTokenFunc;
+        private static readonly StartDelegate StartFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithCharacterOffsetDelegate2 WithCharacterOffsetFunc2;
+        private static readonly WithEndDelegate3 WithEndFunc3;
+        private static readonly WithEndOfDirectiveTokenDelegate4 WithEndOfDirectiveTokenFunc4;
+        private static readonly WithFileDelegate5 WithFileFunc5;
+        private static readonly WithHashTokenDelegate6 WithHashTokenFunc6;
+        private static readonly WithIsActiveDelegate7 WithIsActiveFunc7;
+        private static readonly WithLineKeywordDelegate8 WithLineKeywordFunc8;
+        private static readonly WithMinusTokenDelegate9 WithMinusTokenFunc9;
+        private static readonly WithStartDelegate10 WithStartFunc10;
 
         private readonly DirectiveTriviaSyntax? wrappedObject;
 
@@ -46,27 +68,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CharacterOffsetFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(CharacterOffset));
-            EndFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper>(WrappedType, nameof(End));
-            EndOfDirectiveTokenFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(EndOfDirectiveToken));
-            FileFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(File));
-            HashTokenFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(HashToken));
-            IsActiveFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, Boolean>(WrappedType, nameof(IsActive));
-            LineKeywordFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(LineKeyword));
-            MinusTokenFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, SyntaxToken>(WrappedType, nameof(MinusToken));
-            StartFunc = LightupHelper.CreateGetAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper>(WrappedType, nameof(Start));
+            CharacterOffsetFunc = LightupHelper.CreateGetAccessor<CharacterOffsetDelegate>(WrappedType, nameof(CharacterOffset));
+            EndFunc = LightupHelper.CreateGetAccessor<EndDelegate>(WrappedType, nameof(End));
+            EndOfDirectiveTokenFunc = LightupHelper.CreateGetAccessor<EndOfDirectiveTokenDelegate>(WrappedType, nameof(EndOfDirectiveToken));
+            FileFunc = LightupHelper.CreateGetAccessor<FileDelegate>(WrappedType, nameof(File));
+            HashTokenFunc = LightupHelper.CreateGetAccessor<HashTokenDelegate>(WrappedType, nameof(HashToken));
+            IsActiveFunc = LightupHelper.CreateGetAccessor<IsActiveDelegate>(WrappedType, nameof(IsActive));
+            LineKeywordFunc = LightupHelper.CreateGetAccessor<LineKeywordDelegate>(WrappedType, nameof(LineKeyword));
+            MinusTokenFunc = LightupHelper.CreateGetAccessor<MinusTokenDelegate>(WrappedType, nameof(MinusToken));
+            StartFunc = LightupHelper.CreateGetAccessor<StartDelegate>(WrappedType, nameof(Start));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<DirectiveTriviaSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, LineDirectivePositionSyntaxWrapper, SyntaxToken, SyntaxToken, SyntaxToken, Boolean, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(Update));
-            WithCharacterOffsetFunc2 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithCharacterOffset));
-            WithEndFunc3 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEnd));
-            WithEndOfDirectiveTokenFunc4 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithEndOfDirectiveToken));
-            WithFileFunc5 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithFile));
-            WithHashTokenFunc6 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithHashToken));
-            WithIsActiveFunc7 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, Boolean, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithIsActive));
-            WithLineKeywordFunc8 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithLineKeyword));
-            WithMinusTokenFunc9 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, SyntaxToken, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithMinusToken));
-            WithStartFunc10 = LightupHelper.CreateMethodAccessor<DirectiveTriviaSyntax?, LineDirectivePositionSyntaxWrapper, LineSpanDirectiveTriviaSyntaxWrapper>(WrappedType, nameof(WithStart));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithCharacterOffsetFunc2 = LightupHelper.CreateMethodAccessor<WithCharacterOffsetDelegate2>(WrappedType, nameof(WithCharacterOffset));
+            WithEndFunc3 = LightupHelper.CreateMethodAccessor<WithEndDelegate3>(WrappedType, nameof(WithEnd));
+            WithEndOfDirectiveTokenFunc4 = LightupHelper.CreateMethodAccessor<WithEndOfDirectiveTokenDelegate4>(WrappedType, nameof(WithEndOfDirectiveToken));
+            WithFileFunc5 = LightupHelper.CreateMethodAccessor<WithFileDelegate5>(WrappedType, nameof(WithFile));
+            WithHashTokenFunc6 = LightupHelper.CreateMethodAccessor<WithHashTokenDelegate6>(WrappedType, nameof(WithHashToken));
+            WithIsActiveFunc7 = LightupHelper.CreateMethodAccessor<WithIsActiveDelegate7>(WrappedType, nameof(WithIsActive));
+            WithLineKeywordFunc8 = LightupHelper.CreateMethodAccessor<WithLineKeywordDelegate8>(WrappedType, nameof(WithLineKeyword));
+            WithMinusTokenFunc9 = LightupHelper.CreateMethodAccessor<WithMinusTokenDelegate9>(WrappedType, nameof(WithMinusToken));
+            WithStartFunc10 = LightupHelper.CreateMethodAccessor<WithStartDelegate10>(WrappedType, nameof(WithStart));
         }
 
         private LineSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)

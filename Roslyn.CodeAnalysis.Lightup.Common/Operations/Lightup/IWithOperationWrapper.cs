@@ -19,9 +19,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IMethodSymbol?> CloneMethodFunc;
-        private static readonly Func<IOperation?, IObjectOrCollectionInitializerOperation> InitializerFunc;
-        private static readonly Func<IOperation?, IOperation> OperandFunc;
+        private delegate IMethodSymbol? CloneMethodDelegate(IOperation? _obj);
+        private delegate IObjectOrCollectionInitializerOperation InitializerDelegate(IOperation? _obj);
+        private delegate IOperation OperandDelegate(IOperation? _obj);
+
+        private static readonly CloneMethodDelegate CloneMethodFunc;
+        private static readonly InitializerDelegate InitializerFunc;
+        private static readonly OperandDelegate OperandFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -29,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloneMethodFunc = LightupHelper.CreateGetAccessor<IOperation?, IMethodSymbol?>(WrappedType, nameof(CloneMethod));
-            InitializerFunc = LightupHelper.CreateGetAccessor<IOperation?, IObjectOrCollectionInitializerOperation>(WrappedType, nameof(Initializer));
-            OperandFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Operand));
+            CloneMethodFunc = LightupHelper.CreateGetAccessor<CloneMethodDelegate>(WrappedType, nameof(CloneMethod));
+            InitializerFunc = LightupHelper.CreateGetAccessor<InitializerDelegate>(WrappedType, nameof(Initializer));
+            OperandFunc = LightupHelper.CreateGetAccessor<OperandDelegate>(WrappedType, nameof(Operand));
         }
 
         private IWithOperationWrapper(IOperation? obj)

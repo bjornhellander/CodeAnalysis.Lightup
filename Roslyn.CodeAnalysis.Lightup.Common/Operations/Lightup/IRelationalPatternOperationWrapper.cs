@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IPatternOperation?, BinaryOperatorKind> OperatorKindFunc;
-        private static readonly Func<IPatternOperation?, IOperation> ValueFunc;
+        private delegate BinaryOperatorKind OperatorKindDelegate(IPatternOperation? _obj);
+        private delegate IOperation ValueDelegate(IPatternOperation? _obj);
+
+        private static readonly OperatorKindDelegate OperatorKindFunc;
+        private static readonly ValueDelegate ValueFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OperatorKindFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, BinaryOperatorKind>(WrappedType, nameof(OperatorKind));
-            ValueFunc = LightupHelper.CreateGetAccessor<IPatternOperation?, IOperation>(WrappedType, nameof(Value));
+            OperatorKindFunc = LightupHelper.CreateGetAccessor<OperatorKindDelegate>(WrappedType, nameof(OperatorKind));
+            ValueFunc = LightupHelper.CreateGetAccessor<ValueDelegate>(WrappedType, nameof(Value));
         }
 
         private IRelationalPatternOperationWrapper(IPatternOperation? obj)

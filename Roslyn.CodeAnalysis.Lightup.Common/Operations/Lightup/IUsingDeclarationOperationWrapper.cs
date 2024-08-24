@@ -19,8 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IVariableDeclarationGroupOperation> DeclarationGroupFunc;
-        private static readonly Func<IOperation?, Boolean> IsAsynchronousFunc;
+        private delegate IVariableDeclarationGroupOperation DeclarationGroupDelegate(IOperation? _obj);
+        private delegate Boolean IsAsynchronousDelegate(IOperation? _obj);
+
+        private static readonly DeclarationGroupDelegate DeclarationGroupFunc;
+        private static readonly IsAsynchronousDelegate IsAsynchronousFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -28,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclarationGroupFunc = LightupHelper.CreateGetAccessor<IOperation?, IVariableDeclarationGroupOperation>(WrappedType, nameof(DeclarationGroup));
-            IsAsynchronousFunc = LightupHelper.CreateGetAccessor<IOperation?, Boolean>(WrappedType, nameof(IsAsynchronous));
+            DeclarationGroupFunc = LightupHelper.CreateGetAccessor<DeclarationGroupDelegate>(WrappedType, nameof(DeclarationGroup));
+            IsAsynchronousFunc = LightupHelper.CreateGetAccessor<IsAsynchronousDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         private IUsingDeclarationOperationWrapper(IOperation? obj)

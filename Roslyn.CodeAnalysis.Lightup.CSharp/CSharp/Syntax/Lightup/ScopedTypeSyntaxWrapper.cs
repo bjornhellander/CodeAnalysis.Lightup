@@ -18,13 +18,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<TypeSyntax?, SyntaxToken> ScopedKeywordFunc;
-        private static readonly Func<TypeSyntax?, TypeSyntax> TypeFunc;
+        private delegate SyntaxToken ScopedKeywordDelegate(TypeSyntax? _obj);
+        private delegate TypeSyntax TypeDelegate(TypeSyntax? _obj);
 
-        private static readonly Action<TypeSyntax?, CSharpSyntaxVisitor> AcceptFunc0;
-        private static readonly Func<TypeSyntax?, SyntaxToken, TypeSyntax, ScopedTypeSyntaxWrapper> UpdateFunc1;
-        private static readonly Func<TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper> WithScopedKeywordFunc2;
-        private static readonly Func<TypeSyntax?, TypeSyntax, ScopedTypeSyntaxWrapper> WithTypeFunc3;
+        private delegate void AcceptDelegate0(TypeSyntax? _obj, CSharpSyntaxVisitor visitor);
+        private delegate ScopedTypeSyntaxWrapper UpdateDelegate1(TypeSyntax? _obj, SyntaxToken scopedKeyword, TypeSyntax type);
+        private delegate ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(TypeSyntax? _obj, SyntaxToken scopedKeyword);
+        private delegate ScopedTypeSyntaxWrapper WithTypeDelegate3(TypeSyntax? _obj, TypeSyntax type);
+
+        private static readonly ScopedKeywordDelegate ScopedKeywordFunc;
+        private static readonly TypeDelegate TypeFunc;
+
+        private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithScopedKeywordDelegate2 WithScopedKeywordFunc2;
+        private static readonly WithTypeDelegate3 WithTypeFunc3;
 
         private readonly TypeSyntax? wrappedObject;
 
@@ -32,13 +40,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ScopedKeywordFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, SyntaxToken>(WrappedType, nameof(ScopedKeyword));
-            TypeFunc = LightupHelper.CreateGetAccessor<TypeSyntax?, TypeSyntax>(WrappedType, nameof(Type));
+            ScopedKeywordFunc = LightupHelper.CreateGetAccessor<ScopedKeywordDelegate>(WrappedType, nameof(ScopedKeyword));
+            TypeFunc = LightupHelper.CreateGetAccessor<TypeDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateVoidMethodAccessor<TypeSyntax?, CSharpSyntaxVisitor>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(Update));
-            WithScopedKeywordFunc2 = LightupHelper.CreateMethodAccessor<TypeSyntax?, SyntaxToken, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithScopedKeyword));
-            WithTypeFunc3 = LightupHelper.CreateMethodAccessor<TypeSyntax?, TypeSyntax, ScopedTypeSyntaxWrapper>(WrappedType, nameof(WithType));
+            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithScopedKeywordFunc2 = LightupHelper.CreateMethodAccessor<WithScopedKeywordDelegate2>(WrappedType, nameof(WithScopedKeyword));
+            WithTypeFunc3 = LightupHelper.CreateMethodAccessor<WithTypeDelegate3>(WrappedType, nameof(WithType));
         }
 
         private ScopedTypeSyntaxWrapper(TypeSyntax? obj)

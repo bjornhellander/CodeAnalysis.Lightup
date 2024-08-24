@@ -43,428 +43,103 @@
             }
         }
 
-        public static Func<TObject, TResult> CreateGetAccessor<TObject, TResult>(Type? wrappedType, string memberName)
+        public static TDelegate CreateGetAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
         {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var propertyInfo = wrappedType.GetProperty(memberName);
-            if (propertyInfo == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var method = propertyInfo.GetMethod;
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), Array.Empty<Type>(), typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node)
-            {
-                // TODO: InvalidOperationExcception instead?
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, TResult> CreateMethodAccessor<TObject, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
+            var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = Array.Empty<Type>();
+            var returnType = GetReturnType<TDelegate>();
+            var propertyInfo = wrappedType?.GetProperty(memberName);
+            var method = propertyInfo?.GetMethod;
 
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, TResult>>(body, parameters);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
-
-            static TResult FallbackAccessor(TObject node)
-            {
-                throw new NullReferenceException();
-            }
         }
 
-        public static Func<TObject, T1, TResult> CreateMethodAccessor<TObject, T1, TResult>(Type? wrappedType, string memberName)
+        public static TDelegate CreateMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
         {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var paramTypes = new[] { type1 };
-
+            var instanceType = GetInstanceType<TDelegate>();
+            var paramTypes = GetParamTypes<TDelegate>();
+            var returnType = GetReturnType<TDelegate>();
             var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, TResult>>(body, parameters);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1)
-            {
-                throw new NullReferenceException();
-            }
         }
 
-        public static Func<TObject, T1, T2, TResult> CreateMethodAccessor<TObject, T1, T2, TResult>(Type? wrappedType, string memberName)
+        private static Type GetInstanceType<TDelegate>()
         {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var paramTypes = new[] { type1, type2 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2)
-            {
-                throw new NullReferenceException();
-            }
+            var type = typeof(TDelegate);
+            var invokeMethod = type.GetMethod("Invoke");
+            return invokeMethod.GetParameters()[0].ParameterType;
         }
 
-        public static Func<TObject, T1, T2, T3, TResult> CreateMethodAccessor<TObject, T1, T2, T3, TResult>(Type? wrappedType, string memberName)
+        private static Type[] GetParamTypes<TDelegate>()
         {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var paramTypes = new[] { type1, type2, type3 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3)
-            {
-                throw new NullReferenceException();
-            }
+            var type = typeof(TDelegate);
+            var invokeMethod = type.GetMethod("Invoke");
+            return invokeMethod.GetParameters().Skip(1).Select(x => x.ParameterType).ToArray();
         }
 
-        public static Func<TObject, T1, T2, T3, T4, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, TResult>(Type? wrappedType, string memberName)
+        private static Type GetReturnType<TDelegate>()
         {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var paramTypes = new[] { type1, type2, type3 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, T1, T2, T3, T4, T5, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var paramTypes = new[] { type1, type2, type3, type4, type5 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var type6 = typeof(T6);
-            var type7 = typeof(T7);
-            var type8 = typeof(T8);
-            var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var type6 = typeof(T6);
-            var type7 = typeof(T7);
-            var type8 = typeof(T8);
-            var type9 = typeof(T9);
-            var type13 = typeof(TResult);
-            var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var type6 = typeof(T6);
-            var type7 = typeof(T7);
-            var type8 = typeof(T8);
-            var type9 = typeof(T9);
-            var type10 = typeof(T10);
-            var type11 = typeof(T11);
-            var type12 = typeof(T12);
-            var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9, type10, type11, type12 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> CreateMethodAccessor<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var type3 = typeof(T3);
-            var type4 = typeof(T4);
-            var type5 = typeof(T5);
-            var type6 = typeof(T6);
-            var type7 = typeof(T7);
-            var type8 = typeof(T8);
-            var type9 = typeof(T9);
-            var type10 = typeof(T10);
-            var type11 = typeof(T11);
-            var type12 = typeof(T12);
-            var type13 = typeof(T13);
-            var paramTypes = new[] { type1, type2, type3, type4, type5, type6, type7, type8, type9, type10, type11, type12, type13 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(TResult));
-            var lambda = Expression.Lambda<Func<TObject, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static TResult FallbackAccessor(TObject node, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Action<TObject, T1> CreateVoidMethodAccessor<TObject, T1>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var paramTypes = new[] { type1 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(void));
-            var lambda = Expression.Lambda<Action<TObject, T1>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static void FallbackAccessor(TObject node, T1 arg1)
-            {
-                throw new NullReferenceException();
-            }
-        }
-
-        public static Action<TObject, T1, T2> CreateVoidMethodAccessor<TObject, T1, T2>(Type? wrappedType, string memberName)
-        {
-            if (wrappedType == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var type1 = typeof(T1);
-            var type2 = typeof(T2);
-            var paramTypes = new[] { type1, type2 };
-
-            var method = GetMethod(wrappedType, memberName, paramTypes);
-            if (method == null)
-            {
-                return FallbackAccessor;
-            }
-
-            var (body, parameters) = CreateCallExpression(wrappedType, method, typeof(TObject), paramTypes, typeof(void));
-            var lambda = Expression.Lambda<Action<TObject, T1, T2>>(body, parameters);
-            var func = lambda.Compile();
-            return func;
-
-            static void FallbackAccessor(TObject node, T1 arg1, T2 arg2)
-            {
-                throw new NullReferenceException();
-            }
+            var type = typeof(TDelegate);
+            var invokeMethod = type.GetMethod("Invoke");
+            return invokeMethod.ReturnType;
         }
 
         private static (Expression Body, ParameterExpression[] Parameters) CreateCallExpression(
-            Type wrappedType,
-            MethodInfo method,
+            Type? wrappedType,
+            MethodInfo? method,
             Type instanceBaseType,
             Type[] wrapperParameterTypes,
             Type wrapperReturnType)
         {
             var instanceParameter = Expression.Parameter(instanceBaseType, "instance");
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
-
-            var instance = Expression.Convert(instanceParameter, wrappedType);
-            var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
-
-            var returnValue = Expression.Call(instance, method, argValues);
-            var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-
             var allParameters = new[] { instanceParameter }.Concat(argParameters).ToArray();
-            return (wrappedReturnValue, allParameters);
+
+            var expressions = new List<Expression>();
+
+            var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
+            var nullCheckStatement = Expression.IfThen(
+                Expression.Equal(
+                    instanceParameter,
+                    Expression.Constant(null)),
+                Expression.Throw(
+                    Expression.New(
+                        nullReferenceExceptionConstructor)));
+            expressions.Add(nullCheckStatement);
+
+            if (method == null)
+            {
+                // TODO: InvalidOperationException instead?
+                var notSupportedStatement = Expression.Throw(
+                    Expression.New(
+                        nullReferenceExceptionConstructor));
+                expressions.Add(notSupportedStatement);
+
+                var dummyValue = Expression.Default(wrapperReturnType);
+                expressions.Add(dummyValue);
+            }
+            else
+            {
+                var instance = Expression.Convert(instanceParameter, wrappedType);
+                var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
+
+                var returnValue = Expression.Call(instance, method, argValues);
+                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                expressions.Add(wrappedReturnValue);
+            }
+
+            var block = Expression.Block(expressions);
+
+            return (block, allParameters);
         }
 
         private static Expression GetPossiblyWrappedValue(Expression input, Type targetType)
@@ -587,7 +262,7 @@
             }
         }
 
-        private static MethodInfo? GetMethod(Type wrappedType, string name, Type[] paramTypes)
+        private static MethodInfo? GetMethod(Type? wrappedType, string name, Type[] paramTypes)
         {
             var nativeParamTypes = paramTypes.Select(GetNativeType).ToArray();
             if (nativeParamTypes.Any(x => x == null))
@@ -595,7 +270,7 @@
                 return null;
             }
 
-            var result = wrappedType.GetMethod(name, nativeParamTypes);
+            var result = wrappedType?.GetMethod(name, nativeParamTypes);
             return result;
         }
 

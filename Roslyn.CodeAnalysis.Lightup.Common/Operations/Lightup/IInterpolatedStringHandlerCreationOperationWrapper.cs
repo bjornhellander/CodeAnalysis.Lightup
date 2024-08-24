@@ -19,10 +19,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private static readonly Func<IOperation?, IOperation> ContentFunc;
-        private static readonly Func<IOperation?, Boolean> HandlerAppendCallsReturnBoolFunc;
-        private static readonly Func<IOperation?, IOperation> HandlerCreationFunc;
-        private static readonly Func<IOperation?, Boolean> HandlerCreationHasSuccessParameterFunc;
+        private delegate IOperation ContentDelegate(IOperation? _obj);
+        private delegate Boolean HandlerAppendCallsReturnBoolDelegate(IOperation? _obj);
+        private delegate IOperation HandlerCreationDelegate(IOperation? _obj);
+        private delegate Boolean HandlerCreationHasSuccessParameterDelegate(IOperation? _obj);
+
+        private static readonly ContentDelegate ContentFunc;
+        private static readonly HandlerAppendCallsReturnBoolDelegate HandlerAppendCallsReturnBoolFunc;
+        private static readonly HandlerCreationDelegate HandlerCreationFunc;
+        private static readonly HandlerCreationHasSuccessParameterDelegate HandlerCreationHasSuccessParameterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -30,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContentFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(Content));
-            HandlerAppendCallsReturnBoolFunc = LightupHelper.CreateGetAccessor<IOperation?, Boolean>(WrappedType, nameof(HandlerAppendCallsReturnBool));
-            HandlerCreationFunc = LightupHelper.CreateGetAccessor<IOperation?, IOperation>(WrappedType, nameof(HandlerCreation));
-            HandlerCreationHasSuccessParameterFunc = LightupHelper.CreateGetAccessor<IOperation?, Boolean>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
+            ContentFunc = LightupHelper.CreateGetAccessor<ContentDelegate>(WrappedType, nameof(Content));
+            HandlerAppendCallsReturnBoolFunc = LightupHelper.CreateGetAccessor<HandlerAppendCallsReturnBoolDelegate>(WrappedType, nameof(HandlerAppendCallsReturnBool));
+            HandlerCreationFunc = LightupHelper.CreateGetAccessor<HandlerCreationDelegate>(WrappedType, nameof(HandlerCreation));
+            HandlerCreationHasSuccessParameterFunc = LightupHelper.CreateGetAccessor<HandlerCreationHasSuccessParameterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
         }
 
         private IInterpolatedStringHandlerCreationOperationWrapper(IOperation? obj)
