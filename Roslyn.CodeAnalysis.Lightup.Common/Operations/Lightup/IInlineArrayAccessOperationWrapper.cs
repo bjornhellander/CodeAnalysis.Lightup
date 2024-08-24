@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation ArgumentDelegate(IOperation? _obj);
-        private delegate IOperation InstanceDelegate(IOperation? _obj);
+        private delegate IOperation ArgumentGetterDelegate(IOperation? _obj);
+        private delegate IOperation InstanceGetterDelegate(IOperation? _obj);
 
-        private static readonly ArgumentDelegate ArgumentFunc;
-        private static readonly InstanceDelegate InstanceFunc;
+        private static readonly ArgumentGetterDelegate ArgumentGetterFunc;
+        private static readonly InstanceGetterDelegate InstanceGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentFunc = LightupHelper.CreateGetAccessor<ArgumentDelegate>(WrappedType, nameof(Argument));
-            InstanceFunc = LightupHelper.CreateGetAccessor<InstanceDelegate>(WrappedType, nameof(Instance));
+            ArgumentGetterFunc = LightupHelper.CreateGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
+            InstanceGetterFunc = LightupHelper.CreateGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
         }
 
         private IInlineArrayAccessOperationWrapper(IOperation? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Argument
-            => ArgumentFunc(wrappedObject);
+        {
+            get => ArgumentGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Instance
-            => InstanceFunc(wrappedObject);
+        {
+            get => InstanceGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

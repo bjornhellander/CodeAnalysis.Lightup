@@ -18,8 +18,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ArgumentListSyntax ArgumentListDelegate(BaseTypeSyntax? _obj);
-        private delegate TypeSyntax TypeDelegate(BaseTypeSyntax? _obj);
+        private delegate ArgumentListSyntax ArgumentListGetterDelegate(BaseTypeSyntax? _obj);
+        private delegate TypeSyntax TypeGetterDelegate(BaseTypeSyntax? _obj);
 
         private delegate void AcceptDelegate0(BaseTypeSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(BaseTypeSyntax? _obj, params ArgumentSyntax[] items);
@@ -27,8 +27,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(BaseTypeSyntax? _obj, ArgumentListSyntax argumentList);
         private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(BaseTypeSyntax? _obj, TypeSyntax type);
 
-        private static readonly ArgumentListDelegate ArgumentListFunc;
-        private static readonly TypeDelegate TypeFunc;
+        private static readonly ArgumentListGetterDelegate ArgumentListGetterFunc;
+        private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddArgumentListArgumentsDelegate1 AddArgumentListArgumentsFunc1;
@@ -42,8 +42,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentListFunc = LightupHelper.CreateGetAccessor<ArgumentListDelegate>(WrappedType, nameof(ArgumentList));
-            TypeFunc = LightupHelper.CreateGetAccessor<TypeDelegate>(WrappedType, nameof(Type));
+            ArgumentListGetterFunc = LightupHelper.CreateGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
+            TypeGetterFunc = LightupHelper.CreateGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddArgumentListArgumentsFunc1 = LightupHelper.CreateMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, nameof(AddArgumentListArguments));
@@ -58,10 +58,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ArgumentListSyntax ArgumentList
-            => ArgumentListFunc(wrappedObject);
+        {
+            get => ArgumentListGetterFunc(wrappedObject);
+        }
 
         public readonly TypeSyntax Type
-            => TypeFunc(wrappedObject);
+        {
+            get => TypeGetterFunc(wrappedObject);
+        }
 
         public static implicit operator BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
             => obj.Unwrap();

@@ -18,15 +18,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken CharacterOffsetDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate LineDirectivePositionSyntaxWrapper EndDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken EndOfDirectiveTokenDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken FileDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken HashTokenDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate Boolean IsActiveDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken LineKeywordDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken MinusTokenDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate LineDirectivePositionSyntaxWrapper StartDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken CharacterOffsetGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate LineDirectivePositionSyntaxWrapper EndGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken EndOfDirectiveTokenGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken FileGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken HashTokenGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate Boolean IsActiveGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken LineKeywordGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken MinusTokenGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate LineDirectivePositionSyntaxWrapper StartGetterDelegate(DirectiveTriviaSyntax? _obj);
 
         private delegate void AcceptDelegate0(DirectiveTriviaSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate LineSpanDirectiveTriviaSyntaxWrapper UpdateDelegate1(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken, SyntaxToken lineKeyword, LineDirectivePositionSyntaxWrapper start, SyntaxToken minusToken, LineDirectivePositionSyntaxWrapper end, SyntaxToken characterOffset, SyntaxToken file, SyntaxToken endOfDirectiveToken, Boolean isActive);
@@ -40,15 +40,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate LineSpanDirectiveTriviaSyntaxWrapper WithMinusTokenDelegate9(DirectiveTriviaSyntax? _obj, SyntaxToken minusToken);
         private delegate LineSpanDirectiveTriviaSyntaxWrapper WithStartDelegate10(DirectiveTriviaSyntax? _obj, LineDirectivePositionSyntaxWrapper start);
 
-        private static readonly CharacterOffsetDelegate CharacterOffsetFunc;
-        private static readonly EndDelegate EndFunc;
-        private static readonly EndOfDirectiveTokenDelegate EndOfDirectiveTokenFunc;
-        private static readonly FileDelegate FileFunc;
-        private static readonly HashTokenDelegate HashTokenFunc;
-        private static readonly IsActiveDelegate IsActiveFunc;
-        private static readonly LineKeywordDelegate LineKeywordFunc;
-        private static readonly MinusTokenDelegate MinusTokenFunc;
-        private static readonly StartDelegate StartFunc;
+        private static readonly CharacterOffsetGetterDelegate CharacterOffsetGetterFunc;
+        private static readonly EndGetterDelegate EndGetterFunc;
+        private static readonly EndOfDirectiveTokenGetterDelegate EndOfDirectiveTokenGetterFunc;
+        private static readonly FileGetterDelegate FileGetterFunc;
+        private static readonly HashTokenGetterDelegate HashTokenGetterFunc;
+        private static readonly IsActiveGetterDelegate IsActiveGetterFunc;
+        private static readonly LineKeywordGetterDelegate LineKeywordGetterFunc;
+        private static readonly MinusTokenGetterDelegate MinusTokenGetterFunc;
+        private static readonly StartGetterDelegate StartGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -68,15 +68,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CharacterOffsetFunc = LightupHelper.CreateGetAccessor<CharacterOffsetDelegate>(WrappedType, nameof(CharacterOffset));
-            EndFunc = LightupHelper.CreateGetAccessor<EndDelegate>(WrappedType, nameof(End));
-            EndOfDirectiveTokenFunc = LightupHelper.CreateGetAccessor<EndOfDirectiveTokenDelegate>(WrappedType, nameof(EndOfDirectiveToken));
-            FileFunc = LightupHelper.CreateGetAccessor<FileDelegate>(WrappedType, nameof(File));
-            HashTokenFunc = LightupHelper.CreateGetAccessor<HashTokenDelegate>(WrappedType, nameof(HashToken));
-            IsActiveFunc = LightupHelper.CreateGetAccessor<IsActiveDelegate>(WrappedType, nameof(IsActive));
-            LineKeywordFunc = LightupHelper.CreateGetAccessor<LineKeywordDelegate>(WrappedType, nameof(LineKeyword));
-            MinusTokenFunc = LightupHelper.CreateGetAccessor<MinusTokenDelegate>(WrappedType, nameof(MinusToken));
-            StartFunc = LightupHelper.CreateGetAccessor<StartDelegate>(WrappedType, nameof(Start));
+            CharacterOffsetGetterFunc = LightupHelper.CreateGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
+            EndGetterFunc = LightupHelper.CreateGetAccessor<EndGetterDelegate>(WrappedType, nameof(End));
+            EndOfDirectiveTokenGetterFunc = LightupHelper.CreateGetAccessor<EndOfDirectiveTokenGetterDelegate>(WrappedType, nameof(EndOfDirectiveToken));
+            FileGetterFunc = LightupHelper.CreateGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
+            HashTokenGetterFunc = LightupHelper.CreateGetAccessor<HashTokenGetterDelegate>(WrappedType, nameof(HashToken));
+            IsActiveGetterFunc = LightupHelper.CreateGetAccessor<IsActiveGetterDelegate>(WrappedType, nameof(IsActive));
+            LineKeywordGetterFunc = LightupHelper.CreateGetAccessor<LineKeywordGetterDelegate>(WrappedType, nameof(LineKeyword));
+            MinusTokenGetterFunc = LightupHelper.CreateGetAccessor<MinusTokenGetterDelegate>(WrappedType, nameof(MinusToken));
+            StartGetterFunc = LightupHelper.CreateGetAccessor<StartGetterDelegate>(WrappedType, nameof(Start));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -97,31 +97,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CharacterOffset
-            => CharacterOffsetFunc(wrappedObject);
+        {
+            get => CharacterOffsetGetterFunc(wrappedObject);
+        }
 
         public readonly LineDirectivePositionSyntaxWrapper End
-            => EndFunc(wrappedObject);
+        {
+            get => EndGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken EndOfDirectiveToken
-            => EndOfDirectiveTokenFunc(wrappedObject);
+        {
+            get => EndOfDirectiveTokenGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken File
-            => FileFunc(wrappedObject);
+        {
+            get => FileGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken HashToken
-            => HashTokenFunc(wrappedObject);
+        {
+            get => HashTokenGetterFunc(wrappedObject);
+        }
 
         public readonly Boolean IsActive
-            => IsActiveFunc(wrappedObject);
+        {
+            get => IsActiveGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordFunc(wrappedObject);
+        {
+            get => LineKeywordGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxToken MinusToken
-            => MinusTokenFunc(wrappedObject);
+        {
+            get => MinusTokenGetterFunc(wrappedObject);
+        }
 
         public readonly LineDirectivePositionSyntaxWrapper Start
-            => StartFunc(wrappedObject);
+        {
+            get => StartGetterFunc(wrappedObject);
+        }
 
         public static implicit operator DirectiveTriviaSyntax?(LineSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();

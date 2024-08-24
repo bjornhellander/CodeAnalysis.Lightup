@@ -19,12 +19,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate AnalyzerConfigOptionsWrapper GlobalOptionsDelegate(object? _obj);
+        private delegate AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(object? _obj);
 
         private delegate AnalyzerConfigOptionsWrapper GetOptionsDelegate0(object? _obj, SyntaxTree tree);
         private delegate AnalyzerConfigOptionsWrapper GetOptionsDelegate1(object? _obj, AdditionalText textFile);
 
-        private static readonly GlobalOptionsDelegate GlobalOptionsFunc;
+        private static readonly GlobalOptionsGetterDelegate GlobalOptionsGetterFunc;
 
         private static readonly GetOptionsDelegate0 GetOptionsFunc0;
         private static readonly GetOptionsDelegate1 GetOptionsFunc1;
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalOptionsFunc = LightupHelper.CreateGetAccessor<GlobalOptionsDelegate>(WrappedType, nameof(GlobalOptions));
+            GlobalOptionsGetterFunc = LightupHelper.CreateGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
 
             GetOptionsFunc0 = LightupHelper.CreateMethodAccessor<GetOptionsDelegate0>(WrappedType, nameof(GetOptions));
             GetOptionsFunc1 = LightupHelper.CreateMethodAccessor<GetOptionsDelegate1>(WrappedType, nameof(GetOptions));
@@ -47,7 +47,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly AnalyzerConfigOptionsWrapper GlobalOptions
-            => GlobalOptionsFunc(wrappedObject);
+        {
+            get => GlobalOptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ImmutableArray<IArgumentOperation> ArgumentsDelegate(IOperation? _obj);
-        private delegate IOperation TargetDelegate(IOperation? _obj);
+        private delegate ImmutableArray<IArgumentOperation> ArgumentsGetterDelegate(IOperation? _obj);
+        private delegate IOperation TargetGetterDelegate(IOperation? _obj);
 
-        private static readonly ArgumentsDelegate ArgumentsFunc;
-        private static readonly TargetDelegate TargetFunc;
+        private static readonly ArgumentsGetterDelegate ArgumentsGetterFunc;
+        private static readonly TargetGetterDelegate TargetGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentsFunc = LightupHelper.CreateGetAccessor<ArgumentsDelegate>(WrappedType, nameof(Arguments));
-            TargetFunc = LightupHelper.CreateGetAccessor<TargetDelegate>(WrappedType, nameof(Target));
+            ArgumentsGetterFunc = LightupHelper.CreateGetAccessor<ArgumentsGetterDelegate>(WrappedType, nameof(Arguments));
+            TargetGetterFunc = LightupHelper.CreateGetAccessor<TargetGetterDelegate>(WrappedType, nameof(Target));
         }
 
         private IFunctionPointerInvocationOperationWrapper(IOperation? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ImmutableArray<IArgumentOperation> Arguments
-            => ArgumentsFunc(wrappedObject);
+        {
+            get => ArgumentsGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Target
-            => TargetFunc(wrappedObject);
+        {
+            get => TargetGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

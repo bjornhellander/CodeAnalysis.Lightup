@@ -19,19 +19,19 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate AdditionalText AdditionalFileDelegate(object? _obj);
-        private delegate CancellationToken CancellationTokenDelegate(object? _obj);
-        private delegate Compilation CompilationDelegate(object? _obj);
-        private delegate Nullable<TextSpan> FilterSpanDelegate(object? _obj);
-        private delegate AnalyzerOptions OptionsDelegate(object? _obj);
+        private delegate AdditionalText AdditionalFileGetterDelegate(object? _obj);
+        private delegate CancellationToken CancellationTokenGetterDelegate(object? _obj);
+        private delegate Compilation CompilationGetterDelegate(object? _obj);
+        private delegate Nullable<TextSpan> FilterSpanGetterDelegate(object? _obj);
+        private delegate AnalyzerOptions OptionsGetterDelegate(object? _obj);
 
         private delegate void ReportDiagnosticDelegate0(object? _obj, Diagnostic diagnostic);
 
-        private static readonly AdditionalFileDelegate AdditionalFileFunc;
-        private static readonly CancellationTokenDelegate CancellationTokenFunc;
-        private static readonly CompilationDelegate CompilationFunc;
-        private static readonly FilterSpanDelegate FilterSpanFunc;
-        private static readonly OptionsDelegate OptionsFunc;
+        private static readonly AdditionalFileGetterDelegate AdditionalFileGetterFunc;
+        private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;
+        private static readonly CompilationGetterDelegate CompilationGetterFunc;
+        private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
+        private static readonly OptionsGetterDelegate OptionsGetterFunc;
 
         private static readonly ReportDiagnosticDelegate0 ReportDiagnosticFunc0;
 
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileFunc = LightupHelper.CreateGetAccessor<AdditionalFileDelegate>(WrappedType, nameof(AdditionalFile));
-            CancellationTokenFunc = LightupHelper.CreateGetAccessor<CancellationTokenDelegate>(WrappedType, nameof(CancellationToken));
-            CompilationFunc = LightupHelper.CreateGetAccessor<CompilationDelegate>(WrappedType, nameof(Compilation));
-            FilterSpanFunc = LightupHelper.CreateGetAccessor<FilterSpanDelegate>(WrappedType, nameof(FilterSpan));
-            OptionsFunc = LightupHelper.CreateGetAccessor<OptionsDelegate>(WrappedType, nameof(Options));
+            AdditionalFileGetterFunc = LightupHelper.CreateGetAccessor<AdditionalFileGetterDelegate>(WrappedType, nameof(AdditionalFile));
+            CancellationTokenGetterFunc = LightupHelper.CreateGetAccessor<CancellationTokenGetterDelegate>(WrappedType, nameof(CancellationToken));
+            CompilationGetterFunc = LightupHelper.CreateGetAccessor<CompilationGetterDelegate>(WrappedType, nameof(Compilation));
+            FilterSpanGetterFunc = LightupHelper.CreateGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
+            OptionsGetterFunc = LightupHelper.CreateGetAccessor<OptionsGetterDelegate>(WrappedType, nameof(Options));
 
             ReportDiagnosticFunc0 = LightupHelper.CreateMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, nameof(ReportDiagnostic));
         }
@@ -56,19 +56,29 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly AdditionalText AdditionalFile
-            => AdditionalFileFunc(wrappedObject);
+        {
+            get => AdditionalFileGetterFunc(wrappedObject);
+        }
 
         public readonly CancellationToken CancellationToken
-            => CancellationTokenFunc(wrappedObject);
+        {
+            get => CancellationTokenGetterFunc(wrappedObject);
+        }
 
         public readonly Compilation Compilation
-            => CompilationFunc(wrappedObject);
+        {
+            get => CompilationGetterFunc(wrappedObject);
+        }
 
         public readonly Nullable<TextSpan> FilterSpan
-            => FilterSpanFunc(wrappedObject);
+        {
+            get => FilterSpanGetterFunc(wrappedObject);
+        }
 
         public readonly AnalyzerOptions Options
-            => OptionsFunc(wrappedObject);
+        {
+            get => OptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

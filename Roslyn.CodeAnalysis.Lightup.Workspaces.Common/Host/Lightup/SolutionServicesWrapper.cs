@@ -21,12 +21,12 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IEnumerable<String> SupportedLanguagesDelegate(object? _obj);
+        private delegate IEnumerable<String> SupportedLanguagesGetterDelegate(object? _obj);
 
         private delegate LanguageServicesWrapper GetLanguageServicesDelegate0(object? _obj, String languageName);
         private delegate Boolean IsSupportedDelegate1(object? _obj, String languageName);
 
-        private static readonly SupportedLanguagesDelegate SupportedLanguagesFunc;
+        private static readonly SupportedLanguagesGetterDelegate SupportedLanguagesGetterFunc;
 
         private static readonly GetLanguageServicesDelegate0 GetLanguageServicesFunc0;
         private static readonly IsSupportedDelegate1 IsSupportedFunc1;
@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SupportedLanguagesFunc = LightupHelper.CreateGetAccessor<SupportedLanguagesDelegate>(WrappedType, nameof(SupportedLanguages));
+            SupportedLanguagesGetterFunc = LightupHelper.CreateGetAccessor<SupportedLanguagesGetterDelegate>(WrappedType, nameof(SupportedLanguages));
 
             GetLanguageServicesFunc0 = LightupHelper.CreateMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, nameof(GetLanguageServices));
             IsSupportedFunc1 = LightupHelper.CreateMethodAccessor<IsSupportedDelegate1>(WrappedType, nameof(IsSupported));
@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public readonly IEnumerable<String> SupportedLanguages
-            => SupportedLanguagesFunc(wrappedObject);
+        {
+            get => SupportedLanguagesGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

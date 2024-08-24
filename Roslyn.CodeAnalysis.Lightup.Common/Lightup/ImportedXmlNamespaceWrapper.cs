@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxReference? DeclaringSyntaxReferenceDelegate(object? _obj);
-        private delegate String XmlNamespaceDelegate(object? _obj);
+        private delegate SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(object? _obj);
+        private delegate String XmlNamespaceGetterDelegate(object? _obj);
 
-        private static readonly DeclaringSyntaxReferenceDelegate DeclaringSyntaxReferenceFunc;
-        private static readonly XmlNamespaceDelegate XmlNamespaceFunc;
+        private static readonly DeclaringSyntaxReferenceGetterDelegate DeclaringSyntaxReferenceGetterFunc;
+        private static readonly XmlNamespaceGetterDelegate XmlNamespaceGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
-            XmlNamespaceFunc = LightupHelper.CreateGetAccessor<XmlNamespaceDelegate>(WrappedType, nameof(XmlNamespace));
+            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            XmlNamespaceGetterFunc = LightupHelper.CreateGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
         }
 
         private ImportedXmlNamespaceWrapper(object? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly SyntaxReference? DeclaringSyntaxReference
-            => DeclaringSyntaxReferenceFunc(wrappedObject);
+        {
+            get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
+        }
 
         public readonly String XmlNamespace
-            => XmlNamespaceFunc(wrappedObject);
+        {
+            get => XmlNamespaceGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

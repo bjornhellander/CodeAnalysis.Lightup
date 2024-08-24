@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation MemberDelegate(IOperation? _obj);
-        private delegate IPatternOperation PatternDelegate(IOperation? _obj);
+        private delegate IOperation MemberGetterDelegate(IOperation? _obj);
+        private delegate IPatternOperation PatternGetterDelegate(IOperation? _obj);
 
-        private static readonly MemberDelegate MemberFunc;
-        private static readonly PatternDelegate PatternFunc;
+        private static readonly MemberGetterDelegate MemberGetterFunc;
+        private static readonly PatternGetterDelegate PatternGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MemberFunc = LightupHelper.CreateGetAccessor<MemberDelegate>(WrappedType, nameof(Member));
-            PatternFunc = LightupHelper.CreateGetAccessor<PatternDelegate>(WrappedType, nameof(Pattern));
+            MemberGetterFunc = LightupHelper.CreateGetAccessor<MemberGetterDelegate>(WrappedType, nameof(Member));
+            PatternGetterFunc = LightupHelper.CreateGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
         }
 
         private IPropertySubpatternOperationWrapper(IOperation? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Member
-            => MemberFunc(wrappedObject);
+        {
+            get => MemberGetterFunc(wrappedObject);
+        }
 
         public readonly IPatternOperation Pattern
-            => PatternFunc(wrappedObject);
+        {
+            get => PatternGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxReference? DeclaringSyntaxReferenceDelegate(object? _obj);
-        private delegate INamespaceOrTypeSymbol NamespaceOrTypeDelegate(object? _obj);
+        private delegate SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(object? _obj);
+        private delegate INamespaceOrTypeSymbol NamespaceOrTypeGetterDelegate(object? _obj);
 
-        private static readonly DeclaringSyntaxReferenceDelegate DeclaringSyntaxReferenceFunc;
-        private static readonly NamespaceOrTypeDelegate NamespaceOrTypeFunc;
+        private static readonly DeclaringSyntaxReferenceGetterDelegate DeclaringSyntaxReferenceGetterFunc;
+        private static readonly NamespaceOrTypeGetterDelegate NamespaceOrTypeGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
-            NamespaceOrTypeFunc = LightupHelper.CreateGetAccessor<NamespaceOrTypeDelegate>(WrappedType, nameof(NamespaceOrType));
+            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            NamespaceOrTypeGetterFunc = LightupHelper.CreateGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
         }
 
         private ImportedNamespaceOrTypeWrapper(object? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly SyntaxReference? DeclaringSyntaxReference
-            => DeclaringSyntaxReferenceFunc(wrappedObject);
+        {
+            get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
+        }
 
         public readonly INamespaceOrTypeSymbol NamespaceOrType
-            => NamespaceOrTypeFunc(wrappedObject);
+        {
+            get => NamespaceOrTypeGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

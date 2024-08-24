@@ -21,11 +21,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate String LanguageDelegate(object? _obj);
-        private delegate SolutionServicesWrapper SolutionServicesDelegate(object? _obj);
+        private delegate String LanguageGetterDelegate(object? _obj);
+        private delegate SolutionServicesWrapper SolutionServicesGetterDelegate(object? _obj);
 
-        private static readonly LanguageDelegate LanguageFunc;
-        private static readonly SolutionServicesDelegate SolutionServicesFunc;
+        private static readonly LanguageGetterDelegate LanguageGetterFunc;
+        private static readonly SolutionServicesGetterDelegate SolutionServicesGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -33,8 +33,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageFunc = LightupHelper.CreateGetAccessor<LanguageDelegate>(WrappedType, nameof(Language));
-            SolutionServicesFunc = LightupHelper.CreateGetAccessor<SolutionServicesDelegate>(WrappedType, nameof(SolutionServices));
+            LanguageGetterFunc = LightupHelper.CreateGetAccessor<LanguageGetterDelegate>(WrappedType, nameof(Language));
+            SolutionServicesGetterFunc = LightupHelper.CreateGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
         }
 
         private LanguageServicesWrapper(object? obj)
@@ -43,10 +43,14 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public readonly String Language
-            => LanguageFunc(wrappedObject);
+        {
+            get => LanguageGetterFunc(wrappedObject);
+        }
 
         public readonly SolutionServicesWrapper SolutionServices
-            => SolutionServicesFunc(wrappedObject);
+        {
+            get => SolutionServicesGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

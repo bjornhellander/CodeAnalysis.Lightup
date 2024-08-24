@@ -18,16 +18,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken DotDotTokenDelegate(PatternSyntax? _obj);
-        private delegate PatternSyntax? PatternDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken DotDotTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate PatternSyntax? PatternGetterDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate SlicePatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, SyntaxToken dotDotToken, PatternSyntax? pattern);
         private delegate SlicePatternSyntaxWrapper WithDotDotTokenDelegate2(PatternSyntax? _obj, SyntaxToken dotDotToken);
         private delegate SlicePatternSyntaxWrapper WithPatternDelegate3(PatternSyntax? _obj, PatternSyntax? pattern);
 
-        private static readonly DotDotTokenDelegate DotDotTokenFunc;
-        private static readonly PatternDelegate PatternFunc;
+        private static readonly DotDotTokenGetterDelegate DotDotTokenGetterFunc;
+        private static readonly PatternGetterDelegate PatternGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DotDotTokenFunc = LightupHelper.CreateGetAccessor<DotDotTokenDelegate>(WrappedType, nameof(DotDotToken));
-            PatternFunc = LightupHelper.CreateGetAccessor<PatternDelegate>(WrappedType, nameof(Pattern));
+            DotDotTokenGetterFunc = LightupHelper.CreateGetAccessor<DotDotTokenGetterDelegate>(WrappedType, nameof(DotDotToken));
+            PatternGetterFunc = LightupHelper.CreateGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -55,10 +55,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken DotDotToken
-            => DotDotTokenFunc(wrappedObject);
+        {
+            get => DotDotTokenGetterFunc(wrappedObject);
+        }
 
         public readonly PatternSyntax? Pattern
-            => PatternFunc(wrappedObject);
+        {
+            get => PatternGetterFunc(wrappedObject);
+        }
 
         public static implicit operator PatternSyntax?(SlicePatternSyntaxWrapper obj)
             => obj.Unwrap();

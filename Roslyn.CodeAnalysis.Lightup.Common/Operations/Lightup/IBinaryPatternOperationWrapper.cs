@@ -19,13 +19,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IPatternOperation LeftPatternDelegate(IPatternOperation? _obj);
-        private delegate BinaryOperatorKind OperatorKindDelegate(IPatternOperation? _obj);
-        private delegate IPatternOperation RightPatternDelegate(IPatternOperation? _obj);
+        private delegate IPatternOperation LeftPatternGetterDelegate(IPatternOperation? _obj);
+        private delegate BinaryOperatorKind OperatorKindGetterDelegate(IPatternOperation? _obj);
+        private delegate IPatternOperation RightPatternGetterDelegate(IPatternOperation? _obj);
 
-        private static readonly LeftPatternDelegate LeftPatternFunc;
-        private static readonly OperatorKindDelegate OperatorKindFunc;
-        private static readonly RightPatternDelegate RightPatternFunc;
+        private static readonly LeftPatternGetterDelegate LeftPatternGetterFunc;
+        private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;
+        private static readonly RightPatternGetterDelegate RightPatternGetterFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -33,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftPatternFunc = LightupHelper.CreateGetAccessor<LeftPatternDelegate>(WrappedType, nameof(LeftPattern));
-            OperatorKindFunc = LightupHelper.CreateGetAccessor<OperatorKindDelegate>(WrappedType, nameof(OperatorKind));
-            RightPatternFunc = LightupHelper.CreateGetAccessor<RightPatternDelegate>(WrappedType, nameof(RightPattern));
+            LeftPatternGetterFunc = LightupHelper.CreateGetAccessor<LeftPatternGetterDelegate>(WrappedType, nameof(LeftPattern));
+            OperatorKindGetterFunc = LightupHelper.CreateGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
+            RightPatternGetterFunc = LightupHelper.CreateGetAccessor<RightPatternGetterDelegate>(WrappedType, nameof(RightPattern));
         }
 
         private IBinaryPatternOperationWrapper(IPatternOperation? obj)
@@ -44,13 +44,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IPatternOperation LeftPattern
-            => LeftPatternFunc(wrappedObject);
+        {
+            get => LeftPatternGetterFunc(wrappedObject);
+        }
 
         public readonly BinaryOperatorKind OperatorKind
-            => OperatorKindFunc(wrappedObject);
+        {
+            get => OperatorKindGetterFunc(wrappedObject);
+        }
 
         public readonly IPatternOperation RightPattern
-            => RightPatternFunc(wrappedObject);
+        {
+            get => RightPatternGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

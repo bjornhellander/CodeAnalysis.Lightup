@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate AnalyzerConfigOptionsResultWrapper GlobalConfigOptionsDelegate(object? _obj);
+        private delegate AnalyzerConfigOptionsResultWrapper GlobalConfigOptionsGetterDelegate(object? _obj);
 
         private delegate AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePathDelegate0(object? _obj, String sourcePath);
 
-        private static readonly GlobalConfigOptionsDelegate GlobalConfigOptionsFunc;
+        private static readonly GlobalConfigOptionsGetterDelegate GlobalConfigOptionsGetterFunc;
 
         private static readonly GetOptionsForSourcePathDelegate0 GetOptionsForSourcePathFunc0;
 
@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalConfigOptionsFunc = LightupHelper.CreateGetAccessor<GlobalConfigOptionsDelegate>(WrappedType, nameof(GlobalConfigOptions));
+            GlobalConfigOptionsGetterFunc = LightupHelper.CreateGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
 
             GetOptionsForSourcePathFunc0 = LightupHelper.CreateMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, nameof(GetOptionsForSourcePath));
         }
@@ -44,7 +44,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
-            => GlobalConfigOptionsFunc(wrappedObject);
+        {
+            get => GlobalConfigOptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

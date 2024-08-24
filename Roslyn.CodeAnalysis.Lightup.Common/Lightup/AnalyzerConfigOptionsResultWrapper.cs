@@ -19,13 +19,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ImmutableDictionary<String, String> AnalyzerOptionsDelegate(object? _obj);
-        private delegate ImmutableArray<Diagnostic> DiagnosticsDelegate(object? _obj);
-        private delegate ImmutableDictionary<String, ReportDiagnostic> TreeOptionsDelegate(object? _obj);
+        private delegate ImmutableDictionary<String, String> AnalyzerOptionsGetterDelegate(object? _obj);
+        private delegate ImmutableArray<Diagnostic> DiagnosticsGetterDelegate(object? _obj);
+        private delegate ImmutableDictionary<String, ReportDiagnostic> TreeOptionsGetterDelegate(object? _obj);
 
-        private static readonly AnalyzerOptionsDelegate AnalyzerOptionsFunc;
-        private static readonly DiagnosticsDelegate DiagnosticsFunc;
-        private static readonly TreeOptionsDelegate TreeOptionsFunc;
+        private static readonly AnalyzerOptionsGetterDelegate AnalyzerOptionsGetterFunc;
+        private static readonly DiagnosticsGetterDelegate DiagnosticsGetterFunc;
+        private static readonly TreeOptionsGetterDelegate TreeOptionsGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -33,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerOptionsFunc = LightupHelper.CreateGetAccessor<AnalyzerOptionsDelegate>(WrappedType, nameof(AnalyzerOptions));
-            DiagnosticsFunc = LightupHelper.CreateGetAccessor<DiagnosticsDelegate>(WrappedType, nameof(Diagnostics));
-            TreeOptionsFunc = LightupHelper.CreateGetAccessor<TreeOptionsDelegate>(WrappedType, nameof(TreeOptions));
+            AnalyzerOptionsGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerOptionsGetterDelegate>(WrappedType, nameof(AnalyzerOptions));
+            DiagnosticsGetterFunc = LightupHelper.CreateGetAccessor<DiagnosticsGetterDelegate>(WrappedType, nameof(Diagnostics));
+            TreeOptionsGetterFunc = LightupHelper.CreateGetAccessor<TreeOptionsGetterDelegate>(WrappedType, nameof(TreeOptions));
         }
 
         private AnalyzerConfigOptionsResultWrapper(object? obj)
@@ -44,13 +44,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly ImmutableDictionary<String, String> AnalyzerOptions
-            => AnalyzerOptionsFunc(wrappedObject);
+        {
+            get => AnalyzerOptionsGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableArray<Diagnostic> Diagnostics
-            => DiagnosticsFunc(wrappedObject);
+        {
+            get => DiagnosticsGetterFunc(wrappedObject);
+        }
 
         public readonly ImmutableDictionary<String, ReportDiagnostic> TreeOptions
-            => TreeOptionsFunc(wrappedObject);
+        {
+            get => TreeOptionsGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

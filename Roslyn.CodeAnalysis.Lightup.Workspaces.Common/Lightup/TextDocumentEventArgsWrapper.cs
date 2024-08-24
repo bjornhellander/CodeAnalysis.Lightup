@@ -21,9 +21,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate TextDocument DocumentDelegate(EventArgs? _obj);
+        private delegate TextDocument DocumentGetterDelegate(EventArgs? _obj);
 
-        private static readonly DocumentDelegate DocumentFunc;
+        private static readonly DocumentGetterDelegate DocumentGetterFunc;
 
         private readonly EventArgs? wrappedObject;
 
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentFunc = LightupHelper.CreateGetAccessor<DocumentDelegate>(WrappedType, nameof(Document));
+            DocumentGetterFunc = LightupHelper.CreateGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
         private TextDocumentEventArgsWrapper(EventArgs? obj)
@@ -40,7 +40,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly TextDocument Document
-            => DocumentFunc(wrappedObject);
+        {
+            get => DocumentGetterFunc(wrappedObject);
+        }
 
         public static implicit operator EventArgs?(TextDocumentEventArgsWrapper obj)
             => obj.Unwrap();

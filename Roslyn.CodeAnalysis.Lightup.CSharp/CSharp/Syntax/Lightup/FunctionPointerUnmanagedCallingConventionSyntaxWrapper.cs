@@ -18,13 +18,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken NameDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken NameGetterDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
         private delegate FunctionPointerUnmanagedCallingConventionSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, SyntaxToken name);
         private delegate FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithNameDelegate2(CSharpSyntaxNode? _obj, SyntaxToken name);
 
-        private static readonly NameDelegate NameFunc;
+        private static readonly NameGetterDelegate NameGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NameFunc = LightupHelper.CreateGetAccessor<NameDelegate>(WrappedType, nameof(Name));
+            NameGetterFunc = LightupHelper.CreateGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken Name
-            => NameFunc(wrappedObject);
+        {
+            get => NameGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionSyntaxWrapper obj)
             => obj.Unwrap();

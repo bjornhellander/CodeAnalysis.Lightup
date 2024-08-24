@@ -19,15 +19,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation ArgumentDelegate(IOperation? _obj);
-        private delegate ISymbol IndexerSymbolDelegate(IOperation? _obj);
-        private delegate IOperation InstanceDelegate(IOperation? _obj);
-        private delegate ISymbol LengthSymbolDelegate(IOperation? _obj);
+        private delegate IOperation ArgumentGetterDelegate(IOperation? _obj);
+        private delegate ISymbol IndexerSymbolGetterDelegate(IOperation? _obj);
+        private delegate IOperation InstanceGetterDelegate(IOperation? _obj);
+        private delegate ISymbol LengthSymbolGetterDelegate(IOperation? _obj);
 
-        private static readonly ArgumentDelegate ArgumentFunc;
-        private static readonly IndexerSymbolDelegate IndexerSymbolFunc;
-        private static readonly InstanceDelegate InstanceFunc;
-        private static readonly LengthSymbolDelegate LengthSymbolFunc;
+        private static readonly ArgumentGetterDelegate ArgumentGetterFunc;
+        private static readonly IndexerSymbolGetterDelegate IndexerSymbolGetterFunc;
+        private static readonly InstanceGetterDelegate InstanceGetterFunc;
+        private static readonly LengthSymbolGetterDelegate LengthSymbolGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -35,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentFunc = LightupHelper.CreateGetAccessor<ArgumentDelegate>(WrappedType, nameof(Argument));
-            IndexerSymbolFunc = LightupHelper.CreateGetAccessor<IndexerSymbolDelegate>(WrappedType, nameof(IndexerSymbol));
-            InstanceFunc = LightupHelper.CreateGetAccessor<InstanceDelegate>(WrappedType, nameof(Instance));
-            LengthSymbolFunc = LightupHelper.CreateGetAccessor<LengthSymbolDelegate>(WrappedType, nameof(LengthSymbol));
+            ArgumentGetterFunc = LightupHelper.CreateGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
+            IndexerSymbolGetterFunc = LightupHelper.CreateGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            InstanceGetterFunc = LightupHelper.CreateGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
+            LengthSymbolGetterFunc = LightupHelper.CreateGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
         }
 
         private IImplicitIndexerReferenceOperationWrapper(IOperation? obj)
@@ -47,16 +47,24 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Argument
-            => ArgumentFunc(wrappedObject);
+        {
+            get => ArgumentGetterFunc(wrappedObject);
+        }
 
         public readonly ISymbol IndexerSymbol
-            => IndexerSymbolFunc(wrappedObject);
+        {
+            get => IndexerSymbolGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Instance
-            => InstanceFunc(wrappedObject);
+        {
+            get => InstanceGetterFunc(wrappedObject);
+        }
 
         public readonly ISymbol LengthSymbol
-            => LengthSymbolFunc(wrappedObject);
+        {
+            get => LengthSymbolGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

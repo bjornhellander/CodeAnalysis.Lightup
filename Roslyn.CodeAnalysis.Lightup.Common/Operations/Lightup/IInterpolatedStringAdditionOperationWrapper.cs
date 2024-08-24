@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation LeftDelegate(IOperation? _obj);
-        private delegate IOperation RightDelegate(IOperation? _obj);
+        private delegate IOperation LeftGetterDelegate(IOperation? _obj);
+        private delegate IOperation RightGetterDelegate(IOperation? _obj);
 
-        private static readonly LeftDelegate LeftFunc;
-        private static readonly RightDelegate RightFunc;
+        private static readonly LeftGetterDelegate LeftGetterFunc;
+        private static readonly RightGetterDelegate RightGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftFunc = LightupHelper.CreateGetAccessor<LeftDelegate>(WrappedType, nameof(Left));
-            RightFunc = LightupHelper.CreateGetAccessor<RightDelegate>(WrappedType, nameof(Right));
+            LeftGetterFunc = LightupHelper.CreateGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
+            RightGetterFunc = LightupHelper.CreateGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
         }
 
         private IInterpolatedStringAdditionOperationWrapper(IOperation? obj)
@@ -41,10 +41,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Left
-            => LeftFunc(wrappedObject);
+        {
+            get => LeftGetterFunc(wrappedObject);
+        }
 
         public readonly IOperation Right
-            => RightFunc(wrappedObject);
+        {
+            get => RightGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -290,7 +290,7 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendPropertyDelegateDeclaration(sb, property, baseTypeName, typeDefs);
+                AppendPropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
             }
         }
         if (instanceMethods.Count != 0)
@@ -307,7 +307,11 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"        private static readonly {property.Name}Delegate {property.Name}Func;");
+                sb.AppendLine($"        private static readonly {property.Name}GetterDelegate {property.Name}GetterFunc;");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
+                }
             }
         }
         if (instanceMethods.Count != 0)
@@ -330,7 +334,11 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}Func = LightupHelper.CreateGetAccessor<{property.Name}Delegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                }
             }
         }
         if (instanceMethods.Count != 0)
@@ -352,7 +360,13 @@ internal class Writer
         {
             sb.AppendLine();
             sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
-            sb.AppendLine($"            => {property.Name}Func(wrappedObject);");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            get => {property.Name}GetterFunc(wrappedObject);");
+            if (property.HasSetter)
+            {
+                sb.AppendLine($"            set => {property.Name}SetterFunc(wrappedObject, value);");
+            }
+            sb.AppendLine($"        }}");
         }
         if (hasBaseType)
         {
@@ -545,7 +559,7 @@ internal class Writer
         }
     }
 
-    private static void AppendPropertyDelegateDeclaration(
+    private static void AppendPropertyDelegateDeclarations(
         StringBuilder sb,
         PropertyDefinition propertyDef,
         string baseTypeName,
@@ -553,7 +567,14 @@ internal class Writer
     {
         sb.Append($"        private delegate ");
         sb.Append(GetPropertyTypeDeclText(propertyDef, typeDefs));
-        sb.AppendLine($" {propertyDef.Name}Delegate({baseTypeName}? _obj);");
+        sb.AppendLine($" {propertyDef.Name}GetterDelegate({baseTypeName}? _obj);");
+
+        if (propertyDef.HasSetter)
+        {
+            sb.Append($"        private delegate void ");
+            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeName}? _obj, ");
+            sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, typeDefs)} _value);");
+        }
     }
 
     private static string GetPropertyTypeDeclText(

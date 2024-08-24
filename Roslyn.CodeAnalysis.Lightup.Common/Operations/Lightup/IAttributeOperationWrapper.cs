@@ -19,9 +19,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation OperationDelegate(IOperation? _obj);
+        private delegate IOperation OperationGetterDelegate(IOperation? _obj);
 
-        private static readonly OperationDelegate OperationFunc;
+        private static readonly OperationGetterDelegate OperationGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OperationFunc = LightupHelper.CreateGetAccessor<OperationDelegate>(WrappedType, nameof(Operation));
+            OperationGetterFunc = LightupHelper.CreateGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
         }
 
         private IAttributeOperationWrapper(IOperation? obj)
@@ -38,7 +38,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation Operation
-            => OperationFunc(wrappedObject);
+        {
+            get => OperationGetterFunc(wrappedObject);
+        }
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

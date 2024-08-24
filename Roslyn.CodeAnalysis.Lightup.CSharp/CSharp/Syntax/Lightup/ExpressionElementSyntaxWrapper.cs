@@ -18,13 +18,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ExpressionSyntax ExpressionDelegate(CSharpSyntaxNode? _obj);
+        private delegate ExpressionSyntax ExpressionGetterDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
         private delegate ExpressionElementSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
         private delegate ExpressionElementSyntaxWrapper WithExpressionDelegate2(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
 
-        private static readonly ExpressionDelegate ExpressionFunc;
+        private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
+            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -49,7 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(wrappedObject);
+        {
+            get => ExpressionGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(ExpressionElementSyntaxWrapper obj)
             => obj.Unwrap();

@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxTokenList ModifiersDelegate(CSharpSyntaxNode? _obj);
-        private delegate TypeSyntax TypeDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxTokenList ModifiersGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate TypeSyntax TypeGetterDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
         private delegate FunctionPointerParameterSyntaxWrapper AddAttributeListsDelegate1(CSharpSyntaxNode? _obj, params AttributeListSyntax[] items);
@@ -30,9 +30,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate FunctionPointerParameterSyntaxWrapper WithModifiersDelegate5(CSharpSyntaxNode? _obj, SyntaxTokenList modifiers);
         private delegate FunctionPointerParameterSyntaxWrapper WithTypeDelegate6(CSharpSyntaxNode? _obj, TypeSyntax type);
 
-        private static readonly AttributeListsDelegate AttributeListsFunc;
-        private static readonly ModifiersDelegate ModifiersFunc;
-        private static readonly TypeDelegate TypeFunc;
+        private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
+        private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
+        private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddAttributeListsDelegate1 AddAttributeListsFunc1;
@@ -48,9 +48,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsFunc = LightupHelper.CreateGetAccessor<AttributeListsDelegate>(WrappedType, nameof(AttributeLists));
-            ModifiersFunc = LightupHelper.CreateGetAccessor<ModifiersDelegate>(WrappedType, nameof(Modifiers));
-            TypeFunc = LightupHelper.CreateGetAccessor<TypeDelegate>(WrappedType, nameof(Type));
+            AttributeListsGetterFunc = LightupHelper.CreateGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            TypeGetterFunc = LightupHelper.CreateGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
@@ -67,13 +67,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(wrappedObject);
+        {
+            get => AttributeListsGetterFunc(wrappedObject);
+        }
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(wrappedObject);
+        {
+            get => ModifiersGetterFunc(wrappedObject);
+        }
 
         public readonly TypeSyntax Type
-            => TypeFunc(wrappedObject);
+        {
+            get => TypeGetterFunc(wrappedObject);
+        }
 
         public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterSyntaxWrapper obj)
             => obj.Unwrap();
