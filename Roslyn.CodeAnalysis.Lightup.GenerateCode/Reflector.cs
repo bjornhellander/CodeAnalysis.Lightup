@@ -244,44 +244,62 @@ internal class Reflector
         UpdateType(interfaceTypeDef, type);
     }
 
+    // TODO: Check which members are actually new
     private static void UpdateType(TypeDefinition typeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
+        var propertyDefs = new List<PropertyDefinition>();
+        var indexerDefs = new List<IndexerDefinition>();
+        var methodDefs = new List<MethodDefinition>();
+
+        var memberInfos = type
+            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
+            .OrderBy(x => x.Name)
+            .ToList();
+        foreach (var memberInfo in memberInfos)
+        {
+            switch (memberInfo)
+            {
+                case PropertyInfo property when property.GetIndexParameters().Length == 0:
+                    propertyDefs.Add(CreatePropertyDefinition(property));
+                    break;
+
+                case PropertyInfo property:
+                    indexerDefs.Add(CreateIndexerDefinition(property));
+                    break;
+
+                // TODO: Handle generic methods
+                // TODO: Handle methods overridden from System.Object
+                case MethodInfo method when
+                    !method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
+                    !method.IsGenericMethod &&
+                    method.GetBaseDefinition().DeclaringType != typeof(object):
+                    methodDefs.Add(CreateMethodDefinition(method));
+                    break;
+
+                case MethodInfo:
+                    break;
+
+                // TODO: Check if we need to handle anything else
+                case ConstructorInfo:
+                case EventInfo:
+                case FieldInfo:
+                case Type:
+                    break;
+
+                default:
+                    Assert.Fail($"Unexpected member type {memberInfo.GetType().Name}");
+                    break;
+            }
+        }
+
         typeDef.Properties.Clear();
         typeDef.Properties.AddRange(propertyDefs);
 
-        var indexerDefs = CreateIndexerDefinitions(type);
         typeDef.Indexers.Clear();
         typeDef.Indexers.AddRange(indexerDefs);
 
-        var methodDefs = CreateMethodDefinitions(type);
         typeDef.Methods.Clear();
         typeDef.Methods.AddRange(methodDefs);
-    }
-
-    private static List<PropertyDefinition> CreatePropertyDefinitions(Type type)
-    {
-        var properties = type
-            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
-            .OfType<PropertyInfo>()
-            .Where(x => x.GetIndexParameters().Length == 0)
-            .OrderBy(x => x.Name)
-            .ToList();
-        var result = properties.Select(CreatePropertyDefinition).ToList();
-        return result;
-    }
-
-    private static List<IndexerDefinition> CreateIndexerDefinitions(Type type)
-    {
-        var properties = type
-            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
-            .OfType<PropertyInfo>()
-            .Where(x => x.GetIndexParameters().Length > 0)
-            .OrderBy(x => x.Name)
-            .ToList();
-        var result = properties.Select(CreateIndexerDefinition).ToList();
-        return result;
     }
 
     private static PropertyDefinition CreatePropertyDefinition(PropertyInfo property)
@@ -323,22 +341,6 @@ internal class Reflector
             parameterDefs,
             property.SetMethod?.IsPublic ?? false,
             accessor.IsStatic);
-        return result;
-    }
-
-    private static List<MethodDefinition> CreateMethodDefinitions(Type type)
-    {
-        // TODO: Handle generic methods
-        // TODO: Handle methods overridden from System.Object
-        var methods = type
-            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
-            .OfType<MethodInfo>()
-            .Where(x => !x.Attributes.HasFlag(MethodAttributes.SpecialName))
-            .Where(x => !x.IsGenericMethod)
-            .Where(x => x.GetBaseDefinition().DeclaringType != typeof(object))
-            .OrderBy(x => x.Name).ThenBy(x => x.GetParameters().Length)
-            .ToList();
-        var result = methods.Select(CreateMethodDefinition).ToList();
         return result;
     }
 
