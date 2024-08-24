@@ -21,14 +21,14 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate Boolean RenameMatchingTypeInCommentsDelegate(object? _obj);
-        private delegate Boolean RenameMatchingTypeInStringsDelegate(object? _obj);
+        private delegate Boolean RenameMatchingTypeInCommentsGetterDelegate(object? _obj);
+        private delegate Boolean RenameMatchingTypeInStringsGetterDelegate(object? _obj);
 
         private delegate void DeconstructDelegate0(object? _obj, out Boolean RenameMatchingTypeInStrings, out Boolean RenameMatchingTypeInComments);
         private delegate Boolean EqualsDelegate1(object? _obj, DocumentRenameOptionsWrapper other);
 
-        private static readonly RenameMatchingTypeInCommentsDelegate RenameMatchingTypeInCommentsFunc;
-        private static readonly RenameMatchingTypeInStringsDelegate RenameMatchingTypeInStringsFunc;
+        private static readonly RenameMatchingTypeInCommentsGetterDelegate RenameMatchingTypeInCommentsGetterFunc;
+        private static readonly RenameMatchingTypeInStringsGetterDelegate RenameMatchingTypeInStringsGetterFunc;
 
         private static readonly DeconstructDelegate0 DeconstructFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
@@ -39,8 +39,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RenameMatchingTypeInCommentsFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInCommentsDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
-            RenameMatchingTypeInStringsFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInStringsDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
+            RenameMatchingTypeInCommentsGetterFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInCommentsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
+            RenameMatchingTypeInStringsGetterFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInStringsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
 
             DeconstructFunc0 = LightupHelper.CreateMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
             EqualsFunc1 = LightupHelper.CreateMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
@@ -52,10 +52,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public readonly Boolean RenameMatchingTypeInComments
-            => RenameMatchingTypeInCommentsFunc(wrappedObject);
+            => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
 
         public readonly Boolean RenameMatchingTypeInStrings
-            => RenameMatchingTypeInStringsFunc(wrappedObject);
+            => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

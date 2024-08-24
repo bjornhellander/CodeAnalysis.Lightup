@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate String PathDelegate(object? _obj);
-        private delegate SarifVersionEx SarifVersionDelegate(object? _obj);
+        private delegate String PathGetterDelegate(object? _obj);
+        private delegate SarifVersionEx SarifVersionGetterDelegate(object? _obj);
 
-        private static readonly PathDelegate PathFunc;
-        private static readonly SarifVersionDelegate SarifVersionFunc;
+        private static readonly PathGetterDelegate PathGetterFunc;
+        private static readonly SarifVersionGetterDelegate SarifVersionGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PathFunc = LightupHelper.CreateGetAccessor<PathDelegate>(WrappedType, nameof(Path));
-            SarifVersionFunc = LightupHelper.CreateGetAccessor<SarifVersionDelegate>(WrappedType, nameof(SarifVersion));
+            PathGetterFunc = LightupHelper.CreateGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
+            SarifVersionGetterFunc = LightupHelper.CreateGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
         }
 
         private ErrorLogOptionsWrapper(object? obj)
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly String Path
-            => PathFunc(wrappedObject);
+            => PathGetterFunc(wrappedObject);
 
         public readonly SarifVersionEx SarifVersion
-            => SarifVersionFunc(wrappedObject);
+            => SarifVersionGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

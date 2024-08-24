@@ -21,18 +21,18 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate Boolean RenameFileDelegate(object? _obj);
-        private delegate Boolean RenameInCommentsDelegate(object? _obj);
-        private delegate Boolean RenameInStringsDelegate(object? _obj);
-        private delegate Boolean RenameOverloadsDelegate(object? _obj);
+        private delegate Boolean RenameFileGetterDelegate(object? _obj);
+        private delegate Boolean RenameInCommentsGetterDelegate(object? _obj);
+        private delegate Boolean RenameInStringsGetterDelegate(object? _obj);
+        private delegate Boolean RenameOverloadsGetterDelegate(object? _obj);
 
         private delegate void DeconstructDelegate0(object? _obj, out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile);
         private delegate Boolean EqualsDelegate1(object? _obj, SymbolRenameOptionsWrapper other);
 
-        private static readonly RenameFileDelegate RenameFileFunc;
-        private static readonly RenameInCommentsDelegate RenameInCommentsFunc;
-        private static readonly RenameInStringsDelegate RenameInStringsFunc;
-        private static readonly RenameOverloadsDelegate RenameOverloadsFunc;
+        private static readonly RenameFileGetterDelegate RenameFileGetterFunc;
+        private static readonly RenameInCommentsGetterDelegate RenameInCommentsGetterFunc;
+        private static readonly RenameInStringsGetterDelegate RenameInStringsGetterFunc;
+        private static readonly RenameOverloadsGetterDelegate RenameOverloadsGetterFunc;
 
         private static readonly DeconstructDelegate0 DeconstructFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
@@ -43,10 +43,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RenameFileFunc = LightupHelper.CreateGetAccessor<RenameFileDelegate>(WrappedType, nameof(RenameFile));
-            RenameInCommentsFunc = LightupHelper.CreateGetAccessor<RenameInCommentsDelegate>(WrappedType, nameof(RenameInComments));
-            RenameInStringsFunc = LightupHelper.CreateGetAccessor<RenameInStringsDelegate>(WrappedType, nameof(RenameInStrings));
-            RenameOverloadsFunc = LightupHelper.CreateGetAccessor<RenameOverloadsDelegate>(WrappedType, nameof(RenameOverloads));
+            RenameFileGetterFunc = LightupHelper.CreateGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
+            RenameInCommentsGetterFunc = LightupHelper.CreateGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
+            RenameInStringsGetterFunc = LightupHelper.CreateGetAccessor<RenameInStringsGetterDelegate>(WrappedType, nameof(RenameInStrings));
+            RenameOverloadsGetterFunc = LightupHelper.CreateGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
 
             DeconstructFunc0 = LightupHelper.CreateMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
             EqualsFunc1 = LightupHelper.CreateMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
@@ -58,16 +58,16 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public readonly Boolean RenameFile
-            => RenameFileFunc(wrappedObject);
+            => RenameFileGetterFunc(wrappedObject);
 
         public readonly Boolean RenameInComments
-            => RenameInCommentsFunc(wrappedObject);
+            => RenameInCommentsGetterFunc(wrappedObject);
 
         public readonly Boolean RenameInStrings
-            => RenameInStringsFunc(wrappedObject);
+            => RenameInStringsGetterFunc(wrappedObject);
 
         public readonly Boolean RenameOverloads
-            => RenameOverloadsFunc(wrappedObject);
+            => RenameOverloadsGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

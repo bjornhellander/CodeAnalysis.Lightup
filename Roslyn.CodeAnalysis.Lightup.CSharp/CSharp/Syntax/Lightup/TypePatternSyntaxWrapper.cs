@@ -18,13 +18,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate TypeSyntax TypeDelegate(PatternSyntax? _obj);
+        private delegate TypeSyntax TypeGetterDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate TypePatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, TypeSyntax type);
         private delegate TypePatternSyntaxWrapper WithTypeDelegate2(PatternSyntax? _obj, TypeSyntax type);
 
-        private static readonly TypeDelegate TypeFunc;
+        private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TypeFunc = LightupHelper.CreateGetAccessor<TypeDelegate>(WrappedType, nameof(Type));
+            TypeGetterFunc = LightupHelper.CreateGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly TypeSyntax Type
-            => TypeFunc(wrappedObject);
+            => TypeGetterFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(TypePatternSyntaxWrapper obj)
             => obj.Unwrap();

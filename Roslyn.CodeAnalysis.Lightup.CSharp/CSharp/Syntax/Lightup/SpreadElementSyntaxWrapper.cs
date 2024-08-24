@@ -18,16 +18,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ExpressionSyntax ExpressionDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken OperatorTokenDelegate(CSharpSyntaxNode? _obj);
+        private delegate ExpressionSyntax ExpressionGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken OperatorTokenGetterDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
         private delegate SpreadElementSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, SyntaxToken operatorToken, ExpressionSyntax expression);
         private delegate SpreadElementSyntaxWrapper WithExpressionDelegate2(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
         private delegate SpreadElementSyntaxWrapper WithOperatorTokenDelegate3(CSharpSyntaxNode? _obj, SyntaxToken operatorToken);
 
-        private static readonly ExpressionDelegate ExpressionFunc;
-        private static readonly OperatorTokenDelegate OperatorTokenFunc;
+        private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
+        private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
-            OperatorTokenFunc = LightupHelper.CreateGetAccessor<OperatorTokenDelegate>(WrappedType, nameof(OperatorToken));
+            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            OperatorTokenGetterFunc = LightupHelper.CreateGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -55,10 +55,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(wrappedObject);
+            => ExpressionGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenFunc(wrappedObject);
+            => OperatorTokenGetterFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(SpreadElementSyntaxWrapper obj)
             => obj.Unwrap();

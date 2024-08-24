@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ExpressionSyntax ExpressionDelegate(ExpressionSyntax? _obj);
-        private delegate InitializerExpressionSyntax InitializerDelegate(ExpressionSyntax? _obj);
-        private delegate SyntaxToken WithKeywordDelegate(ExpressionSyntax? _obj);
+        private delegate ExpressionSyntax ExpressionGetterDelegate(ExpressionSyntax? _obj);
+        private delegate InitializerExpressionSyntax InitializerGetterDelegate(ExpressionSyntax? _obj);
+        private delegate SyntaxToken WithKeywordGetterDelegate(ExpressionSyntax? _obj);
 
         private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate WithExpressionSyntaxWrapper AddInitializerExpressionsDelegate1(ExpressionSyntax? _obj, params ExpressionSyntax[] items);
@@ -29,9 +29,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate WithExpressionSyntaxWrapper WithInitializerDelegate4(ExpressionSyntax? _obj, InitializerExpressionSyntax initializer);
         private delegate WithExpressionSyntaxWrapper WithWithKeywordDelegate5(ExpressionSyntax? _obj, SyntaxToken withKeyword);
 
-        private static readonly ExpressionDelegate ExpressionFunc;
-        private static readonly InitializerDelegate InitializerFunc;
-        private static readonly WithKeywordDelegate WithKeywordFunc;
+        private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
+        private static readonly InitializerGetterDelegate InitializerGetterFunc;
+        private static readonly WithKeywordGetterDelegate WithKeywordGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddInitializerExpressionsDelegate1 AddInitializerExpressionsFunc1;
@@ -46,9 +46,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
-            InitializerFunc = LightupHelper.CreateGetAccessor<InitializerDelegate>(WrappedType, nameof(Initializer));
-            WithKeywordFunc = LightupHelper.CreateGetAccessor<WithKeywordDelegate>(WrappedType, nameof(WithKeyword));
+            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            InitializerGetterFunc = LightupHelper.CreateGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            WithKeywordGetterFunc = LightupHelper.CreateGetAccessor<WithKeywordGetterDelegate>(WrappedType, nameof(WithKeyword));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddInitializerExpressionsFunc1 = LightupHelper.CreateMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, nameof(AddInitializerExpressions));
@@ -64,13 +64,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(wrappedObject);
+            => ExpressionGetterFunc(wrappedObject);
 
         public readonly InitializerExpressionSyntax Initializer
-            => InitializerFunc(wrappedObject);
+            => InitializerGetterFunc(wrappedObject);
 
         public readonly SyntaxToken WithKeyword
-            => WithKeywordFunc(wrappedObject);
+            => WithKeywordGetterFunc(wrappedObject);
 
         public static implicit operator ExpressionSyntax?(WithExpressionSyntaxWrapper obj)
             => obj.Unwrap();

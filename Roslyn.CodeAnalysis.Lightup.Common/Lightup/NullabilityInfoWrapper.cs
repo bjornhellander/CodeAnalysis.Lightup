@@ -19,13 +19,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate NullableAnnotationEx AnnotationDelegate(object? _obj);
-        private delegate NullableFlowStateEx FlowStateDelegate(object? _obj);
+        private delegate NullableAnnotationEx AnnotationGetterDelegate(object? _obj);
+        private delegate NullableFlowStateEx FlowStateGetterDelegate(object? _obj);
 
         private delegate Boolean EqualsDelegate0(object? _obj, NullabilityInfoWrapper other);
 
-        private static readonly AnnotationDelegate AnnotationFunc;
-        private static readonly FlowStateDelegate FlowStateFunc;
+        private static readonly AnnotationGetterDelegate AnnotationGetterFunc;
+        private static readonly FlowStateGetterDelegate FlowStateGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
@@ -35,8 +35,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnnotationFunc = LightupHelper.CreateGetAccessor<AnnotationDelegate>(WrappedType, nameof(Annotation));
-            FlowStateFunc = LightupHelper.CreateGetAccessor<FlowStateDelegate>(WrappedType, nameof(FlowState));
+            AnnotationGetterFunc = LightupHelper.CreateGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
+            FlowStateGetterFunc = LightupHelper.CreateGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
 
             EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
@@ -47,10 +47,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly NullableAnnotationEx Annotation
-            => AnnotationFunc(wrappedObject);
+            => AnnotationGetterFunc(wrappedObject);
 
         public readonly NullableFlowStateEx FlowState
-            => FlowStateFunc(wrappedObject);
+            => FlowStateGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

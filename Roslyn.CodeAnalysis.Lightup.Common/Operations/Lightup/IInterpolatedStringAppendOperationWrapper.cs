@@ -19,9 +19,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IOperation AppendCallDelegate(IInterpolatedStringContentOperation? _obj);
+        private delegate IOperation AppendCallGetterDelegate(IInterpolatedStringContentOperation? _obj);
 
-        private static readonly AppendCallDelegate AppendCallFunc;
+        private static readonly AppendCallGetterDelegate AppendCallGetterFunc;
 
         private readonly IInterpolatedStringContentOperation? wrappedObject;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AppendCallFunc = LightupHelper.CreateGetAccessor<AppendCallDelegate>(WrappedType, nameof(AppendCall));
+            AppendCallGetterFunc = LightupHelper.CreateGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
         private IInterpolatedStringAppendOperationWrapper(IInterpolatedStringContentOperation? obj)
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IOperation AppendCall
-            => AppendCallFunc(wrappedObject);
+            => AppendCallGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

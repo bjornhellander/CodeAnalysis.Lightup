@@ -18,14 +18,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken ColonTokenDelegate(CSharpSyntaxNode? _obj);
-        private delegate ExpressionSyntax ExpressionDelegate(CSharpSyntaxNode? _obj);
+        private delegate SyntaxToken ColonTokenGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate ExpressionSyntax ExpressionGetterDelegate(CSharpSyntaxNode? _obj);
 
         private delegate BaseExpressionColonSyntaxWrapper WithColonTokenDelegate0(CSharpSyntaxNode? _obj, SyntaxToken colonToken);
         private delegate BaseExpressionColonSyntaxWrapper WithExpressionDelegate1(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
 
-        private static readonly ColonTokenDelegate ColonTokenFunc;
-        private static readonly ExpressionDelegate ExpressionFunc;
+        private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
+        private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 
         private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
         private static readonly WithExpressionDelegate1 WithExpressionFunc1;
@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ColonTokenFunc = LightupHelper.CreateGetAccessor<ColonTokenDelegate>(WrappedType, nameof(ColonToken));
-            ExpressionFunc = LightupHelper.CreateGetAccessor<ExpressionDelegate>(WrappedType, nameof(Expression));
+            ColonTokenGetterFunc = LightupHelper.CreateGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
+            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
             WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<WithColonTokenDelegate0>(WrappedType, nameof(WithColonToken));
             WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate1>(WrappedType, nameof(WithExpression));
@@ -49,10 +49,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken ColonToken
-            => ColonTokenFunc(wrappedObject);
+            => ColonTokenGetterFunc(wrappedObject);
 
         public readonly ExpressionSyntax Expression
-            => ExpressionFunc(wrappedObject);
+            => ExpressionGetterFunc(wrappedObject);
 
         public static implicit operator CSharpSyntaxNode?(BaseExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();

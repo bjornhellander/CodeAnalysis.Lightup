@@ -19,15 +19,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ISymbol? DeclaredSymbolDelegate(IPatternOperation? _obj);
-        private delegate ISymbol? IndexerSymbolDelegate(IPatternOperation? _obj);
-        private delegate ISymbol? LengthSymbolDelegate(IPatternOperation? _obj);
-        private delegate ImmutableArray<IPatternOperation> PatternsDelegate(IPatternOperation? _obj);
+        private delegate ISymbol? DeclaredSymbolGetterDelegate(IPatternOperation? _obj);
+        private delegate ISymbol? IndexerSymbolGetterDelegate(IPatternOperation? _obj);
+        private delegate ISymbol? LengthSymbolGetterDelegate(IPatternOperation? _obj);
+        private delegate ImmutableArray<IPatternOperation> PatternsGetterDelegate(IPatternOperation? _obj);
 
-        private static readonly DeclaredSymbolDelegate DeclaredSymbolFunc;
-        private static readonly IndexerSymbolDelegate IndexerSymbolFunc;
-        private static readonly LengthSymbolDelegate LengthSymbolFunc;
-        private static readonly PatternsDelegate PatternsFunc;
+        private static readonly DeclaredSymbolGetterDelegate DeclaredSymbolGetterFunc;
+        private static readonly IndexerSymbolGetterDelegate IndexerSymbolGetterFunc;
+        private static readonly LengthSymbolGetterDelegate LengthSymbolGetterFunc;
+        private static readonly PatternsGetterDelegate PatternsGetterFunc;
 
         private readonly IPatternOperation? wrappedObject;
 
@@ -35,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolFunc = LightupHelper.CreateGetAccessor<DeclaredSymbolDelegate>(WrappedType, nameof(DeclaredSymbol));
-            IndexerSymbolFunc = LightupHelper.CreateGetAccessor<IndexerSymbolDelegate>(WrappedType, nameof(IndexerSymbol));
-            LengthSymbolFunc = LightupHelper.CreateGetAccessor<LengthSymbolDelegate>(WrappedType, nameof(LengthSymbol));
-            PatternsFunc = LightupHelper.CreateGetAccessor<PatternsDelegate>(WrappedType, nameof(Patterns));
+            DeclaredSymbolGetterFunc = LightupHelper.CreateGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
+            IndexerSymbolGetterFunc = LightupHelper.CreateGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            LengthSymbolGetterFunc = LightupHelper.CreateGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
+            PatternsGetterFunc = LightupHelper.CreateGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
         }
 
         private IListPatternOperationWrapper(IPatternOperation? obj)
@@ -47,16 +47,16 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly ISymbol? DeclaredSymbol
-            => DeclaredSymbolFunc(wrappedObject);
+            => DeclaredSymbolGetterFunc(wrappedObject);
 
         public readonly ISymbol? IndexerSymbol
-            => IndexerSymbolFunc(wrappedObject);
+            => IndexerSymbolGetterFunc(wrappedObject);
 
         public readonly ISymbol? LengthSymbol
-            => LengthSymbolFunc(wrappedObject);
+            => LengthSymbolGetterFunc(wrappedObject);
 
         public readonly ImmutableArray<IPatternOperation> Patterns
-            => PatternsFunc(wrappedObject);
+            => PatternsGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

@@ -18,13 +18,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken DefaultKeywordDelegate(TypeParameterConstraintSyntax? _obj);
+        private delegate SyntaxToken DefaultKeywordGetterDelegate(TypeParameterConstraintSyntax? _obj);
 
         private delegate void AcceptDelegate0(TypeParameterConstraintSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate DefaultConstraintSyntaxWrapper UpdateDelegate1(TypeParameterConstraintSyntax? _obj, SyntaxToken defaultKeyword);
         private delegate DefaultConstraintSyntaxWrapper WithDefaultKeywordDelegate2(TypeParameterConstraintSyntax? _obj, SyntaxToken defaultKeyword);
 
-        private static readonly DefaultKeywordDelegate DefaultKeywordFunc;
+        private static readonly DefaultKeywordGetterDelegate DefaultKeywordGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefaultKeywordFunc = LightupHelper.CreateGetAccessor<DefaultKeywordDelegate>(WrappedType, nameof(DefaultKeyword));
+            DefaultKeywordGetterFunc = LightupHelper.CreateGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken DefaultKeyword
-            => DefaultKeywordFunc(wrappedObject);
+            => DefaultKeywordGetterFunc(wrappedObject);
 
         public static implicit operator TypeParameterConstraintSyntax?(DefaultConstraintSyntaxWrapper obj)
             => obj.Unwrap();

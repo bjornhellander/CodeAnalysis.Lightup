@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken CloseParenTokenDelegate(PatternSyntax? _obj);
-        private delegate SyntaxToken OpenParenTokenDelegate(PatternSyntax? _obj);
-        private delegate PatternSyntax PatternDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken CloseParenTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken OpenParenTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate PatternSyntax PatternGetterDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate ParenthesizedPatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, SyntaxToken openParenToken, PatternSyntax pattern, SyntaxToken closeParenToken);
@@ -28,9 +28,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate ParenthesizedPatternSyntaxWrapper WithOpenParenTokenDelegate3(PatternSyntax? _obj, SyntaxToken openParenToken);
         private delegate ParenthesizedPatternSyntaxWrapper WithPatternDelegate4(PatternSyntax? _obj, PatternSyntax pattern);
 
-        private static readonly CloseParenTokenDelegate CloseParenTokenFunc;
-        private static readonly OpenParenTokenDelegate OpenParenTokenFunc;
-        private static readonly PatternDelegate PatternFunc;
+        private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;
+        private static readonly OpenParenTokenGetterDelegate OpenParenTokenGetterFunc;
+        private static readonly PatternGetterDelegate PatternGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -44,9 +44,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseParenTokenFunc = LightupHelper.CreateGetAccessor<CloseParenTokenDelegate>(WrappedType, nameof(CloseParenToken));
-            OpenParenTokenFunc = LightupHelper.CreateGetAccessor<OpenParenTokenDelegate>(WrappedType, nameof(OpenParenToken));
-            PatternFunc = LightupHelper.CreateGetAccessor<PatternDelegate>(WrappedType, nameof(Pattern));
+            CloseParenTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseParenTokenGetterDelegate>(WrappedType, nameof(CloseParenToken));
+            OpenParenTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
+            PatternGetterFunc = LightupHelper.CreateGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -61,13 +61,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseParenToken
-            => CloseParenTokenFunc(wrappedObject);
+            => CloseParenTokenGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OpenParenToken
-            => OpenParenTokenFunc(wrappedObject);
+            => OpenParenTokenGetterFunc(wrappedObject);
 
         public readonly PatternSyntax Pattern
-            => PatternFunc(wrappedObject);
+            => PatternGetterFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(ParenthesizedPatternSyntaxWrapper obj)
             => obj.Unwrap();

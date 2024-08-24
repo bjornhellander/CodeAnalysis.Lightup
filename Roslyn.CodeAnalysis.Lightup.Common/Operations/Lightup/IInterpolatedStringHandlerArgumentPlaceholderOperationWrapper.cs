@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate Int32 ArgumentIndexDelegate(IOperation? _obj);
-        private delegate InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindDelegate(IOperation? _obj);
+        private delegate Int32 ArgumentIndexGetterDelegate(IOperation? _obj);
+        private delegate InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindGetterDelegate(IOperation? _obj);
 
-        private static readonly ArgumentIndexDelegate ArgumentIndexFunc;
-        private static readonly PlaceholderKindDelegate PlaceholderKindFunc;
+        private static readonly ArgumentIndexGetterDelegate ArgumentIndexGetterFunc;
+        private static readonly PlaceholderKindGetterDelegate PlaceholderKindGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentIndexFunc = LightupHelper.CreateGetAccessor<ArgumentIndexDelegate>(WrappedType, nameof(ArgumentIndex));
-            PlaceholderKindFunc = LightupHelper.CreateGetAccessor<PlaceholderKindDelegate>(WrappedType, nameof(PlaceholderKind));
+            ArgumentIndexGetterFunc = LightupHelper.CreateGetAccessor<ArgumentIndexGetterDelegate>(WrappedType, nameof(ArgumentIndex));
+            PlaceholderKindGetterFunc = LightupHelper.CreateGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
         private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(IOperation? obj)
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly Int32 ArgumentIndex
-            => ArgumentIndexFunc(wrappedObject);
+            => ArgumentIndexGetterFunc(wrappedObject);
 
         public readonly InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
-            => PlaceholderKindFunc(wrappedObject);
+            => PlaceholderKindGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

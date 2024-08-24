@@ -18,10 +18,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken CloseBracketTokenDelegate(PatternSyntax? _obj);
-        private delegate VariableDesignationSyntax? DesignationDelegate(PatternSyntax? _obj);
-        private delegate SyntaxToken OpenBracketTokenDelegate(PatternSyntax? _obj);
-        private delegate SeparatedSyntaxList<PatternSyntax> PatternsDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken CloseBracketTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate VariableDesignationSyntax? DesignationGetterDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken OpenBracketTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate SeparatedSyntaxList<PatternSyntax> PatternsGetterDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate ListPatternSyntaxWrapper AddPatternsDelegate1(PatternSyntax? _obj, params PatternSyntax[] items);
@@ -31,10 +31,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate ListPatternSyntaxWrapper WithOpenBracketTokenDelegate5(PatternSyntax? _obj, SyntaxToken openBracketToken);
         private delegate ListPatternSyntaxWrapper WithPatternsDelegate6(PatternSyntax? _obj, SeparatedSyntaxList<PatternSyntax> patterns);
 
-        private static readonly CloseBracketTokenDelegate CloseBracketTokenFunc;
-        private static readonly DesignationDelegate DesignationFunc;
-        private static readonly OpenBracketTokenDelegate OpenBracketTokenFunc;
-        private static readonly PatternsDelegate PatternsFunc;
+        private static readonly CloseBracketTokenGetterDelegate CloseBracketTokenGetterFunc;
+        private static readonly DesignationGetterDelegate DesignationGetterFunc;
+        private static readonly OpenBracketTokenGetterDelegate OpenBracketTokenGetterFunc;
+        private static readonly PatternsGetterDelegate PatternsGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddPatternsDelegate1 AddPatternsFunc1;
@@ -50,10 +50,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenDelegate>(WrappedType, nameof(CloseBracketToken));
-            DesignationFunc = LightupHelper.CreateGetAccessor<DesignationDelegate>(WrappedType, nameof(Designation));
-            OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenDelegate>(WrappedType, nameof(OpenBracketToken));
-            PatternsFunc = LightupHelper.CreateGetAccessor<PatternsDelegate>(WrappedType, nameof(Patterns));
+            CloseBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            DesignationGetterFunc = LightupHelper.CreateGetAccessor<DesignationGetterDelegate>(WrappedType, nameof(Designation));
+            OpenBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
+            PatternsGetterFunc = LightupHelper.CreateGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddPatternsFunc1 = LightupHelper.CreateMethodAccessor<AddPatternsDelegate1>(WrappedType, nameof(AddPatterns));
@@ -70,16 +70,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenFunc(wrappedObject);
+            => CloseBracketTokenGetterFunc(wrappedObject);
 
         public readonly VariableDesignationSyntax? Designation
-            => DesignationFunc(wrappedObject);
+            => DesignationGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenFunc(wrappedObject);
+            => OpenBracketTokenGetterFunc(wrappedObject);
 
         public readonly SeparatedSyntaxList<PatternSyntax> Patterns
-            => PatternsFunc(wrappedObject);
+            => PatternsGetterFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(ListPatternSyntaxWrapper obj)
             => obj.Unwrap();

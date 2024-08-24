@@ -18,16 +18,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken FileDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken LineKeywordDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken FileGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate SyntaxToken LineKeywordGetterDelegate(DirectiveTriviaSyntax? _obj);
 
         private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(DirectiveTriviaSyntax? _obj, SyntaxToken endOfDirectiveToken);
         private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate1(DirectiveTriviaSyntax? _obj, SyntaxToken file);
         private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate2(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken);
         private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate3(DirectiveTriviaSyntax? _obj, SyntaxToken lineKeyword);
 
-        private static readonly FileDelegate FileFunc;
-        private static readonly LineKeywordDelegate LineKeywordFunc;
+        private static readonly FileGetterDelegate FileGetterFunc;
+        private static readonly LineKeywordGetterDelegate LineKeywordGetterFunc;
 
         private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
         private static readonly WithFileDelegate1 WithFileFunc1;
@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FileFunc = LightupHelper.CreateGetAccessor<FileDelegate>(WrappedType, nameof(File));
-            LineKeywordFunc = LightupHelper.CreateGetAccessor<LineKeywordDelegate>(WrappedType, nameof(LineKeyword));
+            FileGetterFunc = LightupHelper.CreateGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
+            LineKeywordGetterFunc = LightupHelper.CreateGetAccessor<LineKeywordGetterDelegate>(WrappedType, nameof(LineKeyword));
 
             WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, nameof(WithEndOfDirectiveToken));
             WithFileFunc1 = LightupHelper.CreateMethodAccessor<WithFileDelegate1>(WrappedType, nameof(WithFile));
@@ -55,10 +55,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken File
-            => FileFunc(wrappedObject);
+            => FileGetterFunc(wrappedObject);
 
         public readonly SyntaxToken LineKeyword
-            => LineKeywordFunc(wrappedObject);
+            => LineKeywordGetterFunc(wrappedObject);
 
         public static implicit operator DirectiveTriviaSyntax?(LineOrSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();

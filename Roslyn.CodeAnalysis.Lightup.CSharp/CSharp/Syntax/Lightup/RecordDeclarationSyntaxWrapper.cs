@@ -18,19 +18,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsDelegate(TypeDeclarationSyntax? _obj);
-        private delegate BaseListSyntax? BaseListDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken ClassOrStructKeywordDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken CloseBraceTokenDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClausesDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken IdentifierDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken KeywordDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxList<MemberDeclarationSyntax> MembersDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken OpenBraceTokenDelegate(TypeDeclarationSyntax? _obj);
-        private delegate ParameterListSyntax? ParameterListDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken SemicolonTokenDelegate(TypeDeclarationSyntax? _obj);
-        private delegate TypeParameterListSyntax? TypeParameterListDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate BaseListSyntax? BaseListGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken ClassOrStructKeywordGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken CloseBraceTokenGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClausesGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken IdentifierGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken KeywordGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxList<MemberDeclarationSyntax> MembersGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxTokenList ModifiersGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken OpenBraceTokenGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate ParameterListSyntax? ParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate SyntaxToken SemicolonTokenGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate TypeParameterListSyntax? TypeParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
 
         private delegate void AcceptDelegate0(TypeDeclarationSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate RecordDeclarationSyntaxWrapper AddAttributeListsDelegate1(TypeDeclarationSyntax? _obj, params AttributeListSyntax[] items);
@@ -56,19 +56,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate RecordDeclarationSyntaxWrapper WithSemicolonTokenDelegate21(TypeDeclarationSyntax? _obj, SyntaxToken semicolonToken);
         private delegate RecordDeclarationSyntaxWrapper WithTypeParameterListDelegate22(TypeDeclarationSyntax? _obj, TypeParameterListSyntax? typeParameterList);
 
-        private static readonly AttributeListsDelegate AttributeListsFunc;
-        private static readonly BaseListDelegate BaseListFunc;
-        private static readonly ClassOrStructKeywordDelegate ClassOrStructKeywordFunc;
-        private static readonly CloseBraceTokenDelegate CloseBraceTokenFunc;
-        private static readonly ConstraintClausesDelegate ConstraintClausesFunc;
-        private static readonly IdentifierDelegate IdentifierFunc;
-        private static readonly KeywordDelegate KeywordFunc;
-        private static readonly MembersDelegate MembersFunc;
-        private static readonly ModifiersDelegate ModifiersFunc;
-        private static readonly OpenBraceTokenDelegate OpenBraceTokenFunc;
-        private static readonly ParameterListDelegate ParameterListFunc;
-        private static readonly SemicolonTokenDelegate SemicolonTokenFunc;
-        private static readonly TypeParameterListDelegate TypeParameterListFunc;
+        private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
+        private static readonly BaseListGetterDelegate BaseListGetterFunc;
+        private static readonly ClassOrStructKeywordGetterDelegate ClassOrStructKeywordGetterFunc;
+        private static readonly CloseBraceTokenGetterDelegate CloseBraceTokenGetterFunc;
+        private static readonly ConstraintClausesGetterDelegate ConstraintClausesGetterFunc;
+        private static readonly IdentifierGetterDelegate IdentifierGetterFunc;
+        private static readonly KeywordGetterDelegate KeywordGetterFunc;
+        private static readonly MembersGetterDelegate MembersGetterFunc;
+        private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
+        private static readonly OpenBraceTokenGetterDelegate OpenBraceTokenGetterFunc;
+        private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
+        private static readonly SemicolonTokenGetterDelegate SemicolonTokenGetterFunc;
+        private static readonly TypeParameterListGetterDelegate TypeParameterListGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddAttributeListsDelegate1 AddAttributeListsFunc1;
@@ -100,19 +100,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsFunc = LightupHelper.CreateGetAccessor<AttributeListsDelegate>(WrappedType, nameof(AttributeLists));
-            BaseListFunc = LightupHelper.CreateGetAccessor<BaseListDelegate>(WrappedType, nameof(BaseList));
-            ClassOrStructKeywordFunc = LightupHelper.CreateGetAccessor<ClassOrStructKeywordDelegate>(WrappedType, nameof(ClassOrStructKeyword));
-            CloseBraceTokenFunc = LightupHelper.CreateGetAccessor<CloseBraceTokenDelegate>(WrappedType, nameof(CloseBraceToken));
-            ConstraintClausesFunc = LightupHelper.CreateGetAccessor<ConstraintClausesDelegate>(WrappedType, nameof(ConstraintClauses));
-            IdentifierFunc = LightupHelper.CreateGetAccessor<IdentifierDelegate>(WrappedType, nameof(Identifier));
-            KeywordFunc = LightupHelper.CreateGetAccessor<KeywordDelegate>(WrappedType, nameof(Keyword));
-            MembersFunc = LightupHelper.CreateGetAccessor<MembersDelegate>(WrappedType, nameof(Members));
-            ModifiersFunc = LightupHelper.CreateGetAccessor<ModifiersDelegate>(WrappedType, nameof(Modifiers));
-            OpenBraceTokenFunc = LightupHelper.CreateGetAccessor<OpenBraceTokenDelegate>(WrappedType, nameof(OpenBraceToken));
-            ParameterListFunc = LightupHelper.CreateGetAccessor<ParameterListDelegate>(WrappedType, nameof(ParameterList));
-            SemicolonTokenFunc = LightupHelper.CreateGetAccessor<SemicolonTokenDelegate>(WrappedType, nameof(SemicolonToken));
-            TypeParameterListFunc = LightupHelper.CreateGetAccessor<TypeParameterListDelegate>(WrappedType, nameof(TypeParameterList));
+            AttributeListsGetterFunc = LightupHelper.CreateGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            BaseListGetterFunc = LightupHelper.CreateGetAccessor<BaseListGetterDelegate>(WrappedType, nameof(BaseList));
+            ClassOrStructKeywordGetterFunc = LightupHelper.CreateGetAccessor<ClassOrStructKeywordGetterDelegate>(WrappedType, nameof(ClassOrStructKeyword));
+            CloseBraceTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseBraceTokenGetterDelegate>(WrappedType, nameof(CloseBraceToken));
+            ConstraintClausesGetterFunc = LightupHelper.CreateGetAccessor<ConstraintClausesGetterDelegate>(WrappedType, nameof(ConstraintClauses));
+            IdentifierGetterFunc = LightupHelper.CreateGetAccessor<IdentifierGetterDelegate>(WrappedType, nameof(Identifier));
+            KeywordGetterFunc = LightupHelper.CreateGetAccessor<KeywordGetterDelegate>(WrappedType, nameof(Keyword));
+            MembersGetterFunc = LightupHelper.CreateGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            OpenBraceTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenBraceTokenGetterDelegate>(WrappedType, nameof(OpenBraceToken));
+            ParameterListGetterFunc = LightupHelper.CreateGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
+            SemicolonTokenGetterFunc = LightupHelper.CreateGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            TypeParameterListGetterFunc = LightupHelper.CreateGetAccessor<TypeParameterListGetterDelegate>(WrappedType, nameof(TypeParameterList));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
@@ -145,43 +145,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(wrappedObject);
+            => AttributeListsGetterFunc(wrappedObject);
 
         public readonly BaseListSyntax? BaseList
-            => BaseListFunc(wrappedObject);
+            => BaseListGetterFunc(wrappedObject);
 
         public readonly SyntaxToken ClassOrStructKeyword
-            => ClassOrStructKeywordFunc(wrappedObject);
+            => ClassOrStructKeywordGetterFunc(wrappedObject);
 
         public readonly SyntaxToken CloseBraceToken
-            => CloseBraceTokenFunc(wrappedObject);
+            => CloseBraceTokenGetterFunc(wrappedObject);
 
         public readonly SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClauses
-            => ConstraintClausesFunc(wrappedObject);
+            => ConstraintClausesGetterFunc(wrappedObject);
 
         public readonly SyntaxToken Identifier
-            => IdentifierFunc(wrappedObject);
+            => IdentifierGetterFunc(wrappedObject);
 
         public readonly SyntaxToken Keyword
-            => KeywordFunc(wrappedObject);
+            => KeywordGetterFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(wrappedObject);
+            => MembersGetterFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(wrappedObject);
+            => ModifiersGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OpenBraceToken
-            => OpenBraceTokenFunc(wrappedObject);
+            => OpenBraceTokenGetterFunc(wrappedObject);
 
         public readonly ParameterListSyntax? ParameterList
-            => ParameterListFunc(wrappedObject);
+            => ParameterListGetterFunc(wrappedObject);
 
         public readonly SyntaxToken SemicolonToken
-            => SemicolonTokenFunc(wrappedObject);
+            => SemicolonTokenGetterFunc(wrappedObject);
 
         public readonly TypeParameterListSyntax? TypeParameterList
-            => TypeParameterListFunc(wrappedObject);
+            => TypeParameterListGetterFunc(wrappedObject);
 
         public static implicit operator TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
             => obj.Unwrap();

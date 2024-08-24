@@ -19,15 +19,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ImmutableArray<IAliasSymbol> AliasesDelegate(object? _obj);
-        private delegate ImmutableArray<IAliasSymbol> ExternAliasesDelegate(object? _obj);
-        private delegate ImmutableArray<ImportedNamespaceOrTypeWrapper> ImportsDelegate(object? _obj);
-        private delegate ImmutableArray<ImportedXmlNamespaceWrapper> XmlNamespacesDelegate(object? _obj);
+        private delegate ImmutableArray<IAliasSymbol> AliasesGetterDelegate(object? _obj);
+        private delegate ImmutableArray<IAliasSymbol> ExternAliasesGetterDelegate(object? _obj);
+        private delegate ImmutableArray<ImportedNamespaceOrTypeWrapper> ImportsGetterDelegate(object? _obj);
+        private delegate ImmutableArray<ImportedXmlNamespaceWrapper> XmlNamespacesGetterDelegate(object? _obj);
 
-        private static readonly AliasesDelegate AliasesFunc;
-        private static readonly ExternAliasesDelegate ExternAliasesFunc;
-        private static readonly ImportsDelegate ImportsFunc;
-        private static readonly XmlNamespacesDelegate XmlNamespacesFunc;
+        private static readonly AliasesGetterDelegate AliasesGetterFunc;
+        private static readonly ExternAliasesGetterDelegate ExternAliasesGetterFunc;
+        private static readonly ImportsGetterDelegate ImportsGetterFunc;
+        private static readonly XmlNamespacesGetterDelegate XmlNamespacesGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -35,10 +35,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AliasesFunc = LightupHelper.CreateGetAccessor<AliasesDelegate>(WrappedType, nameof(Aliases));
-            ExternAliasesFunc = LightupHelper.CreateGetAccessor<ExternAliasesDelegate>(WrappedType, nameof(ExternAliases));
-            ImportsFunc = LightupHelper.CreateGetAccessor<ImportsDelegate>(WrappedType, nameof(Imports));
-            XmlNamespacesFunc = LightupHelper.CreateGetAccessor<XmlNamespacesDelegate>(WrappedType, nameof(XmlNamespaces));
+            AliasesGetterFunc = LightupHelper.CreateGetAccessor<AliasesGetterDelegate>(WrappedType, nameof(Aliases));
+            ExternAliasesGetterFunc = LightupHelper.CreateGetAccessor<ExternAliasesGetterDelegate>(WrappedType, nameof(ExternAliases));
+            ImportsGetterFunc = LightupHelper.CreateGetAccessor<ImportsGetterDelegate>(WrappedType, nameof(Imports));
+            XmlNamespacesGetterFunc = LightupHelper.CreateGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
         }
 
         private IImportScopeWrapper(object? obj)
@@ -47,16 +47,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public readonly ImmutableArray<IAliasSymbol> Aliases
-            => AliasesFunc(wrappedObject);
+            => AliasesGetterFunc(wrappedObject);
 
         public readonly ImmutableArray<IAliasSymbol> ExternAliases
-            => ExternAliasesFunc(wrappedObject);
+            => ExternAliasesGetterFunc(wrappedObject);
 
         public readonly ImmutableArray<ImportedNamespaceOrTypeWrapper> Imports
-            => ImportsFunc(wrappedObject);
+            => ImportsGetterFunc(wrappedObject);
 
         public readonly ImmutableArray<ImportedXmlNamespaceWrapper> XmlNamespaces
-            => XmlNamespacesFunc(wrappedObject);
+            => XmlNamespacesGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

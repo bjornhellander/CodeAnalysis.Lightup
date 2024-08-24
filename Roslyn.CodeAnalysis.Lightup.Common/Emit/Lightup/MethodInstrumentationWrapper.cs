@@ -19,9 +19,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate ImmutableArray<InstrumentationKind> KindsDelegate(object? _obj);
+        private delegate ImmutableArray<InstrumentationKind> KindsGetterDelegate(object? _obj);
 
-        private static readonly KindsDelegate KindsFunc;
+        private static readonly KindsGetterDelegate KindsGetterFunc;
 
         private readonly object? wrappedObject;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KindsFunc = LightupHelper.CreateGetAccessor<KindsDelegate>(WrappedType, nameof(Kinds));
+            KindsGetterFunc = LightupHelper.CreateGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
         }
 
         private MethodInstrumentationWrapper(object? obj)
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         public readonly ImmutableArray<InstrumentationKind> Kinds
-            => KindsFunc(wrappedObject);
+            => KindsGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

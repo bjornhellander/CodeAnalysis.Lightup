@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxToken CloseBracketTokenDelegate(ExpressionSyntax? _obj);
-        private delegate SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> ElementsDelegate(ExpressionSyntax? _obj);
-        private delegate SyntaxToken OpenBracketTokenDelegate(ExpressionSyntax? _obj);
+        private delegate SyntaxToken CloseBracketTokenGetterDelegate(ExpressionSyntax? _obj);
+        private delegate SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> ElementsGetterDelegate(ExpressionSyntax? _obj);
+        private delegate SyntaxToken OpenBracketTokenGetterDelegate(ExpressionSyntax? _obj);
 
         private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate CollectionExpressionSyntaxWrapper AddElementsDelegate1(ExpressionSyntax? _obj, params CollectionElementSyntaxWrapper[] items);
@@ -29,9 +29,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate CollectionExpressionSyntaxWrapper WithElementsDelegate4(ExpressionSyntax? _obj, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements);
         private delegate CollectionExpressionSyntaxWrapper WithOpenBracketTokenDelegate5(ExpressionSyntax? _obj, SyntaxToken openBracketToken);
 
-        private static readonly CloseBracketTokenDelegate CloseBracketTokenFunc;
-        private static readonly ElementsDelegate ElementsFunc;
-        private static readonly OpenBracketTokenDelegate OpenBracketTokenFunc;
+        private static readonly CloseBracketTokenGetterDelegate CloseBracketTokenGetterFunc;
+        private static readonly ElementsGetterDelegate ElementsGetterFunc;
+        private static readonly OpenBracketTokenGetterDelegate OpenBracketTokenGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddElementsDelegate1 AddElementsFunc1;
@@ -46,9 +46,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenDelegate>(WrappedType, nameof(CloseBracketToken));
-            ElementsFunc = LightupHelper.CreateGetAccessor<ElementsDelegate>(WrappedType, nameof(Elements));
-            OpenBracketTokenFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenDelegate>(WrappedType, nameof(OpenBracketToken));
+            CloseBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            ElementsGetterFunc = LightupHelper.CreateGetAccessor<ElementsGetterDelegate>(WrappedType, nameof(Elements));
+            OpenBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddElementsFunc1 = LightupHelper.CreateMethodAccessor<AddElementsDelegate1>(WrappedType, nameof(AddElements));
@@ -64,13 +64,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxToken CloseBracketToken
-            => CloseBracketTokenFunc(wrappedObject);
+            => CloseBracketTokenGetterFunc(wrappedObject);
 
         public readonly SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> Elements
-            => ElementsFunc(wrappedObject);
+            => ElementsGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OpenBracketToken
-            => OpenBracketTokenFunc(wrappedObject);
+            => OpenBracketTokenGetterFunc(wrappedObject);
 
         public static implicit operator ExpressionSyntax?(CollectionExpressionSyntaxWrapper obj)
             => obj.Unwrap();

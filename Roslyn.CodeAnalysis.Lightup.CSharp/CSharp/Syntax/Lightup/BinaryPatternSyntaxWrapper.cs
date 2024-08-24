@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate PatternSyntax LeftDelegate(PatternSyntax? _obj);
-        private delegate SyntaxToken OperatorTokenDelegate(PatternSyntax? _obj);
-        private delegate PatternSyntax RightDelegate(PatternSyntax? _obj);
+        private delegate PatternSyntax LeftGetterDelegate(PatternSyntax? _obj);
+        private delegate SyntaxToken OperatorTokenGetterDelegate(PatternSyntax? _obj);
+        private delegate PatternSyntax RightGetterDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate BinaryPatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, PatternSyntax left, SyntaxToken operatorToken, PatternSyntax right);
@@ -28,9 +28,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate BinaryPatternSyntaxWrapper WithOperatorTokenDelegate3(PatternSyntax? _obj, SyntaxToken operatorToken);
         private delegate BinaryPatternSyntaxWrapper WithRightDelegate4(PatternSyntax? _obj, PatternSyntax right);
 
-        private static readonly LeftDelegate LeftFunc;
-        private static readonly OperatorTokenDelegate OperatorTokenFunc;
-        private static readonly RightDelegate RightFunc;
+        private static readonly LeftGetterDelegate LeftGetterFunc;
+        private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;
+        private static readonly RightGetterDelegate RightGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
@@ -44,9 +44,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftFunc = LightupHelper.CreateGetAccessor<LeftDelegate>(WrappedType, nameof(Left));
-            OperatorTokenFunc = LightupHelper.CreateGetAccessor<OperatorTokenDelegate>(WrappedType, nameof(OperatorToken));
-            RightFunc = LightupHelper.CreateGetAccessor<RightDelegate>(WrappedType, nameof(Right));
+            LeftGetterFunc = LightupHelper.CreateGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
+            OperatorTokenGetterFunc = LightupHelper.CreateGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
+            RightGetterFunc = LightupHelper.CreateGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
@@ -61,13 +61,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly PatternSyntax Left
-            => LeftFunc(wrappedObject);
+            => LeftGetterFunc(wrappedObject);
 
         public readonly SyntaxToken OperatorToken
-            => OperatorTokenFunc(wrappedObject);
+            => OperatorTokenGetterFunc(wrappedObject);
 
         public readonly PatternSyntax Right
-            => RightFunc(wrappedObject);
+            => RightGetterFunc(wrappedObject);
 
         public static implicit operator PatternSyntax?(BinaryPatternSyntaxWrapper obj)
             => obj.Unwrap();

@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IEnumerable<String> KeysDelegate(object? _obj);
+        private delegate IEnumerable<String> KeysGetterDelegate(object? _obj);
 
         private delegate Boolean TryGetValueDelegate0(object? _obj, String key, out String? value);
 
-        private static readonly KeysDelegate KeysFunc;
+        private static readonly KeysGetterDelegate KeysGetterFunc;
 
         private static readonly TryGetValueDelegate0 TryGetValueFunc0;
 
@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KeysFunc = LightupHelper.CreateGetAccessor<KeysDelegate>(WrappedType, nameof(Keys));
+            KeysGetterFunc = LightupHelper.CreateGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
 
             TryGetValueFunc0 = LightupHelper.CreateMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
         }
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public readonly IEnumerable<String> Keys
-            => KeysFunc(wrappedObject);
+            => KeysGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

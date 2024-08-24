@@ -18,11 +18,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxList<MemberDeclarationSyntax> MembersDelegate(MemberDeclarationSyntax? _obj);
-        private delegate NameSyntax NameDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxToken NamespaceKeywordDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxList<UsingDirectiveSyntax> UsingsDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<MemberDeclarationSyntax> MembersGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate NameSyntax NameGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxToken NamespaceKeywordGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<UsingDirectiveSyntax> UsingsGetterDelegate(MemberDeclarationSyntax? _obj);
 
         private delegate BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(MemberDeclarationSyntax? _obj, params AttributeListSyntax[] items);
         private delegate BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(MemberDeclarationSyntax? _obj, params ExternAliasDirectiveSyntax[] items);
@@ -37,11 +37,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeywordDelegate10(MemberDeclarationSyntax? _obj, SyntaxToken namespaceKeyword);
         private delegate BaseNamespaceDeclarationSyntaxWrapper WithUsingsDelegate11(MemberDeclarationSyntax? _obj, SyntaxList<UsingDirectiveSyntax> usings);
 
-        private static readonly ExternsDelegate ExternsFunc;
-        private static readonly MembersDelegate MembersFunc;
-        private static readonly NameDelegate NameFunc;
-        private static readonly NamespaceKeywordDelegate NamespaceKeywordFunc;
-        private static readonly UsingsDelegate UsingsFunc;
+        private static readonly ExternsGetterDelegate ExternsGetterFunc;
+        private static readonly MembersGetterDelegate MembersGetterFunc;
+        private static readonly NameGetterDelegate NameGetterFunc;
+        private static readonly NamespaceKeywordGetterDelegate NamespaceKeywordGetterFunc;
+        private static readonly UsingsGetterDelegate UsingsGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly AddExternsDelegate1 AddExternsFunc1;
@@ -62,11 +62,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExternsFunc = LightupHelper.CreateGetAccessor<ExternsDelegate>(WrappedType, nameof(Externs));
-            MembersFunc = LightupHelper.CreateGetAccessor<MembersDelegate>(WrappedType, nameof(Members));
-            NameFunc = LightupHelper.CreateGetAccessor<NameDelegate>(WrappedType, nameof(Name));
-            NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordDelegate>(WrappedType, nameof(NamespaceKeyword));
-            UsingsFunc = LightupHelper.CreateGetAccessor<UsingsDelegate>(WrappedType, nameof(Usings));
+            ExternsGetterFunc = LightupHelper.CreateGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
+            MembersGetterFunc = LightupHelper.CreateGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            NameGetterFunc = LightupHelper.CreateGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NamespaceKeywordGetterFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
+            UsingsGetterFunc = LightupHelper.CreateGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
             AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
             AddExternsFunc1 = LightupHelper.CreateMethodAccessor<AddExternsDelegate1>(WrappedType, nameof(AddExterns));
@@ -88,19 +88,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
-            => ExternsFunc(wrappedObject);
+            => ExternsGetterFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(wrappedObject);
+            => MembersGetterFunc(wrappedObject);
 
         public readonly NameSyntax Name
-            => NameFunc(wrappedObject);
+            => NameGetterFunc(wrappedObject);
 
         public readonly SyntaxToken NamespaceKeyword
-            => NamespaceKeywordFunc(wrappedObject);
+            => NamespaceKeywordGetterFunc(wrappedObject);
 
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
-            => UsingsFunc(wrappedObject);
+            => UsingsGetterFunc(wrappedObject);
 
         public static implicit operator MemberDeclarationSyntax?(BaseNamespaceDeclarationSyntaxWrapper obj)
             => obj.Unwrap();

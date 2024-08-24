@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IVariableDeclarationGroupOperation DeclarationGroupDelegate(IOperation? _obj);
-        private delegate Boolean IsAsynchronousDelegate(IOperation? _obj);
+        private delegate IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(IOperation? _obj);
+        private delegate Boolean IsAsynchronousGetterDelegate(IOperation? _obj);
 
-        private static readonly DeclarationGroupDelegate DeclarationGroupFunc;
-        private static readonly IsAsynchronousDelegate IsAsynchronousFunc;
+        private static readonly DeclarationGroupGetterDelegate DeclarationGroupGetterFunc;
+        private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclarationGroupFunc = LightupHelper.CreateGetAccessor<DeclarationGroupDelegate>(WrappedType, nameof(DeclarationGroup));
-            IsAsynchronousFunc = LightupHelper.CreateGetAccessor<IsAsynchronousDelegate>(WrappedType, nameof(IsAsynchronous));
+            DeclarationGroupGetterFunc = LightupHelper.CreateGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
+            IsAsynchronousGetterFunc = LightupHelper.CreateGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         private IUsingDeclarationOperationWrapper(IOperation? obj)
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IVariableDeclarationGroupOperation DeclarationGroup
-            => DeclarationGroupFunc(wrappedObject);
+            => DeclarationGroupGetterFunc(wrappedObject);
 
         public readonly Boolean IsAsynchronous
-            => IsAsynchronousFunc(wrappedObject);
+            => IsAsynchronousGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);

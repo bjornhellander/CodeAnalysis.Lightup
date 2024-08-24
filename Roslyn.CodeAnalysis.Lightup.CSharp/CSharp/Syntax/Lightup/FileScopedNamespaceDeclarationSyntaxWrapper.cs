@@ -18,14 +18,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxList<MemberDeclarationSyntax> MembersDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersDelegate(MemberDeclarationSyntax? _obj);
-        private delegate NameSyntax NameDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxToken NamespaceKeywordDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxToken SemicolonTokenDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxList<UsingDirectiveSyntax> UsingsDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<MemberDeclarationSyntax> MembersGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxTokenList ModifiersGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate NameSyntax NameGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxToken NamespaceKeywordGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxToken SemicolonTokenGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate SyntaxList<UsingDirectiveSyntax> UsingsGetterDelegate(MemberDeclarationSyntax? _obj);
 
         private delegate void AcceptDelegate0(MemberDeclarationSyntax? _obj, CSharpSyntaxVisitor visitor);
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate1(MemberDeclarationSyntax? _obj, params AttributeListSyntax[] items);
@@ -43,14 +43,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonTokenDelegate13(MemberDeclarationSyntax? _obj, SyntaxToken semicolonToken);
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper WithUsingsDelegate14(MemberDeclarationSyntax? _obj, SyntaxList<UsingDirectiveSyntax> usings);
 
-        private static readonly AttributeListsDelegate AttributeListsFunc;
-        private static readonly ExternsDelegate ExternsFunc;
-        private static readonly MembersDelegate MembersFunc;
-        private static readonly ModifiersDelegate ModifiersFunc;
-        private static readonly NameDelegate NameFunc;
-        private static readonly NamespaceKeywordDelegate NamespaceKeywordFunc;
-        private static readonly SemicolonTokenDelegate SemicolonTokenFunc;
-        private static readonly UsingsDelegate UsingsFunc;
+        private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
+        private static readonly ExternsGetterDelegate ExternsGetterFunc;
+        private static readonly MembersGetterDelegate MembersGetterFunc;
+        private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
+        private static readonly NameGetterDelegate NameGetterFunc;
+        private static readonly NamespaceKeywordGetterDelegate NamespaceKeywordGetterFunc;
+        private static readonly SemicolonTokenGetterDelegate SemicolonTokenGetterFunc;
+        private static readonly UsingsGetterDelegate UsingsGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly AddAttributeListsDelegate1 AddAttributeListsFunc1;
@@ -74,14 +74,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsFunc = LightupHelper.CreateGetAccessor<AttributeListsDelegate>(WrappedType, nameof(AttributeLists));
-            ExternsFunc = LightupHelper.CreateGetAccessor<ExternsDelegate>(WrappedType, nameof(Externs));
-            MembersFunc = LightupHelper.CreateGetAccessor<MembersDelegate>(WrappedType, nameof(Members));
-            ModifiersFunc = LightupHelper.CreateGetAccessor<ModifiersDelegate>(WrappedType, nameof(Modifiers));
-            NameFunc = LightupHelper.CreateGetAccessor<NameDelegate>(WrappedType, nameof(Name));
-            NamespaceKeywordFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordDelegate>(WrappedType, nameof(NamespaceKeyword));
-            SemicolonTokenFunc = LightupHelper.CreateGetAccessor<SemicolonTokenDelegate>(WrappedType, nameof(SemicolonToken));
-            UsingsFunc = LightupHelper.CreateGetAccessor<UsingsDelegate>(WrappedType, nameof(Usings));
+            AttributeListsGetterFunc = LightupHelper.CreateGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            ExternsGetterFunc = LightupHelper.CreateGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
+            MembersGetterFunc = LightupHelper.CreateGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            NameGetterFunc = LightupHelper.CreateGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NamespaceKeywordGetterFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
+            SemicolonTokenGetterFunc = LightupHelper.CreateGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            UsingsGetterFunc = LightupHelper.CreateGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
             AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
             AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
@@ -106,28 +106,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
-            => AttributeListsFunc(wrappedObject);
+            => AttributeListsGetterFunc(wrappedObject);
 
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
-            => ExternsFunc(wrappedObject);
+            => ExternsGetterFunc(wrappedObject);
 
         public readonly SyntaxList<MemberDeclarationSyntax> Members
-            => MembersFunc(wrappedObject);
+            => MembersGetterFunc(wrappedObject);
 
         public readonly SyntaxTokenList Modifiers
-            => ModifiersFunc(wrappedObject);
+            => ModifiersGetterFunc(wrappedObject);
 
         public readonly NameSyntax Name
-            => NameFunc(wrappedObject);
+            => NameGetterFunc(wrappedObject);
 
         public readonly SyntaxToken NamespaceKeyword
-            => NamespaceKeywordFunc(wrappedObject);
+            => NamespaceKeywordGetterFunc(wrappedObject);
 
         public readonly SyntaxToken SemicolonToken
-            => SemicolonTokenFunc(wrappedObject);
+            => SemicolonTokenGetterFunc(wrappedObject);
 
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
-            => UsingsFunc(wrappedObject);
+            => UsingsGetterFunc(wrappedObject);
 
         public static implicit operator MemberDeclarationSyntax?(FileScopedNamespaceDeclarationSyntaxWrapper obj)
             => obj.Unwrap();

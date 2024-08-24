@@ -19,13 +19,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         public static readonly Type? WrappedType;
 
-        private delegate IMethodSymbol? CloneMethodDelegate(IOperation? _obj);
-        private delegate IObjectOrCollectionInitializerOperation InitializerDelegate(IOperation? _obj);
-        private delegate IOperation OperandDelegate(IOperation? _obj);
+        private delegate IMethodSymbol? CloneMethodGetterDelegate(IOperation? _obj);
+        private delegate IObjectOrCollectionInitializerOperation InitializerGetterDelegate(IOperation? _obj);
+        private delegate IOperation OperandGetterDelegate(IOperation? _obj);
 
-        private static readonly CloneMethodDelegate CloneMethodFunc;
-        private static readonly InitializerDelegate InitializerFunc;
-        private static readonly OperandDelegate OperandFunc;
+        private static readonly CloneMethodGetterDelegate CloneMethodGetterFunc;
+        private static readonly InitializerGetterDelegate InitializerGetterFunc;
+        private static readonly OperandGetterDelegate OperandGetterFunc;
 
         private readonly IOperation? wrappedObject;
 
@@ -33,9 +33,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloneMethodFunc = LightupHelper.CreateGetAccessor<CloneMethodDelegate>(WrappedType, nameof(CloneMethod));
-            InitializerFunc = LightupHelper.CreateGetAccessor<InitializerDelegate>(WrappedType, nameof(Initializer));
-            OperandFunc = LightupHelper.CreateGetAccessor<OperandDelegate>(WrappedType, nameof(Operand));
+            CloneMethodGetterFunc = LightupHelper.CreateGetAccessor<CloneMethodGetterDelegate>(WrappedType, nameof(CloneMethod));
+            InitializerGetterFunc = LightupHelper.CreateGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            OperandGetterFunc = LightupHelper.CreateGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
         private IWithOperationWrapper(IOperation? obj)
@@ -44,13 +44,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public readonly IMethodSymbol? CloneMethod
-            => CloneMethodFunc(wrappedObject);
+            => CloneMethodGetterFunc(wrappedObject);
 
         public readonly IObjectOrCollectionInitializerOperation Initializer
-            => InitializerFunc(wrappedObject);
+            => InitializerGetterFunc(wrappedObject);
 
         public readonly IOperation Operand
-            => OperandFunc(wrappedObject);
+            => OperandGetterFunc(wrappedObject);
 
         public static bool Is(object? obj)
             => LightupHelper.Is(obj, WrappedType);
