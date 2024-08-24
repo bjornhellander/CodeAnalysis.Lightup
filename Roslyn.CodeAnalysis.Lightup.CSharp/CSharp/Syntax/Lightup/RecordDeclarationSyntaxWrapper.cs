@@ -33,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate TypeParameterListSyntax? TypeParameterListDelegate(TypeDeclarationSyntax? _obj);
 
         private delegate void AcceptDelegate0(TypeDeclarationSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate RecordDeclarationSyntaxWrapper AddAttributeListsDelegate1(TypeDeclarationSyntax? _obj, AttributeListSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddBaseListTypesDelegate2(TypeDeclarationSyntax? _obj, BaseTypeSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddConstraintClausesDelegate3(TypeDeclarationSyntax? _obj, TypeParameterConstraintClauseSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddMembersDelegate4(TypeDeclarationSyntax? _obj, MemberDeclarationSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddModifiersDelegate5(TypeDeclarationSyntax? _obj, SyntaxToken[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddParameterListParametersDelegate6(TypeDeclarationSyntax? _obj, ParameterSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddTypeParameterListParametersDelegate7(TypeDeclarationSyntax? _obj, TypeParameterSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddAttributeListsDelegate1(TypeDeclarationSyntax? _obj, params AttributeListSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddBaseListTypesDelegate2(TypeDeclarationSyntax? _obj, params BaseTypeSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddConstraintClausesDelegate3(TypeDeclarationSyntax? _obj, params TypeParameterConstraintClauseSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddMembersDelegate4(TypeDeclarationSyntax? _obj, params MemberDeclarationSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddModifiersDelegate5(TypeDeclarationSyntax? _obj, params SyntaxToken[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddParameterListParametersDelegate6(TypeDeclarationSyntax? _obj, params ParameterSyntax[] items);
+        private delegate RecordDeclarationSyntaxWrapper AddTypeParameterListParametersDelegate7(TypeDeclarationSyntax? _obj, params TypeParameterSyntax[] items);
         private delegate RecordDeclarationSyntaxWrapper UpdateDelegate8(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
         private delegate RecordDeclarationSyntaxWrapper UpdateDelegate9(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken classOrStructKeyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
         private delegate RecordDeclarationSyntaxWrapper WithAttributeListsDelegate10(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);

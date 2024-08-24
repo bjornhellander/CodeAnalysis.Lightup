@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate SeparatedSyntaxList<PatternSyntax> PatternsDelegate(PatternSyntax? _obj);
 
         private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate ListPatternSyntaxWrapper AddPatternsDelegate1(PatternSyntax? _obj, PatternSyntax[] items);
+        private delegate ListPatternSyntaxWrapper AddPatternsDelegate1(PatternSyntax? _obj, params PatternSyntax[] items);
         private delegate ListPatternSyntaxWrapper UpdateDelegate2(PatternSyntax? _obj, SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation);
         private delegate ListPatternSyntaxWrapper WithCloseBracketTokenDelegate3(PatternSyntax? _obj, SyntaxToken closeBracketToken);
         private delegate ListPatternSyntaxWrapper WithDesignationDelegate4(PatternSyntax? _obj, VariableDesignationSyntax? designation);

@@ -23,8 +23,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate TypeSyntax TypeDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerParameterSyntaxWrapper AddAttributeListsDelegate1(CSharpSyntaxNode? _obj, AttributeListSyntax[] items);
-        private delegate FunctionPointerParameterSyntaxWrapper AddModifiersDelegate2(CSharpSyntaxNode? _obj, SyntaxToken[] items);
+        private delegate FunctionPointerParameterSyntaxWrapper AddAttributeListsDelegate1(CSharpSyntaxNode? _obj, params AttributeListSyntax[] items);
+        private delegate FunctionPointerParameterSyntaxWrapper AddModifiersDelegate2(CSharpSyntaxNode? _obj, params SyntaxToken[] items);
         private delegate FunctionPointerParameterSyntaxWrapper UpdateDelegate3(CSharpSyntaxNode? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type);
         private delegate FunctionPointerParameterSyntaxWrapper WithAttributeListsDelegate4(CSharpSyntaxNode? _obj, SyntaxList<AttributeListSyntax> attributeLists);
         private delegate FunctionPointerParameterSyntaxWrapper WithModifiersDelegate5(CSharpSyntaxNode? _obj, SyntaxTokenList modifiers);

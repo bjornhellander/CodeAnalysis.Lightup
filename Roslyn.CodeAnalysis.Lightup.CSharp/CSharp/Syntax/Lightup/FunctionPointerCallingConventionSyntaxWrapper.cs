@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionListDelegate(CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerCallingConventionSyntaxWrapper AddUnmanagedCallingConventionListCallingConventionsDelegate1(CSharpSyntaxNode? _obj, FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items);
+        private delegate FunctionPointerCallingConventionSyntaxWrapper AddUnmanagedCallingConventionListCallingConventionsDelegate1(CSharpSyntaxNode? _obj, params FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items);
         private delegate FunctionPointerCallingConventionSyntaxWrapper UpdateDelegate2(CSharpSyntaxNode? _obj, SyntaxToken managedOrUnmanagedKeyword, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList);
         private delegate FunctionPointerCallingConventionSyntaxWrapper WithManagedOrUnmanagedKeywordDelegate3(CSharpSyntaxNode? _obj, SyntaxToken managedOrUnmanagedKeyword);
         private delegate FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionListDelegate4(CSharpSyntaxNode? _obj, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList);

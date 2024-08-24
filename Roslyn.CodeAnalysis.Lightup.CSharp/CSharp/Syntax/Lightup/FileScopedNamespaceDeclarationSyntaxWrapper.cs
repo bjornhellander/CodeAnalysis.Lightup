@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate SyntaxList<UsingDirectiveSyntax> UsingsDelegate(MemberDeclarationSyntax? _obj);
 
         private delegate void AcceptDelegate0(MemberDeclarationSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate1(MemberDeclarationSyntax? _obj, AttributeListSyntax[] items);
-        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddExternsDelegate2(MemberDeclarationSyntax? _obj, ExternAliasDirectiveSyntax[] items);
-        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddMembersDelegate3(MemberDeclarationSyntax? _obj, MemberDeclarationSyntax[] items);
-        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddModifiersDelegate4(MemberDeclarationSyntax? _obj, SyntaxToken[] items);
-        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddUsingsDelegate5(MemberDeclarationSyntax? _obj, UsingDirectiveSyntax[] items);
+        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate1(MemberDeclarationSyntax? _obj, params AttributeListSyntax[] items);
+        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddExternsDelegate2(MemberDeclarationSyntax? _obj, params ExternAliasDirectiveSyntax[] items);
+        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddMembersDelegate3(MemberDeclarationSyntax? _obj, params MemberDeclarationSyntax[] items);
+        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddModifiersDelegate4(MemberDeclarationSyntax? _obj, params SyntaxToken[] items);
+        private delegate FileScopedNamespaceDeclarationSyntaxWrapper AddUsingsDelegate5(MemberDeclarationSyntax? _obj, params UsingDirectiveSyntax[] items);
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper UpdateDelegate6(MemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken semicolonToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members);
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeListsDelegate7(MemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
         private delegate FileScopedNamespaceDeclarationSyntaxWrapper WithExternsDelegate8(MemberDeclarationSyntax? _obj, SyntaxList<ExternAliasDirectiveSyntax> externs);

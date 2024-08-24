@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate FunctionPointerParameterListSyntaxWrapper ParameterListDelegate(TypeSyntax? _obj);
 
         private delegate void AcceptDelegate0(TypeSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerTypeSyntaxWrapper AddParameterListParametersDelegate1(TypeSyntax? _obj, FunctionPointerParameterSyntaxWrapper[] items);
+        private delegate FunctionPointerTypeSyntaxWrapper AddParameterListParametersDelegate1(TypeSyntax? _obj, params FunctionPointerParameterSyntaxWrapper[] items);
         private delegate FunctionPointerTypeSyntaxWrapper UpdateDelegate2(TypeSyntax? _obj, SyntaxToken delegateKeyword, SyntaxToken asteriskToken, FunctionPointerCallingConventionSyntaxWrapper callingConvention, FunctionPointerParameterListSyntaxWrapper parameterList);
         private delegate FunctionPointerTypeSyntaxWrapper WithAsteriskTokenDelegate3(TypeSyntax? _obj, SyntaxToken asteriskToken);
         private delegate FunctionPointerTypeSyntaxWrapper WithCallingConventionDelegate4(TypeSyntax? _obj, FunctionPointerCallingConventionSyntaxWrapper callingConvention);
