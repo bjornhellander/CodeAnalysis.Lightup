@@ -54,11 +54,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken File
         {
             get => FileGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken LineKeyword
         {
             get => LineKeywordGetterFunc(wrappedObject);
@@ -79,15 +81,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public DirectiveTriviaSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
             => WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
             => WithFileFunc1(wrappedObject, file);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
             => WithHashTokenFunc2(wrappedObject, hashToken);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
             => WithLineKeywordFunc3(wrappedObject, lineKeyword);
     }

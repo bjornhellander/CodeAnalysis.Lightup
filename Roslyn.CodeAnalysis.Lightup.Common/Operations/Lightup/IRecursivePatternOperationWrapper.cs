@@ -49,26 +49,31 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ISymbol? DeclaredSymbol
         {
             get => DeclaredSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ImmutableArray<IPatternOperation> DeconstructionSubpatterns
         {
             get => DeconstructionSubpatternsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ISymbol? DeconstructSymbol
         {
             get => DeconstructSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ITypeSymbol MatchedType
         {
             get => MatchedTypeGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ImmutableArray<IPropertySubpatternOperationWrapper> PropertySubpatterns
         {
             get => PropertySubpatternsGetterFunc(wrappedObject);

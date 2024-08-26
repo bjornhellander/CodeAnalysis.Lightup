@@ -37,6 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly String Value
         {
             get => ValueGetterFunc(wrappedObject);

@@ -40,11 +40,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IOperation Left
         {
             get => LeftGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IOperation Right
         {
             get => RightGetterFunc(wrappedObject);

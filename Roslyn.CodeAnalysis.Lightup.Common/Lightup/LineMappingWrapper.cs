@@ -52,21 +52,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly Nullable<Int32> CharacterOffset
         {
             get => CharacterOffsetGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly Boolean IsHidden
         {
             get => IsHiddenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileLinePositionSpan MappedSpan
         {
             get => MappedSpanGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly LinePositionSpan Span
         {
             get => SpanGetterFunc(wrappedObject);
@@ -84,6 +88,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly Boolean Equals(LineMappingWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

@@ -57,12 +57,14 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameMatchingTypeInComments
         {
             get => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
             set => RenameMatchingTypeInCommentsSetterFunc(wrappedObject, value);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameMatchingTypeInStrings
         {
             get => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
@@ -81,9 +83,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly void Deconstruct(out Boolean RenameMatchingTypeInStrings, out Boolean RenameMatchingTypeInComments)
             => DeconstructFunc0(wrappedObject, out RenameMatchingTypeInStrings, out RenameMatchingTypeInComments);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean Equals(DocumentRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }

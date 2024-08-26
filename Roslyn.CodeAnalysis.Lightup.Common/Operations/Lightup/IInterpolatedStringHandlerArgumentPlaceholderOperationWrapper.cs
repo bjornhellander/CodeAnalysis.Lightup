@@ -40,11 +40,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Int32 ArgumentIndex
         {
             get => ArgumentIndexGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
         {
             get => PlaceholderKindGetterFunc(wrappedObject);

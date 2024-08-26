@@ -45,6 +45,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly SourceHashAlgorithm ChecksumAlgorithm
         {
             get => ChecksumAlgorithmGetterFunc(wrappedObject);
@@ -62,6 +63,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly Boolean Equals(LoadTextOptionsWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

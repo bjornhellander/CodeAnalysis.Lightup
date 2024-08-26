@@ -365,6 +365,8 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
+            Assert.IsTrue(property.AssemblyVersion != null, "Expected a version");
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
             sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {property.Name}GetterFunc(wrappedObject);");
@@ -396,6 +398,8 @@ internal class Writer
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
+            Assert.IsTrue(methodDef.AssemblyVersion != null, "Expected a version");
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
         }
@@ -534,6 +538,7 @@ internal class Writer
     {
         var result = typeDef.Properties
             .Where(x => !x.IsStatic)
+            .OrderBy(x => x.Name)
             .ToList();
         return result;
     }
@@ -550,6 +555,7 @@ internal class Writer
     {
         var result = typeDef.Methods
             .Where(x => !x.IsStatic)
+            .OrderBy(x => x.Name).ThenBy(x => x.Parameters.Count)
             .ToList();
         return result;
     }

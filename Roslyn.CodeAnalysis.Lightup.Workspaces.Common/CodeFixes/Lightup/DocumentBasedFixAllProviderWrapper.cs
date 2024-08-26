@@ -57,9 +57,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         public FixAllProvider? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly Task<CodeAction> GetFixAsync(FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly IEnumerable<FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }

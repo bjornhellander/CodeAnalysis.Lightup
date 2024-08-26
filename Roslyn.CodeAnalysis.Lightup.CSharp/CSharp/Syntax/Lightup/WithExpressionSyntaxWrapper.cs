@@ -63,16 +63,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly InitializerExpressionSyntax Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken WithKeyword
         {
             get => WithKeywordGetterFunc(wrappedObject);
@@ -93,21 +96,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly WithExpressionSyntaxWrapper AddInitializerExpressions(params ExpressionSyntax[] items)
             => AddInitializerExpressionsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly WithExpressionSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken withKeyword, InitializerExpressionSyntax initializer)
             => UpdateFunc2(wrappedObject, expression, withKeyword, initializer);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly WithExpressionSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc3(wrappedObject, expression);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly WithExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax initializer)
             => WithInitializerFunc4(wrappedObject, initializer);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly WithExpressionSyntaxWrapper WithWithKeyword(SyntaxToken withKeyword)
             => WithWithKeywordFunc5(wrappedObject, withKeyword);
     }

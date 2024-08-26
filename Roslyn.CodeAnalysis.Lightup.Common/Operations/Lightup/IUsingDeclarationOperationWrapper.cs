@@ -40,11 +40,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IVariableDeclarationGroupOperation DeclarationGroup
         {
             get => DeclarationGroupGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean IsAsynchronous
         {
             get => IsAsynchronousGetterFunc(wrappedObject);

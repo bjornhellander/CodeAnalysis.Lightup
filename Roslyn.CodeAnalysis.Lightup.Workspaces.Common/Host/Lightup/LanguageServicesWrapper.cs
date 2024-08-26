@@ -42,11 +42,13 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly String Language
         {
             get => LanguageGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SolutionServicesWrapper SolutionServices
         {
             get => SolutionServicesGetterFunc(wrappedObject);

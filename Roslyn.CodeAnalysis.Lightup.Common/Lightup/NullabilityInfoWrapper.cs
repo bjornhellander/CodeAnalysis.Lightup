@@ -46,11 +46,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly NullableAnnotationEx Annotation
         {
             get => AnnotationGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly NullableFlowStateEx FlowState
         {
             get => FlowStateGetterFunc(wrappedObject);
@@ -68,6 +70,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean Equals(NullabilityInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

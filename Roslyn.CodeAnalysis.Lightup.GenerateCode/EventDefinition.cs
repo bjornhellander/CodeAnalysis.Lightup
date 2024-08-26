@@ -3,7 +3,7 @@
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class EventDefinition
+internal class EventDefinition : MemberDefinition
 {
     public EventDefinition(string name)
     {

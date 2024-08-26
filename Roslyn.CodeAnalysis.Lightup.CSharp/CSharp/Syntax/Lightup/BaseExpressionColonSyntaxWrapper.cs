@@ -48,11 +48,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken ColonToken
         {
             get => ColonTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
@@ -73,9 +75,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
             => WithColonTokenFunc0(wrappedObject, colonToken);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc1(wrappedObject, expression);
     }

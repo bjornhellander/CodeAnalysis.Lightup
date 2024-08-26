@@ -88,15 +88,15 @@ internal class Reflector
             }
             else if (typeDef is StructTypeDefinition structTypeDef)
             {
-                UpdateStructType(structTypeDef, type);
+                UpdateStructType(structTypeDef, type, isBaselineVersion ? null : assemblyVersion);
             }
             else if (typeDef is ClassTypeDefinition classTypeDef)
             {
-                UpdateClassType(classTypeDef, type);
+                UpdateClassType(classTypeDef, type, isBaselineVersion ? null : assemblyVersion);
             }
             else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
             {
-                UpdateInterfaceType(interfaceTypeDef, type);
+                UpdateInterfaceType(interfaceTypeDef, type, isBaselineVersion ? null : assemblyVersion);
             }
             else
             {
@@ -221,14 +221,14 @@ internal class Reflector
         }
     }
 
-    private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type)
+    private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type, Version? assemblyVersion)
     {
-        UpdateType(structTypeDef, type);
+        UpdateType(structTypeDef, type, assemblyVersion);
     }
 
-    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
+    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion)
     {
-        UpdateType(classTypeDef, type);
+        UpdateType(classTypeDef, type, assemblyVersion);
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
@@ -239,20 +239,13 @@ internal class Reflector
         return result;
     }
 
-    private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type)
+    private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type, Version? assemblyVersion)
     {
-        UpdateType(interfaceTypeDef, type);
+        UpdateType(interfaceTypeDef, type, assemblyVersion);
     }
 
-    // TODO: Check which members are actually new
-    private static void UpdateType(TypeDefinition typeDef, Type type)
+    private static void UpdateType(TypeDefinition typeDef, Type type, Version? assemblyVersion)
     {
-        var fieldDefs = new List<FieldDefinition>();
-        var eventDefs = new List<EventDefinition>();
-        var propertyDefs = new List<PropertyDefinition>();
-        var indexerDefs = new List<IndexerDefinition>();
-        var methodDefs = new List<MethodDefinition>();
-
         var memberInfos = type
             .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
             .OrderBy(x => x.Name)
@@ -262,19 +255,23 @@ internal class Reflector
             switch (memberInfo)
             {
                 case FieldInfo field:
-                    fieldDefs.Add(CreateFieldDefinition(field));
+                    var fieldDef = CreateFieldDefinition(field);
+                    AddOrUpdate(typeDef.Fields, fieldDef, AreEqual, assemblyVersion);
                     break;
 
                 case EventInfo @event:
-                    eventDefs.Add(CreateEventDefinition(@event));
+                    var eventDef = CreateEventDefinition(@event);
+                    AddOrUpdate(typeDef.Events, eventDef, AreEqual, assemblyVersion);
                     break;
 
                 case PropertyInfo property when property.GetIndexParameters().Length == 0:
-                    propertyDefs.Add(CreatePropertyDefinition(property));
+                    var propertyDef = CreatePropertyDefinition(property);
+                    AddOrUpdate(typeDef.Properties, propertyDef, AreEqual, assemblyVersion);
                     break;
 
                 case PropertyInfo property:
-                    indexerDefs.Add(CreateIndexerDefinition(property));
+                    var indexerDef = CreateIndexerDefinition(property);
+                    AddOrUpdate(typeDef.Indexers, indexerDef, AreEqual, assemblyVersion);
                     break;
 
                 // TODO: Handle generic methods
@@ -285,7 +282,8 @@ internal class Reflector
                             !method.IsGenericMethod &&
                             method.GetBaseDefinition().DeclaringType != typeof(object))
                         {
-                            methodDefs.Add(CreateMethodDefinition(method));
+                            var methodDef = CreateMethodDefinition(method);
+                            AddOrUpdate(typeDef.Methods, methodDef, AreEqual, assemblyVersion);
                         }
 
                         break;
@@ -301,21 +299,27 @@ internal class Reflector
                     break;
             }
         }
+    }
 
-        typeDef.Fields.Clear();
-        typeDef.Fields.AddRange(fieldDefs);
-
-        typeDef.Events.Clear();
-        typeDef.Events.AddRange(eventDefs);
-
-        typeDef.Properties.Clear();
-        typeDef.Properties.AddRange(propertyDefs);
-
-        typeDef.Indexers.Clear();
-        typeDef.Indexers.AddRange(indexerDefs);
-
-        typeDef.Methods.Clear();
-        typeDef.Methods.AddRange(methodDefs);
+    private static void AddOrUpdate<T>(
+        List<T> memberDefs,
+        T memberDef,
+        Func<T, T, bool> areEqual,
+        Version? assemblyVersion)
+        where T : MemberDefinition
+    {
+        var equalDef = memberDefs.SingleOrDefault(x => areEqual(x, memberDef));
+        if (equalDef != null)
+        {
+            var i = memberDefs.IndexOf(equalDef);
+            memberDefs[i] = memberDef;
+            memberDef.AssemblyVersion = equalDef.AssemblyVersion;
+        }
+        else
+        {
+            memberDefs.Add(memberDef);
+            memberDef.AssemblyVersion = assemblyVersion;
+        }
     }
 
     private static FieldDefinition CreateFieldDefinition(FieldInfo field)
@@ -324,10 +328,20 @@ internal class Reflector
         return result;
     }
 
+    private static bool AreEqual(FieldDefinition x, FieldDefinition y)
+    {
+        return false;
+    }
+
     private static EventDefinition CreateEventDefinition(EventInfo @event)
     {
         var result = new EventDefinition(@event.Name);
         return result;
+    }
+
+    private static bool AreEqual(EventDefinition x, EventDefinition y)
+    {
+        return false;
     }
 
     private static PropertyDefinition CreatePropertyDefinition(PropertyInfo property)
@@ -347,6 +361,21 @@ internal class Reflector
             property.SetMethod?.IsPublic ?? false,
             accessor.IsStatic);
         return result;
+    }
+
+    private static bool AreEqual(PropertyDefinition x, PropertyDefinition y)
+    {
+        if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (!AreEqual(x.Type, y.Type))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private static IndexerDefinition CreateIndexerDefinition(PropertyInfo property)
@@ -370,6 +399,29 @@ internal class Reflector
             property.SetMethod?.IsPublic ?? false,
             accessor.IsStatic);
         return result;
+    }
+
+    private static bool AreEqual(IndexerDefinition x, IndexerDefinition y)
+    {
+        if (!AreEqual(x.Type, y.Type))
+        {
+            return false;
+        }
+
+        if (x.Parameters.Count != y.Parameters.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < x.Parameters.Count; i++)
+        {
+            if (!AreEqual(x.Parameters[i].Type, y.Parameters[i].Type))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static MethodDefinition CreateMethodDefinition(MethodInfo method)
@@ -447,6 +499,34 @@ internal class Reflector
         parameterType = properType;
     }
 
+    private static bool AreEqual(MethodDefinition x, MethodDefinition y)
+    {
+        if (x.Name != y.Name || x.IsStatic != y.IsStatic)
+        {
+            return false;
+        }
+
+        if (!AreEqual(x.ReturnType, y.ReturnType))
+        {
+            return false;
+        }
+
+        if (x.Parameters.Count != y.Parameters.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < x.Parameters.Count; i++)
+        {
+            if (!AreEqual(x.Parameters[i].Type, y.Parameters[i].Type))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private static TypeReference CreateTypeReference(Type type)
     {
         if (type.IsByRef)
@@ -493,5 +573,59 @@ internal class Reflector
 
             return new NamedTypeReference(type, type.Name, fullTypeName);
         }
+    }
+
+    private static bool AreEqual(TypeReference? x, TypeReference? y)
+    {
+        if (x == null && y == null)
+        {
+            return true;
+        }
+
+        if (x == null || y == null)
+        {
+            return false;
+        }
+
+        return x switch
+        {
+            NamedTypeReference x2 => y is NamedTypeReference y2 && AreEqual(x2, y2),
+            GenericTypeReference x2 => y is GenericTypeReference y2 && AreEqual(x2, y2),
+            ArrayTypeReference x2 => y is ArrayTypeReference y2 && AreEqual(x2, y2),
+            _ => throw new NotImplementedException(),
+        };
+    }
+
+    private static bool AreEqual(NamedTypeReference x, NamedTypeReference y)
+    {
+        return x.FullName == y.FullName;
+    }
+
+    private static bool AreEqual(GenericTypeReference x, GenericTypeReference y)
+    {
+        if (!AreEqual(x.OriginalType, y.OriginalType))
+        {
+            return false;
+        }
+
+        if (x.TypeArguments.Count != y.TypeArguments.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < x.TypeArguments.Count; i++)
+        {
+            if (!AreEqual(x.TypeArguments[i], y.TypeArguments[i]))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static bool AreEqual(ArrayTypeReference x, ArrayTypeReference y)
+    {
+        return AreEqual(x.ElementType, y.ElementType);
     }
 }

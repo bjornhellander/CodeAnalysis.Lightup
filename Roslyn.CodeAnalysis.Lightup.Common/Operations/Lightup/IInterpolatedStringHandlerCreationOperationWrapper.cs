@@ -46,21 +46,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IOperation Content
         {
             get => ContentGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean HandlerAppendCallsReturnBool
         {
             get => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IOperation HandlerCreation
         {
             get => HandlerCreationGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean HandlerCreationHasSuccessParameter
         {
             get => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);

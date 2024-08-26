@@ -39,6 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly String HintName
         {
             get => HintNameGetterFunc(wrappedObject);

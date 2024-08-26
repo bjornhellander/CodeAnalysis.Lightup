@@ -52,9 +52,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean Equals(ISymbol? x, ISymbol? y)
             => EqualsFunc0(wrappedObject, x, y);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Int32 GetHashCode(ISymbol? obj)
             => GetHashCodeFunc1(wrappedObject, obj);
     }

@@ -40,6 +40,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly ImmutableArray<InstrumentationKind> Kinds
         {
             get => KindsGetterFunc(wrappedObject);

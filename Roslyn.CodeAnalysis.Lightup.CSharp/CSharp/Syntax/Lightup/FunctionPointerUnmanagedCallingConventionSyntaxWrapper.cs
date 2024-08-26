@@ -48,6 +48,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken Name
         {
             get => NameGetterFunc(wrappedObject);
@@ -68,12 +69,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(SyntaxToken name)
             => UpdateFunc1(wrappedObject, name);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(SyntaxToken name)
             => WithNameFunc2(wrappedObject, name);
     }

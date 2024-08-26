@@ -3,7 +3,7 @@
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class FieldDefinition
+internal class FieldDefinition : MemberDefinition
 {
     public FieldDefinition(string name, bool isStatic)
     {

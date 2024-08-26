@@ -43,16 +43,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ImmutableDictionary<String, String> AnalyzerOptions
         {
             get => AnalyzerOptionsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ImmutableArray<Diagnostic> Diagnostics
         {
             get => DiagnosticsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ImmutableDictionary<String, ReportDiagnostic> TreeOptions
         {
             get => TreeOptionsGetterFunc(wrappedObject);

@@ -57,11 +57,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ArgumentListSyntax ArgumentList
         {
             get => ArgumentListGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
@@ -82,18 +84,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public BaseTypeSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper Update(TypeSyntax type, ArgumentListSyntax argumentList)
             => UpdateFunc2(wrappedObject, type, argumentList);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(ArgumentListSyntax argumentList)
             => WithArgumentListFunc3(wrappedObject, argumentList);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithType(TypeSyntax type)
             => WithTypeFunc4(wrappedObject, type);
     }

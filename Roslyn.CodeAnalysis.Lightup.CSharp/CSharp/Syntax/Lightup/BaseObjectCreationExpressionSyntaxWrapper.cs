@@ -57,16 +57,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ArgumentListSyntax? ArgumentList
         {
             get => ArgumentListGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly InitializerExpressionSyntax? Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken NewKeyword
         {
             get => NewKeywordGetterFunc(wrappedObject);
@@ -87,15 +90,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc0(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax? argumentList)
             => WithArgumentListFunc1(wrappedObject, argumentList);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax? initializer)
             => WithInitializerFunc2(wrappedObject, initializer);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BaseObjectCreationExpressionSyntaxWrapper WithNewKeyword(SyntaxToken newKeyword)
             => WithNewKeywordFunc3(wrappedObject, newKeyword);
     }

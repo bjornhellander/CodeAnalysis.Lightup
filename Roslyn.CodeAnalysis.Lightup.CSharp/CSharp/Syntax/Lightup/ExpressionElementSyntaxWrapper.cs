@@ -48,6 +48,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
@@ -68,12 +69,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly ExpressionElementSyntaxWrapper Update(ExpressionSyntax expression)
             => UpdateFunc1(wrappedObject, expression);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly ExpressionElementSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc2(wrappedObject, expression);
     }

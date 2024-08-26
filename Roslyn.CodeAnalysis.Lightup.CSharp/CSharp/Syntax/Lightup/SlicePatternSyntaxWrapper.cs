@@ -54,11 +54,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SyntaxToken DotDotToken
         {
             get => DotDotTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly PatternSyntax? Pattern
         {
             get => PatternGetterFunc(wrappedObject);
@@ -79,15 +81,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SlicePatternSyntaxWrapper Update(SyntaxToken dotDotToken, PatternSyntax? pattern)
             => UpdateFunc1(wrappedObject, dotDotToken, pattern);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SlicePatternSyntaxWrapper WithDotDotToken(SyntaxToken dotDotToken)
             => WithDotDotTokenFunc2(wrappedObject, dotDotToken);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SlicePatternSyntaxWrapper WithPattern(PatternSyntax? pattern)
             => WithPatternFunc3(wrappedObject, pattern);
     }

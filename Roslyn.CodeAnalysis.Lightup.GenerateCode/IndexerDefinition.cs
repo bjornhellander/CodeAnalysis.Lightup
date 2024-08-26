@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-internal class IndexerDefinition
+internal class IndexerDefinition : MemberDefinition
 {
     public IndexerDefinition(
         string name,

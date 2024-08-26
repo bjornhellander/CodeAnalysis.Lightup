@@ -40,11 +40,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly String Path
         {
             get => PathGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SarifVersionEx SarifVersion
         {
             get => SarifVersionGetterFunc(wrappedObject);

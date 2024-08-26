@@ -39,6 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly TextDocument Document
         {
             get => DocumentGetterFunc(wrappedObject);

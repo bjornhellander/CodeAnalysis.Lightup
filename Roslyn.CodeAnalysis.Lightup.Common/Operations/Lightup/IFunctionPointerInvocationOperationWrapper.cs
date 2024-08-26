@@ -40,11 +40,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ImmutableArray<IArgumentOperation> Arguments
         {
             get => ArgumentsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IOperation Target
         {
             get => TargetGetterFunc(wrappedObject);

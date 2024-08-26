@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-internal class MethodDefinition
+internal class MethodDefinition : MemberDefinition
 {
     public MethodDefinition(
         string name,

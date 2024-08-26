@@ -43,16 +43,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IMethodSymbol? CloneMethod
         {
             get => CloneMethodGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IObjectOrCollectionInitializerOperation Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IOperation Operand
         {
             get => OperandGetterFunc(wrappedObject);

@@ -63,16 +63,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly SyntaxToken CloseBracketToken
         {
             get => CloseBracketTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> Elements
         {
             get => ElementsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly SyntaxToken OpenBracketToken
         {
             get => OpenBracketTokenGetterFunc(wrappedObject);
@@ -93,21 +96,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly CollectionExpressionSyntaxWrapper AddElements(params CollectionElementSyntaxWrapper[] items)
             => AddElementsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly CollectionExpressionSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements, SyntaxToken closeBracketToken)
             => UpdateFunc2(wrappedObject, openBracketToken, elements, closeBracketToken);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly CollectionExpressionSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
             => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly CollectionExpressionSyntaxWrapper WithElements(SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements)
             => WithElementsFunc4(wrappedObject, elements);
 
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public readonly CollectionExpressionSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
             => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
     }

@@ -43,6 +43,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
         {
             get => GlobalConfigOptionsGetterFunc(wrappedObject);
@@ -60,6 +61,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(String sourcePath)
             => GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
     }
