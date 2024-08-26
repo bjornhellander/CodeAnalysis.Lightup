@@ -72,7 +72,7 @@ public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarati
     {
         var obj = CreateInstance();
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.ClassOrStructKeyword);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.ClassOrStructKeyword);
     }
 
     [TestMethod]

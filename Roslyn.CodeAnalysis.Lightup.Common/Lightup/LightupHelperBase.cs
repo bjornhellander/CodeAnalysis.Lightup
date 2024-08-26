@@ -133,10 +133,10 @@
 
             if (method == null)
             {
-                // TODO: InvalidOperationException instead?
+                var invalidOperationExceptionConstructor = typeof(InvalidOperationException).GetConstructor(Array.Empty<Type>());
                 var notSupportedStatement = Expression.Throw(
                     Expression.New(
-                        nullReferenceExceptionConstructor));
+                        invalidOperationExceptionConstructor));
                 expressions.Add(notSupportedStatement);
 
                 var dummyValue = Expression.Default(wrapperReturnType);
