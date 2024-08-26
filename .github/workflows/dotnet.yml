@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,5 +27,9 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build -c ${{matrix.configuration}} --no-restore
+    - name: Generate code
+      run: dotnet run -c ${{matrix.configuration}} --no-build --project Roslyn.CodeAnalysis.Lightup.GenerateCode
+    - name: Check that generated files did not change
+      run: git diff --quiet HEAD
     - name: Test
       run: dotnet test -c ${{matrix.configuration}} --no-build --verbosity normal

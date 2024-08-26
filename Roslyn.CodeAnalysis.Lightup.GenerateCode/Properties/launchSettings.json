@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Roslyn.CodeAnalysis.Lightup.GenerateCode": {
+      "commandName": "Project",
+      "commandLineArgs": "/force"
+    }
+  }
+}

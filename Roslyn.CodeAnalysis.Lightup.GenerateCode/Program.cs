@@ -1,5 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +8,13 @@ using System.Reflection;
 
 internal class Program
 {
-    private static void Main()
+    private static void Main(string[] args)
     {
+        CheckArgs(args, out var force);
+
         var rootFolder = GetRepositoryRoot();
 
-        RemoveGeneratedSourceFiles(rootFolder);
+        RemoveGeneratedSourceFiles(rootFolder, force);
 
         var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x);
 
@@ -24,6 +27,23 @@ internal class Program
         }
 
         Writer.Write(types, rootFolder);
+    }
+
+    private static void CheckArgs(string[] args, out bool force)
+    {
+        force = false;
+
+        for (var i = 0; i < args.Length; i++)
+        {
+            switch (args[i])
+            {
+                case "/force":
+                    force = true;
+                    break;
+                default:
+                    throw new InvalidOperationException("Unexpected argument");
+            }
+        }
     }
 
     private static string GetRepositoryRoot()
@@ -44,7 +64,7 @@ internal class Program
         return null;
     }
 
-    private static void RemoveGeneratedSourceFiles(string rootFolder)
+    private static void RemoveGeneratedSourceFiles(string rootFolder, bool force)
     {
         var count = 0;
 
@@ -59,7 +79,7 @@ internal class Program
             }
         }
 
-        Assert.IsTrue(count > 100, "Probably failed to remove generated source files!");
+        Assert.IsTrue(count > 100 || force, "Probably failed to remove generated source files!");
     }
 
     private static List<string> GetTestProjectNames(string rootFolder)

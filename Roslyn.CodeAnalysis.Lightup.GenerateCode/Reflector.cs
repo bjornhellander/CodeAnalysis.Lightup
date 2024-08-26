@@ -223,26 +223,12 @@ internal class Reflector
 
     private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
-        structTypeDef.Properties.Clear();
-        structTypeDef.Properties.AddRange(propertyDefs);
-
-        var methodDefs = CreateMethodDefinitions(type);
-        structTypeDef.Methods.Clear();
-        structTypeDef.Methods.AddRange(methodDefs);
+        UpdateType(structTypeDef, type);
     }
 
     private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
-        classTypeDef.Properties.Clear();
-        classTypeDef.Properties.AddRange(propertyDefs);
-
-        var methodDefs = CreateMethodDefinitions(type);
-        classTypeDef.Methods.Clear();
-        classTypeDef.Methods.AddRange(methodDefs);
+        UpdateType(classTypeDef, type);
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
@@ -255,24 +241,92 @@ internal class Reflector
 
     private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type)
     {
-        // TODO: Check which members are actually new
-        var propertyDefs = CreatePropertyDefinitions(type);
-        interfaceTypeDef.Properties.Clear();
-        interfaceTypeDef.Properties.AddRange(propertyDefs);
-
-        var methodDefs = CreateMethodDefinitions(type);
-        interfaceTypeDef.Methods.Clear();
-        interfaceTypeDef.Methods.AddRange(methodDefs);
+        UpdateType(interfaceTypeDef, type);
     }
 
-    private static List<PropertyDefinition> CreatePropertyDefinitions(Type type)
+    // TODO: Check which members are actually new
+    private static void UpdateType(TypeDefinition typeDef, Type type)
     {
-        var properties = type
+        var fieldDefs = new List<FieldDefinition>();
+        var eventDefs = new List<EventDefinition>();
+        var propertyDefs = new List<PropertyDefinition>();
+        var indexerDefs = new List<IndexerDefinition>();
+        var methodDefs = new List<MethodDefinition>();
+
+        var memberInfos = type
             .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
-            .OfType<PropertyInfo>()
             .OrderBy(x => x.Name)
             .ToList();
-        var result = properties.Select(CreatePropertyDefinition).ToList();
+        foreach (var memberInfo in memberInfos)
+        {
+            switch (memberInfo)
+            {
+                case FieldInfo field:
+                    fieldDefs.Add(CreateFieldDefinition(field));
+                    break;
+
+                case EventInfo @event:
+                    eventDefs.Add(CreateEventDefinition(@event));
+                    break;
+
+                case PropertyInfo property when property.GetIndexParameters().Length == 0:
+                    propertyDefs.Add(CreatePropertyDefinition(property));
+                    break;
+
+                case PropertyInfo property:
+                    indexerDefs.Add(CreateIndexerDefinition(property));
+                    break;
+
+                // TODO: Handle generic methods
+                // TODO: Handle methods overridden from System.Object
+                case MethodInfo method:
+                    {
+                        if (!method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
+                            !method.IsGenericMethod &&
+                            method.GetBaseDefinition().DeclaringType != typeof(object))
+                        {
+                            methodDefs.Add(CreateMethodDefinition(method));
+                        }
+
+                        break;
+                    }
+
+                // TODO: Check if we need to handle anything else
+                case ConstructorInfo:
+                case Type:
+                    break;
+
+                default:
+                    Assert.Fail($"Unexpected member type {memberInfo.GetType().Name}");
+                    break;
+            }
+        }
+
+        typeDef.Fields.Clear();
+        typeDef.Fields.AddRange(fieldDefs);
+
+        typeDef.Events.Clear();
+        typeDef.Events.AddRange(eventDefs);
+
+        typeDef.Properties.Clear();
+        typeDef.Properties.AddRange(propertyDefs);
+
+        typeDef.Indexers.Clear();
+        typeDef.Indexers.AddRange(indexerDefs);
+
+        typeDef.Methods.Clear();
+        typeDef.Methods.AddRange(methodDefs);
+    }
+
+    private static FieldDefinition CreateFieldDefinition(FieldInfo field)
+    {
+        var result = new FieldDefinition(field.Name, field.IsStatic);
+        return result;
+    }
+
+    private static EventDefinition CreateEventDefinition(EventInfo @event)
+    {
+        var result = new EventDefinition(@event.Name);
         return result;
     }
 
@@ -284,7 +338,7 @@ internal class Reflector
         var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
 
         var accessor = property.GetMethod;
-        Assert.IsTrue(accessor != null, "");
+        Assert.IsTrue(accessor != null, "Expected a getter");
 
         var result = new PropertyDefinition(
             property.Name,
@@ -295,19 +349,26 @@ internal class Reflector
         return result;
     }
 
-    private static List<MethodDefinition> CreateMethodDefinitions(Type type)
+    private static IndexerDefinition CreateIndexerDefinition(PropertyInfo property)
     {
-        // TODO: Handle generic methods
-        // TODO: Handle methods overridden from System.Object
-        var methods = type
-            .GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly)
-            .OfType<MethodInfo>()
-            .Where(x => !x.Attributes.HasFlag(MethodAttributes.SpecialName))
-            .Where(x => !x.IsGenericMethod)
-            .Where(x => x.GetBaseDefinition().DeclaringType != typeof(object))
-            .OrderBy(x => x.Name).ThenBy(x => x.GetParameters().Length)
-            .ToList();
-        var result = methods.Select(CreateMethodDefinition).ToList();
+        var typeRef = CreateTypeReference(property.PropertyType);
+
+        var nullabilityInfo = new NullabilityInfoContext().Create(property);
+        var isNullable = !property.PropertyType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
+
+        var accessor = property.GetMethod;
+        Assert.IsTrue(accessor != null, "Expected a getter");
+
+        var parameters = property.GetIndexParameters();
+        var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
+
+        var result = new IndexerDefinition(
+            property.Name,
+            typeRef,
+            isNullable,
+            parameterDefs,
+            property.SetMethod?.IsPublic ?? false,
+            accessor.IsStatic);
         return result;
     }
 
