@@ -5,10 +5,16 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeActions.Lightup;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Host;
+using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 

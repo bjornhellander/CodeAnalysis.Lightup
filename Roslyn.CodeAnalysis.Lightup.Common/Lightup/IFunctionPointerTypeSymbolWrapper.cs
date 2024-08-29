@@ -5,8 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 

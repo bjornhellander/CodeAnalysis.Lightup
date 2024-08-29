@@ -28,7 +28,7 @@ internal class Writer
 
     private static readonly HashSet<string> TypesToSkip =
     [
-        // Irrelevant types related to source generators
+        // Irrelevant new types related to source generators
         "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
         "Microsoft.CodeAnalysis.GeneratedSourceResult",
         "Microsoft.CodeAnalysis.GeneratorAttribute",
@@ -56,11 +56,17 @@ internal class Writer
         "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
         "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
 
-        // Irrelevant types related to diagnostic suppressors
+        // Irrelevant new types related to diagnostic suppressors
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
+
+        // TODO: Investigate if these updated types should be generated
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
+        "Microsoft.CodeAnalysis.ProjectInfo", // Parameter mode 'in'
+        "Microsoft.CodeAnalysis.Solution", // Parameter mode 'in'
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -138,15 +144,21 @@ internal class Writer
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (typeDef.AssemblyVersion == null)
-            {
-                // TODO: Handle updated classes as well
-                return null;
-            }
-            else if (classTypeDef.IsStatic)
+            if (classTypeDef.IsStatic)
             {
                 // TODO: Handle static classes as well
                 return null;
+            }
+            else if (typeDef.AssemblyVersion == null)
+            {
+                if (HasNewMembers(classTypeDef))
+                {
+                    return GenerateExtension(classTypeDef, typeDefs, targetNamespace);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
@@ -170,6 +182,16 @@ internal class Writer
             Assert.Fail("Unexpected type");
             return null;
         }
+    }
+
+    private static bool HasNewMembers(TypeDefinition typeDef)
+    {
+        return
+            typeDef.Fields.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Events.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Indexers.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Methods.Any(x => x.AssemblyVersion != null);
     }
 
     private static (string Name, string Source) GenerateNewEnum(
@@ -365,7 +387,6 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
-            Assert.IsTrue(property.AssemblyVersion != null, "Expected a version");
             sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
             sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
@@ -398,9 +419,137 @@ internal class Writer
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
-            Assert.IsTrue(methodDef.AssemblyVersion != null, "Expected a version");
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
+        }
+        sb.AppendLine($"    }}");
+        sb.AppendLine($"}}");
+
+        var source = sb.ToString();
+        return (targetName, source);
+    }
+
+    private static (string Name, string Source) GenerateExtension(
+        TypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
+        string targetNamespace)
+    {
+        var targetName = typeDef.Name + "Extensions";
+
+        // TODO: Handle static members
+        var instanceFields = GetInstanceFields(typeDef);
+        Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
+        // TODO: Handle events
+        // var events = GetEvents(typeDef);
+        // Assert.IsTrue(events.Count == 0, "Unexpected events");
+        var instanceProperties = GetInstanceProperties(typeDef);
+        var instanceIndexers = GetInstanceIndexers(typeDef);
+        Assert.IsTrue(instanceIndexers.Count == 0, "Unexpected indexers");
+        var instanceMethods = GetInstanceMethods(typeDef);
+
+        var baseTypeName = typeDef.Name;
+
+        var sb = new StringBuilder();
+
+        sb.AppendLine($"// <auto-generated/>");
+        sb.AppendLine();
+        sb.AppendLine($"#nullable enable");
+        sb.AppendLine();
+        AppendUsingStatements(sb, typeDef);
+        sb.AppendLine();
+        sb.AppendLine($"namespace {targetNamespace}");
+        sb.AppendLine($"{{");
+        sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"    public static class {targetName}");
+        sb.AppendLine($"    {{");
+        sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
+        sb.AppendLine();
+        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (instanceProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                AppendPropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
+            }
+        }
+        if (instanceMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                AppendMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+            }
+        }
+        if (instanceProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                sb.AppendLine($"        private static readonly {property.Name}GetterDelegate {property.Name}GetterFunc;");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
+                }
+            }
+        }
+        if (instanceMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
+            }
+        }
+        sb.AppendLine();
+        sb.AppendLine($"        static {targetName}()");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        if (instanceProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in instanceProperties)
+            {
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                }
+            }
+        }
+        if (instanceMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in instanceMethods)
+            {
+                var index = instanceMethods.IndexOf(method);
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+            }
+        }
+        sb.AppendLine($"        }}");
+        foreach (var property in instanceProperties)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this {typeDef.Name} _obj)");
+            sb.AppendLine($"            => {property.Name}GetterFunc(_obj);");
+            if (property.HasSetter)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+                sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
+                sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
+            }
+        }
+        foreach (var methodDef in instanceMethods)
+        {
+            var index = instanceMethods.IndexOf(methodDef);
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject, {GetParametersDeclText(methodDef.Parameters, typeDefs)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
         }
         sb.AppendLine($"    }}");
@@ -523,6 +672,7 @@ internal class Writer
     {
         var result = typeDef.Fields
             .Where(x => !x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
             .ToList();
         return result;
     }
@@ -530,6 +680,7 @@ internal class Writer
     private static List<EventDefinition> GetEvents(TypeDefinition typeDef)
     {
         var result = typeDef.Events
+            .Where(x => x.AssemblyVersion != null)
             .ToList();
         return result;
     }
@@ -538,6 +689,7 @@ internal class Writer
     {
         var result = typeDef.Properties
             .Where(x => !x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
             .OrderBy(x => x.Name)
             .ToList();
         return result;
@@ -547,6 +699,7 @@ internal class Writer
     {
         var result = typeDef.Indexers
             .Where(x => !x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
             .ToList();
         return result;
     }
@@ -555,6 +708,7 @@ internal class Writer
     {
         var result = typeDef.Methods
             .Where(x => !x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
             .OrderBy(x => x.Name).ThenBy(x => x.Parameters.Count)
             .ToList();
         return result;
@@ -565,28 +719,37 @@ internal class Writer
         sb.AppendLine($"using System;");
         sb.AppendLine($"using System.Collections.Generic;");
         sb.AppendLine($"using System.Collections.Immutable;");
+        sb.AppendLine($"using System.IO;");
+        sb.AppendLine($"using System.Reflection.Metadata;");
+        sb.AppendLine($"using System.Text;");
         sb.AppendLine($"using System.Threading;");
         sb.AppendLine($"using System.Threading.Tasks;");
 
         switch (typeDef.AssemblyKind)
         {
             case AssemblyKind.Common:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Emit;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
                 break;
 
             case AssemblyKind.CSharp:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 break;
 
             case AssemblyKind.Workspaces:
                 sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Diagnostics;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Host.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
                 break;
 
             case AssemblyKind.CSharpWorkspaces:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 break;
 
             default:
@@ -706,6 +869,14 @@ internal class Writer
         if (name == "object")
         {
             return "@object";
+        }
+        else if (name == "else")
+        {
+            return "@else";
+        }
+        else if (name == "finally")
+        {
+            return "@finally";
         }
         else
         {
