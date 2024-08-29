@@ -341,7 +341,12 @@ internal class Reflector
 
     private static bool AreEqual(EventDefinition x, EventDefinition y)
     {
-        return false;
+        if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private static PropertyDefinition CreatePropertyDefinition(PropertyInfo property)
