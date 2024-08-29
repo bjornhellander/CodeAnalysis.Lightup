@@ -66,6 +66,7 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
+        "Microsoft.CodeAnalysis.IOperation", // References struct OperationList
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -168,8 +169,14 @@ internal class Writer
         {
             if (typeDef.AssemblyVersion == null)
             {
-                // TODO: Handle updated interfaces as well
-                return null;
+                if (HasNewMembers(interfaceTypeDef))
+                {
+                    return GenerateExtension(interfaceTypeDef, typeDefs, targetNamespace);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
@@ -548,7 +555,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject, {GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
         }
         sb.AppendLine($"    }}");
@@ -719,6 +726,7 @@ internal class Writer
         sb.AppendLine($"using System.Collections.Generic;");
         sb.AppendLine($"using System.Collections.Immutable;");
         sb.AppendLine($"using System.IO;");
+        sb.AppendLine($"using System.Reflection;");
         sb.AppendLine($"using System.Reflection.Metadata;");
         sb.AppendLine($"using System.Text;");
         sb.AppendLine($"using System.Threading;");
