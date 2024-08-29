@@ -23,6 +23,7 @@ internal class Writer
     private static readonly Dictionary<ParameterMode, string> ParameterModeText = new()
     {
         [ParameterMode.None] = "",
+        [ParameterMode.In] = "in ",
         [ParameterMode.Out] = "out ",
     };
 
@@ -65,8 +66,6 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-        "Microsoft.CodeAnalysis.ProjectInfo", // Parameter mode 'in'
-        "Microsoft.CodeAnalysis.Solution", // Parameter mode 'in'
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -745,6 +744,7 @@ internal class Writer
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Host.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Options;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
                 break;
 
