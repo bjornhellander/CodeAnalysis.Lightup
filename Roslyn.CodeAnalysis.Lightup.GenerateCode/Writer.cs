@@ -66,7 +66,7 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-        "Microsoft.CodeAnalysis.IOperation", // References struct OperationList
+        "Microsoft.CodeAnalysis.IOperation", // References nested struct IOperation.OperationList
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -134,8 +134,14 @@ internal class Writer
         {
             if (typeDef.AssemblyVersion == null)
             {
-                // TODO: Handle updated structs as well
-                return null;
+                if (HasNewMembers(structTypeDef))
+                {
+                    return GenerateExtension(structTypeDef, typeDefs, targetNamespace);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
