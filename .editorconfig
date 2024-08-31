@@ -99,6 +99,9 @@ csharp_style_unused_value_expression_statement_preference = discard_variable:sil
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = warning
 
+# IDE0028: Simplify collection initialization
+dotnet_diagnostic.IDE0028.severity = warning
+
 # IDE0052: Remove unread private members
 dotnet_diagnostic.IDE0052.severity = warning
 
@@ -110,6 +113,9 @@ dotnet_diagnostic.IDE0059.severity = warning
 
 # IDE0130: Namespace does not match folder structure
 dotnet_diagnostic.IDE0130.severity = warning
+
+# IDE0290: Use primary constructor
+dotnet_diagnostic.IDE0290.severity = warning
 
 # IDE0300: Simplify collection initialization
 dotnet_diagnostic.IDE0300.severity = warning
@@ -187,6 +193,3 @@ dotnet_diagnostic.MSTEST0026.severity = warning
 
 # MSTEST0029: Public methods should be test methods
 dotnet_diagnostic.MSTEST0029.severity = warning
-
-# IDE0290: Use primary constructor
-dotnet_diagnostic.IDE0290.severity = warning
