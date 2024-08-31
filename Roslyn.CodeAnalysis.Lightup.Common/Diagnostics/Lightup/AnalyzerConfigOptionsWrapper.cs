@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -43,6 +48,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IEnumerable<String> Keys
         {
             get => KeysGetterFunc(wrappedObject);
@@ -60,6 +66,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean TryGetValue(String key, out String? value)
             => TryGetValueFunc0(wrappedObject, key, out value);
     }

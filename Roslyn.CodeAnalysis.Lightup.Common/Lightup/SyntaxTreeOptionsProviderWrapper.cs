@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -55,12 +60,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly GeneratedKindEx IsGenerated(SyntaxTree tree, CancellationToken cancellationToken)
             => IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean TryGetDiagnosticValue(SyntaxTree tree, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
             => TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean TryGetGlobalDiagnosticValue(String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
             => TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
     }

@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -144,66 +149,79 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BaseListSyntax? BaseList
         {
             get => BaseListGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken ClassOrStructKeyword
         {
             get => ClassOrStructKeywordGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken CloseBraceToken
         {
             get => CloseBraceTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClauses
         {
             get => ConstraintClausesGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken Identifier
         {
             get => IdentifierGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken Keyword
         {
             get => KeywordGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxList<MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken OpenBraceToken
         {
             get => OpenBraceTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly ParameterListSyntax? ParameterList
         {
             get => ParameterListGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken SemicolonToken
         {
             get => SemicolonTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly TypeParameterListSyntax? TypeParameterList
         {
             get => TypeParameterListGetterFunc(wrappedObject);
@@ -224,72 +242,95 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public TypeDeclarationSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddBaseListTypes(params BaseTypeSyntax[] items)
             => AddBaseListTypesFunc2(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddConstraintClauses(params TypeParameterConstraintClauseSyntax[] items)
             => AddConstraintClausesFunc3(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc4(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc5(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddParameterListParameters(params ParameterSyntax[] items)
             => AddParameterListParametersFunc6(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(params TypeParameterSyntax[] items)
             => AddTypeParameterListParametersFunc7(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
             => UpdateFunc8(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken classOrStructKeyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
             => UpdateFunc9(wrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc10(wrappedObject, attributeLists);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithBaseList(BaseListSyntax? baseList)
             => WithBaseListFunc11(wrappedObject, baseList);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithClassOrStructKeyword(SyntaxToken classOrStructKeyword)
             => WithClassOrStructKeywordFunc12(wrappedObject, classOrStructKeyword);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithCloseBraceToken(SyntaxToken closeBraceToken)
             => WithCloseBraceTokenFunc13(wrappedObject, closeBraceToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithConstraintClauses(SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses)
             => WithConstraintClausesFunc14(wrappedObject, constraintClauses);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithIdentifier(SyntaxToken identifier)
             => WithIdentifierFunc15(wrappedObject, identifier);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithKeyword(SyntaxToken keyword)
             => WithKeywordFunc16(wrappedObject, keyword);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
             => WithMembersFunc17(wrappedObject, members);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc18(wrappedObject, modifiers);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithOpenBraceToken(SyntaxToken openBraceToken)
             => WithOpenBraceTokenFunc19(wrappedObject, openBraceToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithParameterList(ParameterListSyntax? parameterList)
             => WithParameterListFunc20(wrappedObject, parameterList);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
             => WithSemicolonTokenFunc21(wrappedObject, semicolonToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly RecordDeclarationSyntaxWrapper WithTypeParameterList(TypeParameterListSyntax? typeParameterList)
             => WithTypeParameterListFunc22(wrappedObject, typeParameterList);
     }

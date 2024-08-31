@@ -3,7 +3,7 @@
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class PropertyDefinition
+internal class PropertyDefinition : MemberDefinition
 {
     public PropertyDefinition(string name, TypeReference type, bool isNullable, bool hasSetter, bool isStatic)
     {

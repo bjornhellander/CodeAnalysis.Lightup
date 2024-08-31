@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -54,11 +59,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly PatternSyntax Pattern
         {
             get => PatternGetterFunc(wrappedObject);
@@ -79,15 +86,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly UnaryPatternSyntaxWrapper Update(SyntaxToken operatorToken, PatternSyntax pattern)
             => UpdateFunc1(wrappedObject, operatorToken, pattern);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly UnaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
             => WithOperatorTokenFunc2(wrappedObject, operatorToken);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly UnaryPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
             => WithPatternFunc3(wrappedObject, pattern);
     }

@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -48,6 +53,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
@@ -68,12 +74,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly TypePatternSyntaxWrapper Update(TypeSyntax type)
             => UpdateFunc1(wrappedObject, type);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly TypePatternSyntaxWrapper WithType(TypeSyntax type)
             => WithTypeFunc2(wrappedObject, type);
     }

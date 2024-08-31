@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -69,21 +74,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SyntaxToken CloseBracketToken
         {
             get => CloseBracketTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly VariableDesignationSyntax? Designation
         {
             get => DesignationGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SyntaxToken OpenBracketToken
         {
             get => OpenBracketTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SeparatedSyntaxList<PatternSyntax> Patterns
         {
             get => PatternsGetterFunc(wrappedObject);
@@ -104,24 +113,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper AddPatterns(params PatternSyntax[] items)
             => AddPatternsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation)
             => UpdateFunc2(wrappedObject, openBracketToken, patterns, closeBracketToken, designation);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
             => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper WithDesignation(VariableDesignationSyntax? designation)
             => WithDesignationFunc4(wrappedObject, designation);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
             => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ListPatternSyntaxWrapper WithPatterns(SeparatedSyntaxList<PatternSyntax> patterns)
             => WithPatternsFunc6(wrappedObject, patterns);
     }

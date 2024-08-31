@@ -5,11 +5,19 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeActions.Lightup;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Host;
+using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
@@ -69,24 +77,28 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameFile
         {
             get => RenameFileGetterFunc(wrappedObject);
             set => RenameFileSetterFunc(wrappedObject, value);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameInComments
         {
             get => RenameInCommentsGetterFunc(wrappedObject);
             set => RenameInCommentsSetterFunc(wrappedObject, value);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameInStrings
         {
             get => RenameInStringsGetterFunc(wrappedObject);
             set => RenameInStringsSetterFunc(wrappedObject, value);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean RenameOverloads
         {
             get => RenameOverloadsGetterFunc(wrappedObject);
@@ -105,9 +117,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly void Deconstruct(out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile)
             => DeconstructFunc0(wrappedObject, out RenameOverloads, out RenameInStrings, out RenameInComments, out RenameFile);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean Equals(SymbolRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }

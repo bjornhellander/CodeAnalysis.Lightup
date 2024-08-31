@@ -5,11 +5,19 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeActions.Lightup;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Host;
+using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
@@ -57,9 +65,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         public FixAllProvider? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly Task<CodeAction> GetFixAsync(FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly IEnumerable<FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }

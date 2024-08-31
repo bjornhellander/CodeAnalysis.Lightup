@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -40,11 +45,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly SyntaxReference? DeclaringSyntaxReference
         {
             get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly INamespaceOrTypeSymbol NamespaceOrType
         {
             get => NamespaceOrTypeGetterFunc(wrappedObject);

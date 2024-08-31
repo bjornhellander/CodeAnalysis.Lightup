@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -46,11 +51,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly NullableAnnotationEx Annotation
         {
             get => AnnotationGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly NullableFlowStateEx FlowState
         {
             get => FlowStateGetterFunc(wrappedObject);
@@ -68,6 +75,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly Boolean Equals(NullabilityInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

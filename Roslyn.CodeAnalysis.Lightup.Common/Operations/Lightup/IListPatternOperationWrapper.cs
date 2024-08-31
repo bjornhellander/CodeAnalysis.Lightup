@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -46,21 +51,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ISymbol? DeclaredSymbol
         {
             get => DeclaredSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ISymbol? IndexerSymbol
         {
             get => IndexerSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ISymbol? LengthSymbol
         {
             get => LengthSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly ImmutableArray<IPatternOperation> Patterns
         {
             get => PatternsGetterFunc(wrappedObject);

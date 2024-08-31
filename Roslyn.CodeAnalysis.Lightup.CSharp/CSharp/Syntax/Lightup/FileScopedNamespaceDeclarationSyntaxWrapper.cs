@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -105,41 +110,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
         {
             get => ExternsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly NameSyntax Name
         {
             get => NameGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken NamespaceKeyword
         {
             get => NamespaceKeywordGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken SemicolonToken
         {
             get => SemicolonTokenGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
         {
             get => UsingsGetterFunc(wrappedObject);
@@ -160,48 +173,63 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public MemberDeclarationSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc2(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc3(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc4(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc5(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken semicolonToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members)
             => UpdateFunc6(wrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc7(wrappedObject, attributeLists);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
             => WithExternsFunc8(wrappedObject, externs);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
             => WithMembersFunc9(wrappedObject, members);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc10(wrappedObject, modifiers);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
             => WithNameFunc11(wrappedObject, name);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
             => WithNamespaceKeywordFunc12(wrappedObject, namespaceKeyword);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
             => WithSemicolonTokenFunc13(wrappedObject, semicolonToken);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
             => WithUsingsFunc14(wrappedObject, usings);
     }

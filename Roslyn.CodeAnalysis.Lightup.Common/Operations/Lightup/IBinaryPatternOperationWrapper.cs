@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -43,16 +48,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IPatternOperation LeftPattern
         {
             get => LeftPatternGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly BinaryOperatorKind OperatorKind
         {
             get => OperatorKindGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly IPatternOperation RightPattern
         {
             get => RightPatternGetterFunc(wrappedObject);

@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
@@ -87,26 +92,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
         {
             get => ExternsGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly NameSyntax Name
         {
             get => NameGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxToken NamespaceKeyword
         {
             get => NamespaceKeywordGetterFunc(wrappedObject);
         }
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
         {
             get => UsingsGetterFunc(wrappedObject);
@@ -127,39 +137,51 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public MemberDeclarationSyntax? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc1(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc2(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc3(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc4(wrappedObject, items);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc5(wrappedObject, attributeLists);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
             => WithExternsFunc6(wrappedObject, externs);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
             => WithMembersFunc7(wrappedObject, members);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc8(wrappedObject, modifiers);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
             => WithNameFunc9(wrappedObject, name);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
             => WithNamespaceKeywordFunc10(wrappedObject, namespaceKeyword);
 
+        /// <summary>Added in Roslyn version 4.0.0.0</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
             => WithUsingsFunc11(wrappedObject, usings);
     }

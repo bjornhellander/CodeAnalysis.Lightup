@@ -5,8 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
@@ -46,6 +51,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly AnalyzerConfigOptionsWrapper GlobalOptions
         {
             get => GlobalOptionsGetterFunc(wrappedObject);
@@ -63,9 +69,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly AnalyzerConfigOptionsWrapper GetOptions(SyntaxTree tree)
             => GetOptionsFunc0(wrappedObject, tree);
 
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public readonly AnalyzerConfigOptionsWrapper GetOptions(AdditionalText textFile)
             => GetOptionsFunc1(wrappedObject, textFile);
     }

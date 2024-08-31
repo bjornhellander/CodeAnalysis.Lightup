@@ -2,25 +2,20 @@
 
 using System.Collections.Generic;
 
-internal class IndexerDefinition
+// NOTE: Indexers can not be static
+internal class IndexerDefinition : MemberDefinition
 {
     public IndexerDefinition(
-        string name,
         TypeReference type,
         bool isNullable,
         List<ParameterDefinition> parameters,
-        bool hasSetter,
-        bool isStatic)
+        bool hasSetter)
     {
-        Name = name;
         Type = type;
         IsNullable = isNullable;
         Parameters = parameters;
         HasSetter = hasSetter;
-        IsStatic = isStatic;
     }
-
-    public string Name { get; }
 
     public TypeReference Type { get; }
 
@@ -29,6 +24,4 @@ internal class IndexerDefinition
     public List<ParameterDefinition> Parameters { get; }
 
     public bool HasSetter { get; }
-
-    public bool IsStatic { get; }
 }

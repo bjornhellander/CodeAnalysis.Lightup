@@ -5,11 +5,19 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeActions.Lightup;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Host;
+using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
@@ -48,6 +56,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly IEnumerable<String> SupportedLanguages
         {
             get => SupportedLanguagesGetterFunc(wrappedObject);
@@ -65,9 +74,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         public object? Unwrap()
             => wrappedObject;
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly LanguageServicesWrapper GetLanguageServices(String languageName)
             => GetLanguageServicesFunc0(wrappedObject, languageName);
 
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
         public readonly Boolean IsSupported(String languageName)
             => IsSupportedFunc1(wrappedObject, languageName);
     }
