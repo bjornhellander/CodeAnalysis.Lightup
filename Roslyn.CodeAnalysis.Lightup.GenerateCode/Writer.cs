@@ -302,8 +302,8 @@ internal class Writer
         _ = instanceConstructors;
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
-        var events = GetEvents(typeDef);
-        Assert.IsTrue(events.Count == 0, "Unexpected events");
+        var instanceEvents = GetInstanceEvents(typeDef);
+        Assert.IsTrue(instanceEvents.Count == 0, "Unexpected events");
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
         Assert.IsTrue(indexers.Count == 0, "Unexpected indexers");
@@ -460,8 +460,8 @@ internal class Writer
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
         // TODO: Handle events
-        var events = GetEvents(typeDef);
-        _ = events;
+        var instanceEvents = GetInstanceEvents(typeDef);
+        _ = instanceEvents;
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
         Assert.IsTrue(indexers.Count == 0, "Unexpected indexers");
@@ -704,9 +704,10 @@ internal class Writer
         return result;
     }
 
-    private static List<EventDefinition> GetEvents(TypeDefinition typeDef)
+    private static List<EventDefinition> GetInstanceEvents(TypeDefinition typeDef)
     {
         var result = typeDef.Events
+            .Where(x => !x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
             .ToList();
         return result;

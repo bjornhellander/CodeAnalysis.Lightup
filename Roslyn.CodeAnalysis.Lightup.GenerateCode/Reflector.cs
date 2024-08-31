@@ -400,15 +400,24 @@ internal class Reflector
         Assert.IsTrue(@event.EventHandlerType != null, "Expected an event handler type");
         var typeRef = CreateTypeReference(@event.EventHandlerType);
 
+        var method = @event.AddMethod ?? @event.RemoveMethod;
+        Assert.IsTrue(method != null, "Expected add or remove method");
+
         var result = new EventDefinition(
             @event.Name,
-            typeRef);
+            typeRef,
+            method.IsStatic);
         return result;
     }
 
     private static bool AreEqual(EventDefinition x, EventDefinition y)
     {
         if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (x.IsStatic != y.IsStatic)
         {
             return false;
         }
