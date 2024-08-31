@@ -73,7 +73,7 @@ csharp_prefer_braces = true:silent
 csharp_style_namespace_declarations = file_scoped:warning
 csharp_style_prefer_method_group_conversion = true:silent
 csharp_style_prefer_top_level_statements = true:silent
-csharp_style_prefer_primary_constructors = true:suggestion
+csharp_style_prefer_primary_constructors = false:warning
 csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_operators = false:silent
@@ -187,3 +187,6 @@ dotnet_diagnostic.MSTEST0026.severity = warning
 
 # MSTEST0029: Public methods should be test methods
 dotnet_diagnostic.MSTEST0029.severity = warning
+
+# IDE0290: Use primary constructor
+dotnet_diagnostic.IDE0290.severity = warning
