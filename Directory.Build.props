@@ -19,7 +19,7 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0-beta1.24324.1" />
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0-preview.24318.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0-preview.24324.1" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
 	</ItemGroup>
 
