@@ -332,12 +332,18 @@ internal class Reflector
         var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
 
         var result = new ConstructorDefinition(
-            parameterDefs);
+            parameterDefs,
+            constructor.IsStatic);
         return result;
     }
 
     private static bool AreEqual(ConstructorDefinition x, ConstructorDefinition y)
     {
+        if (x.IsStatic != y.IsStatic)
+        {
+            return false;
+        }
+
         if (x.Parameters.Count != y.Parameters.Count)
         {
             return false;
@@ -356,24 +362,58 @@ internal class Reflector
 
     private static FieldDefinition CreateFieldDefinition(FieldInfo field)
     {
-        var result = new FieldDefinition(field.Name, field.IsStatic);
+        var typeRef = CreateTypeReference(field.FieldType);
+
+        var nullabilityInfo = new NullabilityInfoContext().Create(field);
+        var isNullable = !field.FieldType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
+
+        var result = new FieldDefinition(
+            field.Name,
+            typeRef,
+            isNullable,
+            field.IsStatic);
         return result;
     }
 
     private static bool AreEqual(FieldDefinition x, FieldDefinition y)
     {
-        return false;
+        if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (!AreEqual(x.Type, y.Type))
+        {
+            return false;
+        }
+
+        if (x.IsStatic != y.IsStatic)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private static EventDefinition CreateEventDefinition(EventInfo @event)
     {
-        var result = new EventDefinition(@event.Name);
+        Assert.IsTrue(@event.EventHandlerType != null, "Expected an event handler type");
+        var typeRef = CreateTypeReference(@event.EventHandlerType);
+
+        var result = new EventDefinition(
+            @event.Name,
+            typeRef);
         return result;
     }
 
     private static bool AreEqual(EventDefinition x, EventDefinition y)
     {
         if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (!AreEqual(x.Type, y.Type))
         {
             return false;
         }
@@ -403,6 +443,11 @@ internal class Reflector
     private static bool AreEqual(PropertyDefinition x, PropertyDefinition y)
     {
         if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (x.IsStatic != y.IsStatic)
         {
             return false;
         }
@@ -538,7 +583,12 @@ internal class Reflector
 
     private static bool AreEqual(MethodDefinition x, MethodDefinition y)
     {
-        if (x.Name != y.Name || x.IsStatic != y.IsStatic)
+        if (x.Name != y.Name)
+        {
+            return false;
+        }
+
+        if (x.IsStatic != y.IsStatic)
         {
             return false;
         }
