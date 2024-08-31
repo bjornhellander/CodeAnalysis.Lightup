@@ -289,8 +289,12 @@ internal class Reflector
                         break;
                     }
 
+                case ConstructorInfo constructor:
+                    var constructorDef = CreateConstructorDefinition(constructor);
+                    AddOrUpdate(typeDef.Constructors, constructorDef, AreEqual, assemblyVersion);
+                    break;
+
                 // TODO: Check if we need to handle anything else
-                case ConstructorInfo:
                 case Type:
                     break;
 
@@ -320,6 +324,34 @@ internal class Reflector
             memberDefs.Add(memberDef);
             memberDef.AssemblyVersion = assemblyVersion;
         }
+    }
+
+    private static ConstructorDefinition CreateConstructorDefinition(ConstructorInfo constructor)
+    {
+        var parameters = constructor.GetParameters();
+        var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
+
+        var result = new ConstructorDefinition(
+            parameterDefs);
+        return result;
+    }
+
+    private static bool AreEqual(ConstructorDefinition x, ConstructorDefinition y)
+    {
+        if (x.Parameters.Count != y.Parameters.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < x.Parameters.Count; i++)
+        {
+            if (!AreEqual(x.Parameters[i].Type, y.Parameters[i].Type))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static FieldDefinition CreateFieldDefinition(FieldInfo field)

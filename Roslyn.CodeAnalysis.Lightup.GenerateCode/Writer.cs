@@ -199,6 +199,7 @@ internal class Writer
     private static bool HasNewMembers(TypeDefinition typeDef)
     {
         return
+            typeDef.Constructors.Any(x => x.AssemblyVersion != null) ||
             typeDef.Fields.Any(x => x.AssemblyVersion != null) ||
             typeDef.Events.Any(x => x.AssemblyVersion != null) ||
             typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
@@ -296,6 +297,9 @@ internal class Writer
         var targetName = typeDef.Name + "Wrapper";
 
         // TODO: Handle static members
+        // TODO: Handle constructors
+        var instanceConstructors = GetInstanceConstructors(typeDef);
+        _ = instanceConstructors;
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
         var events = GetEvents(typeDef);
@@ -450,11 +454,14 @@ internal class Writer
         var targetName = typeDef.Name + "Extensions";
 
         // TODO: Handle static members
+        // TODO: Handle constructors
+        var instanceConstructors = GetInstanceConstructors(typeDef);
+        _ = instanceConstructors;
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
         // TODO: Handle events
-        // var events = GetEvents(typeDef);
-        // Assert.IsTrue(events.Count == 0, "Unexpected events");
+        var events = GetEvents(typeDef);
+        _ = events;
         var instanceProperties = GetInstanceProperties(typeDef);
         var instanceIndexers = GetInstanceIndexers(typeDef);
         Assert.IsTrue(instanceIndexers.Count == 0, "Unexpected indexers");
@@ -678,6 +685,14 @@ internal class Writer
 
             return false;
         }
+    }
+
+    private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
+    {
+        var result = typeDef.Constructors
+            .Where(x => x.AssemblyVersion != null)
+            .ToList();
+        return result;
     }
 
     private static List<FieldDefinition> GetInstanceFields(TypeDefinition typeDef)

@@ -17,6 +17,8 @@ internal abstract class TypeDefinition : BaseTypeDefinition
     {
     }
 
+    public List<ConstructorDefinition> Constructors { get; } = new();
+
     public List<FieldDefinition> Fields { get; } = new();
 
     public List<EventDefinition> Events { get; } = new();
