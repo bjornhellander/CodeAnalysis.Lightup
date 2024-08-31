@@ -474,12 +474,10 @@ internal class Reflector
         var parameterDefs = parameters.Select(CreateParameterDefinitions).ToList();
 
         var result = new IndexerDefinition(
-            property.Name,
             typeRef,
             isNullable,
             parameterDefs,
-            property.SetMethod?.IsPublic ?? false,
-            accessor.IsStatic);
+            property.SetMethod?.IsPublic ?? false);
         return result;
     }
 
