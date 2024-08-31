@@ -645,7 +645,7 @@ internal class Reflector
             var originalType = type.GetGenericTypeDefinition();
             var originalTypeRef = CreateTypeReference(originalType);
 
-            var typeName = type.Name.Substring(0, type.Name.IndexOf('`'));
+            var typeName = type.Name[..type.Name.IndexOf('`')];
 
             var typeArgumentsRefs = type.GenericTypeArguments.Select(CreateTypeReference).ToList();
 
@@ -653,7 +653,7 @@ internal class Reflector
         }
         else if (type.IsGenericType)
         {
-            var typeName = type.Name.Substring(0, type.Name.IndexOf('`'));
+            var typeName = type.Name[..type.Name.IndexOf('`')];
 
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
