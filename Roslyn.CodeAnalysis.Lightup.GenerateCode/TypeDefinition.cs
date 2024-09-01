@@ -17,15 +17,15 @@ internal abstract class TypeDefinition : BaseTypeDefinition
     {
     }
 
-    public List<ConstructorDefinition> Constructors { get; } = new();
+    public List<ConstructorDefinition> Constructors { get; } = [];
 
-    public List<FieldDefinition> Fields { get; } = new();
+    public List<FieldDefinition> Fields { get; } = [];
 
-    public List<EventDefinition> Events { get; } = new();
+    public List<EventDefinition> Events { get; } = [];
 
-    public List<PropertyDefinition> Properties { get; } = new();
+    public List<PropertyDefinition> Properties { get; } = [];
 
-    public List<IndexerDefinition> Indexers { get; } = new();
+    public List<IndexerDefinition> Indexers { get; } = [];
 
-    public List<MethodDefinition> Methods { get; } = new();
+    public List<MethodDefinition> Methods { get; } = [];
 }
