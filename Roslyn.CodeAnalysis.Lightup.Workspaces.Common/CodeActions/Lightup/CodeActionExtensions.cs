@@ -31,17 +31,48 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
         private delegate CodeActionPriorityEx PriorityGetterDelegate(CodeAction? _obj);
 
+        private delegate CodeAction CreateDelegate0(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable);
+        private delegate CodeAction CreateDelegate1(String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority);
+        private delegate CodeAction CreateDelegate2(String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority);
+        private delegate CodeAction CreateDelegate3(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority);
+
         private static readonly PriorityGetterDelegate PriorityGetterFunc;
+
+        private static readonly CreateDelegate0 CreateFunc0;
+        private static readonly CreateDelegate1 CreateFunc1;
+        private static readonly CreateDelegate2 CreateFunc2;
+        private static readonly CreateDelegate3 CreateFunc3;
 
         static CodeActionExtensions()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
             PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(WrappedType, nameof(Priority));
+
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(WrappedType, nameof(Create));
+            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(WrappedType, nameof(Create));
+            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(WrappedType, nameof(Create));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
         public static CodeActionPriorityEx Priority(this CodeAction _obj)
             => PriorityGetterFunc(_obj);
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static CodeAction Create(this CodeAction wrappedObject, String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable)
+            => CreateFunc0(title, nestedActions, isInlinable);
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        public static CodeAction Create(this CodeAction wrappedObject, String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority)
+            => CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        public static CodeAction Create(this CodeAction wrappedObject, String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority)
+            => CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        public static CodeAction Create(this CodeAction wrappedObject, String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority)
+            => CreateFunc3(title, nestedActions, isInlinable, priority);
     }
 }

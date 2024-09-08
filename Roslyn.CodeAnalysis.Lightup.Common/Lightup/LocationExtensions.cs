@@ -25,9 +25,19 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate Location CreateDelegate0(String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan);
+
+        private static readonly CreateDelegate0 CreateFunc0;
+
         static LocationExtensions()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        public static Location Create(this Location wrappedObject, String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan)
+            => CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
     }
 }

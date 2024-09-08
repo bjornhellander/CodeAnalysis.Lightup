@@ -570,7 +570,6 @@ internal class Writer
     {
         var targetName = typeDef.Name + "Extensions";
 
-        // TODO: Handle static members
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
         _ = instanceConstructors;
@@ -588,6 +587,7 @@ internal class Writer
         var indexers = GetIndexers(typeDef);
         Assert.IsTrue(indexers.Count == 0, "Unexpected indexers");
         var instanceMethods = GetInstanceMethods(typeDef);
+        var staticMethods = GetStaticMethods(typeDef);
 
         var baseTypeName = typeDef.Name;
 
@@ -623,6 +623,15 @@ internal class Writer
                 AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
             }
         }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                AppendStaticMethodDelegateDeclaration(sb, method, index, typeDefs);
+            }
+        }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
@@ -654,6 +663,15 @@ internal class Writer
                 {
                     sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
                 }
+            }
+        }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
         if (instanceMethods.Count != 0)
@@ -693,6 +711,15 @@ internal class Writer
                 }
             }
         }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+            }
+        }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
@@ -730,6 +757,14 @@ internal class Writer
                 sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
             }
+        }
+        foreach (var methodDef in staticMethods)
+        {
+            var index = staticMethods.IndexOf(methodDef);
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
         }
         foreach (var methodDef in instanceMethods)
         {

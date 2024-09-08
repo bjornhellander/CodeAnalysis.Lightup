@@ -31,17 +31,27 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate IReadOnlyList<AnalyzerReference> AnalyzerReferencesGetterDelegate(SolutionInfo? _obj);
 
+        private delegate SolutionInfo CreateDelegate0(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences);
+
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
+
+        private static readonly CreateDelegate0 CreateFunc0;
 
         static SolutionInfoExtensions()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
             AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
+
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this SolutionInfo _obj)
             => AnalyzerReferencesGetterFunc(_obj);
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static SolutionInfo Create(this SolutionInfo wrappedObject, SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
+            => CreateFunc0(id, version, filePath, projects, analyzerReferences);
     }
 }
