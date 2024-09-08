@@ -43,10 +43,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConditionalAccessExpressionFunc0 = LightupHelper.CreateMethodAccessor<ConditionalAccessExpressionDelegate0>(WrappedType, nameof(ConditionalAccessExpression));
-            ElementBindingExpressionFunc1 = LightupHelper.CreateMethodAccessor<ElementBindingExpressionDelegate1>(WrappedType, nameof(ElementBindingExpression));
-            ElementBindingExpressionFunc2 = LightupHelper.CreateMethodAccessor<ElementBindingExpressionDelegate2>(WrappedType, nameof(ElementBindingExpression));
-            MemberBindingExpressionFunc3 = LightupHelper.CreateMethodAccessor<MemberBindingExpressionDelegate3>(WrappedType, nameof(MemberBindingExpression));
+            ConditionalAccessExpressionFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(WrappedType, nameof(ConditionalAccessExpression));
+            ElementBindingExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(WrappedType, nameof(ElementBindingExpression));
+            ElementBindingExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(WrappedType, nameof(ElementBindingExpression));
+            MemberBindingExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(WrappedType, nameof(MemberBindingExpression));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

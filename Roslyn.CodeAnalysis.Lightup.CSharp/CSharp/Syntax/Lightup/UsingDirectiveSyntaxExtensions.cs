@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -47,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalKeywordGetterFunc = LightupHelper.CreateGetAccessor<GlobalKeywordGetterDelegate>(WrappedType, nameof(GlobalKeyword));
-            NamespaceOrTypeGetterFunc = LightupHelper.CreateGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
-            UnsafeKeywordGetterFunc = LightupHelper.CreateGetAccessor<UnsafeKeywordGetterDelegate>(WrappedType, nameof(UnsafeKeyword));
+            GlobalKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalKeywordGetterDelegate>(WrappedType, nameof(GlobalKeyword));
+            NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
+            UnsafeKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(WrappedType, nameof(UnsafeKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithGlobalKeywordFunc2 = LightupHelper.CreateMethodAccessor<WithGlobalKeywordDelegate2>(WrappedType, nameof(WithGlobalKeyword));
-            WithNamespaceOrTypeFunc3 = LightupHelper.CreateMethodAccessor<WithNamespaceOrTypeDelegate3>(WrappedType, nameof(WithNamespaceOrType));
-            WithUnsafeKeywordFunc4 = LightupHelper.CreateMethodAccessor<WithUnsafeKeywordDelegate4>(WrappedType, nameof(WithUnsafeKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(WrappedType, nameof(WithGlobalKeyword));
+            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(WrappedType, nameof(WithNamespaceOrType));
+            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(WrappedType, nameof(WithUnsafeKeyword));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

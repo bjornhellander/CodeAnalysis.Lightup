@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExhaustiveGetterFunc = LightupHelper.CreateGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
+            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

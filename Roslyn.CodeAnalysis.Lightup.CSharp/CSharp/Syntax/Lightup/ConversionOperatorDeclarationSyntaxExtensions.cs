@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -45,14 +46,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
-            ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(WrappedType, nameof(ExplicitInterfaceSpecifier));
+            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
+            ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(WrappedType, nameof(ExplicitInterfaceSpecifier));
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithCheckedKeywordFunc3 = LightupHelper.CreateMethodAccessor<WithCheckedKeywordDelegate3>(WrappedType, nameof(WithCheckedKeyword));
-            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(WrappedType, nameof(WithExplicitInterfaceSpecifier));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(WrappedType, nameof(WithCheckedKeyword));
+            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(WrappedType, nameof(WithExplicitInterfaceSpecifier));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

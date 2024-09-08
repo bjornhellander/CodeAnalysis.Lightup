@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -38,10 +39,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
-            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(WrappedType, nameof(SyntaxTreeOptionsProvider));
+            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
+            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(WrappedType, nameof(SyntaxTreeOptionsProvider));
 
-            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
+            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

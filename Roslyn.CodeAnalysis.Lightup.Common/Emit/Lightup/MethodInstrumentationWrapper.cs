@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KindsGetterFunc = LightupHelper.CreateGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
-            KindsSetterFunc = LightupHelper.CreateSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
+            KindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
+            KindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
         }
 
         private MethodInstrumentationWrapper(object? obj)

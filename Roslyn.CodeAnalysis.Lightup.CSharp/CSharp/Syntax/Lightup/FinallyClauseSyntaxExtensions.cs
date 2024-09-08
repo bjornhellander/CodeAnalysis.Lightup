@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -31,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

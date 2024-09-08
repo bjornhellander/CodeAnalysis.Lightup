@@ -81,29 +81,29 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerReferencesGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
-            ServicesGetterFunc = LightupHelper.CreateGetAccessor<ServicesGetterDelegate>(WrappedType, nameof(Services));
+            AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
+            ServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(WrappedType, nameof(Services));
 
-            AddAdditionalDocumentsFunc0 = LightupHelper.CreateMethodAccessor<AddAdditionalDocumentsDelegate0>(WrappedType, nameof(AddAdditionalDocuments));
-            AddAnalyzerConfigDocumentFunc1 = LightupHelper.CreateMethodAccessor<AddAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(AddAnalyzerConfigDocument));
-            AddAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateMethodAccessor<AddAnalyzerConfigDocumentsDelegate2>(WrappedType, nameof(AddAnalyzerConfigDocuments));
-            AddAnalyzerReferenceFunc3 = LightupHelper.CreateMethodAccessor<AddAnalyzerReferenceDelegate3>(WrappedType, nameof(AddAnalyzerReference));
-            AddAnalyzerReferencesFunc4 = LightupHelper.CreateMethodAccessor<AddAnalyzerReferencesDelegate4>(WrappedType, nameof(AddAnalyzerReferences));
-            ContainsAnalyzerConfigDocumentFunc5 = LightupHelper.CreateMethodAccessor<ContainsAnalyzerConfigDocumentDelegate5>(WrappedType, nameof(ContainsAnalyzerConfigDocument));
-            GetAnalyzerConfigDocumentFunc6 = LightupHelper.CreateMethodAccessor<GetAnalyzerConfigDocumentDelegate6>(WrappedType, nameof(GetAnalyzerConfigDocument));
-            GetSourceGeneratedDocumentAsyncFunc7 = LightupHelper.CreateMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate7>(WrappedType, nameof(GetSourceGeneratedDocumentAsync));
-            RemoveAdditionalDocumentsFunc8 = LightupHelper.CreateMethodAccessor<RemoveAdditionalDocumentsDelegate8>(WrappedType, nameof(RemoveAdditionalDocuments));
-            RemoveAnalyzerConfigDocumentFunc9 = LightupHelper.CreateMethodAccessor<RemoveAnalyzerConfigDocumentDelegate9>(WrappedType, nameof(RemoveAnalyzerConfigDocument));
-            RemoveAnalyzerConfigDocumentsFunc10 = LightupHelper.CreateMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate10>(WrappedType, nameof(RemoveAnalyzerConfigDocuments));
-            RemoveAnalyzerReferenceFunc11 = LightupHelper.CreateMethodAccessor<RemoveAnalyzerReferenceDelegate11>(WrappedType, nameof(RemoveAnalyzerReference));
-            RemoveDocumentsFunc12 = LightupHelper.CreateMethodAccessor<RemoveDocumentsDelegate12>(WrappedType, nameof(RemoveDocuments));
-            WithAnalyzerConfigDocumentTextFunc13 = LightupHelper.CreateMethodAccessor<WithAnalyzerConfigDocumentTextDelegate13>(WrappedType, nameof(WithAnalyzerConfigDocumentText));
-            WithAnalyzerConfigDocumentTextFunc14 = LightupHelper.CreateMethodAccessor<WithAnalyzerConfigDocumentTextDelegate14>(WrappedType, nameof(WithAnalyzerConfigDocumentText));
-            WithAnalyzerConfigDocumentTextLoaderFunc15 = LightupHelper.CreateMethodAccessor<WithAnalyzerConfigDocumentTextLoaderDelegate15>(WrappedType, nameof(WithAnalyzerConfigDocumentTextLoader));
-            WithAnalyzerReferencesFunc16 = LightupHelper.CreateMethodAccessor<WithAnalyzerReferencesDelegate16>(WrappedType, nameof(WithAnalyzerReferences));
-            WithOptionsFunc17 = LightupHelper.CreateMethodAccessor<WithOptionsDelegate17>(WrappedType, nameof(WithOptions));
-            WithProjectCompilationOutputInfoFunc18 = LightupHelper.CreateMethodAccessor<WithProjectCompilationOutputInfoDelegate18>(WrappedType, nameof(WithProjectCompilationOutputInfo));
-            WithProjectDefaultNamespaceFunc19 = LightupHelper.CreateMethodAccessor<WithProjectDefaultNamespaceDelegate19>(WrappedType, nameof(WithProjectDefaultNamespace));
+            AddAdditionalDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAdditionalDocumentsDelegate0>(WrappedType, nameof(AddAdditionalDocuments));
+            AddAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(AddAnalyzerConfigDocument));
+            AddAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentsDelegate2>(WrappedType, nameof(AddAnalyzerConfigDocuments));
+            AddAnalyzerReferenceFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerReferenceDelegate3>(WrappedType, nameof(AddAnalyzerReference));
+            AddAnalyzerReferencesFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerReferencesDelegate4>(WrappedType, nameof(AddAnalyzerReferences));
+            ContainsAnalyzerConfigDocumentFunc5 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate5>(WrappedType, nameof(ContainsAnalyzerConfigDocument));
+            GetAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate6>(WrappedType, nameof(GetAnalyzerConfigDocument));
+            GetSourceGeneratedDocumentAsyncFunc7 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate7>(WrappedType, nameof(GetSourceGeneratedDocumentAsync));
+            RemoveAdditionalDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate8>(WrappedType, nameof(RemoveAdditionalDocuments));
+            RemoveAnalyzerConfigDocumentFunc9 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate9>(WrappedType, nameof(RemoveAnalyzerConfigDocument));
+            RemoveAnalyzerConfigDocumentsFunc10 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate10>(WrappedType, nameof(RemoveAnalyzerConfigDocuments));
+            RemoveAnalyzerReferenceFunc11 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerReferenceDelegate11>(WrappedType, nameof(RemoveAnalyzerReference));
+            RemoveDocumentsFunc12 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate12>(WrappedType, nameof(RemoveDocuments));
+            WithAnalyzerConfigDocumentTextFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate13>(WrappedType, nameof(WithAnalyzerConfigDocumentText));
+            WithAnalyzerConfigDocumentTextFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate14>(WrappedType, nameof(WithAnalyzerConfigDocumentText));
+            WithAnalyzerConfigDocumentTextLoaderFunc15 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextLoaderDelegate15>(WrappedType, nameof(WithAnalyzerConfigDocumentTextLoader));
+            WithAnalyzerReferencesFunc16 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerReferencesDelegate16>(WrappedType, nameof(WithAnalyzerReferences));
+            WithOptionsFunc17 = LightupHelper.CreateInstanceMethodAccessor<WithOptionsDelegate17>(WrappedType, nameof(WithOptions));
+            WithProjectCompilationOutputInfoFunc18 = LightupHelper.CreateInstanceMethodAccessor<WithProjectCompilationOutputInfoDelegate18>(WrappedType, nameof(WithProjectCompilationOutputInfo));
+            WithProjectDefaultNamespaceFunc19 = LightupHelper.CreateInstanceMethodAccessor<WithProjectDefaultNamespaceDelegate19>(WrappedType, nameof(WithProjectDefaultNamespace));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

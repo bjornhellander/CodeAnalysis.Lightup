@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -40,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolGetterFunc = LightupHelper.CreateGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
-            IndexerSymbolGetterFunc = LightupHelper.CreateGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
-            LengthSymbolGetterFunc = LightupHelper.CreateGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
-            PatternsGetterFunc = LightupHelper.CreateGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
+            DeclaredSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
+            IndexerSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            LengthSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
+            PatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
         }
 
         private IListPatternOperationWrapper(IPatternOperation? obj)

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ElementNullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<ElementNullableAnnotationGetterDelegate>(WrappedType, nameof(ElementNullableAnnotation));
+            ElementNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementNullableAnnotationGetterDelegate>(WrappedType, nameof(ElementNullableAnnotation));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

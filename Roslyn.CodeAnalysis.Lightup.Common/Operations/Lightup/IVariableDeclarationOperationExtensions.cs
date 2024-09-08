@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IgnoredDimensionsGetterFunc = LightupHelper.CreateGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
+            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

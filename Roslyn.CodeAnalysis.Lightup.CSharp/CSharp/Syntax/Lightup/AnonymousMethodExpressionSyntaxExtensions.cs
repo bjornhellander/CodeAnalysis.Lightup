@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -47,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionBodyGetterFunc = LightupHelper.CreateGetAccessor<ExpressionBodyGetterDelegate>(WrappedType, nameof(ExpressionBody));
-            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            ExpressionBodyGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(WrappedType, nameof(ExpressionBody));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
-            AddModifiersFunc1 = LightupHelper.CreateMethodAccessor<AddModifiersDelegate1>(WrappedType, nameof(AddModifiers));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            UpdateFunc3 = LightupHelper.CreateMethodAccessor<UpdateDelegate3>(WrappedType, nameof(Update));
-            WithExpressionBodyFunc4 = LightupHelper.CreateMethodAccessor<WithExpressionBodyDelegate4>(WrappedType, nameof(WithExpressionBody));
-            WithModifiersFunc5 = LightupHelper.CreateMethodAccessor<WithModifiersDelegate5>(WrappedType, nameof(WithModifiers));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
+            AddModifiersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(WrappedType, nameof(AddModifiers));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            UpdateFunc3 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate3>(WrappedType, nameof(Update));
+            WithExpressionBodyFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate4>(WrappedType, nameof(WithExpressionBody));
+            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(WrappedType, nameof(WithModifiers));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

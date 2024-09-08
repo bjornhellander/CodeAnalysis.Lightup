@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PathGetterFunc = LightupHelper.CreateGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
-            SarifVersionGetterFunc = LightupHelper.CreateGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
+            PathGetterFunc = LightupHelper.CreateInstanceGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
+            SarifVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
         }
 
         private ErrorLogOptionsWrapper(object? obj)

@@ -29,6 +29,11 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate DeclarationModifiers ExternGetterDelegate();
+        private delegate DeclarationModifiers FileGetterDelegate();
+        private delegate DeclarationModifiers RequiredGetterDelegate();
+        private delegate DeclarationModifiers VolatileGetterDelegate();
+
         private delegate Boolean IsExternGetterDelegate(DeclarationModifiers? _obj);
         private delegate Boolean IsFileGetterDelegate(DeclarationModifiers? _obj);
         private delegate Boolean IsRequiredGetterDelegate(DeclarationModifiers? _obj);
@@ -39,6 +44,11 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate DeclarationModifiers WithIsRefDelegate2(DeclarationModifiers? _obj, Boolean isRef);
         private delegate DeclarationModifiers WithIsRequiredDelegate3(DeclarationModifiers? _obj, Boolean isRequired);
         private delegate DeclarationModifiers WithIsVolatileDelegate4(DeclarationModifiers? _obj, Boolean isVolatile);
+
+        private static readonly ExternGetterDelegate ExternGetterFunc;
+        private static readonly FileGetterDelegate FileGetterFunc;
+        private static readonly RequiredGetterDelegate RequiredGetterFunc;
+        private static readonly VolatileGetterDelegate VolatileGetterFunc;
 
         private static readonly IsExternGetterDelegate IsExternGetterFunc;
         private static readonly IsFileGetterDelegate IsFileGetterFunc;
@@ -55,17 +65,38 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExternGetterFunc = LightupHelper.CreateGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
-            IsFileGetterFunc = LightupHelper.CreateGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
-            IsRequiredGetterFunc = LightupHelper.CreateGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            IsVolatileGetterFunc = LightupHelper.CreateGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
+            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(WrappedType, nameof(Extern));
+            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
+            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(WrappedType, nameof(Required));
+            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(WrappedType, nameof(Volatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
-            WithIsFileFunc1 = LightupHelper.CreateMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
-            WithIsRefFunc2 = LightupHelper.CreateMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
-            WithIsRequiredFunc3 = LightupHelper.CreateMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
-            WithIsVolatileFunc4 = LightupHelper.CreateMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
+            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
+            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
+            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
+
+            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
+            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
+            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
+            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
+            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
         }
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static DeclarationModifiers Extern()
+            => ExternGetterFunc();
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        public static DeclarationModifiers File()
+            => FileGetterFunc();
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        public static DeclarationModifiers Required()
+            => RequiredGetterFunc();
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static DeclarationModifiers Volatile()
+            => VolatileGetterFunc();
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
         public static Boolean IsExtern(this DeclarationModifiers _obj)

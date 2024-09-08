@@ -5,7 +5,12 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 internal class FieldDefinition : MemberDefinition
 {
-    public FieldDefinition(string name, TypeReference type, bool isNullable, bool isStatic)
+    public FieldDefinition(
+        string name,
+        TypeReference type,
+        bool isNullable,
+        bool isReadOnly,
+        bool isStatic)
     {
         Name = name;
         Type = type;
@@ -18,6 +23,8 @@ internal class FieldDefinition : MemberDefinition
     public TypeReference Type { get; }
 
     public bool IsNullable { get; }
+
+    public bool IsReadOnly { get; }
 
     public bool IsStatic { get; }
 }

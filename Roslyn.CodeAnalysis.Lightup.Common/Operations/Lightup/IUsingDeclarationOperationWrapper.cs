@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclarationGroupGetterFunc = LightupHelper.CreateGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
-            IsAsynchronousGetterFunc = LightupHelper.CreateGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            DeclarationGroupGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         private IUsingDeclarationOperationWrapper(IOperation? obj)

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -34,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SignatureGetterFunc = LightupHelper.CreateGetAccessor<SignatureGetterDelegate>(WrappedType, nameof(Signature));
+            SignatureGetterFunc = LightupHelper.CreateInstanceGetAccessor<SignatureGetterDelegate>(WrappedType, nameof(Signature));
         }
 
         private IFunctionPointerTypeSymbolWrapper(ITypeSymbol? obj)

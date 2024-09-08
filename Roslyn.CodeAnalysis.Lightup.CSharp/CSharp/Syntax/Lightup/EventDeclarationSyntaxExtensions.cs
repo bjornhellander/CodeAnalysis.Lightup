@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SemicolonTokenGetterFunc = LightupHelper.CreateGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithSemicolonTokenFunc2 = LightupHelper.CreateMethodAccessor<WithSemicolonTokenDelegate2>(WrappedType, nameof(WithSemicolonToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(WrappedType, nameof(WithSemicolonToken));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

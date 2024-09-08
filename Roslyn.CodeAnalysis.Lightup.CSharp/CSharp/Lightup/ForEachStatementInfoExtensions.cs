@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -31,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

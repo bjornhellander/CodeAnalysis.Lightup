@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -38,9 +39,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalConfigOptionsGetterFunc = LightupHelper.CreateGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
+            GlobalConfigOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
 
-            GetOptionsForSourcePathFunc0 = LightupHelper.CreateMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, nameof(GetOptionsForSourcePath));
+            GetOptionsForSourcePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, nameof(GetOptionsForSourcePath));
         }
 
         private AnalyzerConfigSetWrapper(object? obj)

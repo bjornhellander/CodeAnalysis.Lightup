@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MemberGetterFunc = LightupHelper.CreateGetAccessor<MemberGetterDelegate>(WrappedType, nameof(Member));
-            PatternGetterFunc = LightupHelper.CreateGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
+            MemberGetterFunc = LightupHelper.CreateInstanceGetAccessor<MemberGetterDelegate>(WrappedType, nameof(Member));
+            PatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
         }
 
         private IPropertySubpatternOperationWrapper(IOperation? obj)

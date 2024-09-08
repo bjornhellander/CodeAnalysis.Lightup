@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -41,11 +42,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ColonTokenGetterFunc = LightupHelper.CreateGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
-            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            ColonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
+            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
-            WithColonTokenFunc0 = LightupHelper.CreateMethodAccessor<WithColonTokenDelegate0>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc1 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate1>(WrappedType, nameof(WithExpression));
+            WithColonTokenFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, nameof(WithColonToken));
+            WithExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate1>(WrappedType, nameof(WithExpression));
         }
 
         private BaseExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

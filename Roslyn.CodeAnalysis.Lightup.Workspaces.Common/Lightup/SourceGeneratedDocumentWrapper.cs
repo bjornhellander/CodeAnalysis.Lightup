@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            HintNameGetterFunc = LightupHelper.CreateGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
+            HintNameGetterFunc = LightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
         }
 
         private SourceGeneratedDocumentWrapper(Document? obj)

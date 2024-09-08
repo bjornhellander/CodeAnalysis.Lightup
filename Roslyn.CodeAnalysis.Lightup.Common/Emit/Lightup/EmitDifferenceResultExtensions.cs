@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
@@ -34,8 +35,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ChangedTypesGetterFunc = LightupHelper.CreateGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
-            UpdatedMethodsGetterFunc = LightupHelper.CreateGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
+            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
+            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

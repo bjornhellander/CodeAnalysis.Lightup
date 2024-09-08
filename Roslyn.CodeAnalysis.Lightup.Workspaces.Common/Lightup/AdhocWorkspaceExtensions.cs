@@ -39,8 +39,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(WrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -41,11 +42,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NameGetterFunc = LightupHelper.CreateGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NameGetterFunc = LightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithNameFunc2 = LightupHelper.CreateMethodAccessor<WithNameDelegate2>(WrappedType, nameof(WithName));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithNameFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, nameof(WithName));
         }
 
         private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)

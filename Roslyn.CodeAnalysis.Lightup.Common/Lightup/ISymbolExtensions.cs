@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -36,9 +37,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MetadataTokenGetterFunc = LightupHelper.CreateGetAccessor<MetadataTokenGetterDelegate>(WrappedType, nameof(MetadataToken));
+            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(WrappedType, nameof(MetadataToken));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

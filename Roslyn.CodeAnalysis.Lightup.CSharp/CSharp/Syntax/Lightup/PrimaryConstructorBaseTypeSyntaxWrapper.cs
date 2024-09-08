@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -47,14 +48,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentListGetterFunc = LightupHelper.CreateGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
-            TypeGetterFunc = LightupHelper.CreateGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
+            ArgumentListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
+            TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddArgumentListArgumentsFunc1 = LightupHelper.CreateMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, nameof(AddArgumentListArguments));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithArgumentListFunc3 = LightupHelper.CreateMethodAccessor<WithArgumentListDelegate3>(WrappedType, nameof(WithArgumentList));
-            WithTypeFunc4 = LightupHelper.CreateMethodAccessor<WithTypeDelegate4>(WrappedType, nameof(WithType));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddArgumentListArgumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, nameof(AddArgumentListArguments));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithArgumentListFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate3>(WrappedType, nameof(WithArgumentList));
+            WithTypeFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, nameof(WithType));
         }
 
         private PrimaryConstructorBaseTypeSyntaxWrapper(BaseTypeSyntax? obj)

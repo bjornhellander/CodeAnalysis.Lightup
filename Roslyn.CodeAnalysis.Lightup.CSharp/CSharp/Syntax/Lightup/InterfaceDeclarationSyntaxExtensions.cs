@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ParameterListGetterFunc = LightupHelper.CreateGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
+            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateMethodAccessor<AddParameterListParametersDelegate0>(WrappedType, nameof(AddParameterListParameters));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithParameterListFunc2 = LightupHelper.CreateMethodAccessor<WithParameterListDelegate2>(WrappedType, nameof(WithParameterList));
+            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(WrappedType, nameof(AddParameterListParameters));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(WrappedType, nameof(WithParameterList));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

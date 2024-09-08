@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NarrowedTypeGetterFunc = LightupHelper.CreateGetAccessor<NarrowedTypeGetterDelegate>(WrappedType, nameof(NarrowedType));
+            NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(WrappedType, nameof(NarrowedType));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

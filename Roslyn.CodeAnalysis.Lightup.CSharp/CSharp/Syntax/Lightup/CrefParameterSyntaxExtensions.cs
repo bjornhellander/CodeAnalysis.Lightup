@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -37,10 +38,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ReadOnlyKeywordGetterFunc = LightupHelper.CreateGetAccessor<ReadOnlyKeywordGetterDelegate>(WrappedType, nameof(ReadOnlyKeyword));
+            ReadOnlyKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(WrappedType, nameof(ReadOnlyKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithReadOnlyKeywordFunc1 = LightupHelper.CreateMethodAccessor<WithReadOnlyKeywordDelegate1>(WrappedType, nameof(WithReadOnlyKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(WrappedType, nameof(WithReadOnlyKeyword));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

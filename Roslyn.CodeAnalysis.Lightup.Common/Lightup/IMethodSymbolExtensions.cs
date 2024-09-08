@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -54,18 +55,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionGetterFunc = LightupHelper.CreateGetAccessor<CallingConventionGetterDelegate>(WrappedType, nameof(CallingConvention));
-            IsConditionalGetterFunc = LightupHelper.CreateGetAccessor<IsConditionalGetterDelegate>(WrappedType, nameof(IsConditional));
-            IsInitOnlyGetterFunc = LightupHelper.CreateGetAccessor<IsInitOnlyGetterDelegate>(WrappedType, nameof(IsInitOnly));
-            IsPartialDefinitionGetterFunc = LightupHelper.CreateGetAccessor<IsPartialDefinitionGetterDelegate>(WrappedType, nameof(IsPartialDefinition));
-            IsReadOnlyGetterFunc = LightupHelper.CreateGetAccessor<IsReadOnlyGetterDelegate>(WrappedType, nameof(IsReadOnly));
-            MethodImplementationFlagsGetterFunc = LightupHelper.CreateGetAccessor<MethodImplementationFlagsGetterDelegate>(WrappedType, nameof(MethodImplementationFlags));
-            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<ReceiverNullableAnnotationGetterDelegate>(WrappedType, nameof(ReceiverNullableAnnotation));
-            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<ReturnNullableAnnotationGetterDelegate>(WrappedType, nameof(ReturnNullableAnnotation));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
-            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionTypes));
+            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(WrappedType, nameof(CallingConvention));
+            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(WrappedType, nameof(IsConditional));
+            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(WrappedType, nameof(IsInitOnly));
+            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(WrappedType, nameof(IsPartialDefinition));
+            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(WrappedType, nameof(IsReadOnly));
+            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(WrappedType, nameof(MethodImplementationFlags));
+            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(WrappedType, nameof(ReceiverNullableAnnotation));
+            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(WrappedType, nameof(ReturnNullableAnnotation));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
+            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionTypes));
 
-            ConstructFunc0 = LightupHelper.CreateMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

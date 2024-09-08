@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -36,9 +37,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnEntry));
-            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnExit));
-            UsedLocalFunctionsGetterFunc = LightupHelper.CreateGetAccessor<UsedLocalFunctionsGetterDelegate>(WrappedType, nameof(UsedLocalFunctions));
+            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnEntry));
+            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnExit));
+            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(WrappedType, nameof(UsedLocalFunctions));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

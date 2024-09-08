@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentIndexGetterFunc = LightupHelper.CreateGetAccessor<ArgumentIndexGetterDelegate>(WrappedType, nameof(ArgumentIndex));
-            PlaceholderKindGetterFunc = LightupHelper.CreateGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
+            ArgumentIndexGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentIndexGetterDelegate>(WrappedType, nameof(ArgumentIndex));
+            PlaceholderKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
         private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(IOperation? obj)

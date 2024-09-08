@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -45,13 +46,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
-            OperatorTokenGetterFunc = LightupHelper.CreateGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
+            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
-            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
+            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
         }
 
         private SpreadElementSyntaxWrapper(CSharpSyntaxNode? obj)

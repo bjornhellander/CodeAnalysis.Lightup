@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -42,11 +43,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolGetterFunc = LightupHelper.CreateGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
-            DeconstructionSubpatternsGetterFunc = LightupHelper.CreateGetAccessor<DeconstructionSubpatternsGetterDelegate>(WrappedType, nameof(DeconstructionSubpatterns));
-            DeconstructSymbolGetterFunc = LightupHelper.CreateGetAccessor<DeconstructSymbolGetterDelegate>(WrappedType, nameof(DeconstructSymbol));
-            MatchedTypeGetterFunc = LightupHelper.CreateGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
-            PropertySubpatternsGetterFunc = LightupHelper.CreateGetAccessor<PropertySubpatternsGetterDelegate>(WrappedType, nameof(PropertySubpatterns));
+            DeclaredSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
+            DeconstructionSubpatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeconstructionSubpatternsGetterDelegate>(WrappedType, nameof(DeconstructionSubpatterns));
+            DeconstructSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeconstructSymbolGetterDelegate>(WrappedType, nameof(DeconstructSymbol));
+            MatchedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
+            PropertySubpatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PropertySubpatternsGetterDelegate>(WrappedType, nameof(PropertySubpatterns));
         }
 
         private IRecursivePatternOperationWrapper(IPatternOperation? obj)

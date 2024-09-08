@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -34,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AppendCallGetterFunc = LightupHelper.CreateGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
+            AppendCallGetterFunc = LightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
         private IInterpolatedStringAppendOperationWrapper(IInterpolatedStringContentOperation? obj)

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -36,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
-            NamespaceOrTypeGetterFunc = LightupHelper.CreateGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
+            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
         }
 
         private ImportedNamespaceOrTypeWrapper(object? obj)

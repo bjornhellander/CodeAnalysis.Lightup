@@ -43,10 +43,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(WrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateMethodAccessor<CanApplyParseOptionChangeDelegate1>(WrappedType, nameof(CanApplyParseOptionChange));
-            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(WrappedType, nameof(CanApplyCompilationOptionChange));
+            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(WrappedType, nameof(CanApplyParseOptionChange));
+            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(WrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(WrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

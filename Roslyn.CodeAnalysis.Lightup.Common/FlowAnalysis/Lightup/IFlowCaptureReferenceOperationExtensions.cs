@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsInitializationGetterFunc = LightupHelper.CreateGetAccessor<IsInitializationGetterDelegate>(WrappedType, nameof(IsInitialization));
+            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(WrappedType, nameof(IsInitialization));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

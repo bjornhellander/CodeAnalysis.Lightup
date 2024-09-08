@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -40,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContentGetterFunc = LightupHelper.CreateGetAccessor<ContentGetterDelegate>(WrappedType, nameof(Content));
-            HandlerAppendCallsReturnBoolGetterFunc = LightupHelper.CreateGetAccessor<HandlerAppendCallsReturnBoolGetterDelegate>(WrappedType, nameof(HandlerAppendCallsReturnBool));
-            HandlerCreationGetterFunc = LightupHelper.CreateGetAccessor<HandlerCreationGetterDelegate>(WrappedType, nameof(HandlerCreation));
-            HandlerCreationHasSuccessParameterGetterFunc = LightupHelper.CreateGetAccessor<HandlerCreationHasSuccessParameterGetterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
+            ContentGetterFunc = LightupHelper.CreateInstanceGetAccessor<ContentGetterDelegate>(WrappedType, nameof(Content));
+            HandlerAppendCallsReturnBoolGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerAppendCallsReturnBoolGetterDelegate>(WrappedType, nameof(HandlerAppendCallsReturnBool));
+            HandlerCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerCreationGetterDelegate>(WrappedType, nameof(HandlerCreation));
+            HandlerCreationHasSuccessParameterGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerCreationHasSuccessParameterGetterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
         }
 
         private IInterpolatedStringHandlerCreationOperationWrapper(IOperation? obj)

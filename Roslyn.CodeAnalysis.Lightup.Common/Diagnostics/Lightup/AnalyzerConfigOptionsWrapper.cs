@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
@@ -24,9 +25,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate StringComparer KeyComparerGetterDelegate();
+
         private delegate IEnumerable<String> KeysGetterDelegate(object? _obj);
 
         private delegate Boolean TryGetValueDelegate0(object? _obj, String key, out String? value);
+
+        private static readonly KeyComparerGetterDelegate KeyComparerGetterFunc;
 
         private static readonly KeysGetterDelegate KeysGetterFunc;
 
@@ -38,14 +43,22 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KeysGetterFunc = LightupHelper.CreateGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
+            KeyComparerGetterFunc = LightupHelper.CreateStaticGetAccessor<KeyComparerGetterDelegate>(WrappedType, nameof(KeyComparer));
 
-            TryGetValueFunc0 = LightupHelper.CreateMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
+            KeysGetterFunc = LightupHelper.CreateInstanceGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
+
+            TryGetValueFunc0 = LightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
         }
 
         private AnalyzerConfigOptionsWrapper(object? obj)
         {
             wrappedObject = obj;
+        }
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static StringComparer KeyComparer
+        {
+            get => KeyComparerGetterFunc();
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

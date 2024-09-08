@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -55,18 +56,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
-            DesignationGetterFunc = LightupHelper.CreateGetAccessor<DesignationGetterDelegate>(WrappedType, nameof(Designation));
-            OpenBracketTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
-            PatternsGetterFunc = LightupHelper.CreateGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
+            CloseBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            DesignationGetterFunc = LightupHelper.CreateInstanceGetAccessor<DesignationGetterDelegate>(WrappedType, nameof(Designation));
+            OpenBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
+            PatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddPatternsFunc1 = LightupHelper.CreateMethodAccessor<AddPatternsDelegate1>(WrappedType, nameof(AddPatterns));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithCloseBracketTokenFunc3 = LightupHelper.CreateMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, nameof(WithCloseBracketToken));
-            WithDesignationFunc4 = LightupHelper.CreateMethodAccessor<WithDesignationDelegate4>(WrappedType, nameof(WithDesignation));
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, nameof(WithOpenBracketToken));
-            WithPatternsFunc6 = LightupHelper.CreateMethodAccessor<WithPatternsDelegate6>(WrappedType, nameof(WithPatterns));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddPatternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddPatternsDelegate1>(WrappedType, nameof(AddPatterns));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithCloseBracketTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, nameof(WithCloseBracketToken));
+            WithDesignationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithDesignationDelegate4>(WrappedType, nameof(WithDesignation));
+            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, nameof(WithOpenBracketToken));
+            WithPatternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithPatternsDelegate6>(WrappedType, nameof(WithPatterns));
         }
 
         private ListPatternSyntaxWrapper(PatternSyntax? obj)

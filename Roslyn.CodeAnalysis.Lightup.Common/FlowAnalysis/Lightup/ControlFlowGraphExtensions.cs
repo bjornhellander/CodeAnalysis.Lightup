@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
@@ -24,9 +25,19 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate ControlFlowGraph CreateDelegate0(IAttributeOperationWrapper attribute, CancellationToken cancellationToken);
+
+        private static readonly CreateDelegate0 CreateFunc0;
+
         static ControlFlowGraphExtensions()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
+
+        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        public static ControlFlowGraph Create(this ControlFlowGraph wrappedObject, IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
+            => CreateFunc0(attribute, cancellationToken);
     }
 }

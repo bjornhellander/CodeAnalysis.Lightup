@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -38,10 +39,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DiagnosticOptionsGetterFunc = LightupHelper.CreateGetAccessor<DiagnosticOptionsGetterDelegate>(WrappedType, nameof(DiagnosticOptions));
+            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(WrappedType, nameof(DiagnosticOptions));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
-            WithDiagnosticOptionsFunc1 = LightupHelper.CreateMethodAccessor<WithDiagnosticOptionsDelegate1>(WrappedType, nameof(WithDiagnosticOptions));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
+            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(WrappedType, nameof(WithDiagnosticOptions));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -40,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnnotationGetterFunc = LightupHelper.CreateGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
-            FlowStateGetterFunc = LightupHelper.CreateGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
+            AnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
+            FlowStateGetterFunc = LightupHelper.CreateInstanceGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private NullabilityInfoWrapper(object? obj)

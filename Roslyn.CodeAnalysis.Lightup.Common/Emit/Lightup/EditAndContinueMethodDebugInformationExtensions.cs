@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
@@ -24,9 +25,19 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate EditAndContinueMethodDebugInformation CreateDelegate0(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap);
+
+        private static readonly CreateDelegate0 CreateFunc0;
+
         static EditAndContinueMethodDebugInformationExtensions()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
+
+        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        public static EditAndContinueMethodDebugInformation Create(this EditAndContinueMethodDebugInformation wrappedObject, ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
+            => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
     }
 }

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -32,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
+            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

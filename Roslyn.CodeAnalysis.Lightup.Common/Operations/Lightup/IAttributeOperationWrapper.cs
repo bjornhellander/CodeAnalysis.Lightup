@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -34,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OperationGetterFunc = LightupHelper.CreateGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
+            OperationGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
         }
 
         private IAttributeOperationWrapper(IOperation? obj)

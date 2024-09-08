@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -36,9 +37,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsDiscardGetterFunc = LightupHelper.CreateGetAccessor<IsDiscardGetterDelegate>(WrappedType, nameof(IsDiscard));
-            NullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(WrappedType, nameof(IsDiscard));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

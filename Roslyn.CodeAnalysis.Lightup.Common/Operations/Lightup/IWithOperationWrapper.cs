@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -38,9 +39,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloneMethodGetterFunc = LightupHelper.CreateGetAccessor<CloneMethodGetterDelegate>(WrappedType, nameof(CloneMethod));
-            InitializerGetterFunc = LightupHelper.CreateGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
-            OperandGetterFunc = LightupHelper.CreateGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
+            CloneMethodGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloneMethodGetterDelegate>(WrappedType, nameof(CloneMethod));
+            InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            OperandGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
         private IWithOperationWrapper(IOperation? obj)

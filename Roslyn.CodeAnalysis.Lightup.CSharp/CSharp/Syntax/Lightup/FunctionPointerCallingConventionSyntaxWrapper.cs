@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -47,14 +48,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ManagedOrUnmanagedKeywordGetterFunc = LightupHelper.CreateGetAccessor<ManagedOrUnmanagedKeywordGetterDelegate>(WrappedType, nameof(ManagedOrUnmanagedKeyword));
-            UnmanagedCallingConventionListGetterFunc = LightupHelper.CreateGetAccessor<UnmanagedCallingConventionListGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionList));
+            ManagedOrUnmanagedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ManagedOrUnmanagedKeywordGetterDelegate>(WrappedType, nameof(ManagedOrUnmanagedKeyword));
+            UnmanagedCallingConventionListGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionListGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionList));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddUnmanagedCallingConventionListCallingConventionsFunc1 = LightupHelper.CreateMethodAccessor<AddUnmanagedCallingConventionListCallingConventionsDelegate1>(WrappedType, nameof(AddUnmanagedCallingConventionListCallingConventions));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithManagedOrUnmanagedKeywordFunc3 = LightupHelper.CreateMethodAccessor<WithManagedOrUnmanagedKeywordDelegate3>(WrappedType, nameof(WithManagedOrUnmanagedKeyword));
-            WithUnmanagedCallingConventionListFunc4 = LightupHelper.CreateMethodAccessor<WithUnmanagedCallingConventionListDelegate4>(WrappedType, nameof(WithUnmanagedCallingConventionList));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddUnmanagedCallingConventionListCallingConventionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddUnmanagedCallingConventionListCallingConventionsDelegate1>(WrappedType, nameof(AddUnmanagedCallingConventionListCallingConventions));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithManagedOrUnmanagedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithManagedOrUnmanagedKeywordDelegate3>(WrappedType, nameof(WithManagedOrUnmanagedKeyword));
+            WithUnmanagedCallingConventionListFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnmanagedCallingConventionListDelegate4>(WrappedType, nameof(WithUnmanagedCallingConventionList));
         }
 
         private FunctionPointerCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)

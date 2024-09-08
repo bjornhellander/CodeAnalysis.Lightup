@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -40,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsFileLocalGetterFunc = LightupHelper.CreateGetAccessor<IsFileLocalGetterDelegate>(WrappedType, nameof(IsFileLocal));
-            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(WrappedType, nameof(NativeIntegerUnderlyingType));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
+            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(WrappedType, nameof(IsFileLocal));
+            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(WrappedType, nameof(NativeIntegerUnderlyingType));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
 
-            ConstructFunc0 = LightupHelper.CreateMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

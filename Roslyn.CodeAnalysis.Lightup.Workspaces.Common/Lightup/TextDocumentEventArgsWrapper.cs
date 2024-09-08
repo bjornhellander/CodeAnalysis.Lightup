@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentGetterFunc = LightupHelper.CreateGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
+            DocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
         private TextDocumentEventArgsWrapper(EventArgs? obj)

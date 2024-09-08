@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
@@ -40,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AliasesGetterFunc = LightupHelper.CreateGetAccessor<AliasesGetterDelegate>(WrappedType, nameof(Aliases));
-            ExternAliasesGetterFunc = LightupHelper.CreateGetAccessor<ExternAliasesGetterDelegate>(WrappedType, nameof(ExternAliases));
-            ImportsGetterFunc = LightupHelper.CreateGetAccessor<ImportsGetterDelegate>(WrappedType, nameof(Imports));
-            XmlNamespacesGetterFunc = LightupHelper.CreateGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
+            AliasesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AliasesGetterDelegate>(WrappedType, nameof(Aliases));
+            ExternAliasesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExternAliasesGetterDelegate>(WrappedType, nameof(ExternAliases));
+            ImportsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ImportsGetterDelegate>(WrappedType, nameof(Imports));
+            XmlNamespacesGetterFunc = LightupHelper.CreateInstanceGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
         }
 
         private IImportScopeWrapper(object? obj)

@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -35,9 +36,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsNintGetterFunc = LightupHelper.CreateGetAccessor<IsNintGetterDelegate>(WrappedType, nameof(IsNint));
-            IsNotNullGetterFunc = LightupHelper.CreateGetAccessor<IsNotNullGetterDelegate>(WrappedType, nameof(IsNotNull));
-            IsNuintGetterFunc = LightupHelper.CreateGetAccessor<IsNuintGetterDelegate>(WrappedType, nameof(IsNuint));
+            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(WrappedType, nameof(IsNint));
+            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(WrappedType, nameof(IsNotNull));
+            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(WrappedType, nameof(IsNuint));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

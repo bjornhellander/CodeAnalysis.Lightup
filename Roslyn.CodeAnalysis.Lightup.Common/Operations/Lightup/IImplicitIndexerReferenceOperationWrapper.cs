@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
+using Microsoft.CodeAnalysis.Operations.Lightup;
 using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
@@ -40,10 +41,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentGetterFunc = LightupHelper.CreateGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
-            IndexerSymbolGetterFunc = LightupHelper.CreateGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
-            InstanceGetterFunc = LightupHelper.CreateGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
-            LengthSymbolGetterFunc = LightupHelper.CreateGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
+            ArgumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
+            IndexerSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            InstanceGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
+            LengthSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
         }
 
         private IImplicitIndexerReferenceOperationWrapper(IOperation? obj)
