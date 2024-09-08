@@ -26,6 +26,12 @@ public class AnalyzerConfigOptionsWrapperTests
     }
 
     [TestMethod]
+    public virtual void TestKeyComparer()
+    {
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.KeyComparer);
+    }
+
+    [TestMethod]
     public void TestTryGetValueGivenNullObject()
     {
         SyntaxNode? obj = null;

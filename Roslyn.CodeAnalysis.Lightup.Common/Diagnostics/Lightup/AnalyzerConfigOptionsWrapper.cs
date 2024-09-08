@@ -24,9 +24,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate StringComparer KeyComparerGetterDelegate();
+
         private delegate IEnumerable<String> KeysGetterDelegate(object? _obj);
 
         private delegate Boolean TryGetValueDelegate0(object? _obj, String key, out String? value);
+
+        private static readonly KeyComparerGetterDelegate KeyComparerGetterFunc;
 
         private static readonly KeysGetterDelegate KeysGetterFunc;
 
@@ -38,6 +42,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            KeyComparerGetterFunc = LightupHelper.CreateStaticGetAccessor<KeyComparerGetterDelegate>(WrappedType, nameof(KeyComparer));
+
             KeysGetterFunc = LightupHelper.CreateInstanceGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
 
             TryGetValueFunc0 = LightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
@@ -46,6 +52,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private AnalyzerConfigOptionsWrapper(object? obj)
         {
             wrappedObject = obj;
+        }
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static StringComparer KeyComparer
+        {
+            get => KeyComparerGetterFunc();
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

@@ -10,6 +10,12 @@ using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptions
 public class AnalyzerConfigOptionsWrapperTests : V3_0_0.Diagnostics.AnalyzerConfigOptionsWrapperTests
 {
     [TestMethod]
+    public override void TestKeyComparer()
+    {
+        _ = Wrapper.KeyComparer;
+    }
+
+    [TestMethod]
     [DataRow("existing key", true, "a value")]
     [DataRow("non-existing key", false, null)]
     public void TestTryGetValueGivenCompatibleObject(string key, bool expectedResult, string? expectedValue)
