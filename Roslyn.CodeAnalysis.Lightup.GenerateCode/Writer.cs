@@ -508,6 +508,7 @@ internal class Writer
         // TODO: Handle events
         var instanceEvents = GetInstanceEvents(typeDef);
         _ = instanceEvents;
+        var staticProperties = GetStaticProperties(typeDef);
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
         Assert.IsTrue(indexers.Count == 0, "Unexpected indexers");
@@ -531,6 +532,14 @@ internal class Writer
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
         sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (staticProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in staticProperties)
+            {
+                AppendStaticPropertyDelegateDeclarations(sb, property, typeDefs);
+            }
+        }
         if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
@@ -546,6 +555,18 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 AppendMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+            }
+        }
+        if (staticProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in staticProperties)
+            {
+                sb.AppendLine($"        private static readonly {property.Name}GetterDelegate {property.Name}GetterFunc;");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
+                }
             }
         }
         if (instanceProperties.Count != 0)
@@ -573,6 +594,18 @@ internal class Writer
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        if (staticProperties.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var property in staticProperties)
+            {
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                if (property.HasSetter)
+                {
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                }
+            }
+        }
         if (instanceProperties.Count != 0)
         {
             sb.AppendLine();
@@ -595,6 +628,20 @@ internal class Writer
             }
         }
         sb.AppendLine($"        }}");
+        foreach (var property in staticProperties)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}()");
+            sb.AppendLine($"            => {property.Name}GetterFunc();");
+            if (property.HasSetter)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+                sb.AppendLine($"        public static void Set{property.Name}({GetPropertyTypeDeclText(property, typeDefs)} _value)");
+                sb.AppendLine($"            => {property.Name}SetterFunc(_value);");
+            }
+        }
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
