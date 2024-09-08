@@ -303,6 +303,8 @@ internal class Writer
         var staticFields = GetStaticFields(typeDef);
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
+        var staticEvents = GetStaticEvents(typeDef);
+        Assert.IsTrue(staticEvents.Count == 0, "Unexpected static events");
         var instanceEvents = GetInstanceEvents(typeDef);
         Assert.IsTrue(instanceEvents.Count == 0, "Unexpected events");
         var staticProperties = GetStaticProperties(typeDef);
