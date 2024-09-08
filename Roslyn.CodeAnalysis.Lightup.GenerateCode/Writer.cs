@@ -964,12 +964,14 @@ internal class Writer
             case AssemblyKind.Common:
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Emit;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Operations.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
                 break;
 
             case AssemblyKind.CSharp:
                 sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
                 break;
 
             case AssemblyKind.Workspaces:
