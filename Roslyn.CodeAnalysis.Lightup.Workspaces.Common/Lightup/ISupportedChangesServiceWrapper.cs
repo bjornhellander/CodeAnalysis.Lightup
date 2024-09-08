@@ -43,9 +43,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyChangeFunc0 = LightupHelper.CreateMethodAccessor<CanApplyChangeDelegate0>(WrappedType, nameof(CanApplyChange));
-            CanApplyCompilationOptionChangeFunc1 = LightupHelper.CreateMethodAccessor<CanApplyCompilationOptionChangeDelegate1>(WrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc2 = LightupHelper.CreateMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, nameof(CanApplyParseOptionChange));
+            CanApplyChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyChangeDelegate0>(WrappedType, nameof(CanApplyChange));
+            CanApplyCompilationOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate1>(WrappedType, nameof(CanApplyCompilationOptionChange));
+            CanApplyParseOptionChangeFunc2 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, nameof(CanApplyParseOptionChange));
         }
 
         private ISupportedChangesServiceWrapper(IWorkspaceService? obj)

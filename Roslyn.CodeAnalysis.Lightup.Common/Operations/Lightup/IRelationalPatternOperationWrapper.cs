@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OperatorKindGetterFunc = LightupHelper.CreateGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
-            ValueGetterFunc = LightupHelper.CreateGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
+            OperatorKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
+            ValueGetterFunc = LightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
         private IRelationalPatternOperationWrapper(IPatternOperation? obj)

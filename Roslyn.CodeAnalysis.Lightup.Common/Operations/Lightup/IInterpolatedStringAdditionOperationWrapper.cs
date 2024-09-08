@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftGetterFunc = LightupHelper.CreateGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
-            RightGetterFunc = LightupHelper.CreateGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
+            LeftGetterFunc = LightupHelper.CreateInstanceGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
+            RightGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
         }
 
         private IInterpolatedStringAdditionOperationWrapper(IOperation? obj)

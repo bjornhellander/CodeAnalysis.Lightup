@@ -34,8 +34,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetImportScopesFunc0 = LightupHelper.CreateMethodAccessor<GetImportScopesDelegate0>(WrappedType, nameof(GetImportScopes));
-            GetNullableContextFunc1 = LightupHelper.CreateMethodAccessor<GetNullableContextDelegate1>(WrappedType, nameof(GetNullableContext));
+            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(WrappedType, nameof(GetImportScopes));
+            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(WrappedType, nameof(GetNullableContext));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

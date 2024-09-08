@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsInputRedirectedGetterFunc = LightupHelper.CreateGetAccessor<IsInputRedirectedGetterDelegate>(WrappedType, nameof(IsInputRedirected));
+            IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(WrappedType, nameof(IsInputRedirected));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

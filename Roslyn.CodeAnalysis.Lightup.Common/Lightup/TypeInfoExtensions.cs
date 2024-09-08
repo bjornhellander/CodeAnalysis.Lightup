@@ -34,8 +34,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConvertedNullabilityGetterFunc = LightupHelper.CreateGetAccessor<ConvertedNullabilityGetterDelegate>(WrappedType, nameof(ConvertedNullability));
-            NullabilityGetterFunc = LightupHelper.CreateGetAccessor<NullabilityGetterDelegate>(WrappedType, nameof(Nullability));
+            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(WrappedType, nameof(ConvertedNullability));
+            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(WrappedType, nameof(Nullability));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

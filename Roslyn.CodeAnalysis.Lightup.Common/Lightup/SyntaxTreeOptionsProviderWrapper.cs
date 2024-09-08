@@ -38,9 +38,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsGeneratedFunc0 = LightupHelper.CreateMethodAccessor<IsGeneratedDelegate0>(WrappedType, nameof(IsGenerated));
-            TryGetDiagnosticValueFunc1 = LightupHelper.CreateMethodAccessor<TryGetDiagnosticValueDelegate1>(WrappedType, nameof(TryGetDiagnosticValue));
-            TryGetGlobalDiagnosticValueFunc2 = LightupHelper.CreateMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, nameof(TryGetGlobalDiagnosticValue));
+            IsGeneratedFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsGeneratedDelegate0>(WrappedType, nameof(IsGenerated));
+            TryGetDiagnosticValueFunc1 = LightupHelper.CreateInstanceMethodAccessor<TryGetDiagnosticValueDelegate1>(WrappedType, nameof(TryGetDiagnosticValue));
+            TryGetGlobalDiagnosticValueFunc2 = LightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, nameof(TryGetGlobalDiagnosticValue));
         }
 
         private SyntaxTreeOptionsProviderWrapper(object? obj)

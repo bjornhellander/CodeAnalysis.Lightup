@@ -55,16 +55,16 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExternGetterFunc = LightupHelper.CreateGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
-            IsFileGetterFunc = LightupHelper.CreateGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
-            IsRequiredGetterFunc = LightupHelper.CreateGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            IsVolatileGetterFunc = LightupHelper.CreateGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
+            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
+            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
+            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
-            WithIsFileFunc1 = LightupHelper.CreateMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
-            WithIsRefFunc2 = LightupHelper.CreateMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
-            WithIsRequiredFunc3 = LightupHelper.CreateMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
-            WithIsVolatileFunc4 = LightupHelper.CreateMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
+            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
+            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
+            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
+            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
+            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

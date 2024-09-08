@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AppendCallGetterFunc = LightupHelper.CreateGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
+            AppendCallGetterFunc = LightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
         private IInterpolatedStringAppendOperationWrapper(IInterpolatedStringContentOperation? obj)

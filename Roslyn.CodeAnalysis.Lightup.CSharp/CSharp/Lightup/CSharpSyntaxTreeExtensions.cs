@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetLineMappingsFunc0 = LightupHelper.CreateMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

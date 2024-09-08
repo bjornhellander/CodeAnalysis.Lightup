@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(WrappedType, nameof(AnalyzerConfigOptionsProvider));
+            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(WrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

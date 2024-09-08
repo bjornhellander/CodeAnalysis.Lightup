@@ -37,10 +37,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TargetTokenGetterFunc = LightupHelper.CreateGetAccessor<TargetTokenGetterDelegate>(WrappedType, nameof(TargetToken));
+            TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(WrappedType, nameof(TargetToken));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithTargetTokenFunc1 = LightupHelper.CreateMethodAccessor<WithTargetTokenDelegate1>(WrappedType, nameof(WithTargetToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(WrappedType, nameof(WithTargetToken));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

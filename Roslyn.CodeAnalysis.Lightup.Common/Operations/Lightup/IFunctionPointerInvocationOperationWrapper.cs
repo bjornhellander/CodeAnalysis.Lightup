@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentsGetterFunc = LightupHelper.CreateGetAccessor<ArgumentsGetterDelegate>(WrappedType, nameof(Arguments));
-            TargetGetterFunc = LightupHelper.CreateGetAccessor<TargetGetterDelegate>(WrappedType, nameof(Target));
+            ArgumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentsGetterDelegate>(WrappedType, nameof(Arguments));
+            TargetGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetGetterDelegate>(WrappedType, nameof(Target));
         }
 
         private IFunctionPointerInvocationOperationWrapper(IOperation? obj)

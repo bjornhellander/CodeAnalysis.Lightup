@@ -51,16 +51,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GreaterThanTokenGetterFunc = LightupHelper.CreateGetAccessor<GreaterThanTokenGetterDelegate>(WrappedType, nameof(GreaterThanToken));
-            LessThanTokenGetterFunc = LightupHelper.CreateGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
-            ParametersGetterFunc = LightupHelper.CreateGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
+            GreaterThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<GreaterThanTokenGetterDelegate>(WrappedType, nameof(GreaterThanToken));
+            LessThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
+            ParametersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddParametersFunc1 = LightupHelper.CreateMethodAccessor<AddParametersDelegate1>(WrappedType, nameof(AddParameters));
-            UpdateFunc2 = LightupHelper.CreateMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithGreaterThanTokenFunc3 = LightupHelper.CreateMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, nameof(WithGreaterThanToken));
-            WithLessThanTokenFunc4 = LightupHelper.CreateMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, nameof(WithLessThanToken));
-            WithParametersFunc5 = LightupHelper.CreateMethodAccessor<WithParametersDelegate5>(WrappedType, nameof(WithParameters));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, nameof(AddParameters));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
+            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, nameof(WithGreaterThanToken));
+            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, nameof(WithLessThanToken));
+            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, nameof(WithParameters));
         }
 
         private FunctionPointerParameterListSyntaxWrapper(CSharpSyntaxNode? obj)

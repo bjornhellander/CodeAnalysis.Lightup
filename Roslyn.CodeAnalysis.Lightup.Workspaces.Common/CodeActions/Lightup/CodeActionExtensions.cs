@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PriorityGetterFunc = LightupHelper.CreateGetAccessor<PriorityGetterDelegate>(WrappedType, nameof(Priority));
+            PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(WrappedType, nameof(Priority));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

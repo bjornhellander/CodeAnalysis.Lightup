@@ -49,16 +49,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            AddBlockAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<AddBlockAttributeListsDelegate1>(WrappedType, nameof(AddBlockAttributeLists));
-            AddBlockStatementsFunc2 = LightupHelper.CreateMethodAccessor<AddBlockStatementsDelegate2>(WrappedType, nameof(AddBlockStatements));
-            AddModifiersFunc3 = LightupHelper.CreateMethodAccessor<AddModifiersDelegate3>(WrappedType, nameof(AddModifiers));
-            WithAttributeListsFunc4 = LightupHelper.CreateMethodAccessor<WithAttributeListsDelegate4>(WrappedType, nameof(WithAttributeLists));
-            WithBlockFunc5 = LightupHelper.CreateMethodAccessor<WithBlockDelegate5>(WrappedType, nameof(WithBlock));
-            WithExpressionBodyFunc6 = LightupHelper.CreateMethodAccessor<WithExpressionBodyDelegate6>(WrappedType, nameof(WithExpressionBody));
-            WithModifiersFunc7 = LightupHelper.CreateMethodAccessor<WithModifiersDelegate7>(WrappedType, nameof(WithModifiers));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
+            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(WrappedType, nameof(AddBlockAttributeLists));
+            AddBlockStatementsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(WrappedType, nameof(AddBlockStatements));
+            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, nameof(AddModifiers));
+            WithAttributeListsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate4>(WrappedType, nameof(WithAttributeLists));
+            WithBlockFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate5>(WrappedType, nameof(WithBlock));
+            WithExpressionBodyFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate6>(WrappedType, nameof(WithExpressionBody));
+            WithModifiersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate7>(WrappedType, nameof(WithModifiers));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

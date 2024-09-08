@@ -34,8 +34,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
-            IsNullableGetterFunc = LightupHelper.CreateGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
+            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
+            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateMethodAccessor<IsIncrementallyIdenticalToDelegate0>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(WrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

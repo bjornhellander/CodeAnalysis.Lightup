@@ -40,10 +40,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalOptionsGetterFunc = LightupHelper.CreateGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
+            GlobalOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
 
-            GetOptionsFunc0 = LightupHelper.CreateMethodAccessor<GetOptionsDelegate0>(WrappedType, nameof(GetOptions));
-            GetOptionsFunc1 = LightupHelper.CreateMethodAccessor<GetOptionsDelegate1>(WrappedType, nameof(GetOptions));
+            GetOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, nameof(GetOptions));
+            GetOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, nameof(GetOptions));
         }
 
         private AnalyzerConfigOptionsProviderWrapper(object? obj)

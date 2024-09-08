@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
+            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

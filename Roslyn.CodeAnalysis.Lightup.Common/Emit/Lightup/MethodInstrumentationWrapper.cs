@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KindsGetterFunc = LightupHelper.CreateGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
-            KindsSetterFunc = LightupHelper.CreateSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
+            KindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
+            KindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
         }
 
         private MethodInstrumentationWrapper(object? obj)

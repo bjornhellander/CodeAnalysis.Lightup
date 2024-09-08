@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefaultKeywordGetterFunc = LightupHelper.CreateGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
+            DefaultKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithDefaultKeywordFunc2 = LightupHelper.CreateMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, nameof(WithDefaultKeyword));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithDefaultKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, nameof(WithDefaultKeyword));
         }
 
         private DefaultConstraintSyntaxWrapper(TypeParameterConstraintSyntax? obj)

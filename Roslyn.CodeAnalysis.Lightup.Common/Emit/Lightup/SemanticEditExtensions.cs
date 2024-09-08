@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            InstrumentationGetterFunc = LightupHelper.CreateGetAccessor<InstrumentationGetterDelegate>(WrappedType, nameof(Instrumentation));
+            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(WrappedType, nameof(Instrumentation));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

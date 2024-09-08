@@ -37,10 +37,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionColonGetterFunc = LightupHelper.CreateGetAccessor<ExpressionColonGetterDelegate>(WrappedType, nameof(ExpressionColon));
+            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(WrappedType, nameof(ExpressionColon));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithExpressionColonFunc1 = LightupHelper.CreateMethodAccessor<WithExpressionColonDelegate1>(WrappedType, nameof(WithExpressionColon));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(WrappedType, nameof(WithExpressionColon));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

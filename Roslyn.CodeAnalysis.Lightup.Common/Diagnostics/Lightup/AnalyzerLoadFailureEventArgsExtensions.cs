@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ReferencedCompilerVersionGetterFunc = LightupHelper.CreateGetAccessor<ReferencedCompilerVersionGetterDelegate>(WrappedType, nameof(ReferencedCompilerVersion));
+            ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(WrappedType, nameof(ReferencedCompilerVersion));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

@@ -39,11 +39,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
 
-            AddModifiersFunc0 = LightupHelper.CreateMethodAccessor<AddModifiersDelegate0>(WrappedType, nameof(AddModifiers));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithModifiersFunc2 = LightupHelper.CreateMethodAccessor<WithModifiersDelegate2>(WrappedType, nameof(WithModifiers));
+            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(WrappedType, nameof(AddModifiers));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(WrappedType, nameof(WithModifiers));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

@@ -378,10 +378,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -391,7 +391,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -532,10 +532,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -545,7 +545,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");

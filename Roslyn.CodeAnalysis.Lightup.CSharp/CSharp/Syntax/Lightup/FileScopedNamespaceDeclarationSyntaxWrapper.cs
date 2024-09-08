@@ -79,30 +79,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
-            ExternsGetterFunc = LightupHelper.CreateGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
-            MembersGetterFunc = LightupHelper.CreateGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
-            ModifiersGetterFunc = LightupHelper.CreateGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
-            NameGetterFunc = LightupHelper.CreateGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
-            NamespaceKeywordGetterFunc = LightupHelper.CreateGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
-            SemicolonTokenGetterFunc = LightupHelper.CreateGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
-            UsingsGetterFunc = LightupHelper.CreateGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
+            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            ExternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
+            MembersGetterFunc = LightupHelper.CreateInstanceGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            NameGetterFunc = LightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NamespaceKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
+            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            UsingsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddAttributeListsFunc1 = LightupHelper.CreateMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
-            AddExternsFunc2 = LightupHelper.CreateMethodAccessor<AddExternsDelegate2>(WrappedType, nameof(AddExterns));
-            AddMembersFunc3 = LightupHelper.CreateMethodAccessor<AddMembersDelegate3>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc4 = LightupHelper.CreateMethodAccessor<AddModifiersDelegate4>(WrappedType, nameof(AddModifiers));
-            AddUsingsFunc5 = LightupHelper.CreateMethodAccessor<AddUsingsDelegate5>(WrappedType, nameof(AddUsings));
-            UpdateFunc6 = LightupHelper.CreateMethodAccessor<UpdateDelegate6>(WrappedType, nameof(Update));
-            WithAttributeListsFunc7 = LightupHelper.CreateMethodAccessor<WithAttributeListsDelegate7>(WrappedType, nameof(WithAttributeLists));
-            WithExternsFunc8 = LightupHelper.CreateMethodAccessor<WithExternsDelegate8>(WrappedType, nameof(WithExterns));
-            WithMembersFunc9 = LightupHelper.CreateMethodAccessor<WithMembersDelegate9>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc10 = LightupHelper.CreateMethodAccessor<WithModifiersDelegate10>(WrappedType, nameof(WithModifiers));
-            WithNameFunc11 = LightupHelper.CreateMethodAccessor<WithNameDelegate11>(WrappedType, nameof(WithName));
-            WithNamespaceKeywordFunc12 = LightupHelper.CreateMethodAccessor<WithNamespaceKeywordDelegate12>(WrappedType, nameof(WithNamespaceKeyword));
-            WithSemicolonTokenFunc13 = LightupHelper.CreateMethodAccessor<WithSemicolonTokenDelegate13>(WrappedType, nameof(WithSemicolonToken));
-            WithUsingsFunc14 = LightupHelper.CreateMethodAccessor<WithUsingsDelegate14>(WrappedType, nameof(WithUsings));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
+            AddExternsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate2>(WrappedType, nameof(AddExterns));
+            AddMembersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate3>(WrappedType, nameof(AddMembers));
+            AddModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate4>(WrappedType, nameof(AddModifiers));
+            AddUsingsFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate5>(WrappedType, nameof(AddUsings));
+            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(WrappedType, nameof(Update));
+            WithAttributeListsFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(WrappedType, nameof(WithAttributeLists));
+            WithExternsFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate8>(WrappedType, nameof(WithExterns));
+            WithMembersFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate9>(WrappedType, nameof(WithMembers));
+            WithModifiersFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(WrappedType, nameof(WithModifiers));
+            WithNameFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate11>(WrappedType, nameof(WithName));
+            WithNamespaceKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate12>(WrappedType, nameof(WithNamespaceKeyword));
+            WithSemicolonTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate13>(WrappedType, nameof(WithSemicolonToken));
+            WithUsingsFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate14>(WrappedType, nameof(WithUsings));
         }
 
         private FileScopedNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)

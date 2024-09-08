@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerReferencesGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
+            AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

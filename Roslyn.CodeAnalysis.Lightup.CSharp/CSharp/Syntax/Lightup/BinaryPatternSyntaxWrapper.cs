@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftGetterFunc = LightupHelper.CreateGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
-            OperatorTokenGetterFunc = LightupHelper.CreateGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
-            RightGetterFunc = LightupHelper.CreateGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
+            LeftGetterFunc = LightupHelper.CreateInstanceGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
+            OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
+            RightGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithLeftFunc2 = LightupHelper.CreateMethodAccessor<WithLeftDelegate2>(WrappedType, nameof(WithLeft));
-            WithOperatorTokenFunc3 = LightupHelper.CreateMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
-            WithRightFunc4 = LightupHelper.CreateMethodAccessor<WithRightDelegate4>(WrappedType, nameof(WithRight));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithLeftFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithLeftDelegate2>(WrappedType, nameof(WithLeft));
+            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
+            WithRightFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithRightDelegate4>(WrappedType, nameof(WithRight));
         }
 
         private BinaryPatternSyntaxWrapper(PatternSyntax? obj)

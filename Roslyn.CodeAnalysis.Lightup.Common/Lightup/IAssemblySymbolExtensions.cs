@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetForwardedTypesFunc0 = LightupHelper.CreateMethodAccessor<GetForwardedTypesDelegate0>(WrappedType, nameof(GetForwardedTypes));
+            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(WrappedType, nameof(GetForwardedTypes));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

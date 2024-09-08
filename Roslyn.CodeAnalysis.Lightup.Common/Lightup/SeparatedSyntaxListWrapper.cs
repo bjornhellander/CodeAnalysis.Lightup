@@ -27,8 +27,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = LightupHelper.CreateGetAccessor<CountDelegate>(WrappedType, nameof(Count));
-            AddRangeAccessor = LightupHelper.CreateMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange));
+            CountAccessor = LightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            AddRangeAccessor = LightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange));
         }
 
         private SeparatedSyntaxListWrapper(object? obj)

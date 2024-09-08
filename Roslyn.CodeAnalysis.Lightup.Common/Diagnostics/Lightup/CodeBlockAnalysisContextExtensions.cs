@@ -36,9 +36,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            FilterTreeGetterFunc = LightupHelper.CreateGetAccessor<FilterTreeGetterDelegate>(WrappedType, nameof(FilterTree));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
+            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(WrappedType, nameof(FilterTree));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

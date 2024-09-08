@@ -34,8 +34,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateMethodAccessor<ContainsDirectiveDelegate0>(WrappedType, nameof(ContainsDirective));
-            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateMethodAccessor<IsIncrementallyIdenticalToDelegate1>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(WrappedType, nameof(ContainsDirective));
+            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(WrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

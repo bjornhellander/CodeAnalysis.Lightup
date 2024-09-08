@@ -37,10 +37,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
+            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithCheckedKeywordFunc1 = LightupHelper.CreateMethodAccessor<WithCheckedKeywordDelegate1>(WrappedType, nameof(WithCheckedKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
+            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(WrappedType, nameof(WithCheckedKeyword));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

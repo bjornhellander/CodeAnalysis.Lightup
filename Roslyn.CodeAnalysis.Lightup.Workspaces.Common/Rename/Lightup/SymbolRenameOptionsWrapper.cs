@@ -59,17 +59,17 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RenameFileGetterFunc = LightupHelper.CreateGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
-            RenameFileSetterFunc = LightupHelper.CreateSetAccessor<RenameFileSetterDelegate>(WrappedType, nameof(RenameFile));
-            RenameInCommentsGetterFunc = LightupHelper.CreateGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
-            RenameInCommentsSetterFunc = LightupHelper.CreateSetAccessor<RenameInCommentsSetterDelegate>(WrappedType, nameof(RenameInComments));
-            RenameInStringsGetterFunc = LightupHelper.CreateGetAccessor<RenameInStringsGetterDelegate>(WrappedType, nameof(RenameInStrings));
-            RenameInStringsSetterFunc = LightupHelper.CreateSetAccessor<RenameInStringsSetterDelegate>(WrappedType, nameof(RenameInStrings));
-            RenameOverloadsGetterFunc = LightupHelper.CreateGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
-            RenameOverloadsSetterFunc = LightupHelper.CreateSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
+            RenameFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
+            RenameFileSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameFileSetterDelegate>(WrappedType, nameof(RenameFile));
+            RenameInCommentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
+            RenameInCommentsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameInCommentsSetterDelegate>(WrappedType, nameof(RenameInComments));
+            RenameInStringsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameInStringsGetterDelegate>(WrappedType, nameof(RenameInStrings));
+            RenameInStringsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameInStringsSetterDelegate>(WrappedType, nameof(RenameInStrings));
+            RenameOverloadsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
+            RenameOverloadsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
 
-            DeconstructFunc0 = LightupHelper.CreateMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
-            EqualsFunc1 = LightupHelper.CreateMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
+            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
+            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
         }
 
         private SymbolRenameOptionsWrapper(object? obj)

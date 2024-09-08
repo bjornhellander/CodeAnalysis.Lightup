@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
-            XmlNamespaceGetterFunc = LightupHelper.CreateGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
+            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            XmlNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
         }
 
         private ImportedXmlNamespaceWrapper(object? obj)

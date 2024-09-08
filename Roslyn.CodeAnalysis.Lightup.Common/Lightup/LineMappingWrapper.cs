@@ -44,12 +44,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CharacterOffsetGetterFunc = LightupHelper.CreateGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
-            IsHiddenGetterFunc = LightupHelper.CreateGetAccessor<IsHiddenGetterDelegate>(WrappedType, nameof(IsHidden));
-            MappedSpanGetterFunc = LightupHelper.CreateGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
-            SpanGetterFunc = LightupHelper.CreateGetAccessor<SpanGetterDelegate>(WrappedType, nameof(Span));
+            CharacterOffsetGetterFunc = LightupHelper.CreateInstanceGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
+            IsHiddenGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsHiddenGetterDelegate>(WrappedType, nameof(IsHidden));
+            MappedSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
+            SpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<SpanGetterDelegate>(WrappedType, nameof(Span));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
         private LineMappingWrapper(object? obj)

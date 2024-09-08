@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageServicesGetterFunc = LightupHelper.CreateGetAccessor<LanguageServicesGetterDelegate>(WrappedType, nameof(LanguageServices));
+            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(WrappedType, nameof(LanguageServices));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

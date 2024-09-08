@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RequestPriorityGetterFunc = LightupHelper.CreateGetAccessor<RequestPriorityGetterDelegate>(WrappedType, nameof(RequestPriority));
+            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(WrappedType, nameof(RequestPriority));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

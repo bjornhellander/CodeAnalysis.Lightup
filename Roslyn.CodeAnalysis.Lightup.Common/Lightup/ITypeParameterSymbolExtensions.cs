@@ -36,9 +36,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(WrappedType, nameof(ConstraintNullableAnnotations));
-            HasNotNullConstraintGetterFunc = LightupHelper.CreateGetAccessor<HasNotNullConstraintGetterDelegate>(WrappedType, nameof(HasNotNullConstraint));
-            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(WrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
+            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(WrappedType, nameof(ConstraintNullableAnnotations));
+            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(WrappedType, nameof(HasNotNullConstraint));
+            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(WrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

@@ -38,10 +38,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsForEachGetterFunc = LightupHelper.CreateGetAccessor<IsForEachGetterDelegate>(WrappedType, nameof(IsForEach));
-            IsUsingGetterFunc = LightupHelper.CreateGetAccessor<IsUsingGetterDelegate>(WrappedType, nameof(IsUsing));
-            NullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(WrappedType, nameof(IsForEach));
+            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(WrappedType, nameof(IsUsing));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>

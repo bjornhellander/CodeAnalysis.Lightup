@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ValueGetterFunc = LightupHelper.CreateGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
+            ValueGetterFunc = LightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
         private IUtf8StringOperationWrapper(IOperation? obj)

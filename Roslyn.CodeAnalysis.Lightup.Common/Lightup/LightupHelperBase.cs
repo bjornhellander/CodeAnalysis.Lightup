@@ -43,7 +43,7 @@
             }
         }
 
-        public static TDelegate CreateGetAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateInstanceGetAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
             var instanceType = GetInstanceType<TDelegate>();
@@ -58,7 +58,7 @@
             return func;
         }
 
-        public static TDelegate CreateSetAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateInstanceSetAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
             var instanceType = GetInstanceType<TDelegate>();
@@ -73,7 +73,7 @@
             return func;
         }
 
-        public static TDelegate CreateMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
             var instanceType = GetInstanceType<TDelegate>();

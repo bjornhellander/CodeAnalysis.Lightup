@@ -47,14 +47,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ArgumentListGetterFunc = LightupHelper.CreateGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
-            InitializerGetterFunc = LightupHelper.CreateGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
-            NewKeywordGetterFunc = LightupHelper.CreateGetAccessor<NewKeywordGetterDelegate>(WrappedType, nameof(NewKeyword));
+            ArgumentListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
+            InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            NewKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NewKeywordGetterDelegate>(WrappedType, nameof(NewKeyword));
 
-            AddArgumentListArgumentsFunc0 = LightupHelper.CreateMethodAccessor<AddArgumentListArgumentsDelegate0>(WrappedType, nameof(AddArgumentListArguments));
-            WithArgumentListFunc1 = LightupHelper.CreateMethodAccessor<WithArgumentListDelegate1>(WrappedType, nameof(WithArgumentList));
-            WithInitializerFunc2 = LightupHelper.CreateMethodAccessor<WithInitializerDelegate2>(WrappedType, nameof(WithInitializer));
-            WithNewKeywordFunc3 = LightupHelper.CreateMethodAccessor<WithNewKeywordDelegate3>(WrappedType, nameof(WithNewKeyword));
+            AddArgumentListArgumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate0>(WrappedType, nameof(AddArgumentListArguments));
+            WithArgumentListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate1>(WrappedType, nameof(WithArgumentList));
+            WithInitializerFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate2>(WrappedType, nameof(WithInitializer));
+            WithNewKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNewKeywordDelegate3>(WrappedType, nameof(WithNewKeyword));
         }
 
         private BaseObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)

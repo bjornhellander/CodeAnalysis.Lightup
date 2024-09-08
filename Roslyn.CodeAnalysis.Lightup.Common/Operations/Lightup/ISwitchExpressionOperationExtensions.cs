@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExhaustiveGetterFunc = LightupHelper.CreateGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
+            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

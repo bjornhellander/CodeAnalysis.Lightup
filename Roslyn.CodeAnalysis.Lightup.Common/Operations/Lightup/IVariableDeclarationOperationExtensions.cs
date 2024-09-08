@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IgnoredDimensionsGetterFunc = LightupHelper.CreateGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
+            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

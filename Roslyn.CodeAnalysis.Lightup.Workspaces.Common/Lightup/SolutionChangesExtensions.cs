@@ -39,8 +39,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(WrappedType, nameof(GetAddedAnalyzerReferences));
-            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(WrappedType, nameof(GetRemovedAnalyzerReferences));
+            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(WrappedType, nameof(GetAddedAnalyzerReferences));
+            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(WrappedType, nameof(GetRemovedAnalyzerReferences));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

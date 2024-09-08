@@ -38,9 +38,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            KeysGetterFunc = LightupHelper.CreateGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
+            KeysGetterFunc = LightupHelper.CreateInstanceGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
 
-            TryGetValueFunc0 = LightupHelper.CreateMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
+            TryGetValueFunc0 = LightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, nameof(TryGetValue));
         }
 
         private AnalyzerConfigOptionsWrapper(object? obj)

@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateMethodAccessor<GetUsedAssemblyReferencesDelegate0>(WrappedType, nameof(GetUsedAssemblyReferences));
+            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(WrappedType, nameof(GetUsedAssemblyReferences));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

@@ -38,10 +38,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateGetAccessor<AdditionalFileActionsCountGetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateSetAccessor<AdditionalFileActionsCountSetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            SuppressionActionsCountGetterFunc = LightupHelper.CreateGetAccessor<SuppressionActionsCountGetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
-            SuppressionActionsCountSetterFunc = LightupHelper.CreateSetAccessor<SuppressionActionsCountSetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
+            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
+            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
+            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
+            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

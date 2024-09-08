@@ -43,10 +43,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentExtensionsGetterFunc = LightupHelper.CreateGetAccessor<DocumentExtensionsGetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentExtensionsSetterFunc = LightupHelper.CreateSetAccessor<DocumentExtensionsSetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentKindsGetterFunc = LightupHelper.CreateGetAccessor<DocumentKindsGetterDelegate>(WrappedType, nameof(DocumentKinds));
-            DocumentKindsSetterFunc = LightupHelper.CreateSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
+            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(WrappedType, nameof(DocumentExtensions));
+            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(WrappedType, nameof(DocumentExtensions));
+            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(WrappedType, nameof(DocumentKinds));
+            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

@@ -42,12 +42,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FixedSizeGetterFunc = LightupHelper.CreateGetAccessor<FixedSizeGetterDelegate>(WrappedType, nameof(FixedSize));
-            IsExplicitlyNamedTupleElementGetterFunc = LightupHelper.CreateGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(WrappedType, nameof(IsExplicitlyNamedTupleElement));
-            IsRequiredGetterFunc = LightupHelper.CreateGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            NullableAnnotationGetterFunc = LightupHelper.CreateGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            RefCustomModifiersGetterFunc = LightupHelper.CreateGetAccessor<RefCustomModifiersGetterDelegate>(WrappedType, nameof(RefCustomModifiers));
-            RefKindGetterFunc = LightupHelper.CreateGetAccessor<RefKindGetterDelegate>(WrappedType, nameof(RefKind));
+            FixedSizeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FixedSizeGetterDelegate>(WrappedType, nameof(FixedSize));
+            IsExplicitlyNamedTupleElementGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(WrappedType, nameof(IsExplicitlyNamedTupleElement));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            RefCustomModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(WrappedType, nameof(RefCustomModifiers));
+            RefKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(WrappedType, nameof(RefKind));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

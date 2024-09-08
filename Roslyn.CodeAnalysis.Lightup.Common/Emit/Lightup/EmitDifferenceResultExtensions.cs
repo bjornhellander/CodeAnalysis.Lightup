@@ -34,8 +34,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ChangedTypesGetterFunc = LightupHelper.CreateGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
-            UpdatedMethodsGetterFunc = LightupHelper.CreateGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
+            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
+            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

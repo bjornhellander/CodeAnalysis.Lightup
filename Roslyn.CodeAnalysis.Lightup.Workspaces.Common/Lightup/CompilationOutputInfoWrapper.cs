@@ -45,10 +45,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AssemblyPathGetterFunc = LightupHelper.CreateGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
+            AssemblyPathGetterFunc = LightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
-            WithAssemblyPathFunc1 = LightupHelper.CreateMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, nameof(WithAssemblyPath));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            WithAssemblyPathFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, nameof(WithAssemblyPath));
         }
 
         private CompilationOutputInfoWrapper(object? obj)

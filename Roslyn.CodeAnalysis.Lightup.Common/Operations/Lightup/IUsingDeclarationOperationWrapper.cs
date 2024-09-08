@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DeclarationGroupGetterFunc = LightupHelper.CreateGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
-            IsAsynchronousGetterFunc = LightupHelper.CreateGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            DeclarationGroupGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         private IUsingDeclarationOperationWrapper(IOperation? obj)

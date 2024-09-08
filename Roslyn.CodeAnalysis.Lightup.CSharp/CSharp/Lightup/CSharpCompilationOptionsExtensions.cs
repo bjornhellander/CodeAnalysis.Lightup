@@ -37,10 +37,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
+            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
 
-            WithNullableContextOptionsFunc0 = LightupHelper.CreateMethodAccessor<WithNullableContextOptionsDelegate0>(WrappedType, nameof(WithNullableContextOptions));
-            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
+            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(WrappedType, nameof(WithNullableContextOptions));
+            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

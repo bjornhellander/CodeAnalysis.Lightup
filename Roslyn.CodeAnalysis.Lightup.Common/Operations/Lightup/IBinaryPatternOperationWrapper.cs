@@ -38,9 +38,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LeftPatternGetterFunc = LightupHelper.CreateGetAccessor<LeftPatternGetterDelegate>(WrappedType, nameof(LeftPattern));
-            OperatorKindGetterFunc = LightupHelper.CreateGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
-            RightPatternGetterFunc = LightupHelper.CreateGetAccessor<RightPatternGetterDelegate>(WrappedType, nameof(RightPattern));
+            LeftPatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<LeftPatternGetterDelegate>(WrappedType, nameof(LeftPattern));
+            OperatorKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
+            RightPatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightPatternGetterDelegate>(WrappedType, nameof(RightPattern));
         }
 
         private IBinaryPatternOperationWrapper(IPatternOperation? obj)

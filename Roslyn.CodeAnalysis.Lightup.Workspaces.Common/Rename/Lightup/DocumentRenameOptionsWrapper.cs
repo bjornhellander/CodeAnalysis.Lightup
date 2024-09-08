@@ -51,13 +51,13 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RenameMatchingTypeInCommentsGetterFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInCommentsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
-            RenameMatchingTypeInCommentsSetterFunc = LightupHelper.CreateSetAccessor<RenameMatchingTypeInCommentsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
-            RenameMatchingTypeInStringsGetterFunc = LightupHelper.CreateGetAccessor<RenameMatchingTypeInStringsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
-            RenameMatchingTypeInStringsSetterFunc = LightupHelper.CreateSetAccessor<RenameMatchingTypeInStringsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
+            RenameMatchingTypeInCommentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameMatchingTypeInCommentsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
+            RenameMatchingTypeInCommentsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameMatchingTypeInCommentsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
+            RenameMatchingTypeInStringsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameMatchingTypeInStringsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
+            RenameMatchingTypeInStringsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameMatchingTypeInStringsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
 
-            DeconstructFunc0 = LightupHelper.CreateMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
-            EqualsFunc1 = LightupHelper.CreateMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
+            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, nameof(Deconstruct));
+            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, nameof(Equals));
         }
 
         private DocumentRenameOptionsWrapper(object? obj)

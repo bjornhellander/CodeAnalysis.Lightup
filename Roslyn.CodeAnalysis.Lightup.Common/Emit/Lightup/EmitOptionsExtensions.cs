@@ -40,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateGetAccessor<DefaultSourceFileEncodingGetterDelegate>(WrappedType, nameof(DefaultSourceFileEncoding));
-            FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateGetAccessor<FallbackSourceFileEncodingGetterDelegate>(WrappedType, nameof(FallbackSourceFileEncoding));
+            DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(WrappedType, nameof(DefaultSourceFileEncoding));
+            FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(WrappedType, nameof(FallbackSourceFileEncoding));
 
-            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(WrappedType, nameof(WithDefaultSourceFileEncoding));
-            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(WrappedType, nameof(WithFallbackSourceFileEncoding));
+            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(WrappedType, nameof(WithDefaultSourceFileEncoding));
+            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(WrappedType, nameof(WithFallbackSourceFileEncoding));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

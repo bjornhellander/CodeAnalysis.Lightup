@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TextDocumentGetterFunc = LightupHelper.CreateGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
+            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

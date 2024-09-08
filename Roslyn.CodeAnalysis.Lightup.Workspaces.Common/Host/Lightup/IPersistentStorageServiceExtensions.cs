@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetStorageAsyncFunc0 = LightupHelper.CreateMethodAccessor<GetStorageAsyncDelegate0>(WrappedType, nameof(GetStorageAsync));
+            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(WrappedType, nameof(GetStorageAsync));
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>

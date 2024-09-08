@@ -54,18 +54,18 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAnalysisResultAsyncFunc0 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate0>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc1 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate1>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc2 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate2>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc3 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate3>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc4 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate4>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc5 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate5>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc6 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate6>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc7 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate7>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc8 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate8>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc9 = LightupHelper.CreateMethodAccessor<GetAnalysisResultAsyncDelegate9>(WrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = LightupHelper.CreateMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(WrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(WrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
+            GetAnalysisResultAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate0>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate1>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate2>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate3>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate4>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc5 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate5>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc6 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate6>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc7 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate7>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc8 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate8>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalysisResultAsyncFunc9 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate9>(WrappedType, nameof(GetAnalysisResultAsync));
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(WrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(WrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

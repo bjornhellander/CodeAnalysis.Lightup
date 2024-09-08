@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            EqualsFunc0 = LightupHelper.CreateMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
-            GetHashCodeFunc1 = LightupHelper.CreateMethodAccessor<GetHashCodeDelegate1>(WrappedType, nameof(GetHashCode));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, nameof(GetHashCode));
         }
 
         private SymbolEqualityComparerWrapper(object? obj)

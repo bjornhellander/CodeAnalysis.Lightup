@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PathGetterFunc = LightupHelper.CreateGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
-            SarifVersionGetterFunc = LightupHelper.CreateGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
+            PathGetterFunc = LightupHelper.CreateInstanceGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
+            SarifVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
         }
 
         private ErrorLogOptionsWrapper(object? obj)

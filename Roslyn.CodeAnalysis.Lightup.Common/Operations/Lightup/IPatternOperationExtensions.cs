@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NarrowedTypeGetterFunc = LightupHelper.CreateGetAccessor<NarrowedTypeGetterDelegate>(WrappedType, nameof(NarrowedType));
+            NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(WrappedType, nameof(NarrowedType));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

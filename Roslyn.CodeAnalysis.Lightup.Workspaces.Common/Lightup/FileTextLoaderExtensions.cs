@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateMethodAccessor<LoadTextAndVersionAsyncDelegate0>(WrappedType, nameof(LoadTextAndVersionAsync));
+            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(WrappedType, nameof(LoadTextAndVersionAsync));
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>

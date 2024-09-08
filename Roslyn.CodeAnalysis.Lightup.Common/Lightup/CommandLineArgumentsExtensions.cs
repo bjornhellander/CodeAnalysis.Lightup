@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerConfigPathsGetterDelegate>(WrappedType, nameof(AnalyzerConfigPaths));
-            EmitPdbFileGetterFunc = LightupHelper.CreateGetAccessor<EmitPdbFileGetterDelegate>(WrappedType, nameof(EmitPdbFile));
-            ErrorLogOptionsGetterFunc = LightupHelper.CreateGetAccessor<ErrorLogOptionsGetterDelegate>(WrappedType, nameof(ErrorLogOptions));
-            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(WrappedType, nameof(GeneratedFilesOutputDirectory));
-            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(WrappedType, nameof(ReportInternalsVisibleToAttributes));
-            SkipAnalyzersGetterFunc = LightupHelper.CreateGetAccessor<SkipAnalyzersGetterDelegate>(WrappedType, nameof(SkipAnalyzers));
+            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(WrappedType, nameof(AnalyzerConfigPaths));
+            EmitPdbFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(WrappedType, nameof(EmitPdbFile));
+            ErrorLogOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(WrappedType, nameof(ErrorLogOptions));
+            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(WrappedType, nameof(GeneratedFilesOutputDirectory));
+            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(WrappedType, nameof(ReportInternalsVisibleToAttributes));
+            SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(WrappedType, nameof(SkipAnalyzers));
 
-            GetOutputFilePathFunc0 = LightupHelper.CreateMethodAccessor<GetOutputFilePathDelegate0>(WrappedType, nameof(GetOutputFilePath));
-            GetPdbFilePathFunc1 = LightupHelper.CreateMethodAccessor<GetPdbFilePathDelegate1>(WrappedType, nameof(GetPdbFilePath));
+            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(WrappedType, nameof(GetOutputFilePath));
+            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(WrappedType, nameof(GetPdbFilePath));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

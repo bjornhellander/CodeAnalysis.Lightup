@@ -81,32 +81,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitBinaryPatternFunc0 = LightupHelper.CreateMethodAccessor<VisitBinaryPatternDelegate0>(WrappedType, nameof(VisitBinaryPattern));
-            VisitCollectionExpressionFunc1 = LightupHelper.CreateMethodAccessor<VisitCollectionExpressionDelegate1>(WrappedType, nameof(VisitCollectionExpression));
-            VisitDefaultConstraintFunc2 = LightupHelper.CreateMethodAccessor<VisitDefaultConstraintDelegate2>(WrappedType, nameof(VisitDefaultConstraint));
-            VisitExpressionColonFunc3 = LightupHelper.CreateMethodAccessor<VisitExpressionColonDelegate3>(WrappedType, nameof(VisitExpressionColon));
-            VisitExpressionElementFunc4 = LightupHelper.CreateMethodAccessor<VisitExpressionElementDelegate4>(WrappedType, nameof(VisitExpressionElement));
-            VisitFileScopedNamespaceDeclarationFunc5 = LightupHelper.CreateMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate5>(WrappedType, nameof(VisitFileScopedNamespaceDeclaration));
-            VisitFunctionPointerCallingConventionFunc6 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerCallingConventionDelegate6>(WrappedType, nameof(VisitFunctionPointerCallingConvention));
-            VisitFunctionPointerParameterFunc7 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerParameterDelegate7>(WrappedType, nameof(VisitFunctionPointerParameter));
-            VisitFunctionPointerParameterListFunc8 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerParameterListDelegate8>(WrappedType, nameof(VisitFunctionPointerParameterList));
-            VisitFunctionPointerTypeFunc9 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerTypeDelegate9>(WrappedType, nameof(VisitFunctionPointerType));
-            VisitFunctionPointerUnmanagedCallingConventionFunc10 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionDelegate10>(WrappedType, nameof(VisitFunctionPointerUnmanagedCallingConvention));
-            VisitFunctionPointerUnmanagedCallingConventionListFunc11 = LightupHelper.CreateMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionListDelegate11>(WrappedType, nameof(VisitFunctionPointerUnmanagedCallingConventionList));
-            VisitImplicitObjectCreationExpressionFunc12 = LightupHelper.CreateMethodAccessor<VisitImplicitObjectCreationExpressionDelegate12>(WrappedType, nameof(VisitImplicitObjectCreationExpression));
-            VisitLineDirectivePositionFunc13 = LightupHelper.CreateMethodAccessor<VisitLineDirectivePositionDelegate13>(WrappedType, nameof(VisitLineDirectivePosition));
-            VisitLineSpanDirectiveTriviaFunc14 = LightupHelper.CreateMethodAccessor<VisitLineSpanDirectiveTriviaDelegate14>(WrappedType, nameof(VisitLineSpanDirectiveTrivia));
-            VisitListPatternFunc15 = LightupHelper.CreateMethodAccessor<VisitListPatternDelegate15>(WrappedType, nameof(VisitListPattern));
-            VisitParenthesizedPatternFunc16 = LightupHelper.CreateMethodAccessor<VisitParenthesizedPatternDelegate16>(WrappedType, nameof(VisitParenthesizedPattern));
-            VisitPrimaryConstructorBaseTypeFunc17 = LightupHelper.CreateMethodAccessor<VisitPrimaryConstructorBaseTypeDelegate17>(WrappedType, nameof(VisitPrimaryConstructorBaseType));
-            VisitRecordDeclarationFunc18 = LightupHelper.CreateMethodAccessor<VisitRecordDeclarationDelegate18>(WrappedType, nameof(VisitRecordDeclaration));
-            VisitRelationalPatternFunc19 = LightupHelper.CreateMethodAccessor<VisitRelationalPatternDelegate19>(WrappedType, nameof(VisitRelationalPattern));
-            VisitScopedTypeFunc20 = LightupHelper.CreateMethodAccessor<VisitScopedTypeDelegate20>(WrappedType, nameof(VisitScopedType));
-            VisitSlicePatternFunc21 = LightupHelper.CreateMethodAccessor<VisitSlicePatternDelegate21>(WrappedType, nameof(VisitSlicePattern));
-            VisitSpreadElementFunc22 = LightupHelper.CreateMethodAccessor<VisitSpreadElementDelegate22>(WrappedType, nameof(VisitSpreadElement));
-            VisitTypePatternFunc23 = LightupHelper.CreateMethodAccessor<VisitTypePatternDelegate23>(WrappedType, nameof(VisitTypePattern));
-            VisitUnaryPatternFunc24 = LightupHelper.CreateMethodAccessor<VisitUnaryPatternDelegate24>(WrappedType, nameof(VisitUnaryPattern));
-            VisitWithExpressionFunc25 = LightupHelper.CreateMethodAccessor<VisitWithExpressionDelegate25>(WrappedType, nameof(VisitWithExpression));
+            VisitBinaryPatternFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate0>(WrappedType, nameof(VisitBinaryPattern));
+            VisitCollectionExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<VisitCollectionExpressionDelegate1>(WrappedType, nameof(VisitCollectionExpression));
+            VisitDefaultConstraintFunc2 = LightupHelper.CreateInstanceMethodAccessor<VisitDefaultConstraintDelegate2>(WrappedType, nameof(VisitDefaultConstraint));
+            VisitExpressionColonFunc3 = LightupHelper.CreateInstanceMethodAccessor<VisitExpressionColonDelegate3>(WrappedType, nameof(VisitExpressionColon));
+            VisitExpressionElementFunc4 = LightupHelper.CreateInstanceMethodAccessor<VisitExpressionElementDelegate4>(WrappedType, nameof(VisitExpressionElement));
+            VisitFileScopedNamespaceDeclarationFunc5 = LightupHelper.CreateInstanceMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate5>(WrappedType, nameof(VisitFileScopedNamespaceDeclaration));
+            VisitFunctionPointerCallingConventionFunc6 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerCallingConventionDelegate6>(WrappedType, nameof(VisitFunctionPointerCallingConvention));
+            VisitFunctionPointerParameterFunc7 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterDelegate7>(WrappedType, nameof(VisitFunctionPointerParameter));
+            VisitFunctionPointerParameterListFunc8 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterListDelegate8>(WrappedType, nameof(VisitFunctionPointerParameterList));
+            VisitFunctionPointerTypeFunc9 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate9>(WrappedType, nameof(VisitFunctionPointerType));
+            VisitFunctionPointerUnmanagedCallingConventionFunc10 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionDelegate10>(WrappedType, nameof(VisitFunctionPointerUnmanagedCallingConvention));
+            VisitFunctionPointerUnmanagedCallingConventionListFunc11 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionListDelegate11>(WrappedType, nameof(VisitFunctionPointerUnmanagedCallingConventionList));
+            VisitImplicitObjectCreationExpressionFunc12 = LightupHelper.CreateInstanceMethodAccessor<VisitImplicitObjectCreationExpressionDelegate12>(WrappedType, nameof(VisitImplicitObjectCreationExpression));
+            VisitLineDirectivePositionFunc13 = LightupHelper.CreateInstanceMethodAccessor<VisitLineDirectivePositionDelegate13>(WrappedType, nameof(VisitLineDirectivePosition));
+            VisitLineSpanDirectiveTriviaFunc14 = LightupHelper.CreateInstanceMethodAccessor<VisitLineSpanDirectiveTriviaDelegate14>(WrappedType, nameof(VisitLineSpanDirectiveTrivia));
+            VisitListPatternFunc15 = LightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate15>(WrappedType, nameof(VisitListPattern));
+            VisitParenthesizedPatternFunc16 = LightupHelper.CreateInstanceMethodAccessor<VisitParenthesizedPatternDelegate16>(WrappedType, nameof(VisitParenthesizedPattern));
+            VisitPrimaryConstructorBaseTypeFunc17 = LightupHelper.CreateInstanceMethodAccessor<VisitPrimaryConstructorBaseTypeDelegate17>(WrappedType, nameof(VisitPrimaryConstructorBaseType));
+            VisitRecordDeclarationFunc18 = LightupHelper.CreateInstanceMethodAccessor<VisitRecordDeclarationDelegate18>(WrappedType, nameof(VisitRecordDeclaration));
+            VisitRelationalPatternFunc19 = LightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate19>(WrappedType, nameof(VisitRelationalPattern));
+            VisitScopedTypeFunc20 = LightupHelper.CreateInstanceMethodAccessor<VisitScopedTypeDelegate20>(WrappedType, nameof(VisitScopedType));
+            VisitSlicePatternFunc21 = LightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate21>(WrappedType, nameof(VisitSlicePattern));
+            VisitSpreadElementFunc22 = LightupHelper.CreateInstanceMethodAccessor<VisitSpreadElementDelegate22>(WrappedType, nameof(VisitSpreadElement));
+            VisitTypePatternFunc23 = LightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate23>(WrappedType, nameof(VisitTypePattern));
+            VisitUnaryPatternFunc24 = LightupHelper.CreateInstanceMethodAccessor<VisitUnaryPatternDelegate24>(WrappedType, nameof(VisitUnaryPattern));
+            VisitWithExpressionFunc25 = LightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate25>(WrappedType, nameof(VisitWithExpression));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

@@ -41,8 +41,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageGetterFunc = LightupHelper.CreateGetAccessor<LanguageGetterDelegate>(WrappedType, nameof(Language));
-            SolutionServicesGetterFunc = LightupHelper.CreateGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
+            LanguageGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(WrappedType, nameof(Language));
+            SolutionServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
         }
 
         private LanguageServicesWrapper(object? obj)

@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(WrappedType, nameof(AdditionalFileDiagnostics));
+            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(WrappedType, nameof(AdditionalFileDiagnostics));
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>

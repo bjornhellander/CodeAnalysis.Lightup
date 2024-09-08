@@ -38,9 +38,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerOptionsGetterFunc = LightupHelper.CreateGetAccessor<AnalyzerOptionsGetterDelegate>(WrappedType, nameof(AnalyzerOptions));
-            DiagnosticsGetterFunc = LightupHelper.CreateGetAccessor<DiagnosticsGetterDelegate>(WrappedType, nameof(Diagnostics));
-            TreeOptionsGetterFunc = LightupHelper.CreateGetAccessor<TreeOptionsGetterDelegate>(WrappedType, nameof(TreeOptions));
+            AnalyzerOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerOptionsGetterDelegate>(WrappedType, nameof(AnalyzerOptions));
+            DiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticsGetterDelegate>(WrappedType, nameof(Diagnostics));
+            TreeOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TreeOptionsGetterDelegate>(WrappedType, nameof(TreeOptions));
         }
 
         private AnalyzerConfigOptionsResultWrapper(object? obj)

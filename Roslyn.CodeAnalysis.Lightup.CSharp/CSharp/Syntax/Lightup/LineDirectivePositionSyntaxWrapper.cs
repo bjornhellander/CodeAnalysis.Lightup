@@ -57,19 +57,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CharacterGetterFunc = LightupHelper.CreateGetAccessor<CharacterGetterDelegate>(WrappedType, nameof(Character));
-            CloseParenTokenGetterFunc = LightupHelper.CreateGetAccessor<CloseParenTokenGetterDelegate>(WrappedType, nameof(CloseParenToken));
-            CommaTokenGetterFunc = LightupHelper.CreateGetAccessor<CommaTokenGetterDelegate>(WrappedType, nameof(CommaToken));
-            LineGetterFunc = LightupHelper.CreateGetAccessor<LineGetterDelegate>(WrappedType, nameof(Line));
-            OpenParenTokenGetterFunc = LightupHelper.CreateGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
+            CharacterGetterFunc = LightupHelper.CreateInstanceGetAccessor<CharacterGetterDelegate>(WrappedType, nameof(Character));
+            CloseParenTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseParenTokenGetterDelegate>(WrappedType, nameof(CloseParenToken));
+            CommaTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CommaTokenGetterDelegate>(WrappedType, nameof(CommaToken));
+            LineGetterFunc = LightupHelper.CreateInstanceGetAccessor<LineGetterDelegate>(WrappedType, nameof(Line));
+            OpenParenTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
 
-            AcceptFunc0 = LightupHelper.CreateMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithCharacterFunc2 = LightupHelper.CreateMethodAccessor<WithCharacterDelegate2>(WrappedType, nameof(WithCharacter));
-            WithCloseParenTokenFunc3 = LightupHelper.CreateMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, nameof(WithCloseParenToken));
-            WithCommaTokenFunc4 = LightupHelper.CreateMethodAccessor<WithCommaTokenDelegate4>(WrappedType, nameof(WithCommaToken));
-            WithLineFunc5 = LightupHelper.CreateMethodAccessor<WithLineDelegate5>(WrappedType, nameof(WithLine));
-            WithOpenParenTokenFunc6 = LightupHelper.CreateMethodAccessor<WithOpenParenTokenDelegate6>(WrappedType, nameof(WithOpenParenToken));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
+            WithCharacterFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCharacterDelegate2>(WrappedType, nameof(WithCharacter));
+            WithCloseParenTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, nameof(WithCloseParenToken));
+            WithCommaTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithCommaTokenDelegate4>(WrappedType, nameof(WithCommaToken));
+            WithLineFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithLineDelegate5>(WrappedType, nameof(WithLine));
+            WithOpenParenTokenFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate6>(WrappedType, nameof(WithOpenParenToken));
         }
 
         private LineDirectivePositionSyntaxWrapper(CSharpSyntaxNode? obj)
