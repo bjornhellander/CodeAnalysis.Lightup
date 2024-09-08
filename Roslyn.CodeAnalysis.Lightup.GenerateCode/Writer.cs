@@ -296,7 +296,6 @@ internal class Writer
     {
         var targetName = typeDef.Name + "Wrapper";
 
-        // TODO: Handle static members
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
         _ = instanceConstructors;
@@ -311,6 +310,7 @@ internal class Writer
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
         Assert.IsTrue(indexers.Count == 0, "Unexpected indexers");
+        var staticMethods = GetStaticMethods(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
         var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
@@ -357,13 +357,22 @@ internal class Writer
                 AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
             }
         }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                AppendStaticMethodDelegateDeclaration(sb, method, index, typeDefs);
+            }
+        }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -396,6 +405,15 @@ internal class Writer
                 {
                     sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
                 }
+            }
+        }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
         if (instanceMethods.Count != 0)
@@ -443,6 +461,15 @@ internal class Writer
                 {
                     sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
                 }
+            }
+        }
+        if (staticMethods.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var method in staticMethods)
+            {
+                var index = staticMethods.IndexOf(method);
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
             }
         }
         if (instanceMethods.Count != 0)
@@ -513,6 +540,14 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        public {baseTypeName}? Unwrap()");
         sb.AppendLine($"            => wrappedObject;");
+        foreach (var methodDef in staticMethods)
+        {
+            var index = staticMethods.IndexOf(methodDef);
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
+        }
         foreach (var methodDef in instanceMethods)
         {
             var index = instanceMethods.IndexOf(methodDef);
@@ -594,7 +629,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -892,6 +927,16 @@ internal class Writer
         return result;
     }
 
+    private static List<MethodDefinition> GetStaticMethods(TypeDefinition typeDef)
+    {
+        var result = typeDef.Methods
+            .Where(x => x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
+            .OrderBy(x => x.Name).ThenBy(x => x.Parameters.Count)
+            .ToList();
+        return result;
+    }
+
     private static List<MethodDefinition> GetInstanceMethods(TypeDefinition typeDef)
     {
         var result = typeDef.Methods
@@ -1016,7 +1061,20 @@ internal class Writer
         return result;
     }
 
-    private static void AppendMethodDelegateDeclaration(
+    private static void AppendStaticMethodDelegateDeclaration(
+        StringBuilder sb,
+        MethodDefinition methodDef,
+        int index,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        sb.Append($"        private delegate ");
+        sb.Append(GetMethodReturnTypeDeclText(methodDef, typeDefs));
+        sb.Append($" {methodDef.Name}Delegate{index}(");
+        sb.Append(GetParametersDeclText(methodDef.Parameters, typeDefs, addLeadingComma: false));
+        sb.AppendLine(");");
+    }
+
+    private static void AppendInstanceMethodDelegateDeclaration(
         StringBuilder sb,
         MethodDefinition methodDef,
         string baseTypeName,
@@ -1080,15 +1138,25 @@ internal class Writer
     }
 
     private static string GetArgumentsText(
-        MethodDefinition methodDef)
+        MethodDefinition methodDef,
+        bool skipObj = false)
     {
         var sb = new StringBuilder();
-        sb.Append("wrappedObject");
+
+        var isFirst = true;
+        if (!skipObj)
+        {
+            sb.Append("wrappedObject");
+            isFirst = false;
+        }
+
         foreach (var parameterDef in methodDef.Parameters)
         {
-            sb.Append($", ");
+            sb.Append(isFirst ? "" : ", ");
             sb.Append(ParameterModeText[parameterDef.Mode]);
             sb.Append(GetParameterNameText(parameterDef.Name));
+
+            isFirst = false;
         }
         var result = sb.ToString();
         return result;

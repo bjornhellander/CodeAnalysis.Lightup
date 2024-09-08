@@ -99,6 +99,19 @@
             return func;
         }
 
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
+        {
+            var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
+            var returnType = GetReturnType<TDelegate>();
+            var method = GetMethod(wrappedType, memberName, paramTypes);
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
         public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
@@ -120,11 +133,13 @@
             return invokeMethod.GetParameters()[0].ParameterType;
         }
 
-        private static Type[] GetParamTypes<TDelegate>()
+        private static Type[] GetParamTypes<TDelegate>(bool skipFirst = true)
         {
             var type = typeof(TDelegate);
             var invokeMethod = type.GetMethod("Invoke");
-            return invokeMethod.GetParameters().Skip(1).Select(x => x.ParameterType).ToArray();
+            IEnumerable<ParameterInfo> temp = invokeMethod.GetParameters();
+            temp = skipFirst ? temp.Skip(1) : temp;
+            return temp.Select(x => x.ParameterType).ToArray();
         }
 
         private static Type GetReturnType<TDelegate>()

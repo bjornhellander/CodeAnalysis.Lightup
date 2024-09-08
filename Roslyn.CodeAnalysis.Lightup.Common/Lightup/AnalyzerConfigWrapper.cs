@@ -24,11 +24,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate AnalyzerConfigWrapper ParseDelegate0(String text, String? pathToFile);
+        private delegate AnalyzerConfigWrapper ParseDelegate1(SourceText text, String? pathToFile);
+
+        private static readonly ParseDelegate0 ParseFunc0;
+        private static readonly ParseDelegate1 ParseFunc1;
+
         private readonly object? wrappedObject;
 
         static AnalyzerConfigWrapper()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            ParseFunc0 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate0>(WrappedType, nameof(Parse));
+            ParseFunc1 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate1>(WrappedType, nameof(Parse));
         }
 
         private AnalyzerConfigWrapper(object? obj)
@@ -47,5 +56,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public object? Unwrap()
             => wrappedObject;
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static AnalyzerConfigWrapper Parse(String text, String? pathToFile)
+            => ParseFunc0(text, pathToFile);
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static AnalyzerConfigWrapper Parse(SourceText text, String? pathToFile)
+            => ParseFunc1(text, pathToFile);
     }
 }
