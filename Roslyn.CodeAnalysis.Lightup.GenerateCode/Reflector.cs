@@ -367,11 +367,12 @@ internal class Reflector
         var nullabilityInfo = new NullabilityInfoContext().Create(field);
         var isNullable = !field.FieldType.IsValueType && nullabilityInfo.ReadState != NullabilityState.NotNull;
 
+        // TODO: Should we handle consts differently?
         var result = new FieldDefinition(
             field.Name,
             typeRef,
             isNullable,
-            field.IsInitOnly,
+            field.IsLiteral || field.IsInitOnly, // NOTE: const => IsLiteral=true and IsInitOnly=false, readonly => IsLiteral=false and IsInitOnly=true
             field.IsStatic);
         return result;
     }
