@@ -541,7 +541,9 @@ internal class Writer
         Assert.IsTrue(staticFields.Count == 0, "Unexpected static fields");
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
-        // TODO: Handle events
+        var staticEvents = GetStaticEvents(typeDef);
+        Assert.IsTrue(staticEvents.Count == 0, "Unexpected static events");
+        // TODO: Handle instance events
         var instanceEvents = GetInstanceEvents(typeDef);
         _ = instanceEvents;
         var staticProperties = GetStaticProperties(typeDef);
@@ -837,6 +839,15 @@ internal class Writer
     {
         var result = typeDef.Fields
             .Where(x => !x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
+            .ToList();
+        return result;
+    }
+
+    private static List<EventDefinition> GetStaticEvents(TypeDefinition typeDef)
+    {
+        var result = typeDef.Events
+            .Where(x => x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
             .ToList();
         return result;
