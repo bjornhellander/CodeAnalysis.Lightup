@@ -43,6 +43,18 @@
             }
         }
 
+        public static TDelegate CreateStaticReadAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
+        {
+            var returnType = GetReturnType<TDelegate>();
+            var fieldInfo = wrappedType?.GetField(memberName);
+
+            var (body, parameters) = CreateReadExpression(wrappedType, fieldInfo, null, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
         public static TDelegate CreateStaticGetAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
@@ -120,6 +132,57 @@
             var type = typeof(TDelegate);
             var invokeMethod = type.GetMethod("Invoke");
             return invokeMethod.ReturnType;
+        }
+
+        private static (Expression Body, ParameterExpression[] Parameters) CreateReadExpression(
+            Type? wrappedType,
+            FieldInfo? field,
+            Type? instanceBaseType,
+            Type wrapperReturnType)
+        {
+            var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
+
+            var expressions = new List<Expression>();
+
+            var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
+            if (instanceParameter != null)
+            {
+                var nullCheckStatement = Expression.IfThen(
+                    Expression.Equal(
+                        instanceParameter,
+                        Expression.Constant(null)),
+                    Expression.Throw(
+                        Expression.New(
+                            nullReferenceExceptionConstructor)));
+                expressions.Add(nullCheckStatement);
+            }
+
+            if (field == null)
+            {
+                var invalidOperationExceptionConstructor = typeof(InvalidOperationException).GetConstructor(Array.Empty<Type>());
+                var notSupportedStatement = Expression.Throw(
+                    Expression.New(
+                        invalidOperationExceptionConstructor));
+                expressions.Add(notSupportedStatement);
+
+                var dummyValue = Expression.Default(wrapperReturnType);
+                expressions.Add(dummyValue);
+            }
+            else
+            {
+                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+
+                var returnValue = instance != null
+                    ? Expression.Field(instance, field)
+                    : Expression.Field(null, field);
+                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                expressions.Add(wrappedReturnValue);
+            }
+
+            var block = Expression.Block(expressions);
+
+            var parameters = instanceParameter != null ? new[] { instanceParameter } : Array.Empty<ParameterExpression>();
+            return (block, parameters);
         }
 
         private static (Expression Body, ParameterExpression[] Parameters) CreateCallExpression(

@@ -300,8 +300,9 @@ internal class Writer
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
         _ = instanceConstructors;
+        var staticFields = GetStaticFields(typeDef);
         var instanceFields = GetInstanceFields(typeDef);
-        Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
+        Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
         var instanceEvents = GetInstanceEvents(typeDef);
         Assert.IsTrue(instanceEvents.Count == 0, "Unexpected events");
         var staticProperties = GetStaticProperties(typeDef);
@@ -330,6 +331,14 @@ internal class Writer
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
         sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                AppendStaticFieldDelegateDeclarations(sb, field, typeDefs);
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -353,6 +362,14 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 AppendMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+            }
+        }
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
             }
         }
         if (staticProperties.Count != 0)
@@ -394,6 +411,14 @@ internal class Writer
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -433,6 +458,15 @@ internal class Writer
         sb.AppendLine($"        {{");
         sb.AppendLine($"            wrappedObject = obj;");
         sb.AppendLine($"        }}");
+        foreach (var field in staticFields)
+        {
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {field.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, typeDefs)} {field.Name}");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            get => {field.Name}GetterFunc();");
+            sb.AppendLine($"        }}");
+        }
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
@@ -788,6 +822,15 @@ internal class Writer
         return result;
     }
 
+    private static List<FieldDefinition> GetStaticFields(TypeDefinition typeDef)
+    {
+        var result = typeDef.Fields
+            .Where(x => x.IsStatic)
+            .Where(x => x.AssemblyVersion != null)
+            .ToList();
+        return result;
+    }
+
     private static List<FieldDefinition> GetInstanceFields(TypeDefinition typeDef)
     {
         var result = typeDef.Fields
@@ -889,6 +932,18 @@ internal class Writer
         }
     }
 
+    private static void AppendStaticFieldDelegateDeclarations(
+        StringBuilder sb,
+        FieldDefinition fieldDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        sb.Append($"        private delegate ");
+        sb.Append(GetFieldTypeDeclText(fieldDef, typeDefs));
+        sb.AppendLine($" {fieldDef.Name}GetterDelegate();");
+
+        Assert.IsTrue(!fieldDef.IsReadOnly, "Unexpected non-readonly static field");
+    }
+
     private static void AppendStaticPropertyDelegateDeclarations(
         StringBuilder sb,
         PropertyDefinition propertyDef,
@@ -904,6 +959,17 @@ internal class Writer
             sb.Append($"{propertyDef.Name}SetterDelegate(");
             sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, typeDefs)} _value);");
         }
+    }
+
+    private static string GetFieldTypeDeclText(
+        FieldDefinition fieldDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var sb = new StringBuilder();
+        AppendTypeDeclText(sb, fieldDef.Type, typeDefs);
+        sb.Append(fieldDef.IsNullable && !IsNewType(fieldDef.Type, typeDefs) ? "?" : "");
+        var result = sb.ToString();
+        return result;
     }
 
     private static void AppendInstancePropertyDelegateDeclarations(

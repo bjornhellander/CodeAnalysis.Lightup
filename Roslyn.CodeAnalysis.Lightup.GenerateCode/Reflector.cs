@@ -371,6 +371,7 @@ internal class Reflector
             field.Name,
             typeRef,
             isNullable,
+            field.IsInitOnly,
             field.IsStatic);
         return result;
     }

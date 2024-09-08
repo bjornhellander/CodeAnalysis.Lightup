@@ -24,8 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static readonly Type? WrappedType;
 
+        private delegate SymbolEqualityComparerWrapper DefaultGetterDelegate();
+        private delegate SymbolEqualityComparerWrapper IncludeNullabilityGetterDelegate();
+
         private delegate Boolean EqualsDelegate0(object? _obj, ISymbol? x, ISymbol? y);
         private delegate Int32 GetHashCodeDelegate1(object? _obj, ISymbol? obj);
+
+        private static readonly DefaultGetterDelegate DefaultGetterFunc;
+        private static readonly IncludeNullabilityGetterDelegate IncludeNullabilityGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly GetHashCodeDelegate1 GetHashCodeFunc1;
@@ -36,6 +42,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            DefaultGetterFunc = LightupHelper.CreateStaticReadAccessor<DefaultGetterDelegate>(WrappedType, nameof(Default));
+            IncludeNullabilityGetterFunc = LightupHelper.CreateStaticReadAccessor<IncludeNullabilityGetterDelegate>(WrappedType, nameof(IncludeNullability));
+
             EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
             GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, nameof(GetHashCode));
         }
@@ -43,6 +52,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         private SymbolEqualityComparerWrapper(object? obj)
         {
             wrappedObject = obj;
+        }
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static SymbolEqualityComparerWrapper Default
+        {
+            get => DefaultGetterFunc();
+        }
+
+        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        public static SymbolEqualityComparerWrapper IncludeNullability
+        {
+            get => IncludeNullabilityGetterFunc();
         }
 
         public static bool Is(object? obj)
