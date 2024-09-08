@@ -537,8 +537,10 @@ internal class Writer
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
         _ = instanceConstructors;
+        var staticFields = GetStaticFields(typeDef);
+        Assert.IsTrue(staticFields.Count == 0, "Unexpected static fields");
         var instanceFields = GetInstanceFields(typeDef);
-        Assert.IsTrue(instanceFields.Count == 0, "Unexpected fields");
+        Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
         // TODO: Handle events
         var instanceEvents = GetInstanceEvents(typeDef);
         _ = instanceEvents;
