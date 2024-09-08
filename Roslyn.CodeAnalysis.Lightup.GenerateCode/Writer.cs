@@ -381,6 +381,7 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
         if (staticProperties.Count != 0)
@@ -437,6 +438,7 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
         if (staticProperties.Count != 0)
@@ -495,6 +497,7 @@ internal class Writer
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
             sb.AppendLine($"        }}");
+            Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
         }
         foreach (var property in staticProperties)
         {
@@ -1038,7 +1041,7 @@ internal class Writer
         sb.Append(GetFieldTypeDeclText(fieldDef, typeDefs));
         sb.AppendLine($" {fieldDef.Name}GetterDelegate();");
 
-        Assert.IsTrue(!fieldDef.IsReadOnly, "Unexpected non-readonly static field");
+        Assert.IsTrue(fieldDef.IsReadOnly, "Unexpected non-readonly static field");
     }
 
     private static void AppendStaticPropertyDelegateDeclarations(

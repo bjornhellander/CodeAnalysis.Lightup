@@ -196,3 +196,6 @@ dotnet_diagnostic.MSTEST0029.severity = warning
 
 # IDE0057: Use range operator
 dotnet_diagnostic.IDE0057.severity = warning
+
+# IDE0060: Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = warning

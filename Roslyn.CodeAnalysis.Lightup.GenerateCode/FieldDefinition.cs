@@ -15,6 +15,7 @@ internal class FieldDefinition : MemberDefinition
         Name = name;
         Type = type;
         IsNullable = isNullable;
+        IsReadOnly = isReadOnly;
         IsStatic = isStatic;
     }
 
