@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static ControlFlowGraph Create(this ControlFlowGraph wrappedObject, IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
+        public static ControlFlowGraph Create(IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
             => CreateFunc0(attribute, cancellationToken);
     }
 }

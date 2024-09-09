@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Location Create(this Location wrappedObject, String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan)
+        public static Location Create(String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan)
             => CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
     }
 }

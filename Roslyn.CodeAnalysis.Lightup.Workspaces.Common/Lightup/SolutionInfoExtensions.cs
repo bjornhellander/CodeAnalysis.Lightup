@@ -51,7 +51,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => AnalyzerReferencesGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SolutionInfo Create(this SolutionInfo wrappedObject, SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
+        public static SolutionInfo Create(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
             => CreateFunc0(id, version, filePath, projects, analyzerReferences);
     }
 }

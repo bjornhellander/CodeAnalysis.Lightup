@@ -57,27 +57,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree Create(this CSharpSyntaxTree wrappedObject, CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions)
+        public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions)
             => CreateFunc0(root, options, path, encoding, diagnosticOptions);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree Create(this CSharpSyntaxTree wrappedObject, CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode)
+        public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode)
             => CreateFunc1(root, options, path, encoding, diagnosticOptions, isGeneratedCode);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree ParseText(this CSharpSyntaxTree wrappedObject, SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
+        public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
             => ParseTextFunc2(text, options, path, diagnosticOptions, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree ParseText(this CSharpSyntaxTree wrappedObject, SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
+        public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
             => ParseTextFunc3(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree ParseText(this CSharpSyntaxTree wrappedObject, String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
+        public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
             => ParseTextFunc4(text, options, path, encoding, diagnosticOptions, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree ParseText(this CSharpSyntaxTree wrappedObject, String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
+        public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
             => ParseTextFunc5(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
