@@ -150,7 +150,9 @@ internal class Writer
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (classTypeDef.IsStatic && classTypeDef.Name != "WellKnownDiagnosticTags")
+            if (classTypeDef.IsStatic
+                && classTypeDef.Name != "WellKnownDiagnosticTags"
+                && classTypeDef.Name != "OperationExtensions")
             {
                 // TODO: Handle static classes as well
                 return null;
@@ -571,6 +573,7 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
+        // TODO: Only add "Ex" for static classes?
         var targetName = typeDef.Name + "Extensions";
 
         // TODO: Handle constructors
@@ -745,7 +748,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -801,7 +804,7 @@ internal class Writer
             var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
         }
         foreach (var methodDef in instanceMethods)
@@ -1184,17 +1187,22 @@ internal class Writer
     private static string GetParametersDeclText(
         IEnumerable<ParameterDefinition> parameters,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
-        bool addLeadingComma = false)
+        bool addLeadingComma = false,
+        bool isExtensionMethod = false)
     {
         var sb = new StringBuilder();
+
         foreach (var parameter in parameters)
         {
             sb.Append(sb.Length > 0 || addLeadingComma ? ", " : "");
+            sb.Append(isExtensionMethod ? "this " : "");
             sb.Append(parameter.IsParams ? "params " : "");
             sb.Append(ParameterModeText[parameter.Mode]);
             sb.Append(GetParameterTypeDeclText(parameter, typeDefs));
             sb.Append(' ');
             sb.Append(GetParameterNameText(parameter.Name));
+
+            isExtensionMethod = false;
         }
 
         var result = sb.ToString();

@@ -6,6 +6,7 @@ using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 
 internal class Reflector
@@ -517,6 +518,9 @@ internal class Reflector
 
     private static MethodDefinition CreateMethodDefinition(MethodInfo method)
     {
+        // NOTE: This might be somewhat over-simplified, but probably good enough for this
+        var isExtensionMethod = method.GetCustomAttribute<ExtensionAttribute>() != null;
+
         var returnTypeRef = method.ReturnType != typeof(void) ? CreateTypeReference(method.ReturnType) : null;
 
         var nullabilityInfoContext = new NullabilityInfoContext();
@@ -529,6 +533,7 @@ internal class Reflector
         var result = new MethodDefinition(
             method.Name,
             method.IsStatic,
+            isExtensionMethod,
             returnTypeRef,
             isNullable,
             parameterDefs);

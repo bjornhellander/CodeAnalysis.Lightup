@@ -97,14 +97,14 @@
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, bool isExtensionMethod = false)
             where TDelegate : Delegate
         {
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
             var returnType = GetReturnType<TDelegate>();
             var method = GetMethod(wrappedType, memberName, paramTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType, isExtensionMethod);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -187,7 +187,8 @@
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
-            Type wrapperReturnType)
+            Type wrapperReturnType,
+            bool isExtensionMethod = false)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
@@ -214,6 +215,21 @@
                     var nullCheckStatement = Expression.IfThen(
                         Expression.Equal(
                             instanceParameter,
+                            Expression.Constant(null)),
+                        Expression.Throw(
+                            Expression.New(
+                                nullReferenceExceptionConstructor)));
+                    expressions.Add(nullCheckStatement);
+                }
+                else if (isExtensionMethod)
+                {
+                    // TODO: Does this throw the right exception?
+                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
+                    var instanceParameter2 = argParameters[0];
+                    var instanceExpression2 = GetNativeValue(instanceParameter2, wrapperParameterTypes[0]);
+                    var nullCheckStatement = Expression.IfThen(
+                        Expression.Equal(
+                            instanceExpression2,
                             Expression.Constant(null)),
                         Expression.Throw(
                             Expression.New(
