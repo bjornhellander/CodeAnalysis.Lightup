@@ -1,5 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
+using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -12,6 +13,22 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
 [TestClass]
 public class SeparatedSyntaxListWrapperTests : V3_0_0.CSharp.SeparatedSyntaxListWrapperTests
 {
+    [TestMethod]
+    public override void TestCountGivenNullObject()
+    {
+        object? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Count);
+    }
+
+    [TestMethod]
+    public override void TestAddRangeGivenNullObject()
+    {
+        object? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddRange([]));
+    }
+
     [TestMethod]
     public void TestIsGivenCompatibleObject()
     {

@@ -25,36 +25,36 @@ public class RecordDeclarationSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestIdentifierGivenNullObject()
+    public virtual void TestIdentifierGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Identifier);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Identifier);
     }
 
     [TestMethod]
-    public void TestWithIdentifierGivenNullObject()
+    public virtual void TestWithIdentifierGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
     }
 
     [TestMethod]
-    public void TestParameterListGivenNullObject()
+    public virtual void TestParameterListGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.ParameterList);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.ParameterList);
     }
 
     [TestMethod]
-    public void TestUpdateGivenNullObject()
+    public virtual void TestUpdateGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
         var visitor = new TestVisitor();
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Accept(visitor));
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Accept(visitor));
     }
 
     [TestMethod]

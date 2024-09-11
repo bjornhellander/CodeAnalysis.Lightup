@@ -26,11 +26,11 @@ public class MethodInstrumentationWrapperTests
     }
 
     [TestMethod]
-    public void TestKindsGivenNullObject()
+    public virtual void TestKindsGivenNullObject()
     {
         ITypeSymbol? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Kinds);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Kinds);
     }
 
     [TestMethod]

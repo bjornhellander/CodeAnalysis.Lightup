@@ -1,5 +1,7 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.CSharp;
 
+using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
@@ -8,6 +10,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [TestClass]
 public class CollectionExpressionSyntaxWrapperTests : V4_4_0.CSharp.CollectionExpressionSyntaxWrapperTests
 {
+    [TestMethod]
+    public override void TestAddElementsGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements());
+    }
+
     [TestMethod]
     public void TestAddElementsGivenCompatibleObject()
     {

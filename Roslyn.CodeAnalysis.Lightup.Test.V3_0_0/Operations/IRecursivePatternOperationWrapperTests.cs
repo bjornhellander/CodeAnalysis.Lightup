@@ -26,11 +26,11 @@ public class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestPropertySubpatternsGivenNullObject()
+    public virtual void TestPropertySubpatternsGivenNullObject()
     {
         IOperation? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.PropertySubpatterns);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.PropertySubpatterns);
     }
 
     [TestMethod]

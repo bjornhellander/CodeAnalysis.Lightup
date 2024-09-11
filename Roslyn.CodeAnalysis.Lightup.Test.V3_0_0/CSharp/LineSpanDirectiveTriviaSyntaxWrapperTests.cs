@@ -25,11 +25,11 @@ public class LineSpanDirectiveTriviaSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestEndGivenNullObject()
+    public virtual void TestEndGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.End);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.End);
     }
 
     [TestMethod]

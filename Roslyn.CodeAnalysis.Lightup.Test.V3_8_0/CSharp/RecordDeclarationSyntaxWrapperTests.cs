@@ -13,6 +13,39 @@ using Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
+    public override void TestIdentifierGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Identifier);
+    }
+
+    [TestMethod]
+    public override void TestWithIdentifierGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
+    }
+
+    [TestMethod]
+    public override void TestParameterListGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.ParameterList);
+    }
+
+    [TestMethod]
+    public override void TestUpdateGivenNullObject()
+    {
+        SyntaxNode? obj = null;
+        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var visitor = new TestVisitor();
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Accept(visitor));
+    }
+
+    [TestMethod]
     public void TestIsGivenCompatibleObject()
     {
         var obj = CreateInstance();

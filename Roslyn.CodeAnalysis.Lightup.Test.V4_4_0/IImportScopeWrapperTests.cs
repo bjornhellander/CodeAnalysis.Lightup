@@ -1,5 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V4_4_0;
 
+using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -9,6 +10,14 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper;
 [TestClass]
 public class IImportScopeWrapperTests : V4_0_1.IImportScopeWrapperTests
 {
+    [TestMethod]
+    public override void TestImportsGivenNullObject()
+    {
+        object? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Imports);
+    }
+
     [TestMethod]
     public void TestImportsGivenCompatibleObject()
     {
