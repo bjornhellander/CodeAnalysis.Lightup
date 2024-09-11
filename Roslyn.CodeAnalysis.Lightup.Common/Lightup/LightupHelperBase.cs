@@ -11,7 +11,7 @@
     {
         public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
-            var wrappedType = assembly.GetType(wrappedTypeName);
+            var wrappedType = assembly.GetPublicType(wrappedTypeName);
             return wrappedType;
         }
 
@@ -47,7 +47,7 @@
             where TDelegate : Delegate
         {
             var returnType = GetReturnType<TDelegate>();
-            var fieldInfo = wrappedType?.GetField(memberName);
+            var fieldInfo = wrappedType?.GetPublicField(memberName);
 
             var (body, parameters) = CreateReadExpression(wrappedType, fieldInfo, null, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -60,8 +60,7 @@
         {
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.GetMethod;
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -75,8 +74,7 @@
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.GetMethod;
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -90,8 +88,7 @@
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.SetMethod;
+            var method = wrappedType?.GetPublicPropertySetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -387,7 +384,8 @@
                 return null;
             }
 
-            var result = wrappedType?.GetMethod(name, nativeParamTypes);
+            // TODO: Avoid this extra array allocation
+            var result = wrappedType?.GetPublicMethod(name, nativeParamTypes.Cast<Type>().ToArray());
             return result;
         }
 
