@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.Immutable;
+    using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -152,22 +153,10 @@
             Type? instanceBaseType,
             Type wrapperReturnType)
         {
-            var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
+            _ = wrappedType;
+            Debug.Assert(instanceBaseType == null, "Unexpected instance base type (only static fields so far)");
 
             var expressions = new List<Expression>();
-
-            var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-            if (instanceParameter != null)
-            {
-                var nullCheckStatement = Expression.IfThen(
-                    Expression.Equal(
-                        instanceParameter,
-                        Expression.Constant(null)),
-                    Expression.Throw(
-                        Expression.New(
-                            nullReferenceExceptionConstructor)));
-                expressions.Add(nullCheckStatement);
-            }
 
             if (field == null)
             {
@@ -182,18 +171,14 @@
             }
             else
             {
-                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-
-                var returnValue = instance != null
-                    ? Expression.Field(instance, field)
-                    : Expression.Field(null, field);
+                var returnValue = Expression.Field(null, field);
                 var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
                 expressions.Add(wrappedReturnValue);
             }
 
             var block = Expression.Block(expressions);
 
-            var parameters = instanceParameter != null ? new[] { instanceParameter } : Array.Empty<ParameterExpression>();
+            var parameters = Array.Empty<ParameterExpression>();
             return (block, parameters);
         }
 
