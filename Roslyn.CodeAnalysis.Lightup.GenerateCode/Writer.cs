@@ -39,6 +39,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
+        "Microsoft.CodeAnalysis.GeneratorExtensions",
         "Microsoft.CodeAnalysis.GeneratorInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorPostInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorRunResult",
@@ -1045,6 +1046,8 @@ internal class Writer
                 break;
 
             case AssemblyKind.CSharp:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
