@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>8.0</LangVersion>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<RootNamespace>Microsoft.CodeAnalysis</RootNamespace>
 	</PropertyGroup>
 
@@ -21,7 +20,7 @@
 		<Copyright>Copyright</Copyright>
 		<PackageTags>Roslyn, code analysis</PackageTags>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
