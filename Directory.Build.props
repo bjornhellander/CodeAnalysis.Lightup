@@ -23,7 +23,7 @@
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
 		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
-		<PackageTags>Roslyn, code analysis</PackageTags>
+		<PackageTags>Roslyn, CodeAnalysis, Compiler, CSharp, VB, VisualBasic, Syntax, Semantics</PackageTags>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 	</PropertyGroup>
 
