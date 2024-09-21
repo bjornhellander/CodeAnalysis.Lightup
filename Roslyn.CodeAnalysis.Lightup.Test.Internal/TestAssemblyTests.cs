@@ -1,4 +1,7 @@
-﻿namespace Roslyn.CodeAnalysis.Lightup.Test.Internal;
+﻿// Copyright © Björn Hellander 2024
+// Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
+
+namespace Roslyn.CodeAnalysis.Lightup.Test.Internal;
 
 using System;
 using System.Collections.Generic;

@@ -167,9 +167,6 @@ dotnet_diagnostic.SA1602.severity = none
 # SA1623: Property summary documentation should match accessors
 dotnet_diagnostic.SA1623.severity = none
 
-# SA1633: File should have header
-dotnet_diagnostic.SA1633.severity = none
-
 # MSTEST0004: Public types should be test classes
 dotnet_diagnostic.MSTEST0004.severity = warning
 
