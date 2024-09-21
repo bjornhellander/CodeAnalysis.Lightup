@@ -13,14 +13,28 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PackageVersion>1.0.0.0</PackageVersion>
+		<Authors>Björn Hellander</Authors>
+		<PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
+		<!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
+		<RepositoryUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+		<Copyright>Copyright</Copyright>
+		<PackageTags>Roslyn, code analysis</PackageTags>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<AdditionalFiles Include="..\stylecop.json" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0-beta1.24324.1" />
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0-preview.24324.1" />
-		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0-beta1.24324.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0-preview.24324.1" PrivateAssets="All" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(ProjectFileName.Contains('.Test.'))">
