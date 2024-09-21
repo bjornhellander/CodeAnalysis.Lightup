@@ -1,4 +1,7 @@
-﻿#pragma warning disable SA1516 // Elements should be separated by blank line
+﻿// Copyright © Björn Hellander 2024
+// Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
+
+#pragma warning disable SA1516 // Elements should be separated by blank line
 #pragma warning disable SA1201 // Elements should appear in the correct order
 
 namespace Microsoft.CodeAnalysis.Lightup

@@ -16,13 +16,13 @@
 	<PropertyGroup>
 		<PackageVersion>1.0.0.0</PackageVersion>
 		<Authors>Björn Hellander</Authors>
-		<PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
 		<!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
 		<RepositoryUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
-		<Copyright>Copyright</Copyright>
+		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
 		<PackageTags>Roslyn, code analysis</PackageTags>
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 	</PropertyGroup>

@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		LICENSE.txt = LICENSE.txt
 		nuget.config = nuget.config
 		README.md = README.md
 		stylecop.json = stylecop.json
@@ -42,6 +43,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{463C8FC6-7EB3-4697-BBCF-16E1912DEF71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{463C8FC6-7EB3-4697-BBCF-16E1912DEF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{463C8FC6-7EB3-4697-BBCF-16E1912DEF71}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,10 +79,6 @@ Global
 		{E75915B2-B112-42C2-AC13-0A5190C304B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E75915B2-B112-42C2-AC13-0A5190C304B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E75915B2-B112-42C2-AC13-0A5190C304B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
