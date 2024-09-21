@@ -7,7 +7,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Description>Roslyn.CodeAnalysis.Lightup.Common</Description>
+		<Description>
+			Adds runtime support for features added to the Microsoft.CodeAnalysis.Common package after version 3.0.0.
+			This makes it possible to use later features from that package if they are available at runtime, without depending on a later version.
+		</Description>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
