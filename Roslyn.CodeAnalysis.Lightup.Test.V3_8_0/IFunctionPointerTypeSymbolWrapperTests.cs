@@ -1,5 +1,6 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0;
 
+using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -9,6 +10,14 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper
 [TestClass]
 public class IFunctionPointerTypeSymbolWrapperTests : V3_0_0.IFunctionPointerTypeSymbolWrapperTests
 {
+    [TestMethod]
+    public override void TestSignatureGivenNullObject()
+    {
+        ITypeSymbol? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Signature);
+    }
+
     [TestMethod]
     public void TestSignatureGivenCompatibleObject()
     {

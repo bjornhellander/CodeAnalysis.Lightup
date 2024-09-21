@@ -39,6 +39,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
         "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
+        "Microsoft.CodeAnalysis.GeneratorExtensions",
         "Microsoft.CodeAnalysis.GeneratorInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorPostInitializationContext",
         "Microsoft.CodeAnalysis.GeneratorRunResult",
@@ -150,7 +151,9 @@ internal class Writer
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (classTypeDef.IsStatic)
+            if (classTypeDef.IsStatic
+                && classTypeDef.Name != "WellKnownDiagnosticTags"
+                && classTypeDef.Name != "OperationExtensions")
             {
                 // TODO: Handle static classes as well
                 return null;
@@ -381,6 +384,7 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
         if (staticProperties.Count != 0)
@@ -437,6 +441,7 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
         if (staticProperties.Count != 0)
@@ -495,6 +500,7 @@ internal class Writer
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
             sb.AppendLine($"        }}");
+            Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
         }
         foreach (var property in staticProperties)
         {
@@ -568,13 +574,13 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
+        // TODO: Only add "Ex" for static classes?
         var targetName = typeDef.Name + "Extensions";
 
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
         _ = instanceConstructors;
         var staticFields = GetStaticFields(typeDef);
-        Assert.IsTrue(staticFields.Count == 0, "Unexpected static fields");
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
         var staticEvents = GetStaticEvents(typeDef);
@@ -607,6 +613,14 @@ internal class Writer
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
         sb.AppendLine($"        public static readonly Type? WrappedType;");
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                AppendStaticFieldDelegateDeclarations(sb, field, typeDefs);
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -639,6 +653,15 @@ internal class Writer
             {
                 var index = instanceMethods.IndexOf(method);
                 AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+            }
+        }
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
         if (staticProperties.Count != 0)
@@ -687,6 +710,15 @@ internal class Writer
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        if (staticFields.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var field in staticFields)
+            {
+                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -717,7 +749,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -730,6 +762,16 @@ internal class Writer
             }
         }
         sb.AppendLine($"        }}");
+        foreach (var field in staticFields)
+        {
+            Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Added in Roslyn version {field.AssemblyVersion}</summary>");
+            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, typeDefs)} {field.Name}");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            get => {field.Name}GetterFunc();");
+            sb.AppendLine($"        }}");
+        }
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
@@ -763,7 +805,7 @@ internal class Writer
             var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
         }
         foreach (var methodDef in instanceMethods)
@@ -1004,6 +1046,8 @@ internal class Writer
                 break;
 
             case AssemblyKind.CSharp:
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp;");
+                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
                 sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
@@ -1038,7 +1082,7 @@ internal class Writer
         sb.Append(GetFieldTypeDeclText(fieldDef, typeDefs));
         sb.AppendLine($" {fieldDef.Name}GetterDelegate();");
 
-        Assert.IsTrue(!fieldDef.IsReadOnly, "Unexpected non-readonly static field");
+        Assert.IsTrue(fieldDef.IsReadOnly, "Unexpected non-readonly static field");
     }
 
     private static void AppendStaticPropertyDelegateDeclarations(
@@ -1146,17 +1190,22 @@ internal class Writer
     private static string GetParametersDeclText(
         IEnumerable<ParameterDefinition> parameters,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
-        bool addLeadingComma = false)
+        bool addLeadingComma = false,
+        bool isExtensionMethod = false)
     {
         var sb = new StringBuilder();
+
         foreach (var parameter in parameters)
         {
             sb.Append(sb.Length > 0 || addLeadingComma ? ", " : "");
+            sb.Append(isExtensionMethod ? "this " : "");
             sb.Append(parameter.IsParams ? "params " : "");
             sb.Append(ParameterModeText[parameter.Mode]);
             sb.Append(GetParameterTypeDeclText(parameter, typeDefs));
             sb.Append(' ');
             sb.Append(GetParameterNameText(parameter.Name));
+
+            isExtensionMethod = false;
         }
 
         var result = sb.ToString();

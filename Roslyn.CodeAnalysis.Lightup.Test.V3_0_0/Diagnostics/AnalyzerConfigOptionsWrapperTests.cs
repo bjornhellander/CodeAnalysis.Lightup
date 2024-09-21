@@ -32,11 +32,11 @@ public class AnalyzerConfigOptionsWrapperTests
     }
 
     [TestMethod]
-    public void TestTryGetValueGivenNullObject()
+    public virtual void TestTryGetValueGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.TryGetValue("key", out var value));
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.TryGetValue("key", out var value));
     }
 
     [TestMethod]

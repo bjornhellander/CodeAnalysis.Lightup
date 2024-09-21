@@ -25,11 +25,11 @@ public class CollectionExpressionSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestAddElementsGivenNullObject()
+    public virtual void TestAddElementsGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements());
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.AddElements());
     }
 
     [TestMethod]

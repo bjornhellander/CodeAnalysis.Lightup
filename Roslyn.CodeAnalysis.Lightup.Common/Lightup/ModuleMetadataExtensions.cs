@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ModuleMetadata CreateFromMetadata(this ModuleMetadata wrappedObject, IntPtr metadata, Int32 size, Action onDispose)
+        public static ModuleMetadata CreateFromMetadata(IntPtr metadata, Int32 size, Action onDispose)
             => CreateFromMetadataFunc0(metadata, size, onDispose);
     }
 }

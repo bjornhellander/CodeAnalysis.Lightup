@@ -1,5 +1,7 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V4_4_0.Operations;
 
+using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -9,6 +11,14 @@ using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHan
 [TestClass]
 public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests : V4_0_1.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
 {
+    [TestMethod]
+    public override void TestPlaceholderKindGivenNullObject()
+    {
+        IOperation? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.PlaceholderKind);
+    }
+
     [TestMethod]
     [DataRow(InterpolatedStringArgumentPlaceholderKind.CallsiteArgument)]
     [DataRow(InterpolatedStringArgumentPlaceholderKind.CallsiteReceiver)]

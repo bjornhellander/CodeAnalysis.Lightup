@@ -7,12 +7,14 @@ internal class MethodDefinition : MemberDefinition
     public MethodDefinition(
         string name,
         bool isStatic,
+        bool isExtensionMethod,
         TypeReference? returnType,
         bool isNullable,
         List<ParameterDefinition> parameters)
     {
         Name = name;
         IsStatic = isStatic;
+        IsExtensionMethod = isExtensionMethod;
         ReturnType = returnType;
         IsNullable = isNullable;
         Parameters = parameters;
@@ -21,6 +23,8 @@ internal class MethodDefinition : MemberDefinition
     public string Name { get; }
 
     public bool IsStatic { get; }
+
+    public bool IsExtensionMethod { get; }
 
     public TypeReference? ReturnType { get; }
 

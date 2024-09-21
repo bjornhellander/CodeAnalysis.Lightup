@@ -60,19 +60,19 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             => PriorityGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CodeAction Create(this CodeAction wrappedObject, String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable)
+        public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable)
             => CreateFunc0(title, nestedActions, isInlinable);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static CodeAction Create(this CodeAction wrappedObject, String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority)
+        public static CodeAction Create(String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority)
             => CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static CodeAction Create(this CodeAction wrappedObject, String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority)
+        public static CodeAction Create(String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority)
             => CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static CodeAction Create(this CodeAction wrappedObject, String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority)
+        public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority)
             => CreateFunc3(title, nestedActions, isInlinable, priority);
     }
 }

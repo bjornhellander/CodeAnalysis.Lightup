@@ -25,20 +25,20 @@ public class FunctionPointerCallingConventionSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestUnmanagedCallingConventionListGivenNullObject()
+    public virtual void TestUnmanagedCallingConventionListGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.UnmanagedCallingConventionList);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.UnmanagedCallingConventionList);
     }
 
     [TestMethod]
-    public void TestWithUnmanagedCallingConventionListGivenNullObject()
+    public virtual void TestWithUnmanagedCallingConventionListGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
         var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.As(null);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithUnmanagedCallingConventionList(unmanagedCallingConventionListWrapper));
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.WithUnmanagedCallingConventionList(unmanagedCallingConventionListWrapper));
     }
 
     [TestMethod]

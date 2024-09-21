@@ -26,11 +26,11 @@ public class IFunctionPointerTypeSymbolWrapperTests
     }
 
     [TestMethod]
-    public void TestSignatureGivenNullObject()
+    public virtual void TestSignatureGivenNullObject()
     {
         ITypeSymbol? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Signature);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Signature);
     }
 
     [TestMethod]

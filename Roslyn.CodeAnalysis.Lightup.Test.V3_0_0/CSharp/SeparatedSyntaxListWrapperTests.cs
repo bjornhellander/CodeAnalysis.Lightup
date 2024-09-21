@@ -26,19 +26,19 @@ public class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestCountGivenNullObject()
+    public virtual void TestCountGivenNullObject()
     {
         object? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Count);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Count);
     }
 
     [TestMethod]
-    public void TestAddRangeGivenNullObject()
+    public virtual void TestAddRangeGivenNullObject()
     {
         object? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddRange([]));
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.AddRange([]));
     }
 
     [TestMethod]

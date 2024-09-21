@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static EditAndContinueMethodDebugInformation Create(this EditAndContinueMethodDebugInformation wrappedObject, ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
+        public static EditAndContinueMethodDebugInformation Create(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
             => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
     }
 }

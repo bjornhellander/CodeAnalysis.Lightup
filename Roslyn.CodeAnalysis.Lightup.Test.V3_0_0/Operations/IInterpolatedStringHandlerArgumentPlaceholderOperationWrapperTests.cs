@@ -26,11 +26,11 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestPlaceholderKindGivenNullObject()
+    public virtual void TestPlaceholderKindGivenNullObject()
     {
         IOperation? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.PlaceholderKind);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.PlaceholderKind);
     }
 
     [TestMethod]

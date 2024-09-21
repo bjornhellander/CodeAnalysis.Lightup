@@ -25,11 +25,11 @@ public class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestImportsGivenNullObject()
+    public virtual void TestImportsGivenNullObject()
     {
         object? obj = null;
         var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Imports);
+        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Imports);
     }
 
     [TestMethod]

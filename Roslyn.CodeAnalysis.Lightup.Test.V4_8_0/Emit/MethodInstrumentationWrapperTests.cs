@@ -1,5 +1,7 @@
 ﻿namespace Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.Emit;
 
+using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,6 +10,14 @@ using Wrapper = Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper
 [TestClass]
 public class MethodInstrumentationWrapperTests : V4_4_0.Emit.MethodInstrumentationWrapperTests
 {
+    [TestMethod]
+    public override void TestKindsGivenNullObject()
+    {
+        ITypeSymbol? obj = null;
+        var wrapper = Wrapper.As(obj);
+        Assert.ThrowsException<NullReferenceException>(() => wrapper.Kinds);
+    }
+
     [TestMethod]
     [DataRow(InstrumentationKind.None)]
     [DataRow(InstrumentationKind.TestCoverage)]

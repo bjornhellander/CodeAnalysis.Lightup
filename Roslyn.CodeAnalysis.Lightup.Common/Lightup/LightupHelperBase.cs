@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.Immutable;
+    using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -11,7 +12,7 @@
     {
         public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
-            var wrappedType = assembly.GetType(wrappedTypeName);
+            var wrappedType = assembly.GetPublicType(wrappedTypeName);
             return wrappedType;
         }
 
@@ -47,7 +48,7 @@
             where TDelegate : Delegate
         {
             var returnType = GetReturnType<TDelegate>();
-            var fieldInfo = wrappedType?.GetField(memberName);
+            var fieldInfo = wrappedType?.GetPublicField(memberName);
 
             var (body, parameters) = CreateReadExpression(wrappedType, fieldInfo, null, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -60,8 +61,7 @@
         {
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.GetMethod;
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -75,8 +75,7 @@
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.GetMethod;
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -90,8 +89,7 @@
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var propertyInfo = wrappedType?.GetProperty(memberName);
-            var method = propertyInfo?.SetMethod;
+            var method = wrappedType?.GetPublicPropertySetter(memberName);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -99,14 +97,14 @@
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, bool isExtensionMethod = false)
             where TDelegate : Delegate
         {
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
             var returnType = GetReturnType<TDelegate>();
             var method = GetMethod(wrappedType, memberName, paramTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType, isExtensionMethod);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -155,22 +153,10 @@
             Type? instanceBaseType,
             Type wrapperReturnType)
         {
-            var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
+            _ = wrappedType;
+            Debug.Assert(instanceBaseType == null, "Unexpected instance base type (only static fields so far)");
 
             var expressions = new List<Expression>();
-
-            var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-            if (instanceParameter != null)
-            {
-                var nullCheckStatement = Expression.IfThen(
-                    Expression.Equal(
-                        instanceParameter,
-                        Expression.Constant(null)),
-                    Expression.Throw(
-                        Expression.New(
-                            nullReferenceExceptionConstructor)));
-                expressions.Add(nullCheckStatement);
-            }
 
             if (field == null)
             {
@@ -185,18 +171,14 @@
             }
             else
             {
-                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-
-                var returnValue = instance != null
-                    ? Expression.Field(instance, field)
-                    : Expression.Field(null, field);
+                var returnValue = Expression.Field(null, field);
                 var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
                 expressions.Add(wrappedReturnValue);
             }
 
             var block = Expression.Block(expressions);
 
-            var parameters = instanceParameter != null ? new[] { instanceParameter } : Array.Empty<ParameterExpression>();
+            var parameters = Array.Empty<ParameterExpression>();
             return (block, parameters);
         }
 
@@ -205,26 +187,14 @@
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
-            Type wrapperReturnType)
+            Type wrapperReturnType,
+            bool isExtensionMethod = false)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
             var allParameters = instanceParameter != null ? new[] { instanceParameter }.Concat(argParameters).ToArray() : argParameters;
 
             var expressions = new List<Expression>();
-
-            var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-            if (instanceParameter != null)
-            {
-                var nullCheckStatement = Expression.IfThen(
-                    Expression.Equal(
-                        instanceParameter,
-                        Expression.Constant(null)),
-                    Expression.Throw(
-                        Expression.New(
-                            nullReferenceExceptionConstructor)));
-                expressions.Add(nullCheckStatement);
-            }
 
             if (method == null)
             {
@@ -239,14 +209,44 @@
             }
             else
             {
-                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
+                if (instanceParameter != null)
+                {
+                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
+                    var nullCheckStatement = Expression.IfThen(
+                        Expression.Equal(
+                            instanceParameter,
+                            Expression.Constant(null)),
+                        Expression.Throw(
+                            Expression.New(
+                                nullReferenceExceptionConstructor)));
+                    expressions.Add(nullCheckStatement);
+                }
+                else if (isExtensionMethod)
+                {
+                    // TODO: Does this throw the right exception?
+                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
+                    var instanceParameter2 = argParameters[0];
+                    var instanceExpression2 = GetNativeValue(instanceParameter2, wrapperParameterTypes[0]);
+                    var nullCheckStatement = Expression.IfThen(
+                        Expression.Equal(
+                            instanceExpression2,
+                            Expression.Constant(null)),
+                        Expression.Throw(
+                            Expression.New(
+                                nullReferenceExceptionConstructor)));
+                    expressions.Add(nullCheckStatement);
+                }
 
-                var returnValue = instance != null
-                    ? Expression.Call(instance, method, argValues)
-                    : Expression.Call(method, argValues);
-                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-                expressions.Add(wrappedReturnValue);
+                {
+                    var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+                    var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
+
+                    var returnValue = instance != null
+                        ? Expression.Call(instance, method, argValues)
+                        : Expression.Call(method, argValues);
+                    var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                    expressions.Add(wrappedReturnValue);
+                }
             }
 
             var block = Expression.Block(expressions);
@@ -387,7 +387,8 @@
                 return null;
             }
 
-            var result = wrappedType?.GetMethod(name, nativeParamTypes);
+            // TODO: Avoid this extra array allocation
+            var result = wrappedType?.GetPublicMethod(name, nativeParamTypes.Cast<Type>().ToArray());
             return result;
         }
 
