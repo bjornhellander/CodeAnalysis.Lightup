@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers.</summary>
     public static class CompilationWithAnalyzersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers";
@@ -69,51 +70,51 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(wrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc0(_obj, tree, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc1(_obj, file, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc2(_obj, tree, analyzers, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc3(_obj, file, analyzers, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SemanticModel model, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc4(_obj, model, filterSpan, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc5(_obj, tree, filterSpan, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc6(_obj, file, filterSpan, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SemanticModel model, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc7(_obj, model, filterSpan, analyzers, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc8(_obj, tree, filterSpan, analyzers, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc9(_obj, file, filterSpan, analyzers, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
             => GetAnalyzerSyntaxDiagnosticsAsyncFunc10(_obj, tree, filterSpan, cancellationToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
             => GetAnalyzerSyntaxDiagnosticsAsyncFunc11(_obj, tree, filterSpan, analyzers, cancellationToken);
     }

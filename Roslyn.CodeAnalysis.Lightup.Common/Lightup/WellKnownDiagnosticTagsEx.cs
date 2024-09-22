@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownDiagnosticTags.</summary>
     public static class WellKnownDiagnosticTagsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
@@ -39,13 +40,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
         }
 
-        /// <summary>Field added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Field added in version 3.8.0.0.</summary>
         public static String CustomObsolete
         {
             get => CustomObsoleteGetterFunc();
         }
 
-        /// <summary>Field added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Field added in version 4.0.0.0.</summary>
         public static String CompilationEnd
         {
             get => CompilationEndGetterFunc();

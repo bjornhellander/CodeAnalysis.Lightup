@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ISymbol.</summary>
     public static class ISymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
@@ -42,11 +43,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, nameof(Equals));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Int32 MetadataToken(this ISymbol _obj)
             => MetadataTokenGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Boolean Equals(this ISymbol _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
             => EqualsFunc0(_obj, other, equalityComparer);
     }

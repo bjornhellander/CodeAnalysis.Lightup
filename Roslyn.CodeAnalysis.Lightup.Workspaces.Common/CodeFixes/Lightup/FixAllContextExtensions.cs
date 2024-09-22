@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.FixAllContext.</summary>
     public static class FixAllContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllContext";

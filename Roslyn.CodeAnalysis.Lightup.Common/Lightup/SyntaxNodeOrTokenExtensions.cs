@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SyntaxNodeOrToken.</summary>
     public static class SyntaxNodeOrTokenExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrToken";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken _obj, SyntaxNodeOrToken other)
             => IsIncrementallyIdenticalToFunc0(_obj, other);
     }

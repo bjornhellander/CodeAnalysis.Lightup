@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in version 4.4.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ImportedNamespaceOrType. Added in version 4.4.0.0.</summary>
     public readonly struct ImportedNamespaceOrTypeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly SyntaxReference? DeclaringSyntaxReference
         {
             get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly INamespaceOrTypeSymbol NamespaceOrType
         {
             get => NamespaceOrTypeGetterFunc(wrappedObject);

@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalysisResult.</summary>
     public static class AnalysisResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisResult";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(wrappedType, nameof(AdditionalFileDiagnostics));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableDictionary<AdditionalText, ImmutableDictionary<DiagnosticAnalyzer, ImmutableArray<Diagnostic>>> AdditionalFileDiagnostics(this AnalysisResult _obj)
             => AdditionalFileDiagnosticsGetterFunc(_obj);
     }

@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfig. Added in version 3.8.0.0.</summary>
     public readonly struct AnalyzerConfigWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
@@ -61,11 +61,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnalyzerConfigWrapper Parse(String text, String? pathToFile)
             => ParseFunc0(text, pathToFile);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnalyzerConfigWrapper Parse(SourceText text, String? pathToFile)
             => ParseFunc1(text, pathToFile);
     }

@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax.</summary>
     public static class StatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this StatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static StatementSyntax AddAttributeLists(this StatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static StatementSyntax WithAttributeLists(this StatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc1(_obj, attributeLists);
     }

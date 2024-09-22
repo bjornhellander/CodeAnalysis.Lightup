@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IPropertySymbol.</summary>
     public static class IPropertySymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsRequired(this IPropertySymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IPropertySymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }

@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IIncrementOrDecrementOperation.</summary>
     public static class IIncrementOrDecrementOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IIncrementOrDecrementOperation";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this IIncrementOrDecrementOperation _obj)
             => ConstrainedToTypeGetterFunc(_obj);
     }

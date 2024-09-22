@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.</summary>
     public static class AnalyzerLoadFailureEventArgsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(wrappedType, nameof(ReferencedCompilerVersion));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Version? ReferencedCompilerVersion(this AnalyzerLoadFailureEventArgs _obj)
             => ReferencedCompilerVersionGetterFunc(_obj);
     }

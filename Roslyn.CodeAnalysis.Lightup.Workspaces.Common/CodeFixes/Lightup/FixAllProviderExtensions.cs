@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.FixAllProvider.</summary>
     public static class FixAllProviderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllProvider";
@@ -43,11 +44,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync)
             => CreateFunc0(fixAllAsync);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync, ImmutableArray<FixAllScope> supportedFixAllScopes)
             => CreateFunc1(fixAllAsync, supportedFixAllScopes);
     }

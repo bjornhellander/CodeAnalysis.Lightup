@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.SemanticEdit.</summary>
     public static class SemanticEditExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static MethodInstrumentationWrapper Instrumentation(this SemanticEdit _obj)
             => InstrumentationGetterFunc(_obj);
     }

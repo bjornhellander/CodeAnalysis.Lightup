@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax.</summary>
     public static class IfStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this IfStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IfStatementSyntax AddAttributeLists(this IfStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IfStatementSyntax Update(this IfStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken ifKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, StatementSyntax statement, ElseClauseSyntax? @else)
             => UpdateFunc1(_obj, attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IfStatementSyntax WithAttributeLists(this IfStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }

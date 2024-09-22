@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUtf8StringOperation. Added in version 4.4.0.0.</summary>
     public readonly struct IUtf8StringOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUtf8StringOperation";
@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly String Value
         {
             get => ValueGetterFunc(wrappedObject);

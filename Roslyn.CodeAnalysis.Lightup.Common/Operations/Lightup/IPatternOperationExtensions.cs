@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IPatternOperation.</summary>
     public static class IPatternOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPatternOperation";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(wrappedType, nameof(NarrowedType));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ITypeSymbol NarrowedType(this IPatternOperation _obj)
             => NarrowedTypeGetterFunc(_obj);
     }

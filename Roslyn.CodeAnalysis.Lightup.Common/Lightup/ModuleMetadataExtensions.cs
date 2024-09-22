@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ModuleMetadata.</summary>
     public static class ModuleMetadataExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, nameof(CreateFromMetadata));
         }
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static ModuleMetadata CreateFromMetadata(IntPtr metadata, Int32 size, Action onDispose)
             => CreateFromMetadataFunc0(metadata, size, onDispose);
     }

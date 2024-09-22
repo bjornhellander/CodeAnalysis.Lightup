@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CompilationOptions.</summary>
     public static class CompilationOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
@@ -45,15 +46,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableContextOptionsEx NullableContextOptions(this CompilationOptions _obj)
             => NullableContextOptionsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this CompilationOptions _obj)
             => SyntaxTreeOptionsProviderGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
             => WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
     }

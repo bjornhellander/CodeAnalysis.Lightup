@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.</summary>
     public static class CSharpSyntaxVisitorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor";
@@ -112,107 +113,107 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitWithExpressionFunc25 = LightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate25>(wrappedType, nameof(VisitWithExpression));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitBinaryPattern(this CSharpSyntaxVisitor _obj, BinaryPatternSyntaxWrapper node)
             => VisitBinaryPatternFunc0(_obj, node);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitCollectionExpression(this CSharpSyntaxVisitor _obj, CollectionExpressionSyntaxWrapper node)
             => VisitCollectionExpressionFunc1(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitDefaultConstraint(this CSharpSyntaxVisitor _obj, DefaultConstraintSyntaxWrapper node)
             => VisitDefaultConstraintFunc2(_obj, node);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitExpressionColon(this CSharpSyntaxVisitor _obj, ExpressionColonSyntaxWrapper node)
             => VisitExpressionColonFunc3(_obj, node);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitExpressionElement(this CSharpSyntaxVisitor _obj, ExpressionElementSyntaxWrapper node)
             => VisitExpressionElementFunc4(_obj, node);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitFileScopedNamespaceDeclaration(this CSharpSyntaxVisitor _obj, FileScopedNamespaceDeclarationSyntaxWrapper node)
             => VisitFileScopedNamespaceDeclarationFunc5(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerCallingConvention(this CSharpSyntaxVisitor _obj, FunctionPointerCallingConventionSyntaxWrapper node)
             => VisitFunctionPointerCallingConventionFunc6(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerParameter(this CSharpSyntaxVisitor _obj, FunctionPointerParameterSyntaxWrapper node)
             => VisitFunctionPointerParameterFunc7(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerParameterList(this CSharpSyntaxVisitor _obj, FunctionPointerParameterListSyntaxWrapper node)
             => VisitFunctionPointerParameterListFunc8(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerType(this CSharpSyntaxVisitor _obj, FunctionPointerTypeSyntaxWrapper node)
             => VisitFunctionPointerTypeFunc9(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerUnmanagedCallingConvention(this CSharpSyntaxVisitor _obj, FunctionPointerUnmanagedCallingConventionSyntaxWrapper node)
             => VisitFunctionPointerUnmanagedCallingConventionFunc10(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerUnmanagedCallingConventionList(this CSharpSyntaxVisitor _obj, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
             => VisitFunctionPointerUnmanagedCallingConventionListFunc11(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitImplicitObjectCreationExpression(this CSharpSyntaxVisitor _obj, ImplicitObjectCreationExpressionSyntaxWrapper node)
             => VisitImplicitObjectCreationExpressionFunc12(_obj, node);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitLineDirectivePosition(this CSharpSyntaxVisitor _obj, LineDirectivePositionSyntaxWrapper node)
             => VisitLineDirectivePositionFunc13(_obj, node);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitLineSpanDirectiveTrivia(this CSharpSyntaxVisitor _obj, LineSpanDirectiveTriviaSyntaxWrapper node)
             => VisitLineSpanDirectiveTriviaFunc14(_obj, node);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitListPattern(this CSharpSyntaxVisitor _obj, ListPatternSyntaxWrapper node)
             => VisitListPatternFunc15(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitParenthesizedPattern(this CSharpSyntaxVisitor _obj, ParenthesizedPatternSyntaxWrapper node)
             => VisitParenthesizedPatternFunc16(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitPrimaryConstructorBaseType(this CSharpSyntaxVisitor _obj, PrimaryConstructorBaseTypeSyntaxWrapper node)
             => VisitPrimaryConstructorBaseTypeFunc17(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitRecordDeclaration(this CSharpSyntaxVisitor _obj, RecordDeclarationSyntaxWrapper node)
             => VisitRecordDeclarationFunc18(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitRelationalPattern(this CSharpSyntaxVisitor _obj, RelationalPatternSyntaxWrapper node)
             => VisitRelationalPatternFunc19(_obj, node);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitScopedType(this CSharpSyntaxVisitor _obj, ScopedTypeSyntaxWrapper node)
             => VisitScopedTypeFunc20(_obj, node);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitSlicePattern(this CSharpSyntaxVisitor _obj, SlicePatternSyntaxWrapper node)
             => VisitSlicePatternFunc21(_obj, node);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitSpreadElement(this CSharpSyntaxVisitor _obj, SpreadElementSyntaxWrapper node)
             => VisitSpreadElementFunc22(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitTypePattern(this CSharpSyntaxVisitor _obj, TypePatternSyntaxWrapper node)
             => VisitTypePatternFunc23(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitUnaryPattern(this CSharpSyntaxVisitor _obj, UnaryPatternSyntaxWrapper node)
             => VisitUnaryPatternFunc24(_obj, node);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitWithExpression(this CSharpSyntaxVisitor _obj, WithExpressionSyntaxWrapper node)
             => VisitWithExpressionFunc25(_obj, node);
     }

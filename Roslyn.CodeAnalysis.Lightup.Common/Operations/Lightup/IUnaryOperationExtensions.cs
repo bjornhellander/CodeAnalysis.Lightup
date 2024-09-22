@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUnaryOperation.</summary>
     public static class IUnaryOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUnaryOperation";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this IUnaryOperation _obj)
             => ConstrainedToTypeGetterFunc(_obj);
     }

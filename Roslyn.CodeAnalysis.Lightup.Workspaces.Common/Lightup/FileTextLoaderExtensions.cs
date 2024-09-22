@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.FileTextLoader.</summary>
     public static class FileTextLoaderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FileTextLoader";
@@ -40,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, nameof(LoadTextAndVersionAsync));
         }
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Task<TextAndVersion> LoadTextAndVersionAsync(this FileTextLoader _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
             => LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
     }

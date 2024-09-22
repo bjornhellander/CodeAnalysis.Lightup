@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolVisitor.</summary>
     public static class SymbolVisitorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, nameof(VisitFunctionPointerType));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerType(this SymbolVisitor _obj, IFunctionPointerTypeSymbolWrapper symbol)
             => VisitFunctionPointerTypeFunc0(_obj, symbol);
     }

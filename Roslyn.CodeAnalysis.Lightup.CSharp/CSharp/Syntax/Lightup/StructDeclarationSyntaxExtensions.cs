@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax.</summary>
     public static class StructDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static ParameterListSyntax? ParameterList(this StructDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static StructDeclarationSyntax AddParameterListParameters(this StructDeclarationSyntax _obj, params ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static StructDeclarationSyntax Update(this StructDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static StructDeclarationSyntax WithParameterList(this StructDeclarationSyntax _obj, ParameterListSyntax? parameterList)
             => WithParameterListFunc2(_obj, parameterList);
     }

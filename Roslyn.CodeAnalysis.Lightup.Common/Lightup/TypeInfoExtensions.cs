@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.TypeInfo.</summary>
     public static class TypeInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TypeInfo";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(wrappedType, nameof(Nullability));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullabilityInfoWrapper ConvertedNullability(this TypeInfo _obj)
             => ConvertedNullabilityGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullabilityInfoWrapper Nullability(this TypeInfo _obj)
             => NullabilityGetterFunc(_obj);
     }

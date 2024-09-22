@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitDifferenceResult.</summary>
     public static class EmitDifferenceResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(wrappedType, nameof(UpdatedMethods));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ImmutableArray<TypeDefinitionHandle> ChangedTypes(this EmitDifferenceResult _obj)
             => ChangedTypesGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ImmutableArray<MethodDefinitionHandle> UpdatedMethods(this EmitDifferenceResult _obj)
             => UpdatedMethodsGetterFunc(_obj);
     }

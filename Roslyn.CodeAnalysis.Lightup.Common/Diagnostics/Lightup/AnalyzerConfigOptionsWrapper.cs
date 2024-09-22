@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions. Added in version 3.8.0.0.</summary>
     public readonly struct AnalyzerConfigOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions";
@@ -58,13 +58,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static StringComparer KeyComparer
         {
             get => KeyComparerGetterFunc();
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly IEnumerable<String> Keys
         {
             get => KeysGetterFunc(wrappedObject);
@@ -82,7 +82,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean TryGetValue(String key, out String? value)
             => TryGetValueFunc0(wrappedObject, key, out value);
     }

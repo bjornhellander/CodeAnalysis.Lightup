@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Workspace.</summary>
     public static class WorkspaceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static Boolean CanApplyCompilationOptionChange(this Workspace _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
             => CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Boolean CanApplyParseOptionChange(this Workspace _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project)
             => CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void CloseAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId)
             => CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId, Boolean activate)
             => OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
     }

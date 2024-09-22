@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct FunctionPointerParameterSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterSyntax";
@@ -77,19 +77,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
@@ -110,31 +110,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc2(wrappedObject, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type)
             => UpdateFunc3(wrappedObject, attributeLists, modifiers, type);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc4(wrappedObject, attributeLists);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc5(wrappedObject, modifiers);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterSyntaxWrapper WithType(TypeSyntax type)
             => WithTypeFunc6(wrappedObject, type);
     }

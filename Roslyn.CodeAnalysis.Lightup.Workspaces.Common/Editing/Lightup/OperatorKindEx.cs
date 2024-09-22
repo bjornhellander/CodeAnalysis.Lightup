@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.OperatorKind.</summary>
     public class OperatorKindEx
     {
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const OperatorKind UnsignedRightShift = (OperatorKind)26;
     }
 }

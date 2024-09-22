@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FileScopedNamespaceDeclarationSyntax. Added in version 4.0.0.0.</summary>
     public readonly struct FileScopedNamespaceDeclarationSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FileScopedNamespaceDeclarationSyntax";
@@ -116,49 +116,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
         {
             get => ExternsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly NameSyntax Name
         {
             get => NameGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken NamespaceKeyword
         {
             get => NamespaceKeywordGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken SemicolonToken
         {
             get => SemicolonTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
         {
             get => UsingsGetterFunc(wrappedObject);
@@ -179,63 +179,63 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public MemberDeclarationSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc2(wrappedObject, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc3(wrappedObject, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc4(wrappedObject, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc5(wrappedObject, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken semicolonToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members)
             => UpdateFunc6(wrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc7(wrappedObject, attributeLists);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
             => WithExternsFunc8(wrappedObject, externs);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
             => WithMembersFunc9(wrappedObject, members);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc10(wrappedObject, modifiers);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
             => WithNameFunc11(wrappedObject, name);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
             => WithNamespaceKeywordFunc12(wrappedObject, namespaceKeyword);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
             => WithSemicolonTokenFunc13(wrappedObject, semicolonToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly FileScopedNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
             => WithUsingsFunc14(wrappedObject, usings);
     }

@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Editing.DeclarationModifiers.</summary>
     public static class DeclarationModifiersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
@@ -82,55 +83,55 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, nameof(WithIsVolatile));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static DeclarationModifiers Extern()
             => ExternGetterFunc();
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static DeclarationModifiers File()
             => FileGetterFunc();
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static DeclarationModifiers Required()
             => RequiredGetterFunc();
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static DeclarationModifiers Volatile()
             => VolatileGetterFunc();
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsExtern(this DeclarationModifiers _obj)
             => IsExternGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsFile(this DeclarationModifiers _obj)
             => IsFileGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsRequired(this DeclarationModifiers _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsVolatile(this DeclarationModifiers _obj)
             => IsVolatileGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static DeclarationModifiers WithIsExtern(this DeclarationModifiers _obj, Boolean isExtern)
             => WithIsExternFunc0(_obj, isExtern);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static DeclarationModifiers WithIsFile(this DeclarationModifiers _obj, Boolean isFile)
             => WithIsFileFunc1(_obj, isFile);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static DeclarationModifiers WithIsRef(this DeclarationModifiers _obj, Boolean isRef)
             => WithIsRefFunc2(_obj, isRef);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static DeclarationModifiers WithIsRequired(this DeclarationModifiers _obj, Boolean isRequired)
             => WithIsRequiredFunc3(_obj, isRequired);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers _obj, Boolean isVolatile)
             => WithIsVolatileFunc4(_obj, isVolatile);
     }

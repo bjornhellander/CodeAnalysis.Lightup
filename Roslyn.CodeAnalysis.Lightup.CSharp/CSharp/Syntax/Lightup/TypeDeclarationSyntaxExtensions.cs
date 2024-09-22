@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax.</summary>
     public static class TypeDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static ParameterListSyntax? ParameterList(this TypeDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax _obj, params ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax _obj, ParameterListSyntax? parameterList)
             => WithParameterListFunc1(_obj, parameterList);
     }

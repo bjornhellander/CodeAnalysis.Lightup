@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.NullabilityInfo. Added in version 3.8.0.0.</summary>
     public readonly struct NullabilityInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullabilityInfo";
@@ -55,13 +55,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly NullableAnnotationEx Annotation
         {
             get => AnnotationGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly NullableFlowStateEx FlowState
         {
             get => FlowStateGetterFunc(wrappedObject);
@@ -79,7 +79,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean Equals(NullabilityInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

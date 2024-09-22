@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BinaryPatternSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct BinaryPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BinaryPatternSyntax";
@@ -71,19 +71,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly PatternSyntax Left
         {
             get => LeftGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly PatternSyntax Right
         {
             get => RightGetterFunc(wrappedObject);
@@ -104,23 +104,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BinaryPatternSyntaxWrapper Update(PatternSyntax left, SyntaxToken operatorToken, PatternSyntax right)
             => UpdateFunc1(wrappedObject, left, operatorToken, right);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BinaryPatternSyntaxWrapper WithLeft(PatternSyntax left)
             => WithLeftFunc2(wrappedObject, left);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BinaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
             => WithOperatorTokenFunc3(wrappedObject, operatorToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BinaryPatternSyntaxWrapper WithRight(PatternSyntax right)
             => WithRightFunc4(wrappedObject, right);
     }

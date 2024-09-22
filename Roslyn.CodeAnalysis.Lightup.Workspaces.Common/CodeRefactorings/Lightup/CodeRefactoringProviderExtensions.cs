@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider.</summary>
     public static class CodeRefactoringProviderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider";
@@ -40,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
             RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static CodeActionRequestPriorityEx RequestPriority(this CodeRefactoringProvider _obj)
             => RequestPriorityGetterFunc(_obj);
     }

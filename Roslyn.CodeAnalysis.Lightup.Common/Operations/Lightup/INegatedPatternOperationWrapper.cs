@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.INegatedPatternOperation. Added in version 3.8.0.0.</summary>
     public readonly struct INegatedPatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.INegatedPatternOperation";
@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IPatternOperation Pattern
         {
             get => PatternGetterFunc(wrappedObject);

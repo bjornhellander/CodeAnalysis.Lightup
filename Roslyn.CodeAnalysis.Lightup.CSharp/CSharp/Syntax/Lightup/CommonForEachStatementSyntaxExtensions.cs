@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax.</summary>
     public static class CommonForEachStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
@@ -40,11 +41,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc1(_obj, attributeLists);
     }

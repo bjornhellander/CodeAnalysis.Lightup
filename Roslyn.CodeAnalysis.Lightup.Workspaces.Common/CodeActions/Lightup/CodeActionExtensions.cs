@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeActions.CodeAction.</summary>
     public static class CodeActionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeActions.CodeAction";
@@ -55,23 +56,23 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static CodeActionPriorityEx Priority(this CodeAction _obj)
             => PriorityGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable)
             => CreateFunc0(title, nestedActions, isInlinable);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static CodeAction Create(String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority)
             => CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static CodeAction Create(String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority)
             => CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority)
             => CreateFunc3(title, nestedActions, isInlinable, priority);
     }

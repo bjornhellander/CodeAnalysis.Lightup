@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ITypeParameterSymbol.</summary>
     public static class ITypeParameterSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
@@ -42,15 +43,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotations(this ITypeParameterSymbol _obj)
             => ConstraintNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean HasNotNullConstraint(this ITypeParameterSymbol _obj)
             => HasNotNullConstraintGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this ITypeParameterSymbol _obj)
             => ReferenceTypeConstraintNullableAnnotationGetterFunc(_obj);
     }

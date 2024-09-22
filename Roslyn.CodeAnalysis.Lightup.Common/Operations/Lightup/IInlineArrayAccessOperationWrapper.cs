@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in version 4.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation. Added in version 4.8.0.0.</summary>
     public readonly struct IInlineArrayAccessOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation";
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public readonly IOperation Argument
         {
             get => ArgumentGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public readonly IOperation Instance
         {
             get => InstanceGetterFunc(wrappedObject);

@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph.</summary>
     public static class ControlFlowGraphExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static ControlFlowGraph Create(IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
             => CreateFunc0(attribute, cancellationToken);
     }

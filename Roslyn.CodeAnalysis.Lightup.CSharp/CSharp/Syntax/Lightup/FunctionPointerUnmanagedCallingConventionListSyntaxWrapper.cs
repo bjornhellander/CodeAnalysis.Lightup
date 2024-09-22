@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct FunctionPointerUnmanagedCallingConventionListSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax";
@@ -74,19 +74,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> CallingConventions
         {
             get => CallingConventionsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken CloseBracketToken
         {
             get => CloseBracketTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken OpenBracketToken
         {
             get => OpenBracketTokenGetterFunc(wrappedObject);
@@ -107,27 +107,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper AddCallingConventions(params FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items)
             => AddCallingConventionsFunc1(wrappedObject, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, SyntaxToken closeBracketToken)
             => UpdateFunc2(wrappedObject, openBracketToken, callingConventions, closeBracketToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCallingConventions(SeparatedSyntaxListWrapper<FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions)
             => WithCallingConventionsFunc3(wrappedObject, callingConventions);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
             => WithCloseBracketTokenFunc4(wrappedObject, closeBracketToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
             => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
     }

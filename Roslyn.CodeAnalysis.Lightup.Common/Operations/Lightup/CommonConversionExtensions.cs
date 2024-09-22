@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
     public static class CommonConversionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this CommonConversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNullable(this CommonConversion _obj)
             => IsNullableGetterFunc(_obj);
     }

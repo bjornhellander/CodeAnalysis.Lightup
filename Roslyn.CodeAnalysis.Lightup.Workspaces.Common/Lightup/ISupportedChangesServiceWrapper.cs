@@ -25,7 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ISupportedChangesService. Added in version 4.4.0.0.</summary>
     public readonly struct ISupportedChangesServiceWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
@@ -68,15 +68,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         public IWorkspaceService? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyChange(ApplyChangesKind kind)
             => CanApplyChangeFunc0(wrappedObject, kind);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyCompilationOptionChange(CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
             => CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyParseOptionChange(ParseOptions oldOptions, ParseOptions newOptions, Project project)
             => CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
     }

@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext.</summary>
     public static class SyntaxTreeAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Nullable<TextSpan> FilterSpan(this SyntaxTreeAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsGeneratedCode(this SyntaxTreeAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

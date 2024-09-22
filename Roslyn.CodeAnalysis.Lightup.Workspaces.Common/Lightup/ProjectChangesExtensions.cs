@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ProjectChanges.</summary>
     public static class ProjectChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
     }

@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.DataFlowAnalysis.</summary>
     public static class DataFlowAnalysisExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
@@ -42,15 +43,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnEntry(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnEntryGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnExit(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnExitGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<IMethodSymbol> UsedLocalFunctions(this DataFlowAnalysis _obj)
             => UsedLocalFunctionsGetterFunc(_obj);
     }

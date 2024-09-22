@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SolutionChanges.</summary>
     public static class SolutionChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionChanges";
@@ -43,11 +44,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(wrappedType, nameof(GetRemovedAnalyzerReferences));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges _obj)
             => GetAddedAnalyzerReferencesFunc0(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges _obj)
             => GetRemovedAnalyzerReferencesFunc1(_obj);
     }

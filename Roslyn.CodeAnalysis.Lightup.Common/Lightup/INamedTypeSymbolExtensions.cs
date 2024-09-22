@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.INamedTypeSymbol.</summary>
     public static class INamedTypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
@@ -48,19 +49,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsFileLocal(this INamedTypeSymbol _obj)
             => IsFileLocalGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static INamedTypeSymbol? NativeIntegerUnderlyingType(this INamedTypeSymbol _obj)
             => NativeIntegerUnderlyingTypeGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this INamedTypeSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static INamedTypeSymbol Construct(this INamedTypeSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
             => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }

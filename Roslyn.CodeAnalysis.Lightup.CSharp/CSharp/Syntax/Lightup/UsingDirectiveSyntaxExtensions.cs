@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.</summary>
     public static class UsingDirectiveSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax";
@@ -61,35 +62,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, nameof(WithUnsafeKeyword));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static SyntaxToken GlobalKeyword(this UsingDirectiveSyntax _obj)
             => GlobalKeywordGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static TypeSyntax NamespaceOrType(this UsingDirectiveSyntax _obj)
             => NamespaceOrTypeGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static SyntaxToken UnsafeKeyword(this UsingDirectiveSyntax _obj)
             => UnsafeKeywordGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, NameEqualsSyntax? alias, NameSyntax name, SyntaxToken semicolonToken)
             => UpdateFunc0(_obj, globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, SyntaxToken unsafeKeyword, NameEqualsSyntax? alias, TypeSyntax namespaceOrType, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static UsingDirectiveSyntax WithGlobalKeyword(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword)
             => WithGlobalKeywordFunc2(_obj, globalKeyword);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static UsingDirectiveSyntax WithNamespaceOrType(this UsingDirectiveSyntax _obj, TypeSyntax namespaceOrType)
             => WithNamespaceOrTypeFunc3(_obj, namespaceOrType);
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static UsingDirectiveSyntax WithUnsafeKeyword(this UsingDirectiveSyntax _obj, SyntaxToken unsafeKeyword)
             => WithUnsafeKeywordFunc4(_obj, unsafeKeyword);
     }

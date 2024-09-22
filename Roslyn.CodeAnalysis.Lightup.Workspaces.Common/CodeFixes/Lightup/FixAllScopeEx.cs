@@ -7,12 +7,13 @@
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CodeFixes.FixAllScope.</summary>
     public class FixAllScopeEx
     {
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const FixAllScope ContainingMember = (FixAllScope)4;
 
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const FixAllScope ContainingType = (FixAllScope)5;
     }
 }

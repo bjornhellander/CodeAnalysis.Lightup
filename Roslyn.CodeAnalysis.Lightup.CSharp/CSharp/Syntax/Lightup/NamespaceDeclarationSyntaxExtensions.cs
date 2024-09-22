@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax.</summary>
     public static class NamespaceDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax";
@@ -58,31 +59,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this NamespaceDeclarationSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTokenList Modifiers(this NamespaceDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NamespaceDeclarationSyntax AddAttributeLists(this NamespaceDeclarationSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NamespaceDeclarationSyntax AddModifiers(this NamespaceDeclarationSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NamespaceDeclarationSyntax Update(this NamespaceDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken openBraceToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
             => UpdateFunc2(_obj, attributeLists, modifiers, namespaceKeyword, name, openBraceToken, externs, usings, members, closeBraceToken, semicolonToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NamespaceDeclarationSyntax WithAttributeLists(this NamespaceDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc3(_obj, attributeLists);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NamespaceDeclarationSyntax WithModifiers(this NamespaceDeclarationSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc4(_obj, modifiers);
     }

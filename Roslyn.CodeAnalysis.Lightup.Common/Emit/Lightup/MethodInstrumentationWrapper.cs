@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Struct added in version 4.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.MethodInstrumentation. Added in version 4.8.0.0.</summary>
     public readonly struct MethodInstrumentationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.MethodInstrumentation";
@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public readonly ImmutableArray<InstrumentationKind> Kinds
         {
             get => KindsGetterFunc(wrappedObject);

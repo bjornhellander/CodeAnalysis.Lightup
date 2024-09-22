@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol. Added in version 3.8.0.0.</summary>
     public readonly struct IFunctionPointerTypeSymbolWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol";
@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IMethodSymbol Signature
         {
             get => SignatureGetterFunc(wrappedObject);

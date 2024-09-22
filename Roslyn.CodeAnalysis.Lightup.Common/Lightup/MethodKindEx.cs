@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.MethodKind.</summary>
     public class MethodKindEx
     {
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const MethodKind FunctionPointerSignature = (MethodKind)18;
     }
 }

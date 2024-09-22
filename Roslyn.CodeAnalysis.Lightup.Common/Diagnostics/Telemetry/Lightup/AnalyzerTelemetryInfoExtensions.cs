@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo.</summary>
     public static class AnalyzerTelemetryInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
@@ -45,19 +46,19 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
             SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Int32 AdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj)
             => AdditionalFileActionsCountGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static void SetAdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
             => AdditionalFileActionsCountSetterFunc(_obj, _value);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Int32 SuppressionActionsCount(this AnalyzerTelemetryInfo _obj)
             => SuppressionActionsCountGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static void SetSuppressionActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
             => SuppressionActionsCountSetterFunc(_obj, _value);
     }

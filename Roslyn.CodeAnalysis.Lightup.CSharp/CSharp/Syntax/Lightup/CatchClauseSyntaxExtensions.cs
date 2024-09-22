@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax.</summary>
     public static class CatchClauseSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax";
@@ -37,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, nameof(AddBlockAttributeLists));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static CatchClauseSyntax AddBlockAttributeLists(this CatchClauseSyntax _obj, params AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc0(_obj, items);
     }

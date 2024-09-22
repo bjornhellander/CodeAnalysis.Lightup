@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult. Added in version 3.8.0.0.</summary>
     public readonly struct AnalyzerConfigOptionsResultWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult";
@@ -52,19 +52,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ImmutableDictionary<String, String> AnalyzerOptions
         {
             get => AnalyzerOptionsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ImmutableArray<Diagnostic> Diagnostics
         {
             get => DiagnosticsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ImmutableDictionary<String, ReportDiagnostic> TreeOptions
         {
             get => TreeOptionsGetterFunc(wrappedObject);

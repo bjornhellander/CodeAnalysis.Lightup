@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxTree.</summary>
     public static class SyntaxTreeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
@@ -45,15 +46,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, nameof(WithDiagnosticOptions));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptions(this SyntaxTree _obj)
             => DiagnosticOptionsGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree _obj, CancellationToken cancellationToken)
             => GetLineMappingsFunc0(_obj, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree WithDiagnosticOptions(this SyntaxTree _obj, ImmutableDictionary<String, ReportDiagnostic> options)
             => WithDiagnosticOptionsFunc1(_obj, options);
     }

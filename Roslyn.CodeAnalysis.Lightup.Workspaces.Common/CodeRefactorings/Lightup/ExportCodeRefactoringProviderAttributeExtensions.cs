@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute.</summary>
     public static class ExportCodeRefactoringProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
             DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[]? DocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj, String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[] DocumentKinds(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentKinds(this ExportCodeRefactoringProviderAttribute _obj, String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }

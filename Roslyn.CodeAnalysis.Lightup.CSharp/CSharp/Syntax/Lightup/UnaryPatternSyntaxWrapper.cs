@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct UnaryPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax";
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly PatternSyntax Pattern
         {
             get => PatternGetterFunc(wrappedObject);
@@ -92,19 +92,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly UnaryPatternSyntaxWrapper Update(SyntaxToken operatorToken, PatternSyntax pattern)
             => UpdateFunc1(wrappedObject, operatorToken, pattern);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly UnaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
             => WithOperatorTokenFunc2(wrappedObject, operatorToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly UnaryPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
             => WithPatternFunc3(wrappedObject, pattern);
     }

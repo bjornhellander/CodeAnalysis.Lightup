@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Struct added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext. Added in version 3.8.0.0.</summary>
     public readonly struct AdditionalFileAnalysisContextWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext";
@@ -64,31 +64,31 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly AdditionalText AdditionalFile
         {
             get => AdditionalFileGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly CancellationToken CancellationToken
         {
             get => CancellationTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly Compilation Compilation
         {
             get => CompilationGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public readonly Nullable<TextSpan> FilterSpan
         {
             get => FilterSpanGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly AnalyzerOptions Options
         {
             get => OptionsGetterFunc(wrappedObject);
@@ -106,7 +106,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void ReportDiagnostic(Diagnostic diagnostic)
             => ReportDiagnosticFunc0(wrappedObject, diagnostic);
     }

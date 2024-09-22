@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Project.</summary>
     public static class ProjectExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Project";
@@ -82,59 +83,59 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, nameof(WithDefaultNamespace));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static IEnumerable<AnalyzerConfigDocumentWrapper> AnalyzerConfigDocuments(this Project _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static CompilationOutputInfoWrapper CompilationOutputInfo(this Project _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static String? DefaultNamespace(this Project _obj)
             => DefaultNamespaceGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static LanguageServicesWrapper Services(this Project _obj)
             => ServicesGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static TextDocument AddAnalyzerConfigDocument(this Project _obj, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
             => AddAnalyzerConfigDocumentFunc0(_obj, name, text, folders, filePath);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Boolean ContainsAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
             => ContainsAnalyzerConfigDocumentFunc1(_obj, documentId);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
             => GetAnalyzerConfigDocumentFunc2(_obj, documentId);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project _obj, DocumentId documentId, CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentAsyncFunc3(_obj, documentId, cancellationToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project _obj, CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentsAsyncFunc4(_obj, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Project RemoveAdditionalDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveAdditionalDocumentsFunc5(_obj, documentIds);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Project RemoveAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
             => RemoveAnalyzerConfigDocumentFunc6(_obj, documentId);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Project RemoveAnalyzerConfigDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Project RemoveDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveDocumentsFunc8(_obj, documentIds);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static Project WithDefaultNamespace(this Project _obj, String defaultNamespace)
             => WithDefaultNamespaceFunc9(_obj, defaultNamespace);
     }

@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax.</summary>
     public static class LambdaExpressionSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax";
@@ -64,39 +65,39 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate7>(wrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this LambdaExpressionSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static LambdaExpressionSyntax AddAttributeLists(this LambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this LambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc1(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnonymousFunctionExpressionSyntax AddBlockStatements(this LambdaExpressionSyntax _obj, params StatementSyntax[] items)
             => AddBlockStatementsFunc2(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LambdaExpressionSyntax AddModifiers(this LambdaExpressionSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc3(_obj, items);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static LambdaExpressionSyntax WithAttributeLists(this LambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc4(_obj, attributeLists);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LambdaExpressionSyntax WithBlock(this LambdaExpressionSyntax _obj, BlockSyntax? block)
             => WithBlockFunc5(_obj, block);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LambdaExpressionSyntax WithExpressionBody(this LambdaExpressionSyntax _obj, ExpressionSyntax? expressionBody)
             => WithExpressionBodyFunc6(_obj, expressionBody);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LambdaExpressionSyntax WithModifiers(this LambdaExpressionSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc7(_obj, modifiers);
     }

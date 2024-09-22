@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CodeFixes.CodeFixContext.</summary>
     public static class CodeFixContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixContext";
@@ -40,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static TextDocument TextDocument(this CodeFixContext _obj)
             => TextDocumentGetterFunc(_obj);
     }

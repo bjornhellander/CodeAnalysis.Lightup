@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolKind.</summary>
     public class SymbolKindEx
     {
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SymbolKind FunctionPointerType = (SymbolKind)20;
     }
 }

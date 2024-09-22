@@ -25,7 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CompilationOutputInfo. Added in version 3.8.0.0.</summary>
     public readonly struct CompilationOutputInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly String? AssemblyPath
         {
             get => AssemblyPathGetterFunc(wrappedObject);
@@ -77,11 +77,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean Equals(CompilationOutputInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly CompilationOutputInfoWrapper WithAssemblyPath(String? path)
             => WithAssemblyPathFunc1(wrappedObject, path);
     }

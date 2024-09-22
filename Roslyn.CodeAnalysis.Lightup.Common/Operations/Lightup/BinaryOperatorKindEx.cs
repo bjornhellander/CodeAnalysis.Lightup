@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.BinaryOperatorKind.</summary>
     public class BinaryOperatorKindEx
     {
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const BinaryOperatorKind UnsignedRightShift = (BinaryOperatorKind)25;
     }
 }

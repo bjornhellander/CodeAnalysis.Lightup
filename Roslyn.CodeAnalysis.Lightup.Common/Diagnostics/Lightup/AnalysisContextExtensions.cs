@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.</summary>
     public static class AnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisContext";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, nameof(RegisterAdditionalFileAction));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static void RegisterAdditionalFileAction(this AnalysisContext _obj, Action<AdditionalFileAnalysisContextWrapper> action)
             => RegisterAdditionalFileActionFunc0(_obj, action);
     }

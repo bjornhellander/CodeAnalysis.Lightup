@@ -231,7 +231,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        AppendTypeSummary(typeDef, sb);
+        AppendTypeSummary(sb, typeDef);
         if (typeDef.IsFlagsEnum)
         {
             sb.AppendLine($"    [System.Flags]");
@@ -279,7 +279,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        AppendTypeSummary(typeDef, sb);
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
@@ -340,7 +340,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        AppendTypeSummary(typeDef, sb);
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -619,7 +619,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        AppendTypeSummary(typeDef, sb);
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public static class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
@@ -1078,26 +1078,25 @@ internal class Writer
         }
     }
 
-    private static void AppendTypeSummary(BaseTypeDefinition typeDef, StringBuilder sb)
+    private static void AppendTypeSummary(StringBuilder sb, BaseTypeDefinition typeDef)
     {
-        if (typeDef.AssemblyVersion != null)
+        var kind = typeDef switch
         {
-            var kind = typeDef switch
-            {
-                EnumTypeDefinition => "Enum",
-                ClassTypeDefinition => "Class",
-                InterfaceTypeDefinition => "Interface",
-                StructTypeDefinition => "Struct",
-                _ => throw new NotImplementedException(),
-            };
-            sb.AppendLine($"    /// <summary>{kind} added in version {typeDef.AssemblyVersion} of Roslyn.</summary>");
-        }
+            EnumTypeDefinition => "enum",
+            ClassTypeDefinition => "class",
+            InterfaceTypeDefinition => "interface",
+            StructTypeDefinition => "struct",
+            _ => throw new NotImplementedException(),
+        };
+        var part1 = $"Provides lightup support for {kind} {typeDef.FullName}.";
+        var part2 = typeDef.AssemblyVersion != null ? $" Added in version {typeDef.AssemblyVersion}." : "";
+        sb.AppendLine($"    /// <summary>{part1}{part2}</summary>");
     }
 
     private static void AppendEnumValueSummary(StringBuilder sb, EnumValueDefinition valueDef)
     {
         Assert.IsTrue(valueDef.AssemblyVersion != null, "Unexpected assembly version");
-        sb.AppendLine($"        /// <summary>Added in version {valueDef.AssemblyVersion} of Roslyn.</summary>");
+        sb.AppendLine($"        /// <summary>Added in version {valueDef.AssemblyVersion}.</summary>");
     }
 
     private static void AppendMemberSummary(StringBuilder sb, MemberDefinition memberDef)
@@ -1110,7 +1109,7 @@ internal class Writer
             MethodDefinition => "Method",
             _ => throw new NotImplementedException(),
         };
-        sb.AppendLine($"        /// <summary>{kind} added in version {memberDef.AssemblyVersion} of Roslyn.</summary>");
+        sb.AppendLine($"        /// <summary>{kind} added in version {memberDef.AssemblyVersion}.</summary>");
     }
 
     private static void AppendStaticFieldDelegateDeclarations(

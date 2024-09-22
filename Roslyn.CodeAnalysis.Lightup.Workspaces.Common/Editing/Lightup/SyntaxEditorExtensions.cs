@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Editing.SyntaxEditor.</summary>
     public static class SyntaxEditorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxEditor";

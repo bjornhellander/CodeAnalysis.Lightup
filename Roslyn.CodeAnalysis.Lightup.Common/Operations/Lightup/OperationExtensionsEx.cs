@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Operations.OperationExtensions.</summary>
     public static class OperationExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, nameof(GetFunctionPointerSignature), true);
         }
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static IMethodSymbol GetFunctionPointerSignature(this IFunctionPointerInvocationOperationWrapper functionPointer)
             => GetFunctionPointerSignatureFunc0(functionPointer);
     }

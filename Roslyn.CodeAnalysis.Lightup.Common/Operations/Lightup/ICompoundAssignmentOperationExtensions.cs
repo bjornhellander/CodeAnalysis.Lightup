@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation.</summary>
     public static class ICompoundAssignmentOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this ICompoundAssignmentOperation _obj)
             => ConstrainedToTypeGetterFunc(_obj);
     }

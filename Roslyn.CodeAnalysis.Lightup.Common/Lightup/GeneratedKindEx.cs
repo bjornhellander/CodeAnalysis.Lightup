@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.GeneratedKind. Added in version 3.8.0.0.</summary>
     public enum GeneratedKindEx : System.Int32
     {
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         Unknown = 0,
 
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         NotGenerated = 1,
 
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         MarkedGenerated = 2,
     }
 }

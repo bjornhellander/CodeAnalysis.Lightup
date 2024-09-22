@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax. Added in version 4.0.0.0.</summary>
     public readonly struct LineDirectivePositionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax";
@@ -83,31 +83,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken Character
         {
             get => CharacterGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken CloseParenToken
         {
             get => CloseParenTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken CommaToken
         {
             get => CommaTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken Line
         {
             get => LineGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken OpenParenToken
         {
             get => OpenParenTokenGetterFunc(wrappedObject);
@@ -128,31 +128,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper Update(SyntaxToken openParenToken, SyntaxToken line, SyntaxToken commaToken, SyntaxToken character, SyntaxToken closeParenToken)
             => UpdateFunc1(wrappedObject, openParenToken, line, commaToken, character, closeParenToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper WithCharacter(SyntaxToken character)
             => WithCharacterFunc2(wrappedObject, character);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper WithCloseParenToken(SyntaxToken closeParenToken)
             => WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper WithCommaToken(SyntaxToken commaToken)
             => WithCommaTokenFunc4(wrappedObject, commaToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper WithLine(SyntaxToken line)
             => WithLineFunc5(wrappedObject, line);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly LineDirectivePositionSyntaxWrapper WithOpenParenToken(SyntaxToken openParenToken)
             => WithOpenParenTokenFunc6(wrappedObject, openParenToken);
     }

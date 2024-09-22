@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct DefaultConstraintSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax";
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken DefaultKeyword
         {
             get => DefaultKeywordGetterFunc(wrappedObject);
@@ -80,15 +80,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public TypeParameterConstraintSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly DefaultConstraintSyntaxWrapper Update(SyntaxToken defaultKeyword)
             => UpdateFunc1(wrappedObject, defaultKeyword);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly DefaultConstraintSyntaxWrapper WithDefaultKeyword(SyntaxToken defaultKeyword)
             => WithDefaultKeywordFunc2(wrappedObject, defaultKeyword);
     }

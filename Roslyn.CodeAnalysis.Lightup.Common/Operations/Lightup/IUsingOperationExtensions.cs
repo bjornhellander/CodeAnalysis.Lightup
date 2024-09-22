@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUsingOperation.</summary>
     public static class IUsingOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUsingOperation";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsAsynchronous(this IUsingOperation _obj)
             => IsAsynchronousGetterFunc(_obj);
     }

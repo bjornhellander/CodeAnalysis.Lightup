@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFieldSymbol.</summary>
     public static class IFieldSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
@@ -51,27 +52,27 @@ namespace Microsoft.CodeAnalysis.Lightup
             RefKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Int32 FixedSize(this IFieldSymbol _obj)
             => FixedSizeGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Boolean IsExplicitlyNamedTupleElement(this IFieldSymbol _obj)
             => IsExplicitlyNamedTupleElementGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsRequired(this IFieldSymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IFieldSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ImmutableArray<CustomModifier> RefCustomModifiers(this IFieldSymbol _obj)
             => RefCustomModifiersGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static RefKind RefKind(this IFieldSymbol _obj)
             => RefKindGetterFunc(_obj);
     }

@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax.</summary>
     public static class NullableDirectiveTriviaSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, nameof(WithTargetToken));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxToken TargetToken(this NullableDirectiveTriviaSyntax _obj)
             => TargetTokenGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
             => UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax _obj, SyntaxToken targetToken)
             => WithTargetTokenFunc1(_obj, targetToken);
     }

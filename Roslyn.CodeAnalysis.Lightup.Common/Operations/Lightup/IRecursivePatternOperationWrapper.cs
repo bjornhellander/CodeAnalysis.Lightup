@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation. Added in version 3.8.0.0.</summary>
     public readonly struct IRecursivePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation";
@@ -58,31 +58,31 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ISymbol? DeclaredSymbol
         {
             get => DeclaredSymbolGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ImmutableArray<IPatternOperation> DeconstructionSubpatterns
         {
             get => DeconstructionSubpatternsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ISymbol? DeconstructSymbol
         {
             get => DeconstructSymbolGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ITypeSymbol MatchedType
         {
             get => MatchedTypeGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ImmutableArray<IPropertySubpatternOperationWrapper> PropertySubpatterns
         {
             get => PropertySubpatternsGetterFunc(wrappedObject);

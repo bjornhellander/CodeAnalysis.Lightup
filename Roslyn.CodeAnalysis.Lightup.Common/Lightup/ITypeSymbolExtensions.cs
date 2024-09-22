@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ITypeSymbol.</summary>
     public static class ITypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeSymbol";
@@ -63,39 +64,39 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, nameof(WithNullableAnnotation));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNativeIntegerType(this ITypeSymbol _obj)
             => IsNativeIntegerTypeGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsReadOnly(this ITypeSymbol _obj)
             => IsReadOnlyGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Boolean IsRecord(this ITypeSymbol _obj)
             => IsRecordGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this ITypeSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
             => ToDisplayPartsFunc0(_obj, topLevelNullability, format);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static String ToDisplayString(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
             => ToDisplayStringFunc1(_obj, topLevelNullability, format);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
             => ToMinimalDisplayPartsFunc2(_obj, semanticModel, topLevelNullability, position, format);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static String ToMinimalDisplayString(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
             => ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static ITypeSymbol WithNullableAnnotation(this ITypeSymbol _obj, NullableAnnotationEx nullableAnnotation)
             => WithNullableAnnotationFunc4(_obj, nullableAnnotation);
     }

@@ -25,7 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Class added in version 4.4.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.LanguageServices. Added in version 4.4.0.0.</summary>
     public readonly struct LanguageServicesWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.LanguageServices";
@@ -53,13 +53,13 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly String Language
         {
             get => LanguageGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly SolutionServicesWrapper SolutionServices
         {
             get => SolutionServicesGetterFunc(wrappedObject);

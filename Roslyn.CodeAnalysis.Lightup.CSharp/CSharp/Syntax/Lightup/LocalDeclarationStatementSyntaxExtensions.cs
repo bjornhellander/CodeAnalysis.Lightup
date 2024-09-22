@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax.</summary>
     public static class LocalDeclarationStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this LocalDeclarationStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LocalDeclarationStatementSyntax AddAttributeLists(this LocalDeclarationStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LocalDeclarationStatementSyntax Update(this LocalDeclarationStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken awaitKeyword, SyntaxToken usingKeyword, SyntaxTokenList modifiers, VariableDeclarationSyntax declaration, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static LocalDeclarationStatementSyntax WithAttributeLists(this LocalDeclarationStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }

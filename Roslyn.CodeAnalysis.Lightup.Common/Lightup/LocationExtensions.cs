@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Location.</summary>
     public static class LocationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Location";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Location Create(String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan)
             => CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
     }

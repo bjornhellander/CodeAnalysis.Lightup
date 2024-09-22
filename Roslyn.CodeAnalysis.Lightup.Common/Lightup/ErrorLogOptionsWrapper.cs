@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ErrorLogOptions. Added in version 3.8.0.0.</summary>
     public readonly struct ErrorLogOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly String Path
         {
             get => PathGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SarifVersionEx SarifVersion
         {
             get => SarifVersionGetterFunc(wrappedObject);

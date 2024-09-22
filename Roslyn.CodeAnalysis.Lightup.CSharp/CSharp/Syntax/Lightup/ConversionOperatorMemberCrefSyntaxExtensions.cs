@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax.</summary>
     public static class ConversionOperatorMemberCrefSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, nameof(WithCheckedKeyword));
         }
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static SyntaxToken CheckedKeyword(this ConversionOperatorMemberCrefSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static ConversionOperatorMemberCrefSyntax Update(this ConversionOperatorMemberCrefSyntax _obj, SyntaxToken implicitOrExplicitKeyword, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, TypeSyntax type, CrefParameterListSyntax? parameters)
             => UpdateFunc0(_obj, implicitOrExplicitKeyword, operatorKeyword, checkedKeyword, type, parameters);
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static ConversionOperatorMemberCrefSyntax WithCheckedKeyword(this ConversionOperatorMemberCrefSyntax _obj, SyntaxToken checkedKeyword)
             => WithCheckedKeywordFunc1(_obj, checkedKeyword);
     }

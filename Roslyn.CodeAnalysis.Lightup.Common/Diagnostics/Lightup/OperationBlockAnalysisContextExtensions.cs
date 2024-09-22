@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext.</summary>
     public static class OperationBlockAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext";
@@ -42,15 +43,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Nullable<TextSpan> FilterSpan(this OperationBlockAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static SyntaxTree FilterTree(this OperationBlockAnalysisContext _obj)
             => FilterTreeGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsGeneratedCode(this OperationBlockAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

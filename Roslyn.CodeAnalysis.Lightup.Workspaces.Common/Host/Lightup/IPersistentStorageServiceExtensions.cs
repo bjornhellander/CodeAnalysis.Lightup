@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Host.IPersistentStorageService.</summary>
     public static class IPersistentStorageServiceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
@@ -40,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, nameof(GetStorageAsync));
         }
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService _obj, Solution solution, CancellationToken cancellationToken)
             => GetStorageAsyncFunc0(_obj, solution, cancellationToken);
     }

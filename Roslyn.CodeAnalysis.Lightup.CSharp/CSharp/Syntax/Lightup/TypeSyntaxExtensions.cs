@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax.</summary>
     public static class TypeSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax";
@@ -43,15 +44,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNint(this TypeSyntax _obj)
             => IsNintGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNotNull(this TypeSyntax _obj)
             => IsNotNullGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNuint(this TypeSyntax _obj)
             => IsNuintGetterFunc(_obj);
     }

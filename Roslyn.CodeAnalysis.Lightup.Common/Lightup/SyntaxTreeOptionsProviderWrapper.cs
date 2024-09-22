@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider. Added in version 3.8.0.0.</summary>
     public readonly struct SyntaxTreeOptionsProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider";
@@ -64,15 +64,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly GeneratedKindEx IsGenerated(SyntaxTree tree, CancellationToken cancellationToken)
             => IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean TryGetDiagnosticValue(SyntaxTree tree, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
             => TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean TryGetGlobalDiagnosticValue(String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
             => TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
     }

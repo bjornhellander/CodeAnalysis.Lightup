@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in version 4.4.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.ScopedKind. Added in version 4.4.0.0.</summary>
     public enum ScopedKindEx : System.Byte
     {
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         None = 0,
 
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         ScopedRef = 1,
 
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         ScopedValue = 2,
     }
 }

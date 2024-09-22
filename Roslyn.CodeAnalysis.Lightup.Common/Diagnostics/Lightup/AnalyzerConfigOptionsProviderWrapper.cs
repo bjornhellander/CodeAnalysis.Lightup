@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider. Added in version 3.8.0.0.</summary>
     public readonly struct AnalyzerConfigOptionsProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider";
@@ -55,7 +55,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly AnalyzerConfigOptionsWrapper GlobalOptions
         {
             get => GlobalOptionsGetterFunc(wrappedObject);
@@ -73,11 +73,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly AnalyzerConfigOptionsWrapper GetOptions(SyntaxTree tree)
             => GetOptionsFunc0(wrappedObject, tree);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly AnalyzerConfigOptionsWrapper GetOptions(AdditionalText textFile)
             => GetOptionsFunc1(wrappedObject, textFile);
     }

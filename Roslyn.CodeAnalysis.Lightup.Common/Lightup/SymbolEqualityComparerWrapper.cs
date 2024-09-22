@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolEqualityComparer. Added in version 3.8.0.0.</summary>
     public readonly struct SymbolEqualityComparerWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolEqualityComparer";
@@ -58,13 +58,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Field added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Field added in version 3.8.0.0.</summary>
         public static SymbolEqualityComparerWrapper Default
         {
             get => DefaultGetterFunc();
         }
 
-        /// <summary>Field added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Field added in version 3.8.0.0.</summary>
         public static SymbolEqualityComparerWrapper IncludeNullability
         {
             get => IncludeNullabilityGetterFunc();
@@ -82,11 +82,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Boolean Equals(ISymbol? x, ISymbol? y)
             => EqualsFunc0(wrappedObject, x, y);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly Int32 GetHashCode(ISymbol? obj)
             => GetHashCodeFunc1(wrappedObject, obj);
     }

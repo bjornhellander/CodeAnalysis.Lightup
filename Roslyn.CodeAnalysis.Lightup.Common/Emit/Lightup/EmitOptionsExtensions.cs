@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitOptions.</summary>
     public static class EmitOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
@@ -48,19 +49,19 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, nameof(WithFallbackSourceFileEncoding));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Encoding? DefaultSourceFileEncoding(this EmitOptions _obj)
             => DefaultSourceFileEncodingGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Encoding? FallbackSourceFileEncoding(this EmitOptions _obj)
             => FallbackSourceFileEncodingGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static EmitOptions WithDefaultSourceFileEncoding(this EmitOptions _obj, Encoding? defaultSourceFileEncoding)
             => WithDefaultSourceFileEncodingFunc0(_obj, defaultSourceFileEncoding);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static EmitOptions WithFallbackSourceFileEncoding(this EmitOptions _obj, Encoding? fallbackSourceFileEncoding)
             => WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
     }

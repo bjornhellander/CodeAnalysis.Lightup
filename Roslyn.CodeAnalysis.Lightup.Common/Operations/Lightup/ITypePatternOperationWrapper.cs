@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ITypePatternOperation. Added in version 3.8.0.0.</summary>
     public readonly struct ITypePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITypePatternOperation";
@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ITypeSymbol MatchedType
         {
             get => MatchedTypeGetterFunc(wrappedObject);

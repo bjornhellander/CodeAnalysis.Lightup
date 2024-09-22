@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SemanticModel.</summary>
     public static class SemanticModelExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, nameof(GetNullableContext));
         }
 
-        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel _obj, Int32 position, CancellationToken cancellationToken)
             => GetImportScopesFunc0(_obj, position, cancellationToken);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static NullableContextEx GetNullableContext(this SemanticModel _obj, Int32 position)
             => GetNullableContextFunc1(_obj, position);
     }

@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpCompilation.</summary>
     public static class CSharpCompilationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
@@ -37,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, nameof(GetUsedAssemblyReferences));
         }
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation _obj, CancellationToken cancellationToken)
             => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
     }

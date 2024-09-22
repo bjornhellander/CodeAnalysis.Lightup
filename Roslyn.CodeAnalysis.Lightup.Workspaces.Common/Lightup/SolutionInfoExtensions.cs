@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SolutionInfo.</summary>
     public static class SolutionInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionInfo";
@@ -46,11 +47,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this SolutionInfo _obj)
             => AnalyzerReferencesGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SolutionInfo Create(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
             => CreateFunc0(id, version, filePath, projects, analyzerReferences);
     }

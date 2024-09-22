@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax.</summary>
     public static class MemberDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax";
@@ -55,27 +56,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate3>(wrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this MemberDeclarationSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTokenList Modifiers(this MemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static MemberDeclarationSyntax AddAttributeLists(this MemberDeclarationSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static MemberDeclarationSyntax AddModifiers(this MemberDeclarationSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static MemberDeclarationSyntax WithAttributeLists(this MemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static MemberDeclarationSyntax WithModifiers(this MemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc3(_obj, modifiers);
     }

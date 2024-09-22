@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext.</summary>
     public static class CodeRefactoringContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
@@ -40,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
             TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static TextDocument TextDocument(this CodeRefactoringContext _obj)
             => TextDocumentGetterFunc(_obj);
     }

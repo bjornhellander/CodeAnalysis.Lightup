@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax.</summary>
     public static class SubpatternSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax";
@@ -46,15 +47,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, nameof(WithExpressionColon));
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static BaseExpressionColonSyntaxWrapper ExpressionColon(this SubpatternSyntax _obj)
             => ExpressionColonGetterFunc(_obj);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static SubpatternSyntax Update(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
             => UpdateFunc0(_obj, expressionColon, pattern);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon)
             => WithExpressionColonFunc1(_obj, expressionColon);
     }

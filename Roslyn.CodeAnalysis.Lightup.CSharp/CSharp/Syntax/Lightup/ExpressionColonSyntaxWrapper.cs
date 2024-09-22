@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionColonSyntax. Added in version 4.0.0.0.</summary>
     public readonly struct ExpressionColonSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionColonSyntax";
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken ColonToken
         {
             get => ColonTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
@@ -92,19 +92,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly ExpressionColonSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken colonToken)
             => UpdateFunc1(wrappedObject, expression, colonToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly ExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
             => WithColonTokenFunc2(wrappedObject, colonToken);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly ExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc3(wrappedObject, expression);
     }

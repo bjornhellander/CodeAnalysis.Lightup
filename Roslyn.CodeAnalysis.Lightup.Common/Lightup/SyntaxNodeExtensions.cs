@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxNode.</summary>
     public static class SyntaxNodeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
@@ -39,11 +40,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public static Boolean ContainsDirective(this SyntaxNode _obj, Int32 rawKind)
             => ContainsDirectiveFunc0(_obj, rawKind);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode _obj, SyntaxNode? other)
             => IsIncrementallyIdenticalToFunc1(_obj, other);
     }

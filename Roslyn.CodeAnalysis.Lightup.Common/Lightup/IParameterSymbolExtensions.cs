@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IParameterSymbol.</summary>
     public static class IParameterSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
@@ -42,15 +43,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsDiscard(this IParameterSymbol _obj)
             => IsDiscardGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IParameterSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ScopedKindEx ScopedKind(this IParameterSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }

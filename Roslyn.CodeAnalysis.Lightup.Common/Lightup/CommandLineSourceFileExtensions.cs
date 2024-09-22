@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CommandLineSourceFile.</summary>
     public static class CommandLineSourceFileExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsInputRedirected(this CommandLineSourceFile _obj)
             => IsInputRedirectedGetterFunc(_obj);
     }

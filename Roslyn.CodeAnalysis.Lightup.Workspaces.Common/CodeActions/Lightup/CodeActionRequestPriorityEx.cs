@@ -7,19 +7,19 @@
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
-    /// <summary>Enum added in version 4.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CodeActions.CodeActionRequestPriority. Added in version 4.8.0.0.</summary>
     public enum CodeActionRequestPriorityEx : System.Int32
     {
-        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         Lowest = 1,
 
-        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         Low = 2,
 
-        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         Default = 3,
 
-        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         High = 4,
     }
 }

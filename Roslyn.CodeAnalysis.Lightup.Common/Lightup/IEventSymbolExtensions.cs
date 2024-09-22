@@ -21,6 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IEventSymbol.</summary>
     public static class IEventSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
@@ -36,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IEventSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }

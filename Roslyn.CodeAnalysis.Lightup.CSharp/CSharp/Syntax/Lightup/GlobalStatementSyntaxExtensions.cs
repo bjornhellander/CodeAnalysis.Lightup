@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax.</summary>
     public static class GlobalStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax";
@@ -58,31 +59,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this GlobalStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTokenList Modifiers(this GlobalStatementSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static GlobalStatementSyntax AddAttributeLists(this GlobalStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static GlobalStatementSyntax AddModifiers(this GlobalStatementSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static GlobalStatementSyntax Update(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, StatementSyntax statement)
             => UpdateFunc2(_obj, attributeLists, modifiers, statement);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static GlobalStatementSyntax WithAttributeLists(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc3(_obj, attributeLists);
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static GlobalStatementSyntax WithModifiers(this GlobalStatementSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc4(_obj, modifiers);
     }

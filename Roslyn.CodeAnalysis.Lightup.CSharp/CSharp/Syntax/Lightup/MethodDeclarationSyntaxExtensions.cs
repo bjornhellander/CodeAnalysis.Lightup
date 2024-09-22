@@ -22,6 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax.</summary>
     public static class MethodDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax";
@@ -37,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
         }
 
-        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static MethodDeclarationSyntax AddBodyAttributeLists(this MethodDeclarationSyntax _obj, params AttributeListSyntax[] items)
             => AddBodyAttributeListsFunc0(_obj, items);
     }

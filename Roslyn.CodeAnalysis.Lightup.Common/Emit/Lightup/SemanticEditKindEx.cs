@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Emit.SemanticEditKind.</summary>
     public class SemanticEditKindEx
     {
-        /// <summary>Added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SemanticEditKind Replace = (SemanticEditKind)4;
     }
 }

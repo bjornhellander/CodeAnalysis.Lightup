@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.InstanceReferenceKind.</summary>
     public class InstanceReferenceKindEx
     {
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const InstanceReferenceKind InterpolatedStringHandler = (InstanceReferenceKind)3;
     }
 }

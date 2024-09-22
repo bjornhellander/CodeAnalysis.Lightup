@@ -25,7 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 4.0.0.0.</summary>
     public readonly struct DocumentBasedFixAllProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         public FixAllProvider? Unwrap()
             => wrappedObject;
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly Task<CodeAction> GetFixAsync(FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
-        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly IEnumerable<FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }

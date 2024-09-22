@@ -7,18 +7,19 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.LanguageVersion.</summary>
     public class LanguageVersionEx
     {
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const LanguageVersion CSharp9 = (LanguageVersion)900;
 
-        /// <summary>Added in version 4.0.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const LanguageVersion CSharp10 = (LanguageVersion)1000;
 
-        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const LanguageVersion CSharp11 = (LanguageVersion)1100;
 
-        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         public const LanguageVersion CSharp12 = (LanguageVersion)1200;
     }
 }

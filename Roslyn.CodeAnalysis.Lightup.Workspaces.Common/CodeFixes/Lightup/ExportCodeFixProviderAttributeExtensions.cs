@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute.</summary>
     public static class ExportCodeFixProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
@@ -49,19 +50,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[]? DocumentExtensions(this ExportCodeFixProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentExtensions(this ExportCodeFixProviderAttribute _obj, String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[] DocumentKinds(this ExportCodeFixProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
-        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentKinds(this ExportCodeFixProviderAttribute _obj, String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }

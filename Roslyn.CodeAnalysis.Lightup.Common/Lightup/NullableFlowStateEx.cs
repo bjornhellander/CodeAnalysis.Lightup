@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.NullableFlowState. Added in version 3.8.0.0.</summary>
     public enum NullableFlowStateEx : System.Byte
     {
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         None = 0,
 
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         NotNull = 1,
 
-        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         MaybeNull = 2,
     }
 }
