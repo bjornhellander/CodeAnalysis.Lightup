@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
     public static class INamedTypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";

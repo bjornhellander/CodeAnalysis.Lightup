@@ -22,7 +22,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class CSharpSyntaxRewriterExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter";

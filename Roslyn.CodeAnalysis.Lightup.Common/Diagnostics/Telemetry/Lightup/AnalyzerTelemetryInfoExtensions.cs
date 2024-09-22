@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class AnalyzerTelemetryInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";

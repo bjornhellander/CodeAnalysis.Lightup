@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class SyntaxEditorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxEditor";

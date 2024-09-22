@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class LocationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Location";

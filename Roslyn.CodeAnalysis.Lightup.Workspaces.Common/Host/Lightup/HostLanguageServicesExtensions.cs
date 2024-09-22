@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class HostLanguageServicesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";

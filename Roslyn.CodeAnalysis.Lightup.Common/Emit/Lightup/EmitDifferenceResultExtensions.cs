@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class EmitDifferenceResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";

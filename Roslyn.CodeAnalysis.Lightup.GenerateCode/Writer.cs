@@ -618,7 +618,10 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        if (typeDef.AssemblyVersion != null)
+        {
+            sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        }
         sb.AppendLine($"    public static class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");

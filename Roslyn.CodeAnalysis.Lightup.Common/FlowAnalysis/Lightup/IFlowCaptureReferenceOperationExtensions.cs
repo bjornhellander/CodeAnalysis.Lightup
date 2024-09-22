@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
     public static class IFlowCaptureReferenceOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";

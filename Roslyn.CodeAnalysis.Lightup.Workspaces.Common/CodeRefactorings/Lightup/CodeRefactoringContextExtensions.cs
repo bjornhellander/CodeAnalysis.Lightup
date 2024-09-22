@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class CodeRefactoringContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";

@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
     public static class IPersistentStorageServiceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";

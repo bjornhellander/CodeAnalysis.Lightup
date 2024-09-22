@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class OperationVisitorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationVisitor";

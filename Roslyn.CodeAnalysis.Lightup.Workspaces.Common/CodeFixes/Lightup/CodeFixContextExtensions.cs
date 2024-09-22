@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class CodeFixContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixContext";

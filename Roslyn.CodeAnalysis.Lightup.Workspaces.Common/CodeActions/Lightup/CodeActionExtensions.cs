@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class CodeActionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeActions.CodeAction";

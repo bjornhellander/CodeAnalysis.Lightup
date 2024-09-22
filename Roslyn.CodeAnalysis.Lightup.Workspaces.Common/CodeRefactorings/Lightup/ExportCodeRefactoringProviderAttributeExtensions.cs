@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class ExportCodeRefactoringProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";

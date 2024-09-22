@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class SemanticEditExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";

@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class CommonConversionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";

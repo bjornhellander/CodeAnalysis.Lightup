@@ -21,7 +21,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class ControlFlowGraphExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph";

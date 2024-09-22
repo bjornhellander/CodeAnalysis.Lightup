@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class DeclarationModifiersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";

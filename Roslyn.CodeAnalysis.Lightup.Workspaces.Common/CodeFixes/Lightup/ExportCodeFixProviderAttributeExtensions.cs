@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
     public static class ExportCodeFixProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";

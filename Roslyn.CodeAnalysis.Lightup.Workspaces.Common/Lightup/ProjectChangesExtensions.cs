@@ -25,7 +25,6 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
     public static class ProjectChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
