@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => TargetTokenGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax wrappedObject, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
-            => UpdateFunc0(wrappedObject, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
+        public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
+            => UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax wrappedObject, SyntaxToken targetToken)
-            => WithTargetTokenFunc1(wrappedObject, targetToken);
+        public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax _obj, SyntaxToken targetToken)
+            => WithTargetTokenFunc1(_obj, targetToken);
     }
 }

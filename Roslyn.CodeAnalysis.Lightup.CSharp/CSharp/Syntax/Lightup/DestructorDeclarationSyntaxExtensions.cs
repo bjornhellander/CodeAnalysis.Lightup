@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DestructorDeclarationSyntax AddBodyAttributeLists(this DestructorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        public static DestructorDeclarationSyntax AddBodyAttributeLists(this DestructorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static StatementSyntax AddAttributeLists(this StatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static StatementSyntax AddAttributeLists(this StatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static StatementSyntax WithAttributeLists(this StatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc1(wrappedObject, attributeLists);
+        public static StatementSyntax WithAttributeLists(this StatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc1(_obj, attributeLists);
     }
 }

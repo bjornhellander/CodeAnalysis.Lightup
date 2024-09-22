@@ -79,27 +79,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this AnonymousFunctionExpressionSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(wrappedObject, items);
+        public static AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this AnonymousFunctionExpressionSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax AddBlockStatements(this AnonymousFunctionExpressionSyntax wrappedObject, params StatementSyntax[] items)
-            => AddBlockStatementsFunc1(wrappedObject, items);
+        public static AnonymousFunctionExpressionSyntax AddBlockStatements(this AnonymousFunctionExpressionSyntax _obj, params StatementSyntax[] items)
+            => AddBlockStatementsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax AddModifiers(this AnonymousFunctionExpressionSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc2(wrappedObject, items);
+        public static AnonymousFunctionExpressionSyntax AddModifiers(this AnonymousFunctionExpressionSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc2(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax WithBlock(this AnonymousFunctionExpressionSyntax wrappedObject, BlockSyntax? block)
-            => WithBlockFunc3(wrappedObject, block);
+        public static AnonymousFunctionExpressionSyntax WithBlock(this AnonymousFunctionExpressionSyntax _obj, BlockSyntax? block)
+            => WithBlockFunc3(_obj, block);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax WithExpressionBody(this AnonymousFunctionExpressionSyntax wrappedObject, ExpressionSyntax? expressionBody)
-            => WithExpressionBodyFunc4(wrappedObject, expressionBody);
+        public static AnonymousFunctionExpressionSyntax WithExpressionBody(this AnonymousFunctionExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+            => WithExpressionBodyFunc4(_obj, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousFunctionExpressionSyntax WithModifiers(this AnonymousFunctionExpressionSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc5(wrappedObject, modifiers);
+        public static AnonymousFunctionExpressionSyntax WithModifiers(this AnonymousFunctionExpressionSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc5(_obj, modifiers);
     }
 }

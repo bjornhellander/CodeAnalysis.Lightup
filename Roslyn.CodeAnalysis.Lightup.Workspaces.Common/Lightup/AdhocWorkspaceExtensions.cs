@@ -46,11 +46,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void CloseAnalyzerConfigDocument(this AdhocWorkspace wrappedObject, DocumentId? documentId)
-            => CloseAnalyzerConfigDocumentFunc0(wrappedObject, documentId);
+        public static void CloseAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId)
+            => CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void OpenAnalyzerConfigDocument(this AdhocWorkspace wrappedObject, DocumentId? documentId, Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc1(wrappedObject, documentId, activate);
+        public static void OpenAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId, Boolean activate)
+            => OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
     }
 }

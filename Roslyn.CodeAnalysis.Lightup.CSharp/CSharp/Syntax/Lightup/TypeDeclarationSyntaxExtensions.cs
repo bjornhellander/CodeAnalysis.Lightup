@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ParameterListGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax wrappedObject, params ParameterSyntax[] items)
-            => AddParameterListParametersFunc0(wrappedObject, items);
+        public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax _obj, params ParameterSyntax[] items)
+            => AddParameterListParametersFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax wrappedObject, ParameterListSyntax? parameterList)
-            => WithParameterListFunc1(wrappedObject, parameterList);
+        public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+            => WithParameterListFunc1(_obj, parameterList);
     }
 }

@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ContinueStatementSyntax AddAttributeLists(this ContinueStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static ContinueStatementSyntax AddAttributeLists(this ContinueStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ContinueStatementSyntax Update(this ContinueStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken continueKeyword, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, continueKeyword, semicolonToken);
+        public static ContinueStatementSyntax Update(this ContinueStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken continueKeyword, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, continueKeyword, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ContinueStatementSyntax WithAttributeLists(this ContinueStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static ContinueStatementSyntax WithAttributeLists(this ContinueStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

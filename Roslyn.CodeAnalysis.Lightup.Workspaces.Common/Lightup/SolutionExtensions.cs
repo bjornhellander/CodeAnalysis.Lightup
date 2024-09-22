@@ -117,83 +117,83 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ServicesGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution AddAdditionalDocuments(this Solution wrappedObject, ImmutableArray<DocumentInfo> documentInfos)
-            => AddAdditionalDocumentsFunc0(wrappedObject, documentInfos);
+        public static Solution AddAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
+            => AddAdditionalDocumentsFunc0(_obj, documentInfos);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution AddAnalyzerConfigDocument(this Solution wrappedObject, DocumentId documentId, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
-            => AddAnalyzerConfigDocumentFunc1(wrappedObject, documentId, name, text, folders, filePath);
+        public static Solution AddAnalyzerConfigDocument(this Solution _obj, DocumentId documentId, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
+            => AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution AddAnalyzerConfigDocuments(this Solution wrappedObject, ImmutableArray<DocumentInfo> documentInfos)
-            => AddAnalyzerConfigDocumentsFunc2(wrappedObject, documentInfos);
+        public static Solution AddAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
+            => AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution AddAnalyzerReference(this Solution wrappedObject, AnalyzerReference analyzerReference)
-            => AddAnalyzerReferenceFunc3(wrappedObject, analyzerReference);
+        public static Solution AddAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
+            => AddAnalyzerReferenceFunc3(_obj, analyzerReference);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution AddAnalyzerReferences(this Solution wrappedObject, IEnumerable<AnalyzerReference> analyzerReferences)
-            => AddAnalyzerReferencesFunc4(wrappedObject, analyzerReferences);
+        public static Solution AddAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
+            => AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean ContainsAnalyzerConfigDocument(this Solution wrappedObject, DocumentId? documentId)
-            => ContainsAnalyzerConfigDocumentFunc5(wrappedObject, documentId);
+        public static Boolean ContainsAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
+            => ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Solution wrappedObject, DocumentId? documentId)
-            => GetAnalyzerConfigDocumentFunc6(wrappedObject, documentId);
+        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
+            => GetAnalyzerConfigDocumentFunc6(_obj, documentId);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Solution wrappedObject, DocumentId documentId, CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentAsyncFunc7(wrappedObject, documentId, cancellationToken);
+        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Solution _obj, DocumentId documentId, CancellationToken cancellationToken)
+            => GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution RemoveAdditionalDocuments(this Solution wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAdditionalDocumentsFunc8(wrappedObject, documentIds);
+        public static Solution RemoveAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAdditionalDocumentsFunc8(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution RemoveAnalyzerConfigDocument(this Solution wrappedObject, DocumentId documentId)
-            => RemoveAnalyzerConfigDocumentFunc9(wrappedObject, documentId);
+        public static Solution RemoveAnalyzerConfigDocument(this Solution _obj, DocumentId documentId)
+            => RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution RemoveAnalyzerConfigDocuments(this Solution wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAnalyzerConfigDocumentsFunc10(wrappedObject, documentIds);
+        public static Solution RemoveAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution RemoveAnalyzerReference(this Solution wrappedObject, AnalyzerReference analyzerReference)
-            => RemoveAnalyzerReferenceFunc11(wrappedObject, analyzerReference);
+        public static Solution RemoveAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
+            => RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution RemoveDocuments(this Solution wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveDocumentsFunc12(wrappedObject, documentIds);
+        public static Solution RemoveDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveDocumentsFunc12(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithAnalyzerConfigDocumentText(this Solution wrappedObject, DocumentId documentId, SourceText text, PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextFunc13(wrappedObject, documentId, text, mode);
+        public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, SourceText text, PreservationMode mode)
+            => WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithAnalyzerConfigDocumentText(this Solution wrappedObject, DocumentId documentId, TextAndVersion textAndVersion, PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextFunc14(wrappedObject, documentId, textAndVersion, mode);
+        public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, TextAndVersion textAndVersion, PreservationMode mode)
+            => WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithAnalyzerConfigDocumentTextLoader(this Solution wrappedObject, DocumentId documentId, TextLoader loader, PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextLoaderFunc15(wrappedObject, documentId, loader, mode);
+        public static Solution WithAnalyzerConfigDocumentTextLoader(this Solution _obj, DocumentId documentId, TextLoader loader, PreservationMode mode)
+            => WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithAnalyzerReferences(this Solution wrappedObject, IEnumerable<AnalyzerReference> analyzerReferences)
-            => WithAnalyzerReferencesFunc16(wrappedObject, analyzerReferences);
+        public static Solution WithAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
+            => WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithOptions(this Solution wrappedObject, OptionSet options)
-            => WithOptionsFunc17(wrappedObject, options);
+        public static Solution WithOptions(this Solution _obj, OptionSet options)
+            => WithOptionsFunc17(_obj, options);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithProjectCompilationOutputInfo(this Solution wrappedObject, ProjectId projectId, in CompilationOutputInfoWrapper info)
-            => WithProjectCompilationOutputInfoFunc18(wrappedObject, projectId, in info);
+        public static Solution WithProjectCompilationOutputInfo(this Solution _obj, ProjectId projectId, in CompilationOutputInfoWrapper info)
+            => WithProjectCompilationOutputInfoFunc18(_obj, projectId, in info);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Solution WithProjectDefaultNamespace(this Solution wrappedObject, ProjectId projectId, String? defaultNamespace)
-            => WithProjectDefaultNamespaceFunc19(wrappedObject, projectId, defaultNamespace);
+        public static Solution WithProjectDefaultNamespace(this Solution _obj, ProjectId projectId, String? defaultNamespace)
+            => WithProjectDefaultNamespaceFunc19(_obj, projectId, defaultNamespace);
     }
 }

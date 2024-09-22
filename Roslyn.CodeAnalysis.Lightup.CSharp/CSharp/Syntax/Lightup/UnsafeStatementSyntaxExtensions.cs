@@ -59,19 +59,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax AddAttributeLists(this UnsafeStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static UnsafeStatementSyntax AddAttributeLists(this UnsafeStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax AddBlockAttributeLists(this UnsafeStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(wrappedObject, items);
+        public static UnsafeStatementSyntax AddBlockAttributeLists(this UnsafeStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax Update(this UnsafeStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken unsafeKeyword, BlockSyntax block)
-            => UpdateFunc2(wrappedObject, attributeLists, unsafeKeyword, block);
+        public static UnsafeStatementSyntax Update(this UnsafeStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken unsafeKeyword, BlockSyntax block)
+            => UpdateFunc2(_obj, attributeLists, unsafeKeyword, block);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax WithAttributeLists(this UnsafeStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        public static UnsafeStatementSyntax WithAttributeLists(this UnsafeStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
     }
 }

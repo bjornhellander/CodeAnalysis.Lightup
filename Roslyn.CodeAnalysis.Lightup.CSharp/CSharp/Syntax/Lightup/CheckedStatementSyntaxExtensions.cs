@@ -59,19 +59,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CheckedStatementSyntax AddAttributeLists(this CheckedStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static CheckedStatementSyntax AddAttributeLists(this CheckedStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CheckedStatementSyntax AddBlockAttributeLists(this CheckedStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(wrappedObject, items);
+        public static CheckedStatementSyntax AddBlockAttributeLists(this CheckedStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CheckedStatementSyntax Update(this CheckedStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken keyword, BlockSyntax block)
-            => UpdateFunc2(wrappedObject, attributeLists, keyword, block);
+        public static CheckedStatementSyntax Update(this CheckedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken keyword, BlockSyntax block)
+            => UpdateFunc2(_obj, attributeLists, keyword, block);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CheckedStatementSyntax WithAttributeLists(this CheckedStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        public static CheckedStatementSyntax WithAttributeLists(this CheckedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
     }
 }

@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitFunctionPointerType(this SymbolVisitor wrappedObject, IFunctionPointerTypeSymbolWrapper symbol)
-            => VisitFunctionPointerTypeFunc0(wrappedObject, symbol);
+        public static void VisitFunctionPointerType(this SymbolVisitor _obj, IFunctionPointerTypeSymbolWrapper symbol)
+            => VisitFunctionPointerTypeFunc0(_obj, symbol);
     }
 }

@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(wrappedObject, items);
+        public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc0(_obj, items);
     }
 }

@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService wrappedObject, Solution solution, CancellationToken cancellationToken)
-            => GetStorageAsyncFunc0(wrappedObject, solution, cancellationToken);
+        public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService _obj, Solution solution, CancellationToken cancellationToken)
+            => GetStorageAsyncFunc0(_obj, solution, cancellationToken);
     }
 }

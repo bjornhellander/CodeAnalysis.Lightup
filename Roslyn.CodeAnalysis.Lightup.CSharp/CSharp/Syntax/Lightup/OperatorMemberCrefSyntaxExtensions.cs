@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => CheckedKeywordGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorMemberCrefSyntax Update(this OperatorMemberCrefSyntax wrappedObject, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters)
-            => UpdateFunc0(wrappedObject, operatorKeyword, checkedKeyword, operatorToken, parameters);
+        public static OperatorMemberCrefSyntax Update(this OperatorMemberCrefSyntax _obj, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters)
+            => UpdateFunc0(_obj, operatorKeyword, checkedKeyword, operatorToken, parameters);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorMemberCrefSyntax WithCheckedKeyword(this OperatorMemberCrefSyntax wrappedObject, SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc1(wrappedObject, checkedKeyword);
+        public static OperatorMemberCrefSyntax WithCheckedKeyword(this OperatorMemberCrefSyntax _obj, SyntaxToken checkedKeyword)
+            => WithCheckedKeywordFunc1(_obj, checkedKeyword);
     }
 }

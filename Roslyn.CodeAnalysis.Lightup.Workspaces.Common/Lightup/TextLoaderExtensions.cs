@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Task<TextAndVersion> LoadTextAndVersionAsync(this TextLoader wrappedObject, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
-            => LoadTextAndVersionAsyncFunc0(wrappedObject, options, cancellationToken);
+        public static Task<TextAndVersion> LoadTextAndVersionAsync(this TextLoader _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
+            => LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
     }
 }

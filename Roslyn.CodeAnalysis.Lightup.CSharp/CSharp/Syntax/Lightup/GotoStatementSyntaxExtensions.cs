@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GotoStatementSyntax AddAttributeLists(this GotoStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static GotoStatementSyntax AddAttributeLists(this GotoStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GotoStatementSyntax Update(this GotoStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken gotoKeyword, SyntaxToken caseOrDefaultKeyword, ExpressionSyntax? expression, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, gotoKeyword, caseOrDefaultKeyword, expression, semicolonToken);
+        public static GotoStatementSyntax Update(this GotoStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken gotoKeyword, SyntaxToken caseOrDefaultKeyword, ExpressionSyntax? expression, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, gotoKeyword, caseOrDefaultKeyword, expression, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GotoStatementSyntax WithAttributeLists(this GotoStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static GotoStatementSyntax WithAttributeLists(this GotoStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

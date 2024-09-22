@@ -46,11 +46,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges wrappedObject)
-            => GetAddedAnalyzerReferencesFunc0(wrappedObject);
+        public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges _obj)
+            => GetAddedAnalyzerReferencesFunc0(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges wrappedObject)
-            => GetRemovedAnalyzerReferencesFunc1(wrappedObject);
+        public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges _obj)
+            => GetRemovedAnalyzerReferencesFunc1(_obj);
     }
 }

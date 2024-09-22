@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken wrappedObject, SyntaxNodeOrToken other)
-            => IsIncrementallyIdenticalToFunc0(wrappedObject, other);
+        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken _obj, SyntaxNodeOrToken other)
+            => IsIncrementallyIdenticalToFunc0(_obj, other);
     }
 }

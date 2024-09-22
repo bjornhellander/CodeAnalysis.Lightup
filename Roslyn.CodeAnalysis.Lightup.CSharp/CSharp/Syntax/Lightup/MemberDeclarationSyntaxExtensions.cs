@@ -66,19 +66,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static MemberDeclarationSyntax AddAttributeLists(this MemberDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static MemberDeclarationSyntax AddAttributeLists(this MemberDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static MemberDeclarationSyntax AddModifiers(this MemberDeclarationSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc1(wrappedObject, items);
+        public static MemberDeclarationSyntax AddModifiers(this MemberDeclarationSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static MemberDeclarationSyntax WithAttributeLists(this MemberDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static MemberDeclarationSyntax WithAttributeLists(this MemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static MemberDeclarationSyntax WithModifiers(this MemberDeclarationSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc3(wrappedObject, modifiers);
+        public static MemberDeclarationSyntax WithModifiers(this MemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc3(_obj, modifiers);
     }
 }

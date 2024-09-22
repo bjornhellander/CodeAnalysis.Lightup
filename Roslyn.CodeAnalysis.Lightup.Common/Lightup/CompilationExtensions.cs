@@ -72,51 +72,51 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol CreateAnonymousTypeSymbol(this Compilation wrappedObject, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations)
-            => CreateAnonymousTypeSymbolFunc0(wrappedObject, memberTypes, memberNames, memberIsReadOnly, memberLocations, memberNullableAnnotations);
+        public static INamedTypeSymbol CreateAnonymousTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations)
+            => CreateAnonymousTypeSymbolFunc0(_obj, memberTypes, memberNames, memberIsReadOnly, memberLocations, memberNullableAnnotations);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IArrayTypeSymbol CreateArrayTypeSymbol(this Compilation wrappedObject, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation)
-            => CreateArrayTypeSymbolFunc1(wrappedObject, elementType, rank, elementNullableAnnotation);
+        public static IArrayTypeSymbol CreateArrayTypeSymbol(this Compilation _obj, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation)
+            => CreateArrayTypeSymbolFunc1(_obj, elementType, rank, elementNullableAnnotation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static IMethodSymbol CreateBuiltinOperator(this Compilation wrappedObject, String name, ITypeSymbol returnType, ITypeSymbol operandType)
-            => CreateBuiltinOperatorFunc2(wrappedObject, name, returnType, operandType);
+        public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol operandType)
+            => CreateBuiltinOperatorFunc2(_obj, name, returnType, operandType);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static IMethodSymbol CreateBuiltinOperator(this Compilation wrappedObject, String name, ITypeSymbol returnType, ITypeSymbol leftType, ITypeSymbol rightType)
-            => CreateBuiltinOperatorFunc3(wrappedObject, name, returnType, leftType, rightType);
+        public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol leftType, ITypeSymbol rightType)
+            => CreateBuiltinOperatorFunc3(_obj, name, returnType, leftType, rightType);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbol(this Compilation wrappedObject, ITypeSymbol returnType, RefKind returnRefKind, ImmutableArray<ITypeSymbol> parameterTypes, ImmutableArray<RefKind> parameterRefKinds, SignatureCallingConvention callingConvention, ImmutableArray<INamedTypeSymbol> callingConventionTypes)
-            => CreateFunctionPointerTypeSymbolFunc4(wrappedObject, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
+        public static IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbol(this Compilation _obj, ITypeSymbol returnType, RefKind returnRefKind, ImmutableArray<ITypeSymbol> parameterTypes, ImmutableArray<RefKind> parameterRefKinds, SignatureCallingConvention callingConvention, ImmutableArray<INamedTypeSymbol> callingConventionTypes)
+            => CreateFunctionPointerTypeSymbolFunc4(_obj, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol CreateNativeIntegerTypeSymbol(this Compilation wrappedObject, Boolean signed)
-            => CreateNativeIntegerTypeSymbolFunc5(wrappedObject, signed);
+        public static INamedTypeSymbol CreateNativeIntegerTypeSymbol(this Compilation _obj, Boolean signed)
+            => CreateNativeIntegerTypeSymbolFunc5(_obj, signed);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation wrappedObject, ImmutableArray<ITypeSymbol> elementTypes, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
-            => CreateTupleTypeSymbolFunc6(wrappedObject, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
+        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> elementTypes, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
+            => CreateTupleTypeSymbolFunc6(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation wrappedObject, INamedTypeSymbol underlyingType, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
-            => CreateTupleTypeSymbolFunc7(wrappedObject, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
+        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, INamedTypeSymbol underlyingType, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
+            => CreateTupleTypeSymbolFunc7(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static EmitDifferenceResult EmitDifference(this Compilation wrappedObject, EmitBaseline baseline, IEnumerable<SemanticEdit> edits, Func<ISymbol, Boolean> isAddedSymbol, Stream metadataStream, Stream ilStream, Stream pdbStream, CancellationToken cancellationToken)
-            => EmitDifferenceFunc8(wrappedObject, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
+        public static EmitDifferenceResult EmitDifference(this Compilation _obj, EmitBaseline baseline, IEnumerable<SemanticEdit> edits, Func<ISymbol, Boolean> isAddedSymbol, Stream metadataStream, Stream ilStream, Stream pdbStream, CancellationToken cancellationToken)
+            => EmitDifferenceFunc8(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ImmutableArray<INamedTypeSymbol> GetTypesByMetadataName(this Compilation wrappedObject, String fullyQualifiedMetadataName)
-            => GetTypesByMetadataNameFunc9(wrappedObject, fullyQualifiedMetadataName);
+        public static ImmutableArray<INamedTypeSymbol> GetTypesByMetadataName(this Compilation _obj, String fullyQualifiedMetadataName)
+            => GetTypesByMetadataNameFunc9(_obj, fullyQualifiedMetadataName);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this Compilation wrappedObject, CancellationToken cancellationToken)
-            => GetUsedAssemblyReferencesFunc10(wrappedObject, cancellationToken);
+        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this Compilation _obj, CancellationToken cancellationToken)
+            => GetUsedAssemblyReferencesFunc10(_obj, cancellationToken);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Boolean SupportsRuntimeCapability(this Compilation wrappedObject, RuntimeCapabilityEx capability)
-            => SupportsRuntimeCapabilityFunc11(wrappedObject, capability);
+        public static Boolean SupportsRuntimeCapability(this Compilation _obj, RuntimeCapabilityEx capability)
+            => SupportsRuntimeCapabilityFunc11(_obj, capability);
     }
 }

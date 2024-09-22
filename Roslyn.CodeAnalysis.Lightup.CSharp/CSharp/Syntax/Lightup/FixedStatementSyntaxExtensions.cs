@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static FixedStatementSyntax AddAttributeLists(this FixedStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static FixedStatementSyntax AddAttributeLists(this FixedStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static FixedStatementSyntax Update(this FixedStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken fixedKeyword, SyntaxToken openParenToken, VariableDeclarationSyntax declaration, SyntaxToken closeParenToken, StatementSyntax statement)
-            => UpdateFunc1(wrappedObject, attributeLists, fixedKeyword, openParenToken, declaration, closeParenToken, statement);
+        public static FixedStatementSyntax Update(this FixedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken fixedKeyword, SyntaxToken openParenToken, VariableDeclarationSyntax declaration, SyntaxToken closeParenToken, StatementSyntax statement)
+            => UpdateFunc1(_obj, attributeLists, fixedKeyword, openParenToken, declaration, closeParenToken, statement);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static FixedStatementSyntax WithAttributeLists(this FixedStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static FixedStatementSyntax WithAttributeLists(this FixedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

@@ -82,23 +82,23 @@ namespace Microsoft.CodeAnalysis.Lightup
             => NullableAnnotationGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(this ITypeSymbol wrappedObject, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
-            => ToDisplayPartsFunc0(wrappedObject, topLevelNullability, format);
+        public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
+            => ToDisplayPartsFunc0(_obj, topLevelNullability, format);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String ToDisplayString(this ITypeSymbol wrappedObject, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
-            => ToDisplayStringFunc1(wrappedObject, topLevelNullability, format);
+        public static String ToDisplayString(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
+            => ToDisplayStringFunc1(_obj, topLevelNullability, format);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(this ITypeSymbol wrappedObject, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
-            => ToMinimalDisplayPartsFunc2(wrappedObject, semanticModel, topLevelNullability, position, format);
+        public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
+            => ToMinimalDisplayPartsFunc2(_obj, semanticModel, topLevelNullability, position, format);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String ToMinimalDisplayString(this ITypeSymbol wrappedObject, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
-            => ToMinimalDisplayStringFunc3(wrappedObject, semanticModel, topLevelNullability, position, format);
+        public static String ToMinimalDisplayString(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
+            => ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ITypeSymbol WithNullableAnnotation(this ITypeSymbol wrappedObject, NullableAnnotationEx nullableAnnotation)
-            => WithNullableAnnotationFunc4(wrappedObject, nullableAnnotation);
+        public static ITypeSymbol WithNullableAnnotation(this ITypeSymbol _obj, NullableAnnotationEx nullableAnnotation)
+            => WithNullableAnnotationFunc4(_obj, nullableAnnotation);
     }
 }

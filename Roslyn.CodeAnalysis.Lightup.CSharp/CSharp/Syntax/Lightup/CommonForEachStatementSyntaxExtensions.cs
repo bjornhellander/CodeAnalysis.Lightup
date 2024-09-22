@@ -43,11 +43,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc1(wrappedObject, attributeLists);
+        public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc1(_obj, attributeLists);
     }
 }

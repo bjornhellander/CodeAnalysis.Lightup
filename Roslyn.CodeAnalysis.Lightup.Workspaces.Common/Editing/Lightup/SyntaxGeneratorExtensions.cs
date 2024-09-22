@@ -52,19 +52,19 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxNode ConditionalAccessExpression(this SyntaxGenerator wrappedObject, SyntaxNode expression, SyntaxNode whenNotNull)
-            => ConditionalAccessExpressionFunc0(wrappedObject, expression, whenNotNull);
+        public static SyntaxNode ConditionalAccessExpression(this SyntaxGenerator _obj, SyntaxNode expression, SyntaxNode whenNotNull)
+            => ConditionalAccessExpressionFunc0(_obj, expression, whenNotNull);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator wrappedObject, IEnumerable<SyntaxNode> arguments)
-            => ElementBindingExpressionFunc1(wrappedObject, arguments);
+        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator _obj, IEnumerable<SyntaxNode> arguments)
+            => ElementBindingExpressionFunc1(_obj, arguments);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator wrappedObject, params SyntaxNode[] arguments)
-            => ElementBindingExpressionFunc2(wrappedObject, arguments);
+        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator _obj, params SyntaxNode[] arguments)
+            => ElementBindingExpressionFunc2(_obj, arguments);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxNode MemberBindingExpression(this SyntaxGenerator wrappedObject, SyntaxNode name)
-            => MemberBindingExpressionFunc3(wrappedObject, name);
+        public static SyntaxNode MemberBindingExpression(this SyntaxGenerator _obj, SyntaxNode name)
+            => MemberBindingExpressionFunc3(_obj, name);
     }
 }

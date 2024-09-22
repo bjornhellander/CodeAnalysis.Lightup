@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ExpressionColonGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static SubpatternSyntax Update(this SubpatternSyntax wrappedObject, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
-            => UpdateFunc0(wrappedObject, expressionColon, pattern);
+        public static SubpatternSyntax Update(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
+            => UpdateFunc0(_obj, expressionColon, pattern);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax wrappedObject, BaseExpressionColonSyntaxWrapper expressionColon)
-            => WithExpressionColonFunc1(wrappedObject, expressionColon);
+        public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon)
+            => WithExpressionColonFunc1(_obj, expressionColon);
     }
 }

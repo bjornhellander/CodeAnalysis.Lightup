@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IfStatementSyntax AddAttributeLists(this IfStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static IfStatementSyntax AddAttributeLists(this IfStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IfStatementSyntax Update(this IfStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken ifKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, StatementSyntax statement, ElseClauseSyntax? @else)
-            => UpdateFunc1(wrappedObject, attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
+        public static IfStatementSyntax Update(this IfStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken ifKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, StatementSyntax statement, ElseClauseSyntax? @else)
+            => UpdateFunc1(_obj, attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IfStatementSyntax WithAttributeLists(this IfStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static IfStatementSyntax WithAttributeLists(this IfStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

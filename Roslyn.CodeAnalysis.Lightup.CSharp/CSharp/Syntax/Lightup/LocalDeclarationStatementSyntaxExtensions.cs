@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalDeclarationStatementSyntax AddAttributeLists(this LocalDeclarationStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static LocalDeclarationStatementSyntax AddAttributeLists(this LocalDeclarationStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalDeclarationStatementSyntax Update(this LocalDeclarationStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken awaitKeyword, SyntaxToken usingKeyword, SyntaxTokenList modifiers, VariableDeclarationSyntax declaration, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
+        public static LocalDeclarationStatementSyntax Update(this LocalDeclarationStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken awaitKeyword, SyntaxToken usingKeyword, SyntaxTokenList modifiers, VariableDeclarationSyntax declaration, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalDeclarationStatementSyntax WithAttributeLists(this LocalDeclarationStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static LocalDeclarationStatementSyntax WithAttributeLists(this LocalDeclarationStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

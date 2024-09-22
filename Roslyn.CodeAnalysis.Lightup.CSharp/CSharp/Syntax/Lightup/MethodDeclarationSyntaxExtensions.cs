@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static MethodDeclarationSyntax AddBodyAttributeLists(this MethodDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        public static MethodDeclarationSyntax AddBodyAttributeLists(this MethodDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

@@ -42,11 +42,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Boolean ContainsDirective(this SyntaxNode wrappedObject, Int32 rawKind)
-            => ContainsDirectiveFunc0(wrappedObject, rawKind);
+        public static Boolean ContainsDirective(this SyntaxNode _obj, Int32 rawKind)
+            => ContainsDirectiveFunc0(_obj, rawKind);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode wrappedObject, SyntaxNode? other)
-            => IsIncrementallyIdenticalToFunc1(wrappedObject, other);
+        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode _obj, SyntaxNode? other)
+            => IsIncrementallyIdenticalToFunc1(_obj, other);
     }
 }

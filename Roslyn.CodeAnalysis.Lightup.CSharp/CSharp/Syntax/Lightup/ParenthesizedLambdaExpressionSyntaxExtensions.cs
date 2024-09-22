@@ -114,55 +114,55 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ReturnTypeGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddAttributeLists(this ParenthesizedLambdaExpressionSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static ParenthesizedLambdaExpressionSyntax AddAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddBlockAttributeLists(this ParenthesizedLambdaExpressionSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(wrappedObject, items);
+        public static ParenthesizedLambdaExpressionSyntax AddBlockAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddBlockStatements(this ParenthesizedLambdaExpressionSyntax wrappedObject, params StatementSyntax[] items)
-            => AddBlockStatementsFunc2(wrappedObject, items);
+        public static ParenthesizedLambdaExpressionSyntax AddBlockStatements(this ParenthesizedLambdaExpressionSyntax _obj, params StatementSyntax[] items)
+            => AddBlockStatementsFunc2(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddModifiers(this ParenthesizedLambdaExpressionSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc3(wrappedObject, items);
+        public static ParenthesizedLambdaExpressionSyntax AddModifiers(this ParenthesizedLambdaExpressionSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc3(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
-            => UpdateFunc4(wrappedObject, modifiers, parameterList, arrowToken, block, expressionBody);
+        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+            => UpdateFunc4(_obj, modifiers, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxToken asyncKeyword, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
-            => UpdateFunc5(wrappedObject, asyncKeyword, parameterList, arrowToken, block, expressionBody);
+        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxToken asyncKeyword, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+            => UpdateFunc5(_obj, asyncKeyword, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
-            => UpdateFunc6(wrappedObject, attributeLists, modifiers, parameterList, arrowToken, block, expressionBody);
+        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+            => UpdateFunc6(_obj, attributeLists, modifiers, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax? returnType, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
-            => UpdateFunc7(wrappedObject, attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
+        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax? returnType, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+            => UpdateFunc7(_obj, attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithAttributeLists(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc8(wrappedObject, attributeLists);
+        public static ParenthesizedLambdaExpressionSyntax WithAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc8(_obj, attributeLists);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithBlock(this ParenthesizedLambdaExpressionSyntax wrappedObject, BlockSyntax? block)
-            => WithBlockFunc9(wrappedObject, block);
+        public static ParenthesizedLambdaExpressionSyntax WithBlock(this ParenthesizedLambdaExpressionSyntax _obj, BlockSyntax? block)
+            => WithBlockFunc9(_obj, block);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithExpressionBody(this ParenthesizedLambdaExpressionSyntax wrappedObject, ExpressionSyntax? expressionBody)
-            => WithExpressionBodyFunc10(wrappedObject, expressionBody);
+        public static ParenthesizedLambdaExpressionSyntax WithExpressionBody(this ParenthesizedLambdaExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+            => WithExpressionBodyFunc10(_obj, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithModifiers(this ParenthesizedLambdaExpressionSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc11(wrappedObject, modifiers);
+        public static ParenthesizedLambdaExpressionSyntax WithModifiers(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc11(_obj, modifiers);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithReturnType(this ParenthesizedLambdaExpressionSyntax wrappedObject, TypeSyntax? returnType)
-            => WithReturnTypeFunc12(wrappedObject, returnType);
+        public static ParenthesizedLambdaExpressionSyntax WithReturnType(this ParenthesizedLambdaExpressionSyntax _obj, TypeSyntax? returnType)
+            => WithReturnTypeFunc12(_obj, returnType);
     }
 }

@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ExpressionStatementSyntax AddAttributeLists(this ExpressionStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static ExpressionStatementSyntax AddAttributeLists(this ExpressionStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ExpressionStatementSyntax Update(this ExpressionStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, ExpressionSyntax expression, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, expression, semicolonToken);
+        public static ExpressionStatementSyntax Update(this ExpressionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, ExpressionSyntax expression, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, expression, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ExpressionStatementSyntax WithAttributeLists(this ExpressionStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static ExpressionStatementSyntax WithAttributeLists(this ExpressionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

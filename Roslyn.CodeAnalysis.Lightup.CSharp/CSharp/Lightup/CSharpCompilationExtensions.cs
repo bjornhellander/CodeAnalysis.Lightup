@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation wrappedObject, CancellationToken cancellationToken)
-            => GetUsedAssemblyReferencesFunc0(wrappedObject, cancellationToken);
+        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation _obj, CancellationToken cancellationToken)
+            => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
     }
 }

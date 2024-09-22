@@ -69,23 +69,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GlobalStatementSyntax AddAttributeLists(this GlobalStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static GlobalStatementSyntax AddAttributeLists(this GlobalStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GlobalStatementSyntax AddModifiers(this GlobalStatementSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc1(wrappedObject, items);
+        public static GlobalStatementSyntax AddModifiers(this GlobalStatementSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GlobalStatementSyntax Update(this GlobalStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, StatementSyntax statement)
-            => UpdateFunc2(wrappedObject, attributeLists, modifiers, statement);
+        public static GlobalStatementSyntax Update(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, StatementSyntax statement)
+            => UpdateFunc2(_obj, attributeLists, modifiers, statement);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GlobalStatementSyntax WithAttributeLists(this GlobalStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        public static GlobalStatementSyntax WithAttributeLists(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static GlobalStatementSyntax WithModifiers(this GlobalStatementSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc4(wrappedObject, modifiers);
+        public static GlobalStatementSyntax WithModifiers(this GlobalStatementSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc4(_obj, modifiers);
     }
 }

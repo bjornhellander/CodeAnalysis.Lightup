@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CatchClauseSyntax AddBlockAttributeLists(this CatchClauseSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(wrappedObject, items);
+        public static CatchClauseSyntax AddBlockAttributeLists(this CatchClauseSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc0(_obj, items);
     }
 }

@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void RegisterAdditionalFileAction(this CompilationStartAnalysisContext wrappedObject, Action<AdditionalFileAnalysisContextWrapper> action)
-            => RegisterAdditionalFileActionFunc0(wrappedObject, action);
+        public static void RegisterAdditionalFileAction(this CompilationStartAnalysisContext _obj, Action<AdditionalFileAnalysisContextWrapper> action)
+            => RegisterAdditionalFileActionFunc0(_obj, action);
     }
 }

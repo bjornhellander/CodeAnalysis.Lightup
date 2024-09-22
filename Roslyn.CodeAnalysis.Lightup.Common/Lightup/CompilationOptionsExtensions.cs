@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => SyntaxTreeOptionsProviderGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions wrappedObject, SyntaxTreeOptionsProviderWrapper provider)
-            => WithSyntaxTreeOptionsProviderFunc0(wrappedObject, provider);
+        public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
+            => WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
     }
 }

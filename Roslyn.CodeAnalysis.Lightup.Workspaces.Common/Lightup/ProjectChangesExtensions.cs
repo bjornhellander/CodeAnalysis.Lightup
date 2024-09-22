@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetAddedAnalyzerConfigDocumentsFunc0(wrappedObject);
+        public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetChangedAnalyzerConfigDocumentsFunc1(wrappedObject);
+        public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetRemovedAnalyzerConfigDocumentsFunc2(wrappedObject);
+        public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
     }
 }

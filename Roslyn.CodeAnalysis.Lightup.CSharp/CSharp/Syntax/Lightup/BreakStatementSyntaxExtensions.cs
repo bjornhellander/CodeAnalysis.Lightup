@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static BreakStatementSyntax AddAttributeLists(this BreakStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static BreakStatementSyntax AddAttributeLists(this BreakStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static BreakStatementSyntax Update(this BreakStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken breakKeyword, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, breakKeyword, semicolonToken);
+        public static BreakStatementSyntax Update(this BreakStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken breakKeyword, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, breakKeyword, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static BreakStatementSyntax WithAttributeLists(this BreakStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static BreakStatementSyntax WithAttributeLists(this BreakStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

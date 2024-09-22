@@ -112,7 +112,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => UnmanagedCallingConventionTypesGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IMethodSymbol Construct(this IMethodSymbol wrappedObject, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
-            => ConstructFunc0(wrappedObject, typeArguments, typeArgumentNullableAnnotations);
+        public static IMethodSymbol Construct(this IMethodSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+            => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

@@ -72,27 +72,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax AddBlockAttributeLists(this AnonymousMethodExpressionSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(wrappedObject, items);
+        public static AnonymousMethodExpressionSyntax AddBlockAttributeLists(this AnonymousMethodExpressionSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax AddModifiers(this AnonymousMethodExpressionSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc1(wrappedObject, items);
+        public static AnonymousMethodExpressionSyntax AddModifiers(this AnonymousMethodExpressionSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax Update(this AnonymousMethodExpressionSyntax wrappedObject, SyntaxTokenList modifiers, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax block, ExpressionSyntax? expressionBody)
-            => UpdateFunc2(wrappedObject, modifiers, delegateKeyword, parameterList, block, expressionBody);
+        public static AnonymousMethodExpressionSyntax Update(this AnonymousMethodExpressionSyntax _obj, SyntaxTokenList modifiers, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax block, ExpressionSyntax? expressionBody)
+            => UpdateFunc2(_obj, modifiers, delegateKeyword, parameterList, block, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax? Update(this AnonymousMethodExpressionSyntax wrappedObject, SyntaxToken asyncKeyword, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax? block, ExpressionSyntax? expressionBody)
-            => UpdateFunc3(wrappedObject, asyncKeyword, delegateKeyword, parameterList, block, expressionBody);
+        public static AnonymousMethodExpressionSyntax? Update(this AnonymousMethodExpressionSyntax _obj, SyntaxToken asyncKeyword, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax? block, ExpressionSyntax? expressionBody)
+            => UpdateFunc3(_obj, asyncKeyword, delegateKeyword, parameterList, block, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax WithExpressionBody(this AnonymousMethodExpressionSyntax wrappedObject, ExpressionSyntax? expressionBody)
-            => WithExpressionBodyFunc4(wrappedObject, expressionBody);
+        public static AnonymousMethodExpressionSyntax WithExpressionBody(this AnonymousMethodExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+            => WithExpressionBodyFunc4(_obj, expressionBody);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnonymousMethodExpressionSyntax WithModifiers(this AnonymousMethodExpressionSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc5(wrappedObject, modifiers);
+        public static AnonymousMethodExpressionSyntax WithModifiers(this AnonymousMethodExpressionSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc5(_obj, modifiers);
     }
 }

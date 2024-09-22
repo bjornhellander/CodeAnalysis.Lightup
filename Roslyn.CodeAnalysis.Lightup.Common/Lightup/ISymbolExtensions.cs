@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => MetadataTokenGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean Equals(this ISymbol wrappedObject, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
-            => EqualsFunc0(wrappedObject, other, equalityComparer);
+        public static Boolean Equals(this ISymbol _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
+            => EqualsFunc0(_obj, other, equalityComparer);
     }
 }

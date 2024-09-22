@@ -59,19 +59,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalFunctionStatementSyntax AddAttributeLists(this LocalFunctionStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static LocalFunctionStatementSyntax AddAttributeLists(this LocalFunctionStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalFunctionStatementSyntax AddBodyAttributeLists(this LocalFunctionStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc1(wrappedObject, items);
+        public static LocalFunctionStatementSyntax AddBodyAttributeLists(this LocalFunctionStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalFunctionStatementSyntax Update(this LocalFunctionStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax parameterList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
-            => UpdateFunc2(wrappedObject, attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
+        public static LocalFunctionStatementSyntax Update(this LocalFunctionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax parameterList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+            => UpdateFunc2(_obj, attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LocalFunctionStatementSyntax WithAttributeLists(this LocalFunctionStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        public static LocalFunctionStatementSyntax WithAttributeLists(this LocalFunctionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
     }
 }

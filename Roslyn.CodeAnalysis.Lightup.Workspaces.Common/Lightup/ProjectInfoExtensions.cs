@@ -66,15 +66,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             => CompilationOutputInfoGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo wrappedObject, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
-            => WithAnalyzerConfigDocumentsFunc0(wrappedObject, analyzerConfigDocuments);
+        public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo _obj, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
+            => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo wrappedObject, in CompilationOutputInfoWrapper info)
-            => WithCompilationOutputInfoFunc1(wrappedObject, in info);
+        public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo _obj, in CompilationOutputInfoWrapper info)
+            => WithCompilationOutputInfoFunc1(_obj, in info);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithDefaultNamespace(this ProjectInfo wrappedObject, String? defaultNamespace)
-            => WithDefaultNamespaceFunc2(wrappedObject, defaultNamespace);
+        public static ProjectInfo WithDefaultNamespace(this ProjectInfo _obj, String? defaultNamespace)
+            => WithDefaultNamespaceFunc2(_obj, defaultNamespace);
     }
 }

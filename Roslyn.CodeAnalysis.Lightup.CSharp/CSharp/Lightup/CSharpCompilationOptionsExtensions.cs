@@ -53,11 +53,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             => NullableContextOptionsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CSharpCompilationOptions WithNullableContextOptions(this CSharpCompilationOptions wrappedObject, NullableContextOptionsEx options)
-            => WithNullableContextOptionsFunc0(wrappedObject, options);
+        public static CSharpCompilationOptions WithNullableContextOptions(this CSharpCompilationOptions _obj, NullableContextOptionsEx options)
+            => WithNullableContextOptionsFunc0(_obj, options);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this CSharpCompilationOptions wrappedObject, SyntaxTreeOptionsProviderWrapper provider)
-            => WithSyntaxTreeOptionsProviderFunc1(wrappedObject, provider);
+        public static CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this CSharpCompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
+            => WithSyntaxTreeOptionsProviderFunc1(_obj, provider);
     }
 }

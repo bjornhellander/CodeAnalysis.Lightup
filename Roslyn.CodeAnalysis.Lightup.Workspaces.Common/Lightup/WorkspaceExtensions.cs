@@ -52,19 +52,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static Boolean CanApplyCompilationOptionChange(this Workspace wrappedObject, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
-            => CanApplyCompilationOptionChangeFunc0(wrappedObject, oldOptions, newOptions, project);
+        public static Boolean CanApplyCompilationOptionChange(this Workspace _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
+            => CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean CanApplyParseOptionChange(this Workspace wrappedObject, ParseOptions oldOptions, ParseOptions newOptions, Project project)
-            => CanApplyParseOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
+        public static Boolean CanApplyParseOptionChange(this Workspace _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project)
+            => CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void CloseAnalyzerConfigDocument(this Workspace wrappedObject, DocumentId documentId)
-            => CloseAnalyzerConfigDocumentFunc2(wrappedObject, documentId);
+        public static void CloseAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId)
+            => CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void OpenAnalyzerConfigDocument(this Workspace wrappedObject, DocumentId documentId, Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc3(wrappedObject, documentId, activate);
+        public static void OpenAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId, Boolean activate)
+            => OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
     }
 }

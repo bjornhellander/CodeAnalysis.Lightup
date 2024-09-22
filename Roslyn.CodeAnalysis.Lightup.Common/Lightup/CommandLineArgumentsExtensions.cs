@@ -87,11 +87,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => SkipAnalyzersGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String GetOutputFilePath(this CommandLineArguments wrappedObject, String outputFileName)
-            => GetOutputFilePathFunc0(wrappedObject, outputFileName);
+        public static String GetOutputFilePath(this CommandLineArguments _obj, String outputFileName)
+            => GetOutputFilePathFunc0(_obj, outputFileName);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String GetPdbFilePath(this CommandLineArguments wrappedObject, String outputFileName)
-            => GetPdbFilePathFunc1(wrappedObject, outputFileName);
+        public static String GetPdbFilePath(this CommandLineArguments _obj, String outputFileName)
+            => GetPdbFilePathFunc1(_obj, outputFileName);
     }
 }

@@ -59,19 +59,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TryStatementSyntax AddAttributeLists(this TryStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static TryStatementSyntax AddAttributeLists(this TryStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TryStatementSyntax AddBlockAttributeLists(this TryStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(wrappedObject, items);
+        public static TryStatementSyntax AddBlockAttributeLists(this TryStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TryStatementSyntax Update(this TryStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken tryKeyword, BlockSyntax block, SyntaxList<CatchClauseSyntax> catches, FinallyClauseSyntax? @finally)
-            => UpdateFunc2(wrappedObject, attributeLists, tryKeyword, block, catches, @finally);
+        public static TryStatementSyntax Update(this TryStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken tryKeyword, BlockSyntax block, SyntaxList<CatchClauseSyntax> catches, FinallyClauseSyntax? @finally)
+            => UpdateFunc2(_obj, attributeLists, tryKeyword, block, catches, @finally);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TryStatementSyntax WithAttributeLists(this TryStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        public static TryStatementSyntax WithAttributeLists(this TryStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
     }
 }

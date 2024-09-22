@@ -69,23 +69,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ExplicitInterfaceSpecifierGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static OperatorDeclarationSyntax AddBodyAttributeLists(this OperatorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        public static OperatorDeclarationSyntax AddBodyAttributeLists(this OperatorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
-            => UpdateFunc2(wrappedObject, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+            => UpdateFunc2(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorDeclarationSyntax WithCheckedKeyword(this OperatorDeclarationSyntax wrappedObject, SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc3(wrappedObject, checkedKeyword);
+        public static OperatorDeclarationSyntax WithCheckedKeyword(this OperatorDeclarationSyntax _obj, SyntaxToken checkedKeyword)
+            => WithCheckedKeywordFunc3(_obj, checkedKeyword);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this OperatorDeclarationSyntax wrappedObject, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
-            => WithExplicitInterfaceSpecifierFunc4(wrappedObject, explicitInterfaceSpecifier);
+        public static OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this OperatorDeclarationSyntax _obj, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
+            => WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
     }
 }

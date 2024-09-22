@@ -561,7 +561,7 @@ internal class Writer
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
@@ -569,7 +569,7 @@ internal class Writer
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "wrappedObject")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -820,15 +820,15 @@ internal class Writer
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "_obj")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -1245,14 +1245,14 @@ internal class Writer
 
     private static string GetArgumentsText(
         MethodDefinition methodDef,
-        bool skipObj = false)
+        string? instanceName)
     {
         var sb = new StringBuilder();
 
         var isFirst = true;
-        if (!skipObj)
+        if (instanceName != null)
         {
-            sb.Append("wrappedObject");
+            sb.Append(instanceName);
             isFirst = false;
         }
 

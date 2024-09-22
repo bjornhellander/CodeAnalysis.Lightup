@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => ParameterListGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static InterfaceDeclarationSyntax AddParameterListParameters(this InterfaceDeclarationSyntax wrappedObject, params ParameterSyntax[] items)
-            => AddParameterListParametersFunc0(wrappedObject, items);
+        public static InterfaceDeclarationSyntax AddParameterListParameters(this InterfaceDeclarationSyntax _obj, params ParameterSyntax[] items)
+            => AddParameterListParametersFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static InterfaceDeclarationSyntax Update(this InterfaceDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+        public static InterfaceDeclarationSyntax Update(this InterfaceDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static InterfaceDeclarationSyntax WithParameterList(this InterfaceDeclarationSyntax wrappedObject, ParameterListSyntax? parameterList)
-            => WithParameterListFunc2(wrappedObject, parameterList);
+        public static InterfaceDeclarationSyntax WithParameterList(this InterfaceDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+            => WithParameterListFunc2(_obj, parameterList);
     }
 }

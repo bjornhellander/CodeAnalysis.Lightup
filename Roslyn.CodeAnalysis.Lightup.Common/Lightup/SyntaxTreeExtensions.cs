@@ -52,11 +52,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => DiagnosticOptionsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree wrappedObject, CancellationToken cancellationToken)
-            => GetLineMappingsFunc0(wrappedObject, cancellationToken);
+        public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree _obj, CancellationToken cancellationToken)
+            => GetLineMappingsFunc0(_obj, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree WithDiagnosticOptions(this SyntaxTree wrappedObject, ImmutableDictionary<String, ReportDiagnostic> options)
-            => WithDiagnosticOptionsFunc1(wrappedObject, options);
+        public static SyntaxTree WithDiagnosticOptions(this SyntaxTree _obj, ImmutableDictionary<String, ReportDiagnostic> options)
+            => WithDiagnosticOptionsFunc1(_obj, options);
     }
 }

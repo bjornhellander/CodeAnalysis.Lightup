@@ -42,11 +42,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel wrappedObject, Int32 position, CancellationToken cancellationToken)
-            => GetImportScopesFunc0(wrappedObject, position, cancellationToken);
+        public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel _obj, Int32 position, CancellationToken cancellationToken)
+            => GetImportScopesFunc0(_obj, position, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableContextEx GetNullableContext(this SemanticModel wrappedObject, Int32 position)
-            => GetNullableContextFunc1(wrappedObject, position);
+        public static NullableContextEx GetNullableContext(this SemanticModel _obj, Int32 position)
+            => GetNullableContextFunc1(_obj, position);
     }
 }

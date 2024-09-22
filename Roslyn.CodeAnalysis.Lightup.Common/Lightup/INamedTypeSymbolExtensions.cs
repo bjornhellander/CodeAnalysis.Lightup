@@ -63,7 +63,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol Construct(this INamedTypeSymbol wrappedObject, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
-            => ConstructFunc0(wrappedObject, typeArguments, typeArgumentNullableAnnotations);
+        public static INamedTypeSymbol Construct(this INamedTypeSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+            => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

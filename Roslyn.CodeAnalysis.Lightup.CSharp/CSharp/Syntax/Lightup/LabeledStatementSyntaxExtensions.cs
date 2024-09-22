@@ -56,15 +56,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LabeledStatementSyntax AddAttributeLists(this LabeledStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        public static LabeledStatementSyntax AddAttributeLists(this LabeledStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LabeledStatementSyntax Update(this LabeledStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken identifier, SyntaxToken colonToken, StatementSyntax statement)
-            => UpdateFunc1(wrappedObject, attributeLists, identifier, colonToken, statement);
+        public static LabeledStatementSyntax Update(this LabeledStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken identifier, SyntaxToken colonToken, StatementSyntax statement)
+            => UpdateFunc1(_obj, attributeLists, identifier, colonToken, statement);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static LabeledStatementSyntax WithAttributeLists(this LabeledStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        public static LabeledStatementSyntax WithAttributeLists(this LabeledStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

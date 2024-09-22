@@ -85,7 +85,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             => ParseTextFunc5(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this CSharpSyntaxTree wrappedObject, CancellationToken cancellationToken)
-            => GetLineMappingsFunc0(wrappedObject, cancellationToken);
+        public static IEnumerable<LineMappingWrapper> GetLineMappings(this CSharpSyntaxTree _obj, CancellationToken cancellationToken)
+            => GetLineMappingsFunc0(_obj, cancellationToken);
     }
 }

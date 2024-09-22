@@ -117,23 +117,23 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             => IsVolatileGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsExtern(this DeclarationModifiers wrappedObject, Boolean isExtern)
-            => WithIsExternFunc0(wrappedObject, isExtern);
+        public static DeclarationModifiers WithIsExtern(this DeclarationModifiers _obj, Boolean isExtern)
+            => WithIsExternFunc0(_obj, isExtern);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static DeclarationModifiers WithIsFile(this DeclarationModifiers wrappedObject, Boolean isFile)
-            => WithIsFileFunc1(wrappedObject, isFile);
+        public static DeclarationModifiers WithIsFile(this DeclarationModifiers _obj, Boolean isFile)
+            => WithIsFileFunc1(_obj, isFile);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsRef(this DeclarationModifiers wrappedObject, Boolean isRef)
-            => WithIsRefFunc2(wrappedObject, isRef);
+        public static DeclarationModifiers WithIsRef(this DeclarationModifiers _obj, Boolean isRef)
+            => WithIsRefFunc2(_obj, isRef);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static DeclarationModifiers WithIsRequired(this DeclarationModifiers wrappedObject, Boolean isRequired)
-            => WithIsRequiredFunc3(wrappedObject, isRequired);
+        public static DeclarationModifiers WithIsRequired(this DeclarationModifiers _obj, Boolean isRequired)
+            => WithIsRequiredFunc3(_obj, isRequired);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers wrappedObject, Boolean isVolatile)
-            => WithIsVolatileFunc4(wrappedObject, isVolatile);
+        public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers _obj, Boolean isVolatile)
+            => WithIsVolatileFunc4(_obj, isVolatile);
     }
 }

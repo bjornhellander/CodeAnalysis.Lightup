@@ -101,43 +101,43 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ServicesGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TextDocument AddAnalyzerConfigDocument(this Project wrappedObject, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
-            => AddAnalyzerConfigDocumentFunc0(wrappedObject, name, text, folders, filePath);
+        public static TextDocument AddAnalyzerConfigDocument(this Project _obj, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
+            => AddAnalyzerConfigDocumentFunc0(_obj, name, text, folders, filePath);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean ContainsAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => ContainsAnalyzerConfigDocumentFunc1(wrappedObject, documentId);
+        public static Boolean ContainsAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => ContainsAnalyzerConfigDocumentFunc1(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => GetAnalyzerConfigDocumentFunc2(wrappedObject, documentId);
+        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => GetAnalyzerConfigDocumentFunc2(_obj, documentId);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project wrappedObject, DocumentId documentId, CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentAsyncFunc3(wrappedObject, documentId, cancellationToken);
+        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project _obj, DocumentId documentId, CancellationToken cancellationToken)
+            => GetSourceGeneratedDocumentAsyncFunc3(_obj, documentId, cancellationToken);
 
         /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project wrappedObject, CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentsAsyncFunc4(wrappedObject, cancellationToken);
+        public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project _obj, CancellationToken cancellationToken)
+            => GetSourceGeneratedDocumentsAsyncFunc4(_obj, cancellationToken);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAdditionalDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAdditionalDocumentsFunc5(wrappedObject, documentIds);
+        public static Project RemoveAdditionalDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAdditionalDocumentsFunc5(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => RemoveAnalyzerConfigDocumentFunc6(wrappedObject, documentId);
+        public static Project RemoveAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => RemoveAnalyzerConfigDocumentFunc6(_obj, documentId);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAnalyzerConfigDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAnalyzerConfigDocumentsFunc7(wrappedObject, documentIds);
+        public static Project RemoveAnalyzerConfigDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveDocumentsFunc8(wrappedObject, documentIds);
+        public static Project RemoveDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveDocumentsFunc8(_obj, documentIds);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project WithDefaultNamespace(this Project wrappedObject, String defaultNamespace)
-            => WithDefaultNamespaceFunc9(wrappedObject, defaultNamespace);
+        public static Project WithDefaultNamespace(this Project _obj, String defaultNamespace)
+            => WithDefaultNamespaceFunc9(_obj, defaultNamespace);
     }
 }

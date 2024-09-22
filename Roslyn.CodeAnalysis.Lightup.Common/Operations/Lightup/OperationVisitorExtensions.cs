@@ -93,79 +93,79 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static void VisitAttribute(this OperationVisitor wrappedObject, IAttributeOperationWrapper operation)
-            => VisitAttributeFunc0(wrappedObject, operation);
+        public static void VisitAttribute(this OperationVisitor _obj, IAttributeOperationWrapper operation)
+            => VisitAttributeFunc0(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitBinaryPattern(this OperationVisitor wrappedObject, IBinaryPatternOperationWrapper operation)
-            => VisitBinaryPatternFunc1(wrappedObject, operation);
+        public static void VisitBinaryPattern(this OperationVisitor _obj, IBinaryPatternOperationWrapper operation)
+            => VisitBinaryPatternFunc1(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitFunctionPointerInvocation(this OperationVisitor wrappedObject, IFunctionPointerInvocationOperationWrapper operation)
-            => VisitFunctionPointerInvocationFunc2(wrappedObject, operation);
+        public static void VisitFunctionPointerInvocation(this OperationVisitor _obj, IFunctionPointerInvocationOperationWrapper operation)
+            => VisitFunctionPointerInvocationFunc2(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitImplicitIndexerReference(this OperationVisitor wrappedObject, IImplicitIndexerReferenceOperationWrapper operation)
-            => VisitImplicitIndexerReferenceFunc3(wrappedObject, operation);
+        public static void VisitImplicitIndexerReference(this OperationVisitor _obj, IImplicitIndexerReferenceOperationWrapper operation)
+            => VisitImplicitIndexerReferenceFunc3(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static void VisitInlineArrayAccess(this OperationVisitor wrappedObject, IInlineArrayAccessOperationWrapper operation)
-            => VisitInlineArrayAccessFunc4(wrappedObject, operation);
+        public static void VisitInlineArrayAccess(this OperationVisitor _obj, IInlineArrayAccessOperationWrapper operation)
+            => VisitInlineArrayAccessFunc4(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringAddition(this OperationVisitor wrappedObject, IInterpolatedStringAdditionOperationWrapper operation)
-            => VisitInterpolatedStringAdditionFunc5(wrappedObject, operation);
+        public static void VisitInterpolatedStringAddition(this OperationVisitor _obj, IInterpolatedStringAdditionOperationWrapper operation)
+            => VisitInterpolatedStringAdditionFunc5(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringAppend(this OperationVisitor wrappedObject, IInterpolatedStringAppendOperationWrapper operation)
-            => VisitInterpolatedStringAppendFunc6(wrappedObject, operation);
+        public static void VisitInterpolatedStringAppend(this OperationVisitor _obj, IInterpolatedStringAppendOperationWrapper operation)
+            => VisitInterpolatedStringAppendFunc6(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this OperationVisitor wrappedObject, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
-            => VisitInterpolatedStringHandlerArgumentPlaceholderFunc7(wrappedObject, operation);
+        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this OperationVisitor _obj, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
+            => VisitInterpolatedStringHandlerArgumentPlaceholderFunc7(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringHandlerCreation(this OperationVisitor wrappedObject, IInterpolatedStringHandlerCreationOperationWrapper operation)
-            => VisitInterpolatedStringHandlerCreationFunc8(wrappedObject, operation);
+        public static void VisitInterpolatedStringHandlerCreation(this OperationVisitor _obj, IInterpolatedStringHandlerCreationOperationWrapper operation)
+            => VisitInterpolatedStringHandlerCreationFunc8(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitListPattern(this OperationVisitor wrappedObject, IListPatternOperationWrapper operation)
-            => VisitListPatternFunc9(wrappedObject, operation);
+        public static void VisitListPattern(this OperationVisitor _obj, IListPatternOperationWrapper operation)
+            => VisitListPatternFunc9(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitNegatedPattern(this OperationVisitor wrappedObject, INegatedPatternOperationWrapper operation)
-            => VisitNegatedPatternFunc10(wrappedObject, operation);
+        public static void VisitNegatedPattern(this OperationVisitor _obj, INegatedPatternOperationWrapper operation)
+            => VisitNegatedPatternFunc10(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitPropertySubpattern(this OperationVisitor wrappedObject, IPropertySubpatternOperationWrapper operation)
-            => VisitPropertySubpatternFunc11(wrappedObject, operation);
+        public static void VisitPropertySubpattern(this OperationVisitor _obj, IPropertySubpatternOperationWrapper operation)
+            => VisitPropertySubpatternFunc11(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitRecursivePattern(this OperationVisitor wrappedObject, IRecursivePatternOperationWrapper operation)
-            => VisitRecursivePatternFunc12(wrappedObject, operation);
+        public static void VisitRecursivePattern(this OperationVisitor _obj, IRecursivePatternOperationWrapper operation)
+            => VisitRecursivePatternFunc12(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitRelationalPattern(this OperationVisitor wrappedObject, IRelationalPatternOperationWrapper operation)
-            => VisitRelationalPatternFunc13(wrappedObject, operation);
+        public static void VisitRelationalPattern(this OperationVisitor _obj, IRelationalPatternOperationWrapper operation)
+            => VisitRelationalPatternFunc13(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitSlicePattern(this OperationVisitor wrappedObject, ISlicePatternOperationWrapper operation)
-            => VisitSlicePatternFunc14(wrappedObject, operation);
+        public static void VisitSlicePattern(this OperationVisitor _obj, ISlicePatternOperationWrapper operation)
+            => VisitSlicePatternFunc14(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitTypePattern(this OperationVisitor wrappedObject, ITypePatternOperationWrapper operation)
-            => VisitTypePatternFunc15(wrappedObject, operation);
+        public static void VisitTypePattern(this OperationVisitor _obj, ITypePatternOperationWrapper operation)
+            => VisitTypePatternFunc15(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitUsingDeclaration(this OperationVisitor wrappedObject, IUsingDeclarationOperationWrapper operation)
-            => VisitUsingDeclarationFunc16(wrappedObject, operation);
+        public static void VisitUsingDeclaration(this OperationVisitor _obj, IUsingDeclarationOperationWrapper operation)
+            => VisitUsingDeclarationFunc16(_obj, operation);
 
         /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitUtf8String(this OperationVisitor wrappedObject, IUtf8StringOperationWrapper operation)
-            => VisitUtf8StringFunc17(wrappedObject, operation);
+        public static void VisitUtf8String(this OperationVisitor _obj, IUtf8StringOperationWrapper operation)
+            => VisitUtf8StringFunc17(_obj, operation);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitWith(this OperationVisitor wrappedObject, IWithOperationWrapper operation)
-            => VisitWithFunc18(wrappedObject, operation);
+        public static void VisitWith(this OperationVisitor _obj, IWithOperationWrapper operation)
+            => VisitWithFunc18(_obj, operation);
     }
 }

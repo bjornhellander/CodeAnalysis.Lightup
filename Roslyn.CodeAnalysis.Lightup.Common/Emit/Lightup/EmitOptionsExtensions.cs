@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             => FallbackSourceFileEncodingGetterFunc(_obj);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EmitOptions WithDefaultSourceFileEncoding(this EmitOptions wrappedObject, Encoding? defaultSourceFileEncoding)
-            => WithDefaultSourceFileEncodingFunc0(wrappedObject, defaultSourceFileEncoding);
+        public static EmitOptions WithDefaultSourceFileEncoding(this EmitOptions _obj, Encoding? defaultSourceFileEncoding)
+            => WithDefaultSourceFileEncodingFunc0(_obj, defaultSourceFileEncoding);
 
         /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EmitOptions WithFallbackSourceFileEncoding(this EmitOptions wrappedObject, Encoding? fallbackSourceFileEncoding)
-            => WithFallbackSourceFileEncodingFunc1(wrappedObject, fallbackSourceFileEncoding);
+        public static EmitOptions WithFallbackSourceFileEncoding(this EmitOptions _obj, Encoding? fallbackSourceFileEncoding)
+            => WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
     }
 }
