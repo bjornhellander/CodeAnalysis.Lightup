@@ -3,6 +3,7 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_8_0;
 
+using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
@@ -12,6 +13,6 @@ public class IAssemblySymbolExtensionsTests : V3_0_0.IAssemblySymbolExtensionsTe
     public override void TestGetForwardedTypesGivenNullObject()
     {
         var obj = CreateInstance();
-        _ = obj.GetForwardedTypes();
+        _ = IAssemblySymbolExtensions.GetForwardedTypes(obj);
     }
 }
