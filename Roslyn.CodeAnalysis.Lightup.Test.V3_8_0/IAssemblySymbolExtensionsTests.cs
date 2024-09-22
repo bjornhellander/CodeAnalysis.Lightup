@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class IAssemblySymbolExtensionsTests : V3_0_0.IAssemblySymbolExtensionsTests
 {
     [TestMethod]
-    public override void TestSignatureGivenNullObject()
+    public override void TestGetForwardedTypesGivenNullObject()
     {
         var obj = CreateInstance();
         _ = obj.GetForwardedTypes();

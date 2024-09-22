@@ -13,7 +13,7 @@ using Moq;
 public class IAssemblySymbolExtensionsTests
 {
     [TestMethod]
-    public virtual void TestSignatureGivenNullObject()
+    public virtual void TestGetForwardedTypesGivenNullObject()
     {
         var obj = CreateInstance();
         Assert.ThrowsException<InvalidOperationException>(() => obj.GetForwardedTypes());
