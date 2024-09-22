@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext.</summary>
     public static class OperationBlockStartAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext";
-
-        public static readonly Type? WrappedType;
 
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(OperationBlockStartAnalysisContext? _obj);
         private delegate SyntaxTree FilterTreeGetterDelegate(OperationBlockStartAnalysisContext? _obj);
@@ -38,22 +36,22 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static OperationBlockStartAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(WrappedType, nameof(FilterTree));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Nullable<TextSpan> FilterSpan(this OperationBlockStartAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static SyntaxTree FilterTree(this OperationBlockStartAnalysisContext _obj)
             => FilterTreeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsGeneratedCode(this OperationBlockStartAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

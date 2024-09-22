@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Project.</summary>
     public static class ProjectExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Project";
-
-        public static readonly Type? WrappedType;
 
         private delegate IEnumerable<AnalyzerConfigDocumentWrapper> AnalyzerConfigDocumentsGetterDelegate(Project? _obj);
         private delegate CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(Project? _obj);
@@ -66,79 +64,79 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(WrappedType, nameof(AnalyzerConfigDocuments));
-            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(WrappedType, nameof(CompilationOutputInfo));
-            DefaultNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(WrappedType, nameof(DefaultNamespace));
-            ServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(WrappedType, nameof(Services));
+            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
+            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
+            DefaultNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(wrappedType, nameof(DefaultNamespace));
+            ServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
 
-            AddAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(WrappedType, nameof(AddAnalyzerConfigDocument));
-            ContainsAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(ContainsAnalyzerConfigDocument));
-            GetAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(WrappedType, nameof(GetAnalyzerConfigDocument));
-            GetSourceGeneratedDocumentAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(WrappedType, nameof(GetSourceGeneratedDocumentAsync));
-            GetSourceGeneratedDocumentsAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(WrappedType, nameof(GetSourceGeneratedDocumentsAsync));
-            RemoveAdditionalDocumentsFunc5 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(WrappedType, nameof(RemoveAdditionalDocuments));
-            RemoveAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(WrappedType, nameof(RemoveAnalyzerConfigDocument));
-            RemoveAnalyzerConfigDocumentsFunc7 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(WrappedType, nameof(RemoveAnalyzerConfigDocuments));
-            RemoveDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(WrappedType, nameof(RemoveDocuments));
-            WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(WrappedType, nameof(WithDefaultNamespace));
+            AddAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, nameof(AddAnalyzerConfigDocument));
+            ContainsAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(wrappedType, nameof(ContainsAnalyzerConfigDocument));
+            GetAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(wrappedType, nameof(GetAnalyzerConfigDocument));
+            GetSourceGeneratedDocumentAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(wrappedType, nameof(GetSourceGeneratedDocumentAsync));
+            GetSourceGeneratedDocumentsAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(wrappedType, nameof(GetSourceGeneratedDocumentsAsync));
+            RemoveAdditionalDocumentsFunc5 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(wrappedType, nameof(RemoveAdditionalDocuments));
+            RemoveAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(wrappedType, nameof(RemoveAnalyzerConfigDocument));
+            RemoveAnalyzerConfigDocumentsFunc7 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(wrappedType, nameof(RemoveAnalyzerConfigDocuments));
+            RemoveDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(wrappedType, nameof(RemoveDocuments));
+            WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, nameof(WithDefaultNamespace));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static IEnumerable<AnalyzerConfigDocumentWrapper> AnalyzerConfigDocuments(this Project _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static CompilationOutputInfoWrapper CompilationOutputInfo(this Project _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static String? DefaultNamespace(this Project _obj)
             => DefaultNamespaceGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static LanguageServicesWrapper Services(this Project _obj)
             => ServicesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static TextDocument AddAnalyzerConfigDocument(this Project wrappedObject, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
-            => AddAnalyzerConfigDocumentFunc0(wrappedObject, name, text, folders, filePath);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static TextDocument AddAnalyzerConfigDocument(this Project _obj, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
+            => AddAnalyzerConfigDocumentFunc0(_obj, name, text, folders, filePath);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean ContainsAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => ContainsAnalyzerConfigDocumentFunc1(wrappedObject, documentId);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Boolean ContainsAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => ContainsAnalyzerConfigDocumentFunc1(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => GetAnalyzerConfigDocumentFunc2(wrappedObject, documentId);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => GetAnalyzerConfigDocumentFunc2(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project wrappedObject, DocumentId documentId, CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentAsyncFunc3(wrappedObject, documentId, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project _obj, DocumentId documentId, CancellationToken cancellationToken)
+            => GetSourceGeneratedDocumentAsyncFunc3(_obj, documentId, cancellationToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project wrappedObject, CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentsAsyncFunc4(wrappedObject, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project _obj, CancellationToken cancellationToken)
+            => GetSourceGeneratedDocumentsAsyncFunc4(_obj, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAdditionalDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAdditionalDocumentsFunc5(wrappedObject, documentIds);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Project RemoveAdditionalDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAdditionalDocumentsFunc5(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAnalyzerConfigDocument(this Project wrappedObject, DocumentId documentId)
-            => RemoveAnalyzerConfigDocumentFunc6(wrappedObject, documentId);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Project RemoveAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+            => RemoveAnalyzerConfigDocumentFunc6(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveAnalyzerConfigDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveAnalyzerConfigDocumentsFunc7(wrappedObject, documentIds);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Project RemoveAnalyzerConfigDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project RemoveDocuments(this Project wrappedObject, ImmutableArray<DocumentId> documentIds)
-            => RemoveDocumentsFunc8(wrappedObject, documentIds);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Project RemoveDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+            => RemoveDocumentsFunc8(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Project WithDefaultNamespace(this Project wrappedObject, String defaultNamespace)
-            => WithDefaultNamespaceFunc9(wrappedObject, defaultNamespace);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Project WithDefaultNamespace(this Project _obj, String defaultNamespace)
+            => WithDefaultNamespaceFunc9(_obj, defaultNamespace);
     }
 }

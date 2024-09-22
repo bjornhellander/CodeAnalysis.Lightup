@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ProjectInfo.</summary>
     public static class ProjectInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectInfo";
-
-        public static readonly Type? WrappedType;
 
         private delegate IReadOnlyList<DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(ProjectInfo? _obj);
         private delegate CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(ProjectInfo? _obj);
@@ -48,34 +46,34 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(WrappedType, nameof(AnalyzerConfigDocuments));
-            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(WrappedType, nameof(CompilationOutputInfo));
+            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
+            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
 
-            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(WrappedType, nameof(WithAnalyzerConfigDocuments));
-            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(WrappedType, nameof(WithCompilationOutputInfo));
-            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(WrappedType, nameof(WithDefaultNamespace));
+            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, nameof(WithAnalyzerConfigDocuments));
+            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, nameof(WithCompilationOutputInfo));
+            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, nameof(WithDefaultNamespace));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static IReadOnlyList<DocumentInfo> AnalyzerConfigDocuments(this ProjectInfo _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static CompilationOutputInfoWrapper CompilationOutputInfo(this ProjectInfo _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo wrappedObject, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
-            => WithAnalyzerConfigDocumentsFunc0(wrappedObject, analyzerConfigDocuments);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo _obj, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
+            => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo wrappedObject, in CompilationOutputInfoWrapper info)
-            => WithCompilationOutputInfoFunc1(wrappedObject, in info);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo _obj, in CompilationOutputInfoWrapper info)
+            => WithCompilationOutputInfoFunc1(_obj, in info);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ProjectInfo WithDefaultNamespace(this ProjectInfo wrappedObject, String? defaultNamespace)
-            => WithDefaultNamespaceFunc2(wrappedObject, defaultNamespace);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ProjectInfo WithDefaultNamespace(this ProjectInfo _obj, String? defaultNamespace)
+            => WithDefaultNamespaceFunc2(_obj, defaultNamespace);
     }
 }

@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ImplicitObjectCreationExpressionSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct ImplicitObjectCreationExpressionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ImplicitObjectCreationExpressionSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ArgumentListSyntax ArgumentListGetterDelegate(ExpressionSyntax? _obj);
         private delegate InitializerExpressionSyntax? InitializerGetterDelegate(ExpressionSyntax? _obj);
@@ -74,19 +74,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly ArgumentListSyntax ArgumentList
         {
             get => ArgumentListGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly InitializerExpressionSyntax? Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken NewKeyword
         {
             get => NewKeywordGetterFunc(wrappedObject);
@@ -107,27 +107,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public ExpressionSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper Update(SyntaxToken newKeyword, ArgumentListSyntax argumentList, InitializerExpressionSyntax? initializer)
             => UpdateFunc2(wrappedObject, newKeyword, argumentList, initializer);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithArgumentList(ArgumentListSyntax argumentList)
             => WithArgumentListFunc3(wrappedObject, argumentList);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax? initializer)
             => WithInitializerFunc4(wrappedObject, initializer);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ImplicitObjectCreationExpressionSyntaxWrapper WithNewKeyword(SyntaxToken newKeyword)
             => WithNewKeywordFunc5(wrappedObject, newKeyword);
     }

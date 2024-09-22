@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ITypeParameterSymbol.</summary>
     public static class ITypeParameterSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(ITypeParameterSymbol? _obj);
         private delegate Boolean HasNotNullConstraintGetterDelegate(ITypeParameterSymbol? _obj);
@@ -38,22 +36,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ITypeParameterSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(WrappedType, nameof(ConstraintNullableAnnotations));
-            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(WrappedType, nameof(HasNotNullConstraint));
-            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(WrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
+            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
+            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
+            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotations(this ITypeParameterSymbol _obj)
             => ConstraintNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean HasNotNullConstraint(this ITypeParameterSymbol _obj)
             => HasNotNullConstraintGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this ITypeParameterSymbol _obj)
             => ReferenceTypeConstraintNullableAnnotationGetterFunc(_obj);
     }

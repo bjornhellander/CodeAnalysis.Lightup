@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.HostLanguageServices.</summary>
     public static class HostLanguageServicesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";
-
-        public static readonly Type? WrappedType;
 
         private delegate LanguageServicesWrapper LanguageServicesGetterDelegate(HostLanguageServices? _obj);
 
@@ -38,12 +36,12 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         static HostLanguageServicesExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(WrappedType, nameof(LanguageServices));
+            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(wrappedType, nameof(LanguageServices));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static LanguageServicesWrapper LanguageServices(this HostLanguageServices _obj)
             => LanguageServicesGetterFunc(_obj);
     }

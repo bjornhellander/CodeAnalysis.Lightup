@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.TextDocumentEventArgs. Added in version 4.4.0.0.</summary>
     public readonly struct TextDocumentEventArgsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate TextDocument DocumentGetterDelegate(EventArgs? _obj);
 
@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly TextDocument Document
         {
             get => DocumentGetterFunc(wrappedObject);

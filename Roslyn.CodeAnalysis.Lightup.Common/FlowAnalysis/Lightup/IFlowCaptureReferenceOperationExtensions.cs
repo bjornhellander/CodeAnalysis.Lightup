@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation.</summary>
     public static class IFlowCaptureReferenceOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsInitializationGetterDelegate(IFlowCaptureReferenceOperation? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         static IFlowCaptureReferenceOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(WrappedType, nameof(IsInitialization));
+            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(wrappedType, nameof(IsInitialization));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsInitialization(this IFlowCaptureReferenceOperation _obj)
             => IsInitializationGetterFunc(_obj);
     }

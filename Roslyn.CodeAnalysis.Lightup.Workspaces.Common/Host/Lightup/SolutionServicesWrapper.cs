@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.SolutionServices. Added in version 4.4.0.0.</summary>
     public readonly struct SolutionServicesWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.SolutionServices";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IEnumerable<String> SupportedLanguagesGetterDelegate(object? _obj);
 
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly IEnumerable<String> SupportedLanguages
         {
             get => SupportedLanguagesGetterFunc(wrappedObject);
@@ -77,11 +77,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly LanguageServicesWrapper GetLanguageServices(String languageName)
             => GetLanguageServicesFunc0(wrappedObject, languageName);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean IsSupported(String languageName)
             => IsSupportedFunc1(wrappedObject, languageName);
     }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax.</summary>
     public static class TypeSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsNintGetterDelegate(TypeSyntax? _obj);
         private delegate Boolean IsNotNullGetterDelegate(TypeSyntax? _obj);
@@ -39,22 +37,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypeSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(WrappedType, nameof(IsNint));
-            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(WrappedType, nameof(IsNotNull));
-            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(WrappedType, nameof(IsNuint));
+            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(wrappedType, nameof(IsNint));
+            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(wrappedType, nameof(IsNotNull));
+            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNint(this TypeSyntax _obj)
             => IsNintGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNotNull(this TypeSyntax _obj)
             => IsNotNullGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNuint(this TypeSyntax _obj)
             => IsNuintGetterFunc(_obj);
     }

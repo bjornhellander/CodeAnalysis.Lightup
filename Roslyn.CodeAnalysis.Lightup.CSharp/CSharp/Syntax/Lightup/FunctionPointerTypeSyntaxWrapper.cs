@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct FunctionPointerTypeSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken AsteriskTokenGetterDelegate(TypeSyntax? _obj);
         private delegate FunctionPointerCallingConventionSyntaxWrapper CallingConventionGetterDelegate(TypeSyntax? _obj);
@@ -80,25 +80,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken AsteriskToken
         {
             get => AsteriskTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly FunctionPointerCallingConventionSyntaxWrapper CallingConvention
         {
             get => CallingConventionGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken DelegateKeyword
         {
             get => DelegateKeywordGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper ParameterList
         {
             get => ParameterListGetterFunc(wrappedObject);
@@ -119,31 +119,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public TypeSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper AddParameterListParameters(params FunctionPointerParameterSyntaxWrapper[] items)
             => AddParameterListParametersFunc1(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper Update(SyntaxToken delegateKeyword, SyntaxToken asteriskToken, FunctionPointerCallingConventionSyntaxWrapper callingConvention, FunctionPointerParameterListSyntaxWrapper parameterList)
             => UpdateFunc2(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper WithAsteriskToken(SyntaxToken asteriskToken)
             => WithAsteriskTokenFunc3(wrappedObject, asteriskToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper WithCallingConvention(FunctionPointerCallingConventionSyntaxWrapper callingConvention)
             => WithCallingConventionFunc4(wrappedObject, callingConvention);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper WithDelegateKeyword(SyntaxToken delegateKeyword)
             => WithDelegateKeywordFunc5(wrappedObject, delegateKeyword);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerTypeSyntaxWrapper WithParameterList(FunctionPointerParameterListSyntaxWrapper parameterList)
             => WithParameterListFunc6(wrappedObject, parameterList);
     }

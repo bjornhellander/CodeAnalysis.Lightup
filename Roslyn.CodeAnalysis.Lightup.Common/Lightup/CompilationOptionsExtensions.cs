@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CompilationOptions.</summary>
     public static class CompilationOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
-
-        public static readonly Type? WrappedType;
 
         private delegate NullableContextOptionsEx NullableContextOptionsGetterDelegate(CompilationOptions? _obj);
         private delegate SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(CompilationOptions? _obj);
@@ -40,24 +38,24 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CompilationOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
-            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(WrappedType, nameof(SyntaxTreeOptionsProvider));
+            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
+            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
-            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
+            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableContextOptionsEx NullableContextOptions(this CompilationOptions _obj)
             => NullableContextOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this CompilationOptions _obj)
             => SyntaxTreeOptionsProviderGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions wrappedObject, SyntaxTreeOptionsProviderWrapper provider)
-            => WithSyntaxTreeOptionsProviderFunc0(wrappedObject, provider);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
+            => WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
     }
 }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax.</summary>
     public static class NullableDirectiveTriviaSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxToken TargetTokenGetterDelegate(NullableDirectiveTriviaSyntax? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static NullableDirectiveTriviaSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(WrappedType, nameof(TargetToken));
+            TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(wrappedType, nameof(TargetToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(WrappedType, nameof(WithTargetToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, nameof(WithTargetToken));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxToken TargetToken(this NullableDirectiveTriviaSyntax _obj)
             => TargetTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax wrappedObject, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
-            => UpdateFunc0(wrappedObject, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
+            => UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax wrappedObject, SyntaxToken targetToken)
-            => WithTargetTokenFunc1(wrappedObject, targetToken);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax _obj, SyntaxToken targetToken)
+            => WithTargetTokenFunc1(_obj, targetToken);
     }
 }

@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CommandLineArguments.</summary>
     public static class CommandLineArgumentsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<String> AnalyzerConfigPathsGetterDelegate(CommandLineArguments? _obj);
         private delegate Boolean EmitPdbFileGetterDelegate(CommandLineArguments? _obj);
@@ -50,49 +48,49 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CommandLineArgumentsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(WrappedType, nameof(AnalyzerConfigPaths));
-            EmitPdbFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(WrappedType, nameof(EmitPdbFile));
-            ErrorLogOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(WrappedType, nameof(ErrorLogOptions));
-            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(WrappedType, nameof(GeneratedFilesOutputDirectory));
-            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(WrappedType, nameof(ReportInternalsVisibleToAttributes));
-            SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(WrappedType, nameof(SkipAnalyzers));
+            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(wrappedType, nameof(AnalyzerConfigPaths));
+            EmitPdbFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
+            ErrorLogOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
+            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
+            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
+            SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
 
-            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(WrappedType, nameof(GetOutputFilePath));
-            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(WrappedType, nameof(GetPdbFilePath));
+            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, nameof(GetOutputFilePath));
+            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, nameof(GetPdbFilePath));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<String> AnalyzerConfigPaths(this CommandLineArguments _obj)
             => AnalyzerConfigPathsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean EmitPdbFile(this CommandLineArguments _obj)
             => EmitPdbFileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ErrorLogOptionsWrapper ErrorLogOptions(this CommandLineArguments _obj)
             => ErrorLogOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static String? GeneratedFilesOutputDirectory(this CommandLineArguments _obj)
             => GeneratedFilesOutputDirectoryGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Boolean ReportInternalsVisibleToAttributes(this CommandLineArguments _obj)
             => ReportInternalsVisibleToAttributesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean SkipAnalyzers(this CommandLineArguments _obj)
             => SkipAnalyzersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String GetOutputFilePath(this CommandLineArguments wrappedObject, String outputFileName)
-            => GetOutputFilePathFunc0(wrappedObject, outputFileName);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static String GetOutputFilePath(this CommandLineArguments _obj, String outputFileName)
+            => GetOutputFilePathFunc0(_obj, outputFileName);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static String GetPdbFilePath(this CommandLineArguments wrappedObject, String outputFileName)
-            => GetPdbFilePathFunc1(wrappedObject, outputFileName);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static String GetPdbFilePath(this CommandLineArguments _obj, String outputFileName)
+            => GetPdbFilePathFunc1(_obj, outputFileName);
     }
 }

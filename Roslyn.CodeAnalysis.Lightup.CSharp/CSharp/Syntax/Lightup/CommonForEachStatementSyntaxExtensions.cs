@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax.</summary>
     public static class CommonForEachStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate CommonForEachStatementSyntax AddAttributeListsDelegate0(CommonForEachStatementSyntax? _obj, params AttributeListSyntax[] items);
         private delegate CommonForEachStatementSyntax WithAttributeListsDelegate1(CommonForEachStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
@@ -37,18 +35,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CommonForEachStatementSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(WrappedType, nameof(WithAttributeLists));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
+            WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc1(wrappedObject, attributeLists);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc1(_obj, attributeLists);
     }
 }

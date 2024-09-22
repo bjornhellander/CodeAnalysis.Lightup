@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ProjectChanges.</summary>
     public static class ProjectChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
-
-        public static readonly Type? WrappedType;
 
         private delegate IEnumerable<DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(ProjectChanges? _obj);
         private delegate IEnumerable<DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(ProjectChanges? _obj);
@@ -42,23 +40,23 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectChangesExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(WrappedType, nameof(GetAddedAnalyzerConfigDocuments));
-            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(WrappedType, nameof(GetChangedAnalyzerConfigDocuments));
-            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(WrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
+            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, nameof(GetAddedAnalyzerConfigDocuments));
+            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, nameof(GetChangedAnalyzerConfigDocuments));
+            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetAddedAnalyzerConfigDocumentsFunc0(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetChangedAnalyzerConfigDocumentsFunc1(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges wrappedObject)
-            => GetRemovedAnalyzerConfigDocumentsFunc2(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges _obj)
+            => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
     }
 }

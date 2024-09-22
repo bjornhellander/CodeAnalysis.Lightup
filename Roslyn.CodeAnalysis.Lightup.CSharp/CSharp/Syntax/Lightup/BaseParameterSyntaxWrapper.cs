@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct BaseParameterSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(CSharpSyntaxNode? _obj);
         private delegate SyntaxTokenList ModifiersGetterDelegate(CSharpSyntaxNode? _obj);
@@ -71,19 +71,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxList<AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly TypeSyntax? Type
         {
             get => TypeGetterFunc(wrappedObject);
@@ -104,23 +104,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BaseParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BaseParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc1(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BaseParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(wrappedObject, attributeLists);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BaseParameterSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc3(wrappedObject, modifiers);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly BaseParameterSyntaxWrapper WithType(TypeSyntax? type)
             => WithTypeFunc4(wrappedObject, type);
     }

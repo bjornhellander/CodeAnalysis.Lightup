@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IWithOperation. Added in version 3.8.0.0.</summary>
     public readonly struct IWithOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IWithOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IMethodSymbol? CloneMethodGetterDelegate(IOperation? _obj);
         private delegate IObjectOrCollectionInitializerOperation InitializerGetterDelegate(IOperation? _obj);
@@ -52,19 +52,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IMethodSymbol? CloneMethod
         {
             get => CloneMethodGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IObjectOrCollectionInitializerOperation Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IOperation Operand
         {
             get => OperandGetterFunc(wrappedObject);

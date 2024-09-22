@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.</summary>
     public static class AnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisContext";
-
-        public static readonly Type? WrappedType;
 
         private delegate void RegisterAdditionalFileActionDelegate0(AnalysisContext? _obj, Action<AdditionalFileAnalysisContextWrapper> action);
 
@@ -34,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(WrappedType, nameof(RegisterAdditionalFileAction));
+            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, nameof(RegisterAdditionalFileAction));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void RegisterAdditionalFileAction(this AnalysisContext wrappedObject, Action<AdditionalFileAnalysisContextWrapper> action)
-            => RegisterAdditionalFileActionFunc0(wrappedObject, action);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void RegisterAdditionalFileAction(this AnalysisContext _obj, Action<AdditionalFileAnalysisContextWrapper> action)
+            => RegisterAdditionalFileActionFunc0(_obj, action);
     }
 }

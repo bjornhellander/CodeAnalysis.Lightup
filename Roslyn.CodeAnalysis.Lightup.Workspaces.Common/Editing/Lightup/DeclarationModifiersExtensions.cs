@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Editing.DeclarationModifiers.</summary>
     public static class DeclarationModifiersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
-
-        public static readonly Type? WrappedType;
 
         private delegate DeclarationModifiers ExternGetterDelegate();
         private delegate DeclarationModifiers FileGetterDelegate();
@@ -66,75 +64,75 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         static DeclarationModifiersExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(WrappedType, nameof(Extern));
-            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
-            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(WrappedType, nameof(Required));
-            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(WrappedType, nameof(Volatile));
+            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
+            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
+            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
+            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
 
-            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
-            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
+            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
+            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
-            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
-            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
-            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
-            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
+            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, nameof(WithIsExtern));
+            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, nameof(WithIsFile));
+            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, nameof(WithIsRef));
+            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, nameof(WithIsRequired));
+            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, nameof(WithIsVolatile));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static DeclarationModifiers Extern()
             => ExternGetterFunc();
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static DeclarationModifiers File()
             => FileGetterFunc();
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static DeclarationModifiers Required()
             => RequiredGetterFunc();
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static DeclarationModifiers Volatile()
             => VolatileGetterFunc();
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsExtern(this DeclarationModifiers _obj)
             => IsExternGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsFile(this DeclarationModifiers _obj)
             => IsFileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsRequired(this DeclarationModifiers _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsVolatile(this DeclarationModifiers _obj)
             => IsVolatileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsExtern(this DeclarationModifiers wrappedObject, Boolean isExtern)
-            => WithIsExternFunc0(wrappedObject, isExtern);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static DeclarationModifiers WithIsExtern(this DeclarationModifiers _obj, Boolean isExtern)
+            => WithIsExternFunc0(_obj, isExtern);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static DeclarationModifiers WithIsFile(this DeclarationModifiers wrappedObject, Boolean isFile)
-            => WithIsFileFunc1(wrappedObject, isFile);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static DeclarationModifiers WithIsFile(this DeclarationModifiers _obj, Boolean isFile)
+            => WithIsFileFunc1(_obj, isFile);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsRef(this DeclarationModifiers wrappedObject, Boolean isRef)
-            => WithIsRefFunc2(wrappedObject, isRef);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static DeclarationModifiers WithIsRef(this DeclarationModifiers _obj, Boolean isRef)
+            => WithIsRefFunc2(_obj, isRef);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static DeclarationModifiers WithIsRequired(this DeclarationModifiers wrappedObject, Boolean isRequired)
-            => WithIsRequiredFunc3(wrappedObject, isRequired);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static DeclarationModifiers WithIsRequired(this DeclarationModifiers _obj, Boolean isRequired)
+            => WithIsRequiredFunc3(_obj, isRequired);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers wrappedObject, Boolean isVolatile)
-            => WithIsVolatileFunc4(wrappedObject, isVolatile);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers _obj, Boolean isVolatile)
+            => WithIsVolatileFunc4(_obj, isVolatile);
     }
 }

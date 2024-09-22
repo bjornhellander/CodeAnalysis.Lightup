@@ -7,177 +7,178 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public class SyntaxKindEx
     {
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind GreaterThanGreaterThanGreaterThanToken = (SyntaxKind)8286;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (SyntaxKind)8287;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind OrKeyword = (SyntaxKind)8438;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind AndKeyword = (SyntaxKind)8439;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind NotKeyword = (SyntaxKind)8440;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind DataKeyword = (SyntaxKind)8441;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind WithKeyword = (SyntaxKind)8442;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind InitKeyword = (SyntaxKind)8443;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind RecordKeyword = (SyntaxKind)8444;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind ManagedKeyword = (SyntaxKind)8445;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind UnmanagedKeyword = (SyntaxKind)8446;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind RequiredKeyword = (SyntaxKind)8447;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind ScopedKeyword = (SyntaxKind)8448;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind FileKeyword = (SyntaxKind)8449;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind WarningsKeyword = (SyntaxKind)8488;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind AnnotationsKeyword = (SyntaxKind)8489;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind SingleLineRawStringLiteralToken = (SyntaxKind)8518;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind MultiLineRawStringLiteralToken = (SyntaxKind)8519;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind Utf8StringLiteralToken = (SyntaxKind)8520;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind Utf8SingleLineRawStringLiteralToken = (SyntaxKind)8521;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind Utf8MultiLineRawStringLiteralToken = (SyntaxKind)8522;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind ImplicitObjectCreationExpression = (SyntaxKind)8659;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind UnsignedRightShiftExpression = (SyntaxKind)8692;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind UnsignedRightShiftAssignmentExpression = (SyntaxKind)8726;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind Utf8StringLiteralExpression = (SyntaxKind)8756;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SyntaxKind FileScopedNamespaceDeclaration = (SyntaxKind)8845;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind ParenthesizedPattern = (SyntaxKind)9028;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind RelationalPattern = (SyntaxKind)9029;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind TypePattern = (SyntaxKind)9030;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind OrPattern = (SyntaxKind)9031;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind AndPattern = (SyntaxKind)9032;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind NotPattern = (SyntaxKind)9033;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind SlicePattern = (SyntaxKind)9034;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind ListPattern = (SyntaxKind)9035;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerType = (SyntaxKind)9056;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerParameter = (SyntaxKind)9057;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerParameterList = (SyntaxKind)9058;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerCallingConvention = (SyntaxKind)9059;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind InitAccessorDeclaration = (SyntaxKind)9060;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind WithExpression = (SyntaxKind)9061;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind WithInitializerExpression = (SyntaxKind)9062;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind RecordDeclaration = (SyntaxKind)9063;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind DefaultConstraint = (SyntaxKind)9064;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind PrimaryConstructorBaseType = (SyntaxKind)9065;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerUnmanagedCallingConventionList = (SyntaxKind)9066;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const SyntaxKind FunctionPointerUnmanagedCallingConvention = (SyntaxKind)9067;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SyntaxKind RecordStructDeclaration = (SyntaxKind)9068;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SyntaxKind ExpressionColon = (SyntaxKind)9069;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SyntaxKind LineDirectivePosition = (SyntaxKind)9070;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const SyntaxKind LineSpanDirectiveTrivia = (SyntaxKind)9071;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind InterpolatedSingleLineRawStringStartToken = (SyntaxKind)9072;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind InterpolatedMultiLineRawStringStartToken = (SyntaxKind)9073;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind InterpolatedRawStringEndToken = (SyntaxKind)9074;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0.</summary>
         public const SyntaxKind ScopedType = (SyntaxKind)9075;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         public const SyntaxKind CollectionExpression = (SyntaxKind)9076;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         public const SyntaxKind ExpressionElement = (SyntaxKind)9077;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Added in version 4.8.0.0.</summary>
         public const SyntaxKind SpreadElement = (SyntaxKind)9078;
     }
 }

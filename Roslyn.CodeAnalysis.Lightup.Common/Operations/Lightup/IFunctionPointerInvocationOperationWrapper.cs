@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation. Added in version 4.4.0.0.</summary>
     public readonly struct IFunctionPointerInvocationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<IArgumentOperation> ArgumentsGetterDelegate(IOperation? _obj);
         private delegate IOperation TargetGetterDelegate(IOperation? _obj);
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly ImmutableArray<IArgumentOperation> Arguments
         {
             get => ArgumentsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly IOperation Target
         {
             get => TargetGetterFunc(wrappedObject);

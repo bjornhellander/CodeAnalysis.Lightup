@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IArrayTypeSymbol.</summary>
     public static class IArrayTypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IArrayTypeSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate NullableAnnotationEx ElementNullableAnnotationGetterDelegate(IArrayTypeSymbol? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IArrayTypeSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ElementNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementNullableAnnotationGetterDelegate>(WrappedType, nameof(ElementNullableAnnotation));
+            ElementNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementNullableAnnotationGetterDelegate>(wrappedType, nameof(ElementNullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx ElementNullableAnnotation(this IArrayTypeSymbol _obj)
             => ElementNullableAnnotationGetterFunc(_obj);
     }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax.</summary>
     public static class UnsafeStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(UnsafeStatementSyntax? _obj);
 
@@ -45,34 +43,34 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static UnsafeStatementSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(WrappedType, nameof(AddBlockAttributeLists));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(WrappedType, nameof(WithAttributeLists));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
+            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, nameof(AddBlockAttributeLists));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, nameof(Update));
+            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this UnsafeStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax AddAttributeLists(this UnsafeStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static UnsafeStatementSyntax AddAttributeLists(this UnsafeStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax AddBlockAttributeLists(this UnsafeStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static UnsafeStatementSyntax AddBlockAttributeLists(this UnsafeStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc1(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax Update(this UnsafeStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken unsafeKeyword, BlockSyntax block)
-            => UpdateFunc2(wrappedObject, attributeLists, unsafeKeyword, block);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static UnsafeStatementSyntax Update(this UnsafeStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken unsafeKeyword, BlockSyntax block)
+            => UpdateFunc2(_obj, attributeLists, unsafeKeyword, block);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static UnsafeStatementSyntax WithAttributeLists(this UnsafeStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(wrappedObject, attributeLists);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static UnsafeStatementSyntax WithAttributeLists(this UnsafeStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc3(_obj, attributeLists);
     }
 }

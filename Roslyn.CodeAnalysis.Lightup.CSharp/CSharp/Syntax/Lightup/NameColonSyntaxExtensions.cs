@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax.</summary>
     public static class NameColonSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate ExpressionSyntax ExpressionGetterDelegate(NameColonSyntax? _obj);
 
@@ -35,12 +33,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static NameColonSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(wrappedType, nameof(Expression));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ExpressionSyntax Expression(this NameColonSyntax _obj)
             => ExpressionGetterFunc(_obj);
     }

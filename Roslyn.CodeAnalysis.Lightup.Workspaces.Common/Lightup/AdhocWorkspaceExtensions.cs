@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AdhocWorkspace.</summary>
     public static class AdhocWorkspaceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
-
-        public static readonly Type? WrappedType;
 
         private delegate void CloseAnalyzerConfigDocumentDelegate0(AdhocWorkspace? _obj, DocumentId? documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate1(AdhocWorkspace? _obj, DocumentId? documentId, Boolean activate);
@@ -40,18 +38,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static AdhocWorkspaceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void CloseAnalyzerConfigDocument(this AdhocWorkspace wrappedObject, DocumentId? documentId)
-            => CloseAnalyzerConfigDocumentFunc0(wrappedObject, documentId);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void CloseAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId)
+            => CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void OpenAnalyzerConfigDocument(this AdhocWorkspace wrappedObject, DocumentId? documentId, Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc1(wrappedObject, documentId, activate);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void OpenAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId, Boolean activate)
+            => OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
     }
 }

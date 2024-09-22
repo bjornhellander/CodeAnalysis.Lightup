@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LineMapping. Added in version 4.0.0.0.</summary>
     public readonly struct LineMappingWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LineMapping";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Nullable<Int32> CharacterOffsetGetterDelegate(object? _obj);
         private delegate Boolean IsHiddenGetterDelegate(object? _obj);
@@ -61,25 +61,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly Nullable<Int32> CharacterOffset
         {
             get => CharacterOffsetGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly Boolean IsHidden
         {
             get => IsHiddenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly FileLinePositionSpan MappedSpan
         {
             get => MappedSpanGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly LinePositionSpan Span
         {
             get => SpanGetterFunc(wrappedObject);
@@ -97,7 +97,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly Boolean Equals(LineMappingWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

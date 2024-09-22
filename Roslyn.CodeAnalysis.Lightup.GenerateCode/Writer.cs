@@ -231,7 +231,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>Enum added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        AppendTypeSummary(sb, typeDef);
         if (typeDef.IsFlagsEnum)
         {
             sb.AppendLine($"    [System.Flags]");
@@ -245,7 +245,7 @@ internal class Writer
                 sb.AppendLine();
             }
 
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {value.AssemblyVersion}</summary>");
+            AppendEnumValueSummary(sb, value);
             sb.AppendLine($"        {value.Name} = {value.Value},");
             isFirstValue = false;
         }
@@ -279,6 +279,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
@@ -288,7 +289,7 @@ internal class Writer
                 sb.AppendLine();
             }
 
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {value.AssemblyVersion}</summary>");
+            AppendEnumValueSummary(sb, value);
             sb.AppendLine($"        public const {typeDef.Name} {value.Name} = ({typeDef.Name}){value.Value};");
             isFirstValue = false;
         }
@@ -339,12 +340,12 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public readonly struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        sb.AppendLine($"        private static readonly Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -504,7 +505,7 @@ internal class Writer
         foreach (var field in staticFields)
         {
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {field.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, field);
             sb.AppendLine($"        public static {GetFieldTypeDeclText(field, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
@@ -514,7 +515,7 @@ internal class Writer
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {property.Name}GetterFunc();");
@@ -527,7 +528,7 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, property);
             sb.AppendLine($"        public readonly {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {property.Name}GetterFunc(wrappedObject);");
@@ -559,17 +560,17 @@ internal class Writer
         {
             var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "wrappedObject")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -583,8 +584,8 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
-        // TODO: Only add "Ex" for static classes?
-        var targetName = typeDef.Name + "Extensions";
+        var targetNameSuffix = typeDef is ClassTypeDefinition classDef && classDef.IsStatic ? "Ex" : "Extensions";
+        var targetName = typeDef.Name + targetNameSuffix;
 
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
@@ -618,12 +619,10 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+        AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public static class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
-        sb.AppendLine();
-        sb.AppendLine($"        public static readonly Type? WrappedType;");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -720,13 +719,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        sb.AppendLine($"            var wrappedType = LightupHelper.FindType(WrappedTypeName);");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(wrappedType, nameof({field.Name}));");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
@@ -735,10 +734,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -747,10 +746,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -760,7 +759,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -769,7 +768,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");
@@ -777,7 +776,7 @@ internal class Writer
         {
             Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {field.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, field);
             sb.AppendLine($"        public static {GetFieldTypeDeclText(field, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
@@ -786,13 +785,13 @@ internal class Writer
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}()");
             sb.AppendLine($"            => {property.Name}GetterFunc();");
             if (property.HasSetter)
             {
                 sb.AppendLine();
-                sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+                AppendMemberSummary(sb, property);
                 sb.AppendLine($"        public static void Set{property.Name}({GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_value);");
             }
@@ -800,13 +799,13 @@ internal class Writer
         foreach (var property in instanceProperties)
         {
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this {typeDef.Name} _obj)");
             sb.AppendLine($"            => {property.Name}GetterFunc(_obj);");
             if (property.HasSetter)
             {
                 sb.AppendLine();
-                sb.AppendLine($"        /// <summary>Added in Roslyn version {property.AssemblyVersion}</summary>");
+                AppendMemberSummary(sb, property);
                 sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
             }
@@ -815,34 +814,23 @@ internal class Writer
         {
             var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
+            AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, skipObj: true)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
-            sb.AppendLine($"        /// <summary>Added in Roslyn version {methodDef.AssemblyVersion}</summary>");
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} wrappedObject{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef)});");
+            AppendMemberSummary(sb, methodDef);
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "_obj")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
         return (targetName, source);
-    }
-
-    private static string GetTypeKind(TypeDefinition typeDef)
-    {
-        return typeDef switch
-        {
-            ClassTypeDefinition => "Class",
-            InterfaceTypeDefinition => "Interface",
-            StructTypeDefinition => "Struct",
-            _ => throw new NotImplementedException(),
-        };
     }
 
     private static string? GetBaseTypeName(
@@ -1090,6 +1078,40 @@ internal class Writer
         }
     }
 
+    private static void AppendTypeSummary(StringBuilder sb, BaseTypeDefinition typeDef)
+    {
+        var kind = typeDef switch
+        {
+            EnumTypeDefinition => "enum",
+            ClassTypeDefinition => "class",
+            InterfaceTypeDefinition => "interface",
+            StructTypeDefinition => "struct",
+            _ => throw new NotImplementedException(),
+        };
+        var part1 = $"Provides lightup support for {kind} {typeDef.FullName}.";
+        var part2 = typeDef.AssemblyVersion != null ? $" Added in version {typeDef.AssemblyVersion}." : "";
+        sb.AppendLine($"    /// <summary>{part1}{part2}</summary>");
+    }
+
+    private static void AppendEnumValueSummary(StringBuilder sb, EnumValueDefinition valueDef)
+    {
+        Assert.IsTrue(valueDef.AssemblyVersion != null, "Unexpected assembly version");
+        sb.AppendLine($"        /// <summary>Added in version {valueDef.AssemblyVersion}.</summary>");
+    }
+
+    private static void AppendMemberSummary(StringBuilder sb, MemberDefinition memberDef)
+    {
+        Assert.IsTrue(memberDef.AssemblyVersion != null, "Unexpected assembly version");
+        string kind = memberDef switch
+        {
+            FieldDefinition => "Field",
+            PropertyDefinition => "Property",
+            MethodDefinition => "Method",
+            _ => throw new NotImplementedException(),
+        };
+        sb.AppendLine($"        /// <summary>{kind} added in version {memberDef.AssemblyVersion}.</summary>");
+    }
+
     private static void AppendStaticFieldDelegateDeclarations(
         StringBuilder sb,
         FieldDefinition fieldDef,
@@ -1242,14 +1264,14 @@ internal class Writer
 
     private static string GetArgumentsText(
         MethodDefinition methodDef,
-        bool skipObj = false)
+        string? instanceName)
     {
         var sb = new StringBuilder();
 
         var isFirst = true;
-        if (!skipObj)
+        if (instanceName != null)
         {
-            sb.Append("wrappedObject");
+            sb.Append(instanceName);
             isFirst = false;
         }
 

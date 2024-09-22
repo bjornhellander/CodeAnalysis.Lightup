@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ISupportedChangesService. Added in version 4.4.0.0.</summary>
     public readonly struct ISupportedChangesServiceWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean CanApplyChangeDelegate0(IWorkspaceService? _obj, ApplyChangesKind kind);
         private delegate Boolean CanApplyCompilationOptionChangeDelegate1(IWorkspaceService? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
@@ -68,15 +68,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         public IWorkspaceService? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyChange(ApplyChangesKind kind)
             => CanApplyChangeFunc0(wrappedObject, kind);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyCompilationOptionChange(CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
             => CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean CanApplyParseOptionChange(ParseOptions oldOptions, ParseOptions newOptions, Project project)
             => CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
     }

@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IForEachLoopOperation.</summary>
     public static class IForEachLoopOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IForEachLoopOperation";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsAsynchronousGetterDelegate(IForEachLoopOperation? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IForEachLoopOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsAsynchronous(this IForEachLoopOperation _obj)
             => IsAsynchronousGetterFunc(_obj);
     }

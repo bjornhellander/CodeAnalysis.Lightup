@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SemanticModel.</summary>
     public static class SemanticModelExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<IImportScopeWrapper> GetImportScopesDelegate0(SemanticModel? _obj, Int32 position, CancellationToken cancellationToken);
         private delegate NullableContextEx GetNullableContextDelegate1(SemanticModel? _obj, Int32 position);
@@ -36,18 +34,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SemanticModelExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(WrappedType, nameof(GetImportScopes));
-            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(WrappedType, nameof(GetNullableContext));
+            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, nameof(GetImportScopes));
+            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, nameof(GetNullableContext));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel wrappedObject, Int32 position, CancellationToken cancellationToken)
-            => GetImportScopesFunc0(wrappedObject, position, cancellationToken);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel _obj, Int32 position, CancellationToken cancellationToken)
+            => GetImportScopesFunc0(_obj, position, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static NullableContextEx GetNullableContext(this SemanticModel wrappedObject, Int32 position)
-            => GetNullableContextFunc1(wrappedObject, position);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static NullableContextEx GetNullableContext(this SemanticModel _obj, Int32 position)
+            => GetNullableContextFunc1(_obj, position);
     }
 }

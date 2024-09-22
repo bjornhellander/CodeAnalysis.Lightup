@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute.</summary>
     public static class ExportCodeRefactoringProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";
-
-        public static readonly Type? WrappedType;
 
         private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeRefactoringProviderAttribute? _obj);
         private delegate void DocumentExtensionsSetterDelegate(ExportCodeRefactoringProviderAttribute? _obj, String[]? _value);
@@ -44,27 +42,27 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         static ExportCodeRefactoringProviderAttributeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(WrappedType, nameof(DocumentKinds));
-            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
+            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(wrappedType, nameof(DocumentKinds));
+            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[]? DocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj, String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static String[] DocumentKinds(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentKinds(this ExportCodeRefactoringProviderAttribute _obj, String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }

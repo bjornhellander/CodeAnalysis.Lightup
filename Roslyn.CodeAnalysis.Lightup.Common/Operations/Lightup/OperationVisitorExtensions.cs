@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Operations.OperationVisitor.</summary>
     public static class OperationVisitorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationVisitor";
-
-        public static readonly Type? WrappedType;
 
         private delegate void VisitAttributeDelegate0(OperationVisitor? _obj, IAttributeOperationWrapper operation);
         private delegate void VisitBinaryPatternDelegate1(OperationVisitor? _obj, IBinaryPatternOperationWrapper operation);
@@ -70,103 +68,103 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static OperationVisitorExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitAttributeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitAttributeDelegate0>(WrappedType, nameof(VisitAttribute));
-            VisitBinaryPatternFunc1 = LightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate1>(WrappedType, nameof(VisitBinaryPattern));
-            VisitFunctionPointerInvocationFunc2 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerInvocationDelegate2>(WrappedType, nameof(VisitFunctionPointerInvocation));
-            VisitImplicitIndexerReferenceFunc3 = LightupHelper.CreateInstanceMethodAccessor<VisitImplicitIndexerReferenceDelegate3>(WrappedType, nameof(VisitImplicitIndexerReference));
-            VisitInlineArrayAccessFunc4 = LightupHelper.CreateInstanceMethodAccessor<VisitInlineArrayAccessDelegate4>(WrappedType, nameof(VisitInlineArrayAccess));
-            VisitInterpolatedStringAdditionFunc5 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAdditionDelegate5>(WrappedType, nameof(VisitInterpolatedStringAddition));
-            VisitInterpolatedStringAppendFunc6 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAppendDelegate6>(WrappedType, nameof(VisitInterpolatedStringAppend));
-            VisitInterpolatedStringHandlerArgumentPlaceholderFunc7 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7>(WrappedType, nameof(VisitInterpolatedStringHandlerArgumentPlaceholder));
-            VisitInterpolatedStringHandlerCreationFunc8 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerCreationDelegate8>(WrappedType, nameof(VisitInterpolatedStringHandlerCreation));
-            VisitListPatternFunc9 = LightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate9>(WrappedType, nameof(VisitListPattern));
-            VisitNegatedPatternFunc10 = LightupHelper.CreateInstanceMethodAccessor<VisitNegatedPatternDelegate10>(WrappedType, nameof(VisitNegatedPattern));
-            VisitPropertySubpatternFunc11 = LightupHelper.CreateInstanceMethodAccessor<VisitPropertySubpatternDelegate11>(WrappedType, nameof(VisitPropertySubpattern));
-            VisitRecursivePatternFunc12 = LightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate12>(WrappedType, nameof(VisitRecursivePattern));
-            VisitRelationalPatternFunc13 = LightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate13>(WrappedType, nameof(VisitRelationalPattern));
-            VisitSlicePatternFunc14 = LightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate14>(WrappedType, nameof(VisitSlicePattern));
-            VisitTypePatternFunc15 = LightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate15>(WrappedType, nameof(VisitTypePattern));
-            VisitUsingDeclarationFunc16 = LightupHelper.CreateInstanceMethodAccessor<VisitUsingDeclarationDelegate16>(WrappedType, nameof(VisitUsingDeclaration));
-            VisitUtf8StringFunc17 = LightupHelper.CreateInstanceMethodAccessor<VisitUtf8StringDelegate17>(WrappedType, nameof(VisitUtf8String));
-            VisitWithFunc18 = LightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate18>(WrappedType, nameof(VisitWith));
+            VisitAttributeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitAttributeDelegate0>(wrappedType, nameof(VisitAttribute));
+            VisitBinaryPatternFunc1 = LightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate1>(wrappedType, nameof(VisitBinaryPattern));
+            VisitFunctionPointerInvocationFunc2 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerInvocationDelegate2>(wrappedType, nameof(VisitFunctionPointerInvocation));
+            VisitImplicitIndexerReferenceFunc3 = LightupHelper.CreateInstanceMethodAccessor<VisitImplicitIndexerReferenceDelegate3>(wrappedType, nameof(VisitImplicitIndexerReference));
+            VisitInlineArrayAccessFunc4 = LightupHelper.CreateInstanceMethodAccessor<VisitInlineArrayAccessDelegate4>(wrappedType, nameof(VisitInlineArrayAccess));
+            VisitInterpolatedStringAdditionFunc5 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAdditionDelegate5>(wrappedType, nameof(VisitInterpolatedStringAddition));
+            VisitInterpolatedStringAppendFunc6 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAppendDelegate6>(wrappedType, nameof(VisitInterpolatedStringAppend));
+            VisitInterpolatedStringHandlerArgumentPlaceholderFunc7 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7>(wrappedType, nameof(VisitInterpolatedStringHandlerArgumentPlaceholder));
+            VisitInterpolatedStringHandlerCreationFunc8 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerCreationDelegate8>(wrappedType, nameof(VisitInterpolatedStringHandlerCreation));
+            VisitListPatternFunc9 = LightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate9>(wrappedType, nameof(VisitListPattern));
+            VisitNegatedPatternFunc10 = LightupHelper.CreateInstanceMethodAccessor<VisitNegatedPatternDelegate10>(wrappedType, nameof(VisitNegatedPattern));
+            VisitPropertySubpatternFunc11 = LightupHelper.CreateInstanceMethodAccessor<VisitPropertySubpatternDelegate11>(wrappedType, nameof(VisitPropertySubpattern));
+            VisitRecursivePatternFunc12 = LightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate12>(wrappedType, nameof(VisitRecursivePattern));
+            VisitRelationalPatternFunc13 = LightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate13>(wrappedType, nameof(VisitRelationalPattern));
+            VisitSlicePatternFunc14 = LightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate14>(wrappedType, nameof(VisitSlicePattern));
+            VisitTypePatternFunc15 = LightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate15>(wrappedType, nameof(VisitTypePattern));
+            VisitUsingDeclarationFunc16 = LightupHelper.CreateInstanceMethodAccessor<VisitUsingDeclarationDelegate16>(wrappedType, nameof(VisitUsingDeclaration));
+            VisitUtf8StringFunc17 = LightupHelper.CreateInstanceMethodAccessor<VisitUtf8StringDelegate17>(wrappedType, nameof(VisitUtf8String));
+            VisitWithFunc18 = LightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate18>(wrappedType, nameof(VisitWith));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static void VisitAttribute(this OperationVisitor wrappedObject, IAttributeOperationWrapper operation)
-            => VisitAttributeFunc0(wrappedObject, operation);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static void VisitAttribute(this OperationVisitor _obj, IAttributeOperationWrapper operation)
+            => VisitAttributeFunc0(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitBinaryPattern(this OperationVisitor wrappedObject, IBinaryPatternOperationWrapper operation)
-            => VisitBinaryPatternFunc1(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitBinaryPattern(this OperationVisitor _obj, IBinaryPatternOperationWrapper operation)
+            => VisitBinaryPatternFunc1(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitFunctionPointerInvocation(this OperationVisitor wrappedObject, IFunctionPointerInvocationOperationWrapper operation)
-            => VisitFunctionPointerInvocationFunc2(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitFunctionPointerInvocation(this OperationVisitor _obj, IFunctionPointerInvocationOperationWrapper operation)
+            => VisitFunctionPointerInvocationFunc2(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitImplicitIndexerReference(this OperationVisitor wrappedObject, IImplicitIndexerReferenceOperationWrapper operation)
-            => VisitImplicitIndexerReferenceFunc3(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitImplicitIndexerReference(this OperationVisitor _obj, IImplicitIndexerReferenceOperationWrapper operation)
+            => VisitImplicitIndexerReferenceFunc3(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static void VisitInlineArrayAccess(this OperationVisitor wrappedObject, IInlineArrayAccessOperationWrapper operation)
-            => VisitInlineArrayAccessFunc4(wrappedObject, operation);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static void VisitInlineArrayAccess(this OperationVisitor _obj, IInlineArrayAccessOperationWrapper operation)
+            => VisitInlineArrayAccessFunc4(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringAddition(this OperationVisitor wrappedObject, IInterpolatedStringAdditionOperationWrapper operation)
-            => VisitInterpolatedStringAdditionFunc5(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitInterpolatedStringAddition(this OperationVisitor _obj, IInterpolatedStringAdditionOperationWrapper operation)
+            => VisitInterpolatedStringAdditionFunc5(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringAppend(this OperationVisitor wrappedObject, IInterpolatedStringAppendOperationWrapper operation)
-            => VisitInterpolatedStringAppendFunc6(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitInterpolatedStringAppend(this OperationVisitor _obj, IInterpolatedStringAppendOperationWrapper operation)
+            => VisitInterpolatedStringAppendFunc6(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this OperationVisitor wrappedObject, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
-            => VisitInterpolatedStringHandlerArgumentPlaceholderFunc7(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this OperationVisitor _obj, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
+            => VisitInterpolatedStringHandlerArgumentPlaceholderFunc7(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitInterpolatedStringHandlerCreation(this OperationVisitor wrappedObject, IInterpolatedStringHandlerCreationOperationWrapper operation)
-            => VisitInterpolatedStringHandlerCreationFunc8(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitInterpolatedStringHandlerCreation(this OperationVisitor _obj, IInterpolatedStringHandlerCreationOperationWrapper operation)
+            => VisitInterpolatedStringHandlerCreationFunc8(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitListPattern(this OperationVisitor wrappedObject, IListPatternOperationWrapper operation)
-            => VisitListPatternFunc9(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitListPattern(this OperationVisitor _obj, IListPatternOperationWrapper operation)
+            => VisitListPatternFunc9(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitNegatedPattern(this OperationVisitor wrappedObject, INegatedPatternOperationWrapper operation)
-            => VisitNegatedPatternFunc10(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitNegatedPattern(this OperationVisitor _obj, INegatedPatternOperationWrapper operation)
+            => VisitNegatedPatternFunc10(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitPropertySubpattern(this OperationVisitor wrappedObject, IPropertySubpatternOperationWrapper operation)
-            => VisitPropertySubpatternFunc11(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitPropertySubpattern(this OperationVisitor _obj, IPropertySubpatternOperationWrapper operation)
+            => VisitPropertySubpatternFunc11(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitRecursivePattern(this OperationVisitor wrappedObject, IRecursivePatternOperationWrapper operation)
-            => VisitRecursivePatternFunc12(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitRecursivePattern(this OperationVisitor _obj, IRecursivePatternOperationWrapper operation)
+            => VisitRecursivePatternFunc12(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitRelationalPattern(this OperationVisitor wrappedObject, IRelationalPatternOperationWrapper operation)
-            => VisitRelationalPatternFunc13(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitRelationalPattern(this OperationVisitor _obj, IRelationalPatternOperationWrapper operation)
+            => VisitRelationalPatternFunc13(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitSlicePattern(this OperationVisitor wrappedObject, ISlicePatternOperationWrapper operation)
-            => VisitSlicePatternFunc14(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitSlicePattern(this OperationVisitor _obj, ISlicePatternOperationWrapper operation)
+            => VisitSlicePatternFunc14(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitTypePattern(this OperationVisitor wrappedObject, ITypePatternOperationWrapper operation)
-            => VisitTypePatternFunc15(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitTypePattern(this OperationVisitor _obj, ITypePatternOperationWrapper operation)
+            => VisitTypePatternFunc15(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitUsingDeclaration(this OperationVisitor wrappedObject, IUsingDeclarationOperationWrapper operation)
-            => VisitUsingDeclarationFunc16(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitUsingDeclaration(this OperationVisitor _obj, IUsingDeclarationOperationWrapper operation)
+            => VisitUsingDeclarationFunc16(_obj, operation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static void VisitUtf8String(this OperationVisitor wrappedObject, IUtf8StringOperationWrapper operation)
-            => VisitUtf8StringFunc17(wrappedObject, operation);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static void VisitUtf8String(this OperationVisitor _obj, IUtf8StringOperationWrapper operation)
+            => VisitUtf8StringFunc17(_obj, operation);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void VisitWith(this OperationVisitor wrappedObject, IWithOperationWrapper operation)
-            => VisitWithFunc18(wrappedObject, operation);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void VisitWith(this OperationVisitor _obj, IWithOperationWrapper operation)
+            => VisitWithFunc18(_obj, operation);
     }
 }

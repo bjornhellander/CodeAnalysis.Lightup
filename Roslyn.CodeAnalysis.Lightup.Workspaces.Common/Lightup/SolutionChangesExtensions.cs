@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SolutionChanges.</summary>
     public static class SolutionChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionChanges";
-
-        public static readonly Type? WrappedType;
 
         private delegate IEnumerable<AnalyzerReference> GetAddedAnalyzerReferencesDelegate0(SolutionChanges? _obj);
         private delegate IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferencesDelegate1(SolutionChanges? _obj);
@@ -40,18 +38,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SolutionChangesExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(WrappedType, nameof(GetAddedAnalyzerReferences));
-            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(WrappedType, nameof(GetRemovedAnalyzerReferences));
+            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(wrappedType, nameof(GetAddedAnalyzerReferences));
+            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(wrappedType, nameof(GetRemovedAnalyzerReferences));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges wrappedObject)
-            => GetAddedAnalyzerReferencesFunc0(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges _obj)
+            => GetAddedAnalyzerReferencesFunc0(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges wrappedObject)
-            => GetRemovedAnalyzerReferencesFunc1(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges _obj)
+            => GetRemovedAnalyzerReferencesFunc1(_obj);
     }
 }

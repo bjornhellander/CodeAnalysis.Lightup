@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpCompilation.</summary>
     public static class CSharpCompilationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<MetadataReference> GetUsedAssemblyReferencesDelegate0(CSharpCompilation? _obj, CancellationToken cancellationToken);
 
@@ -35,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static CSharpCompilationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(WrappedType, nameof(GetUsedAssemblyReferences));
+            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, nameof(GetUsedAssemblyReferences));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation wrappedObject, CancellationToken cancellationToken)
-            => GetUsedAssemblyReferencesFunc0(wrappedObject, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation _obj, CancellationToken cancellationToken)
+            => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
     }
 }

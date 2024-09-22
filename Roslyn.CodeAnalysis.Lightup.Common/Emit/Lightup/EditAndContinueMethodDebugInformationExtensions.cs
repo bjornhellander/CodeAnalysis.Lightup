@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation.</summary>
     public static class EditAndContinueMethodDebugInformationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation";
-
-        public static readonly Type? WrappedType;
 
         private delegate EditAndContinueMethodDebugInformation CreateDelegate0(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EditAndContinueMethodDebugInformationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public static EditAndContinueMethodDebugInformation Create(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
             => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
     }

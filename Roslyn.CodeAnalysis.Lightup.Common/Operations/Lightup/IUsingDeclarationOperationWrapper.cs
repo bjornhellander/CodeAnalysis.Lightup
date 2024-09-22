@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation. Added in version 3.8.0.0.</summary>
     public readonly struct IUsingDeclarationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(IOperation? _obj);
         private delegate Boolean IsAsynchronousGetterDelegate(IOperation? _obj);
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IVariableDeclarationGroupOperation DeclarationGroup
         {
             get => DeclarationGroupGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly Boolean IsAsynchronous
         {
             get => IsAsynchronousGetterFunc(wrappedObject);

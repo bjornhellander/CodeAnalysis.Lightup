@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext.</summary>
     public static class CodeRefactoringContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
-
-        public static readonly Type? WrappedType;
 
         private delegate TextDocument TextDocumentGetterDelegate(CodeRefactoringContext? _obj);
 
@@ -38,12 +36,12 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         static CodeRefactoringContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
+            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static TextDocument TextDocument(this CodeRefactoringContext _obj)
             => TextDocumentGetterFunc(_obj);
     }

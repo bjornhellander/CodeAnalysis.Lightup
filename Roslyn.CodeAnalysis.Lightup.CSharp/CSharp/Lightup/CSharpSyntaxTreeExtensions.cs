@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.</summary>
     public static class CSharpSyntaxTreeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxTree CreateDelegate0(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions);
         private delegate SyntaxTree CreateDelegate1(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode);
@@ -49,44 +47,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static CSharpSyntaxTreeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(WrappedType, nameof(Create));
-            ParseTextFunc2 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(WrappedType, nameof(ParseText));
-            ParseTextFunc3 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(WrappedType, nameof(ParseText));
-            ParseTextFunc4 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(WrappedType, nameof(ParseText));
-            ParseTextFunc5 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate5>(WrappedType, nameof(ParseText));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
+            ParseTextFunc2 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(wrappedType, nameof(ParseText));
+            ParseTextFunc3 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(wrappedType, nameof(ParseText));
+            ParseTextFunc4 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(wrappedType, nameof(ParseText));
+            ParseTextFunc5 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate5>(wrappedType, nameof(ParseText));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, nameof(GetLineMappings));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions)
             => CreateFunc0(root, options, path, encoding, diagnosticOptions);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode)
             => CreateFunc1(root, options, path, encoding, diagnosticOptions, isGeneratedCode);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
             => ParseTextFunc2(text, options, path, diagnosticOptions, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
             => ParseTextFunc3(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
             => ParseTextFunc4(text, options, path, encoding, diagnosticOptions, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
             => ParseTextFunc5(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this CSharpSyntaxTree wrappedObject, CancellationToken cancellationToken)
-            => GetLineMappingsFunc0(wrappedObject, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static IEnumerable<LineMappingWrapper> GetLineMappings(this CSharpSyntaxTree _obj, CancellationToken cancellationToken)
+            => GetLineMappingsFunc0(_obj, cancellationToken);
     }
 }

@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Workspace.</summary>
     public static class WorkspaceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean CanApplyCompilationOptionChangeDelegate0(Workspace? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
         private delegate Boolean CanApplyParseOptionChangeDelegate1(Workspace? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
@@ -44,28 +42,28 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WorkspaceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(WrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(WrappedType, nameof(CanApplyParseOptionChange));
-            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, nameof(CanApplyCompilationOptionChange));
+            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, nameof(CanApplyParseOptionChange));
+            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static Boolean CanApplyCompilationOptionChange(this Workspace wrappedObject, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
-            => CanApplyCompilationOptionChangeFunc0(wrappedObject, oldOptions, newOptions, project);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static Boolean CanApplyCompilationOptionChange(this Workspace _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
+            => CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean CanApplyParseOptionChange(this Workspace wrappedObject, ParseOptions oldOptions, ParseOptions newOptions, Project project)
-            => CanApplyParseOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Boolean CanApplyParseOptionChange(this Workspace _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project)
+            => CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void CloseAnalyzerConfigDocument(this Workspace wrappedObject, DocumentId documentId)
-            => CloseAnalyzerConfigDocumentFunc2(wrappedObject, documentId);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void CloseAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId)
+            => CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static void OpenAnalyzerConfigDocument(this Workspace wrappedObject, DocumentId documentId, Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc3(wrappedObject, documentId, activate);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static void OpenAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId, Boolean activate)
+            => OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
     }
 }

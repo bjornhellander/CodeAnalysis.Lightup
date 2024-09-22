@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ISymbol.</summary>
     public static class ISymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate Int32 MetadataTokenGetterDelegate(ISymbol? _obj);
 
@@ -38,19 +36,19 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ISymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(WrappedType, nameof(MetadataToken));
+            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, nameof(Equals));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Int32 MetadataToken(this ISymbol _obj)
             => MetadataTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static Boolean Equals(this ISymbol wrappedObject, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
-            => EqualsFunc0(wrappedObject, other, equalityComparer);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static Boolean Equals(this ISymbol _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
+            => EqualsFunc0(_obj, other, equalityComparer);
     }
 }

@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext.</summary>
     public static class SyntaxTreeAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext";
-
-        public static readonly Type? WrappedType;
 
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(SyntaxTreeAnalysisContext? _obj);
         private delegate Boolean IsGeneratedCodeGetterDelegate(SyntaxTreeAnalysisContext? _obj);
@@ -36,17 +34,17 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static SyntaxTreeAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Nullable<TextSpan> FilterSpan(this SyntaxTreeAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsGeneratedCode(this SyntaxTreeAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

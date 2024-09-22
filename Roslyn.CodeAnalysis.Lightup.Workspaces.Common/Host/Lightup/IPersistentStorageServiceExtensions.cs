@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Host.IPersistentStorageService.</summary>
     public static class IPersistentStorageServiceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
-
-        public static readonly Type? WrappedType;
 
         private delegate ValueTask<IPersistentStorage> GetStorageAsyncDelegate0(IPersistentStorageService? _obj, Solution solution, CancellationToken cancellationToken);
 
@@ -38,13 +36,13 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         static IPersistentStorageServiceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(WrappedType, nameof(GetStorageAsync));
+            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, nameof(GetStorageAsync));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService wrappedObject, Solution solution, CancellationToken cancellationToken)
-            => GetStorageAsyncFunc0(wrappedObject, solution, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService _obj, Solution solution, CancellationToken cancellationToken)
+            => GetStorageAsyncFunc0(_obj, solution, cancellationToken);
     }
 }

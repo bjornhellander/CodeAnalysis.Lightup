@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax.</summary>
     public static class FinallyClauseSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate FinallyClauseSyntax AddBlockAttributeListsDelegate0(FinallyClauseSyntax? _obj, params AttributeListSyntax[] items);
 
@@ -35,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FinallyClauseSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, nameof(AddBlockAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax _obj, params AttributeListSyntax[] items)
+            => AddBlockAttributeListsFunc0(_obj, items);
     }
 }

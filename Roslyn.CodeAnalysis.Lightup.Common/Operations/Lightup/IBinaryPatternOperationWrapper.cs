@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IBinaryPatternOperation. Added in version 3.8.0.0.</summary>
     public readonly struct IBinaryPatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IBinaryPatternOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IPatternOperation LeftPatternGetterDelegate(IPatternOperation? _obj);
         private delegate BinaryOperatorKind OperatorKindGetterDelegate(IPatternOperation? _obj);
@@ -52,19 +52,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IPatternOperation LeftPattern
         {
             get => LeftPatternGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly BinaryOperatorKind OperatorKind
         {
             get => OperatorKindGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly IPatternOperation RightPattern
         {
             get => RightPatternGetterFunc(wrappedObject);

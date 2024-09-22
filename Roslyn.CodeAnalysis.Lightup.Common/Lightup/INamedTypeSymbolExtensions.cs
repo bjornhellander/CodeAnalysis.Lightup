@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.INamedTypeSymbol.</summary>
     public static class INamedTypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsFileLocalGetterDelegate(INamedTypeSymbol? _obj);
         private delegate INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(INamedTypeSymbol? _obj);
@@ -42,29 +40,29 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static INamedTypeSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(WrappedType, nameof(IsFileLocal));
-            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(WrappedType, nameof(NativeIntegerUnderlyingType));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
+            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
+            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsFileLocal(this INamedTypeSymbol _obj)
             => IsFileLocalGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static INamedTypeSymbol? NativeIntegerUnderlyingType(this INamedTypeSymbol _obj)
             => NativeIntegerUnderlyingTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this INamedTypeSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static INamedTypeSymbol Construct(this INamedTypeSymbol wrappedObject, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
-            => ConstructFunc0(wrappedObject, typeArguments, typeArgumentNullableAnnotations);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static INamedTypeSymbol Construct(this INamedTypeSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+            => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

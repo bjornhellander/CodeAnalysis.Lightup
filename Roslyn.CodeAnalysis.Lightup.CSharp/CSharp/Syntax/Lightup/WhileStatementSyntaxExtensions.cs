@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax.</summary>
     public static class WhileStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(WhileStatementSyntax? _obj);
 
@@ -43,29 +41,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static WhileStatementSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(WrappedType, nameof(WithAttributeLists));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(wrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this WhileStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static WhileStatementSyntax AddAttributeLists(this WhileStatementSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static WhileStatementSyntax AddAttributeLists(this WhileStatementSyntax _obj, params AttributeListSyntax[] items)
+            => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static WhileStatementSyntax Update(this WhileStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken whileKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, StatementSyntax statement)
-            => UpdateFunc1(wrappedObject, attributeLists, whileKeyword, openParenToken, condition, closeParenToken, statement);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static WhileStatementSyntax Update(this WhileStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken whileKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, StatementSyntax statement)
+            => UpdateFunc1(_obj, attributeLists, whileKeyword, openParenToken, condition, closeParenToken, statement);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static WhileStatementSyntax WithAttributeLists(this WhileStatementSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(wrappedObject, attributeLists);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static WhileStatementSyntax WithAttributeLists(this WhileStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+            => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

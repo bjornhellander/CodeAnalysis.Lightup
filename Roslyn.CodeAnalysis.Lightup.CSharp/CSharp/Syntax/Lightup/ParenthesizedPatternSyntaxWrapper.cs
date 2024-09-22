@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedPatternSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct ParenthesizedPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedPatternSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken CloseParenTokenGetterDelegate(PatternSyntax? _obj);
         private delegate SyntaxToken OpenParenTokenGetterDelegate(PatternSyntax? _obj);
@@ -71,19 +71,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken CloseParenToken
         {
             get => CloseParenTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken OpenParenToken
         {
             get => OpenParenTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly PatternSyntax Pattern
         {
             get => PatternGetterFunc(wrappedObject);
@@ -104,23 +104,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public PatternSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ParenthesizedPatternSyntaxWrapper Update(SyntaxToken openParenToken, PatternSyntax pattern, SyntaxToken closeParenToken)
             => UpdateFunc1(wrappedObject, openParenToken, pattern, closeParenToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ParenthesizedPatternSyntaxWrapper WithCloseParenToken(SyntaxToken closeParenToken)
             => WithCloseParenTokenFunc2(wrappedObject, closeParenToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ParenthesizedPatternSyntaxWrapper WithOpenParenToken(SyntaxToken openParenToken)
             => WithOpenParenTokenFunc3(wrappedObject, openParenToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly ParenthesizedPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
             => WithPatternFunc4(wrappedObject, pattern);
     }

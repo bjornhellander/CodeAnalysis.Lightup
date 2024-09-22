@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax.</summary>
     public static class SubpatternSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate BaseExpressionColonSyntaxWrapper ExpressionColonGetterDelegate(SubpatternSyntax? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static SubpatternSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(WrappedType, nameof(ExpressionColon));
+            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(wrappedType, nameof(ExpressionColon));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(WrappedType, nameof(WithExpressionColon));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, nameof(WithExpressionColon));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static BaseExpressionColonSyntaxWrapper ExpressionColon(this SubpatternSyntax _obj)
             => ExpressionColonGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static SubpatternSyntax Update(this SubpatternSyntax wrappedObject, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
-            => UpdateFunc0(wrappedObject, expressionColon, pattern);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static SubpatternSyntax Update(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
+            => UpdateFunc0(_obj, expressionColon, pattern);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax wrappedObject, BaseExpressionColonSyntaxWrapper expressionColon)
-            => WithExpressionColonFunc1(wrappedObject, expressionColon);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon)
+            => WithExpressionColonFunc1(_obj, expressionColon);
     }
 }

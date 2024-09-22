@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo.</summary>
     public static class AnalyzerTelemetryInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
-
-        public static readonly Type? WrappedType;
 
         private delegate Int32 AdditionalFileActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
         private delegate void AdditionalFileActionsCountSetterDelegate(AnalyzerTelemetryInfo? _obj, Int32 _value);
@@ -40,27 +38,27 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 
         static AnalyzerTelemetryInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
-            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
+            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
+            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Int32 AdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj)
             => AdditionalFileActionsCountGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static void SetAdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
             => AdditionalFileActionsCountSetterFunc(_obj, _value);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Int32 SuppressionActionsCount(this AnalyzerTelemetryInfo _obj)
             => SuppressionActionsCountGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static void SetSuppressionActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
             => SuppressionActionsCountSetterFunc(_obj, _value);
     }

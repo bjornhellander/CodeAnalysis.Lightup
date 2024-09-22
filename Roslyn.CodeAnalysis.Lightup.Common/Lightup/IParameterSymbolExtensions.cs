@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IParameterSymbol.</summary>
     public static class IParameterSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsDiscardGetterDelegate(IParameterSymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IParameterSymbol? _obj);
@@ -38,22 +36,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IParameterSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(WrappedType, nameof(IsDiscard));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(wrappedType, nameof(IsDiscard));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsDiscard(this IParameterSymbol _obj)
             => IsDiscardGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IParameterSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ScopedKindEx ScopedKind(this IParameterSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax.</summary>
     public static class ClassDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate ParameterListSyntax? ParameterListGetterDelegate(ClassDeclarationSyntax? _obj);
 
@@ -43,29 +41,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ClassDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
+            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(WrappedType, nameof(AddParameterListParameters));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(WrappedType, nameof(WithParameterList));
+            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, nameof(AddParameterListParameters));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static ParameterListSyntax? ParameterList(this ClassDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static ClassDeclarationSyntax AddParameterListParameters(this ClassDeclarationSyntax wrappedObject, params ParameterSyntax[] items)
-            => AddParameterListParametersFunc0(wrappedObject, items);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static ClassDeclarationSyntax AddParameterListParameters(this ClassDeclarationSyntax _obj, params ParameterSyntax[] items)
+            => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static ClassDeclarationSyntax Update(this ClassDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static ClassDeclarationSyntax Update(this ClassDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static ClassDeclarationSyntax WithParameterList(this ClassDeclarationSyntax wrappedObject, ParameterListSyntax? parameterList)
-            => WithParameterListFunc2(wrappedObject, parameterList);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static ClassDeclarationSyntax WithParameterList(this ClassDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+            => WithParameterListFunc2(_obj, parameterList);
     }
 }

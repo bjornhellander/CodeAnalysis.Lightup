@@ -7,21 +7,22 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.ApplyChangesKind.</summary>
     public class ApplyChangesKindEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const ApplyChangesKind AddAnalyzerConfigDocument = (ApplyChangesKind)17;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const ApplyChangesKind RemoveAnalyzerConfigDocument = (ApplyChangesKind)18;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const ApplyChangesKind ChangeAnalyzerConfigDocument = (ApplyChangesKind)19;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const ApplyChangesKind AddSolutionAnalyzerReference = (ApplyChangesKind)20;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const ApplyChangesKind RemoveSolutionAnalyzerReference = (ApplyChangesKind)21;
     }
 }

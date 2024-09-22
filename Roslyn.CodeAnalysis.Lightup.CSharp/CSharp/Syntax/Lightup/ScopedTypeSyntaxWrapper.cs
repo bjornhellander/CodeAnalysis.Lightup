@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax. Added in version 4.4.0.0.</summary>
     public readonly struct ScopedTypeSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken ScopedKeywordGetterDelegate(TypeSyntax? _obj);
         private delegate TypeSyntax TypeGetterDelegate(TypeSyntax? _obj);
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly SyntaxToken ScopedKeyword
         {
             get => ScopedKeywordGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
@@ -92,19 +92,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public TypeSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly ScopedTypeSyntaxWrapper Update(SyntaxToken scopedKeyword, TypeSyntax type)
             => UpdateFunc1(wrappedObject, scopedKeyword, type);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly ScopedTypeSyntaxWrapper WithScopedKeyword(SyntaxToken scopedKeyword)
             => WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly ScopedTypeSyntaxWrapper WithType(TypeSyntax type)
             => WithTypeFunc3(wrappedObject, type);
     }

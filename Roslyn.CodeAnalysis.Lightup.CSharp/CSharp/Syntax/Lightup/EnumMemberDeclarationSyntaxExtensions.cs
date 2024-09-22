@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax.</summary>
     public static class EnumMemberDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxTokenList ModifiersGetterDelegate(EnumMemberDeclarationSyntax? _obj);
 
@@ -43,29 +41,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static EnumMemberDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(WrappedType, nameof(AddModifiers));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(WrappedType, nameof(WithModifiers));
+            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, nameof(AddModifiers));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxTokenList Modifiers(this EnumMemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EnumMemberDeclarationSyntax AddModifiers(this EnumMemberDeclarationSyntax wrappedObject, params SyntaxToken[] items)
-            => AddModifiersFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EnumMemberDeclarationSyntax AddModifiers(this EnumMemberDeclarationSyntax _obj, params SyntaxToken[] items)
+            => AddModifiersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EnumMemberDeclarationSyntax Update(this EnumMemberDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken identifier, EqualsValueClauseSyntax? equalsValue)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, identifier, equalsValue);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EnumMemberDeclarationSyntax Update(this EnumMemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken identifier, EqualsValueClauseSyntax? equalsValue)
+            => UpdateFunc1(_obj, attributeLists, modifiers, identifier, equalsValue);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EnumMemberDeclarationSyntax WithModifiers(this EnumMemberDeclarationSyntax wrappedObject, SyntaxTokenList modifiers)
-            => WithModifiersFunc2(wrappedObject, modifiers);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EnumMemberDeclarationSyntax WithModifiers(this EnumMemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
+            => WithModifiersFunc2(_obj, modifiers);
     }
 }

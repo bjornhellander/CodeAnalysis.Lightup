@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.TypeInfo.</summary>
     public static class TypeInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TypeInfo";
-
-        public static readonly Type? WrappedType;
 
         private delegate NullabilityInfoWrapper ConvertedNullabilityGetterDelegate(TypeInfo? _obj);
         private delegate NullabilityInfoWrapper NullabilityGetterDelegate(TypeInfo? _obj);
@@ -36,17 +34,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static TypeInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(WrappedType, nameof(ConvertedNullability));
-            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(WrappedType, nameof(Nullability));
+            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(wrappedType, nameof(ConvertedNullability));
+            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(wrappedType, nameof(Nullability));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullabilityInfoWrapper ConvertedNullability(this TypeInfo _obj)
             => ConvertedNullabilityGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullabilityInfoWrapper Nullability(this TypeInfo _obj)
             => NullabilityGetterFunc(_obj);
     }

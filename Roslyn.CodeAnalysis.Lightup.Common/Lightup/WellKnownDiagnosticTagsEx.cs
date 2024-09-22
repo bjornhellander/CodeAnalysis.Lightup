@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
-    public static class WellKnownDiagnosticTagsExtensions
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownDiagnosticTags.</summary>
+    public static class WellKnownDiagnosticTagsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
-
-        public static readonly Type? WrappedType;
 
         private delegate String CustomObsoleteGetterDelegate();
         private delegate String CompilationEndGetterDelegate();
@@ -34,21 +32,21 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CustomObsoleteGetterDelegate CustomObsoleteGetterFunc;
         private static readonly CompilationEndGetterDelegate CompilationEndGetterFunc;
 
-        static WellKnownDiagnosticTagsExtensions()
+        static WellKnownDiagnosticTagsEx()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CustomObsoleteGetterFunc = LightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(WrappedType, nameof(CustomObsolete));
-            CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(WrappedType, nameof(CompilationEnd));
+            CustomObsoleteGetterFunc = LightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
+            CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Field added in version 3.8.0.0.</summary>
         public static String CustomObsolete
         {
             get => CustomObsoleteGetterFunc();
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Field added in version 4.0.0.0.</summary>
         public static String CompilationEnd
         {
             get => CompilationEndGetterFunc();

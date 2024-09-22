@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.</summary>
     public static class CSharpCompilationOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions";
-
-        public static readonly Type? WrappedType;
 
         private delegate NullableContextOptionsEx NullableContextOptionsGetterDelegate(CSharpCompilationOptions? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static CSharpCompilationOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
+            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
 
-            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(WrappedType, nameof(WithNullableContextOptions));
-            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
+            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, nameof(WithNullableContextOptions));
+            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableContextOptionsEx NullableContextOptions(this CSharpCompilationOptions _obj)
             => NullableContextOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CSharpCompilationOptions WithNullableContextOptions(this CSharpCompilationOptions wrappedObject, NullableContextOptionsEx options)
-            => WithNullableContextOptionsFunc0(wrappedObject, options);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static CSharpCompilationOptions WithNullableContextOptions(this CSharpCompilationOptions _obj, NullableContextOptionsEx options)
+            => WithNullableContextOptionsFunc0(_obj, options);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this CSharpCompilationOptions wrappedObject, SyntaxTreeOptionsProviderWrapper provider)
-            => WithSyntaxTreeOptionsProviderFunc1(wrappedObject, provider);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this CSharpCompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
+            => WithSyntaxTreeOptionsProviderFunc1(_obj, provider);
     }
 }

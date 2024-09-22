@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax.</summary>
     public static class DestructorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate DestructorDeclarationSyntax AddBodyAttributeListsDelegate0(DestructorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 
@@ -35,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static DestructorDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static DestructorDeclarationSyntax AddBodyAttributeLists(this DestructorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static DestructorDeclarationSyntax AddBodyAttributeLists(this DestructorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax.</summary>
     public static class CrefParameterSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxToken ReadOnlyKeywordGetterDelegate(CrefParameterSyntax? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CrefParameterSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ReadOnlyKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(WrappedType, nameof(ReadOnlyKeyword));
+            ReadOnlyKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(wrappedType, nameof(ReadOnlyKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(WrappedType, nameof(WithReadOnlyKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, nameof(WithReadOnlyKeyword));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static SyntaxToken ReadOnlyKeyword(this CrefParameterSyntax _obj)
             => ReadOnlyKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static CrefParameterSyntax Update(this CrefParameterSyntax wrappedObject, SyntaxToken refKindKeyword, SyntaxToken readOnlyKeyword, TypeSyntax type)
-            => UpdateFunc0(wrappedObject, refKindKeyword, readOnlyKeyword, type);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static CrefParameterSyntax Update(this CrefParameterSyntax _obj, SyntaxToken refKindKeyword, SyntaxToken readOnlyKeyword, TypeSyntax type)
+            => UpdateFunc0(_obj, refKindKeyword, readOnlyKeyword, type);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static CrefParameterSyntax WithReadOnlyKeyword(this CrefParameterSyntax wrappedObject, SyntaxToken readOnlyKeyword)
-            => WithReadOnlyKeywordFunc1(wrappedObject, readOnlyKeyword);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static CrefParameterSyntax WithReadOnlyKeyword(this CrefParameterSyntax _obj, SyntaxToken readOnlyKeyword)
+            => WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
     }
 }

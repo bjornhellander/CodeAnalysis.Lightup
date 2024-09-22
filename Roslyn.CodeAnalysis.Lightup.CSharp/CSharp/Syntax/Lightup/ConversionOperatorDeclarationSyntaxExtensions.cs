@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorDeclarationSyntax.</summary>
     public static class ConversionOperatorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxToken CheckedKeywordGetterDelegate(ConversionOperatorDeclarationSyntax? _obj);
         private delegate ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifierGetterDelegate(ConversionOperatorDeclarationSyntax? _obj);
@@ -49,44 +47,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ConversionOperatorDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
-            ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(WrappedType, nameof(ExplicitInterfaceSpecifier));
+            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
+            ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(wrappedType, nameof(ExplicitInterfaceSpecifier));
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(WrappedType, nameof(WithCheckedKeyword));
-            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(WrappedType, nameof(WithExplicitInterfaceSpecifier));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, nameof(Update));
+            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, nameof(WithCheckedKeyword));
+            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, nameof(WithExplicitInterfaceSpecifier));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static SyntaxToken CheckedKeyword(this ConversionOperatorDeclarationSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifier(this ConversionOperatorDeclarationSyntax _obj)
             => ExplicitInterfaceSpecifierGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ConversionOperatorDeclarationSyntax AddBodyAttributeLists(this ConversionOperatorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ConversionOperatorDeclarationSyntax AddBodyAttributeLists(this ConversionOperatorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, type, parameterList, body, expressionBody, semicolonToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, type, parameterList, body, expressionBody, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
-            => UpdateFunc2(wrappedObject, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, type, parameterList, body, expressionBody, semicolonToken);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+            => UpdateFunc2(_obj, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, type, parameterList, body, expressionBody, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static ConversionOperatorDeclarationSyntax WithCheckedKeyword(this ConversionOperatorDeclarationSyntax wrappedObject, SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc3(wrappedObject, checkedKeyword);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static ConversionOperatorDeclarationSyntax WithCheckedKeyword(this ConversionOperatorDeclarationSyntax _obj, SyntaxToken checkedKeyword)
+            => WithCheckedKeywordFunc3(_obj, checkedKeyword);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static ConversionOperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this ConversionOperatorDeclarationSyntax wrappedObject, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
-            => WithExplicitInterfaceSpecifierFunc4(wrappedObject, explicitInterfaceSpecifier);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static ConversionOperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this ConversionOperatorDeclarationSyntax _obj, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
+            => WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
     }
 }

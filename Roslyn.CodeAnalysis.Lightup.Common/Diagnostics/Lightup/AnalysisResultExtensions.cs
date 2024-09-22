@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalysisResult.</summary>
     public static class AnalysisResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisResult";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableDictionary<AdditionalText, ImmutableDictionary<DiagnosticAnalyzer, ImmutableArray<Diagnostic>>> AdditionalFileDiagnosticsGetterDelegate(AnalysisResult? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalysisResultExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(WrappedType, nameof(AdditionalFileDiagnostics));
+            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(wrappedType, nameof(AdditionalFileDiagnostics));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableDictionary<AdditionalText, ImmutableDictionary<DiagnosticAnalyzer, ImmutableArray<Diagnostic>>> AdditionalFileDiagnostics(this AnalysisResult _obj)
             => AdditionalFileDiagnosticsGetterFunc(_obj);
     }

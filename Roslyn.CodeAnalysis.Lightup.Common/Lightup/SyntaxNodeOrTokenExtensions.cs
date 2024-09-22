@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SyntaxNodeOrToken.</summary>
     public static class SyntaxNodeOrTokenExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrToken";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsIncrementallyIdenticalToDelegate0(SyntaxNodeOrToken? _obj, SyntaxNodeOrToken other);
 
@@ -34,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxNodeOrTokenExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken wrappedObject, SyntaxNodeOrToken other)
-            => IsIncrementallyIdenticalToFunc0(wrappedObject, other);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken _obj, SyntaxNodeOrToken other)
+            => IsIncrementallyIdenticalToFunc0(_obj, other);
     }
 }

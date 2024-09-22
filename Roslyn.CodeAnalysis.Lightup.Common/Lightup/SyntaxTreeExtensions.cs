@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxTree.</summary>
     public static class SyntaxTreeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptionsGetterDelegate(SyntaxTree? _obj);
 
@@ -40,24 +38,24 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxTreeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(WrappedType, nameof(DiagnosticOptions));
+            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(wrappedType, nameof(DiagnosticOptions));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
-            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(WrappedType, nameof(WithDiagnosticOptions));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, nameof(GetLineMappings));
+            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, nameof(WithDiagnosticOptions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptions(this SyntaxTree _obj)
             => DiagnosticOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree wrappedObject, CancellationToken cancellationToken)
-            => GetLineMappingsFunc0(wrappedObject, cancellationToken);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree _obj, CancellationToken cancellationToken)
+            => GetLineMappingsFunc0(_obj, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static SyntaxTree WithDiagnosticOptions(this SyntaxTree wrappedObject, ImmutableDictionary<String, ReportDiagnostic> options)
-            => WithDiagnosticOptionsFunc1(wrappedObject, options);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static SyntaxTree WithDiagnosticOptions(this SyntaxTree _obj, ImmutableDictionary<String, ReportDiagnostic> options)
+            => WithDiagnosticOptionsFunc1(_obj, options);
     }
 }

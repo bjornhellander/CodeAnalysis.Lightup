@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax.</summary>
     public static class OperatorMemberCrefSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxToken CheckedKeywordGetterDelegate(OperatorMemberCrefSyntax? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static OperatorMemberCrefSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(WrappedType, nameof(CheckedKeyword));
+            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(WrappedType, nameof(WithCheckedKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, nameof(WithCheckedKeyword));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static SyntaxToken CheckedKeyword(this OperatorMemberCrefSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorMemberCrefSyntax Update(this OperatorMemberCrefSyntax wrappedObject, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters)
-            => UpdateFunc0(wrappedObject, operatorKeyword, checkedKeyword, operatorToken, parameters);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static OperatorMemberCrefSyntax Update(this OperatorMemberCrefSyntax _obj, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters)
+            => UpdateFunc0(_obj, operatorKeyword, checkedKeyword, operatorToken, parameters);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
-        public static OperatorMemberCrefSyntax WithCheckedKeyword(this OperatorMemberCrefSyntax wrappedObject, SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc1(wrappedObject, checkedKeyword);
+        /// <summary>Method added in version 4.4.0.0.</summary>
+        public static OperatorMemberCrefSyntax WithCheckedKeyword(this OperatorMemberCrefSyntax _obj, SyntaxToken checkedKeyword)
+            => WithCheckedKeywordFunc1(_obj, checkedKeyword);
     }
 }

@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation.</summary>
     public static class IVariableDeclarationOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<IOperation> IgnoredDimensionsGetterDelegate(IVariableDeclarationOperation? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IVariableDeclarationOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
+            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(wrappedType, nameof(IgnoredDimensions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<IOperation> IgnoredDimensions(this IVariableDeclarationOperation _obj)
             => IgnoredDimensionsGetterFunc(_obj);
     }

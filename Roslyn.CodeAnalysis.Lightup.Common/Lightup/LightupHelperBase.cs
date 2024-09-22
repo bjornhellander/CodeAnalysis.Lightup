@@ -429,7 +429,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                     return input;
                 }
 
-                var field = input.GetField("WrappedType");
+                var field = input.GetField("WrappedType", BindingFlags.Static | BindingFlags.NonPublic);
                 var nativeType = (Type?)field.GetValue(null);
                 return nativeType;
             }

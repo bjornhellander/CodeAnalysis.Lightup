@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 4.0.0.0.</summary>
     public readonly struct SourceGeneratedDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SourceGeneratedDocument";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate String HintNameGetterDelegate(Document? _obj);
 
@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly String HintName
         {
             get => HintNameGetterFunc(wrappedObject);

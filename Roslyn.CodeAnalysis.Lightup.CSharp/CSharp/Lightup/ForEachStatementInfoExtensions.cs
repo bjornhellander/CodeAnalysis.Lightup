@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo.</summary>
     public static class ForEachStatementInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsAsynchronousGetterDelegate(ForEachStatementInfo? _obj);
 
@@ -35,12 +33,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static ForEachStatementInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsAsynchronous(this ForEachStatementInfo _obj)
             => IsAsynchronousGetterFunc(_obj);
     }

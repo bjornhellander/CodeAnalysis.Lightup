@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
-    /// <summary>Struct added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Rename.DocumentRenameOptions. Added in version 4.4.0.0.</summary>
     public readonly struct DocumentRenameOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean RenameMatchingTypeInCommentsGetterDelegate(object? _obj);
         private delegate void RenameMatchingTypeInCommentsSetterDelegate(object? _obj, Boolean _value);
@@ -68,14 +68,14 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameMatchingTypeInComments
         {
             get => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
             set => RenameMatchingTypeInCommentsSetterFunc(wrappedObject, value);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameMatchingTypeInStrings
         {
             get => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
@@ -94,11 +94,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly void Deconstruct(out Boolean RenameMatchingTypeInStrings, out Boolean RenameMatchingTypeInComments)
             => DeconstructFunc0(wrappedObject, out RenameMatchingTypeInStrings, out RenameMatchingTypeInComments);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean Equals(DocumentRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }

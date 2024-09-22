@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation.</summary>
     public static class ISwitchExpressionOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsExhaustiveGetterDelegate(ISwitchExpressionOperation? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static ISwitchExpressionOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
+            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(wrappedType, nameof(IsExhaustive));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Boolean IsExhaustive(this ISwitchExpressionOperation _obj)
             => IsExhaustiveGetterFunc(_obj);
     }

@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ILocalSymbol.</summary>
     public static class ILocalSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean IsForEachGetterDelegate(ILocalSymbol? _obj);
         private delegate Boolean IsUsingGetterDelegate(ILocalSymbol? _obj);
@@ -40,27 +38,27 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ILocalSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(WrappedType, nameof(IsForEach));
-            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(WrappedType, nameof(IsUsing));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
+            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsForEach(this ILocalSymbol _obj)
             => IsForEachGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsUsing(this ILocalSymbol _obj)
             => IsUsingGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this ILocalSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ScopedKindEx ScopedKind(this ILocalSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }

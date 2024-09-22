@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.TextLoader.</summary>
     public static class TextLoaderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextLoader";
-
-        public static readonly Type? WrappedType;
 
         private delegate Task<TextAndVersion> LoadTextAndVersionAsyncDelegate0(TextLoader? _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken);
 
@@ -38,13 +36,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static TextLoaderExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(WrappedType, nameof(LoadTextAndVersionAsync));
+            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, nameof(LoadTextAndVersionAsync));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Task<TextAndVersion> LoadTextAndVersionAsync(this TextLoader wrappedObject, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
-            => LoadTextAndVersionAsyncFunc0(wrappedObject, options, cancellationToken);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static Task<TextAndVersion> LoadTextAndVersionAsync(this TextLoader _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
+            => LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
     }
 }

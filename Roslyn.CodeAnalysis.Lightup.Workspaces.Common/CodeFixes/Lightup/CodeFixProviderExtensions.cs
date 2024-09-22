@@ -25,12 +25,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider.</summary>
     public static class CodeFixProviderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider";
-
-        public static readonly Type? WrappedType;
 
         private delegate CodeActionRequestPriorityEx RequestPriorityGetterDelegate(CodeFixProvider? _obj);
 
@@ -38,12 +36,12 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static CodeFixProviderExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(WrappedType, nameof(RequestPriority));
+            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static CodeActionRequestPriorityEx RequestPriority(this CodeFixProvider _obj)
             => RequestPriorityGetterFunc(_obj);
     }

@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax. Added in version 4.0.0.0.</summary>
     public readonly struct BaseNamespaceDeclarationSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxList<ExternAliasDirectiveSyntax> ExternsGetterDelegate(MemberDeclarationSyntax? _obj);
         private delegate SyntaxList<MemberDeclarationSyntax> MembersGetterDelegate(MemberDeclarationSyntax? _obj);
@@ -98,31 +98,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<ExternAliasDirectiveSyntax> Externs
         {
             get => ExternsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly NameSyntax Name
         {
             get => NameGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxToken NamespaceKeyword
         {
             get => NamespaceKeywordGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly SyntaxList<UsingDirectiveSyntax> Usings
         {
             get => UsingsGetterFunc(wrappedObject);
@@ -143,51 +143,51 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public MemberDeclarationSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddExterns(params ExternAliasDirectiveSyntax[] items)
             => AddExternsFunc1(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
             => AddMembersFunc2(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
             => AddModifiersFunc3(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper AddUsings(params UsingDirectiveSyntax[] items)
             => AddUsingsFunc4(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc5(wrappedObject, attributeLists);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithExterns(SyntaxList<ExternAliasDirectiveSyntax> externs)
             => WithExternsFunc6(wrappedObject, externs);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
             => WithMembersFunc7(wrappedObject, members);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
             => WithModifiersFunc8(wrappedObject, modifiers);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithName(NameSyntax name)
             => WithNameFunc9(wrappedObject, name);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(SyntaxToken namespaceKeyword)
             => WithNamespaceKeywordFunc10(wrappedObject, namespaceKeyword);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly BaseNamespaceDeclarationSyntaxWrapper WithUsings(SyntaxList<UsingDirectiveSyntax> usings)
             => WithUsingsFunc11(wrappedObject, usings);
     }

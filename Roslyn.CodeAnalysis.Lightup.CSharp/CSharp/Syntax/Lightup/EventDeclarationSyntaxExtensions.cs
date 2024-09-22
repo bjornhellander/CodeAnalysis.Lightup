@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax.</summary>
     public static class EventDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate SyntaxToken SemicolonTokenGetterDelegate(EventDeclarationSyntax? _obj);
 
@@ -43,29 +41,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static EventDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(wrappedType, nameof(SemicolonToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(WrappedType, nameof(WithSemicolonToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(wrappedType, nameof(WithSemicolonToken));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SyntaxToken SemicolonToken(this EventDeclarationSyntax _obj)
             => SemicolonTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EventDeclarationSyntax Update(this EventDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, SyntaxToken identifier, SyntaxToken semicolonToken)
-            => UpdateFunc0(wrappedObject, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, semicolonToken);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EventDeclarationSyntax Update(this EventDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, SyntaxToken identifier, SyntaxToken semicolonToken)
+            => UpdateFunc0(_obj, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EventDeclarationSyntax Update(this EventDeclarationSyntax wrappedObject, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken identifier, AccessorListSyntax? accessorList, SyntaxToken semicolonToken)
-            => UpdateFunc1(wrappedObject, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, accessorList, semicolonToken);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EventDeclarationSyntax Update(this EventDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken identifier, AccessorListSyntax? accessorList, SyntaxToken semicolonToken)
+            => UpdateFunc1(_obj, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, accessorList, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static EventDeclarationSyntax WithSemicolonToken(this EventDeclarationSyntax wrappedObject, SyntaxToken semicolonToken)
-            => WithSemicolonTokenFunc2(wrappedObject, semicolonToken);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static EventDeclarationSyntax WithSemicolonToken(this EventDeclarationSyntax _obj, SyntaxToken semicolonToken)
+            => WithSemicolonTokenFunc2(_obj, semicolonToken);
     }
 }

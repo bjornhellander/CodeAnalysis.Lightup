@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct FunctionPointerParameterListSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken GreaterThanTokenGetterDelegate(CSharpSyntaxNode? _obj);
         private delegate SyntaxToken LessThanTokenGetterDelegate(CSharpSyntaxNode? _obj);
@@ -74,19 +74,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken GreaterThanToken
         {
             get => GreaterThanTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken LessThanToken
         {
             get => LessThanTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> Parameters
         {
             get => ParametersGetterFunc(wrappedObject);
@@ -107,27 +107,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper AddParameters(params FunctionPointerParameterSyntaxWrapper[] items)
             => AddParametersFunc1(wrappedObject, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper Update(SyntaxToken lessThanToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters, SyntaxToken greaterThanToken)
             => UpdateFunc2(wrappedObject, lessThanToken, parameters, greaterThanToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper WithGreaterThanToken(SyntaxToken greaterThanToken)
             => WithGreaterThanTokenFunc3(wrappedObject, greaterThanToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper WithLessThanToken(SyntaxToken lessThanToken)
             => WithLessThanTokenFunc4(wrappedObject, lessThanToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly FunctionPointerParameterListSyntaxWrapper WithParameters(SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters)
             => WithParametersFunc5(wrappedObject, parameters);
     }

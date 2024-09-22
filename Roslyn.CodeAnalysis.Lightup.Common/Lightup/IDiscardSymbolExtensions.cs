@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IDiscardSymbol.</summary>
     public static class IDiscardSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IDiscardSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IDiscardSymbol? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IDiscardSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IDiscardSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }

@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.AccessorDeclarationSyntax.</summary>
     public static class AccessorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AccessorDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate AccessorDeclarationSyntax AddBodyAttributeListsDelegate0(AccessorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 
@@ -35,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static AccessorDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static AccessorDeclarationSyntax AddBodyAttributeLists(this AccessorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static AccessorDeclarationSyntax AddBodyAttributeLists(this AccessorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

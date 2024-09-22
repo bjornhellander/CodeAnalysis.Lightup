@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.SemanticEdit.</summary>
     public static class SemanticEditExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
-
-        public static readonly Type? WrappedType;
 
         private delegate MethodInstrumentationWrapper InstrumentationGetterDelegate(SemanticEdit? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static SemanticEditExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(WrappedType, nameof(Instrumentation));
+            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static MethodInstrumentationWrapper Instrumentation(this SemanticEdit _obj)
             => InstrumentationGetterFunc(_obj);
     }

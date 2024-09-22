@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.DataFlowAnalysis.</summary>
     public static class DataFlowAnalysisExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnEntryGetterDelegate(DataFlowAnalysis? _obj);
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnExitGetterDelegate(DataFlowAnalysis? _obj);
@@ -38,22 +36,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static DataFlowAnalysisExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnEntry));
-            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnExit));
-            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(WrappedType, nameof(UsedLocalFunctions));
+            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnEntry));
+            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnExit));
+            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnEntry(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnEntryGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnExit(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnExitGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<IMethodSymbol> UsedLocalFunctions(this DataFlowAnalysis _obj)
             => UsedLocalFunctionsGetterFunc(_obj);
     }

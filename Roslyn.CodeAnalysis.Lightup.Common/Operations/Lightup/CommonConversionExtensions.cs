@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
     public static class CommonConversionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
-
-        public static readonly Type? WrappedType;
 
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(CommonConversion? _obj);
         private delegate Boolean IsNullableGetterDelegate(CommonConversion? _obj);
@@ -36,17 +34,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static CommonConversionExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
-            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
+            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this CommonConversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsNullable(this CommonConversion _obj)
             => IsNullableGetterFunc(_obj);
     }

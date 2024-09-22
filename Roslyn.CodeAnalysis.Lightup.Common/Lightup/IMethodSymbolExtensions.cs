@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IMethodSymbol.</summary>
     public static class IMethodSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate SignatureCallingConvention CallingConventionGetterDelegate(IMethodSymbol? _obj);
         private delegate Boolean IsConditionalGetterDelegate(IMethodSymbol? _obj);
@@ -56,64 +54,64 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IMethodSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(WrappedType, nameof(CallingConvention));
-            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(WrappedType, nameof(IsConditional));
-            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(WrappedType, nameof(IsInitOnly));
-            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(WrappedType, nameof(IsPartialDefinition));
-            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(WrappedType, nameof(IsReadOnly));
-            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(WrappedType, nameof(MethodImplementationFlags));
-            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(WrappedType, nameof(ReceiverNullableAnnotation));
-            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(WrappedType, nameof(ReturnNullableAnnotation));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
-            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionTypes));
+            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(wrappedType, nameof(CallingConvention));
+            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(wrappedType, nameof(IsConditional));
+            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(wrappedType, nameof(IsInitOnly));
+            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
+            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
+            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
+            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(wrappedType, nameof(ReceiverNullableAnnotation));
+            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(wrappedType, nameof(ReturnNullableAnnotation));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
+            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static SignatureCallingConvention CallingConvention(this IMethodSymbol _obj)
             => CallingConventionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsConditional(this IMethodSymbol _obj)
             => IsConditionalGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsInitOnly(this IMethodSymbol _obj)
             => IsInitOnlyGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Boolean IsPartialDefinition(this IMethodSymbol _obj)
             => IsPartialDefinitionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsReadOnly(this IMethodSymbol _obj)
             => IsReadOnlyGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static MethodImplAttributes MethodImplementationFlags(this IMethodSymbol _obj)
             => MethodImplementationFlagsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx ReceiverNullableAnnotation(this IMethodSymbol _obj)
             => ReceiverNullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static NullableAnnotationEx ReturnNullableAnnotation(this IMethodSymbol _obj)
             => ReturnNullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this IMethodSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static ImmutableArray<INamedTypeSymbol> UnmanagedCallingConventionTypes(this IMethodSymbol _obj)
             => UnmanagedCallingConventionTypesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static IMethodSymbol Construct(this IMethodSymbol wrappedObject, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
-            => ConstructFunc0(wrappedObject, typeArguments, typeArgumentNullableAnnotations);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static IMethodSymbol Construct(this IMethodSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+            => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

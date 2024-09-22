@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version 4.8.0.0</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LoadTextOptions. Added in version 4.8.0.0.</summary>
     public readonly struct LoadTextOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(object? _obj);
 
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public readonly SourceHashAlgorithm ChecksumAlgorithm
         {
             get => ChecksumAlgorithmGetterFunc(wrappedObject);
@@ -74,7 +74,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0.</summary>
         public readonly Boolean Equals(LoadTextOptionsWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }

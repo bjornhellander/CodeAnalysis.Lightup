@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitDifferenceResult.</summary>
     public static class EmitDifferenceResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<TypeDefinitionHandle> ChangedTypesGetterDelegate(EmitDifferenceResult? _obj);
         private delegate ImmutableArray<MethodDefinitionHandle> UpdatedMethodsGetterDelegate(EmitDifferenceResult? _obj);
@@ -36,17 +34,17 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EmitDifferenceResultExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
-            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
+            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(wrappedType, nameof(ChangedTypes));
+            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(wrappedType, nameof(UpdatedMethods));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ImmutableArray<TypeDefinitionHandle> ChangedTypes(this EmitDifferenceResult _obj)
             => ChangedTypesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static ImmutableArray<MethodDefinitionHandle> UpdatedMethods(this EmitDifferenceResult _obj)
             => UpdatedMethodsGetterFunc(_obj);
     }

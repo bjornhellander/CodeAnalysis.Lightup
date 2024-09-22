@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 4.0.0.0.</summary>
     public readonly struct DocumentBasedFixAllProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Task<CodeAction> GetFixAsyncDelegate0(FixAllProvider? _obj, FixAllContext fixAllContext);
         private delegate IEnumerable<FixAllScope> GetSupportedFixAllScopesDelegate1(FixAllProvider? _obj);
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         public FixAllProvider? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly Task<CodeAction> GetFixAsync(FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0.</summary>
         public readonly IEnumerable<FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }

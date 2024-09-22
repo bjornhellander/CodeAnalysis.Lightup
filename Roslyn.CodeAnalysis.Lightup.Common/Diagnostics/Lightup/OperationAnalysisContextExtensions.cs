@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext.</summary>
     public static class OperationAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext";
-
-        public static readonly Type? WrappedType;
 
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(OperationAnalysisContext? _obj);
         private delegate SyntaxTree FilterTreeGetterDelegate(OperationAnalysisContext? _obj);
@@ -38,22 +36,22 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static OperationAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(WrappedType, nameof(FilterTree));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Nullable<TextSpan> FilterSpan(this OperationAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static SyntaxTree FilterTree(this OperationAnalysisContext _obj)
             => FilterTreeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsGeneratedCode(this OperationAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

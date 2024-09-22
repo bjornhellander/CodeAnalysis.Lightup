@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version </summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IAssemblySymbol.</summary>
     public static class IAssemblySymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
-
-        public static readonly Type? WrappedType;
 
         private delegate ImmutableArray<INamedTypeSymbol> GetForwardedTypesDelegate0(IAssemblySymbol? _obj);
 
@@ -34,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IAssemblySymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(WrappedType, nameof(GetForwardedTypes));
+            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, nameof(GetForwardedTypes));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ImmutableArray<INamedTypeSymbol> GetForwardedTypes(this IAssemblySymbol wrappedObject)
-            => GetForwardedTypesFunc0(wrappedObject);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ImmutableArray<INamedTypeSymbol> GetForwardedTypes(this IAssemblySymbol _obj)
+            => GetForwardedTypesFunc0(_obj);
     }
 }

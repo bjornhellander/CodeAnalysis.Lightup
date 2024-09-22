@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Struct added in Roslyn version </summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.Conversion.</summary>
     public static class ConversionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
-
-        public static readonly Type? WrappedType;
 
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(Conversion? _obj);
         private delegate Boolean IsCollectionExpressionGetterDelegate(Conversion? _obj);
@@ -49,47 +47,47 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static ConversionExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
-            IsCollectionExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(WrappedType, nameof(IsCollectionExpression));
-            IsConditionalExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(WrappedType, nameof(IsConditionalExpression));
-            IsDefaultLiteralGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(WrappedType, nameof(IsDefaultLiteral));
-            IsInlineArrayGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(WrappedType, nameof(IsInlineArray));
-            IsInterpolatedStringHandlerGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(WrappedType, nameof(IsInterpolatedStringHandler));
-            IsObjectCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(WrappedType, nameof(IsObjectCreation));
-            IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(WrappedType, nameof(IsSwitchExpression));
+            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsCollectionExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(wrappedType, nameof(IsCollectionExpression));
+            IsConditionalExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(wrappedType, nameof(IsConditionalExpression));
+            IsDefaultLiteralGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(wrappedType, nameof(IsDefaultLiteral));
+            IsInlineArrayGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
+            IsInterpolatedStringHandlerGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
+            IsObjectCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
+            IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static ITypeSymbol? ConstrainedToType(this Conversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Boolean IsCollectionExpression(this Conversion _obj)
             => IsCollectionExpressionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsConditionalExpression(this Conversion _obj)
             => IsConditionalExpressionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsDefaultLiteral(this Conversion _obj)
             => IsDefaultLiteralGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static Boolean IsInlineArray(this Conversion _obj)
             => IsInlineArrayGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0.</summary>
         public static Boolean IsInterpolatedStringHandler(this Conversion _obj)
             => IsInterpolatedStringHandlerGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public static Boolean IsObjectCreation(this Conversion _obj)
             => IsObjectCreationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static Boolean IsSwitchExpression(this Conversion _obj)
             => IsSwitchExpressionGetterFunc(_obj);
     }

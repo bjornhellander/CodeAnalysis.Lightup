@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.UnaryOperatorKind.</summary>
     public class UnaryOperatorKindEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0.</summary>
         public const UnaryOperatorKind Hat = (UnaryOperatorKind)7;
     }
 }

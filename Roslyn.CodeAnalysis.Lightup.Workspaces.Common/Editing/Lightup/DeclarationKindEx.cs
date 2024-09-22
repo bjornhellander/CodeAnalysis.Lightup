@@ -7,9 +7,10 @@
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.DeclarationKind.</summary>
     public class DeclarationKindEx
     {
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0.</summary>
         public const DeclarationKind RecordClass = (DeclarationKind)29;
     }
 }

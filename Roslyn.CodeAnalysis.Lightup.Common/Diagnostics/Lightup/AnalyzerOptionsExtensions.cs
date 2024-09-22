@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions.</summary>
     public static class AnalyzerOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions";
-
-        public static readonly Type? WrappedType;
 
         private delegate AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(AnalyzerOptions? _obj);
 
@@ -34,12 +32,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalyzerOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(WrappedType, nameof(AnalyzerConfigOptionsProvider));
+            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public static AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this AnalyzerOptions _obj)
             => AnalyzerConfigOptionsProviderGetterFunc(_obj);
     }

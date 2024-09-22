@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax.</summary>
     public static class ConstructorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate ConstructorDeclarationSyntax AddBodyAttributeListsDelegate0(ConstructorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 
@@ -35,13 +33,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ConstructorDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(WrappedType, nameof(AddBodyAttributeLists));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
-        public static ConstructorDeclarationSyntax AddBodyAttributeLists(this ConstructorDeclarationSyntax wrappedObject, params AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(wrappedObject, items);
+        /// <summary>Method added in version 3.8.0.0.</summary>
+        public static ConstructorDeclarationSyntax AddBodyAttributeLists(this ConstructorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+            => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

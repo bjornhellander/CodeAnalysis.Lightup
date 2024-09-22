@@ -25,12 +25,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
-    /// <summary>Struct added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Rename.SymbolRenameOptions. Added in version 4.4.0.0.</summary>
     public readonly struct SymbolRenameOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean RenameFileGetterDelegate(object? _obj);
         private delegate void RenameFileSetterDelegate(object? _obj, Boolean _value);
@@ -80,28 +80,28 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameFile
         {
             get => RenameFileGetterFunc(wrappedObject);
             set => RenameFileSetterFunc(wrappedObject, value);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameInComments
         {
             get => RenameInCommentsGetterFunc(wrappedObject);
             set => RenameInCommentsSetterFunc(wrappedObject, value);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameInStrings
         {
             get => RenameInStringsGetterFunc(wrappedObject);
             set => RenameInStringsSetterFunc(wrappedObject, value);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameOverloads
         {
             get => RenameOverloadsGetterFunc(wrappedObject);
@@ -120,11 +120,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly void Deconstruct(out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile)
             => DeconstructFunc0(wrappedObject, out RenameOverloads, out RenameInStrings, out RenameInComments, out RenameFile);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly Boolean Equals(SymbolRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }

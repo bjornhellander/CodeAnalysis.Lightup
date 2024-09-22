@@ -21,12 +21,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxNode.</summary>
     public static class SyntaxNodeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
-
-        public static readonly Type? WrappedType;
 
         private delegate Boolean ContainsDirectiveDelegate0(SyntaxNode? _obj, Int32 rawKind);
         private delegate Boolean IsIncrementallyIdenticalToDelegate1(SyntaxNode? _obj, SyntaxNode? other);
@@ -36,18 +34,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxNodeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(WrappedType, nameof(ContainsDirective));
-            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, nameof(ContainsDirective));
+            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static Boolean ContainsDirective(this SyntaxNode wrappedObject, Int32 rawKind)
-            => ContainsDirectiveFunc0(wrappedObject, rawKind);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static Boolean ContainsDirective(this SyntaxNode _obj, Int32 rawKind)
+            => ContainsDirectiveFunc0(_obj, rawKind);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode wrappedObject, SyntaxNode? other)
-            => IsIncrementallyIdenticalToFunc1(wrappedObject, other);
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode _obj, SyntaxNode? other)
+            => IsIncrementallyIdenticalToFunc1(_obj, other);
     }
 }

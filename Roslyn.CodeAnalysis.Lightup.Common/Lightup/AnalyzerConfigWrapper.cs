@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfig. Added in version 3.8.0.0.</summary>
     public readonly struct AnalyzerConfigWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate AnalyzerConfigWrapper ParseDelegate0(String text, String? pathToFile);
         private delegate AnalyzerConfigWrapper ParseDelegate1(SourceText text, String? pathToFile);
@@ -61,11 +61,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnalyzerConfigWrapper Parse(String text, String? pathToFile)
             => ParseFunc0(text, pathToFile);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public static AnalyzerConfigWrapper Parse(SourceText text, String? pathToFile)
             => ParseFunc1(text, pathToFile);
     }

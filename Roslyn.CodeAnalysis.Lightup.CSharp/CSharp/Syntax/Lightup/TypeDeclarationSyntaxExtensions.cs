@@ -22,12 +22,10 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version </summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax.</summary>
     public static class TypeDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax";
-
-        public static readonly Type? WrappedType;
 
         private delegate ParameterListSyntax? ParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
 
@@ -41,24 +39,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypeDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
+            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(WrappedType, nameof(AddParameterListParameters));
-            WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(WrappedType, nameof(WithParameterList));
+            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, nameof(AddParameterListParameters));
+            WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0.</summary>
         public static ParameterListSyntax? ParameterList(this TypeDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax wrappedObject, params ParameterSyntax[] items)
-            => AddParameterListParametersFunc0(wrappedObject, items);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax _obj, params ParameterSyntax[] items)
+            => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
-        public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax wrappedObject, ParameterListSyntax? parameterList)
-            => WithParameterListFunc1(wrappedObject, parameterList);
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+            => WithParameterListFunc1(_obj, parameterList);
     }
 }

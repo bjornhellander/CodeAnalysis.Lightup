@@ -21,12 +21,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Struct added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SyntaxValueProvider. Added in version 4.0.0.0.</summary>
     public readonly struct SyntaxValueProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxValueProvider";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private readonly object? wrappedObject;
 

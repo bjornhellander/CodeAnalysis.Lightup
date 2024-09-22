@@ -22,12 +22,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax. Added in version 3.8.0.0.</summary>
     public readonly struct DefaultConstraintSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DefaultConstraintSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken DefaultKeywordGetterDelegate(TypeParameterConstraintSyntax? _obj);
 
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly SyntaxToken DefaultKeyword
         {
             get => DefaultKeywordGetterFunc(wrappedObject);
@@ -80,15 +80,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public TypeParameterConstraintSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly DefaultConstraintSyntaxWrapper Update(SyntaxToken defaultKeyword)
             => UpdateFunc1(wrappedObject, defaultKeyword);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0.</summary>
         public readonly DefaultConstraintSyntaxWrapper WithDefaultKeyword(SyntaxToken defaultKeyword)
             => WithDefaultKeywordFunc2(wrappedObject, defaultKeyword);
     }
