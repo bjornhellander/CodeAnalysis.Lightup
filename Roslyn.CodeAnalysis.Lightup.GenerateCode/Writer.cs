@@ -583,8 +583,8 @@ internal class Writer
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
-        // TODO: Only add "Ex" for static classes?
-        var targetName = typeDef.Name + "Extensions";
+        var targetNameSuffix = typeDef is ClassTypeDefinition classDef && classDef.IsStatic ? "Ex" : "Extensions";
+        var targetName = typeDef.Name + targetNameSuffix;
 
         // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);

@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    public static class OperationExtensionsExtensions
+    public static class OperationExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly GetFunctionPointerSignatureDelegate0 GetFunctionPointerSignatureFunc0;
 
-        static OperationExtensionsExtensions()
+        static OperationExtensionsEx()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 

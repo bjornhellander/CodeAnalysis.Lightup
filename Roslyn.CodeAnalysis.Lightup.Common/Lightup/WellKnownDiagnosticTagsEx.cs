@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    public static class WellKnownDiagnosticTagsExtensions
+    public static class WellKnownDiagnosticTagsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
 
@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CustomObsoleteGetterDelegate CustomObsoleteGetterFunc;
         private static readonly CompilationEndGetterDelegate CompilationEndGetterFunc;
 
-        static WellKnownDiagnosticTagsExtensions()
+        static WellKnownDiagnosticTagsEx()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
