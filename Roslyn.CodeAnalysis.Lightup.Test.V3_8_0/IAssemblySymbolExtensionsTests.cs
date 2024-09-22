@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class IAssemblySymbolExtensionsTests : V3_0_0.IAssemblySymbolExtensionsTests
 {
     [TestMethod]
-    public override void TestGetForwardedTypesGivenNullObject()
+    public override void TestGetForwardedTypesGivenCompatibleObject()
     {
         var obj = CreateInstance();
         _ = IAssemblySymbolExtensions.GetForwardedTypes(obj);
