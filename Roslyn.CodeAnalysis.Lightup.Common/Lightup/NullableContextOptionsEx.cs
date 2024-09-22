@@ -7,20 +7,20 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
     [System.Flags]
     public enum NullableContextOptionsEx : System.Int32
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Disable = 0,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Warnings = 1,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Annotations = 2,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Enable = 3,
     }
 }

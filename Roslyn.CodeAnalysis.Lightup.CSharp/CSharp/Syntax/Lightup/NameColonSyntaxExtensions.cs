@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static ExpressionSyntax Expression(this NameColonSyntax _obj)
             => ExpressionGetterFunc(_obj);
     }

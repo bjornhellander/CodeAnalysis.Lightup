@@ -45,11 +45,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(WrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync)
             => CreateFunc0(fixAllAsync);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync, ImmutableArray<FixAllScope> supportedFixAllScopes)
             => CreateFunc1(fixAllAsync, supportedFixAllScopes);
     }

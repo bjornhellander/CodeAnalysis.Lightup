@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
     public readonly struct IImplicitIndexerReferenceOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation";
@@ -55,25 +55,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly IOperation Argument
         {
             get => ArgumentGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ISymbol IndexerSymbol
         {
             get => IndexerSymbolGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly IOperation Instance
         {
             get => InstanceGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ISymbol LengthSymbol
         {
             get => LengthSymbolGetterFunc(wrappedObject);

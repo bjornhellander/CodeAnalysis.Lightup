@@ -108,91 +108,91 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithProjectDefaultNamespaceFunc19 = LightupHelper.CreateInstanceMethodAccessor<WithProjectDefaultNamespaceDelegate19>(WrappedType, nameof(WithProjectDefaultNamespace));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this Solution _obj)
             => AnalyzerReferencesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static SolutionServicesWrapper Services(this Solution _obj)
             => ServicesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution AddAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
             => AddAdditionalDocumentsFunc0(_obj, documentInfos);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution AddAnalyzerConfigDocument(this Solution _obj, DocumentId documentId, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
             => AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution AddAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
             => AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution AddAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
             => AddAnalyzerReferenceFunc3(_obj, analyzerReference);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution AddAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
             => AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean ContainsAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
             => ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
             => GetAnalyzerConfigDocumentFunc6(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Solution _obj, DocumentId documentId, CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution RemoveAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveAdditionalDocumentsFunc8(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution RemoveAnalyzerConfigDocument(this Solution _obj, DocumentId documentId)
             => RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution RemoveAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution RemoveAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
             => RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution RemoveDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
             => RemoveDocumentsFunc12(_obj, documentIds);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, SourceText text, PreservationMode mode)
             => WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, TextAndVersion textAndVersion, PreservationMode mode)
             => WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithAnalyzerConfigDocumentTextLoader(this Solution _obj, DocumentId documentId, TextLoader loader, PreservationMode mode)
             => WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
             => WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithOptions(this Solution _obj, OptionSet options)
             => WithOptionsFunc17(_obj, options);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithProjectCompilationOutputInfo(this Solution _obj, ProjectId projectId, in CompilationOutputInfoWrapper info)
             => WithProjectCompilationOutputInfoFunc18(_obj, projectId, in info);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Solution WithProjectDefaultNamespace(this Solution _obj, ProjectId projectId, String? defaultNamespace)
             => WithProjectDefaultNamespaceFunc19(_obj, projectId, defaultNamespace);
     }

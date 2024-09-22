@@ -51,19 +51,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(WrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxTokenList Modifiers(this EnumMemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EnumMemberDeclarationSyntax AddModifiers(this EnumMemberDeclarationSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EnumMemberDeclarationSyntax Update(this EnumMemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken identifier, EqualsValueClauseSyntax? equalsValue)
             => UpdateFunc1(_obj, attributeLists, modifiers, identifier, equalsValue);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EnumMemberDeclarationSyntax WithModifiers(this EnumMemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc2(_obj, modifiers);
     }

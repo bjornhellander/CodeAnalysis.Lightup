@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static EditAndContinueMethodDebugInformation Create(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
             => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
     }

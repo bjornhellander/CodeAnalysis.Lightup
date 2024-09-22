@@ -9,16 +9,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     public class LanguageVersionEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         public const LanguageVersion CSharp9 = (LanguageVersion)900;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0 of Roslyn.</summary>
         public const LanguageVersion CSharp10 = (LanguageVersion)1000;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         public const LanguageVersion CSharp11 = (LanguageVersion)1100;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
         public const LanguageVersion CSharp12 = (LanguageVersion)1200;
     }
 }

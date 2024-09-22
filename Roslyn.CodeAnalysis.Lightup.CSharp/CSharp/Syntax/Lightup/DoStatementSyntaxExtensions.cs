@@ -51,19 +51,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(WrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this DoStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DoStatementSyntax AddAttributeLists(this DoStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DoStatementSyntax Update(this DoStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken doKeyword, StatementSyntax statement, SyntaxToken whileKeyword, SyntaxToken openParenToken, ExpressionSyntax condition, SyntaxToken closeParenToken, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, doKeyword, statement, whileKeyword, openParenToken, condition, closeParenToken, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DoStatementSyntax WithAttributeLists(this DoStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }

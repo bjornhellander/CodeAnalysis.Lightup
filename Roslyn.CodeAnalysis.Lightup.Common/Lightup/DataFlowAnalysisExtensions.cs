@@ -44,15 +44,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(WrappedType, nameof(UsedLocalFunctions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnEntry(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnEntryGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<ISymbol> DefinitelyAssignedOnExit(this DataFlowAnalysis _obj)
             => DefinitelyAssignedOnExitGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<IMethodSymbol> UsedLocalFunctions(this DataFlowAnalysis _obj)
             => UsedLocalFunctionsGetterFunc(_obj);
     }

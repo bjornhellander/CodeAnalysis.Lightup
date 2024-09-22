@@ -51,19 +51,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(WrappedType, nameof(WithSemicolonToken));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxToken SemicolonToken(this EventDeclarationSyntax _obj)
             => SemicolonTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EventDeclarationSyntax Update(this EventDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, SyntaxToken identifier, SyntaxToken semicolonToken)
             => UpdateFunc0(_obj, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EventDeclarationSyntax Update(this EventDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken eventKeyword, TypeSyntax type, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken identifier, AccessorListSyntax? accessorList, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, accessorList, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static EventDeclarationSyntax WithSemicolonToken(this EventDeclarationSyntax _obj, SyntaxToken semicolonToken)
             => WithSemicolonTokenFunc2(_obj, semicolonToken);
     }

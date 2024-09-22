@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Interface added in version 3.8.0.0 of Roslyn.</summary>
     public readonly struct IPropertySubpatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPropertySubpatternOperation";
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly IOperation Member
         {
             get => MemberGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly IPatternOperation Pattern
         {
             get => PatternGetterFunc(wrappedObject);

@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class SymbolKindEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         public const SymbolKind FunctionPointerType = (SymbolKind)20;
     }
 }

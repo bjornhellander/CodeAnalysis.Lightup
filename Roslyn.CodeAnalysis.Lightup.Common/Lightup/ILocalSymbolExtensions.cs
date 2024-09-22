@@ -47,19 +47,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsForEach(this ILocalSymbol _obj)
             => IsForEachGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsUsing(this ILocalSymbol _obj)
             => IsUsingGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx NullableAnnotation(this ILocalSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ScopedKindEx ScopedKind(this ILocalSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }

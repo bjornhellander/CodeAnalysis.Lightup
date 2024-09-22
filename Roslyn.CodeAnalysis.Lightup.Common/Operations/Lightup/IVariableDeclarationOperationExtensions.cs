@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<IOperation> IgnoredDimensions(this IVariableDeclarationOperation _obj)
             => IgnoredDimensionsGetterFunc(_obj);
     }

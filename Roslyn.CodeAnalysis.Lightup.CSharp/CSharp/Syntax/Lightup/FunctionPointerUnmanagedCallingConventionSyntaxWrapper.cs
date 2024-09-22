@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
     public readonly struct FunctionPointerUnmanagedCallingConventionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionSyntax";
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly SyntaxToken Name
         {
             get => NameGetterFunc(wrappedObject);
@@ -80,15 +80,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(SyntaxToken name)
             => UpdateFunc1(wrappedObject, name);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(SyntaxToken name)
             => WithNameFunc2(wrappedObject, name);
     }

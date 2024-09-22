@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Struct added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Struct added in version 3.8.0.0 of Roslyn.</summary>
     public readonly struct AdditionalFileAnalysisContextWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext";
@@ -64,31 +64,31 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly AdditionalText AdditionalFile
         {
             get => AdditionalFileGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly CancellationToken CancellationToken
         {
             get => CancellationTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly Compilation Compilation
         {
             get => CompilationGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public readonly Nullable<TextSpan> FilterSpan
         {
             get => FilterSpanGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly AnalyzerOptions Options
         {
             get => OptionsGetterFunc(wrappedObject);
@@ -106,7 +106,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public readonly void ReportDiagnostic(Diagnostic diagnostic)
             => ReportDiagnosticFunc0(wrappedObject, diagnostic);
     }

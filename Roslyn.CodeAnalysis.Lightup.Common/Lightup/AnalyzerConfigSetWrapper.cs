@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Class added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Class added in version 3.8.0.0 of Roslyn.</summary>
     public readonly struct AnalyzerConfigSetWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigSet";
@@ -52,7 +52,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public readonly AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
         {
             get => GlobalConfigOptionsGetterFunc(wrappedObject);
@@ -70,7 +70,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public object? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public readonly AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(String sourcePath)
             => GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
     }

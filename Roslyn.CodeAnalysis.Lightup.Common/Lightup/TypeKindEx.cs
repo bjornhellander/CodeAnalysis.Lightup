@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class TypeKindEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         public const TypeKind FunctionPointer = (TypeKind)13;
     }
 }

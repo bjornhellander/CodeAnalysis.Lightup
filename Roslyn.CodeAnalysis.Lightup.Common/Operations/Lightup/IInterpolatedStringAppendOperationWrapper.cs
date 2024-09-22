@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
     public readonly struct IInterpolatedStringAppendOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation";
@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly IOperation AppendCall
         {
             get => AppendCallGetterFunc(wrappedObject);

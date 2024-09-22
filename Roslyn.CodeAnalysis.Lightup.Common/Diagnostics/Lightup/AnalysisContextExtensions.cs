@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(WrappedType, nameof(RegisterAdditionalFileAction));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static void RegisterAdditionalFileAction(this AnalysisContext _obj, Action<AdditionalFileAnalysisContextWrapper> action)
             => RegisterAdditionalFileActionFunc0(_obj, action);
     }

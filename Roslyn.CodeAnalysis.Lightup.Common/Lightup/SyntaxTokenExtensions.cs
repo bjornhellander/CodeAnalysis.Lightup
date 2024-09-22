@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(WrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsIncrementallyIdenticalTo(this SyntaxToken _obj, SyntaxToken token)
             => IsIncrementallyIdenticalToFunc0(_obj, token);
     }

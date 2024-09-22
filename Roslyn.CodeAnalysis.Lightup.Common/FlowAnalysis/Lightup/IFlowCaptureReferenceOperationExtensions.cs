@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(WrappedType, nameof(IsInitialization));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsInitialization(this IFlowCaptureReferenceOperation _obj)
             => IsInitializationGetterFunc(_obj);
     }

@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.8.0.0</summary>
+    /// <summary>Class added in version 4.8.0.0 of Roslyn.</summary>
     public readonly struct SpreadElementSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SpreadElementSyntax";
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public readonly SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
@@ -92,19 +92,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public readonly SpreadElementSyntaxWrapper Update(SyntaxToken operatorToken, ExpressionSyntax expression)
             => UpdateFunc1(wrappedObject, operatorToken, expression);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public readonly SpreadElementSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc2(wrappedObject, expression);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public readonly SpreadElementSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
             => WithOperatorTokenFunc3(wrappedObject, operatorToken);
     }

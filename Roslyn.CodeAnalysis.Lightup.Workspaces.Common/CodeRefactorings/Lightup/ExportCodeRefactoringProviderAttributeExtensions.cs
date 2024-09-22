@@ -51,19 +51,19 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
             DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static String[]? DocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static void SetDocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj, String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static String[] DocumentKinds(this ExportCodeRefactoringProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static void SetDocumentKinds(this ExportCodeRefactoringProviderAttribute _obj, String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }

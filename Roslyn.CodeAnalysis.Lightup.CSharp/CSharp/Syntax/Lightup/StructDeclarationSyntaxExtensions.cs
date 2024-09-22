@@ -51,19 +51,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(WrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static ParameterListSyntax? ParameterList(this StructDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static StructDeclarationSyntax AddParameterListParameters(this StructDeclarationSyntax _obj, params ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static StructDeclarationSyntax Update(this StructDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static StructDeclarationSyntax WithParameterList(this StructDeclarationSyntax _obj, ParameterListSyntax? parameterList)
             => WithParameterListFunc2(_obj, parameterList);
     }

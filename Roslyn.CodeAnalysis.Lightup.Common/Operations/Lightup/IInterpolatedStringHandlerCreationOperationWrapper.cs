@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
     public readonly struct IInterpolatedStringHandlerCreationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation";
@@ -55,25 +55,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly IOperation Content
         {
             get => ContentGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly Boolean HandlerAppendCallsReturnBool
         {
             get => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly IOperation HandlerCreation
         {
             get => HandlerCreationGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly Boolean HandlerCreationHasSuccessParameter
         {
             get => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);

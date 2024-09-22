@@ -41,13 +41,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(WrappedType, nameof(CompilationEnd));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Field added in version 3.8.0.0 of Roslyn.</summary>
         public static String CustomObsolete
         {
             get => CustomObsoleteGetterFunc();
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Field added in version 4.0.0.0 of Roslyn.</summary>
         public static String CompilationEnd
         {
             get => CompilationEndGetterFunc();

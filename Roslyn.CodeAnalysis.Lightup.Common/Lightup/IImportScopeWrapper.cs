@@ -21,7 +21,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Interface added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Interface added in version 4.4.0.0 of Roslyn.</summary>
     public readonly struct IImportScopeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IImportScope";
@@ -55,25 +55,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ImmutableArray<IAliasSymbol> Aliases
         {
             get => AliasesGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ImmutableArray<IAliasSymbol> ExternAliases
         {
             get => ExternAliasesGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ImmutableArray<ImportedNamespaceOrTypeWrapper> Imports
         {
             get => ImportsGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public readonly ImmutableArray<ImportedXmlNamespaceWrapper> XmlNamespaces
         {
             get => XmlNamespacesGetterFunc(wrappedObject);

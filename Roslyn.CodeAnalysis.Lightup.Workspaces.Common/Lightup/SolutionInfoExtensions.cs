@@ -48,11 +48,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this SolutionInfo _obj)
             => AnalyzerReferencesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SolutionInfo Create(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
             => CreateFunc0(id, version, filePath, projects, analyzerReferences);
     }

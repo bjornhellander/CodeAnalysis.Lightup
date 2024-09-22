@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static ImmutableArray<TypeDefinitionHandle> ChangedTypes(this EmitDifferenceResult _obj)
             => ChangedTypesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static ImmutableArray<MethodDefinitionHandle> UpdatedMethods(this EmitDifferenceResult _obj)
             => UpdatedMethodsGetterFunc(_obj);
     }

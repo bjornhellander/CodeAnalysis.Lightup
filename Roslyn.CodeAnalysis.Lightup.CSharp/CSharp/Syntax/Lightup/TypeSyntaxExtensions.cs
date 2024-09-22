@@ -45,15 +45,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(WrappedType, nameof(IsNuint));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsNint(this TypeSyntax _obj)
             => IsNintGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsNotNull(this TypeSyntax _obj)
             => IsNotNullGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsNuint(this TypeSyntax _obj)
             => IsNuintGetterFunc(_obj);
     }

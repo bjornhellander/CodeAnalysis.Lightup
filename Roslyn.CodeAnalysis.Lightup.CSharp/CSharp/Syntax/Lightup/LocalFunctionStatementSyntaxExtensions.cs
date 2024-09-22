@@ -54,23 +54,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(WrappedType, nameof(WithAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this LocalFunctionStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static LocalFunctionStatementSyntax AddAttributeLists(this LocalFunctionStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static LocalFunctionStatementSyntax AddBodyAttributeLists(this LocalFunctionStatementSyntax _obj, params AttributeListSyntax[] items)
             => AddBodyAttributeListsFunc1(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static LocalFunctionStatementSyntax Update(this LocalFunctionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax parameterList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
             => UpdateFunc2(_obj, attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static LocalFunctionStatementSyntax WithAttributeLists(this LocalFunctionStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc3(_obj, attributeLists);
     }

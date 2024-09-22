@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IDiscardSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }

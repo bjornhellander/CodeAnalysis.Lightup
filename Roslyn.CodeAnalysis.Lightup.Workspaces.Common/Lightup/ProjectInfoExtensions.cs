@@ -57,23 +57,23 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(WrappedType, nameof(WithDefaultNamespace));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static IReadOnlyList<DocumentInfo> AnalyzerConfigDocuments(this ProjectInfo _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static CompilationOutputInfoWrapper CompilationOutputInfo(this ProjectInfo _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo _obj, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
             => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo _obj, in CompilationOutputInfoWrapper info)
             => WithCompilationOutputInfoFunc1(_obj, in info);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static ProjectInfo WithDefaultNamespace(this ProjectInfo _obj, String? defaultNamespace)
             => WithDefaultNamespaceFunc2(_obj, defaultNamespace);
     }

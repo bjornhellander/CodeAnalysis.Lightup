@@ -42,7 +42,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(WrappedType, nameof(RequestPriority));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static CodeActionRequestPriorityEx RequestPriority(this CodeFixProvider _obj)
             => RequestPriorityGetterFunc(_obj);
     }

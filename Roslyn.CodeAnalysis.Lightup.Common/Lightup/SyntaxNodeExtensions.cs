@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(WrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static Boolean ContainsDirective(this SyntaxNode _obj, Int32 rawKind)
             => ContainsDirectiveFunc0(_obj, rawKind);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode _obj, SyntaxNode? other)
             => IsIncrementallyIdenticalToFunc1(_obj, other);
     }

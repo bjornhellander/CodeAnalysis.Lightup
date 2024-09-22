@@ -62,35 +62,35 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(WrappedType, nameof(GetPdbFilePath));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<String> AnalyzerConfigPaths(this CommandLineArguments _obj)
             => AnalyzerConfigPathsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean EmitPdbFile(this CommandLineArguments _obj)
             => EmitPdbFileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ErrorLogOptionsWrapper ErrorLogOptions(this CommandLineArguments _obj)
             => ErrorLogOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static String? GeneratedFilesOutputDirectory(this CommandLineArguments _obj)
             => GeneratedFilesOutputDirectoryGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static Boolean ReportInternalsVisibleToAttributes(this CommandLineArguments _obj)
             => ReportInternalsVisibleToAttributesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean SkipAnalyzers(this CommandLineArguments _obj)
             => SkipAnalyzersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static String GetOutputFilePath(this CommandLineArguments _obj, String outputFileName)
             => GetOutputFilePathFunc0(_obj, outputFileName);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static String GetPdbFilePath(this CommandLineArguments _obj, String outputFileName)
             => GetPdbFilePathFunc1(_obj, outputFileName);
     }

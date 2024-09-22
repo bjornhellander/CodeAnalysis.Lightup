@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(WrappedType, nameof(WithParameterList));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static ParameterListSyntax? ParameterList(this TypeDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax _obj, params ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax _obj, ParameterListSyntax? parameterList)
             => WithParameterListFunc1(_obj, parameterList);
     }

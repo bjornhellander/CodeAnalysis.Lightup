@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(WrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges _obj)
             => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
     }

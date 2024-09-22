@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(WrappedType, nameof(GetUsedAssemblyReferences));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation _obj, CancellationToken cancellationToken)
             => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
     }

@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
     public enum GeneratedKindEx : System.Int32
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Unknown = 0,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         NotGenerated = 1,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         MarkedGenerated = 2,
     }
 }

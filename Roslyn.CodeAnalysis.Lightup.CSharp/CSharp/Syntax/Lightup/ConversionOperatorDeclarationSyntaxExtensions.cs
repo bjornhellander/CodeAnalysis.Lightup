@@ -60,31 +60,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(WrappedType, nameof(WithExplicitInterfaceSpecifier));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static SyntaxToken CheckedKeyword(this ConversionOperatorDeclarationSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifier(this ConversionOperatorDeclarationSyntax _obj)
             => ExplicitInterfaceSpecifierGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static ConversionOperatorDeclarationSyntax AddBodyAttributeLists(this ConversionOperatorDeclarationSyntax _obj, params AttributeListSyntax[] items)
             => AddBodyAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, type, parameterList, body, expressionBody, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ConversionOperatorDeclarationSyntax Update(this ConversionOperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken implicitOrExplicitKeyword, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, TypeSyntax type, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
             => UpdateFunc2(_obj, attributeLists, modifiers, implicitOrExplicitKeyword, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, type, parameterList, body, expressionBody, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ConversionOperatorDeclarationSyntax WithCheckedKeyword(this ConversionOperatorDeclarationSyntax _obj, SyntaxToken checkedKeyword)
             => WithCheckedKeywordFunc3(_obj, checkedKeyword);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ConversionOperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this ConversionOperatorDeclarationSyntax _obj, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
             => WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
     }

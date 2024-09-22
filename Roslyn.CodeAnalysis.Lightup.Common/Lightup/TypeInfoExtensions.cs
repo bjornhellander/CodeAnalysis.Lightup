@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(WrappedType, nameof(Nullability));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullabilityInfoWrapper ConvertedNullability(this TypeInfo _obj)
             => ConvertedNullabilityGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullabilityInfoWrapper Nullability(this TypeInfo _obj)
             => NullabilityGetterFunc(_obj);
     }

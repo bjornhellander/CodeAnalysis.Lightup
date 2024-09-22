@@ -57,27 +57,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate3>(WrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this MemberDeclarationSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxTokenList Modifiers(this MemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static MemberDeclarationSyntax AddAttributeLists(this MemberDeclarationSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static MemberDeclarationSyntax AddModifiers(this MemberDeclarationSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static MemberDeclarationSyntax WithAttributeLists(this MemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static MemberDeclarationSyntax WithModifiers(this MemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc3(_obj, modifiers);
     }

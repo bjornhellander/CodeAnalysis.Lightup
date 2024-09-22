@@ -53,27 +53,27 @@ namespace Microsoft.CodeAnalysis.Lightup
             RefKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(WrappedType, nameof(RefKind));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Int32 FixedSize(this IFieldSymbol _obj)
             => FixedSizeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsExplicitlyNamedTupleElement(this IFieldSymbol _obj)
             => IsExplicitlyNamedTupleElementGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsRequired(this IFieldSymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IFieldSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ImmutableArray<CustomModifier> RefCustomModifiers(this IFieldSymbol _obj)
             => RefCustomModifiersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static RefKind RefKind(this IFieldSymbol _obj)
             => RefKindGetterFunc(_obj);
     }

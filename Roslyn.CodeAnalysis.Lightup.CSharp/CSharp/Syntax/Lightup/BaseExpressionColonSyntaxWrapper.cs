@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
     public readonly struct BaseExpressionColonSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionColonSyntax";
@@ -59,13 +59,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken ColonToken
         {
             get => ColonTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
@@ -86,11 +86,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly BaseExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
             => WithColonTokenFunc0(wrappedObject, colonToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly BaseExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
             => WithExpressionFunc1(wrappedObject, expression);
     }

@@ -9,13 +9,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public class SpecialTypeEx
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         public const SpecialType System_Runtime_CompilerServices_RuntimeFeature = (SpecialType)44;
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         public const SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (SpecialType)45;
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Added in version 4.8.0.0 of Roslyn.</summary>
         public const SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (SpecialType)46;
     }
 }

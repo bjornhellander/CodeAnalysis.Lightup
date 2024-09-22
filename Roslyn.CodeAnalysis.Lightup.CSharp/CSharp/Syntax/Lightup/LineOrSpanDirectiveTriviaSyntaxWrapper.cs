@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
     public readonly struct LineOrSpanDirectiveTriviaSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineOrSpanDirectiveTriviaSyntax";
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken File
         {
             get => FileGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken LineKeyword
         {
             get => LineKeywordGetterFunc(wrappedObject);
@@ -92,19 +92,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public DirectiveTriviaSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
             => WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
             => WithFileFunc1(wrappedObject, file);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
             => WithHashTokenFunc2(wrappedObject, hashToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
             => WithLineKeywordFunc3(wrappedObject, lineKeyword);
     }

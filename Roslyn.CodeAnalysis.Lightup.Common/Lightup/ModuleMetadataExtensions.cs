@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(WrappedType, nameof(CreateFromMetadata));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ModuleMetadata CreateFromMetadata(IntPtr metadata, Int32 size, Action onDispose)
             => CreateFromMetadataFunc0(metadata, size, onDispose);
     }

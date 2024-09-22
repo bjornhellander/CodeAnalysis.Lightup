@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ITypeSymbol? ConstrainedToType(this CommonConversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsNullable(this CommonConversion _obj)
             => IsNullableGetterFunc(_obj);
     }

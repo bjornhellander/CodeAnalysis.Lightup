@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
     public enum TextDocumentKindEx : System.Int32
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Document = 0,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         AdditionalDocument = 1,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         AnalyzerConfigDocument = 2,
     }
 }

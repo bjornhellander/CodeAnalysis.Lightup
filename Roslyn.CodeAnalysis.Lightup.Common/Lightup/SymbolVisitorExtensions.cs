@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static void VisitFunctionPointerType(this SymbolVisitor _obj, IFunctionPointerTypeSymbolWrapper symbol)
             => VisitFunctionPointerTypeFunc0(_obj, symbol);
     }

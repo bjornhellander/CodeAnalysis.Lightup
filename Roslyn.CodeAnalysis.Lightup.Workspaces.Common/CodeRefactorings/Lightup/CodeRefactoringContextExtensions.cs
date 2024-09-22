@@ -42,7 +42,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
             TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static TextDocument TextDocument(this CodeRefactoringContext _obj)
             => TextDocumentGetterFunc(_obj);
     }

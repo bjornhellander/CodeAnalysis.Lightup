@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(WrappedType, nameof(WithTargetToken));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxToken TargetToken(this NullableDirectiveTriviaSyntax _obj)
             => TargetTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
             => UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax _obj, SyntaxToken targetToken)
             => WithTargetTokenFunc1(_obj, targetToken);
     }

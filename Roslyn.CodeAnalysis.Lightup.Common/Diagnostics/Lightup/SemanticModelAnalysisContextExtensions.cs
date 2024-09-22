@@ -44,15 +44,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static Nullable<TextSpan> FilterSpan(this SemanticModelAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static SyntaxTree FilterTree(this SemanticModelAnalysisContext _obj)
             => FilterTreeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsGeneratedCode(this SemanticModelAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }

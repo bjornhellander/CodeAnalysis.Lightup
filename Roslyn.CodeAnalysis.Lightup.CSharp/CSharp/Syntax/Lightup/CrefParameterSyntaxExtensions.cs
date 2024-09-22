@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(WrappedType, nameof(WithReadOnlyKeyword));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static SyntaxToken ReadOnlyKeyword(this CrefParameterSyntax _obj)
             => ReadOnlyKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static CrefParameterSyntax Update(this CrefParameterSyntax _obj, SyntaxToken refKindKeyword, SyntaxToken readOnlyKeyword, TypeSyntax type)
             => UpdateFunc0(_obj, refKindKeyword, readOnlyKeyword, type);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static CrefParameterSyntax WithReadOnlyKeyword(this CrefParameterSyntax _obj, SyntaxToken readOnlyKeyword)
             => WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
     }

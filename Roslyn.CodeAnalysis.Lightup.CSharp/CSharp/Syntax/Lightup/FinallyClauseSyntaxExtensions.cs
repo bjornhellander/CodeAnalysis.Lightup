@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax _obj, params AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc0(_obj, items);
     }

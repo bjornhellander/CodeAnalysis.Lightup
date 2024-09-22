@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(WrappedType, nameof(WithCheckedKeyword));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static SyntaxToken CheckedKeyword(this ConversionOperatorMemberCrefSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ConversionOperatorMemberCrefSyntax Update(this ConversionOperatorMemberCrefSyntax _obj, SyntaxToken implicitOrExplicitKeyword, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, TypeSyntax type, CrefParameterListSyntax? parameters)
             => UpdateFunc0(_obj, implicitOrExplicitKeyword, operatorKeyword, checkedKeyword, type, parameters);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ConversionOperatorMemberCrefSyntax WithCheckedKeyword(this ConversionOperatorMemberCrefSyntax _obj, SyntaxToken checkedKeyword)
             => WithCheckedKeywordFunc1(_obj, checkedKeyword);
     }

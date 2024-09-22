@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static ControlFlowGraph Create(IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
             => CreateFunc0(attribute, cancellationToken);
     }

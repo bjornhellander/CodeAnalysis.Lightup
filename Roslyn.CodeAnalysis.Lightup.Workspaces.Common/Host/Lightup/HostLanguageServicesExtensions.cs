@@ -42,7 +42,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(WrappedType, nameof(LanguageServices));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static LanguageServicesWrapper LanguageServices(this HostLanguageServices _obj)
             => LanguageServicesGetterFunc(_obj);
     }

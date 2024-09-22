@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static Location Create(String filePath, TextSpan textSpan, LinePositionSpan lineSpan, String mappedFilePath, LinePositionSpan mappedLineSpan)
             => CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
     }

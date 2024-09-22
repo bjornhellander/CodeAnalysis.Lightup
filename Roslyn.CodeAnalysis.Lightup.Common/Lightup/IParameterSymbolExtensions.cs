@@ -44,15 +44,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsDiscard(this IParameterSymbol _obj)
             => IsDiscardGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IParameterSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ScopedKindEx ScopedKind(this IParameterSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }

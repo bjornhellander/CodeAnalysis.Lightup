@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableContextOptionsEx NullableContextOptions(this CSharpCompilationOptions _obj)
             => NullableContextOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static CSharpCompilationOptions WithNullableContextOptions(this CSharpCompilationOptions _obj, NullableContextOptionsEx options)
             => WithNullableContextOptionsFunc0(_obj, options);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this CSharpCompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
             => WithSyntaxTreeOptionsProviderFunc1(_obj, provider);
     }

@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsAsynchronous(this IForEachLoopOperation _obj)
             => IsAsynchronousGetterFunc(_obj);
     }

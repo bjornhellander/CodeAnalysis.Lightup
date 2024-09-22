@@ -22,7 +22,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Class added in Roslyn version 4.0.0.0</summary>
+    /// <summary>Class added in version 4.0.0.0 of Roslyn.</summary>
     public readonly struct LineSpanDirectiveTriviaSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineSpanDirectiveTriviaSyntax";
@@ -107,55 +107,55 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken CharacterOffset
         {
             get => CharacterOffsetGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineDirectivePositionSyntaxWrapper End
         {
             get => EndGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken EndOfDirectiveToken
         {
             get => EndOfDirectiveTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken File
         {
             get => FileGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken HashToken
         {
             get => HashTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly Boolean IsActive
         {
             get => IsActiveGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken LineKeyword
         {
             get => LineKeywordGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly SyntaxToken MinusToken
         {
             get => MinusTokenGetterFunc(wrappedObject);
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineDirectivePositionSyntaxWrapper Start
         {
             get => StartGetterFunc(wrappedObject);
@@ -176,47 +176,47 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public DirectiveTriviaSyntax? Unwrap()
             => wrappedObject;
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly void Accept(CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper Update(SyntaxToken hashToken, SyntaxToken lineKeyword, LineDirectivePositionSyntaxWrapper start, SyntaxToken minusToken, LineDirectivePositionSyntaxWrapper end, SyntaxToken characterOffset, SyntaxToken file, SyntaxToken endOfDirectiveToken, Boolean isActive)
             => UpdateFunc1(wrappedObject, hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithCharacterOffset(SyntaxToken characterOffset)
             => WithCharacterOffsetFunc2(wrappedObject, characterOffset);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithEnd(LineDirectivePositionSyntaxWrapper end)
             => WithEndFunc3(wrappedObject, end);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
             => WithEndOfDirectiveTokenFunc4(wrappedObject, endOfDirectiveToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
             => WithFileFunc5(wrappedObject, file);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
             => WithHashTokenFunc6(wrappedObject, hashToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithIsActive(Boolean isActive)
             => WithIsActiveFunc7(wrappedObject, isActive);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
             => WithLineKeywordFunc8(wrappedObject, lineKeyword);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithMinusToken(SyntaxToken minusToken)
             => WithMinusTokenFunc9(wrappedObject, minusToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public readonly LineSpanDirectiveTriviaSyntaxWrapper WithStart(LineDirectivePositionSyntaxWrapper start)
             => WithStartFunc10(wrappedObject, start);
     }

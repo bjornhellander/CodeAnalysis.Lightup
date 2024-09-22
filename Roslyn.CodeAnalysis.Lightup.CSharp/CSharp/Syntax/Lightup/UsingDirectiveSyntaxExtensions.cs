@@ -63,35 +63,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(WrappedType, nameof(WithUnsafeKeyword));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static SyntaxToken GlobalKeyword(this UsingDirectiveSyntax _obj)
             => GlobalKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static TypeSyntax NamespaceOrType(this UsingDirectiveSyntax _obj)
             => NamespaceOrTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static SyntaxToken UnsafeKeyword(this UsingDirectiveSyntax _obj)
             => UnsafeKeywordGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, NameEqualsSyntax? alias, NameSyntax name, SyntaxToken semicolonToken)
             => UpdateFunc0(_obj, globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, SyntaxToken unsafeKeyword, NameEqualsSyntax? alias, TypeSyntax namespaceOrType, SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static UsingDirectiveSyntax WithGlobalKeyword(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword)
             => WithGlobalKeywordFunc2(_obj, globalKeyword);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static UsingDirectiveSyntax WithNamespaceOrType(this UsingDirectiveSyntax _obj, TypeSyntax namespaceOrType)
             => WithNamespaceOrTypeFunc3(_obj, namespaceOrType);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static UsingDirectiveSyntax WithUnsafeKeyword(this UsingDirectiveSyntax _obj, SyntaxToken unsafeKeyword)
             => WithUnsafeKeywordFunc4(_obj, unsafeKeyword);
     }

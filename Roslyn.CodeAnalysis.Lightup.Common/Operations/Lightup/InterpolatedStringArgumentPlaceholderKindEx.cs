@@ -7,16 +7,16 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Enum added in Roslyn version 4.4.0.0</summary>
+    /// <summary>Enum added in version 4.4.0.0 of Roslyn.</summary>
     public enum InterpolatedStringArgumentPlaceholderKindEx : System.Int32
     {
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         CallsiteArgument = 0,
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         CallsiteReceiver = 1,
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         TrailingValidityArgument = 2,
     }
 }

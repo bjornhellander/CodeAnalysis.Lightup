@@ -71,51 +71,51 @@ namespace Microsoft.CodeAnalysis.Lightup
             SupportsRuntimeCapabilityFunc11 = LightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate11>(WrappedType, nameof(SupportsRuntimeCapability));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static INamedTypeSymbol CreateAnonymousTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations)
             => CreateAnonymousTypeSymbolFunc0(_obj, memberTypes, memberNames, memberIsReadOnly, memberLocations, memberNullableAnnotations);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IArrayTypeSymbol CreateArrayTypeSymbol(this Compilation _obj, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation)
             => CreateArrayTypeSymbolFunc1(_obj, elementType, rank, elementNullableAnnotation);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol operandType)
             => CreateBuiltinOperatorFunc2(_obj, name, returnType, operandType);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol leftType, ITypeSymbol rightType)
             => CreateBuiltinOperatorFunc3(_obj, name, returnType, leftType, rightType);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbol(this Compilation _obj, ITypeSymbol returnType, RefKind returnRefKind, ImmutableArray<ITypeSymbol> parameterTypes, ImmutableArray<RefKind> parameterRefKinds, SignatureCallingConvention callingConvention, ImmutableArray<INamedTypeSymbol> callingConventionTypes)
             => CreateFunctionPointerTypeSymbolFunc4(_obj, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static INamedTypeSymbol CreateNativeIntegerTypeSymbol(this Compilation _obj, Boolean signed)
             => CreateNativeIntegerTypeSymbolFunc5(_obj, signed);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> elementTypes, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
             => CreateTupleTypeSymbolFunc6(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, INamedTypeSymbol underlyingType, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
             => CreateTupleTypeSymbolFunc7(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static EmitDifferenceResult EmitDifference(this Compilation _obj, EmitBaseline baseline, IEnumerable<SemanticEdit> edits, Func<ISymbol, Boolean> isAddedSymbol, Stream metadataStream, Stream ilStream, Stream pdbStream, CancellationToken cancellationToken)
             => EmitDifferenceFunc8(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ImmutableArray<INamedTypeSymbol> GetTypesByMetadataName(this Compilation _obj, String fullyQualifiedMetadataName)
             => GetTypesByMetadataNameFunc9(_obj, fullyQualifiedMetadataName);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this Compilation _obj, CancellationToken cancellationToken)
             => GetUsedAssemblyReferencesFunc10(_obj, cancellationToken);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static Boolean SupportsRuntimeCapability(this Compilation _obj, RuntimeCapabilityEx capability)
             => SupportsRuntimeCapabilityFunc11(_obj, capability);
     }

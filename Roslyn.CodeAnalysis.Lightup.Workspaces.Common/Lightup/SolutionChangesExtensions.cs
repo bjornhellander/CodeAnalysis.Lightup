@@ -45,11 +45,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(WrappedType, nameof(GetRemovedAnalyzerReferences));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges _obj)
             => GetAddedAnalyzerReferencesFunc0(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges _obj)
             => GetRemovedAnalyzerReferencesFunc1(_obj);
     }

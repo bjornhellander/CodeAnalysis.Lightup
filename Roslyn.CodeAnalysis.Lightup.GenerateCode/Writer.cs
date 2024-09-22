@@ -1084,32 +1084,35 @@ internal class Writer
     {
         if (typeDef.AssemblyVersion != null)
         {
-            sb.AppendLine($"    /// <summary>{GetTypeKind(typeDef)} added in Roslyn version {typeDef.AssemblyVersion}</summary>");
+            var kind = typeDef switch
+            {
+                EnumTypeDefinition => "Enum",
+                ClassTypeDefinition => "Class",
+                InterfaceTypeDefinition => "Interface",
+                StructTypeDefinition => "Struct",
+                _ => throw new NotImplementedException(),
+            };
+            sb.AppendLine($"    /// <summary>{kind} added in version {typeDef.AssemblyVersion} of Roslyn.</summary>");
         }
     }
 
     private static void AppendEnumValueSummary(StringBuilder sb, EnumValueDefinition valueDef)
     {
         Assert.IsTrue(valueDef.AssemblyVersion != null, "Unexpected assembly version");
-        sb.AppendLine($"        /// <summary>Added in Roslyn version {valueDef.AssemblyVersion}</summary>");
+        sb.AppendLine($"        /// <summary>Added in version {valueDef.AssemblyVersion} of Roslyn.</summary>");
     }
 
     private static void AppendMemberSummary(StringBuilder sb, MemberDefinition memberDef)
     {
         Assert.IsTrue(memberDef.AssemblyVersion != null, "Unexpected assembly version");
-        sb.AppendLine($"        /// <summary>Added in Roslyn version {memberDef.AssemblyVersion}</summary>");
-    }
-
-    private static string GetTypeKind(BaseTypeDefinition typeDef)
-    {
-        return typeDef switch
+        string kind = memberDef switch
         {
-            EnumTypeDefinition => "Enum",
-            ClassTypeDefinition => "Class",
-            InterfaceTypeDefinition => "Interface",
-            StructTypeDefinition => "Struct",
+            FieldDefinition => "Field",
+            PropertyDefinition => "Property",
+            MethodDefinition => "Method",
             _ => throw new NotImplementedException(),
         };
+        sb.AppendLine($"        /// <summary>{kind} added in version {memberDef.AssemblyVersion} of Roslyn.</summary>");
     }
 
     private static void AppendStaticFieldDelegateDeclarations(

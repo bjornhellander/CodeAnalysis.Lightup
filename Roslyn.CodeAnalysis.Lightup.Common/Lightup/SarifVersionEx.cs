@@ -7,19 +7,19 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Enum added in Roslyn version 3.8.0.0</summary>
+    /// <summary>Enum added in version 3.8.0.0 of Roslyn.</summary>
     public enum SarifVersionEx : System.Int32
     {
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Sarif1 = 1,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Default = 1,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Sarif2 = 2,
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Added in version 3.8.0.0 of Roslyn.</summary>
         Latest = 2147483647,
     }
 }

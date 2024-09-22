@@ -42,7 +42,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(WrappedType, nameof(LoadTextAndVersionAsync));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>
         public static Task<TextAndVersion> LoadTextAndVersionAsync(this TextLoader _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken)
             => LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
     }

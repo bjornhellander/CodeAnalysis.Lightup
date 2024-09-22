@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(WrappedType, nameof(Instrumentation));
         }
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static MethodInstrumentationWrapper Instrumentation(this SemanticEdit _obj)
             => InstrumentationGetterFunc(_obj);
     }

@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(WrappedType, nameof(AdditionalFileDiagnostics));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableDictionary<AdditionalText, ImmutableDictionary<DiagnosticAnalyzer, ImmutableArray<Diagnostic>>> AdditionalFileDiagnostics(this AnalysisResult _obj)
             => AdditionalFileDiagnosticsGetterFunc(_obj);
     }

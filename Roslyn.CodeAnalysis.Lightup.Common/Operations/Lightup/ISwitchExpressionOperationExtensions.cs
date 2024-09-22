@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsExhaustive(this ISwitchExpressionOperation _obj)
             => IsExhaustiveGetterFunc(_obj);
     }

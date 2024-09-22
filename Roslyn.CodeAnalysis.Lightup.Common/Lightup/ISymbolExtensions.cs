@@ -44,11 +44,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Int32 MetadataToken(this ISymbol _obj)
             => MetadataTokenGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean Equals(this ISymbol _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
             => EqualsFunc0(_obj, other, equalityComparer);
     }

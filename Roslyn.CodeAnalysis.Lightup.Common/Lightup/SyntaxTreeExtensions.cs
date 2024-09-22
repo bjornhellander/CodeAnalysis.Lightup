@@ -47,15 +47,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(WrappedType, nameof(WithDiagnosticOptions));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptions(this SyntaxTree _obj)
             => DiagnosticOptionsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree _obj, CancellationToken cancellationToken)
             => GetLineMappingsFunc0(_obj, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxTree WithDiagnosticOptions(this SyntaxTree _obj, ImmutableDictionary<String, ReportDiagnostic> options)
             => WithDiagnosticOptionsFunc1(_obj, options);
     }

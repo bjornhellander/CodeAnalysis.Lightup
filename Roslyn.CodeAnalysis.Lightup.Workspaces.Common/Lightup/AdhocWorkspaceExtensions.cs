@@ -45,11 +45,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static void CloseAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId)
             => CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static void OpenAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId, Boolean activate)
             => OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
     }

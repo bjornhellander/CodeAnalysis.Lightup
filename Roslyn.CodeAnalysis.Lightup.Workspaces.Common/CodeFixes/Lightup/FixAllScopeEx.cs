@@ -9,10 +9,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     public class FixAllScopeEx
     {
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         public const FixAllScope ContainingMember = (FixAllScope)4;
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Added in version 4.4.0.0 of Roslyn.</summary>
         public const FixAllScope ContainingType = (FixAllScope)5;
     }
 }

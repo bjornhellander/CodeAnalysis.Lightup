@@ -48,15 +48,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(WrappedType, nameof(WithExpressionColon));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static BaseExpressionColonSyntaxWrapper ExpressionColon(this SubpatternSyntax _obj)
             => ExpressionColonGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static SubpatternSyntax Update(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
             => UpdateFunc0(_obj, expressionColon, pattern);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon)
             => WithExpressionColonFunc1(_obj, expressionColon);
     }

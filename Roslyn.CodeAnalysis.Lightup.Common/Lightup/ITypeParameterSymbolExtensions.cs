@@ -44,15 +44,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(WrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotations(this ITypeParameterSymbol _obj)
             => ConstraintNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean HasNotNullConstraint(this ITypeParameterSymbol _obj)
             => HasNotNullConstraintGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this ITypeParameterSymbol _obj)
             => ReferenceTypeConstraintNullableAnnotationGetterFunc(_obj);
     }

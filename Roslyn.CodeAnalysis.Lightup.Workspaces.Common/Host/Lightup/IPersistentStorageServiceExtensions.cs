@@ -42,7 +42,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(WrappedType, nameof(GetStorageAsync));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService _obj, Solution solution, CancellationToken cancellationToken)
             => GetStorageAsyncFunc0(_obj, solution, cancellationToken);
     }

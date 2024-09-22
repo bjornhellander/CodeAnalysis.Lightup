@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(WrappedType, nameof(GetNullableContext));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel _obj, Int32 position, CancellationToken cancellationToken)
             => GetImportScopesFunc0(_obj, position, cancellationToken);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableContextEx GetNullableContext(this SemanticModel _obj, Int32 position)
             => GetNullableContextFunc1(_obj, position);
     }

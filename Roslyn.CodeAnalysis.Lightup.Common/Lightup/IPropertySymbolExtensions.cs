@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsRequired(this IPropertySymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx NullableAnnotation(this IPropertySymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }

@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(WrappedType, nameof(ReferencedCompilerVersion));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Version? ReferencedCompilerVersion(this AnalyzerLoadFailureEventArgs _obj)
             => ReferencedCompilerVersionGetterFunc(_obj);
     }

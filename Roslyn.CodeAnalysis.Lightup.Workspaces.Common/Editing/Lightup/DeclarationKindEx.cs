@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
     public class DeclarationKindEx
     {
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Added in version 4.0.0.0 of Roslyn.</summary>
         public const DeclarationKind RecordClass = (DeclarationKind)29;
     }
 }

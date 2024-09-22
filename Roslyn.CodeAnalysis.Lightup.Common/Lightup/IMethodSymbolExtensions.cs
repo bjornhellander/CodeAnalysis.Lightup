@@ -71,47 +71,47 @@ namespace Microsoft.CodeAnalysis.Lightup
             ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SignatureCallingConvention CallingConvention(this IMethodSymbol _obj)
             => CallingConventionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsConditional(this IMethodSymbol _obj)
             => IsConditionalGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsInitOnly(this IMethodSymbol _obj)
             => IsInitOnlyGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsPartialDefinition(this IMethodSymbol _obj)
             => IsPartialDefinitionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsReadOnly(this IMethodSymbol _obj)
             => IsReadOnlyGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static MethodImplAttributes MethodImplementationFlags(this IMethodSymbol _obj)
             => MethodImplementationFlagsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx ReceiverNullableAnnotation(this IMethodSymbol _obj)
             => ReceiverNullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static NullableAnnotationEx ReturnNullableAnnotation(this IMethodSymbol _obj)
             => ReturnNullableAnnotationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this IMethodSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<INamedTypeSymbol> UnmanagedCallingConventionTypes(this IMethodSymbol _obj)
             => UnmanagedCallingConventionTypesGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static IMethodSymbol Construct(this IMethodSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
             => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }

@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ITypeSymbol? ConstrainedToType(this IUnaryOperation _obj)
             => ConstrainedToTypeGetterFunc(_obj);
     }

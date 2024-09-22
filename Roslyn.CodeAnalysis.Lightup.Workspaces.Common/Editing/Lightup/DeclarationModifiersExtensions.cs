@@ -84,55 +84,55 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static DeclarationModifiers Extern()
             => ExternGetterFunc();
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static DeclarationModifiers File()
             => FileGetterFunc();
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static DeclarationModifiers Required()
             => RequiredGetterFunc();
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static DeclarationModifiers Volatile()
             => VolatileGetterFunc();
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsExtern(this DeclarationModifiers _obj)
             => IsExternGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsFile(this DeclarationModifiers _obj)
             => IsFileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsRequired(this DeclarationModifiers _obj)
             => IsRequiredGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsVolatile(this DeclarationModifiers _obj)
             => IsVolatileGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DeclarationModifiers WithIsExtern(this DeclarationModifiers _obj, Boolean isExtern)
             => WithIsExternFunc0(_obj, isExtern);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static DeclarationModifiers WithIsFile(this DeclarationModifiers _obj, Boolean isFile)
             => WithIsFileFunc1(_obj, isFile);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DeclarationModifiers WithIsRef(this DeclarationModifiers _obj, Boolean isRef)
             => WithIsRefFunc2(_obj, isRef);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static DeclarationModifiers WithIsRequired(this DeclarationModifiers _obj, Boolean isRequired)
             => WithIsRequiredFunc3(_obj, isRequired);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers _obj, Boolean isVolatile)
             => WithIsVolatileFunc4(_obj, isVolatile);
     }

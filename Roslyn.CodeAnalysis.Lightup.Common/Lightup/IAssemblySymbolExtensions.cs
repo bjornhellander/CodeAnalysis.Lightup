@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(WrappedType, nameof(GetForwardedTypes));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static ImmutableArray<INamedTypeSymbol> GetForwardedTypes(this IAssemblySymbol _obj)
             => GetForwardedTypesFunc0(_obj);
     }

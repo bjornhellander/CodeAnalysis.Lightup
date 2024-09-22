@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(WrappedType, nameof(GetFunctionPointerSignature), true);
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>
         public static IMethodSymbol GetFunctionPointerSignature(this IFunctionPointerInvocationOperationWrapper functionPointer)
             => GetFunctionPointerSignatureFunc0(functionPointer);
     }

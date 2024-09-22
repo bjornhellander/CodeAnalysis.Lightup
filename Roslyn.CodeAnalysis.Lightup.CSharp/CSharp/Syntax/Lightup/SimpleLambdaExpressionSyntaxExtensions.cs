@@ -84,63 +84,63 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(WrappedType, nameof(WithModifiers));
         }
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static SyntaxList<AttributeListSyntax> AttributeLists(this SimpleLambdaExpressionSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static BlockSyntax? Block(this SimpleLambdaExpressionSyntax _obj)
             => BlockGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static ExpressionSyntax? ExpressionBody(this SimpleLambdaExpressionSyntax _obj)
             => ExpressionBodyGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static SyntaxTokenList Modifiers(this SimpleLambdaExpressionSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax AddAttributeLists(this SimpleLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax AddBlockAttributeLists(this SimpleLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc1(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax AddBlockStatements(this SimpleLambdaExpressionSyntax _obj, params StatementSyntax[] items)
             => AddBlockStatementsFunc2(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax AddModifiers(this SimpleLambdaExpressionSyntax _obj, params SyntaxToken[] items)
             => AddModifiersFunc3(_obj, items);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
             => UpdateFunc4(_obj, modifiers, parameter, arrowToken, block, expressionBody);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxToken asyncKeyword, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
             => UpdateFunc5(_obj, asyncKeyword, parameter, arrowToken, block, expressionBody);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
             => UpdateFunc6(_obj, attributeLists, modifiers, parameter, arrowToken, block, expressionBody);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax WithAttributeLists(this SimpleLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc7(_obj, attributeLists);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax WithBlock(this SimpleLambdaExpressionSyntax _obj, BlockSyntax? block)
             => WithBlockFunc8(_obj, block);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax WithExpressionBody(this SimpleLambdaExpressionSyntax _obj, ExpressionSyntax? expressionBody)
             => WithExpressionBodyFunc9(_obj, expressionBody);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>
         public static SimpleLambdaExpressionSyntax WithModifiers(this SimpleLambdaExpressionSyntax _obj, SyntaxTokenList modifiers)
             => WithModifiersFunc10(_obj, modifiers);
     }

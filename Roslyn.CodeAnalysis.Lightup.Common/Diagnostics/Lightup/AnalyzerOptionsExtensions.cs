@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(WrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this AnalyzerOptions _obj)
             => AnalyzerConfigOptionsProviderGetterFunc(_obj);
     }

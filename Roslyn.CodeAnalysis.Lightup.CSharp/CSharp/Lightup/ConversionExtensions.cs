@@ -60,35 +60,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(WrappedType, nameof(IsSwitchExpression));
         }
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static ITypeSymbol? ConstrainedToType(this Conversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static Boolean IsCollectionExpression(this Conversion _obj)
             => IsCollectionExpressionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsConditionalExpression(this Conversion _obj)
             => IsConditionalExpressionGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsDefaultLiteral(this Conversion _obj)
             => IsDefaultLiteralGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.8.0.0</summary>
+        /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>
         public static Boolean IsInlineArray(this Conversion _obj)
             => IsInlineArrayGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.0.0.0</summary>
+        /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
         public static Boolean IsInterpolatedStringHandler(this Conversion _obj)
             => IsInterpolatedStringHandlerGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 4.4.0.0</summary>
+        /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>
         public static Boolean IsObjectCreation(this Conversion _obj)
             => IsObjectCreationGetterFunc(_obj);
 
-        /// <summary>Added in Roslyn version 3.8.0.0</summary>
+        /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>
         public static Boolean IsSwitchExpression(this Conversion _obj)
             => IsSwitchExpressionGetterFunc(_obj);
     }
