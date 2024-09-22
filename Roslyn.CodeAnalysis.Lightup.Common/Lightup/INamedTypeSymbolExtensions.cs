@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsFileLocalGetterDelegate(INamedTypeSymbol? _obj);
         private delegate INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(INamedTypeSymbol? _obj);
         private delegate ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(INamedTypeSymbol? _obj);
@@ -41,13 +39,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static INamedTypeSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(WrappedType, nameof(IsFileLocal));
-            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(WrappedType, nameof(NativeIntegerUnderlyingType));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
+            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
+            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

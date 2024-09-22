@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsDiscardGetterDelegate(IParameterSymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IParameterSymbol? _obj);
         private delegate ScopedKindEx ScopedKindGetterDelegate(IParameterSymbol? _obj);
@@ -37,11 +35,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IParameterSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(WrappedType, nameof(IsDiscard));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(wrappedType, nameof(IsDiscard));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

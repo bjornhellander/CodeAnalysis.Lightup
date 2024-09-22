@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeActions.CodeAction";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate CodeActionPriorityEx PriorityGetterDelegate(CodeAction? _obj);
 
         private delegate CodeAction CreateDelegate0(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable);
@@ -47,14 +45,14 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
         static CodeActionExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(WrappedType, nameof(Priority));
+            PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(wrappedType, nameof(Priority));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(WrappedType, nameof(Create));
-            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(WrappedType, nameof(Create));
-            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(WrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
+            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, nameof(Create));
+            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, nameof(Create));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

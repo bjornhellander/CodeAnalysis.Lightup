@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate BlockSyntax? BlockGetterDelegate(AnonymousFunctionExpressionSyntax? _obj);
         private delegate ExpressionSyntax? ExpressionBodyGetterDelegate(AnonymousFunctionExpressionSyntax? _obj);
         private delegate SyntaxTokenList ModifiersGetterDelegate(AnonymousFunctionExpressionSyntax? _obj);
@@ -52,18 +50,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static AnonymousFunctionExpressionSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            BlockGetterFunc = LightupHelper.CreateInstanceGetAccessor<BlockGetterDelegate>(WrappedType, nameof(Block));
-            ExpressionBodyGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(WrappedType, nameof(ExpressionBody));
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            BlockGetterFunc = LightupHelper.CreateInstanceGetAccessor<BlockGetterDelegate>(wrappedType, nameof(Block));
+            ExpressionBodyGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
-            AddBlockStatementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate1>(WrappedType, nameof(AddBlockStatements));
-            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(WrappedType, nameof(AddModifiers));
-            WithBlockFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate3>(WrappedType, nameof(WithBlock));
-            WithExpressionBodyFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate4>(WrappedType, nameof(WithExpressionBody));
-            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(WrappedType, nameof(WithModifiers));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, nameof(AddBlockAttributeLists));
+            AddBlockStatementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate1>(wrappedType, nameof(AddBlockStatements));
+            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, nameof(AddModifiers));
+            WithBlockFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate3>(wrappedType, nameof(WithBlock));
+            WithExpressionBodyFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate4>(wrappedType, nameof(WithExpressionBody));
+            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(wrappedType, nameof(WithModifiers));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

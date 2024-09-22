@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<TypeDefinitionHandle> ChangedTypesGetterDelegate(EmitDifferenceResult? _obj);
         private delegate ImmutableArray<MethodDefinitionHandle> UpdatedMethodsGetterDelegate(EmitDifferenceResult? _obj);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EmitDifferenceResultExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(WrappedType, nameof(ChangedTypes));
-            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(WrappedType, nameof(UpdatedMethods));
+            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(wrappedType, nameof(ChangedTypes));
+            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(wrappedType, nameof(UpdatedMethods));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>

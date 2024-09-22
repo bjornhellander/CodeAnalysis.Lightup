@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate TextDocument TextDocumentGetterDelegate(CodeFixContext? _obj);
 
         private static readonly TextDocumentGetterDelegate TextDocumentGetterFunc;
 
         static CodeFixContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
+            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

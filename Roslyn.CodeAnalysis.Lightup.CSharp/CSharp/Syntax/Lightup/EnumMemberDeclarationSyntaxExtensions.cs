@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate SyntaxTokenList ModifiersGetterDelegate(EnumMemberDeclarationSyntax? _obj);
 
         private delegate EnumMemberDeclarationSyntax AddModifiersDelegate0(EnumMemberDeclarationSyntax? _obj, params SyntaxToken[] items);
@@ -42,13 +40,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static EnumMemberDeclarationSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(WrappedType, nameof(AddModifiers));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(WrappedType, nameof(WithModifiers));
+            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, nameof(AddModifiers));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, nameof(WithModifiers));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

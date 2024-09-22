@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate IReadOnlyList<AnalyzerReference> AnalyzerReferencesGetterDelegate(SolutionInfo? _obj);
 
         private delegate SolutionInfo CreateDelegate0(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences);
@@ -41,11 +39,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SolutionInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(WrappedType, nameof(AnalyzerReferences));
+            AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(wrappedType, nameof(AnalyzerReferences));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

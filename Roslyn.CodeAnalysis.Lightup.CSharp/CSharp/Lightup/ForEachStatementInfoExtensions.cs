@@ -26,17 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsAsynchronousGetterDelegate(ForEachStatementInfo? _obj);
 
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 
         static ForEachStatementInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

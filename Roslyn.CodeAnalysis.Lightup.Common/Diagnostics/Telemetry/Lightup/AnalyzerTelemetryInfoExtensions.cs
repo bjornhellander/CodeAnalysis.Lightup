@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Int32 AdditionalFileActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
         private delegate void AdditionalFileActionsCountSetterDelegate(AnalyzerTelemetryInfo? _obj, Int32 _value);
         private delegate Int32 SuppressionActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
@@ -39,12 +37,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 
         static AnalyzerTelemetryInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(WrappedType, nameof(AdditionalFileActionsCount));
-            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
-            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(WrappedType, nameof(SuppressionActionsCount));
+            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
+            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

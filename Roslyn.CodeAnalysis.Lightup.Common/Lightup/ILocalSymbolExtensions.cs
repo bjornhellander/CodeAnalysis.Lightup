@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsForEachGetterDelegate(ILocalSymbol? _obj);
         private delegate Boolean IsUsingGetterDelegate(ILocalSymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(ILocalSymbol? _obj);
@@ -39,12 +37,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ILocalSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(WrappedType, nameof(IsForEach));
-            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(WrappedType, nameof(IsUsing));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(WrappedType, nameof(ScopedKind));
+            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
+            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

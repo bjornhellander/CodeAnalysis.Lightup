@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ValueTask<IPersistentStorage> GetStorageAsyncDelegate0(IPersistentStorageService? _obj, Solution solution, CancellationToken cancellationToken);
 
         private static readonly GetStorageAsyncDelegate0 GetStorageAsyncFunc0;
 
         static IPersistentStorageServiceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(WrappedType, nameof(GetStorageAsync));
+            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, nameof(GetStorageAsync));
         }
 
         /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>

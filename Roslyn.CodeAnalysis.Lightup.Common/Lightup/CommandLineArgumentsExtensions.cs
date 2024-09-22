@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<String> AnalyzerConfigPathsGetterDelegate(CommandLineArguments? _obj);
         private delegate Boolean EmitPdbFileGetterDelegate(CommandLineArguments? _obj);
         private delegate ErrorLogOptionsWrapper ErrorLogOptionsGetterDelegate(CommandLineArguments? _obj);
@@ -49,17 +47,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CommandLineArgumentsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(WrappedType, nameof(AnalyzerConfigPaths));
-            EmitPdbFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(WrappedType, nameof(EmitPdbFile));
-            ErrorLogOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(WrappedType, nameof(ErrorLogOptions));
-            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(WrappedType, nameof(GeneratedFilesOutputDirectory));
-            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(WrappedType, nameof(ReportInternalsVisibleToAttributes));
-            SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(WrappedType, nameof(SkipAnalyzers));
+            AnalyzerConfigPathsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(wrappedType, nameof(AnalyzerConfigPaths));
+            EmitPdbFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
+            ErrorLogOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
+            GeneratedFilesOutputDirectoryGetterFunc = LightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
+            ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
+            SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
 
-            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(WrappedType, nameof(GetOutputFilePath));
-            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(WrappedType, nameof(GetPdbFilePath));
+            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, nameof(GetOutputFilePath));
+            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, nameof(GetPdbFilePath));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

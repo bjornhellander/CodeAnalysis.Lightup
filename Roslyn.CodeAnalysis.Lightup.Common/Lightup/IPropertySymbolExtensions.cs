@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsRequiredGetterDelegate(IPropertySymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IPropertySymbol? _obj);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IPropertySymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

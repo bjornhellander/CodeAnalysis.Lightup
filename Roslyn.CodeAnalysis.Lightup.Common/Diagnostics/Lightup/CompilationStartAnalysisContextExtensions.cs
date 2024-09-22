@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate void RegisterAdditionalFileActionDelegate0(CompilationStartAnalysisContext? _obj, Action<AdditionalFileAnalysisContextWrapper> action);
 
         private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
 
         static CompilationStartAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(WrappedType, nameof(RegisterAdditionalFileAction));
+            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, nameof(RegisterAdditionalFileAction));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

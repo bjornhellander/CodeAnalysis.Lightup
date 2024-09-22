@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean CanApplyCompilationOptionChangeDelegate0(Workspace? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
         private delegate Boolean CanApplyParseOptionChangeDelegate1(Workspace? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
         private delegate void CloseAnalyzerConfigDocumentDelegate2(Workspace? _obj, DocumentId documentId);
@@ -43,12 +41,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WorkspaceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(WrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(WrappedType, nameof(CanApplyParseOptionChange));
-            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, nameof(CanApplyCompilationOptionChange));
+            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, nameof(CanApplyParseOptionChange));
+            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
         /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>

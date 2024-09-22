@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate LanguageServicesWrapper LanguageServicesGetterDelegate(HostLanguageServices? _obj);
 
         private static readonly LanguageServicesGetterDelegate LanguageServicesGetterFunc;
 
         static HostLanguageServicesExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(WrappedType, nameof(LanguageServices));
+            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(wrappedType, nameof(LanguageServices));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

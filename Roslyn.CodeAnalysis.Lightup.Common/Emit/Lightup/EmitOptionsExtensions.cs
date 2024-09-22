@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Encoding? DefaultSourceFileEncodingGetterDelegate(EmitOptions? _obj);
         private delegate Encoding? FallbackSourceFileEncodingGetterDelegate(EmitOptions? _obj);
 
@@ -41,13 +39,13 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EmitOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(WrappedType, nameof(DefaultSourceFileEncoding));
-            FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(WrappedType, nameof(FallbackSourceFileEncoding));
+            DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
+            FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
 
-            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(WrappedType, nameof(WithDefaultSourceFileEncoding));
-            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(WrappedType, nameof(WithFallbackSourceFileEncoding));
+            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, nameof(WithDefaultSourceFileEncoding));
+            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, nameof(WithFallbackSourceFileEncoding));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

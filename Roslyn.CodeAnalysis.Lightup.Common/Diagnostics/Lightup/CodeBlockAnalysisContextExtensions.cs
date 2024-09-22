@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CodeBlockAnalysisContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(CodeBlockAnalysisContext? _obj);
         private delegate SyntaxTree FilterTreeGetterDelegate(CodeBlockAnalysisContext? _obj);
         private delegate Boolean IsGeneratedCodeGetterDelegate(CodeBlockAnalysisContext? _obj);
@@ -37,11 +35,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static CodeBlockAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(WrappedType, nameof(FilterTree));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

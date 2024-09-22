@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate DeclarationModifiers ExternGetterDelegate();
         private delegate DeclarationModifiers FileGetterDelegate();
         private delegate DeclarationModifiers RequiredGetterDelegate();
@@ -65,23 +63,23 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         static DeclarationModifiersExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(WrappedType, nameof(Extern));
-            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
-            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(WrappedType, nameof(Required));
-            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(WrappedType, nameof(Volatile));
+            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
+            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
+            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
+            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
 
-            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(WrappedType, nameof(IsExtern));
-            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(WrappedType, nameof(IsFile));
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(WrappedType, nameof(IsRequired));
-            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(WrappedType, nameof(IsVolatile));
+            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
+            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
+            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(WrappedType, nameof(WithIsExtern));
-            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(WrappedType, nameof(WithIsFile));
-            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(WrappedType, nameof(WithIsRef));
-            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(WrappedType, nameof(WithIsRequired));
-            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(WrappedType, nameof(WithIsVolatile));
+            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, nameof(WithIsExtern));
+            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, nameof(WithIsFile));
+            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, nameof(WithIsRef));
+            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, nameof(WithIsRequired));
+            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, nameof(WithIsVolatile));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

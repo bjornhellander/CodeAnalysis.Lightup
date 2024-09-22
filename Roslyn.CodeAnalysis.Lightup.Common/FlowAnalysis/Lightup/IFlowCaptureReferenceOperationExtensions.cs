@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsInitializationGetterDelegate(IFlowCaptureReferenceOperation? _obj);
 
         private static readonly IsInitializationGetterDelegate IsInitializationGetterFunc;
 
         static IFlowCaptureReferenceOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(WrappedType, nameof(IsInitialization));
+            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(wrappedType, nameof(IsInitialization));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

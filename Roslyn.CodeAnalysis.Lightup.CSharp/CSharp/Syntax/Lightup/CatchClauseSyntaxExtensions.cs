@@ -26,17 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate CatchClauseSyntax AddBlockAttributeListsDelegate0(CatchClauseSyntax? _obj, params AttributeListSyntax[] items);
 
         private static readonly AddBlockAttributeListsDelegate0 AddBlockAttributeListsFunc0;
 
         static CatchClauseSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(WrappedType, nameof(AddBlockAttributeLists));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, nameof(AddBlockAttributeLists));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

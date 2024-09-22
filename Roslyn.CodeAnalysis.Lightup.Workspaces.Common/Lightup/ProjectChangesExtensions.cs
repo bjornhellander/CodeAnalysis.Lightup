@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate IEnumerable<DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(ProjectChanges? _obj);
         private delegate IEnumerable<DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(ProjectChanges? _obj);
         private delegate IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(ProjectChanges? _obj);
@@ -41,11 +39,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectChangesExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(WrappedType, nameof(GetAddedAnalyzerConfigDocuments));
-            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(WrappedType, nameof(GetChangedAnalyzerConfigDocuments));
-            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(WrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
+            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, nameof(GetAddedAnalyzerConfigDocuments));
+            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, nameof(GetChangedAnalyzerConfigDocuments));
+            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate NullableContextOptionsEx NullableContextOptionsGetterDelegate(CompilationOptions? _obj);
         private delegate SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(CompilationOptions? _obj);
 
@@ -39,12 +37,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CompilationOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(WrappedType, nameof(NullableContextOptions));
-            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(WrappedType, nameof(SyntaxTreeOptionsProvider));
+            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
+            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
-            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(WrappedType, nameof(WithSyntaxTreeOptionsProvider));
+            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, nameof(WithSyntaxTreeOptionsProvider));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

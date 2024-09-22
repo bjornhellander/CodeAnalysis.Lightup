@@ -26,17 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<MetadataReference> GetUsedAssemblyReferencesDelegate0(CSharpCompilation? _obj, CancellationToken cancellationToken);
 
         private static readonly GetUsedAssemblyReferencesDelegate0 GetUsedAssemblyReferencesFunc0;
 
         static CSharpCompilationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(WrappedType, nameof(GetUsedAssemblyReferences));
+            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, nameof(GetUsedAssemblyReferences));
         }
 
         /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>

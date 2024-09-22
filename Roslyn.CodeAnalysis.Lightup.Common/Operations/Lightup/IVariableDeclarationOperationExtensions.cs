@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<IOperation> IgnoredDimensionsGetterDelegate(IVariableDeclarationOperation? _obj);
 
         private static readonly IgnoredDimensionsGetterDelegate IgnoredDimensionsGetterFunc;
 
         static IVariableDeclarationOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(WrappedType, nameof(IgnoredDimensions));
+            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(wrappedType, nameof(IgnoredDimensions));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate SyntaxToken TargetTokenGetterDelegate(NullableDirectiveTriviaSyntax? _obj);
 
         private delegate NullableDirectiveTriviaSyntax UpdateDelegate0(NullableDirectiveTriviaSyntax? _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive);
@@ -40,12 +38,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static NullableDirectiveTriviaSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(WrappedType, nameof(TargetToken));
+            TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(wrappedType, nameof(TargetToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(WrappedType, nameof(WithTargetToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, nameof(WithTargetToken));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

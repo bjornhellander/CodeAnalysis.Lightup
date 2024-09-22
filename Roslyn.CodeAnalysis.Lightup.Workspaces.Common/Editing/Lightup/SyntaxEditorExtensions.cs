@@ -29,11 +29,9 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxEditor";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         static SyntaxEditorExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
         }
     }
 }

@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisResult";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableDictionary<AdditionalText, ImmutableDictionary<DiagnosticAnalyzer, ImmutableArray<Diagnostic>>> AdditionalFileDiagnosticsGetterDelegate(AnalysisResult? _obj);
 
         private static readonly AdditionalFileDiagnosticsGetterDelegate AdditionalFileDiagnosticsGetterFunc;
 
         static AnalysisResultExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(WrappedType, nameof(AdditionalFileDiagnostics));
+            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(wrappedType, nameof(AdditionalFileDiagnostics));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

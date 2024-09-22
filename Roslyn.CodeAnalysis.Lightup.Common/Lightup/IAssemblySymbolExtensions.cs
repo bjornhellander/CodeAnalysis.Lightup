@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<INamedTypeSymbol> GetForwardedTypesDelegate0(IAssemblySymbol? _obj);
 
         private static readonly GetForwardedTypesDelegate0 GetForwardedTypesFunc0;
 
         static IAssemblySymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(WrappedType, nameof(GetForwardedTypes));
+            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, nameof(GetForwardedTypes));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

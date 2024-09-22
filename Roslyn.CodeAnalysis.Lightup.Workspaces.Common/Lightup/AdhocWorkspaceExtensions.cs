@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate void CloseAnalyzerConfigDocumentDelegate0(AdhocWorkspace? _obj, DocumentId? documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate1(AdhocWorkspace? _obj, DocumentId? documentId, Boolean activate);
 
@@ -39,10 +37,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static AdhocWorkspaceExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(WrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(WrappedType, nameof(OpenAnalyzerConfigDocument));
+            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, nameof(CloseAnalyzerConfigDocument));
+            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, nameof(OpenAnalyzerConfigDocument));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

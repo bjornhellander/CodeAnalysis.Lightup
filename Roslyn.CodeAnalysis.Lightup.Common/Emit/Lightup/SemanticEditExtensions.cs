@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate MethodInstrumentationWrapper InstrumentationGetterDelegate(SemanticEdit? _obj);
 
         private static readonly InstrumentationGetterDelegate InstrumentationGetterFunc;
 
         static SemanticEditExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(WrappedType, nameof(Instrumentation));
+            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

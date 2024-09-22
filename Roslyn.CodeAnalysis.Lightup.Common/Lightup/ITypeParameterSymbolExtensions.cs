@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(ITypeParameterSymbol? _obj);
         private delegate Boolean HasNotNullConstraintGetterDelegate(ITypeParameterSymbol? _obj);
         private delegate NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(ITypeParameterSymbol? _obj);
@@ -37,11 +35,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ITypeParameterSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(WrappedType, nameof(ConstraintNullableAnnotations));
-            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(WrappedType, nameof(HasNotNullConstraint));
-            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(WrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
+            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
+            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
+            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

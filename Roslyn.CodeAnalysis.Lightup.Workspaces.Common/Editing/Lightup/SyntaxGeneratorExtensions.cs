@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxGenerator";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate SyntaxNode ConditionalAccessExpressionDelegate0(SyntaxGenerator? _obj, SyntaxNode expression, SyntaxNode whenNotNull);
         private delegate SyntaxNode ElementBindingExpressionDelegate1(SyntaxGenerator? _obj, IEnumerable<SyntaxNode> arguments);
         private delegate SyntaxNode ElementBindingExpressionDelegate2(SyntaxGenerator? _obj, params SyntaxNode[] arguments);
@@ -43,12 +41,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         static SyntaxGeneratorExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConditionalAccessExpressionFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(WrappedType, nameof(ConditionalAccessExpression));
-            ElementBindingExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(WrappedType, nameof(ElementBindingExpression));
-            ElementBindingExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(WrappedType, nameof(ElementBindingExpression));
-            MemberBindingExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(WrappedType, nameof(MemberBindingExpression));
+            ConditionalAccessExpressionFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(wrappedType, nameof(ConditionalAccessExpression));
+            ElementBindingExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(wrappedType, nameof(ElementBindingExpression));
+            ElementBindingExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(wrappedType, nameof(ElementBindingExpression));
+            MemberBindingExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(wrappedType, nameof(MemberBindingExpression));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

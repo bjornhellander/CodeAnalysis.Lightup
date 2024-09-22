@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(AnalyzerOptions? _obj);
 
         private static readonly AnalyzerConfigOptionsProviderGetterDelegate AnalyzerConfigOptionsProviderGetterFunc;
 
         static AnalyzerOptionsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(WrappedType, nameof(AnalyzerConfigOptionsProvider));
+            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

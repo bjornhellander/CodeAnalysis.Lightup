@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ModuleMetadata CreateFromMetadataDelegate0(IntPtr metadata, Int32 size, Action onDispose);
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
 
         static ModuleMetadataExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(WrappedType, nameof(CreateFromMetadata));
+            CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, nameof(CreateFromMetadata));
         }
 
         /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>

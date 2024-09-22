@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(CommonConversion? _obj);
         private delegate Boolean IsNullableGetterDelegate(CommonConversion? _obj);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static CommonConversionExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
-            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
+            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

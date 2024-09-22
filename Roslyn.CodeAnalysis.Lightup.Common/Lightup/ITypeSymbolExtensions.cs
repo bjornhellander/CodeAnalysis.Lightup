@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsNativeIntegerTypeGetterDelegate(ITypeSymbol? _obj);
         private delegate Boolean IsReadOnlyGetterDelegate(ITypeSymbol? _obj);
         private delegate Boolean IsRecordGetterDelegate(ITypeSymbol? _obj);
@@ -51,18 +49,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ITypeSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsNativeIntegerTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNativeIntegerTypeGetterDelegate>(WrappedType, nameof(IsNativeIntegerType));
-            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(WrappedType, nameof(IsReadOnly));
-            IsRecordGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(WrappedType, nameof(IsRecord));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            IsNativeIntegerTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNativeIntegerTypeGetterDelegate>(wrappedType, nameof(IsNativeIntegerType));
+            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
+            IsRecordGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
 
-            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(WrappedType, nameof(ToDisplayParts));
-            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(WrappedType, nameof(ToDisplayString));
-            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(WrappedType, nameof(ToMinimalDisplayParts));
-            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(WrappedType, nameof(ToMinimalDisplayString));
-            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(WrappedType, nameof(WithNullableAnnotation));
+            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, nameof(ToDisplayParts));
+            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, nameof(ToDisplayString));
+            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, nameof(ToMinimalDisplayParts));
+            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, nameof(ToMinimalDisplayString));
+            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, nameof(WithNullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

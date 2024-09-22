@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate SignatureCallingConvention CallingConventionGetterDelegate(IMethodSymbol? _obj);
         private delegate Boolean IsConditionalGetterDelegate(IMethodSymbol? _obj);
         private delegate Boolean IsInitOnlyGetterDelegate(IMethodSymbol? _obj);
@@ -55,20 +53,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IMethodSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(WrappedType, nameof(CallingConvention));
-            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(WrappedType, nameof(IsConditional));
-            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(WrappedType, nameof(IsInitOnly));
-            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(WrappedType, nameof(IsPartialDefinition));
-            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(WrappedType, nameof(IsReadOnly));
-            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(WrappedType, nameof(MethodImplementationFlags));
-            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(WrappedType, nameof(ReceiverNullableAnnotation));
-            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(WrappedType, nameof(ReturnNullableAnnotation));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(WrappedType, nameof(TypeArgumentNullableAnnotations));
-            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(WrappedType, nameof(UnmanagedCallingConventionTypes));
+            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(wrappedType, nameof(CallingConvention));
+            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(wrappedType, nameof(IsConditional));
+            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(wrappedType, nameof(IsInitOnly));
+            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
+            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
+            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
+            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(wrappedType, nameof(ReceiverNullableAnnotation));
+            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(wrappedType, nameof(ReturnNullableAnnotation));
+            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
+            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(WrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

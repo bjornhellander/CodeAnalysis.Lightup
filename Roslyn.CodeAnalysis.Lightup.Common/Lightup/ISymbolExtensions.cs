@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Int32 MetadataTokenGetterDelegate(ISymbol? _obj);
 
         private delegate Boolean EqualsDelegate0(ISymbol? _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer);
@@ -37,11 +35,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ISymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(WrappedType, nameof(MetadataToken));
+            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, nameof(Equals));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>

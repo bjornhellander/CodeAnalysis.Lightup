@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(SyntaxTreeAnalysisContext? _obj);
         private delegate Boolean IsGeneratedCodeGetterDelegate(SyntaxTreeAnalysisContext? _obj);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static SyntaxTreeAnalysisContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(WrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

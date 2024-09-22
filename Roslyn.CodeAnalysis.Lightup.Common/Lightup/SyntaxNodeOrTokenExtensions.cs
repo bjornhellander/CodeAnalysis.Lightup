@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrToken";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsIncrementallyIdenticalToDelegate0(SyntaxNodeOrToken? _obj, SyntaxNodeOrToken other);
 
         private static readonly IsIncrementallyIdenticalToDelegate0 IsIncrementallyIdenticalToFunc0;
 
         static SyntaxNodeOrTokenExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
         /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>

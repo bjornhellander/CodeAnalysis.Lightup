@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsInputRedirectedGetterDelegate(CommandLineSourceFile? _obj);
 
         private static readonly IsInputRedirectedGetterDelegate IsInputRedirectedGetterFunc;
 
         static CommandLineSourceFileExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(WrappedType, nameof(IsInputRedirected));
+            IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

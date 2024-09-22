@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate CommonForEachStatementSyntax AddAttributeListsDelegate0(CommonForEachStatementSyntax? _obj, params AttributeListSyntax[] items);
         private delegate CommonForEachStatementSyntax WithAttributeListsDelegate1(CommonForEachStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
 
@@ -36,10 +34,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CommonForEachStatementSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(WrappedType, nameof(WithAttributeLists));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
+            WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, nameof(WithAttributeLists));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean ContainsDirectiveDelegate0(SyntaxNode? _obj, Int32 rawKind);
         private delegate Boolean IsIncrementallyIdenticalToDelegate1(SyntaxNode? _obj, SyntaxNode? other);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxNodeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(WrappedType, nameof(ContainsDirective));
-            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(WrappedType, nameof(IsIncrementallyIdenticalTo));
+            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, nameof(ContainsDirective));
+            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, nameof(IsIncrementallyIdenticalTo));
         }
 
         /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>

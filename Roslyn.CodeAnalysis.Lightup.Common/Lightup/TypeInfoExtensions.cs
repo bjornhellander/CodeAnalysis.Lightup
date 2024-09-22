@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TypeInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate NullabilityInfoWrapper ConvertedNullabilityGetterDelegate(TypeInfo? _obj);
         private delegate NullabilityInfoWrapper NullabilityGetterDelegate(TypeInfo? _obj);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static TypeInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(WrappedType, nameof(ConvertedNullability));
-            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(WrappedType, nameof(Nullability));
+            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(wrappedType, nameof(ConvertedNullability));
+            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(wrappedType, nameof(Nullability));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

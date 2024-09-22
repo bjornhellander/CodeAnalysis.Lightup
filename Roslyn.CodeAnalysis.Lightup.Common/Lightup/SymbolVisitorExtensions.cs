@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate void VisitFunctionPointerTypeDelegate0(SymbolVisitor? _obj, IFunctionPointerTypeSymbolWrapper symbol);
 
         private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
 
         static SymbolVisitorExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(WrappedType, nameof(VisitFunctionPointerType));
+            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, nameof(VisitFunctionPointerType));
         }
 
         /// <summary>Method added in version 3.8.0.0 of Roslyn.</summary>

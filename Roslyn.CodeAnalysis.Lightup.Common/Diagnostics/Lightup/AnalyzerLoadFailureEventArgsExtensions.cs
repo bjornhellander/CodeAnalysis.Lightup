@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Version? ReferencedCompilerVersionGetterDelegate(AnalyzerLoadFailureEventArgs? _obj);
 
         private static readonly ReferencedCompilerVersionGetterDelegate ReferencedCompilerVersionGetterFunc;
 
         static AnalyzerLoadFailureEventArgsExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(WrappedType, nameof(ReferencedCompilerVersion));
+            ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(wrappedType, nameof(ReferencedCompilerVersion));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

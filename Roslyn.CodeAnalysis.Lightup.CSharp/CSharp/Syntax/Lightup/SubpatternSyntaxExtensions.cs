@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate BaseExpressionColonSyntaxWrapper ExpressionColonGetterDelegate(SubpatternSyntax? _obj);
 
         private delegate SubpatternSyntax UpdateDelegate0(SubpatternSyntax? _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern);
@@ -40,12 +38,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static SubpatternSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(WrappedType, nameof(ExpressionColon));
+            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(wrappedType, nameof(ExpressionColon));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(WrappedType, nameof(WithExpressionColon));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, nameof(WithExpressionColon));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>

@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FileTextLoader";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Task<TextAndVersion> LoadTextAndVersionAsyncDelegate0(FileTextLoader? _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken);
 
         private static readonly LoadTextAndVersionAsyncDelegate0 LoadTextAndVersionAsyncFunc0;
 
         static FileTextLoaderExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(WrappedType, nameof(LoadTextAndVersionAsync));
+            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, nameof(LoadTextAndVersionAsync));
         }
 
         /// <summary>Method added in version 4.8.0.0 of Roslyn.</summary>

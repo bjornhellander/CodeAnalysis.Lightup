@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeRefactoringProviderAttribute? _obj);
         private delegate void DocumentExtensionsSetterDelegate(ExportCodeRefactoringProviderAttribute? _obj, String[]? _value);
         private delegate String[] DocumentKindsGetterDelegate(ExportCodeRefactoringProviderAttribute? _obj);
@@ -43,12 +41,12 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         static ExportCodeRefactoringProviderAttributeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(WrappedType, nameof(DocumentKinds));
-            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
+            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(wrappedType, nameof(DocumentKinds));
+            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

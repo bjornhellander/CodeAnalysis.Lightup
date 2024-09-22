@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate SyntaxToken GlobalKeywordGetterDelegate(UsingDirectiveSyntax? _obj);
         private delegate TypeSyntax NamespaceOrTypeGetterDelegate(UsingDirectiveSyntax? _obj);
         private delegate SyntaxToken UnsafeKeywordGetterDelegate(UsingDirectiveSyntax? _obj);
@@ -50,17 +48,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static UsingDirectiveSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GlobalKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalKeywordGetterDelegate>(WrappedType, nameof(GlobalKeyword));
-            NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
-            UnsafeKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(WrappedType, nameof(UnsafeKeyword));
+            GlobalKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalKeywordGetterDelegate>(wrappedType, nameof(GlobalKeyword));
+            NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(wrappedType, nameof(NamespaceOrType));
+            UnsafeKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(wrappedType, nameof(UnsafeKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(WrappedType, nameof(WithGlobalKeyword));
-            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(WrappedType, nameof(WithNamespaceOrType));
-            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(WrappedType, nameof(WithUnsafeKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
+            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(wrappedType, nameof(WithGlobalKeyword));
+            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(wrappedType, nameof(WithNamespaceOrType));
+            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, nameof(WithUnsafeKeyword));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>

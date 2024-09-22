@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate IReadOnlyList<DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(ProjectInfo? _obj);
         private delegate CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(ProjectInfo? _obj);
 
@@ -47,14 +45,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectInfoExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(WrappedType, nameof(AnalyzerConfigDocuments));
-            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(WrappedType, nameof(CompilationOutputInfo));
+            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
+            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
 
-            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(WrappedType, nameof(WithAnalyzerConfigDocuments));
-            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(WrappedType, nameof(WithCompilationOutputInfo));
-            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(WrappedType, nameof(WithDefaultNamespace));
+            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, nameof(WithAnalyzerConfigDocuments));
+            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, nameof(WithCompilationOutputInfo));
+            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, nameof(WithDefaultNamespace));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

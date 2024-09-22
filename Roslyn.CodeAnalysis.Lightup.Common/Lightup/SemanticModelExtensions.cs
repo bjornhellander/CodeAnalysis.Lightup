@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<IImportScopeWrapper> GetImportScopesDelegate0(SemanticModel? _obj, Int32 position, CancellationToken cancellationToken);
         private delegate NullableContextEx GetNullableContextDelegate1(SemanticModel? _obj, Int32 position);
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SemanticModelExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(WrappedType, nameof(GetImportScopes));
-            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(WrappedType, nameof(GetNullableContext));
+            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, nameof(GetImportScopes));
+            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, nameof(GetNullableContext));
         }
 
         /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>

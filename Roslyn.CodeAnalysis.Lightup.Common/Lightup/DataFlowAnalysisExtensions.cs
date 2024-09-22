@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnEntryGetterDelegate(DataFlowAnalysis? _obj);
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnExitGetterDelegate(DataFlowAnalysis? _obj);
         private delegate ImmutableArray<IMethodSymbol> UsedLocalFunctionsGetterDelegate(DataFlowAnalysis? _obj);
@@ -37,11 +35,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static DataFlowAnalysisExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnEntry));
-            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(WrappedType, nameof(DefinitelyAssignedOnExit));
-            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(WrappedType, nameof(UsedLocalFunctions));
+            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnEntry));
+            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnExit));
+            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

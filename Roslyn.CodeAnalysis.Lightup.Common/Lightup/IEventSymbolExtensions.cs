@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IEventSymbol? _obj);
 
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
 
         static IEventSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(WrappedType, nameof(NullableAnnotation));
+            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

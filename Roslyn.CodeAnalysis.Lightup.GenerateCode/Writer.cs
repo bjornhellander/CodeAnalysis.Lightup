@@ -623,8 +623,6 @@ internal class Writer
         sb.AppendLine($"    public static class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
-        sb.AppendLine();
-        sb.AppendLine($"        private static readonly Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -721,13 +719,13 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = LightupHelper.FindType(WrappedTypeName);");
+        sb.AppendLine($"            var wrappedType = LightupHelper.FindType(WrappedTypeName);");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(wrappedType, nameof({field.Name}));");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
@@ -736,10 +734,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -748,10 +746,10 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -761,7 +759,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -770,7 +768,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}));");
             }
         }
         sb.AppendLine($"        }}");

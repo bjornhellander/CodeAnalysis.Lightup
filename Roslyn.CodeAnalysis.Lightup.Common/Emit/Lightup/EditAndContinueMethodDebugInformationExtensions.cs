@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate EditAndContinueMethodDebugInformation CreateDelegate0(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap);
 
         private static readonly CreateDelegate0 CreateFunc0;
 
         static EditAndContinueMethodDebugInformationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
         }
 
         /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>

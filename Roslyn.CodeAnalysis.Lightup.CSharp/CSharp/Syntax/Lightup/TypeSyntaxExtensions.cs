@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsNintGetterDelegate(TypeSyntax? _obj);
         private delegate Boolean IsNotNullGetterDelegate(TypeSyntax? _obj);
         private delegate Boolean IsNuintGetterDelegate(TypeSyntax? _obj);
@@ -38,11 +36,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypeSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(WrappedType, nameof(IsNint));
-            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(WrappedType, nameof(IsNotNull));
-            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(WrappedType, nameof(IsNuint));
+            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(wrappedType, nameof(IsNint));
+            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(wrappedType, nameof(IsNotNull));
+            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

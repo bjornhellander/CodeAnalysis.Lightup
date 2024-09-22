@@ -26,8 +26,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(Conversion? _obj);
         private delegate Boolean IsCollectionExpressionGetterDelegate(Conversion? _obj);
         private delegate Boolean IsConditionalExpressionGetterDelegate(Conversion? _obj);
@@ -48,16 +46,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static ConversionExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(WrappedType, nameof(ConstrainedToType));
-            IsCollectionExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(WrappedType, nameof(IsCollectionExpression));
-            IsConditionalExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(WrappedType, nameof(IsConditionalExpression));
-            IsDefaultLiteralGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(WrappedType, nameof(IsDefaultLiteral));
-            IsInlineArrayGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(WrappedType, nameof(IsInlineArray));
-            IsInterpolatedStringHandlerGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(WrappedType, nameof(IsInterpolatedStringHandler));
-            IsObjectCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(WrappedType, nameof(IsObjectCreation));
-            IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(WrappedType, nameof(IsSwitchExpression));
+            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsCollectionExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(wrappedType, nameof(IsCollectionExpression));
+            IsConditionalExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(wrappedType, nameof(IsConditionalExpression));
+            IsDefaultLiteralGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(wrappedType, nameof(IsDefaultLiteral));
+            IsInlineArrayGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
+            IsInterpolatedStringHandlerGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
+            IsObjectCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
+            IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
         }
 
         /// <summary>Property added in version 4.4.0.0 of Roslyn.</summary>

@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate String CustomObsoleteGetterDelegate();
         private delegate String CompilationEndGetterDelegate();
 
@@ -35,10 +33,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WellKnownDiagnosticTagsEx()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CustomObsoleteGetterFunc = LightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(WrappedType, nameof(CustomObsolete));
-            CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(WrappedType, nameof(CompilationEnd));
+            CustomObsoleteGetterFunc = LightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
+            CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
         }
 
         /// <summary>Field added in version 3.8.0.0 of Roslyn.</summary>

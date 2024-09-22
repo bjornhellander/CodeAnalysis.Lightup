@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPatternOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ITypeSymbol NarrowedTypeGetterDelegate(IPatternOperation? _obj);
 
         private static readonly NarrowedTypeGetterDelegate NarrowedTypeGetterFunc;
 
         static IPatternOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(WrappedType, nameof(NarrowedType));
+            NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(wrappedType, nameof(NarrowedType));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

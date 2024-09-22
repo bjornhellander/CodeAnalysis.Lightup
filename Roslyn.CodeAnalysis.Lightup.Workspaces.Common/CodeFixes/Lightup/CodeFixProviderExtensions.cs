@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate CodeActionRequestPriorityEx RequestPriorityGetterDelegate(CodeFixProvider? _obj);
 
         private static readonly RequestPriorityGetterDelegate RequestPriorityGetterFunc;
 
         static CodeFixProviderExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(WrappedType, nameof(RequestPriority));
+            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

@@ -29,17 +29,15 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate TextDocument TextDocumentGetterDelegate(CodeRefactoringContext? _obj);
 
         private static readonly TextDocumentGetterDelegate TextDocumentGetterFunc;
 
         static CodeRefactoringContextExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(WrappedType, nameof(TextDocument));
+            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllProvider";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate FixAllProvider CreateDelegate0(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync);
         private delegate FixAllProvider CreateDelegate1(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync, ImmutableArray<FixAllScope> supportedFixAllScopes);
 
@@ -39,10 +37,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static FixAllProviderExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(WrappedType, nameof(Create));
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(WrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
         }
 
         /// <summary>Method added in version 4.0.0.0 of Roslyn.</summary>

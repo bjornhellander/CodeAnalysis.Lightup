@@ -25,8 +25,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptionsGetterDelegate(SyntaxTree? _obj);
 
         private delegate IEnumerable<LineMappingWrapper> GetLineMappingsDelegate0(SyntaxTree? _obj, CancellationToken cancellationToken);
@@ -39,12 +37,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxTreeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(WrappedType, nameof(DiagnosticOptions));
+            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(wrappedType, nameof(DiagnosticOptions));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(WrappedType, nameof(GetLineMappings));
-            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(WrappedType, nameof(WithDiagnosticOptions));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, nameof(GetLineMappings));
+            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, nameof(WithDiagnosticOptions));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

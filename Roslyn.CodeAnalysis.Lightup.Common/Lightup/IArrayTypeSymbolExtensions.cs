@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IArrayTypeSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate NullableAnnotationEx ElementNullableAnnotationGetterDelegate(IArrayTypeSymbol? _obj);
 
         private static readonly ElementNullableAnnotationGetterDelegate ElementNullableAnnotationGetterFunc;
 
         static IArrayTypeSymbolExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ElementNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementNullableAnnotationGetterDelegate>(WrappedType, nameof(ElementNullableAnnotation));
+            ElementNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementNullableAnnotationGetterDelegate>(wrappedType, nameof(ElementNullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0 of Roslyn.</summary>

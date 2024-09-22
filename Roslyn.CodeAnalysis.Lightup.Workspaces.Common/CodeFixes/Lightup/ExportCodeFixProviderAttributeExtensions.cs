@@ -29,8 +29,6 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeFixProviderAttribute? _obj);
         private delegate void DocumentExtensionsSetterDelegate(ExportCodeFixProviderAttribute? _obj, String[]? _value);
         private delegate String[] DocumentKindsGetterDelegate(ExportCodeFixProviderAttribute? _obj);
@@ -43,12 +41,12 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static ExportCodeFixProviderAttributeExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(WrappedType, nameof(DocumentExtensions));
-            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(WrappedType, nameof(DocumentKinds));
-            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(WrappedType, nameof(DocumentKinds));
+            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(wrappedType, nameof(DocumentKinds));
+            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
         /// <summary>Property added in version 4.8.0.0 of Roslyn.</summary>

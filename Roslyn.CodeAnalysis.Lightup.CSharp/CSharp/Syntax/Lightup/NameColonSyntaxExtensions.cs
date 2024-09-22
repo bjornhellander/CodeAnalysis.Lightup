@@ -26,17 +26,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate ExpressionSyntax ExpressionGetterDelegate(NameColonSyntax? _obj);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 
         static NameColonSyntaxExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(wrappedType, nameof(Expression));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>

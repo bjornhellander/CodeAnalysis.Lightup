@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate IMethodSymbol GetFunctionPointerSignatureDelegate0(IFunctionPointerInvocationOperationWrapper functionPointer);
 
         private static readonly GetFunctionPointerSignatureDelegate0 GetFunctionPointerSignatureFunc0;
 
         static OperationExtensionsEx()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(WrappedType, nameof(GetFunctionPointerSignature), true);
+            GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, nameof(GetFunctionPointerSignature), true);
         }
 
         /// <summary>Method added in version 4.4.0.0 of Roslyn.</summary>

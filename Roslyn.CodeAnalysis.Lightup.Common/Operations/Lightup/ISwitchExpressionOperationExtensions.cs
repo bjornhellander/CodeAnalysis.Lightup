@@ -25,17 +25,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
-
         private delegate Boolean IsExhaustiveGetterDelegate(ISwitchExpressionOperation? _obj);
 
         private static readonly IsExhaustiveGetterDelegate IsExhaustiveGetterFunc;
 
         static ISwitchExpressionOperationExtensions()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(WrappedType, nameof(IsExhaustive));
+            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(wrappedType, nameof(IsExhaustive));
         }
 
         /// <summary>Property added in version 4.0.0.0 of Roslyn.</summary>
