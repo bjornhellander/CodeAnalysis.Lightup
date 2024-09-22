@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate void CloseAnalyzerConfigDocumentDelegate0(AdhocWorkspace? _obj, DocumentId? documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate1(AdhocWorkspace? _obj, DocumentId? documentId, Boolean activate);

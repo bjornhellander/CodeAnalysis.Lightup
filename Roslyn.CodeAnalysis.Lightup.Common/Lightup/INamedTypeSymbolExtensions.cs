@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean IsFileLocalGetterDelegate(INamedTypeSymbol? _obj);
         private delegate INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(INamedTypeSymbol? _obj);

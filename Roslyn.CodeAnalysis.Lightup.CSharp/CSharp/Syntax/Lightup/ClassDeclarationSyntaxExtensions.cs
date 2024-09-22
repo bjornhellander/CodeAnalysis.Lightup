@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ParameterListSyntax? ParameterListGetterDelegate(ClassDeclarationSyntax? _obj);
 

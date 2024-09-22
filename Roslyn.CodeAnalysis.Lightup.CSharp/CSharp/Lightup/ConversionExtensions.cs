@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(Conversion? _obj);
         private delegate Boolean IsCollectionExpressionGetterDelegate(Conversion? _obj);

@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean IsRequiredGetterDelegate(IPropertySymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IPropertySymbol? _obj);

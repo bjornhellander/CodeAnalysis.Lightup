@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxNode? VisitBinaryPatternDelegate0(CSharpSyntaxRewriter? _obj, BinaryPatternSyntaxWrapper node);
         private delegate SyntaxNode? VisitCollectionExpressionDelegate1(CSharpSyntaxRewriter? _obj, CollectionExpressionSyntaxWrapper node);

@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<INamedTypeSymbol> GetForwardedTypesDelegate0(IAssemblySymbol? _obj);
 

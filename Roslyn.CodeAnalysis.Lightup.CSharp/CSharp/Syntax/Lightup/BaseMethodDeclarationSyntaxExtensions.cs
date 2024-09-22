@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate BaseMethodDeclarationSyntax AddBodyAttributeListsDelegate0(BaseMethodDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 

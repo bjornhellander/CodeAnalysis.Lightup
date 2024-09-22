@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IOperation ContentGetterDelegate(IOperation? _obj);
         private delegate Boolean HandlerAppendCallsReturnBoolGetterDelegate(IOperation? _obj);

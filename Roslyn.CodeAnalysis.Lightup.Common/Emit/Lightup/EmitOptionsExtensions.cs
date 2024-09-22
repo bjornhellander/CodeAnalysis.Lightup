@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Encoding? DefaultSourceFileEncodingGetterDelegate(EmitOptions? _obj);
         private delegate Encoding? FallbackSourceFileEncodingGetterDelegate(EmitOptions? _obj);

@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(object? _obj);
         private delegate INamespaceOrTypeSymbol NamespaceOrTypeGetterDelegate(object? _obj);

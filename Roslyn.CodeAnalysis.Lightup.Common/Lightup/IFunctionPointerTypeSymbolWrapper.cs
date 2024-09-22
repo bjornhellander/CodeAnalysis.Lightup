@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IMethodSymbol SignatureGetterDelegate(ITypeSymbol? _obj);
 

@@ -8,12 +8,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using Microsoft.CodeAnalysis.Text;
 
     // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
     {
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Possibly used via reflection
 
         private delegate int CountDelegate(object? obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, IEnumerable<TNode> arg1);
@@ -26,7 +27,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         static SeparatedSyntaxListWrapper()
         {
             var wrapperNodeType = typeof(TNode);
-            var wrappedNodeTypeField = wrapperNodeType.GetField("WrappedType");
+            var wrappedNodeTypeField = wrapperNodeType.GetField("WrappedType", BindingFlags.Static | BindingFlags.NonPublic);
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 

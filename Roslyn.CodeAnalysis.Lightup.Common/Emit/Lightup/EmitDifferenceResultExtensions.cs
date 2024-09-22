@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<TypeDefinitionHandle> ChangedTypesGetterDelegate(EmitDifferenceResult? _obj);
         private delegate ImmutableArray<MethodDefinitionHandle> UpdatedMethodsGetterDelegate(EmitDifferenceResult? _obj);

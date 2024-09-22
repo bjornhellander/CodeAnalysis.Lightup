@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<IImportScopeWrapper> GetImportScopesDelegate0(SemanticModel? _obj, Int32 position, CancellationToken cancellationToken);
         private delegate NullableContextEx GetNullableContextDelegate1(SemanticModel? _obj, Int32 position);

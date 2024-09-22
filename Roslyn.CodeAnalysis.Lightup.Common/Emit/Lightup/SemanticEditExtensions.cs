@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate MethodInstrumentationWrapper InstrumentationGetterDelegate(SemanticEdit? _obj);
 

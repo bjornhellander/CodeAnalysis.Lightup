@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate CommonForEachStatementSyntax AddAttributeListsDelegate0(CommonForEachStatementSyntax? _obj, params AttributeListSyntax[] items);
         private delegate CommonForEachStatementSyntax WithAttributeListsDelegate1(CommonForEachStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);

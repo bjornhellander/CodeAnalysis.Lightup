@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate0(CompilationWithAnalyzers? _obj, SyntaxTree tree, CancellationToken cancellationToken);
         private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate1(CompilationWithAnalyzers? _obj, AdditionalText file, CancellationToken cancellationToken);

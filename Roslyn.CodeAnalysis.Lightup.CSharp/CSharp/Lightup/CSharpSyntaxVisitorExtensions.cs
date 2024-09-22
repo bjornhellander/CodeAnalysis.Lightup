@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate void VisitBinaryPatternDelegate0(CSharpSyntaxVisitor? _obj, BinaryPatternSyntaxWrapper node);
         private delegate void VisitCollectionExpressionDelegate1(CSharpSyntaxVisitor? _obj, CollectionExpressionSyntaxWrapper node);

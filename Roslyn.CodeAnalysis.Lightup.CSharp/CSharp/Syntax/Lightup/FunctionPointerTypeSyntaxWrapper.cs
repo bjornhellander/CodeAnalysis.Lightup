@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken AsteriskTokenGetterDelegate(TypeSyntax? _obj);
         private delegate FunctionPointerCallingConventionSyntaxWrapper CallingConventionGetterDelegate(TypeSyntax? _obj);

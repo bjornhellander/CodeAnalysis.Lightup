@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FileTextLoader";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Task<TextAndVersion> LoadTextAndVersionAsyncDelegate0(FileTextLoader? _obj, LoadTextOptionsWrapper options, CancellationToken cancellationToken);
 

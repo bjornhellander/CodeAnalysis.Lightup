@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.SolutionServices";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IEnumerable<String> SupportedLanguagesGetterDelegate(object? _obj);
 

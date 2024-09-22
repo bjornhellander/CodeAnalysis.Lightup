@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SignatureCallingConvention CallingConventionGetterDelegate(IMethodSymbol? _obj);
         private delegate Boolean IsConditionalGetterDelegate(IMethodSymbol? _obj);

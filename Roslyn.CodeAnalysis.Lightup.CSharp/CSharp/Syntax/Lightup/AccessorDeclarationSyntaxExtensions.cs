@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AccessorDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate AccessorDeclarationSyntax AddBodyAttributeListsDelegate0(AccessorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 

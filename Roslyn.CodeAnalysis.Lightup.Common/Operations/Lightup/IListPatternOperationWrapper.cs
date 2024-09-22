@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IListPatternOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ISymbol? DeclaredSymbolGetterDelegate(IPatternOperation? _obj);
         private delegate ISymbol? IndexerSymbolGetterDelegate(IPatternOperation? _obj);

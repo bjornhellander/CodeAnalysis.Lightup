@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Int32 FixedSizeGetterDelegate(IFieldSymbol? _obj);
         private delegate Boolean IsExplicitlyNamedTupleElementGetterDelegate(IFieldSymbol? _obj);

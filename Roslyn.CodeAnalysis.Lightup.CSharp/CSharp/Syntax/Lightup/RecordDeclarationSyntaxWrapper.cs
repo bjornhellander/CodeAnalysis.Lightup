@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(TypeDeclarationSyntax? _obj);
         private delegate BaseListSyntax? BaseListGetterDelegate(TypeDeclarationSyntax? _obj);

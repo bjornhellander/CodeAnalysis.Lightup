@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullabilityInfo";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate NullableAnnotationEx AnnotationGetterDelegate(object? _obj);
         private delegate NullableFlowStateEx FlowStateGetterDelegate(object? _obj);

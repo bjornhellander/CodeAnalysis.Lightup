@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate IEnumerable<DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(ProjectChanges? _obj);
         private delegate IEnumerable<DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(ProjectChanges? _obj);

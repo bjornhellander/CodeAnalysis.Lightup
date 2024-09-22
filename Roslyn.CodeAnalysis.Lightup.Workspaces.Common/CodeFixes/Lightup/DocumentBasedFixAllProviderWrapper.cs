@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Task<CodeAction> GetFixAsyncDelegate0(FixAllProvider? _obj, FixAllContext fixAllContext);
         private delegate IEnumerable<FixAllScope> GetSupportedFixAllScopesDelegate1(FixAllProvider? _obj);

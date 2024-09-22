@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean CanApplyChangeDelegate0(IWorkspaceService? _obj, ApplyChangesKind kind);
         private delegate Boolean CanApplyCompilationOptionChangeDelegate1(IWorkspaceService? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);

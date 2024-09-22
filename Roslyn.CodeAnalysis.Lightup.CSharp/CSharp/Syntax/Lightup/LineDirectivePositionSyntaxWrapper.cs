@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken CharacterGetterDelegate(CSharpSyntaxNode? _obj);
         private delegate SyntaxToken CloseParenTokenGetterDelegate(CSharpSyntaxNode? _obj);

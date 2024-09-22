@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate DestructorDeclarationSyntax AddBodyAttributeListsDelegate0(DestructorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
 

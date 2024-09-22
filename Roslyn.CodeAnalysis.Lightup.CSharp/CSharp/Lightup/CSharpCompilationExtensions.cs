@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<MetadataReference> GetUsedAssemblyReferencesDelegate0(CSharpCompilation? _obj, CancellationToken cancellationToken);
 

@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean IsAsynchronousGetterDelegate(ForEachStatementInfo? _obj);
 

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate DeclarationModifiers ExternGetterDelegate();
         private delegate DeclarationModifiers FileGetterDelegate();

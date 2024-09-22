@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate EditAndContinueMethodDebugInformation CreateDelegate0(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap);
 

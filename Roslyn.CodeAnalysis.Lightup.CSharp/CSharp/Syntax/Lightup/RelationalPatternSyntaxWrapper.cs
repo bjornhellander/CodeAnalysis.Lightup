@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RelationalPatternSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ExpressionSyntax ExpressionGetterDelegate(PatternSyntax? _obj);
         private delegate SyntaxToken OperatorTokenGetterDelegate(PatternSyntax? _obj);

@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean IsDiscardGetterDelegate(IParameterSymbol? _obj);
         private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IParameterSymbol? _obj);

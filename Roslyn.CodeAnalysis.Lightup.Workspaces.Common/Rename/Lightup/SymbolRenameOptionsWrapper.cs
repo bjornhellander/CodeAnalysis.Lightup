@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean RenameFileGetterDelegate(object? _obj);
         private delegate void RenameFileSetterDelegate(object? _obj, Boolean _value);

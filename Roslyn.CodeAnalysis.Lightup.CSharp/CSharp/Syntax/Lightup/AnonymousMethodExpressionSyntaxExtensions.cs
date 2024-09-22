@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ExpressionSyntax? ExpressionBodyGetterDelegate(AnonymousMethodExpressionSyntax? _obj);
         private delegate SyntaxTokenList ModifiersGetterDelegate(AnonymousMethodExpressionSyntax? _obj);

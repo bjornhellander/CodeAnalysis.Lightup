@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ValueTask<IPersistentStorage> GetStorageAsyncDelegate0(IPersistentStorageService? _obj, Solution solution, CancellationToken cancellationToken);
 

@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LineMapping";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Nullable<Int32> CharacterOffsetGetterDelegate(object? _obj);
         private delegate Boolean IsHiddenGetterDelegate(object? _obj);

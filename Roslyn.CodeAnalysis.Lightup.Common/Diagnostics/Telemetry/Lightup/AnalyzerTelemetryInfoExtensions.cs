@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Int32 AdditionalFileActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
         private delegate void AdditionalFileActionsCountSetterDelegate(AnalyzerTelemetryInfo? _obj, Int32 _value);

@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate NullableContextOptionsEx NullableContextOptionsGetterDelegate(CompilationOptions? _obj);
         private delegate SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(CompilationOptions? _obj);

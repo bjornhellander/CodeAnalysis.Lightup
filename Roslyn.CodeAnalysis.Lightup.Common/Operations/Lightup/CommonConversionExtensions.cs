@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(CommonConversion? _obj);
         private delegate Boolean IsNullableGetterDelegate(CommonConversion? _obj);

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate CodeActionRequestPriorityEx RequestPriorityGetterDelegate(CodeRefactoringProvider? _obj);
 

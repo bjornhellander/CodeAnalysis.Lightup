@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<String> AnalyzerConfigPathsGetterDelegate(CommandLineArguments? _obj);
         private delegate Boolean EmitPdbFileGetterDelegate(CommandLineArguments? _obj);

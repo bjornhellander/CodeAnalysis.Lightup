@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ControlFlowGraph CreateDelegate0(IAttributeOperationWrapper attribute, CancellationToken cancellationToken);
 

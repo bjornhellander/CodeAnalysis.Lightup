@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken CheckedKeywordGetterDelegate(OperatorDeclarationSyntax? _obj);
         private delegate ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifierGetterDelegate(OperatorDeclarationSyntax? _obj);

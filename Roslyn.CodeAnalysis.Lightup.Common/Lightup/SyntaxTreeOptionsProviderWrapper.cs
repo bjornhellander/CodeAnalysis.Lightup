@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate GeneratedKindEx IsGeneratedDelegate0(object? _obj, SyntaxTree tree, CancellationToken cancellationToken);
         private delegate Boolean TryGetDiagnosticValueDelegate1(object? _obj, SyntaxTree tree, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity);

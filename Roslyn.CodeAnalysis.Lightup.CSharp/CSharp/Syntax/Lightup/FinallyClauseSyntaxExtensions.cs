@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate FinallyClauseSyntax AddBlockAttributeListsDelegate0(FinallyClauseSyntax? _obj, params AttributeListSyntax[] items);
 

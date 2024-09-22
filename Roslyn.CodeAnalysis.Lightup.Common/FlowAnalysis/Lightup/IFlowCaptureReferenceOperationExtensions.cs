@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean IsInitializationGetterDelegate(IFlowCaptureReferenceOperation? _obj);
 

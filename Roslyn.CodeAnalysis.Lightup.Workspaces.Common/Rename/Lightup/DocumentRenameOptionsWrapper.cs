@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean RenameMatchingTypeInCommentsGetterDelegate(object? _obj);
         private delegate void RenameMatchingTypeInCommentsSetterDelegate(object? _obj, Boolean _value);

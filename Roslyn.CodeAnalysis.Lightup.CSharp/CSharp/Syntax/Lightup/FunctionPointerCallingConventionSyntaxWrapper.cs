@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxToken ManagedOrUnmanagedKeywordGetterDelegate(CSharpSyntaxNode? _obj);
         private delegate FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionListGetterDelegate(CSharpSyntaxNode? _obj);

@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Int32 ArgumentIndexGetterDelegate(IOperation? _obj);
         private delegate InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindGetterDelegate(IOperation? _obj);

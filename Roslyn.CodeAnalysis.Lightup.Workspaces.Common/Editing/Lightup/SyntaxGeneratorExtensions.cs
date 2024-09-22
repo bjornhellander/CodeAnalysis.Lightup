@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxGenerator";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SyntaxNode ConditionalAccessExpressionDelegate0(SyntaxGenerator? _obj, SyntaxNode expression, SyntaxNode whenNotNull);
         private delegate SyntaxNode ElementBindingExpressionDelegate1(SyntaxGenerator? _obj, IEnumerable<SyntaxNode> arguments);

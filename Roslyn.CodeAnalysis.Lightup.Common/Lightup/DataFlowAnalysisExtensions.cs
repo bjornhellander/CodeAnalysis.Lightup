@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnEntryGetterDelegate(DataFlowAnalysis? _obj);
         private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnExitGetterDelegate(DataFlowAnalysis? _obj);

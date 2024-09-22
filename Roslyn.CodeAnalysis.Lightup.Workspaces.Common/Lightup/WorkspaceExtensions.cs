@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Boolean CanApplyCompilationOptionChangeDelegate0(Workspace? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
         private delegate Boolean CanApplyParseOptionChangeDelegate1(Workspace? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);

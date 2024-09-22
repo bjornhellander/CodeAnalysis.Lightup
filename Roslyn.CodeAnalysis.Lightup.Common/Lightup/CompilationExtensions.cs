@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Compilation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate INamedTypeSymbol CreateAnonymousTypeSymbolDelegate0(Compilation? _obj, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations);
         private delegate IArrayTypeSymbol CreateArrayTypeSymbolDelegate1(Compilation? _obj, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation);

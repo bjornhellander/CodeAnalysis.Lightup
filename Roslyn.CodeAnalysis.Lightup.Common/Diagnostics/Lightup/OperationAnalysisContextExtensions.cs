@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate Nullable<TextSpan> FilterSpanGetterDelegate(OperationAnalysisContext? _obj);
         private delegate SyntaxTree FilterTreeGetterDelegate(OperationAnalysisContext? _obj);

@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(object? _obj);
 

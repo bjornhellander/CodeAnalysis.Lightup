@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate String PathGetterDelegate(object? _obj);
         private delegate SarifVersionEx SarifVersionGetterDelegate(object? _obj);

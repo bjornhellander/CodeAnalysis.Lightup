@@ -345,7 +345,7 @@ internal class Writer
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        sb.AppendLine($"        private static readonly Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -624,7 +624,7 @@ internal class Writer
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        public static readonly Type? WrappedType;");
+        sb.AppendLine($"        private static readonly Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();

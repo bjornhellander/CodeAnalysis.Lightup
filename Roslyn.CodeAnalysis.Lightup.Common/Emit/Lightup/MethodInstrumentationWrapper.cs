@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.MethodInstrumentation";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate ImmutableArray<InstrumentationKind> KindsGetterDelegate(object? _obj);
         private delegate void KindsSetterDelegate(object? _obj, ImmutableArray<InstrumentationKind> _value);

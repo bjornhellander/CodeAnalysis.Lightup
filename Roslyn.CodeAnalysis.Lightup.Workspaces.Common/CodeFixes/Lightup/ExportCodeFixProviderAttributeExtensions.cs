@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
 
-        public static readonly Type? WrappedType;
+        private static readonly Type? WrappedType; // NOTE: Used via reflection
 
         private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeFixProviderAttribute? _obj);
         private delegate void DocumentExtensionsSetterDelegate(ExportCodeFixProviderAttribute? _obj, String[]? _value);
