@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CompareFunc0 = LightupHelper.CreateStaticMethodAccessor<CompareDelegate0>(wrappedType, nameof(Compare));
-            EqualsFunc1 = LightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, nameof(Equals));
+            CompareFunc0 = LightupHelper.CreateStaticMethodAccessor<CompareDelegate0>(wrappedType, "Compare", "ReadOnlySpan`1", "ReadOnlySpan`1");
+            EqualsFunc1 = LightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, "Equals", "ReadOnlySpan`1", "ReadOnlySpan`1");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

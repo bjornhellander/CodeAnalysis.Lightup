@@ -76,11 +76,11 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
             IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, nameof(WithIsExtern));
-            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, nameof(WithIsFile));
-            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, nameof(WithIsRef));
-            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, nameof(WithIsRequired));
-            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, nameof(WithIsVolatile));
+            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "Boolean");
+            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, "WithIsFile", "Boolean");
+            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, "WithIsRef", "Boolean");
+            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, "WithIsRequired", "Boolean");
+            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, "WithIsVolatile", "Boolean");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

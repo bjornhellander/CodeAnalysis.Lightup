@@ -55,11 +55,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(wrappedType, nameof(NamespaceOrType));
             UnsafeKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(wrappedType, nameof(UnsafeKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
-            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(wrappedType, nameof(WithGlobalKeyword));
-            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(wrappedType, nameof(WithNamespaceOrType));
-            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, nameof(WithUnsafeKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "SyntaxToken", "SyntaxToken", "SyntaxToken", "NameEqualsSyntax", "NameSyntax", "SyntaxToken");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "SyntaxToken", "SyntaxToken", "SyntaxToken", "SyntaxToken", "NameEqualsSyntax", "TypeSyntax", "SyntaxToken");
+            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(wrappedType, "WithGlobalKeyword", "SyntaxToken");
+            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(wrappedType, "WithNamespaceOrType", "TypeSyntax");
+            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, "WithUnsafeKeyword", "SyntaxToken");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

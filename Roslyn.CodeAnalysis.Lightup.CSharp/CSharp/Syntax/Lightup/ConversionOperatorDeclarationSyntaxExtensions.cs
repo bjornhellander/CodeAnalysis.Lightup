@@ -52,11 +52,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
             ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(wrappedType, nameof(ExplicitInterfaceSpecifier));
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, nameof(Update));
-            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, nameof(WithCheckedKeyword));
-            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, nameof(WithExplicitInterfaceSpecifier));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "AttributeListSyntax[]");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "SyntaxToken", "ExplicitInterfaceSpecifierSyntax", "SyntaxToken", "TypeSyntax", "ParameterListSyntax", "BlockSyntax", "ArrowExpressionClauseSyntax", "SyntaxToken");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "SyntaxToken", "ExplicitInterfaceSpecifierSyntax", "SyntaxToken", "SyntaxToken", "TypeSyntax", "ParameterListSyntax", "BlockSyntax", "ArrowExpressionClauseSyntax", "SyntaxToken");
+            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, "WithCheckedKeyword", "SyntaxToken");
+            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, "WithExplicitInterfaceSpecifier", "ExplicitInterfaceSpecifierSyntax");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

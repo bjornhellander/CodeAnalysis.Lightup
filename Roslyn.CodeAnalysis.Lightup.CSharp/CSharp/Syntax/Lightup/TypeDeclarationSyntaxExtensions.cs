@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, nameof(AddParameterListParameters));
-            WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, nameof(WithParameterList));
+            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "ParameterSyntax[]");
+            WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, "WithParameterList", "ParameterListSyntax");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

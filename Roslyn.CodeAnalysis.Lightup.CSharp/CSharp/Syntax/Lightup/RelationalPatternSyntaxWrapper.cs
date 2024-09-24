@@ -54,10 +54,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
             OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
-            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, nameof(WithOperatorToken));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "SyntaxToken", "ExpressionSyntax");
+            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, "WithExpression", "ExpressionSyntax");
+            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "SyntaxToken");
         }
 
         private RelationalPatternSyntaxWrapper(PatternSyntax? obj)

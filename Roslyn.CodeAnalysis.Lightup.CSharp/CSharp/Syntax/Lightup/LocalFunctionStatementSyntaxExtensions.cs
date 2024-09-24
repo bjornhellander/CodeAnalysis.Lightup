@@ -47,10 +47,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
-            AddBodyAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate1>(wrappedType, nameof(AddBodyAttributeLists));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, nameof(Update));
-            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, nameof(WithAttributeLists));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "AttributeListSyntax[]");
+            AddBodyAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate1>(wrappedType, "AddBodyAttributeLists", "AttributeListSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "TypeSyntax", "SyntaxToken", "TypeParameterListSyntax", "ParameterListSyntax", "SyntaxList`1", "BlockSyntax", "ArrowExpressionClauseSyntax", "SyntaxToken");
+            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "SyntaxList`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -44,10 +44,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, nameof(CanApplyCompilationOptionChange));
-            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, nameof(CanApplyParseOptionChange));
-            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, nameof(OpenAnalyzerConfigDocument));
+            CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, "CanApplyCompilationOptionChange", "CompilationOptions", "CompilationOptions", "Project");
+            CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, "CanApplyParseOptionChange", "ParseOptions", "ParseOptions", "Project");
+            CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, "CloseAnalyzerConfigDocument", "DocumentId");
+            OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, "OpenAnalyzerConfigDocument", "DocumentId", "Boolean");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

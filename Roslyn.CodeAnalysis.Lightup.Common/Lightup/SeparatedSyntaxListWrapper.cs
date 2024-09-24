@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = LightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
-            AddRangeAccessor = LightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange));
+            AddRangeAccessor = LightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "IEnumerable`1");
         }
 
         private SeparatedSyntaxListWrapper(object? obj)

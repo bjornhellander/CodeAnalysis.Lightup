@@ -67,7 +67,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
             UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "ImmutableArray`1", "ImmutableArray`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

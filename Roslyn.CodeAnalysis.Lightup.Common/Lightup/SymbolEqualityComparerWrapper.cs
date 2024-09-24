@@ -49,8 +49,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             DefaultGetterFunc = LightupHelper.CreateStaticReadAccessor<DefaultGetterDelegate>(WrappedType, nameof(Default));
             IncludeNullabilityGetterFunc = LightupHelper.CreateStaticReadAccessor<IncludeNullabilityGetterDelegate>(WrappedType, nameof(IncludeNullability));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
-            GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, nameof(GetHashCode));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "ISymbol", "ISymbol");
+            GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "ISymbol");
         }
 
         private SymbolEqualityComparerWrapper(object? obj)

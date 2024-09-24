@@ -47,13 +47,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnalyzeDataFlowFunc0 = LightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate0>(wrappedType, nameof(AnalyzeDataFlow));
-            AnalyzeDataFlowFunc1 = LightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate1>(wrappedType, nameof(AnalyzeDataFlow));
-            GetDeclaredSymbolFunc2 = LightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate2>(wrappedType, nameof(GetDeclaredSymbol));
-            GetDeclaredSymbolFunc3 = LightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate3>(wrappedType, nameof(GetDeclaredSymbol));
-            GetSpeculativeSymbolInfoFunc4 = LightupHelper.CreateStaticMethodAccessor<GetSpeculativeSymbolInfoDelegate4>(wrappedType, nameof(GetSpeculativeSymbolInfo));
-            GetSymbolInfoFunc5 = LightupHelper.CreateStaticMethodAccessor<GetSymbolInfoDelegate5>(wrappedType, nameof(GetSymbolInfo));
-            TryGetSpeculativeSemanticModelFunc6 = LightupHelper.CreateStaticMethodAccessor<TryGetSpeculativeSemanticModelDelegate6>(wrappedType, nameof(TryGetSpeculativeSemanticModel));
+            AnalyzeDataFlowFunc0 = LightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate0>(wrappedType, "AnalyzeDataFlow", "SemanticModel", "ConstructorInitializerSyntax");
+            AnalyzeDataFlowFunc1 = LightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate1>(wrappedType, "AnalyzeDataFlow", "SemanticModel", "PrimaryConstructorBaseTypeSyntax");
+            GetDeclaredSymbolFunc2 = LightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate2>(wrappedType, "GetDeclaredSymbol", "SemanticModel", "CompilationUnitSyntax", "CancellationToken");
+            GetDeclaredSymbolFunc3 = LightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate3>(wrappedType, "GetDeclaredSymbol", "SemanticModel", "FileScopedNamespaceDeclarationSyntax", "CancellationToken");
+            GetSpeculativeSymbolInfoFunc4 = LightupHelper.CreateStaticMethodAccessor<GetSpeculativeSymbolInfoDelegate4>(wrappedType, "GetSpeculativeSymbolInfo", "SemanticModel", "Int32", "PrimaryConstructorBaseTypeSyntax");
+            GetSymbolInfoFunc5 = LightupHelper.CreateStaticMethodAccessor<GetSymbolInfoDelegate5>(wrappedType, "GetSymbolInfo", "SemanticModel", "PrimaryConstructorBaseTypeSyntax", "CancellationToken");
+            TryGetSpeculativeSemanticModelFunc6 = LightupHelper.CreateStaticMethodAccessor<TryGetSpeculativeSemanticModelDelegate6>(wrappedType, "TryGetSpeculativeSemanticModel", "SemanticModel", "Int32", "PrimaryConstructorBaseTypeSyntax", "SemanticModel&");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

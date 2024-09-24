@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            OrganizeImportsAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<OrganizeImportsAsyncDelegate0>(wrappedType, nameof(OrganizeImportsAsync));
+            OrganizeImportsAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<OrganizeImportsAsyncDelegate0>(wrappedType, "OrganizeImportsAsync", "Document", "CancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

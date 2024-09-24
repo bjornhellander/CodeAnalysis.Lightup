@@ -125,29 +125,29 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
             TypeParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeParameterListGetterDelegate>(WrappedType, nameof(TypeParameterList));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
-            AddBaseListTypesFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate2>(WrappedType, nameof(AddBaseListTypes));
-            AddConstraintClausesFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddConstraintClausesDelegate3>(WrappedType, nameof(AddConstraintClauses));
-            AddMembersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate4>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate5>(WrappedType, nameof(AddModifiers));
-            AddParameterListParametersFunc6 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate6>(WrappedType, nameof(AddParameterListParameters));
-            AddTypeParameterListParametersFunc7 = LightupHelper.CreateInstanceMethodAccessor<AddTypeParameterListParametersDelegate7>(WrappedType, nameof(AddTypeParameterListParameters));
-            UpdateFunc8 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate8>(WrappedType, nameof(Update));
-            UpdateFunc9 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate9>(WrappedType, nameof(Update));
-            WithAttributeListsFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate10>(WrappedType, nameof(WithAttributeLists));
-            WithBaseListFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate11>(WrappedType, nameof(WithBaseList));
-            WithClassOrStructKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithClassOrStructKeywordDelegate12>(WrappedType, nameof(WithClassOrStructKeyword));
-            WithCloseBraceTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate13>(WrappedType, nameof(WithCloseBraceToken));
-            WithConstraintClausesFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithConstraintClausesDelegate14>(WrappedType, nameof(WithConstraintClauses));
-            WithIdentifierFunc15 = LightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate15>(WrappedType, nameof(WithIdentifier));
-            WithKeywordFunc16 = LightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate16>(WrappedType, nameof(WithKeyword));
-            WithMembersFunc17 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate17>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc18 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate18>(WrappedType, nameof(WithModifiers));
-            WithOpenBraceTokenFunc19 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate19>(WrappedType, nameof(WithOpenBraceToken));
-            WithParameterListFunc20 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate20>(WrappedType, nameof(WithParameterList));
-            WithSemicolonTokenFunc21 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate21>(WrappedType, nameof(WithSemicolonToken));
-            WithTypeParameterListFunc22 = LightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, nameof(WithTypeParameterList));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, "AddAttributeLists", "AttributeListSyntax[]");
+            AddBaseListTypesFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate2>(WrappedType, "AddBaseListTypes", "BaseTypeSyntax[]");
+            AddConstraintClausesFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddConstraintClausesDelegate3>(WrappedType, "AddConstraintClauses", "TypeParameterConstraintClauseSyntax[]");
+            AddMembersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate4>(WrappedType, "AddMembers", "MemberDeclarationSyntax[]");
+            AddModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate5>(WrappedType, "AddModifiers", "SyntaxToken[]");
+            AddParameterListParametersFunc6 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate6>(WrappedType, "AddParameterListParameters", "ParameterSyntax[]");
+            AddTypeParameterListParametersFunc7 = LightupHelper.CreateInstanceMethodAccessor<AddTypeParameterListParametersDelegate7>(WrappedType, "AddTypeParameterListParameters", "TypeParameterSyntax[]");
+            UpdateFunc8 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate8>(WrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "SyntaxToken", "SyntaxToken", "TypeParameterListSyntax", "ParameterListSyntax", "BaseListSyntax", "SyntaxList`1", "SyntaxToken", "SyntaxList`1", "SyntaxToken", "SyntaxToken");
+            UpdateFunc9 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate9>(WrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "SyntaxToken", "SyntaxToken", "SyntaxToken", "TypeParameterListSyntax", "ParameterListSyntax", "BaseListSyntax", "SyntaxList`1", "SyntaxToken", "SyntaxList`1", "SyntaxToken", "SyntaxToken");
+            WithAttributeListsFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate10>(WrappedType, "WithAttributeLists", "SyntaxList`1");
+            WithBaseListFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate11>(WrappedType, "WithBaseList", "BaseListSyntax");
+            WithClassOrStructKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithClassOrStructKeywordDelegate12>(WrappedType, "WithClassOrStructKeyword", "SyntaxToken");
+            WithCloseBraceTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate13>(WrappedType, "WithCloseBraceToken", "SyntaxToken");
+            WithConstraintClausesFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithConstraintClausesDelegate14>(WrappedType, "WithConstraintClauses", "SyntaxList`1");
+            WithIdentifierFunc15 = LightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate15>(WrappedType, "WithIdentifier", "SyntaxToken");
+            WithKeywordFunc16 = LightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate16>(WrappedType, "WithKeyword", "SyntaxToken");
+            WithMembersFunc17 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate17>(WrappedType, "WithMembers", "SyntaxList`1");
+            WithModifiersFunc18 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate18>(WrappedType, "WithModifiers", "SyntaxTokenList");
+            WithOpenBraceTokenFunc19 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate19>(WrappedType, "WithOpenBraceToken", "SyntaxToken");
+            WithParameterListFunc20 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate20>(WrappedType, "WithParameterList", "ParameterListSyntax");
+            WithSemicolonTokenFunc21 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate21>(WrappedType, "WithSemicolonToken", "SyntaxToken");
+            WithTypeParameterListFunc22 = LightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, "WithTypeParameterList", "TypeParameterListSyntax");
         }
 
         private RecordDeclarationSyntaxWrapper(TypeDeclarationSyntax? obj)

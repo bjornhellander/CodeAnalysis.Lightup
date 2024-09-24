@@ -53,7 +53,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             MappedSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
             SpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<SpanGetterDelegate>(WrappedType, nameof(Span));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "LineMapping");
         }
 
         private LineMappingWrapper(object? obj)

@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, nameof(GetStorageAsync));
+            GetStorageAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, "GetStorageAsync", "Solution", "CancellationToken");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

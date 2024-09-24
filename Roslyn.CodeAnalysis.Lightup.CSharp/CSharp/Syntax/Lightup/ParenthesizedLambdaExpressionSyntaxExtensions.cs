@@ -77,19 +77,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
             ReturnTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnTypeGetterDelegate>(wrappedType, nameof(ReturnType));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, nameof(AddAttributeLists));
-            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, nameof(AddBlockAttributeLists));
-            AddBlockStatementsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(wrappedType, nameof(AddBlockStatements));
-            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, nameof(AddModifiers));
-            UpdateFunc4 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate4>(wrappedType, nameof(Update));
-            UpdateFunc5 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate5>(wrappedType, nameof(Update));
-            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(wrappedType, nameof(Update));
-            UpdateFunc7 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate7>(wrappedType, nameof(Update));
-            WithAttributeListsFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate8>(wrappedType, nameof(WithAttributeLists));
-            WithBlockFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate9>(wrappedType, nameof(WithBlock));
-            WithExpressionBodyFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate10>(wrappedType, nameof(WithExpressionBody));
-            WithModifiersFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate11>(wrappedType, nameof(WithModifiers));
-            WithReturnTypeFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithReturnTypeDelegate12>(wrappedType, nameof(WithReturnType));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "AttributeListSyntax[]");
+            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "AttributeListSyntax[]");
+            AddBlockStatementsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(wrappedType, "AddBlockStatements", "StatementSyntax[]");
+            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, "AddModifiers", "SyntaxToken[]");
+            UpdateFunc4 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate4>(wrappedType, "Update", "SyntaxTokenList", "ParameterListSyntax", "SyntaxToken", "BlockSyntax", "ExpressionSyntax");
+            UpdateFunc5 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate5>(wrappedType, "Update", "SyntaxToken", "ParameterListSyntax", "SyntaxToken", "BlockSyntax", "ExpressionSyntax");
+            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(wrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "ParameterListSyntax", "SyntaxToken", "BlockSyntax", "ExpressionSyntax");
+            UpdateFunc7 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate7>(wrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "TypeSyntax", "ParameterListSyntax", "SyntaxToken", "BlockSyntax", "ExpressionSyntax");
+            WithAttributeListsFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate8>(wrappedType, "WithAttributeLists", "SyntaxList`1");
+            WithBlockFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate9>(wrappedType, "WithBlock", "BlockSyntax");
+            WithExpressionBodyFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate10>(wrappedType, "WithExpressionBody", "ExpressionSyntax");
+            WithModifiersFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate11>(wrappedType, "WithModifiers", "SyntaxTokenList");
+            WithReturnTypeFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithReturnTypeDelegate12>(wrappedType, "WithReturnType", "TypeSyntax");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

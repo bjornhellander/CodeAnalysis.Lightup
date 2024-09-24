@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "ImmutableArray`1", "ImmutableArray`1", "ImmutableArray`1");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

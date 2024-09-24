@@ -54,10 +54,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ColonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
             ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithColonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate2>(WrappedType, nameof(WithColonToken));
-            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, nameof(WithExpression));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "ExpressionSyntax", "SyntaxToken");
+            WithColonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate2>(WrappedType, "WithColonToken", "SyntaxToken");
+            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "ExpressionSyntax");
         }
 
         private ExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

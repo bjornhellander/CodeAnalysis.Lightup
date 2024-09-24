@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(wrappedType, nameof(AnalyzerReferences));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "SolutionId", "VersionStamp", "String", "IEnumerable`1", "IEnumerable`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

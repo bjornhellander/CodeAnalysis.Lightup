@@ -49,9 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, nameof(WithExpression));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "ExpressionSyntax");
+            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, "WithExpression", "ExpressionSyntax");
         }
 
         private ExpressionElementSyntaxWrapper(CSharpSyntaxNode? obj)

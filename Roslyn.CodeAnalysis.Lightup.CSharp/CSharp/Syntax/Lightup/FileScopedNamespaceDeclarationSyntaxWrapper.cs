@@ -94,21 +94,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
             UsingsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
-            AddExternsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate2>(WrappedType, nameof(AddExterns));
-            AddMembersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate3>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate4>(WrappedType, nameof(AddModifiers));
-            AddUsingsFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate5>(WrappedType, nameof(AddUsings));
-            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(WrappedType, nameof(Update));
-            WithAttributeListsFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(WrappedType, nameof(WithAttributeLists));
-            WithExternsFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate8>(WrappedType, nameof(WithExterns));
-            WithMembersFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate9>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(WrappedType, nameof(WithModifiers));
-            WithNameFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate11>(WrappedType, nameof(WithName));
-            WithNamespaceKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate12>(WrappedType, nameof(WithNamespaceKeyword));
-            WithSemicolonTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate13>(WrappedType, nameof(WithSemicolonToken));
-            WithUsingsFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate14>(WrappedType, nameof(WithUsings));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, "AddAttributeLists", "AttributeListSyntax[]");
+            AddExternsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate2>(WrappedType, "AddExterns", "ExternAliasDirectiveSyntax[]");
+            AddMembersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate3>(WrappedType, "AddMembers", "MemberDeclarationSyntax[]");
+            AddModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate4>(WrappedType, "AddModifiers", "SyntaxToken[]");
+            AddUsingsFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate5>(WrappedType, "AddUsings", "UsingDirectiveSyntax[]");
+            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(WrappedType, "Update", "SyntaxList`1", "SyntaxTokenList", "SyntaxToken", "NameSyntax", "SyntaxToken", "SyntaxList`1", "SyntaxList`1", "SyntaxList`1");
+            WithAttributeListsFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(WrappedType, "WithAttributeLists", "SyntaxList`1");
+            WithExternsFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate8>(WrappedType, "WithExterns", "SyntaxList`1");
+            WithMembersFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate9>(WrappedType, "WithMembers", "SyntaxList`1");
+            WithModifiersFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(WrappedType, "WithModifiers", "SyntaxTokenList");
+            WithNameFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate11>(WrappedType, "WithName", "NameSyntax");
+            WithNamespaceKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate12>(WrappedType, "WithNamespaceKeyword", "SyntaxToken");
+            WithSemicolonTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate13>(WrappedType, "WithSemicolonToken", "SyntaxToken");
+            WithUsingsFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate14>(WrappedType, "WithUsings", "SyntaxList`1");
         }
 
         private FileScopedNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)

@@ -47,7 +47,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
             FlowStateGetterFunc = LightupHelper.CreateInstanceGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "NullabilityInfo");
         }
 
         private NullabilityInfoWrapper(object? obj)

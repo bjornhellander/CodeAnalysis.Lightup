@@ -71,16 +71,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             DefaultNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(wrappedType, nameof(DefaultNamespace));
             ServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
 
-            AddAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, nameof(AddAnalyzerConfigDocument));
-            ContainsAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(wrappedType, nameof(ContainsAnalyzerConfigDocument));
-            GetAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(wrappedType, nameof(GetAnalyzerConfigDocument));
-            GetSourceGeneratedDocumentAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(wrappedType, nameof(GetSourceGeneratedDocumentAsync));
-            GetSourceGeneratedDocumentsAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(wrappedType, nameof(GetSourceGeneratedDocumentsAsync));
-            RemoveAdditionalDocumentsFunc5 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(wrappedType, nameof(RemoveAdditionalDocuments));
-            RemoveAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(wrappedType, nameof(RemoveAnalyzerConfigDocument));
-            RemoveAnalyzerConfigDocumentsFunc7 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(wrappedType, nameof(RemoveAnalyzerConfigDocuments));
-            RemoveDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(wrappedType, nameof(RemoveDocuments));
-            WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, nameof(WithDefaultNamespace));
+            AddAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, "AddAnalyzerConfigDocument", "String", "SourceText", "IEnumerable`1", "String");
+            ContainsAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(wrappedType, "ContainsAnalyzerConfigDocument", "DocumentId");
+            GetAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(wrappedType, "GetAnalyzerConfigDocument", "DocumentId");
+            GetSourceGeneratedDocumentAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(wrappedType, "GetSourceGeneratedDocumentAsync", "DocumentId", "CancellationToken");
+            GetSourceGeneratedDocumentsAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(wrappedType, "GetSourceGeneratedDocumentsAsync", "CancellationToken");
+            RemoveAdditionalDocumentsFunc5 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(wrappedType, "RemoveAdditionalDocuments", "ImmutableArray`1");
+            RemoveAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(wrappedType, "RemoveAnalyzerConfigDocument", "DocumentId");
+            RemoveAnalyzerConfigDocumentsFunc7 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(wrappedType, "RemoveAnalyzerConfigDocuments", "ImmutableArray`1");
+            RemoveDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(wrappedType, "RemoveDocuments", "ImmutableArray`1");
+            WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, "WithDefaultNamespace", "String");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

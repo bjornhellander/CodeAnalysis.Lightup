@@ -493,7 +493,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -502,7 +502,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         sb.AppendLine($"        }}");
@@ -768,7 +768,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -777,7 +777,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}));");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         sb.AppendLine($"        }}");
@@ -1354,6 +1354,19 @@ internal class Writer
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
             sb.Append($"{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
+    }
+
+    private static string GetCreateMethodAccessorArguments(MethodDefinition methodDef)
+    {
+        var sb = new StringBuilder();
+
+        sb.Append($"\"{methodDef.Name}\"");
+        foreach (var parameterDef in methodDef.Parameters)
+        {
+            sb.Append($", \"{parameterDef.Type.NativeName}{(parameterDef.Mode != ParameterMode.None ? "&" : "")}\"");
+        }
+
+        return sb.ToString();
     }
 
     private static bool IsSeparatedSyntaxList(GenericTypeReference genericTypeRef)

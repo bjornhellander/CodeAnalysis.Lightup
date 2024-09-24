@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ReadOnlyKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(wrappedType, nameof(ReadOnlyKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
-            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, nameof(WithReadOnlyKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "SyntaxToken", "SyntaxToken", "TypeSyntax");
+            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, "WithReadOnlyKeyword", "SyntaxToken");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

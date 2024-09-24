@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAnalysisResultAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate0>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate1>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate2>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate3>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate4>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc5 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate5>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc6 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate6>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc7 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate7>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc8 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate8>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalysisResultAsyncFunc9 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate9>(wrappedType, nameof(GetAnalysisResultAsync));
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(wrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(wrappedType, nameof(GetAnalyzerSyntaxDiagnosticsAsync));
+            GetAnalysisResultAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate0>(wrappedType, "GetAnalysisResultAsync", "SyntaxTree", "CancellationToken");
+            GetAnalysisResultAsyncFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate1>(wrappedType, "GetAnalysisResultAsync", "AdditionalText", "CancellationToken");
+            GetAnalysisResultAsyncFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate2>(wrappedType, "GetAnalysisResultAsync", "SyntaxTree", "ImmutableArray`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate3>(wrappedType, "GetAnalysisResultAsync", "AdditionalText", "ImmutableArray`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate4>(wrappedType, "GetAnalysisResultAsync", "SemanticModel", "Nullable`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc5 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate5>(wrappedType, "GetAnalysisResultAsync", "SyntaxTree", "Nullable`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc6 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate6>(wrappedType, "GetAnalysisResultAsync", "AdditionalText", "Nullable`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc7 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate7>(wrappedType, "GetAnalysisResultAsync", "SemanticModel", "Nullable`1", "ImmutableArray`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc8 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate8>(wrappedType, "GetAnalysisResultAsync", "SyntaxTree", "Nullable`1", "ImmutableArray`1", "CancellationToken");
+            GetAnalysisResultAsyncFunc9 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate9>(wrappedType, "GetAnalysisResultAsync", "AdditionalText", "Nullable`1", "ImmutableArray`1", "CancellationToken");
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "SyntaxTree", "Nullable`1", "CancellationToken");
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "SyntaxTree", "Nullable`1", "ImmutableArray`1", "CancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

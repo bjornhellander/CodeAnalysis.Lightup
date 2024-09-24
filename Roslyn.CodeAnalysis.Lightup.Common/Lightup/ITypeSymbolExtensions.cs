@@ -57,11 +57,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsRecordGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
 
-            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, nameof(ToDisplayParts));
-            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, nameof(ToDisplayString));
-            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, nameof(ToMinimalDisplayParts));
-            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, nameof(ToMinimalDisplayString));
-            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, nameof(WithNullableAnnotation));
+            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "NullableFlowState", "SymbolDisplayFormat");
+            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, "ToDisplayString", "NullableFlowState", "SymbolDisplayFormat");
+            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, "ToMinimalDisplayParts", "SemanticModel", "NullableFlowState", "Int32", "SymbolDisplayFormat");
+            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, "ToMinimalDisplayString", "SemanticModel", "NullableFlowState", "Int32", "SymbolDisplayFormat");
+            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, "WithNullableAnnotation", "NullableAnnotation");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -61,12 +61,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             LessThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
             ParametersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, nameof(AddParameters));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, nameof(WithGreaterThanToken));
-            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, nameof(WithLessThanToken));
-            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, nameof(WithParameters));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
+            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, "AddParameters", "FunctionPointerParameterSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "SyntaxToken", "SeparatedSyntaxList`1", "SyntaxToken");
+            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, "WithGreaterThanToken", "SyntaxToken");
+            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, "WithLessThanToken", "SyntaxToken");
+            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, "WithParameters", "SeparatedSyntaxList`1");
         }
 
         private FunctionPointerParameterListSyntaxWrapper(CSharpSyntaxNode? obj)

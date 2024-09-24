@@ -44,8 +44,8 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetFixAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetFixAsyncDelegate0>(WrappedType, nameof(GetFixAsync));
-            GetSupportedFixAllScopesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, nameof(GetSupportedFixAllScopes));
+            GetFixAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetFixAsyncDelegate0>(WrappedType, "GetFixAsync", "FixAllContext");
+            GetSupportedFixAllScopesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
         }
 
         private DocumentBasedFixAllProviderWrapper(FixAllProvider? obj)

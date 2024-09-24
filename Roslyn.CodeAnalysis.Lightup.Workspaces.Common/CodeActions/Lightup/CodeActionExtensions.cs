@@ -50,10 +50,10 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
             PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(wrappedType, nameof(Priority));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
-            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, nameof(Create));
-            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "String", "ImmutableArray`1", "Boolean");
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "String", "Func`2", "String", "CodeActionPriority");
+            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, "Create", "String", "Func`2", "String", "CodeActionPriority");
+            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, "Create", "String", "ImmutableArray`1", "Boolean", "CodeActionPriority");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

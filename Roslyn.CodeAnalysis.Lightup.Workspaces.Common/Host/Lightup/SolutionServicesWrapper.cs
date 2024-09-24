@@ -50,8 +50,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
             SupportedLanguagesGetterFunc = LightupHelper.CreateInstanceGetAccessor<SupportedLanguagesGetterDelegate>(WrappedType, nameof(SupportedLanguages));
 
-            GetLanguageServicesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, nameof(GetLanguageServices));
-            IsSupportedFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, nameof(IsSupported));
+            GetLanguageServicesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, "GetLanguageServices", "String");
+            IsSupportedFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "String");
         }
 
         private SolutionServicesWrapper(object? obj)

@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, nameof(CloseAnalyzerConfigDocument));
-            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, nameof(OpenAnalyzerConfigDocument));
+            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "DocumentId");
+            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, "OpenAnalyzerConfigDocument", "DocumentId", "Boolean");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
