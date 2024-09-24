@@ -154,12 +154,21 @@ internal class Writer
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (classTypeDef.IsStatic
-                && classTypeDef.Name != "WellKnownDiagnosticTags"
-                && classTypeDef.Name != "OperationExtensions")
+            if (classTypeDef.IsStatic)
             {
-                // TODO: Handle static classes as well
-                return null;
+                if (classTypeDef.FullName == "Microsoft.CodeAnalysis.Rename.Renamer")
+                {
+                    // TODO: Handle Renamer (has nested type)
+                    return null;
+                }
+                else if (HasNewMembers(classTypeDef))
+                {
+                    return GenerateExtension(classTypeDef, typeDefs, targetNamespace);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else if (typeDef.AssemblyVersion == null)
             {
