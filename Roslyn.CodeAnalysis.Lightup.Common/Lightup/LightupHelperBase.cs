@@ -100,14 +100,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, bool isExtensionMethod = false)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
             var returnType = GetReturnType<TDelegate>();
             var method = GetMethod(wrappedType, memberName, paramTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType, isExtensionMethod);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -190,8 +190,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
-            Type wrapperReturnType,
-            bool isExtensionMethod = false)
+            Type wrapperReturnType)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
@@ -212,44 +211,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
             else
             {
-                if (instanceParameter != null)
-                {
-                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-                    var nullCheckStatement = Expression.IfThen(
-                        Expression.Equal(
-                            instanceParameter,
-                            Expression.Constant(null)),
-                        Expression.Throw(
-                            Expression.New(
-                                nullReferenceExceptionConstructor)));
-                    expressions.Add(nullCheckStatement);
-                }
-                else if (isExtensionMethod)
-                {
-                    // TODO: Does this throw the right exception?
-                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-                    var instanceParameter2 = argParameters[0];
-                    var instanceExpression2 = GetNativeValue(instanceParameter2, wrapperParameterTypes[0]);
-                    var nullCheckStatement = Expression.IfThen(
-                        Expression.Equal(
-                            instanceExpression2,
-                            Expression.Constant(null)),
-                        Expression.Throw(
-                            Expression.New(
-                                nullReferenceExceptionConstructor)));
-                    expressions.Add(nullCheckStatement);
-                }
+                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+                var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
 
-                {
-                    var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                    var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
-
-                    var returnValue = instance != null
-                        ? Expression.Call(instance, method, argValues)
-                        : Expression.Call(method, argValues);
-                    var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-                    expressions.Add(wrappedReturnValue);
-                }
+                var returnValue = instance != null
+                    ? Expression.Call(instance, method, argValues)
+                    : Expression.Call(method, argValues);
+                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                expressions.Add(wrappedReturnValue);
             }
 
             var block = Expression.Block(expressions);

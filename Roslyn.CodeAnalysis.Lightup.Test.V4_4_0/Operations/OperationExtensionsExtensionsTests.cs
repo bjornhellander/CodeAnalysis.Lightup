@@ -18,9 +18,10 @@ public class OperationExtensionsExtensionsTests : V4_0_1.Operations.OperationExt
     [TestMethod]
     public override void TestGetFunctionPointerSignatureGivenNullObject()
     {
-        IOperation? obj = null;
+        IFunctionPointerInvocationOperation? obj = null;
         var wrapper = Wrapper.As(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.GetFunctionPointerSignature());
+        Assert.ThrowsException<NullReferenceException>(() => obj!.GetFunctionPointerSignature());
     }
 
     [TestMethod]

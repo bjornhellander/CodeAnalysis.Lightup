@@ -768,7 +768,7 @@ internal class Writer
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}){(method.IsExtensionMethod ? ", true" : "")});");
+                sb.AppendLine($"            {method.Name}Func{index} = LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, nameof({method.Name}));");
             }
         }
         if (instanceMethods.Count != 0)

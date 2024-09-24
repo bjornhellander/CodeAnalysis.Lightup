@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, nameof(GetFunctionPointerSignature), true);
+            GetFunctionPointerSignatureFunc0 = LightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, nameof(GetFunctionPointerSignature));
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
