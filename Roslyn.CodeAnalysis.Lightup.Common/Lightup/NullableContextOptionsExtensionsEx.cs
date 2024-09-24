@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AnnotationsEnabledFunc0 = LightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, nameof(AnnotationsEnabled), true);
-            WarningsEnabledFunc1 = LightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, nameof(WarningsEnabled), true);
+            AnnotationsEnabledFunc0 = LightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, nameof(AnnotationsEnabled));
+            WarningsEnabledFunc1 = LightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, nameof(WarningsEnabled));
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

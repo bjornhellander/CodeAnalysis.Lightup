@@ -100,14 +100,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, bool isExtensionMethod = false)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
             var returnType = GetReturnType<TDelegate>();
             var method = GetMethod(wrappedType, memberName, paramTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType, isExtensionMethod);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -190,8 +190,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
-            Type wrapperReturnType,
-            bool isExtensionMethod = false)
+            Type wrapperReturnType)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
