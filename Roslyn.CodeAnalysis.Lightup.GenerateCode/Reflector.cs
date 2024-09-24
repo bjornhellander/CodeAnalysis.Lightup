@@ -298,7 +298,7 @@ internal class Reflector
                     AddOrUpdate(typeDef.Constructors, constructorDef, AreEqual, assemblyVersion);
                     break;
 
-                // TODO: Check if we need to handle anything else
+                // TODO: Handle nested types (e.g. Renamer.Xyz)
                 case Type:
                     break;
 
