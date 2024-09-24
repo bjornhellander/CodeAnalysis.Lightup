@@ -339,6 +339,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 return result;
             }
+            else if (wrapperType.IsEnum)
+            {
+                Debug.Assert(nativeType.IsEnum, "Unexpected native type");
+                var nativeValue = Expression.Convert(input, nativeType);
+                return nativeValue;
+            }
             else
             {
                 // A wrapper
