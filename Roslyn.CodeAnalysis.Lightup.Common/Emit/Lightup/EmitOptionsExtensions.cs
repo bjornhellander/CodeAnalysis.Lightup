@@ -45,8 +45,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
             FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
 
-            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "Encoding");
-            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "Encoding");
+            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
+            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

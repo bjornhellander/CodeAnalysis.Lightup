@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "Int32");
-            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "SyntaxNode");
+            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "rawKindInt32");
+            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

@@ -79,18 +79,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             NamespaceKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
             UsingsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "AttributeListSyntax[]");
-            AddExternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, "AddExterns", "ExternAliasDirectiveSyntax[]");
-            AddMembersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, "AddMembers", "MemberDeclarationSyntax[]");
-            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, "AddModifiers", "SyntaxToken[]");
-            AddUsingsFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, "AddUsings", "UsingDirectiveSyntax[]");
-            WithAttributeListsFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, "WithAttributeLists", "SyntaxList`1");
-            WithExternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, "WithExterns", "SyntaxList`1");
-            WithMembersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, "WithMembers", "SyntaxList`1");
-            WithModifiersFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, "WithModifiers", "SyntaxTokenList");
-            WithNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, "WithName", "NameSyntax");
-            WithNamespaceKeywordFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, "WithNamespaceKeyword", "SyntaxToken");
-            WithUsingsFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "SyntaxList`1");
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddExternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, "AddExterns", "itemsExternAliasDirectiveSyntax[]");
+            AddMembersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
+            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddUsingsFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, "AddUsings", "itemsUsingDirectiveSyntax[]");
+            WithAttributeListsFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithExternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, "WithExterns", "externsSyntaxList`1");
+            WithMembersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, "WithMembers", "membersSyntaxList`1");
+            WithModifiersFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, "WithName", "nameNameSyntax");
+            WithNamespaceKeywordFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, "WithNamespaceKeyword", "namespaceKeywordSyntaxToken");
+            WithUsingsFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
         }
 
         private BaseNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)

@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(wrappedType, nameof(ExpressionColon));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "BaseExpressionColonSyntax", "PatternSyntax");
-            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, "WithExpressionColon", "BaseExpressionColonSyntax");
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
+            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, "WithExpressionColon", "expressionColonBaseExpressionColonSyntax");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ParseFunc0 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate0>(WrappedType, "Parse", "String", "String");
-            ParseFunc1 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate1>(WrappedType, "Parse", "SourceText", "String");
+            ParseFunc0 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate0>(WrappedType, "Parse", "textString", "pathToFileString");
+            ParseFunc1 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate1>(WrappedType, "Parse", "textSourceText", "pathToFileString");
         }
 
         private AnalyzerConfigWrapper(object? obj)

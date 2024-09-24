@@ -42,8 +42,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(wrappedType, nameof(DiagnosticOptions));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "CancellationToken");
-            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, "WithDiagnosticOptions", "ImmutableDictionary`2");
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
+            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, "WithDiagnosticOptions", "optionsImmutableDictionary`2");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

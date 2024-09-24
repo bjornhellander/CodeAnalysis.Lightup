@@ -44,10 +44,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ConditionalAccessExpressionFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(wrappedType, "ConditionalAccessExpression", "SyntaxNode", "SyntaxNode");
-            ElementBindingExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(wrappedType, "ElementBindingExpression", "IEnumerable`1");
-            ElementBindingExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(wrappedType, "ElementBindingExpression", "SyntaxNode[]");
-            MemberBindingExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(wrappedType, "MemberBindingExpression", "SyntaxNode");
+            ConditionalAccessExpressionFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(wrappedType, "ConditionalAccessExpression", "expressionSyntaxNode", "whenNotNullSyntaxNode");
+            ElementBindingExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(wrappedType, "ElementBindingExpression", "argumentsIEnumerable`1");
+            ElementBindingExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(wrappedType, "ElementBindingExpression", "argumentsSyntaxNode[]");
+            MemberBindingExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(wrappedType, "MemberBindingExpression", "nameSyntaxNode");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

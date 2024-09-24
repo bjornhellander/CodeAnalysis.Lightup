@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "Func`4");
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "Func`4", "ImmutableArray`1");
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "fixAllAsyncFunc`4");
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "fixAllAsyncFunc`4", "supportedFixAllScopesImmutableArray`1");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

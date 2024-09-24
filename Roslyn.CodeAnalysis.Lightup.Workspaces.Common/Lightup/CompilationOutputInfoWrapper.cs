@@ -50,8 +50,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             AssemblyPathGetterFunc = LightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "CompilationOutputInfo");
-            WithAssemblyPathFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "String");
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherCompilationOutputInfo");
+            WithAssemblyPathFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "pathString");
         }
 
         private CompilationOutputInfoWrapper(object? obj)

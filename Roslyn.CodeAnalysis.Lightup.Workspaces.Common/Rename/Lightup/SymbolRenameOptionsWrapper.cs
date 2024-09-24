@@ -71,8 +71,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             RenameOverloadsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
             RenameOverloadsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
 
-            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "Boolean&", "Boolean&", "Boolean&", "Boolean&");
-            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "SymbolRenameOptions");
+            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameOverloadsBoolean&", "RenameInStringsBoolean&", "RenameInCommentsBoolean&", "RenameFileBoolean&");
+            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
         }
 
         private SymbolRenameOptionsWrapper(object? obj)

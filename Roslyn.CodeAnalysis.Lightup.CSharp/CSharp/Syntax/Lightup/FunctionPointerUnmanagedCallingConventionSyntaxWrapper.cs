@@ -49,9 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             NameGetterFunc = LightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "SyntaxToken");
-            WithNameFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, "WithName", "SyntaxToken");
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "nameSyntaxToken");
+            WithNameFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, "WithName", "nameSyntaxToken");
         }
 
         private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)

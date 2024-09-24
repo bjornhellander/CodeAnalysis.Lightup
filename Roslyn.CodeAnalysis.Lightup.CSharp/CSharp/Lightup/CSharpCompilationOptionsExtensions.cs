@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
             NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
 
-            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "NullableContextOptions");
-            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "SyntaxTreeOptionsProvider");
+            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
+            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

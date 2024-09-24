@@ -51,9 +51,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
             CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
 
-            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "IEnumerable`1");
-            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "CompilationOutputInfo&");
-            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "String");
+            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "analyzerConfigDocumentsIEnumerable`1");
+            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
+            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

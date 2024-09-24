@@ -48,7 +48,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             ChecksumAlgorithmGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChecksumAlgorithmGetterDelegate>(WrappedType, nameof(ChecksumAlgorithm));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "LoadTextOptions");
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLoadTextOptions");
         }
 
         private LoadTextOptionsWrapper(object? obj)

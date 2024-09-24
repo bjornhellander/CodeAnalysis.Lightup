@@ -49,14 +49,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            ToDisplayPartsFunc0 = LightupHelper.CreateStaticMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "ITypeSymbol", "NullableFlowState", "SymbolDisplayFormat");
-            ToDisplayPartsFunc1 = LightupHelper.CreateStaticMethodAccessor<ToDisplayPartsDelegate1>(wrappedType, "ToDisplayParts", "ITypeSymbol", "NullableAnnotation", "SymbolDisplayFormat");
-            ToDisplayStringFunc2 = LightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate2>(wrappedType, "ToDisplayString", "ITypeSymbol", "NullableFlowState", "SymbolDisplayFormat");
-            ToDisplayStringFunc3 = LightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate3>(wrappedType, "ToDisplayString", "ITypeSymbol", "NullableAnnotation", "SymbolDisplayFormat");
-            ToMinimalDisplayPartsFunc4 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayPartsDelegate4>(wrappedType, "ToMinimalDisplayParts", "ITypeSymbol", "NullableFlowState", "SemanticModel", "Int32", "SymbolDisplayFormat");
-            ToMinimalDisplayPartsFunc5 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayPartsDelegate5>(wrappedType, "ToMinimalDisplayParts", "ITypeSymbol", "NullableAnnotation", "SemanticModel", "Int32", "SymbolDisplayFormat");
-            ToMinimalDisplayStringFunc6 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayStringDelegate6>(wrappedType, "ToMinimalDisplayString", "ITypeSymbol", "NullableFlowState", "SemanticModel", "Int32", "SymbolDisplayFormat");
-            ToMinimalDisplayStringFunc7 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayStringDelegate7>(wrappedType, "ToMinimalDisplayString", "ITypeSymbol", "NullableAnnotation", "SemanticModel", "Int32", "SymbolDisplayFormat");
+            ToDisplayPartsFunc0 = LightupHelper.CreateStaticMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "symbolITypeSymbol", "nullableFlowStateNullableFlowState", "formatSymbolDisplayFormat");
+            ToDisplayPartsFunc1 = LightupHelper.CreateStaticMethodAccessor<ToDisplayPartsDelegate1>(wrappedType, "ToDisplayParts", "symbolITypeSymbol", "nullableAnnotationNullableAnnotation", "formatSymbolDisplayFormat");
+            ToDisplayStringFunc2 = LightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate2>(wrappedType, "ToDisplayString", "symbolITypeSymbol", "nullableFlowStateNullableFlowState", "formatSymbolDisplayFormat");
+            ToDisplayStringFunc3 = LightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate3>(wrappedType, "ToDisplayString", "symbolITypeSymbol", "nullableAnnotationNullableAnnotation", "formatSymbolDisplayFormat");
+            ToMinimalDisplayPartsFunc4 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayPartsDelegate4>(wrappedType, "ToMinimalDisplayParts", "symbolITypeSymbol", "nullableFlowStateNullableFlowState", "semanticModelSemanticModel", "positionInt32", "formatSymbolDisplayFormat");
+            ToMinimalDisplayPartsFunc5 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayPartsDelegate5>(wrappedType, "ToMinimalDisplayParts", "symbolITypeSymbol", "nullableAnnotationNullableAnnotation", "semanticModelSemanticModel", "positionInt32", "formatSymbolDisplayFormat");
+            ToMinimalDisplayStringFunc6 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayStringDelegate6>(wrappedType, "ToMinimalDisplayString", "symbolITypeSymbol", "nullableFlowStateNullableFlowState", "semanticModelSemanticModel", "positionInt32", "formatSymbolDisplayFormat");
+            ToMinimalDisplayStringFunc7 = LightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayStringDelegate7>(wrappedType, "ToMinimalDisplayString", "symbolITypeSymbol", "nullableAnnotationNullableAnnotation", "semanticModelSemanticModel", "positionInt32", "formatSymbolDisplayFormat");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

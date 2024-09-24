@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetRecommendedSymbolsAtPositionAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<GetRecommendedSymbolsAtPositionAsyncDelegate0>(wrappedType, "GetRecommendedSymbolsAtPositionAsync", "Document", "Int32", "OptionSet", "CancellationToken");
+            GetRecommendedSymbolsAtPositionAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<GetRecommendedSymbolsAtPositionAsyncDelegate0>(wrappedType, "GetRecommendedSymbolsAtPositionAsync", "documentDocument", "positionInt32", "optionsOptionSet", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

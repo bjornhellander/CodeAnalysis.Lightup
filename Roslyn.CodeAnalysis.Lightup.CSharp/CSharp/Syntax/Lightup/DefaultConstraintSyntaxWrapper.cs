@@ -49,9 +49,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             DefaultKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "SyntaxToken");
-            WithDefaultKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "SyntaxToken");
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "defaultKeywordSyntaxToken");
+            WithDefaultKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
         }
 
         private DefaultConstraintSyntaxWrapper(TypeParameterConstraintSyntax? obj)

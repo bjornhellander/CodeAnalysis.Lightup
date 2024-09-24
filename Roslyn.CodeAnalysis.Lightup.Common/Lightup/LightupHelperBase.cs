@@ -100,12 +100,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTypeNames)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
         {
             var returnType = GetReturnType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
-            var method = GetMethod(wrappedType, memberName, paramTypeNames, out var nativeParamTypes);
+            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, nativeParamTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -113,13 +113,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
-        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTypeNames)
+        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
         {
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetMethod(wrappedType, memberName, paramTypeNames, out var nativeParamTypes);
+            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
 
             var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, nativeParamTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
@@ -350,7 +350,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
         }
 
-        private static MethodInfo? GetMethod(Type? wrappedType, string name, string[] paramTypeNames, out Type[] paramTypes)
+        private static MethodInfo? GetMethod(Type? wrappedType, string name, string[] paramTags, out Type[] paramTypes)
         {
             if (wrappedType == null)
             {
@@ -358,7 +358,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                 return null;
             }
 
-            var result = wrappedType.GetPublicMethod(name, paramTypeNames, out paramTypes);
+            var result = wrappedType.GetPublicMethod(name, paramTags, out paramTypes);
             return result;
         }
 

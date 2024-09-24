@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
             RightGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "CSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "PatternSyntax", "SyntaxToken", "PatternSyntax");
-            WithLeftFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithLeftDelegate2>(WrappedType, "WithLeft", "PatternSyntax");
-            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "SyntaxToken");
-            WithRightFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithRightDelegate4>(WrappedType, "WithRight", "PatternSyntax");
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "leftPatternSyntax", "operatorTokenSyntaxToken", "rightPatternSyntax");
+            WithLeftFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithLeftDelegate2>(WrappedType, "WithLeft", "leftPatternSyntax");
+            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
+            WithRightFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithRightDelegate4>(WrappedType, "WithRight", "rightPatternSyntax");
         }
 
         private BinaryPatternSyntaxWrapper(PatternSyntax? obj)

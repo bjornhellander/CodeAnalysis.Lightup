@@ -50,8 +50,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ColonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
             ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
-            WithColonTokenFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, "WithColonToken", "SyntaxToken");
-            WithExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate1>(WrappedType, "WithExpression", "ExpressionSyntax");
+            WithColonTokenFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
+            WithExpressionFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate1>(WrappedType, "WithExpression", "expressionExpressionSyntax");
         }
 
         private BaseExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)

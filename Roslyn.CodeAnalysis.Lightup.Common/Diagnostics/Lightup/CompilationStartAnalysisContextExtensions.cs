@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "Action`1");
+            RegisterAdditionalFileActionFunc0 = LightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

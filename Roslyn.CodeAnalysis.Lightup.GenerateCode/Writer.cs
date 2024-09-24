@@ -1363,7 +1363,7 @@ internal class Writer
         sb.Append($"\"{methodDef.Name}\"");
         foreach (var parameterDef in methodDef.Parameters)
         {
-            sb.Append($", \"{parameterDef.Type.NativeName}{(parameterDef.Mode != ParameterMode.None ? "&" : "")}\"");
+            sb.Append($", \"{parameterDef.Name}{parameterDef.Type.NativeName}{(parameterDef.Mode != ParameterMode.None ? "&" : "")}\"");
         }
 
         return sb.ToString();

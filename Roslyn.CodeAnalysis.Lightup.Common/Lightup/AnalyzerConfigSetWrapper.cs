@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             GlobalConfigOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
 
-            GetOptionsForSourcePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "String");
+            GetOptionsForSourcePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "sourcePathString");
         }
 
         private AnalyzerConfigSetWrapper(object? obj)

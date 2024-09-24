@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, "LoadTextAndVersionAsync", "LoadTextOptions", "CancellationToken");
+            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, "LoadTextAndVersionAsync", "optionsLoadTextOptions", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

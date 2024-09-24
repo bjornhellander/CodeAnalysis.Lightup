@@ -59,8 +59,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             RenameMatchingTypeInStringsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameMatchingTypeInStringsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
             RenameMatchingTypeInStringsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameMatchingTypeInStringsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
 
-            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "Boolean&", "Boolean&");
-            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "DocumentRenameOptions");
+            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameMatchingTypeInStringsBoolean&", "RenameMatchingTypeInCommentsBoolean&");
+            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherDocumentRenameOptions");
         }
 
         private DocumentRenameOptionsWrapper(object? obj)

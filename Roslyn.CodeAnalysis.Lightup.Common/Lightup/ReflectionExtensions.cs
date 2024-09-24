@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return method;
         }
 
-        public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTypeNames, out Type[] paramTypes)
+        public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags, out Type[] paramTypes)
         {
             MethodInfo? selectedMethod = null;
             Type[]? selectedParameterTypes = null;
@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                 }
 
                 var currParameters = currMethod.GetParameters();
-                if (currParameters.Length != paramTypeNames.Length)
+                if (currParameters.Length != paramTags.Length)
                 {
                     continue;
                 }
@@ -58,8 +58,9 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var currParameterTypes = new Type[currParameters.Length];
                 for (var pi = 0; pi < currParameters.Length; pi++)
                 {
-                    // TODO: Comparing just the name is not good enough in theory, but might be good enough in practise
-                    if (currParameters[pi].ParameterType.Name != paramTypeNames[pi])
+                    // TODO: Comparing just the name and type name is not good enough in theory, but might be good enough in practise
+                    // TODO: At the same time it is overly complicated. Simplify!
+                    if (paramTags[pi] != currParameters[pi].Name + currParameters[pi].ParameterType.Name)
                     {
                         currParameterTypes = null;
                         break;
