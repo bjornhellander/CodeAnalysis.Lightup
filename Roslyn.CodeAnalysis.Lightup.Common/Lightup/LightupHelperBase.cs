@@ -212,44 +212,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
             else
             {
-                if (instanceParameter != null)
-                {
-                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-                    var nullCheckStatement = Expression.IfThen(
-                        Expression.Equal(
-                            instanceParameter,
-                            Expression.Constant(null)),
-                        Expression.Throw(
-                            Expression.New(
-                                nullReferenceExceptionConstructor)));
-                    expressions.Add(nullCheckStatement);
-                }
-                else if (isExtensionMethod)
-                {
-                    // TODO: Does this throw the right exception?
-                    var nullReferenceExceptionConstructor = typeof(NullReferenceException).GetConstructor(Array.Empty<Type>());
-                    var instanceParameter2 = argParameters[0];
-                    var instanceExpression2 = GetNativeValue(instanceParameter2, wrapperParameterTypes[0]);
-                    var nullCheckStatement = Expression.IfThen(
-                        Expression.Equal(
-                            instanceExpression2,
-                            Expression.Constant(null)),
-                        Expression.Throw(
-                            Expression.New(
-                                nullReferenceExceptionConstructor)));
-                    expressions.Add(nullCheckStatement);
-                }
+                var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+                var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
 
-                {
-                    var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                    var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
-
-                    var returnValue = instance != null
-                        ? Expression.Call(instance, method, argValues)
-                        : Expression.Call(method, argValues);
-                    var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-                    expressions.Add(wrappedReturnValue);
-                }
+                var returnValue = instance != null
+                    ? Expression.Call(instance, method, argValues)
+                    : Expression.Call(method, argValues);
+                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                expressions.Add(wrappedReturnValue);
             }
 
             var block = Expression.Block(expressions);
