@@ -226,6 +226,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return (block, allParameters);
         }
 
+        // TODO: Simplify by calling itself recursively?
         private static Expression GetPossiblyWrappedValue(Expression input, Type targetType)
         {
             if (input.Type == targetType)
@@ -244,25 +245,36 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
-                var itemWrapMethod = wrapperItemType.GetMethod("As");
-                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
-                var conversionRefValue = nativeItemType.IsValueType ?
-                    Expression.Convert(conversionLambdaParameter, typeof(object)) :
-                    (Expression)conversionLambdaParameter;
-                var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(
-                            itemWrapMethod,
-                            conversionRefValue),
-                        wrapperItemType),
-                    conversionLambdaParameter);
+                LambdaExpression conversionLambda;
+                if (wrapperItemType.IsEnum)
+                {
+                    var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                    conversionLambda = Expression.Lambda(
+                        Expression.Convert(
+                            conversionLambdaParameter,
+                            wrapperItemType),
+                        conversionLambdaParameter);
+                }
+                else
+                {
+                    var itemWrapMethod = wrapperItemType.GetMethod("As");
+                    var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                    var conversionRefValue = nativeItemType.IsValueType ?
+                        Expression.Convert(conversionLambdaParameter, typeof(object)) :
+                        (Expression)conversionLambdaParameter;
+                    conversionLambda = Expression.Lambda(
+                        Expression.Convert(
+                            Expression.Call(
+                                itemWrapMethod,
+                                conversionRefValue),
+                            wrapperItemType),
+                        conversionLambdaParameter);
+                }
 
                 var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
-
                 var temp1 = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
-
                 var result = Expression.Call(toArrayMethod, temp1);
 
                 return result;
@@ -289,6 +301,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedValue;
         }
 
+        // TODO: Simplify by calling itself recursively?
         private static Expression GetNativeValue(Expression input, Type wrapperType, Type nativeType)
         {
             if (nativeType == wrapperType)
@@ -311,8 +324,27 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-
                 var result = Expression.Call(selectMethod, input, conversionLambda);
+
+                return result;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            {
+                // ImmutableArray<X> where X is a wrapper
+                var wrapperItemType = wrapperType.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetImmutableArraySelectMethod(wrapperItemType, nativeItemType);
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(nativeItemType);
+                var result = Expression.Call(toArrayMethod, temp1);
+
                 return result;
             }
             else if (wrapperType.IsArray)
@@ -330,11 +362,9 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-
                 var temp1 = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
-
                 var result = Expression.Call(toArrayMethod, temp1);
 
                 return result;
