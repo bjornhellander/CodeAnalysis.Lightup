@@ -301,7 +301,6 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedValue;
         }
 
-        // TODO: Simplify by calling itself recursively?
         private static Expression GetNativeValue(Expression input, Type wrapperType, Type nativeType)
         {
             if (nativeType == wrapperType)
@@ -315,12 +314,9 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrapperItemType = wrapperType.GetGenericArguments()[0];
                 var nativeItemType = nativeType.GetGenericArguments()[0];
 
-                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
                 var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
                 var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(conversionLambdaParameter, unwrapMethod),
-                        nativeItemType),
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
@@ -353,12 +349,9 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrapperItemType = wrapperType.GetElementType();
                 var nativeItemType = nativeType.GetElementType();
 
-                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
                 var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
                 var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(conversionLambdaParameter, unwrapMethod),
-                        nativeItemType),
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
