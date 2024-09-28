@@ -226,7 +226,6 @@ namespace Microsoft.CodeAnalysis.Lightup
             return (block, allParameters);
         }
 
-        // TODO: Simplify by calling itself recursively?
         private static Expression GetPossiblyWrappedValue(Expression input, Type targetType)
         {
             if (input.Type == targetType)
@@ -239,37 +238,15 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrappedEnumValue = Expression.Convert(input, targetType);
                 return wrappedEnumValue;
             }
-
-            if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
             {
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
-                LambdaExpression conversionLambda;
-                if (wrapperItemType.IsEnum)
-                {
-                    var conversionLambdaParameter = Expression.Parameter(nativeItemType);
-                    conversionLambda = Expression.Lambda(
-                        Expression.Convert(
-                            conversionLambdaParameter,
-                            wrapperItemType),
-                        conversionLambdaParameter);
-                }
-                else
-                {
-                    var itemWrapMethod = wrapperItemType.GetMethod("As");
-                    var conversionLambdaParameter = Expression.Parameter(nativeItemType);
-                    var conversionRefValue = nativeItemType.IsValueType ?
-                        Expression.Convert(conversionLambdaParameter, typeof(object)) :
-                        (Expression)conversionLambdaParameter;
-                    conversionLambda = Expression.Lambda(
-                        Expression.Convert(
-                            Expression.Call(
-                                itemWrapMethod,
-                                conversionRefValue),
-                            wrapperItemType),
-                        conversionLambdaParameter);
-                }
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
                 var temp1 = Expression.Call(selectMethod, input, conversionLambda);
@@ -279,26 +256,28 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 return result;
             }
-
-            var wrapMethod = targetType.GetMethod("As");
-            if (wrapMethod == null)
+            else
             {
-                throw new InvalidOperationException("Could not find method 'As' in wrapper");
-            }
+                var wrapMethod = targetType.GetMethod("As");
+                if (wrapMethod == null)
+                {
+                    throw new InvalidOperationException("Could not find method 'As' in wrapper");
+                }
 
-            var parameters = wrapMethod.GetParameters();
-            if (parameters.Length != 1)
-            {
-                throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
-            }
+                var parameters = wrapMethod.GetParameters();
+                if (parameters.Length != 1)
+                {
+                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+                }
 
-            if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
-            {
-                input = Expression.Convert(input, typeof(object));
-            }
+                if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
+                {
+                    input = Expression.Convert(input, typeof(object));
+                }
 
-            var wrappedValue = Expression.Call(null, wrapMethod, input);
-            return wrappedValue;
+                var wrappedValue = Expression.Call(null, wrapMethod, input);
+                return wrappedValue;
+            }
         }
 
         private static Expression GetNativeValue(Expression input, Type wrapperType, Type nativeType)
