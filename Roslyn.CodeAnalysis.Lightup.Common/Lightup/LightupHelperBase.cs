@@ -64,9 +64,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetPropertyGetter(wrappedType, memberName);
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, Array.Empty<Type>(), returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -78,9 +78,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetPropertyGetter(wrappedType, memberName);
+            var method = wrappedType?.GetPublicPropertyGetter(memberName);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, Array.Empty<Type>(), returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -92,9 +92,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetPropertySetter(wrappedType, memberName, out var nativeParamTypes);
+            var method = wrappedType?.GetPublicPropertySetter(memberName);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, nativeParamTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -105,9 +105,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var returnType = GetReturnType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
-            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
+            var method = wrappedType?.GetPublicMethod(memberName, paramTags);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, nativeParamTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -119,9 +119,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
+            var method = wrappedType?.GetPublicMethod(memberName, paramTags);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, nativeParamTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -190,7 +190,6 @@ namespace Microsoft.CodeAnalysis.Lightup
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
-            Type[] nativeParameterTypes,
             Type wrapperReturnType)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
@@ -212,8 +211,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
             else
             {
+                var parameters = method.GetParameters();
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], nativeParameterTypes[i])).ToArray();
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], parameters[i].ParameterType)).ToArray();
                 var returnValue = instance != null
                     ? Expression.Call(instance, method, argValues)
                     : Expression.Call(method, argValues);
@@ -356,41 +356,6 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var nativeValue = Expression.Convert(unwrappedValue, nativeType);
                 return nativeValue;
             }
-        }
-
-        private static MethodInfo? GetMethod(Type? wrappedType, string name, string[] paramTags, out Type[] paramTypes)
-        {
-            if (wrappedType == null)
-            {
-                paramTypes = Array.Empty<Type>();
-                return null;
-            }
-
-            var result = wrappedType.GetPublicMethod(name, paramTags, out paramTypes);
-            return result;
-        }
-
-        private static MethodInfo? GetPropertyGetter(Type? wrappedType, string name)
-        {
-            if (wrappedType == null)
-            {
-                return null;
-            }
-
-            var result = wrappedType.GetPublicPropertyGetter(name);
-            return result;
-        }
-
-        private static MethodInfo? GetPropertySetter(Type? wrappedType, string name, out Type[] paramTypes)
-        {
-            if (wrappedType == null)
-            {
-                paramTypes = Array.Empty<Type>();
-                return null;
-            }
-
-            var result = wrappedType.GetPublicPropertySetter(name, out paramTypes);
-            return result;
         }
 
         private static MethodInfo GetEnumerableSelectMethod(Type sourceItemType, Type resultItemType)

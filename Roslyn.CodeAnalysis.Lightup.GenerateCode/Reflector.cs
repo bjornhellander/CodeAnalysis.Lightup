@@ -279,7 +279,7 @@ internal class Reflector
                     break;
 
                 // TODO: Handle generic methods
-                // TODO: Handle methods overridden from System.Object
+                // TODO: Handle methods overridden from System.Object?
                 case MethodInfo method:
                     {
                         if (!method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
