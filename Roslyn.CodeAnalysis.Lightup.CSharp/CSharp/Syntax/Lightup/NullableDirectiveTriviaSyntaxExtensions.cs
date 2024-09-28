@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             TargetTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(wrappedType, nameof(TargetToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
-            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, nameof(WithTargetToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "hashTokenSyntaxToken", "nullableKeywordSyntaxToken", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            WithTargetTokenFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, "WithTargetToken", "targetTokenSyntaxToken");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

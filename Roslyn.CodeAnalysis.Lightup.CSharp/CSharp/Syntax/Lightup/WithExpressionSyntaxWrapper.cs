@@ -61,12 +61,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
             WithKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<WithKeywordGetterDelegate>(WrappedType, nameof(WithKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddInitializerExpressionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, nameof(AddInitializerExpressions));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, nameof(WithExpression));
-            WithInitializerFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate4>(WrappedType, nameof(WithInitializer));
-            WithWithKeywordFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithWithKeywordDelegate5>(WrappedType, nameof(WithWithKeyword));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddInitializerExpressionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, "AddInitializerExpressions", "itemsExpressionSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "expressionExpressionSyntax", "withKeywordSyntaxToken", "initializerInitializerExpressionSyntax");
+            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithInitializerFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate4>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
+            WithWithKeywordFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithWithKeywordDelegate5>(WrappedType, "WithWithKeyword", "withKeywordSyntaxToken");
         }
 
         private WithExpressionSyntaxWrapper(ExpressionSyntax? obj)

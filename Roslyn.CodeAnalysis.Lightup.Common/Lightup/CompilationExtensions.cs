@@ -56,18 +56,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateAnonymousTypeSymbolFunc0 = LightupHelper.CreateInstanceMethodAccessor<CreateAnonymousTypeSymbolDelegate0>(wrappedType, nameof(CreateAnonymousTypeSymbol));
-            CreateArrayTypeSymbolFunc1 = LightupHelper.CreateInstanceMethodAccessor<CreateArrayTypeSymbolDelegate1>(wrappedType, nameof(CreateArrayTypeSymbol));
-            CreateBuiltinOperatorFunc2 = LightupHelper.CreateInstanceMethodAccessor<CreateBuiltinOperatorDelegate2>(wrappedType, nameof(CreateBuiltinOperator));
-            CreateBuiltinOperatorFunc3 = LightupHelper.CreateInstanceMethodAccessor<CreateBuiltinOperatorDelegate3>(wrappedType, nameof(CreateBuiltinOperator));
-            CreateFunctionPointerTypeSymbolFunc4 = LightupHelper.CreateInstanceMethodAccessor<CreateFunctionPointerTypeSymbolDelegate4>(wrappedType, nameof(CreateFunctionPointerTypeSymbol));
-            CreateNativeIntegerTypeSymbolFunc5 = LightupHelper.CreateInstanceMethodAccessor<CreateNativeIntegerTypeSymbolDelegate5>(wrappedType, nameof(CreateNativeIntegerTypeSymbol));
-            CreateTupleTypeSymbolFunc6 = LightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate6>(wrappedType, nameof(CreateTupleTypeSymbol));
-            CreateTupleTypeSymbolFunc7 = LightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate7>(wrappedType, nameof(CreateTupleTypeSymbol));
-            EmitDifferenceFunc8 = LightupHelper.CreateInstanceMethodAccessor<EmitDifferenceDelegate8>(wrappedType, nameof(EmitDifference));
-            GetTypesByMetadataNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate9>(wrappedType, nameof(GetTypesByMetadataName));
-            GetUsedAssemblyReferencesFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate10>(wrappedType, nameof(GetUsedAssemblyReferences));
-            SupportsRuntimeCapabilityFunc11 = LightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate11>(wrappedType, nameof(SupportsRuntimeCapability));
+            CreateAnonymousTypeSymbolFunc0 = LightupHelper.CreateInstanceMethodAccessor<CreateAnonymousTypeSymbolDelegate0>(wrappedType, "CreateAnonymousTypeSymbol", "memberTypesImmutableArray`1", "memberNamesImmutableArray`1", "memberIsReadOnlyImmutableArray`1", "memberLocationsImmutableArray`1", "memberNullableAnnotationsImmutableArray`1");
+            CreateArrayTypeSymbolFunc1 = LightupHelper.CreateInstanceMethodAccessor<CreateArrayTypeSymbolDelegate1>(wrappedType, "CreateArrayTypeSymbol", "elementTypeITypeSymbol", "rankInt32", "elementNullableAnnotationNullableAnnotation");
+            CreateBuiltinOperatorFunc2 = LightupHelper.CreateInstanceMethodAccessor<CreateBuiltinOperatorDelegate2>(wrappedType, "CreateBuiltinOperator", "nameString", "returnTypeITypeSymbol", "operandTypeITypeSymbol");
+            CreateBuiltinOperatorFunc3 = LightupHelper.CreateInstanceMethodAccessor<CreateBuiltinOperatorDelegate3>(wrappedType, "CreateBuiltinOperator", "nameString", "returnTypeITypeSymbol", "leftTypeITypeSymbol", "rightTypeITypeSymbol");
+            CreateFunctionPointerTypeSymbolFunc4 = LightupHelper.CreateInstanceMethodAccessor<CreateFunctionPointerTypeSymbolDelegate4>(wrappedType, "CreateFunctionPointerTypeSymbol", "returnTypeITypeSymbol", "returnRefKindRefKind", "parameterTypesImmutableArray`1", "parameterRefKindsImmutableArray`1", "callingConventionSignatureCallingConvention", "callingConventionTypesImmutableArray`1");
+            CreateNativeIntegerTypeSymbolFunc5 = LightupHelper.CreateInstanceMethodAccessor<CreateNativeIntegerTypeSymbolDelegate5>(wrappedType, "CreateNativeIntegerTypeSymbol", "signedBoolean");
+            CreateTupleTypeSymbolFunc6 = LightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate6>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
+            CreateTupleTypeSymbolFunc7 = LightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate7>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
+            EmitDifferenceFunc8 = LightupHelper.CreateInstanceMethodAccessor<EmitDifferenceDelegate8>(wrappedType, "EmitDifference", "baselineEmitBaseline", "editsIEnumerable`1", "isAddedSymbolFunc`2", "metadataStreamStream", "ilStreamStream", "pdbStreamStream", "cancellationTokenCancellationToken");
+            GetTypesByMetadataNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate9>(wrappedType, "GetTypesByMetadataName", "fullyQualifiedMetadataNameString");
+            GetUsedAssemblyReferencesFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate10>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            SupportsRuntimeCapabilityFunc11 = LightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate11>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

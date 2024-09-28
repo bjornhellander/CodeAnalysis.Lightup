@@ -89,17 +89,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             MinusTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MinusTokenGetterDelegate>(WrappedType, nameof(MinusToken));
             StartGetterFunc = LightupHelper.CreateInstanceGetAccessor<StartGetterDelegate>(WrappedType, nameof(Start));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithCharacterOffsetFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCharacterOffsetDelegate2>(WrappedType, nameof(WithCharacterOffset));
-            WithEndFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithEndDelegate3>(WrappedType, nameof(WithEnd));
-            WithEndOfDirectiveTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate4>(WrappedType, nameof(WithEndOfDirectiveToken));
-            WithFileFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithFileDelegate5>(WrappedType, nameof(WithFile));
-            WithHashTokenFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate6>(WrappedType, nameof(WithHashToken));
-            WithIsActiveFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithIsActiveDelegate7>(WrappedType, nameof(WithIsActive));
-            WithLineKeywordFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate8>(WrappedType, nameof(WithLineKeyword));
-            WithMinusTokenFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithMinusTokenDelegate9>(WrappedType, nameof(WithMinusToken));
-            WithStartFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithStartDelegate10>(WrappedType, nameof(WithStart));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "hashTokenSyntaxToken", "lineKeywordSyntaxToken", "startLineDirectivePositionSyntax", "minusTokenSyntaxToken", "endLineDirectivePositionSyntax", "characterOffsetSyntaxToken", "fileSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            WithCharacterOffsetFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCharacterOffsetDelegate2>(WrappedType, "WithCharacterOffset", "characterOffsetSyntaxToken");
+            WithEndFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithEndDelegate3>(WrappedType, "WithEnd", "endLineDirectivePositionSyntax");
+            WithEndOfDirectiveTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate4>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
+            WithFileFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithFileDelegate5>(WrappedType, "WithFile", "fileSyntaxToken");
+            WithHashTokenFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate6>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
+            WithIsActiveFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithIsActiveDelegate7>(WrappedType, "WithIsActive", "isActiveBoolean");
+            WithLineKeywordFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate8>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
+            WithMinusTokenFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithMinusTokenDelegate9>(WrappedType, "WithMinusToken", "minusTokenSyntaxToken");
+            WithStartFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithStartDelegate10>(WrappedType, "WithStart", "startLineDirectivePositionSyntax");
         }
 
         private LineSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)

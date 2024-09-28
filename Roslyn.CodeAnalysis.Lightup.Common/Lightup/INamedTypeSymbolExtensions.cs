@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
             TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, nameof(Construct));
+            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

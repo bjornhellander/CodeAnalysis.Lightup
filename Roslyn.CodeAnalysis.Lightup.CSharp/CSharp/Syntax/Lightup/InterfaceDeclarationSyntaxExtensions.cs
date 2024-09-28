@@ -45,9 +45,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, nameof(AddParameterListParameters));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
-            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, nameof(WithParameterList));
+            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

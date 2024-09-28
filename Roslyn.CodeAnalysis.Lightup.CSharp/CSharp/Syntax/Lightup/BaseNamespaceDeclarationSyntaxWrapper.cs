@@ -79,18 +79,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             NamespaceKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
             UsingsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, nameof(AddAttributeLists));
-            AddExternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, nameof(AddExterns));
-            AddMembersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, nameof(AddMembers));
-            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, nameof(AddModifiers));
-            AddUsingsFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, nameof(AddUsings));
-            WithAttributeListsFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, nameof(WithAttributeLists));
-            WithExternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, nameof(WithExterns));
-            WithMembersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, nameof(WithMembers));
-            WithModifiersFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, nameof(WithModifiers));
-            WithNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, nameof(WithName));
-            WithNamespaceKeywordFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, nameof(WithNamespaceKeyword));
-            WithUsingsFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, nameof(WithUsings));
+            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddExternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, "AddExterns", "itemsExternAliasDirectiveSyntax[]");
+            AddMembersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
+            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddUsingsFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, "AddUsings", "itemsUsingDirectiveSyntax[]");
+            WithAttributeListsFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithExternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, "WithExterns", "externsSyntaxList`1");
+            WithMembersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, "WithMembers", "membersSyntaxList`1");
+            WithModifiersFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, "WithName", "nameNameSyntax");
+            WithNamespaceKeywordFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, "WithNamespaceKeyword", "namespaceKeywordSyntaxToken");
+            WithUsingsFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
         }
 
         private BaseNamespaceDeclarationSyntaxWrapper(MemberDeclarationSyntax? obj)

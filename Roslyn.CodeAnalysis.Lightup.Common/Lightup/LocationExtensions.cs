@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "filePathString", "textSpanTextSpan", "lineSpanLinePositionSpan", "mappedFilePathString", "mappedLineSpanLinePositionSpan");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

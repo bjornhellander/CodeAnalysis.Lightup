@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, nameof(IsIncrementallyIdenticalTo));
+            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNodeOrToken");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

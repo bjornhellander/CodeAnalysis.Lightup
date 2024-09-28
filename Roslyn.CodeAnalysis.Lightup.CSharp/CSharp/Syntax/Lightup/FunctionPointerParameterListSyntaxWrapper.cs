@@ -61,12 +61,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             LessThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
             ParametersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, nameof(AddParameters));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, nameof(WithGreaterThanToken));
-            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, nameof(WithLessThanToken));
-            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, nameof(WithParameters));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, "AddParameters", "itemsFunctionPointerParameterSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "lessThanTokenSyntaxToken", "parametersSeparatedSyntaxList`1", "greaterThanTokenSyntaxToken");
+            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, "WithGreaterThanToken", "greaterThanTokenSyntaxToken");
+            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, "WithLessThanToken", "lessThanTokenSyntaxToken");
+            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
         }
 
         private FunctionPointerParameterListSyntaxWrapper(CSharpSyntaxNode? obj)

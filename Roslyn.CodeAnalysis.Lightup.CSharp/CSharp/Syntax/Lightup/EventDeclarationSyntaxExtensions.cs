@@ -45,9 +45,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(wrappedType, nameof(SemicolonToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
-            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(wrappedType, nameof(WithSemicolonToken));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "semicolonTokenSyntaxToken");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "accessorListAccessorListSyntax", "semicolonTokenSyntaxToken");
+            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -46,8 +46,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
             GlobalOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
 
-            GetOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, nameof(GetOptions));
-            GetOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, nameof(GetOptions));
+            GetOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, "GetOptions", "treeSyntaxTree");
+            GetOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "textFileAdditionalText");
         }
 
         private AnalyzerConfigOptionsProviderWrapper(object? obj)

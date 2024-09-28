@@ -63,13 +63,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
             TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, nameof(AddAttributeLists));
-            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(WrappedType, nameof(AddModifiers));
-            UpdateFunc3 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate3>(WrappedType, nameof(Update));
-            WithAttributeListsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate4>(WrappedType, nameof(WithAttributeLists));
-            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(WrappedType, nameof(WithModifiers));
-            WithTypeFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate6>(WrappedType, nameof(WithType));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc3 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate3>(WrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "typeTypeSyntax");
+            WithAttributeListsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate4>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithTypeFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate6>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private FunctionPointerParameterSyntaxWrapper(CSharpSyntaxNode? obj)

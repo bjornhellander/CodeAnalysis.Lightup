@@ -43,8 +43,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, nameof(Update));
-            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, nameof(WithCheckedKeyword));
+            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "implicitOrExplicitKeywordSyntaxToken", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "typeTypeSyntax", "parametersCrefParameterListSyntax");
+            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

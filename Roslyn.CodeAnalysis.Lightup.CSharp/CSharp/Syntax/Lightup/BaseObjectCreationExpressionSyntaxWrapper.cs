@@ -57,10 +57,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
             NewKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NewKeywordGetterDelegate>(WrappedType, nameof(NewKeyword));
 
-            AddArgumentListArgumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate0>(WrappedType, nameof(AddArgumentListArguments));
-            WithArgumentListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate1>(WrappedType, nameof(WithArgumentList));
-            WithInitializerFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate2>(WrappedType, nameof(WithInitializer));
-            WithNewKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNewKeywordDelegate3>(WrappedType, nameof(WithNewKeyword));
+            AddArgumentListArgumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate0>(WrappedType, "AddArgumentListArguments", "itemsArgumentSyntax[]");
+            WithArgumentListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate1>(WrappedType, "WithArgumentList", "argumentListArgumentListSyntax");
+            WithInitializerFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate2>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
+            WithNewKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNewKeywordDelegate3>(WrappedType, "WithNewKeyword", "newKeywordSyntaxToken");
         }
 
         private BaseObjectCreationExpressionSyntaxWrapper(ExpressionSyntax? obj)

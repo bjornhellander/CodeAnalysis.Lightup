@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, nameof(GetForwardedTypes));
+            GetForwardedTypesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, "GetForwardedTypes");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

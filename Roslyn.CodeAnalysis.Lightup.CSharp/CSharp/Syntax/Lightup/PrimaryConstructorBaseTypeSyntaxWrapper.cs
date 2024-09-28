@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ArgumentListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentListGetterDelegate>(WrappedType, nameof(ArgumentList));
             TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddArgumentListArgumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, nameof(AddArgumentListArguments));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithArgumentListFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate3>(WrappedType, nameof(WithArgumentList));
-            WithTypeFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, nameof(WithType));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddArgumentListArgumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, "AddArgumentListArguments", "itemsArgumentSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "typeTypeSyntax", "argumentListArgumentListSyntax");
+            WithArgumentListFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate3>(WrappedType, "WithArgumentList", "argumentListArgumentListSyntax");
+            WithTypeFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private PrimaryConstructorBaseTypeSyntaxWrapper(BaseTypeSyntax? obj)

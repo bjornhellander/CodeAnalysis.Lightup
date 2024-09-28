@@ -4,6 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
+    using System.Linq;
     using System.Reflection;
 
     internal static class ReflectionExtensions
@@ -27,17 +28,69 @@ namespace Microsoft.CodeAnalysis.Lightup
             return method;
         }
 
-        public static MethodInfo? GetPublicPropertySetter(this Type type, string name)
+        public static MethodInfo? GetPublicPropertySetter(this Type type, string name, out Type[] nativeParamTypes)
         {
             var property = type.GetProperty(name);
             var method = property?.GetSetMethod();
+            //// TODO: This can be simplified
+            nativeParamTypes = method?.GetParameters().Select(x => x.ParameterType).ToArray() ?? Array.Empty<Type>();
             return method;
         }
 
-        public static MethodInfo? GetPublicMethod(this Type type, string name, Type[] paramTypes)
+        public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags, out Type[] paramTypes)
         {
-            var method = type.GetMethod(name, paramTypes);
-            return method;
+            MethodInfo? selectedMethod = null;
+            Type[]? selectedParameterTypes = null;
+
+            foreach (var currMethod in type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+            {
+                if (currMethod.Name != name)
+                {
+                    continue;
+                }
+
+                var currParameters = currMethod.GetParameters();
+                if (currParameters.Length != paramTags.Length)
+                {
+                    continue;
+                }
+
+                var currParameterTypes = new Type[currParameters.Length];
+                for (var pi = 0; pi < currParameters.Length; pi++)
+                {
+                    // TODO: Comparing just the name and type name is not good enough in theory, but might be good enough in practise
+                    // TODO: At the same time it is overly complicated. Simplify!
+                    if (paramTags[pi] != currParameters[pi].Name + currParameters[pi].ParameterType.Name)
+                    {
+                        currParameterTypes = null;
+                        break;
+                    }
+
+                    currParameterTypes[pi] = currParameters[pi].ParameterType;
+                }
+
+                if (currParameterTypes == null)
+                {
+                    continue;
+                }
+
+                if (selectedMethod != null)
+                {
+                    throw new InvalidOperationException("Found more than one matching method");
+                }
+
+                selectedMethod = currMethod;
+                selectedParameterTypes = currParameterTypes;
+            }
+
+            if (selectedMethod == null || selectedParameterTypes == null)
+            {
+                paramTypes = Array.Empty<Type>();
+                return null;
+            }
+
+            paramTypes = selectedParameterTypes;
+            return selectedMethod;
         }
     }
 }

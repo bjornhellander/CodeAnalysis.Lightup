@@ -36,8 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, nameof(GetImportScopes));
-            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, nameof(GetNullableContext));
+            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, "GetImportScopes", "positionInt32", "cancellationTokenCancellationToken");
+            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

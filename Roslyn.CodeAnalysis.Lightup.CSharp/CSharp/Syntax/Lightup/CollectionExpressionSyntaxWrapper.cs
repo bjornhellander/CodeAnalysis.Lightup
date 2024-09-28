@@ -61,12 +61,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ElementsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementsGetterDelegate>(WrappedType, nameof(Elements));
             OpenBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            AddElementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddElementsDelegate1>(WrappedType, nameof(AddElements));
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, nameof(Update));
-            WithCloseBracketTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, nameof(WithCloseBracketToken));
-            WithElementsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithElementsDelegate4>(WrappedType, nameof(WithElements));
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, nameof(WithOpenBracketToken));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddElementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddElementsDelegate1>(WrappedType, "AddElements", "itemsCollectionElementSyntax[]");
+            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "elementsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
+            WithCloseBracketTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
+            WithElementsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithElementsDelegate4>(WrappedType, "WithElements", "elementsSeparatedSyntaxList`1");
+            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
         }
 
         private CollectionExpressionSyntaxWrapper(ExpressionSyntax? obj)

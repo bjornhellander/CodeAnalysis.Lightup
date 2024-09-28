@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, nameof(AddBodyAttributeLists));
+            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

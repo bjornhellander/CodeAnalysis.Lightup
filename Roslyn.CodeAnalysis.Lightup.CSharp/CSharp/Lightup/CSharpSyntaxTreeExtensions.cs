@@ -49,14 +49,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, nameof(Create));
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, nameof(Create));
-            ParseTextFunc2 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(wrappedType, nameof(ParseText));
-            ParseTextFunc3 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(wrappedType, nameof(ParseText));
-            ParseTextFunc4 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(wrappedType, nameof(ParseText));
-            ParseTextFunc5 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate5>(wrappedType, nameof(ParseText));
+            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2");
+            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1");
+            ParseTextFunc2 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseTextFunc3 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
+            ParseTextFunc4 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(wrappedType, "ParseText", "textString", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseTextFunc5 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate5>(wrappedType, "ParseText", "textString", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, nameof(GetLineMappings));
+            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

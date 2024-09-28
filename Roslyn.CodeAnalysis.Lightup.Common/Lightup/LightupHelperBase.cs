@@ -64,9 +64,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var method = wrappedType?.GetPublicPropertyGetter(memberName);
+            var method = GetPropertyGetter(wrappedType, memberName);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, Array.Empty<Type>(), returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -78,9 +78,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = Array.Empty<Type>();
             var returnType = GetReturnType<TDelegate>();
-            var method = wrappedType?.GetPublicPropertyGetter(memberName);
+            var method = GetPropertyGetter(wrappedType, memberName);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, Array.Empty<Type>(), returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -92,36 +92,36 @@ namespace Microsoft.CodeAnalysis.Lightup
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var method = wrappedType?.GetPublicPropertySetter(memberName);
+            var method = GetPropertySetter(wrappedType, memberName, out var nativeParamTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, nativeParamTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
         }
 
-        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
         {
-            var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
             var returnType = GetReturnType<TDelegate>();
-            var method = GetMethod(wrappedType, memberName, paramTypes);
+            var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
+            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, null, paramTypes, nativeParamTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
         }
 
-        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
         {
             var instanceType = GetInstanceType<TDelegate>();
             var paramTypes = GetParamTypes<TDelegate>();
             var returnType = GetReturnType<TDelegate>();
-            var method = GetMethod(wrappedType, memberName, paramTypes);
+            var method = GetMethod(wrappedType, memberName, paramTags, out var nativeParamTypes);
 
-            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, nativeParamTypes, returnType);
             var lambda = Expression.Lambda<TDelegate>(body, parameters);
             var func = lambda.Compile();
             return func;
@@ -190,6 +190,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             MethodInfo? method,
             Type? instanceBaseType,
             Type[] wrapperParameterTypes,
+            Type[] nativeParameterTypes,
             Type wrapperReturnType)
         {
             var instanceParameter = instanceBaseType != null ? Expression.Parameter(instanceBaseType, "instance") : null;
@@ -212,8 +213,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             else
             {
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                var argValues = wrapperParameterTypes.Zip(argParameters, (t, p) => GetNativeValue(p, t)).ToArray();
-
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], nativeParameterTypes[i])).ToArray();
                 var returnValue = instance != null
                     ? Expression.Call(instance, method, argValues)
                     : Expression.Call(method, argValues);
@@ -238,112 +238,119 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrappedEnumValue = Expression.Convert(input, targetType);
                 return wrappedEnumValue;
             }
-
-            if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
             {
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
-                var itemWrapMethod = wrapperItemType.GetMethod("As");
                 var conversionLambdaParameter = Expression.Parameter(nativeItemType);
-                var conversionRefValue = nativeItemType.IsValueType ?
-                    Expression.Convert(conversionLambdaParameter, typeof(object)) :
-                    (Expression)conversionLambdaParameter;
                 var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(
-                            itemWrapMethod,
-                            conversionRefValue),
-                        wrapperItemType),
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
-
                 var temp1 = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
-
-                var result = Expression.Call(toArrayMethod, temp1);
-
-                return result;
-            }
-
-            var wrapMethod = targetType.GetMethod("As");
-            if (wrapMethod == null)
-            {
-                throw new InvalidOperationException("Could not find method 'As' in wrapper");
-            }
-
-            var parameters = wrapMethod.GetParameters();
-            if (parameters.Length != 1)
-            {
-                throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
-            }
-
-            if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
-            {
-                input = Expression.Convert(input, typeof(object));
-            }
-
-            var wrappedValue = Expression.Call(null, wrapMethod, input);
-            return wrappedValue;
-        }
-
-        private static Expression GetNativeValue(Expression input, Type type)
-        {
-            var nativeType = GetNativeType(type)!; // Can not be null if we have gotten this far
-            if (nativeType == type)
-            {
-                return input;
-            }
-
-            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-            {
-                // IEnumerable<X> where X is a wrapper
-                var wrapperItemType = type.GetGenericArguments()[0];
-                var nativeItemType = nativeType.GetGenericArguments()[0];
-
-                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
-                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
-                var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(conversionLambdaParameter, unwrapMethod),
-                        nativeItemType),
-                    conversionLambdaParameter);
-
-                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-
-                var result = Expression.Call(selectMethod, input, conversionLambda);
-                return result;
-            }
-            else if (type.IsArray)
-            {
-                // X[] where X is a wrapper
-                var wrapperItemType = type.GetElementType();
-                var nativeItemType = nativeType.GetElementType();
-
-                var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
-                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
-                var conversionLambda = Expression.Lambda(
-                    Expression.Convert(
-                        Expression.Call(conversionLambdaParameter, unwrapMethod),
-                        nativeItemType),
-                    conversionLambdaParameter);
-
-                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
-
-                var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
-
                 var result = Expression.Call(toArrayMethod, temp1);
 
                 return result;
             }
             else
             {
+                var wrapMethod = targetType.GetMethod("As");
+                if (wrapMethod == null)
+                {
+                    throw new InvalidOperationException("Could not find method 'As' in wrapper");
+                }
+
+                var parameters = wrapMethod.GetParameters();
+                if (parameters.Length != 1)
+                {
+                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+                }
+
+                if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
+                {
+                    input = Expression.Convert(input, typeof(object));
+                }
+
+                var wrappedValue = Expression.Call(null, wrapMethod, input);
+                return wrappedValue;
+            }
+        }
+
+        private static Expression GetNativeValue(Expression input, Type wrapperType, Type nativeType)
+        {
+            if (nativeType == wrapperType)
+            {
+                return input;
+            }
+
+            if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                // IEnumerable<X> where X is a wrapper
+                var wrapperItemType = wrapperType.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+                var result = Expression.Call(selectMethod, input, conversionLambda);
+
+                return result;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            {
+                // ImmutableArray<X> where X is a wrapper
+                var wrapperItemType = wrapperType.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetImmutableArraySelectMethod(wrapperItemType, nativeItemType);
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(nativeItemType);
+                var result = Expression.Call(toArrayMethod, temp1);
+
+                return result;
+            }
+            else if (wrapperType.IsArray)
+            {
+                // X[] where X is a wrapper
+                var wrapperItemType = wrapperType.GetElementType();
+                var nativeItemType = nativeType.GetElementType();
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
+                var result = Expression.Call(toArrayMethod, temp1);
+
+                return result;
+            }
+            else if (wrapperType.IsEnum)
+            {
+                Debug.Assert(nativeType.IsEnum, "Unexpected native type");
+                var nativeValue = Expression.Convert(input, nativeType);
+                return nativeValue;
+            }
+            else
+            {
                 // A wrapper
-                var unwrapMethod = type.GetMethod("Unwrap");
+                var unwrapMethod = wrapperType.GetMethod("Unwrap");
                 var unwrappedValue = Expression.Call(input, unwrapMethod);
 
                 var nativeValue = Expression.Convert(unwrappedValue, nativeType);
@@ -351,62 +358,38 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
         }
 
-        private static MethodInfo? GetMethod(Type? wrappedType, string name, Type[] paramTypes)
+        private static MethodInfo? GetMethod(Type? wrappedType, string name, string[] paramTags, out Type[] paramTypes)
         {
-            var nativeParamTypes = paramTypes.Select(GetNativeType).ToArray();
-            if (nativeParamTypes.Any(x => x == null))
+            if (wrappedType == null)
+            {
+                paramTypes = Array.Empty<Type>();
+                return null;
+            }
+
+            var result = wrappedType.GetPublicMethod(name, paramTags, out paramTypes);
+            return result;
+        }
+
+        private static MethodInfo? GetPropertyGetter(Type? wrappedType, string name)
+        {
+            if (wrappedType == null)
             {
                 return null;
             }
 
-            // TODO: Avoid this extra array allocation
-            var result = wrappedType?.GetPublicMethod(name, nativeParamTypes.Cast<Type>().ToArray());
+            var result = wrappedType.GetPublicPropertyGetter(name);
             return result;
         }
 
-        private static Type? GetNativeType(Type input)
+        private static MethodInfo? GetPropertySetter(Type? wrappedType, string name, out Type[] paramTypes)
         {
-            if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            if (wrappedType == null)
             {
-                var elementType = input.GetGenericArguments()[0];
-                var nativeElementType = GetNativeType(elementType);
-                if (nativeElementType == null)
-                {
-                    return null;
-                }
-
-                var nativeType = typeof(IEnumerable<>).MakeGenericType(nativeElementType);
-                return nativeType;
+                paramTypes = Array.Empty<Type>();
+                return null;
             }
-            else if (input.IsArray)
-            {
-                var elementType = input.GetElementType();
-                var nativeElementType = GetNativeType(elementType);
-                if (nativeElementType == null)
-                {
-                    return null;
-                }
 
-                var nativeType = nativeElementType.MakeArrayType();
-                return nativeType;
-            }
-            else
-            {
-                var isWrapperType = IsWrapperType(input);
-                if (!isWrapperType)
-                {
-                    return input;
-                }
-
-                var field = input.GetField("WrappedType", BindingFlags.Static | BindingFlags.NonPublic);
-                var nativeType = (Type?)field.GetValue(null);
-                return nativeType;
-            }
-        }
-
-        private static bool IsWrapperType(Type type)
-        {
-            var result = type.Assembly.FullName.StartsWith("Roslyn.CodeAnalysis.Lightup");
+            var result = wrappedType.GetPublicPropertySetter(name, out paramTypes);
             return result;
         }
 

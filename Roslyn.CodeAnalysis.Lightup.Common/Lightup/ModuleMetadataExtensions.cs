@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, nameof(CreateFromMetadata));
+            CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, nameof(Equals));
+            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, "Equals", "otherISymbol", "equalityComparerSymbolEqualityComparer");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

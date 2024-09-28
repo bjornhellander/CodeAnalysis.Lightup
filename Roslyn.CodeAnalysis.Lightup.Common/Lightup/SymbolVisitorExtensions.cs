@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, nameof(VisitFunctionPointerType));
+            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

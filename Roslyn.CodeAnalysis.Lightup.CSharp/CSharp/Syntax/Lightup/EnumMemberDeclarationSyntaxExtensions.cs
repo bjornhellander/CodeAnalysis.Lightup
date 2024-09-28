@@ -45,9 +45,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, nameof(AddModifiers));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, nameof(Update));
-            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, nameof(WithModifiers));
+            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "equalsValueEqualsValueClauseSyntax");
+            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

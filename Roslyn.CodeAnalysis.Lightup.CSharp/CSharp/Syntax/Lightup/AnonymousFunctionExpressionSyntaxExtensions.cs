@@ -57,12 +57,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExpressionBodyGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
             ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, nameof(AddBlockAttributeLists));
-            AddBlockStatementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate1>(wrappedType, nameof(AddBlockStatements));
-            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, nameof(AddModifiers));
-            WithBlockFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate3>(wrappedType, nameof(WithBlock));
-            WithExpressionBodyFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate4>(wrappedType, nameof(WithExpressionBody));
-            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(wrappedType, nameof(WithModifiers));
+            AddBlockAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
+            AddBlockStatementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate1>(wrappedType, "AddBlockStatements", "itemsStatementSyntax[]");
+            AddModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithBlockFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate3>(wrappedType, "WithBlock", "blockBlockSyntax");
+            WithExpressionBodyFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate4>(wrappedType, "WithExpressionBody", "expressionBodyExpressionSyntax");
+            WithModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

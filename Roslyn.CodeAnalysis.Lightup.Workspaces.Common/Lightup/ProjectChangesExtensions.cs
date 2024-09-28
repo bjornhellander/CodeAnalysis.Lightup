@@ -42,9 +42,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, nameof(GetAddedAnalyzerConfigDocuments));
-            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, nameof(GetChangedAnalyzerConfigDocuments));
-            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, nameof(GetRemovedAnalyzerConfigDocuments));
+            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetAddedAnalyzerConfigDocuments");
+            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, "GetChangedAnalyzerConfigDocuments");
+            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

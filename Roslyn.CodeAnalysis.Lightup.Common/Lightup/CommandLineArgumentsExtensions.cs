@@ -57,8 +57,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             ReportInternalsVisibleToAttributesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
             SkipAnalyzersGetterFunc = LightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
 
-            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, nameof(GetOutputFilePath));
-            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, nameof(GetPdbFilePath));
+            GetOutputFilePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, "GetOutputFilePath", "outputFileNameString");
+            GetPdbFilePathFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

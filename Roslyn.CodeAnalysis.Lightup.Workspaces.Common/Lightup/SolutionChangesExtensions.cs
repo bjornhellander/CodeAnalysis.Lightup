@@ -40,8 +40,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(wrappedType, nameof(GetAddedAnalyzerReferences));
-            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(wrappedType, nameof(GetRemovedAnalyzerReferences));
+            GetAddedAnalyzerReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerReferencesDelegate0>(wrappedType, "GetAddedAnalyzerReferences");
+            GetRemovedAnalyzerReferencesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(wrappedType, "GetRemovedAnalyzerReferences");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

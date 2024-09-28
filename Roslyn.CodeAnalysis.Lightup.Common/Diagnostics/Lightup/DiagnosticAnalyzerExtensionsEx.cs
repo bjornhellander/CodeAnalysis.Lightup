@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            WithAnalyzersFunc0 = LightupHelper.CreateStaticMethodAccessor<WithAnalyzersDelegate0>(wrappedType, nameof(WithAnalyzers));
+            WithAnalyzersFunc0 = LightupHelper.CreateStaticMethodAccessor<WithAnalyzersDelegate0>(wrappedType, "WithAnalyzers", "compilationCompilation", "analyzersImmutableArray`1", "optionsAnalyzerOptions");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

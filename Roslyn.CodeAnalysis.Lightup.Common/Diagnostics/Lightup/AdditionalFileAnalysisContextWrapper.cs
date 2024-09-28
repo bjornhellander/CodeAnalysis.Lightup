@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
             OptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<OptionsGetterDelegate>(WrappedType, nameof(Options));
 
-            ReportDiagnosticFunc0 = LightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, nameof(ReportDiagnostic));
+            ReportDiagnosticFunc0 = LightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, "ReportDiagnostic", "diagnosticDiagnostic");
         }
 
         private AdditionalFileAnalysisContextWrapper(object? obj)

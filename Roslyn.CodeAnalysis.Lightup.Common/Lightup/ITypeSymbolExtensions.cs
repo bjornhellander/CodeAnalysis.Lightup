@@ -57,11 +57,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsRecordGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
             NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
 
-            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, nameof(ToDisplayParts));
-            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, nameof(ToDisplayString));
-            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, nameof(ToMinimalDisplayParts));
-            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, nameof(ToMinimalDisplayString));
-            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, nameof(WithNullableAnnotation));
+            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
+            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, "ToDisplayString", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
+            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, "ToMinimalDisplayParts", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
+            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, "ToMinimalDisplayString", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
+            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, "WithNullableAnnotation", "nullableAnnotationNullableAnnotation");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

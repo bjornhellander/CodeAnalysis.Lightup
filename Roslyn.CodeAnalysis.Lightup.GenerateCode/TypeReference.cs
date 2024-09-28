@@ -14,6 +14,8 @@ internal abstract class TypeReference
         this.nativeType = nativeType;
     }
 
+    public string NativeName => nativeType.Name;
+
     public bool IsAssignableFrom(TypeReference typeRef)
     {
         return nativeType.IsAssignableFrom(typeRef.nativeType);

@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             OpenParenTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
             PatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, nameof(Accept));
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, nameof(Update));
-            WithCloseParenTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate2>(WrappedType, nameof(WithCloseParenToken));
-            WithOpenParenTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate3>(WrappedType, nameof(WithOpenParenToken));
-            WithPatternFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate4>(WrappedType, nameof(WithPattern));
+            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "openParenTokenSyntaxToken", "patternPatternSyntax", "closeParenTokenSyntaxToken");
+            WithCloseParenTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate2>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
+            WithOpenParenTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate3>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
+            WithPatternFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate4>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
         private ParenthesizedPatternSyntaxWrapper(PatternSyntax? obj)

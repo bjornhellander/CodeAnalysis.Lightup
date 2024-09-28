@@ -42,9 +42,9 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
-            FindDerivedClassesAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, nameof(FindDerivedClassesAsync));
-            FindDerivedInterfacesAsyncFunc1 = LightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate1>(wrappedType, nameof(FindDerivedInterfacesAsync));
-            FindImplementationsAsyncFunc2 = LightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate2>(wrappedType, nameof(FindImplementationsAsync));
+            FindDerivedClassesAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindDerivedInterfacesAsyncFunc1 = LightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate1>(wrappedType, "FindDerivedInterfacesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindImplementationsAsyncFunc2 = LightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate2>(wrappedType, "FindImplementationsAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
