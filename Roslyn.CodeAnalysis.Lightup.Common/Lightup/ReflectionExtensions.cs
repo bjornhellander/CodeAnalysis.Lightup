@@ -4,7 +4,6 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
-    using System.Linq;
     using System.Reflection;
 
     internal static class ReflectionExtensions
@@ -28,19 +27,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             return method;
         }
 
-        public static MethodInfo? GetPublicPropertySetter(this Type type, string name, out Type[] nativeParamTypes)
+        public static MethodInfo? GetPublicPropertySetter(this Type type, string name)
         {
             var property = type.GetProperty(name);
             var method = property?.GetSetMethod();
-            //// TODO: This can be simplified
-            nativeParamTypes = method?.GetParameters().Select(x => x.ParameterType).ToArray() ?? Array.Empty<Type>();
             return method;
         }
 
-        public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags, out Type[] paramTypes)
+        public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags)
         {
             MethodInfo? selectedMethod = null;
-            Type[]? selectedParameterTypes = null;
 
             foreach (var currMethod in type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly))
             {
@@ -55,21 +51,19 @@ namespace Microsoft.CodeAnalysis.Lightup
                     continue;
                 }
 
-                var currParameterTypes = new Type[currParameters.Length];
+                var hasCorrectParameterTypes = true;
                 for (var pi = 0; pi < currParameters.Length; pi++)
                 {
                     // TODO: Comparing just the name and type name is not good enough in theory, but might be good enough in practise
                     // TODO: At the same time it is overly complicated. Simplify!
                     if (paramTags[pi] != currParameters[pi].Name + currParameters[pi].ParameterType.Name)
                     {
-                        currParameterTypes = null;
+                        hasCorrectParameterTypes = false;
                         break;
                     }
-
-                    currParameterTypes[pi] = currParameters[pi].ParameterType;
                 }
 
-                if (currParameterTypes == null)
+                if (!hasCorrectParameterTypes)
                 {
                     continue;
                 }
@@ -80,16 +74,13 @@ namespace Microsoft.CodeAnalysis.Lightup
                 }
 
                 selectedMethod = currMethod;
-                selectedParameterTypes = currParameterTypes;
             }
 
-            if (selectedMethod == null || selectedParameterTypes == null)
+            if (selectedMethod == null)
             {
-                paramTypes = Array.Empty<Type>();
                 return null;
             }
 
-            paramTypes = selectedParameterTypes;
             return selectedMethod;
         }
     }
