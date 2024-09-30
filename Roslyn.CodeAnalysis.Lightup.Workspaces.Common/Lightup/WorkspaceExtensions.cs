@@ -30,10 +30,20 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
 
+        private delegate void TextDocumentClosedAdderDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentClosedRemoverDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentOpenedAdderDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentOpenedRemoverDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
+
         private delegate Boolean CanApplyCompilationOptionChangeDelegate0(Workspace? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
         private delegate Boolean CanApplyParseOptionChangeDelegate1(Workspace? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
         private delegate void CloseAnalyzerConfigDocumentDelegate2(Workspace? _obj, DocumentId documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate3(Workspace? _obj, DocumentId documentId, Boolean activate);
+
+        private static readonly TextDocumentClosedAdderDelegate TextDocumentClosedAdderFunc;
+        private static readonly TextDocumentClosedRemoverDelegate TextDocumentClosedRemoverFunc;
+        private static readonly TextDocumentOpenedAdderDelegate TextDocumentOpenedAdderFunc;
+        private static readonly TextDocumentOpenedRemoverDelegate TextDocumentOpenedRemoverFunc;
 
         private static readonly CanApplyCompilationOptionChangeDelegate0 CanApplyCompilationOptionChangeFunc0;
         private static readonly CanApplyParseOptionChangeDelegate1 CanApplyParseOptionChangeFunc1;
@@ -44,11 +54,32 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            TextDocumentClosedAdderFunc = LightupHelper.CreateInstanceAddAccessor<TextDocumentClosedAdderDelegate>(wrappedType, "TextDocumentClosed");
+            TextDocumentClosedRemoverFunc = LightupHelper.CreateInstanceRemoveAccessor<TextDocumentClosedRemoverDelegate>(wrappedType, "TextDocumentClosed");
+            TextDocumentOpenedAdderFunc = LightupHelper.CreateInstanceAddAccessor<TextDocumentOpenedAdderDelegate>(wrappedType, "TextDocumentOpened");
+            TextDocumentOpenedRemoverFunc = LightupHelper.CreateInstanceRemoveAccessor<TextDocumentOpenedRemoverDelegate>(wrappedType, "TextDocumentOpened");
+
             CanApplyCompilationOptionChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, "CanApplyCompilationOptionChange", "oldOptionsCompilationOptions", "newOptionsCompilationOptions", "projectProject");
             CanApplyParseOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
             CloseAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
             OpenAnalyzerConfigDocumentFunc3 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
         }
+
+        /// <summary>Event added in version 4.4.0.0.</summary>
+        public static void AddTextDocumentClosed(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+            => TextDocumentClosedAdderFunc(_obj, _delegate);
+
+        /// <summary>Event added in version 4.4.0.0.</summary>
+        public static void RemoveTextDocumentClosed(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+            => TextDocumentClosedRemoverFunc(_obj, _delegate);
+
+        /// <summary>Event added in version 4.4.0.0.</summary>
+        public static void AddTextDocumentOpened(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+            => TextDocumentOpenedAdderFunc(_obj, _delegate);
+
+        /// <summary>Event added in version 4.4.0.0.</summary>
+        public static void RemoveTextDocumentOpened(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+            => TextDocumentOpenedRemoverFunc(_obj, _delegate);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static Boolean CanApplyCompilationOptionChange(this Workspace _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)

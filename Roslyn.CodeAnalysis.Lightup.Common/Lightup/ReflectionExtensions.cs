@@ -34,6 +34,20 @@ namespace Microsoft.CodeAnalysis.Lightup
             return method;
         }
 
+        public static MethodInfo? GetPublicEventAdder(this Type type, string name)
+        {
+            var @event = type.GetEvent(name);
+            var method = @event?.GetAddMethod();
+            return method;
+        }
+
+        public static MethodInfo? GetPublicEventRemover(this Type type, string name)
+        {
+            var @event = type.GetEvent(name);
+            var method = @event?.GetRemoveMethod();
+            return method;
+        }
+
         public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags)
         {
             MethodInfo? selectedMethod = null;
