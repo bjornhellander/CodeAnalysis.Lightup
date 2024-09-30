@@ -176,15 +176,12 @@ internal class Reflector
         Version? version,
         Type type)
     {
-        var baseClassRef = type.BaseType != null ? CreateTypeReference(type.BaseType) : null;
-
         return new ClassTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
             type.FullName!,
-            baseClassRef,
             IsStaticType(type));
     }
 
@@ -193,16 +190,12 @@ internal class Reflector
         Version? version,
         Type type)
     {
-        var interfaces = type.GetInterfaces();
-        var interfaceTypeRefs = interfaces.Select(CreateTypeReference).ToImmutableArray();
-
         return new InterfaceTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
-            type.FullName!,
-            interfaceTypeRefs);
+            type.FullName!);
     }
 
     private static void AddTypeMemberDefinitions(
@@ -269,6 +262,9 @@ internal class Reflector
     {
         UpdateType(classTypeDef, type, assemblyVersion);
 
+        var baseClassRef = type.BaseType != null ? CreateTypeReference(type.BaseType) : null;
+        classTypeDef.BaseClass = baseClassRef;
+
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
     }
 
@@ -281,6 +277,10 @@ internal class Reflector
     private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type, Version? assemblyVersion)
     {
         UpdateType(interfaceTypeDef, type, assemblyVersion);
+
+        var interfaces = type.GetInterfaces();
+        var interfaceTypeRefs = interfaces.Select(CreateTypeReference).ToImmutableArray();
+        interfaceTypeDef.Interfaces = interfaceTypeRefs;
     }
 
     private static void UpdateType(TypeDefinition typeDef, Type type, Version? assemblyVersion)

@@ -15,12 +15,11 @@ internal class InterfaceTypeDefinition : TypeDefinition
         Version? assemblyVersion,
         string name,
         string @namespace,
-        string fullName,
-        ImmutableArray<TypeReference> interfaces)
+        string fullName)
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
-        Interfaces = interfaces;
+        Interfaces = [];
     }
 
-    public ImmutableArray<TypeReference> Interfaces { get; }
+    public ImmutableArray<TypeReference> Interfaces { get; set; }
 }
