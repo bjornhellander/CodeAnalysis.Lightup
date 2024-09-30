@@ -32,6 +32,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private static readonly Type? WrappedType; // NOTE: Used via reflection
 
+        private delegate DocumentRenameOptionsWrapper ConstructorDelegate0(Boolean RenameMatchingTypeInStrings, Boolean RenameMatchingTypeInComments);
+
         private delegate Boolean RenameMatchingTypeInCommentsGetterDelegate(object? _obj);
         private delegate void RenameMatchingTypeInCommentsSetterDelegate(object? _obj, Boolean _value);
         private delegate Boolean RenameMatchingTypeInStringsGetterDelegate(object? _obj);
@@ -39,6 +41,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate void DeconstructDelegate0(object? _obj, out Boolean RenameMatchingTypeInStrings, out Boolean RenameMatchingTypeInComments);
         private delegate Boolean EqualsDelegate1(object? _obj, DocumentRenameOptionsWrapper other);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly RenameMatchingTypeInCommentsGetterDelegate RenameMatchingTypeInCommentsGetterFunc;
         private static readonly RenameMatchingTypeInCommentsSetterDelegate RenameMatchingTypeInCommentsSetterFunc;
@@ -54,6 +58,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "RenameMatchingTypeInStringsBoolean", "RenameMatchingTypeInCommentsBoolean");
+
             RenameMatchingTypeInCommentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameMatchingTypeInCommentsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
             RenameMatchingTypeInCommentsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameMatchingTypeInCommentsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInComments));
             RenameMatchingTypeInStringsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameMatchingTypeInStringsGetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
@@ -67,6 +73,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             wrappedObject = obj;
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static DocumentRenameOptionsWrapper Create(Boolean RenameMatchingTypeInStrings, Boolean RenameMatchingTypeInComments)
+            => ConstructorFunc0(RenameMatchingTypeInStrings, RenameMatchingTypeInComments);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameMatchingTypeInComments

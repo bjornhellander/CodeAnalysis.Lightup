@@ -59,6 +59,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
+        public static TDelegate CreateInstanceConstructorAccessor<TDelegate>(Type? wrappedType, params string[] paramTags)
+            where TDelegate : Delegate
+        {
+            var returnType = GetReturnType<TDelegate>();
+            var paramTypes = GetParamTypes<TDelegate>(skipFirst: false);
+            var method = wrappedType?.GetPublicConstructor(paramTags);
+
+            var (body, parameters) = CreateNewExpression(method, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
         public static TDelegate CreateStaticGetAccessor<TDelegate>(Type? wrappedType, string memberName)
             where TDelegate : Delegate
         {
@@ -252,6 +265,40 @@ namespace Microsoft.CodeAnalysis.Lightup
             var block = Expression.Block(expressions);
 
             return (block, allParameters);
+        }
+
+        private static (Expression Body, ParameterExpression[] Parameters) CreateNewExpression(
+            ConstructorInfo? constructor,
+            Type[] wrapperParameterTypes,
+            Type wrapperReturnType)
+        {
+            var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
+
+            var expressions = new List<Expression>();
+
+            if (constructor == null)
+            {
+                var invalidOperationExceptionConstructor = typeof(InvalidOperationException).GetConstructor(Array.Empty<Type>());
+                var notSupportedStatement = Expression.Throw(
+                    Expression.New(
+                        invalidOperationExceptionConstructor));
+                expressions.Add(notSupportedStatement);
+
+                var dummyValue = Expression.Default(wrapperReturnType);
+                expressions.Add(dummyValue);
+            }
+            else
+            {
+                var parameters = constructor.GetParameters();
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], parameters[i].ParameterType)).ToArray();
+                var returnValue = Expression.New(constructor, argValues);
+                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
+                expressions.Add(wrappedReturnValue);
+            }
+
+            var block = Expression.Block(expressions);
+
+            return (block, argParameters);
         }
 
         private static Expression GetPossiblyWrappedValue(Expression input, Type targetType)

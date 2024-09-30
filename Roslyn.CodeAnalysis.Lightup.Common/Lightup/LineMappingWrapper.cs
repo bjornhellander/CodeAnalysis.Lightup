@@ -28,12 +28,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly Type? WrappedType; // NOTE: Used via reflection
 
+        private delegate LineMappingWrapper ConstructorDelegate0(LinePositionSpan span, Nullable<Int32> characterOffset, FileLinePositionSpan mappedSpan);
+
         private delegate Nullable<Int32> CharacterOffsetGetterDelegate(object? _obj);
         private delegate Boolean IsHiddenGetterDelegate(object? _obj);
         private delegate FileLinePositionSpan MappedSpanGetterDelegate(object? _obj);
         private delegate LinePositionSpan SpanGetterDelegate(object? _obj);
 
         private delegate Boolean EqualsDelegate0(object? _obj, LineMappingWrapper other);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly CharacterOffsetGetterDelegate CharacterOffsetGetterFunc;
         private static readonly IsHiddenGetterDelegate IsHiddenGetterFunc;
@@ -48,6 +52,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "spanLinePositionSpan", "characterOffsetNullable`1", "mappedSpanFileLinePositionSpan");
+
             CharacterOffsetGetterFunc = LightupHelper.CreateInstanceGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
             IsHiddenGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsHiddenGetterDelegate>(WrappedType, nameof(IsHidden));
             MappedSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
@@ -60,6 +66,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             wrappedObject = obj;
         }
+
+        /// <summary>Constructor added in version 4.0.0.0.</summary>
+        public static LineMappingWrapper Create(LinePositionSpan span, Nullable<Int32> characterOffset, FileLinePositionSpan mappedSpan)
+            => ConstructorFunc0(span, characterOffset, mappedSpan);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public readonly Nullable<Int32> CharacterOffset
