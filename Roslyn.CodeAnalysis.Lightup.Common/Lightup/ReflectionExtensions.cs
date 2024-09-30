@@ -20,6 +20,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             return field != null && field.IsPublic ? field : null;
         }
 
+        public static ConstructorInfo? GetPublicConstructor(this Type type, string[] paramTags)
+        {
+            ConstructorInfo? selectedMethod = null;
+
+            foreach (var currConstructor in type.GetConstructors(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+            {
+                if (!HasCorrectParameters(currConstructor, paramTags))
+                {
+                    continue;
+                }
+
+                if (selectedMethod != null)
+                {
+                    throw new InvalidOperationException("Found more than one matching method");
+                }
+
+                selectedMethod = currConstructor;
+            }
+
+            if (selectedMethod == null)
+            {
+                return null;
+            }
+
+            return selectedMethod;
+        }
+
         public static MethodInfo? GetPublicPropertyGetter(this Type type, string name)
         {
             var property = type.GetProperty(name);
@@ -59,25 +86,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                     continue;
                 }
 
-                var currParameters = currMethod.GetParameters();
-                if (currParameters.Length != paramTags.Length)
-                {
-                    continue;
-                }
-
-                var hasCorrectParameterTypes = true;
-                for (var pi = 0; pi < currParameters.Length; pi++)
-                {
-                    // TODO: Comparing just the name and type name is not good enough in theory, but might be good enough in practise
-                    // TODO: At the same time it is overly complicated. Simplify!
-                    if (paramTags[pi] != currParameters[pi].Name + currParameters[pi].ParameterType.Name)
-                    {
-                        hasCorrectParameterTypes = false;
-                        break;
-                    }
-                }
-
-                if (!hasCorrectParameterTypes)
+                if (!HasCorrectParameters(currMethod, paramTags))
                 {
                     continue;
                 }
@@ -96,6 +105,27 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
 
             return selectedMethod;
+        }
+
+        private static bool HasCorrectParameters(MethodBase method, string[] paramTags)
+        {
+            var parameters = method.GetParameters();
+            if (parameters.Length != paramTags.Length)
+            {
+                return false;
+            }
+
+            for (var pi = 0; pi < parameters.Length; pi++)
+            {
+                // TODO: Comparing just the name and type name is not good enough in theory, but might be good enough in practise
+                // TODO: At the same time it is overly complicated. Simplify!
+                if (paramTags[pi] != parameters[pi].Name + parameters[pi].ParameterType.Name)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

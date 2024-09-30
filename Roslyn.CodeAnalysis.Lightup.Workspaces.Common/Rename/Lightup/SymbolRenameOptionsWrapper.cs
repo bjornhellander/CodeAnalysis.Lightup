@@ -32,6 +32,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private static readonly Type? WrappedType; // NOTE: Used via reflection
 
+        private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(Boolean RenameOverloads, Boolean RenameInStrings, Boolean RenameInComments, Boolean RenameFile);
+
         private delegate Boolean RenameFileGetterDelegate(object? _obj);
         private delegate void RenameFileSetterDelegate(object? _obj, Boolean _value);
         private delegate Boolean RenameInCommentsGetterDelegate(object? _obj);
@@ -43,6 +45,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate void DeconstructDelegate0(object? _obj, out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile);
         private delegate Boolean EqualsDelegate1(object? _obj, SymbolRenameOptionsWrapper other);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly RenameFileGetterDelegate RenameFileGetterFunc;
         private static readonly RenameFileSetterDelegate RenameFileSetterFunc;
@@ -62,6 +66,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "RenameOverloadsBoolean", "RenameInStringsBoolean", "RenameInCommentsBoolean", "RenameFileBoolean");
+
             RenameFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
             RenameFileSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameFileSetterDelegate>(WrappedType, nameof(RenameFile));
             RenameInCommentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
@@ -79,6 +85,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         {
             wrappedObject = obj;
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static SymbolRenameOptionsWrapper Create(Boolean RenameOverloads, Boolean RenameInStrings, Boolean RenameInComments, Boolean RenameFile)
+            => ConstructorFunc0(RenameOverloads, RenameInStrings, RenameInComments, RenameFile);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly Boolean RenameFile

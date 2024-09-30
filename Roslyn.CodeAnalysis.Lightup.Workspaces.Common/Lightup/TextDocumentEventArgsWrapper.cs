@@ -32,7 +32,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly Type? WrappedType; // NOTE: Used via reflection
 
+        private delegate TextDocumentEventArgsWrapper ConstructorDelegate0(TextDocument document);
+
         private delegate TextDocument DocumentGetterDelegate(EventArgs? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly DocumentGetterDelegate DocumentGetterFunc;
 
@@ -42,6 +46,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "documentTextDocument");
+
             DocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
@@ -49,6 +55,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             wrappedObject = obj;
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static TextDocumentEventArgsWrapper Create(TextDocument document)
+            => ConstructorFunc0(document);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public readonly TextDocument Document

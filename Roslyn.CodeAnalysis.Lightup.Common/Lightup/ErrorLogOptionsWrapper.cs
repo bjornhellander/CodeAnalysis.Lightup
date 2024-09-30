@@ -28,8 +28,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly Type? WrappedType; // NOTE: Used via reflection
 
+        private delegate ErrorLogOptionsWrapper ConstructorDelegate0(String path, SarifVersionEx sarifVersion);
+
         private delegate String PathGetterDelegate(object? _obj);
         private delegate SarifVersionEx SarifVersionGetterDelegate(object? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly PathGetterDelegate PathGetterFunc;
         private static readonly SarifVersionGetterDelegate SarifVersionGetterFunc;
@@ -40,6 +44,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "pathString", "sarifVersionSarifVersion");
+
             PathGetterFunc = LightupHelper.CreateInstanceGetAccessor<PathGetterDelegate>(WrappedType, nameof(Path));
             SarifVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
         }
@@ -48,6 +54,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             wrappedObject = obj;
         }
+
+        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        public static ErrorLogOptionsWrapper Create(String path, SarifVersionEx sarifVersion)
+            => ConstructorFunc0(path, sarifVersion);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public readonly String Path

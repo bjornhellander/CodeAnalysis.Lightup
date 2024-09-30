@@ -316,9 +316,7 @@ internal class Writer
     {
         var targetName = typeDef.Name + "Wrapper";
 
-        // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
-        _ = instanceConstructors;
         var staticFields = GetStaticFields(typeDef);
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
@@ -363,6 +361,15 @@ internal class Writer
                 AppendStaticFieldDelegateDeclarations(sb, field, typeDefs);
             }
         }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                AppendInstanceConstructorDelegateDeclarations(sb, targetName, constructor, index, typeDefs);
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -404,6 +411,15 @@ internal class Writer
             {
                 sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"        private static readonly ConstructorDelegate{index} ConstructorFunc{index};");
             }
         }
         if (staticProperties.Count != 0)
@@ -461,6 +477,15 @@ internal class Writer
             {
                 sb.AppendLine($"            {field.Name}GetterFunc = LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"            ConstructorFunc{index} = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(WrappedType{GetCreateConstructorAccessorArguments(constructor)});");
             }
         }
         if (staticProperties.Count != 0)
@@ -521,6 +546,14 @@ internal class Writer
             sb.AppendLine($"        }}");
             Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
         }
+        foreach (var constructor in instanceConstructors)
+        {
+            var index = instanceConstructors.IndexOf(constructor);
+            sb.AppendLine();
+            AppendMemberSummary(sb, constructor);
+            sb.AppendLine($"        public static {targetName} Create({GetParametersDeclText(constructor.Parameters, typeDefs)})");
+            sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
+        }
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
@@ -571,7 +604,7 @@ internal class Writer
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
@@ -579,7 +612,7 @@ internal class Writer
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public readonly {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "wrappedObject")});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -860,7 +893,7 @@ internal class Writer
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, null)});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
         }
         foreach (var methodDef in instanceMethods)
         {
@@ -868,7 +901,7 @@ internal class Writer
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef, "_obj")});");
+            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");
@@ -1149,6 +1182,7 @@ internal class Writer
         string kind = memberDef switch
         {
             FieldDefinition => "Field",
+            ConstructorDefinition => "Constructor",
             PropertyDefinition => "Property",
             EventDefinition => "Event",
             MethodDefinition => "Method",
@@ -1169,6 +1203,30 @@ internal class Writer
         Assert.IsTrue(fieldDef.IsReadOnly, "Unexpected non-readonly static field");
     }
 
+    private static string GetFieldTypeDeclText(
+        FieldDefinition fieldDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var sb = new StringBuilder();
+        AppendTypeDeclText(sb, fieldDef.Type, typeDefs);
+        sb.Append(fieldDef.IsNullable && !IsNewType(fieldDef.Type, typeDefs) ? "?" : "");
+        var result = sb.ToString();
+        return result;
+    }
+
+    private static void AppendInstanceConstructorDelegateDeclarations(
+        StringBuilder sb,
+        string targetName,
+        ConstructorDefinition constructorDef,
+        int index,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        sb.Append($"        private delegate {targetName}");
+        sb.Append($" ConstructorDelegate{index}(");
+        sb.Append(GetParametersDeclText(constructorDef.Parameters, typeDefs));
+        sb.AppendLine($");");
+    }
+
     private static void AppendStaticPropertyDelegateDeclarations(
         StringBuilder sb,
         PropertyDefinition propertyDef,
@@ -1184,17 +1242,6 @@ internal class Writer
             sb.Append($"{propertyDef.Name}SetterDelegate(");
             sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, typeDefs)} _value);");
         }
-    }
-
-    private static string GetFieldTypeDeclText(
-        FieldDefinition fieldDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
-    {
-        var sb = new StringBuilder();
-        AppendTypeDeclText(sb, fieldDef.Type, typeDefs);
-        sb.Append(fieldDef.IsNullable && !IsNewType(fieldDef.Type, typeDefs) ? "?" : "");
-        var result = sb.ToString();
-        return result;
     }
 
     private static void AppendInstancePropertyDelegateDeclarations(
@@ -1331,7 +1378,7 @@ internal class Writer
     }
 
     private static string GetArgumentsText(
-        MethodDefinition methodDef,
+        List<ParameterDefinition> parameterDefs,
         string? instanceName)
     {
         var sb = new StringBuilder();
@@ -1343,7 +1390,7 @@ internal class Writer
             isFirst = false;
         }
 
-        foreach (var parameterDef in methodDef.Parameters)
+        foreach (var parameterDef in parameterDefs)
         {
             sb.Append(isFirst ? "" : ", ");
             sb.Append(ParameterModeText[parameterDef.Mode]);
@@ -1413,6 +1460,19 @@ internal class Writer
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
             sb.Append($"{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
+    }
+
+    private static string GetCreateConstructorAccessorArguments(ConstructorDefinition methodDef)
+    {
+        var sb = new StringBuilder();
+
+        foreach (var parameterDef in methodDef.Parameters)
+        {
+            Assert.IsTrue(parameterDef.Mode == ParameterMode.None, "Unexpected parameter mode");
+            sb.Append($", \"{parameterDef.Name}{parameterDef.Type.NativeName}\"");
+        }
+
+        return sb.ToString();
     }
 
     private static string GetCreateMethodAccessorArguments(MethodDefinition methodDef)
