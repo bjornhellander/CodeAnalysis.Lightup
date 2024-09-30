@@ -70,7 +70,10 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-        "Microsoft.CodeAnalysis.IOperation", // References nested struct IOperation.OperationList
+
+        // TODO: Generate these types
+        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs+FailureErrorCode", // Nested enum, does not compile
+        "Microsoft.CodeAnalysis.Rename.Renamer", // Method returning Task<XYZ>
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -156,12 +159,7 @@ internal class Writer
         {
             if (classTypeDef.IsStatic)
             {
-                if (classTypeDef.FullName == "Microsoft.CodeAnalysis.Rename.Renamer")
-                {
-                    // TODO: Handle Renamer (has nested type)
-                    return null;
-                }
-                else if (HasNewMembers(classTypeDef))
+                if (HasNewMembers(classTypeDef))
                 {
                     return GenerateExtension(classTypeDef, typeDefs, targetNamespace);
                 }

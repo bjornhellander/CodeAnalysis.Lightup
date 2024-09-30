@@ -15,8 +15,9 @@ internal class ClassTypeDefinition : TypeDefinition
         string name,
         string @namespace,
         string fullName,
-        bool isStatic)
-        : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
+        bool isStatic,
+        TypeDefinition? enclosingType)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
     {
         BaseClass = null;
         IsStatic = isStatic;

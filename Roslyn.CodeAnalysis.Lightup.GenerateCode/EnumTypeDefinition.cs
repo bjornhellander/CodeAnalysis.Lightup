@@ -15,8 +15,9 @@ internal class EnumTypeDefinition : BaseTypeDefinition
         string @namespace,
         string fullName,
         string underlyingTypeName,
-        bool isFlagsEnum)
-        : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
+        bool isFlagsEnum,
+        TypeDefinition? enclosingType)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
     {
         UnderlyingTypeName = underlyingTypeName;
         IsFlagsEnum = isFlagsEnum;

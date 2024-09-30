@@ -62,19 +62,20 @@ internal class Reflector
         var assemblyVersion = assembly.GetName().Version;
         Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
-        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
-        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
+        var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
+        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
+        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
     }
 
     private static void VisitTypes(
-        Assembly assembly,
+        TypeDefinition? enclosingTypeDef,
+        List<Type> types,
         Dictionary<string, BaseTypeDefinition> typeDefs,
         Version assemblyVersion,
         bool isBaselineVersion,
         AssemblyKind assemblyKind,
-        Action<Type, string, Dictionary<string, BaseTypeDefinition>, Version?, AssemblyKind> visit)
+        Action<Type, string, Dictionary<string, BaseTypeDefinition>, TypeDefinition?, Version?, AssemblyKind> visit)
     {
-        var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
             var name = type.FullName;
@@ -86,7 +87,11 @@ internal class Reflector
                 continue;
             }
 
-            visit(type, name, typeDefs, isBaselineVersion ? null : assemblyVersion, assemblyKind);
+            visit(type, name, typeDefs, enclosingTypeDef, isBaselineVersion ? null : assemblyVersion, assemblyKind);
+
+            var typeDef = typeDefs[name] as TypeDefinition;
+            var subTypes = type.GetNestedTypes().ToList();
+            VisitTypes(typeDef, subTypes, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, visit);
         }
     }
 
@@ -94,12 +99,13 @@ internal class Reflector
         Type type,
         string name,
         Dictionary<string, BaseTypeDefinition> typeDefs,
+        TypeDefinition? enclosingTypeDef,
         Version? assemblyVersion,
         AssemblyKind assemblyKind)
     {
         if (!typeDefs.ContainsKey(name))
         {
-            var typeDef = CreateEmptyTypeDefinition(assemblyKind, assemblyVersion, type);
+            var typeDef = CreateEmptyTypeDefinition(assemblyKind, assemblyVersion, type, enclosingTypeDef);
             if (typeDef == null)
             {
                 return;
@@ -112,23 +118,24 @@ internal class Reflector
     private static BaseTypeDefinition? CreateEmptyTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
-        Type type)
+        Type type,
+        TypeDefinition? enclosingTypeDef)
     {
         if (type.IsEnum)
         {
-            return CreateEmptyEnumTypeDefinition(assemblyKind, version, type);
+            return CreateEmptyEnumTypeDefinition(assemblyKind, version, type, enclosingTypeDef);
         }
         else if (type.IsClass)
         {
-            return CreateEmptyClassTypeDefinition(assemblyKind, version, type);
+            return CreateEmptyClassTypeDefinition(assemblyKind, version, type, enclosingTypeDef);
         }
         else if (type.IsValueType)
         {
-            return CreateEmptyStructTypeDefinition(assemblyKind, version, type);
+            return CreateEmptyStructTypeDefinition(assemblyKind, version, type, enclosingTypeDef);
         }
         else if (type.IsInterface)
         {
-            return CreateEmptyInterfaceTypeDefinition(assemblyKind, version, type);
+            return CreateEmptyInterfaceTypeDefinition(assemblyKind, version, type, enclosingTypeDef);
         }
         else
         {
@@ -140,7 +147,8 @@ internal class Reflector
     private static EnumTypeDefinition CreateEmptyEnumTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
-        Type type)
+        Type type,
+        TypeDefinition? enclosingTypeDef)
     {
         var underlyingTypeName = type.GetEnumUnderlyingType().FullName;
         Assert.IsTrue(underlyingTypeName != null, "Could not get enum's underlying type");
@@ -154,26 +162,30 @@ internal class Reflector
             type.Namespace!,
             type.FullName!,
             underlyingTypeName,
-            isFlagsEnum);
+            isFlagsEnum,
+            enclosingTypeDef);
     }
 
     private static StructTypeDefinition CreateEmptyStructTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
-        Type type)
+        Type type,
+        TypeDefinition? enclosingTypeDef)
     {
         return new StructTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
-            type.FullName!);
+            type.FullName!,
+            enclosingTypeDef);
     }
 
     private static ClassTypeDefinition CreateEmptyClassTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
-        Type type)
+        Type type,
+        TypeDefinition? enclosingTypeDef)
     {
         return new ClassTypeDefinition(
             assemblyKind,
@@ -181,29 +193,36 @@ internal class Reflector
             type.Name,
             type.Namespace!,
             type.FullName!,
-            IsStaticType(type));
+            IsStaticType(type),
+            enclosingTypeDef);
     }
 
     private static InterfaceTypeDefinition CreateEmptyInterfaceTypeDefinition(
         AssemblyKind assemblyKind,
         Version? version,
-        Type type)
+        Type type,
+        TypeDefinition? enclosingTypeDef)
     {
         return new InterfaceTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
-            type.FullName!);
+            type.FullName!,
+            enclosingTypeDef);
     }
 
     private static void AddTypeMemberDefinitions(
         Type type,
         string name,
         Dictionary<string, BaseTypeDefinition> typeDefs,
+        TypeDefinition? enclosingTypeDef,
         Version? assemblyVersion,
         AssemblyKind assemblyKind)
     {
+        _ = enclosingTypeDef;
+        _ = assemblyKind;
+
         if (!typeDefs.TryGetValue(name, out var typeDef))
         {
             Assert.Fail("Could not find type");
@@ -412,8 +431,8 @@ internal class Reflector
                     AddOrUpdate(typeDef.Constructors, constructorDef, AreEqual, assemblyVersion);
                     break;
 
-                // TODO: Handle nested types (e.g. Renamer.Xyz)
                 case Type:
+                    // Handled elsewhere, so nothing to do here
                     break;
 
                 default:
