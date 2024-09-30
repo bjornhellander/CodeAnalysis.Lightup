@@ -331,7 +331,7 @@ internal class Writer
         var staticMethods = GetStaticMethods(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
-        var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
+        var baseTypeName = GetBaseTypeName(typeDef);
         var hasBaseType = baseTypeName != null && typeDef is not InterfaceTypeDefinition;
         baseTypeName ??= "object";
 
@@ -910,13 +910,11 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static string? GetBaseTypeName(
-        TypeDefinition typeDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    private static string? GetBaseTypeName(TypeDefinition typeDef)
     {
         return typeDef switch
         {
-            ClassTypeDefinition x => GetBaseTypeName(x, typeDefs),
+            ClassTypeDefinition x => GetBaseTypeName(x),
             InterfaceTypeDefinition x => GetBaseTypeName(x),
             StructTypeDefinition => null,
             _ => throw new NotImplementedException(),
@@ -924,45 +922,21 @@ internal class Writer
     }
 
     private static string? GetBaseTypeName(
-        ClassTypeDefinition typeDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+        ClassTypeDefinition typeDef)
     {
-        if (typeDef.Name == "AnalyzerConfig")
+        var baseTypeRef = typeDef.BaseClass;
+        if (baseTypeRef == null)
         {
+            return null;
         }
 
-        while (true)
+        if (baseTypeRef is NamedTypeReference x)
         {
-            var baseTypeRef = typeDef.BaseClass;
-            switch (baseTypeRef)
-            {
-                case null:
-                    Assert.Fail("Could not get base type");
-                    return null;
-
-                case NamedTypeReference x:
-                    if (!IsNewType(x, typeDefs))
-                    {
-                        if (x.FullName == "System.Object")
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            return x.Name;
-                        }
-                    }
-                    else
-                    {
-                        typeDef = (ClassTypeDefinition)typeDefs[x.FullName];
-                        continue;
-                    }
-
-                default:
-                    Assert.Fail("Could not get base type");
-                    return null;
-            }
+            return x.Name;
         }
+
+        Assert.Fail("Could not get base type");
+        return null;
     }
 
     private static string? GetBaseTypeName(

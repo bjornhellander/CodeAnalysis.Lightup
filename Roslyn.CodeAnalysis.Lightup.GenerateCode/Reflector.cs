@@ -220,7 +220,7 @@ internal class Reflector
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            UpdateClassType(classTypeDef, type, assemblyVersion);
+            UpdateClassType(classTypeDef, type, assemblyVersion, typeDefs);
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
         {
@@ -258,14 +258,48 @@ internal class Reflector
         UpdateType(structTypeDef, type, assemblyVersion);
     }
 
-    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion)
+    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion, Dictionary<string, BaseTypeDefinition> typeDefs)
     {
         UpdateType(classTypeDef, type, assemblyVersion);
 
-        var baseClassRef = type.BaseType != null ? CreateTypeReference(type.BaseType) : null;
+        var baseType = GetClassBaseType(type, typeDefs);
+        var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
         classTypeDef.BaseClass = baseClassRef;
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
+    }
+
+    private static Type? GetClassBaseType(
+        Type type,
+        Dictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var currType = type;
+        while (true)
+        {
+            var baseType = currType.BaseType;
+            if (baseType == null)
+            {
+                Assert.Fail("Could not get base type");
+                return null;
+            }
+            else if (baseType.FullName == null)
+            {
+                Assert.Fail("Could not get base type");
+                return null;
+            }
+            else if (baseType.FullName == "System.Object")
+            {
+                return null;
+            }
+            else if (!typeDefs.TryGetValue(baseType.FullName, out var typeDef) || typeDef.AssemblyVersion == null)
+            {
+                return baseType;
+            }
+            else
+            {
+                currType = baseType;
+            }
+        }
     }
 
     private static bool IsStaticType(Type type)
