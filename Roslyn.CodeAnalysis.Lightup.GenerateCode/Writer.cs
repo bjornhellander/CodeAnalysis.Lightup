@@ -942,44 +942,19 @@ internal class Writer
     private static string? GetBaseTypeName(
         InterfaceTypeDefinition typeDef)
     {
-        var types = typeDef.Interfaces.OfType<NamedTypeReference>().ToList();
-        while (RemoveIndirectInterfaces(types))
-        {
-        }
-
-        if (types.Count == 1)
-        {
-            return types[0].Name;
-        }
-        else
+        var baseTypeRef = typeDef.BaseInterface;
+        if (baseTypeRef == null)
         {
             return null;
         }
 
-        static bool RemoveIndirectInterfaces(List<NamedTypeReference> typeRefs)
+        if (baseTypeRef is NamedTypeReference x)
         {
-            for (var i = 0; i < typeRefs.Count; i++)
-            {
-                var currTypeRef = typeRefs[i];
-
-                for (var j = 0; j < i; j++)
-                {
-                    var prevTypeRef = typeRefs[j];
-                    if (prevTypeRef.IsAssignableFrom(currTypeRef))
-                    {
-                        typeRefs.RemoveAt(j);
-                        return true;
-                    }
-                    else if (currTypeRef.IsAssignableFrom(prevTypeRef))
-                    {
-                        typeRefs.RemoveAt(i);
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return x.Name;
         }
+
+        Assert.Fail("Could not get base type");
+        return null;
     }
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)

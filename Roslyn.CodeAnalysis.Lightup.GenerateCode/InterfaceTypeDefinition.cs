@@ -4,7 +4,6 @@
 namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
-using System.Collections.Immutable;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
@@ -18,8 +17,8 @@ internal class InterfaceTypeDefinition : TypeDefinition
         string fullName)
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
-        Interfaces = [];
+        BaseInterface = null;
     }
 
-    public ImmutableArray<TypeReference> Interfaces { get; set; }
+    public TypeReference? BaseInterface { get; set; }
 }

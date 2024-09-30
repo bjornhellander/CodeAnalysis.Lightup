@@ -5,7 +5,6 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -312,9 +311,55 @@ internal class Reflector
     {
         UpdateType(interfaceTypeDef, type, assemblyVersion);
 
-        var interfaces = type.GetInterfaces();
-        var interfaceTypeRefs = interfaces.Select(CreateTypeReference).ToImmutableArray();
-        interfaceTypeDef.Interfaces = interfaceTypeRefs;
+        var baseType = GetInterfaceBaseType(type);
+        var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
+        interfaceTypeDef.BaseInterface = baseClassRef;
+    }
+
+    private static Type? GetInterfaceBaseType(Type type)
+    {
+        if (type.Name == "IFunctionPointerTypeSymbol")
+        {
+        }
+
+        var types = type.GetInterfaces().ToList();
+        while (RemoveIndirectInterfaces(types))
+        {
+        }
+
+        if (types.Count == 1)
+        {
+            return types[0];
+        }
+        else
+        {
+            return null;
+        }
+
+        static bool RemoveIndirectInterfaces(List<Type> types)
+        {
+            for (var i = 0; i < types.Count; i++)
+            {
+                var currType = types[i];
+
+                for (var j = 0; j < i; j++)
+                {
+                    var prevType = types[j];
+                    if (prevType.IsAssignableFrom(currType))
+                    {
+                        types.RemoveAt(j);
+                        return true;
+                    }
+                    else if (currType.IsAssignableFrom(prevType))
+                    {
+                        types.RemoveAt(i);
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 
     private static void UpdateType(TypeDefinition typeDef, Type type, Version? assemblyVersion)

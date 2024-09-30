@@ -15,9 +15,4 @@ internal abstract class TypeReference
     }
 
     public string NativeName => nativeType.Name;
-
-    public bool IsAssignableFrom(TypeReference typeRef)
-    {
-        return nativeType.IsAssignableFrom(typeRef.nativeType);
-    }
 }
