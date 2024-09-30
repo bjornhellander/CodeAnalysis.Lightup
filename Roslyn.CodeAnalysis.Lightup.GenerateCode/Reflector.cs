@@ -63,6 +63,18 @@ internal class Reflector
         var assemblyVersion = assembly.GetName().Version;
         Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
+        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
+        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
+    }
+
+    private static void VisitTypes(
+        Assembly assembly,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version assemblyVersion,
+        bool isBaselineVersion,
+        AssemblyKind assemblyKind,
+        Action<Type, string, Dictionary<string, BaseTypeDefinition>, Version?, AssemblyKind> visit)
+    {
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
@@ -75,37 +87,26 @@ internal class Reflector
                 continue;
             }
 
-            if (!typeDefs.TryGetValue(name, out var typeDef))
-            {
-                typeDef = CreateEmptyTypeDefinition(assemblyKind, isBaselineVersion ? null : assemblyVersion, type);
-                if (typeDef == null)
-                {
-                    continue;
-                }
+            visit(type, name, typeDefs, isBaselineVersion ? null : assemblyVersion, assemblyKind);
+        }
+    }
 
-                typeDefs.Add(name, typeDef);
+    private static void CreateEmptyTypeDefinition(
+        Type type,
+        string name,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version? assemblyVersion,
+        AssemblyKind assemblyKind)
+    {
+        if (!typeDefs.ContainsKey(name))
+        {
+            var typeDef = CreateEmptyTypeDefinition(assemblyKind, assemblyVersion, type);
+            if (typeDef == null)
+            {
+                return;
             }
 
-            if (typeDef is EnumTypeDefinition enumTypeDef)
-            {
-                UpdateEnumType(enumTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is StructTypeDefinition structTypeDef)
-            {
-                UpdateStructType(structTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is ClassTypeDefinition classTypeDef)
-            {
-                UpdateClassType(classTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
-            {
-                UpdateInterfaceType(interfaceTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else
-            {
-                Assert.Fail("Unhandled type");
-            }
+            typeDefs.Add(name, typeDef);
         }
     }
 
@@ -202,6 +203,40 @@ internal class Reflector
             type.Namespace!,
             type.FullName!,
             interfaceTypeRefs);
+    }
+
+    private static void AddTypeMemberDefinitions(
+        Type type,
+        string name,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version? assemblyVersion,
+        AssemblyKind assemblyKind)
+    {
+        if (!typeDefs.TryGetValue(name, out var typeDef))
+        {
+            Assert.Fail("Could not find type");
+        }
+
+        if (typeDef is EnumTypeDefinition enumTypeDef)
+        {
+            UpdateEnumType(enumTypeDef, type, assemblyVersion);
+        }
+        else if (typeDef is StructTypeDefinition structTypeDef)
+        {
+            UpdateStructType(structTypeDef, type, assemblyVersion);
+        }
+        else if (typeDef is ClassTypeDefinition classTypeDef)
+        {
+            UpdateClassType(classTypeDef, type, assemblyVersion);
+        }
+        else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+        {
+            UpdateInterfaceType(interfaceTypeDef, type, assemblyVersion);
+        }
+        else
+        {
+            Assert.Fail("Unhandled type");
+        }
     }
 
     private static void UpdateEnumType(EnumTypeDefinition enumTypeDef, Type type, Version? version)
