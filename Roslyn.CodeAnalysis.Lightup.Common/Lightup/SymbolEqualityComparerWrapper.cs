@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolEqualityComparer";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SymbolEqualityComparerWrapper DefaultGetterDelegate();
-        private delegate SymbolEqualityComparerWrapper IncludeNullabilityGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper DefaultGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullabilityGetterDelegate();
 
-        private delegate Boolean EqualsDelegate0(object? _obj, ISymbol? x, ISymbol? y);
-        private delegate Int32 GetHashCodeDelegate1(object? _obj, ISymbol? obj);
+        private delegate System.Boolean EqualsDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.ISymbol? x, Microsoft.CodeAnalysis.ISymbol? y);
+        private delegate System.Int32 GetHashCodeDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.ISymbol? obj);
 
         private static readonly DefaultGetterDelegate DefaultGetterFunc;
         private static readonly IncludeNullabilityGetterDelegate IncludeNullabilityGetterFunc;
@@ -40,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly GetHashCodeDelegate1 GetHashCodeFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static SymbolEqualityComparerWrapper()
         {
@@ -53,41 +41,41 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "objISymbol");
         }
 
-        private SymbolEqualityComparerWrapper(object? obj)
+        private SymbolEqualityComparerWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static SymbolEqualityComparerWrapper Default
+        public static Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper Default
         {
             get => DefaultGetterFunc();
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static SymbolEqualityComparerWrapper IncludeNullability
+        public static Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullability
         {
             get => IncludeNullabilityGetterFunc();
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SymbolEqualityComparerWrapper As(object? obj)
+        public static SymbolEqualityComparerWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new SymbolEqualityComparerWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Boolean Equals(ISymbol? x, ISymbol? y)
+        public readonly System.Boolean Equals(Microsoft.CodeAnalysis.ISymbol? x, Microsoft.CodeAnalysis.ISymbol? y)
             => EqualsFunc0(wrappedObject, x, y);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Int32 GetHashCode(ISymbol? obj)
+        public readonly System.Int32 GetHashCode(Microsoft.CodeAnalysis.ISymbol? obj)
             => GetHashCodeFunc1(wrappedObject, obj);
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext";
 
-        private delegate Nullable<TextSpan> FilterSpanGetterDelegate(SyntaxTreeAnalysisContext? _obj);
-        private delegate Boolean IsGeneratedCodeGetterDelegate(SyntaxTreeAnalysisContext? _obj);
+        private delegate System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext? _obj);
+        private delegate System.Boolean IsGeneratedCodeGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext? _obj);
 
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly IsGeneratedCodeGetterDelegate IsGeneratedCodeGetterFunc;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static Nullable<TextSpan> FilterSpan(this SyntaxTreeAnalysisContext _obj)
+        public static System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan(this Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsGeneratedCode(this SyntaxTreeAnalysisContext _obj)
+        public static System.Boolean IsGeneratedCode(this Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }
 }

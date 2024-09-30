@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,11 +14,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax";
 
-        private delegate ParameterListSyntax? ParameterListGetterDelegate(ClassDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax? _obj);
 
-        private delegate ClassDeclarationSyntax AddParameterListParametersDelegate0(ClassDeclarationSyntax? _obj, params ParameterSyntax[] items);
-        private delegate ClassDeclarationSyntax UpdateDelegate1(ClassDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
-        private delegate ClassDeclarationSyntax WithParameterListDelegate2(ClassDeclarationSyntax? _obj, ParameterListSyntax? parameterList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax AddParameterListParametersDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax WithParameterListDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
 
         private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
 
@@ -51,19 +38,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static ParameterListSyntax? ParameterList(this ClassDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList(this Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static ClassDeclarationSyntax AddParameterListParameters(this ClassDeclarationSyntax _obj, params ParameterSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax AddParameterListParameters(this Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static ClassDeclarationSyntax Update(this ClassDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static ClassDeclarationSyntax WithParameterList(this ClassDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax WithParameterList(this Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
             => WithParameterListFunc2(_obj, parameterList);
     }
 }

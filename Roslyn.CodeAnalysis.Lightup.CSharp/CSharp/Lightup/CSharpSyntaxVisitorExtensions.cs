@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,32 +14,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor";
 
-        private delegate void VisitBinaryPatternDelegate0(CSharpSyntaxVisitor? _obj, BinaryPatternSyntaxWrapper node);
-        private delegate void VisitCollectionExpressionDelegate1(CSharpSyntaxVisitor? _obj, CollectionExpressionSyntaxWrapper node);
-        private delegate void VisitDefaultConstraintDelegate2(CSharpSyntaxVisitor? _obj, DefaultConstraintSyntaxWrapper node);
-        private delegate void VisitExpressionColonDelegate3(CSharpSyntaxVisitor? _obj, ExpressionColonSyntaxWrapper node);
-        private delegate void VisitExpressionElementDelegate4(CSharpSyntaxVisitor? _obj, ExpressionElementSyntaxWrapper node);
-        private delegate void VisitFileScopedNamespaceDeclarationDelegate5(CSharpSyntaxVisitor? _obj, FileScopedNamespaceDeclarationSyntaxWrapper node);
-        private delegate void VisitFunctionPointerCallingConventionDelegate6(CSharpSyntaxVisitor? _obj, FunctionPointerCallingConventionSyntaxWrapper node);
-        private delegate void VisitFunctionPointerParameterDelegate7(CSharpSyntaxVisitor? _obj, FunctionPointerParameterSyntaxWrapper node);
-        private delegate void VisitFunctionPointerParameterListDelegate8(CSharpSyntaxVisitor? _obj, FunctionPointerParameterListSyntaxWrapper node);
-        private delegate void VisitFunctionPointerTypeDelegate9(CSharpSyntaxVisitor? _obj, FunctionPointerTypeSyntaxWrapper node);
-        private delegate void VisitFunctionPointerUnmanagedCallingConventionDelegate10(CSharpSyntaxVisitor? _obj, FunctionPointerUnmanagedCallingConventionSyntaxWrapper node);
-        private delegate void VisitFunctionPointerUnmanagedCallingConventionListDelegate11(CSharpSyntaxVisitor? _obj, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node);
-        private delegate void VisitImplicitObjectCreationExpressionDelegate12(CSharpSyntaxVisitor? _obj, ImplicitObjectCreationExpressionSyntaxWrapper node);
-        private delegate void VisitLineDirectivePositionDelegate13(CSharpSyntaxVisitor? _obj, LineDirectivePositionSyntaxWrapper node);
-        private delegate void VisitLineSpanDirectiveTriviaDelegate14(CSharpSyntaxVisitor? _obj, LineSpanDirectiveTriviaSyntaxWrapper node);
-        private delegate void VisitListPatternDelegate15(CSharpSyntaxVisitor? _obj, ListPatternSyntaxWrapper node);
-        private delegate void VisitParenthesizedPatternDelegate16(CSharpSyntaxVisitor? _obj, ParenthesizedPatternSyntaxWrapper node);
-        private delegate void VisitPrimaryConstructorBaseTypeDelegate17(CSharpSyntaxVisitor? _obj, PrimaryConstructorBaseTypeSyntaxWrapper node);
-        private delegate void VisitRecordDeclarationDelegate18(CSharpSyntaxVisitor? _obj, RecordDeclarationSyntaxWrapper node);
-        private delegate void VisitRelationalPatternDelegate19(CSharpSyntaxVisitor? _obj, RelationalPatternSyntaxWrapper node);
-        private delegate void VisitScopedTypeDelegate20(CSharpSyntaxVisitor? _obj, ScopedTypeSyntaxWrapper node);
-        private delegate void VisitSlicePatternDelegate21(CSharpSyntaxVisitor? _obj, SlicePatternSyntaxWrapper node);
-        private delegate void VisitSpreadElementDelegate22(CSharpSyntaxVisitor? _obj, SpreadElementSyntaxWrapper node);
-        private delegate void VisitTypePatternDelegate23(CSharpSyntaxVisitor? _obj, TypePatternSyntaxWrapper node);
-        private delegate void VisitUnaryPatternDelegate24(CSharpSyntaxVisitor? _obj, UnaryPatternSyntaxWrapper node);
-        private delegate void VisitWithExpressionDelegate25(CSharpSyntaxVisitor? _obj, WithExpressionSyntaxWrapper node);
+        private delegate void VisitBinaryPatternDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node);
+        private delegate void VisitCollectionExpressionDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node);
+        private delegate void VisitDefaultConstraintDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node);
+        private delegate void VisitExpressionColonDelegate3(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node);
+        private delegate void VisitExpressionElementDelegate4(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node);
+        private delegate void VisitFileScopedNamespaceDeclarationDelegate5(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node);
+        private delegate void VisitFunctionPointerCallingConventionDelegate6(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node);
+        private delegate void VisitFunctionPointerParameterDelegate7(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node);
+        private delegate void VisitFunctionPointerParameterListDelegate8(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node);
+        private delegate void VisitFunctionPointerTypeDelegate9(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node);
+        private delegate void VisitFunctionPointerUnmanagedCallingConventionDelegate10(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node);
+        private delegate void VisitFunctionPointerUnmanagedCallingConventionListDelegate11(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node);
+        private delegate void VisitImplicitObjectCreationExpressionDelegate12(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node);
+        private delegate void VisitLineDirectivePositionDelegate13(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node);
+        private delegate void VisitLineSpanDirectiveTriviaDelegate14(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node);
+        private delegate void VisitListPatternDelegate15(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node);
+        private delegate void VisitParenthesizedPatternDelegate16(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node);
+        private delegate void VisitPrimaryConstructorBaseTypeDelegate17(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node);
+        private delegate void VisitRecordDeclarationDelegate18(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node);
+        private delegate void VisitRelationalPatternDelegate19(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node);
+        private delegate void VisitScopedTypeDelegate20(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node);
+        private delegate void VisitSlicePatternDelegate21(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node);
+        private delegate void VisitSpreadElementDelegate22(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node);
+        private delegate void VisitTypePatternDelegate23(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node);
+        private delegate void VisitUnaryPatternDelegate24(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node);
+        private delegate void VisitWithExpressionDelegate25(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node);
 
         private static readonly VisitBinaryPatternDelegate0 VisitBinaryPatternFunc0;
         private static readonly VisitCollectionExpressionDelegate1 VisitCollectionExpressionFunc1;
@@ -114,107 +101,107 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitBinaryPattern(this CSharpSyntaxVisitor _obj, BinaryPatternSyntaxWrapper node)
+        public static void VisitBinaryPattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node)
             => VisitBinaryPatternFunc0(_obj, node);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static void VisitCollectionExpression(this CSharpSyntaxVisitor _obj, CollectionExpressionSyntaxWrapper node)
+        public static void VisitCollectionExpression(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node)
             => VisitCollectionExpressionFunc1(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitDefaultConstraint(this CSharpSyntaxVisitor _obj, DefaultConstraintSyntaxWrapper node)
+        public static void VisitDefaultConstraint(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node)
             => VisitDefaultConstraintFunc2(_obj, node);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static void VisitExpressionColon(this CSharpSyntaxVisitor _obj, ExpressionColonSyntaxWrapper node)
+        public static void VisitExpressionColon(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node)
             => VisitExpressionColonFunc3(_obj, node);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static void VisitExpressionElement(this CSharpSyntaxVisitor _obj, ExpressionElementSyntaxWrapper node)
+        public static void VisitExpressionElement(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node)
             => VisitExpressionElementFunc4(_obj, node);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static void VisitFileScopedNamespaceDeclaration(this CSharpSyntaxVisitor _obj, FileScopedNamespaceDeclarationSyntaxWrapper node)
+        public static void VisitFileScopedNamespaceDeclaration(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node)
             => VisitFileScopedNamespaceDeclarationFunc5(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerCallingConvention(this CSharpSyntaxVisitor _obj, FunctionPointerCallingConventionSyntaxWrapper node)
+        public static void VisitFunctionPointerCallingConvention(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node)
             => VisitFunctionPointerCallingConventionFunc6(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerParameter(this CSharpSyntaxVisitor _obj, FunctionPointerParameterSyntaxWrapper node)
+        public static void VisitFunctionPointerParameter(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node)
             => VisitFunctionPointerParameterFunc7(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerParameterList(this CSharpSyntaxVisitor _obj, FunctionPointerParameterListSyntaxWrapper node)
+        public static void VisitFunctionPointerParameterList(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node)
             => VisitFunctionPointerParameterListFunc8(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerType(this CSharpSyntaxVisitor _obj, FunctionPointerTypeSyntaxWrapper node)
+        public static void VisitFunctionPointerType(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node)
             => VisitFunctionPointerTypeFunc9(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerUnmanagedCallingConvention(this CSharpSyntaxVisitor _obj, FunctionPointerUnmanagedCallingConventionSyntaxWrapper node)
+        public static void VisitFunctionPointerUnmanagedCallingConvention(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node)
             => VisitFunctionPointerUnmanagedCallingConventionFunc10(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerUnmanagedCallingConventionList(this CSharpSyntaxVisitor _obj, FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
+        public static void VisitFunctionPointerUnmanagedCallingConventionList(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
             => VisitFunctionPointerUnmanagedCallingConventionListFunc11(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitImplicitObjectCreationExpression(this CSharpSyntaxVisitor _obj, ImplicitObjectCreationExpressionSyntaxWrapper node)
+        public static void VisitImplicitObjectCreationExpression(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node)
             => VisitImplicitObjectCreationExpressionFunc12(_obj, node);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static void VisitLineDirectivePosition(this CSharpSyntaxVisitor _obj, LineDirectivePositionSyntaxWrapper node)
+        public static void VisitLineDirectivePosition(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node)
             => VisitLineDirectivePositionFunc13(_obj, node);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static void VisitLineSpanDirectiveTrivia(this CSharpSyntaxVisitor _obj, LineSpanDirectiveTriviaSyntaxWrapper node)
+        public static void VisitLineSpanDirectiveTrivia(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node)
             => VisitLineSpanDirectiveTriviaFunc14(_obj, node);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitListPattern(this CSharpSyntaxVisitor _obj, ListPatternSyntaxWrapper node)
+        public static void VisitListPattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node)
             => VisitListPatternFunc15(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitParenthesizedPattern(this CSharpSyntaxVisitor _obj, ParenthesizedPatternSyntaxWrapper node)
+        public static void VisitParenthesizedPattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node)
             => VisitParenthesizedPatternFunc16(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitPrimaryConstructorBaseType(this CSharpSyntaxVisitor _obj, PrimaryConstructorBaseTypeSyntaxWrapper node)
+        public static void VisitPrimaryConstructorBaseType(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node)
             => VisitPrimaryConstructorBaseTypeFunc17(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitRecordDeclaration(this CSharpSyntaxVisitor _obj, RecordDeclarationSyntaxWrapper node)
+        public static void VisitRecordDeclaration(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node)
             => VisitRecordDeclarationFunc18(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitRelationalPattern(this CSharpSyntaxVisitor _obj, RelationalPatternSyntaxWrapper node)
+        public static void VisitRelationalPattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node)
             => VisitRelationalPatternFunc19(_obj, node);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitScopedType(this CSharpSyntaxVisitor _obj, ScopedTypeSyntaxWrapper node)
+        public static void VisitScopedType(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node)
             => VisitScopedTypeFunc20(_obj, node);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitSlicePattern(this CSharpSyntaxVisitor _obj, SlicePatternSyntaxWrapper node)
+        public static void VisitSlicePattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node)
             => VisitSlicePatternFunc21(_obj, node);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static void VisitSpreadElement(this CSharpSyntaxVisitor _obj, SpreadElementSyntaxWrapper node)
+        public static void VisitSpreadElement(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node)
             => VisitSpreadElementFunc22(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitTypePattern(this CSharpSyntaxVisitor _obj, TypePatternSyntaxWrapper node)
+        public static void VisitTypePattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node)
             => VisitTypePatternFunc23(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitUnaryPattern(this CSharpSyntaxVisitor _obj, UnaryPatternSyntaxWrapper node)
+        public static void VisitUnaryPattern(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node)
             => VisitUnaryPatternFunc24(_obj, node);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitWithExpression(this CSharpSyntaxVisitor _obj, WithExpressionSyntaxWrapper node)
+        public static void VisitWithExpression(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node)
             => VisitWithExpressionFunc25(_obj, node);
     }
 }

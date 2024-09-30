@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 
-        private delegate ImmutableArray<INamedTypeSymbol> GetForwardedTypesDelegate0(IAssemblySymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypesDelegate0(Microsoft.CodeAnalysis.IAssemblySymbol? _obj);
 
         private static readonly GetForwardedTypesDelegate0 GetForwardedTypesFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<INamedTypeSymbol> GetForwardedTypes(this IAssemblySymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypes(this Microsoft.CodeAnalysis.IAssemblySymbol _obj)
             => GetForwardedTypesFunc0(_obj);
     }
 }

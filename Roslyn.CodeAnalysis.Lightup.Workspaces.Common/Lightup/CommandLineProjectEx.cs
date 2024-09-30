@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineProject";
 
-        private delegate ProjectInfo CreateProjectInfoDelegate0(String projectName, String language, IEnumerable<String> commandLineArgs, String projectDirectory, Workspace? workspace);
-        private delegate ProjectInfo CreateProjectInfoDelegate1(String projectName, String language, String commandLine, String baseDirectory, Workspace? workspace);
+        private delegate Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate0(System.String projectName, System.String language, System.Collections.Generic.IEnumerable<System.String> commandLineArgs, System.String projectDirectory, Microsoft.CodeAnalysis.Workspace? workspace);
+        private delegate Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate1(System.String projectName, System.String language, System.String commandLine, System.String baseDirectory, Microsoft.CodeAnalysis.Workspace? workspace);
 
         private static readonly CreateProjectInfoDelegate0 CreateProjectInfoFunc0;
         private static readonly CreateProjectInfoDelegate1 CreateProjectInfoFunc1;
@@ -45,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ProjectInfo CreateProjectInfo(String projectName, String language, IEnumerable<String> commandLineArgs, String projectDirectory, Workspace? workspace)
+        public static Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(System.String projectName, System.String language, System.Collections.Generic.IEnumerable<System.String> commandLineArgs, System.String projectDirectory, Microsoft.CodeAnalysis.Workspace? workspace)
             => CreateProjectInfoFunc0(projectName, language, commandLineArgs, projectDirectory, workspace);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ProjectInfo CreateProjectInfo(String projectName, String language, String commandLine, String baseDirectory, Workspace? workspace)
+        public static Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(System.String projectName, System.String language, System.String commandLine, System.String baseDirectory, Microsoft.CodeAnalysis.Workspace? workspace)
             => CreateProjectInfoFunc1(projectName, language, commandLine, baseDirectory, workspace);
     }
 }

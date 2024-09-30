@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
 
-        private delegate ValueTask<IPersistentStorage> GetStorageAsyncDelegate0(IPersistentStorageService? _obj, Solution solution, CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Host.IPersistentStorage> GetStorageAsyncDelegate0(Microsoft.CodeAnalysis.Host.IPersistentStorageService? _obj, Microsoft.CodeAnalysis.Solution solution, System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetStorageAsyncDelegate0 GetStorageAsyncFunc0;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ValueTask<IPersistentStorage> GetStorageAsync(this IPersistentStorageService _obj, Solution solution, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Host.IPersistentStorage> GetStorageAsync(this Microsoft.CodeAnalysis.Host.IPersistentStorageService _obj, Microsoft.CodeAnalysis.Solution solution, System.Threading.CancellationToken cancellationToken)
             => GetStorageAsyncFunc0(_obj, solution, cancellationToken);
     }
 }

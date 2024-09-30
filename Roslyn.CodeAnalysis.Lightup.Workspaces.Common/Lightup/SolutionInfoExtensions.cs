@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionInfo";
 
-        private delegate IReadOnlyList<AnalyzerReference> AnalyzerReferencesGetterDelegate(SolutionInfo? _obj);
+        private delegate System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferencesGetterDelegate(Microsoft.CodeAnalysis.SolutionInfo? _obj);
 
-        private delegate SolutionInfo CreateDelegate0(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences);
+        private delegate Microsoft.CodeAnalysis.SolutionInfo CreateDelegate0(Microsoft.CodeAnalysis.SolutionId id, Microsoft.CodeAnalysis.VersionStamp version, System.String? filePath, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.ProjectInfo>? projects, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
 
@@ -48,11 +32,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this SolutionInfo _obj)
+        public static System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this Microsoft.CodeAnalysis.SolutionInfo _obj)
             => AnalyzerReferencesGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SolutionInfo Create(SolutionId id, VersionStamp version, String? filePath, IEnumerable<ProjectInfo>? projects, IEnumerable<AnalyzerReference>? analyzerReferences)
+        public static Microsoft.CodeAnalysis.SolutionInfo Create(Microsoft.CodeAnalysis.SolutionId id, Microsoft.CodeAnalysis.VersionStamp version, System.String? filePath, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.ProjectInfo>? projects, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences)
             => CreateFunc0(id, version, filePath, projects, analyzerReferences);
     }
 }

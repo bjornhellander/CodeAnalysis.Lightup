@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions";
 
-        private delegate AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(AnalyzerOptions? _obj);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? _obj);
 
         private static readonly AnalyzerConfigOptionsProviderGetterDelegate AnalyzerConfigOptionsProviderGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this AnalyzerOptions _obj)
+        public static Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj)
             => AnalyzerConfigOptionsProviderGetterFunc(_obj);
     }
 }

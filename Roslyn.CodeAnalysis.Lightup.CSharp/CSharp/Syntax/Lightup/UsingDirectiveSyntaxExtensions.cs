@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax";
 
-        private delegate SyntaxToken GlobalKeywordGetterDelegate(UsingDirectiveSyntax? _obj);
-        private delegate TypeSyntax NamespaceOrTypeGetterDelegate(UsingDirectiveSyntax? _obj);
-        private delegate SyntaxToken UnsafeKeywordGetterDelegate(UsingDirectiveSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken GlobalKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax NamespaceOrTypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken UnsafeKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj);
 
-        private delegate UsingDirectiveSyntax UpdateDelegate0(UsingDirectiveSyntax? _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, NameEqualsSyntax? alias, NameSyntax name, SyntaxToken semicolonToken);
-        private delegate UsingDirectiveSyntax UpdateDelegate1(UsingDirectiveSyntax? _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, SyntaxToken unsafeKeyword, NameEqualsSyntax? alias, TypeSyntax namespaceOrType, SyntaxToken semicolonToken);
-        private delegate UsingDirectiveSyntax WithGlobalKeywordDelegate2(UsingDirectiveSyntax? _obj, SyntaxToken globalKeyword);
-        private delegate UsingDirectiveSyntax WithNamespaceOrTypeDelegate3(UsingDirectiveSyntax? _obj, TypeSyntax namespaceOrType);
-        private delegate UsingDirectiveSyntax WithUnsafeKeywordDelegate4(UsingDirectiveSyntax? _obj, SyntaxToken unsafeKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UpdateDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword, Microsoft.CodeAnalysis.SyntaxToken usingKeyword, Microsoft.CodeAnalysis.SyntaxToken staticKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword, Microsoft.CodeAnalysis.SyntaxToken usingKeyword, Microsoft.CodeAnalysis.SyntaxToken staticKeyword, Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithGlobalKeywordDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithNamespaceOrTypeDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithUnsafeKeywordDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword);
 
         private static readonly GlobalKeywordGetterDelegate GlobalKeywordGetterFunc;
         private static readonly NamespaceOrTypeGetterDelegate NamespaceOrTypeGetterFunc;
@@ -63,35 +50,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static SyntaxToken GlobalKeyword(this UsingDirectiveSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken GlobalKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj)
             => GlobalKeywordGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static TypeSyntax NamespaceOrType(this UsingDirectiveSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax NamespaceOrType(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj)
             => NamespaceOrTypeGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static SyntaxToken UnsafeKeyword(this UsingDirectiveSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken UnsafeKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj)
             => UnsafeKeywordGetterFunc(_obj);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, NameEqualsSyntax? alias, NameSyntax name, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword, Microsoft.CodeAnalysis.SyntaxToken usingKeyword, Microsoft.CodeAnalysis.SyntaxToken staticKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc0(_obj, globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static UsingDirectiveSyntax Update(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword, SyntaxToken usingKeyword, SyntaxToken staticKeyword, SyntaxToken unsafeKeyword, NameEqualsSyntax? alias, TypeSyntax namespaceOrType, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword, Microsoft.CodeAnalysis.SyntaxToken usingKeyword, Microsoft.CodeAnalysis.SyntaxToken staticKeyword, Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static UsingDirectiveSyntax WithGlobalKeyword(this UsingDirectiveSyntax _obj, SyntaxToken globalKeyword)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithGlobalKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken globalKeyword)
             => WithGlobalKeywordFunc2(_obj, globalKeyword);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static UsingDirectiveSyntax WithNamespaceOrType(this UsingDirectiveSyntax _obj, TypeSyntax namespaceOrType)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithNamespaceOrType(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType)
             => WithNamespaceOrTypeFunc3(_obj, namespaceOrType);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static UsingDirectiveSyntax WithUnsafeKeyword(this UsingDirectiveSyntax _obj, SyntaxToken unsafeKeyword)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithUnsafeKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword)
             => WithUnsafeKeywordFunc4(_obj, unsafeKeyword);
     }
 }

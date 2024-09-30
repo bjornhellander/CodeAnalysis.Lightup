@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
 
-        private delegate Boolean ContainsDirectiveDelegate0(SyntaxNode? _obj, Int32 rawKind);
-        private delegate Boolean IsIncrementallyIdenticalToDelegate1(SyntaxNode? _obj, SyntaxNode? other);
+        private delegate System.Boolean ContainsDirectiveDelegate0(Microsoft.CodeAnalysis.SyntaxNode? _obj, System.Int32 rawKind);
+        private delegate System.Boolean IsIncrementallyIdenticalToDelegate1(Microsoft.CodeAnalysis.SyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxNode? other);
 
         private static readonly ContainsDirectiveDelegate0 ContainsDirectiveFunc0;
         private static readonly IsIncrementallyIdenticalToDelegate1 IsIncrementallyIdenticalToFunc1;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Boolean ContainsDirective(this SyntaxNode _obj, Int32 rawKind)
+        public static System.Boolean ContainsDirective(this Microsoft.CodeAnalysis.SyntaxNode _obj, System.Int32 rawKind)
             => ContainsDirectiveFunc0(_obj, rawKind);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNode _obj, SyntaxNode? other)
+        public static System.Boolean IsIncrementallyIdenticalTo(this Microsoft.CodeAnalysis.SyntaxNode _obj, Microsoft.CodeAnalysis.SyntaxNode? other)
             => IsIncrementallyIdenticalToFunc1(_obj, other);
     }
 }

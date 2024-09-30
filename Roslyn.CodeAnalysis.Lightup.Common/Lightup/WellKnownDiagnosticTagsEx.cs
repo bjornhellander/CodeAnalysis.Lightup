@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
 
-        private delegate String CustomObsoleteGetterDelegate();
-        private delegate String CompilationEndGetterDelegate();
+        private delegate System.String CustomObsoleteGetterDelegate();
+        private delegate System.String CompilationEndGetterDelegate();
 
         private static readonly CustomObsoleteGetterDelegate CustomObsoleteGetterFunc;
         private static readonly CompilationEndGetterDelegate CompilationEndGetterFunc;
@@ -41,13 +29,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String CustomObsolete
+        public static System.String CustomObsolete
         {
             get => CustomObsoleteGetterFunc();
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
-        public static String CompilationEnd
+        public static System.String CompilationEnd
         {
             get => CompilationEndGetterFunc();
         }

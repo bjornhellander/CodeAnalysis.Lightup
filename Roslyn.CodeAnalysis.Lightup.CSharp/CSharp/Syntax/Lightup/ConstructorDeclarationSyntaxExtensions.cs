@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax";
 
-        private delegate ConstructorDeclarationSyntax AddBodyAttributeListsDelegate0(ConstructorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax AddBodyAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
 
         private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ConstructorDeclarationSyntax AddBodyAttributeLists(this ConstructorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax AddBodyAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBodyAttributeListsFunc0(_obj, items);
     }
 }

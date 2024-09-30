@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
 
-        private delegate void CloseAnalyzerConfigDocumentDelegate0(AdhocWorkspace? _obj, DocumentId? documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate1(AdhocWorkspace? _obj, DocumentId? documentId, Boolean activate);
+        private delegate void CloseAnalyzerConfigDocumentDelegate0(Microsoft.CodeAnalysis.AdhocWorkspace? _obj, Microsoft.CodeAnalysis.DocumentId? documentId);
+        private delegate void OpenAnalyzerConfigDocumentDelegate1(Microsoft.CodeAnalysis.AdhocWorkspace? _obj, Microsoft.CodeAnalysis.DocumentId? documentId, System.Boolean activate);
 
         private static readonly CloseAnalyzerConfigDocumentDelegate0 CloseAnalyzerConfigDocumentFunc0;
         private static readonly OpenAnalyzerConfigDocumentDelegate1 OpenAnalyzerConfigDocumentFunc1;
@@ -45,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void CloseAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId)
+        public static void CloseAnalyzerConfigDocument(this Microsoft.CodeAnalysis.AdhocWorkspace _obj, Microsoft.CodeAnalysis.DocumentId? documentId)
             => CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void OpenAnalyzerConfigDocument(this AdhocWorkspace _obj, DocumentId? documentId, Boolean activate)
+        public static void OpenAnalyzerConfigDocument(this Microsoft.CodeAnalysis.AdhocWorkspace _obj, Microsoft.CodeAnalysis.DocumentId? documentId, System.Boolean activate)
             => OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
     }
 }

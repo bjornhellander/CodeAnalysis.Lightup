@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,13 +14,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken NameGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken NameGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
-        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerUnmanagedCallingConventionSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, SyntaxToken name);
-        private delegate FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithNameDelegate2(CSharpSyntaxNode? _obj, SyntaxToken name);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken name);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithNameDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken name);
 
         private static readonly NameGetterDelegate NameGetterFunc;
 
@@ -41,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly UpdateDelegate1 UpdateFunc1;
         private static readonly WithNameDelegate2 WithNameFunc2;
 
-        private readonly CSharpSyntaxNode? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? wrappedObject;
 
         static FunctionPointerUnmanagedCallingConventionSyntaxWrapper()
         {
@@ -54,42 +41,42 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithNameFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, "WithName", "nameSyntaxToken");
         }
 
-        private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(CSharpSyntaxNode? obj)
+        private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken Name
+        public readonly Microsoft.CodeAnalysis.SyntaxToken Name
         {
             get => NameGetterFunc(wrappedObject);
         }
 
-        public static implicit operator CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static FunctionPointerUnmanagedCallingConventionSyntaxWrapper As(object? obj)
+        public static FunctionPointerUnmanagedCallingConventionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerUnmanagedCallingConventionSyntaxWrapper(obj2);
         }
 
-        public CSharpSyntaxNode? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(SyntaxToken name)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken name)
             => UpdateFunc1(wrappedObject, name);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(SyntaxToken name)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(Microsoft.CodeAnalysis.SyntaxToken name)
             => WithNameFunc2(wrappedObject, name);
     }
 }

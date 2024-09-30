@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Recommendations.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Recommendations.Recommender";
 
-        private delegate Task<ImmutableArray<ISymbol>> GetRecommendedSymbolsAtPositionAsyncDelegate0(Document document, Int32 position, OptionSet? options, CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsyncDelegate0(Microsoft.CodeAnalysis.Document document, System.Int32 position, Microsoft.CodeAnalysis.Options.OptionSet? options, System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetRecommendedSymbolsAtPositionAsyncDelegate0 GetRecommendedSymbolsAtPositionAsyncFunc0;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static Task<ImmutableArray<ISymbol>> GetRecommendedSymbolsAtPositionAsync(Document document, Int32 position, OptionSet? options, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsync(Microsoft.CodeAnalysis.Document document, System.Int32 position, Microsoft.CodeAnalysis.Options.OptionSet? options, System.Threading.CancellationToken cancellationToken)
             => GetRecommendedSymbolsAtPositionAsyncFunc0(document, position, options, cancellationToken);
     }
 }

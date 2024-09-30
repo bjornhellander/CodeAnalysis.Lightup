@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrToken";
 
-        private delegate Boolean IsIncrementallyIdenticalToDelegate0(SyntaxNodeOrToken? _obj, SyntaxNodeOrToken other);
+        private delegate System.Boolean IsIncrementallyIdenticalToDelegate0(Microsoft.CodeAnalysis.SyntaxNodeOrToken? _obj, Microsoft.CodeAnalysis.SyntaxNodeOrToken other);
 
         private static readonly IsIncrementallyIdenticalToDelegate0 IsIncrementallyIdenticalToFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static Boolean IsIncrementallyIdenticalTo(this SyntaxNodeOrToken _obj, SyntaxNodeOrToken other)
+        public static System.Boolean IsIncrementallyIdenticalTo(this Microsoft.CodeAnalysis.SyntaxNodeOrToken _obj, Microsoft.CodeAnalysis.SyntaxNodeOrToken other)
             => IsIncrementallyIdenticalToFunc0(_obj, other);
     }
 }

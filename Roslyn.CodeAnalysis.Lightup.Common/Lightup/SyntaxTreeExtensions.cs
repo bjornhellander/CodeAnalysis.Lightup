@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
 
-        private delegate ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptionsGetterDelegate(SyntaxTree? _obj);
+        private delegate System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptionsGetterDelegate(Microsoft.CodeAnalysis.SyntaxTree? _obj);
 
-        private delegate IEnumerable<LineMappingWrapper> GetLineMappingsDelegate0(SyntaxTree? _obj, CancellationToken cancellationToken);
-        private delegate SyntaxTree WithDiagnosticOptionsDelegate1(SyntaxTree? _obj, ImmutableDictionary<String, ReportDiagnostic> options);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(Microsoft.CodeAnalysis.SyntaxTree? _obj, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptionsDelegate1(Microsoft.CodeAnalysis.SyntaxTree? _obj, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> options);
 
         private static readonly DiagnosticOptionsGetterDelegate DiagnosticOptionsGetterFunc;
 
@@ -47,15 +35,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableDictionary<String, ReportDiagnostic> DiagnosticOptions(this SyntaxTree _obj)
+        public static System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptions(this Microsoft.CodeAnalysis.SyntaxTree _obj)
             => DiagnosticOptionsGetterFunc(_obj);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this SyntaxTree _obj, CancellationToken cancellationToken)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappings(this Microsoft.CodeAnalysis.SyntaxTree _obj, System.Threading.CancellationToken cancellationToken)
             => GetLineMappingsFunc0(_obj, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree WithDiagnosticOptions(this SyntaxTree _obj, ImmutableDictionary<String, ReportDiagnostic> options)
+        public static Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptions(this Microsoft.CodeAnalysis.SyntaxTree _obj, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> options)
             => WithDiagnosticOptionsFunc1(_obj, options);
     }
 }

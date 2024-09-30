@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
 
-        private delegate ModuleMetadata CreateFromMetadataDelegate0(IntPtr metadata, Int32 size, Action onDispose);
+        private delegate Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadataDelegate0(System.IntPtr metadata, System.Int32 size, System.Action onDispose);
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static ModuleMetadata CreateFromMetadata(IntPtr metadata, Int32 size, Action onDispose)
+        public static Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadata(System.IntPtr metadata, System.Int32 size, System.Action onDispose)
             => CreateFromMetadataFunc0(metadata, size, onDispose);
     }
 }

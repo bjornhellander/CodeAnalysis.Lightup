@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,8 +14,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
 
-        private delegate CommonForEachStatementSyntax AddAttributeListsDelegate0(CommonForEachStatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate CommonForEachStatementSyntax WithAttributeListsDelegate1(CommonForEachStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly WithAttributeListsDelegate1 WithAttributeListsFunc1;
@@ -42,11 +29,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static CommonForEachStatementSyntax AddAttributeLists(this CommonForEachStatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static CommonForEachStatementSyntax WithAttributeLists(this CommonForEachStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc1(_obj, attributeLists);
     }
 }

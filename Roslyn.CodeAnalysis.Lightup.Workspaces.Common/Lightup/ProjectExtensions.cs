@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,21 +14,21 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Project";
 
-        private delegate IEnumerable<AnalyzerConfigDocumentWrapper> AnalyzerConfigDocumentsGetterDelegate(Project? _obj);
-        private delegate CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(Project? _obj);
-        private delegate String? DefaultNamespaceGetterDelegate(Project? _obj);
-        private delegate LanguageServicesWrapper ServicesGetterDelegate(Project? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper> AnalyzerConfigDocumentsGetterDelegate(Microsoft.CodeAnalysis.Project? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(Microsoft.CodeAnalysis.Project? _obj);
+        private delegate System.String? DefaultNamespaceGetterDelegate(Microsoft.CodeAnalysis.Project? _obj);
+        private delegate Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper ServicesGetterDelegate(Microsoft.CodeAnalysis.Project? _obj);
 
-        private delegate TextDocument AddAnalyzerConfigDocumentDelegate0(Project? _obj, String name, SourceText text, IEnumerable<String>? folders, String? filePath);
-        private delegate Boolean ContainsAnalyzerConfigDocumentDelegate1(Project? _obj, DocumentId documentId);
-        private delegate AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocumentDelegate2(Project? _obj, DocumentId documentId);
-        private delegate ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate3(Project? _obj, DocumentId documentId, CancellationToken cancellationToken);
-        private delegate ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsyncDelegate4(Project? _obj, CancellationToken cancellationToken);
-        private delegate Project RemoveAdditionalDocumentsDelegate5(Project? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Project RemoveAnalyzerConfigDocumentDelegate6(Project? _obj, DocumentId documentId);
-        private delegate Project RemoveAnalyzerConfigDocumentsDelegate7(Project? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Project RemoveDocumentsDelegate8(Project? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Project WithDefaultNamespaceDelegate9(Project? _obj, String defaultNamespace);
+        private delegate Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocumentDelegate0(Microsoft.CodeAnalysis.Project? _obj, System.String name, Microsoft.CodeAnalysis.Text.SourceText text, System.Collections.Generic.IEnumerable<System.String>? folders, System.String? filePath);
+        private delegate System.Boolean ContainsAnalyzerConfigDocumentDelegate1(Microsoft.CodeAnalysis.Project? _obj, Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocumentDelegate2(Microsoft.CodeAnalysis.Project? _obj, Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate3(Microsoft.CodeAnalysis.Project? _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.ValueTask<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsyncDelegate4(Microsoft.CodeAnalysis.Project? _obj, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.Project RemoveAdditionalDocumentsDelegate5(Microsoft.CodeAnalysis.Project? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentDelegate6(Microsoft.CodeAnalysis.Project? _obj, Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentsDelegate7(Microsoft.CodeAnalysis.Project? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Project RemoveDocumentsDelegate8(Microsoft.CodeAnalysis.Project? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Project WithDefaultNamespaceDelegate9(Microsoft.CodeAnalysis.Project? _obj, System.String defaultNamespace);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;
@@ -84,59 +68,59 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static IEnumerable<AnalyzerConfigDocumentWrapper> AnalyzerConfigDocuments(this Project _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper> AnalyzerConfigDocuments(this Microsoft.CodeAnalysis.Project _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static CompilationOutputInfoWrapper CompilationOutputInfo(this Project _obj)
+        public static Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfo(this Microsoft.CodeAnalysis.Project _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static String? DefaultNamespace(this Project _obj)
+        public static System.String? DefaultNamespace(this Microsoft.CodeAnalysis.Project _obj)
             => DefaultNamespaceGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static LanguageServicesWrapper Services(this Project _obj)
+        public static Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper Services(this Microsoft.CodeAnalysis.Project _obj)
             => ServicesGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static TextDocument AddAnalyzerConfigDocument(this Project _obj, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
+        public static Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Project _obj, System.String name, Microsoft.CodeAnalysis.Text.SourceText text, System.Collections.Generic.IEnumerable<System.String>? folders, System.String? filePath)
             => AddAnalyzerConfigDocumentFunc0(_obj, name, text, folders, filePath);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean ContainsAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+        public static System.Boolean ContainsAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Project _obj, Microsoft.CodeAnalysis.DocumentId documentId)
             => ContainsAnalyzerConfigDocumentFunc1(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+        public static Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Project _obj, Microsoft.CodeAnalysis.DocumentId documentId)
             => GetAnalyzerConfigDocumentFunc2(_obj, documentId);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Project _obj, DocumentId documentId, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Microsoft.CodeAnalysis.Project _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Threading.CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentAsyncFunc3(_obj, documentId, cancellationToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ValueTask<IEnumerable<SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Project _obj, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.ValueTask<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsync(this Microsoft.CodeAnalysis.Project _obj, System.Threading.CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentsAsyncFunc4(_obj, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Project RemoveAdditionalDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Project RemoveAdditionalDocuments(this Microsoft.CodeAnalysis.Project _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveAdditionalDocumentsFunc5(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Project RemoveAnalyzerConfigDocument(this Project _obj, DocumentId documentId)
+        public static Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Project _obj, Microsoft.CodeAnalysis.DocumentId documentId)
             => RemoveAnalyzerConfigDocumentFunc6(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Project RemoveAnalyzerConfigDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.Project _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Project RemoveDocuments(this Project _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Project RemoveDocuments(this Microsoft.CodeAnalysis.Project _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveDocumentsFunc8(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Project WithDefaultNamespace(this Project _obj, String defaultNamespace)
+        public static Microsoft.CodeAnalysis.Project WithDefaultNamespace(this Microsoft.CodeAnalysis.Project _obj, System.String defaultNamespace)
             => WithDefaultNamespaceFunc9(_obj, defaultNamespace);
     }
 }

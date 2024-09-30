@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken OperatorTokenGetterDelegate(PatternSyntax? _obj);
-        private delegate PatternSyntax PatternGetterDelegate(PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax PatternGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
 
-        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate UnaryPatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, SyntaxToken operatorToken, PatternSyntax pattern);
-        private delegate UnaryPatternSyntaxWrapper WithOperatorTokenDelegate2(PatternSyntax? _obj, SyntaxToken operatorToken);
-        private delegate UnaryPatternSyntaxWrapper WithPatternDelegate3(PatternSyntax? _obj, PatternSyntax pattern);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorTokenDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken operatorToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPatternDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
 
         private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
@@ -45,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithOperatorTokenDelegate2 WithOperatorTokenFunc2;
         private static readonly WithPatternDelegate3 WithPatternFunc3;
 
-        private readonly PatternSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? wrappedObject;
 
         static UnaryPatternSyntaxWrapper()
         {
@@ -60,52 +47,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithPatternFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate3>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
-        private UnaryPatternSyntaxWrapper(PatternSyntax? obj)
+        private UnaryPatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken OperatorToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly PatternSyntax Pattern
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Pattern
         {
             get => PatternGetterFunc(wrappedObject);
         }
 
-        public static implicit operator PatternSyntax?(UnaryPatternSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(UnaryPatternSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static UnaryPatternSyntaxWrapper As(object? obj)
+        public static UnaryPatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new UnaryPatternSyntaxWrapper(obj2);
         }
 
-        public PatternSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly UnaryPatternSyntaxWrapper Update(SyntaxToken operatorToken, PatternSyntax pattern)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
             => UpdateFunc1(wrappedObject, operatorToken, pattern);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly UnaryPatternSyntaxWrapper WithOperatorToken(SyntaxToken operatorToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorToken(Microsoft.CodeAnalysis.SyntaxToken operatorToken)
             => WithOperatorTokenFunc2(wrappedObject, operatorToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly UnaryPatternSyntaxWrapper WithPattern(PatternSyntax pattern)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPattern(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
             => WithPatternFunc3(wrappedObject, pattern);
     }
 }

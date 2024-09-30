@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
 
-        private delegate void TextDocumentClosedAdderDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
-        private delegate void TextDocumentClosedRemoverDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
-        private delegate void TextDocumentOpenedAdderDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
-        private delegate void TextDocumentOpenedRemoverDelegate(Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentClosedAdderDelegate(Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentClosedRemoverDelegate(Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentOpenedAdderDelegate(Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
+        private delegate void TextDocumentOpenedRemoverDelegate(Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
 
-        private delegate Boolean CanApplyCompilationOptionChangeDelegate0(Workspace? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
-        private delegate Boolean CanApplyParseOptionChangeDelegate1(Workspace? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
-        private delegate void CloseAnalyzerConfigDocumentDelegate2(Workspace? _obj, DocumentId documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate3(Workspace? _obj, DocumentId documentId, Boolean activate);
+        private delegate System.Boolean CanApplyCompilationOptionChangeDelegate0(Microsoft.CodeAnalysis.Workspace? _obj, Microsoft.CodeAnalysis.CompilationOptions oldOptions, Microsoft.CodeAnalysis.CompilationOptions newOptions, Microsoft.CodeAnalysis.Project project);
+        private delegate System.Boolean CanApplyParseOptionChangeDelegate1(Microsoft.CodeAnalysis.Workspace? _obj, Microsoft.CodeAnalysis.ParseOptions oldOptions, Microsoft.CodeAnalysis.ParseOptions newOptions, Microsoft.CodeAnalysis.Project project);
+        private delegate void CloseAnalyzerConfigDocumentDelegate2(Microsoft.CodeAnalysis.Workspace? _obj, Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate void OpenAnalyzerConfigDocumentDelegate3(Microsoft.CodeAnalysis.Workspace? _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Boolean activate);
 
         private static readonly TextDocumentClosedAdderDelegate TextDocumentClosedAdderFunc;
         private static readonly TextDocumentClosedRemoverDelegate TextDocumentClosedRemoverFunc;
@@ -66,35 +50,35 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Event added in version 4.4.0.0.</summary>
-        public static void AddTextDocumentClosed(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+        public static void AddTextDocumentClosed(this Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
             => TextDocumentClosedAdderFunc(_obj, _delegate);
 
         /// <summary>Event added in version 4.4.0.0.</summary>
-        public static void RemoveTextDocumentClosed(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+        public static void RemoveTextDocumentClosed(this Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
             => TextDocumentClosedRemoverFunc(_obj, _delegate);
 
         /// <summary>Event added in version 4.4.0.0.</summary>
-        public static void AddTextDocumentOpened(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+        public static void AddTextDocumentOpened(this Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
             => TextDocumentOpenedAdderFunc(_obj, _delegate);
 
         /// <summary>Event added in version 4.4.0.0.</summary>
-        public static void RemoveTextDocumentOpened(this Workspace _obj, EventHandler<TextDocumentEventArgsWrapper> _delegate)
+        public static void RemoveTextDocumentOpened(this Microsoft.CodeAnalysis.Workspace _obj, System.EventHandler<Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
             => TextDocumentOpenedRemoverFunc(_obj, _delegate);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static Boolean CanApplyCompilationOptionChange(this Workspace _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
+        public static System.Boolean CanApplyCompilationOptionChange(this Microsoft.CodeAnalysis.Workspace _obj, Microsoft.CodeAnalysis.CompilationOptions oldOptions, Microsoft.CodeAnalysis.CompilationOptions newOptions, Microsoft.CodeAnalysis.Project project)
             => CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean CanApplyParseOptionChange(this Workspace _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project)
+        public static System.Boolean CanApplyParseOptionChange(this Microsoft.CodeAnalysis.Workspace _obj, Microsoft.CodeAnalysis.ParseOptions oldOptions, Microsoft.CodeAnalysis.ParseOptions newOptions, Microsoft.CodeAnalysis.Project project)
             => CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void CloseAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId)
+        public static void CloseAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Workspace _obj, Microsoft.CodeAnalysis.DocumentId documentId)
             => CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void OpenAnalyzerConfigDocument(this Workspace _obj, DocumentId documentId, Boolean activate)
+        public static void OpenAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Workspace _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Boolean activate)
             => OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IOperation AppendCallGetterDelegate(IInterpolatedStringContentOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation AppendCallGetterDelegate(Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? _obj);
 
         private static readonly AppendCallGetterDelegate AppendCallGetterFunc;
 
-        private readonly IInterpolatedStringContentOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? wrappedObject;
 
         static IInterpolatedStringAppendOperationWrapper()
         {
@@ -41,27 +29,27 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             AppendCallGetterFunc = LightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
-        private IInterpolatedStringAppendOperationWrapper(IInterpolatedStringContentOperation? obj)
+        private IInterpolatedStringAppendOperationWrapper(Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly IOperation AppendCall
+        public readonly Microsoft.CodeAnalysis.IOperation AppendCall
         {
             get => AppendCallGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IInterpolatedStringAppendOperationWrapper As(object? obj)
+        public static IInterpolatedStringAppendOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IInterpolatedStringContentOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation>(obj, WrappedType);
             return new IInterpolatedStringAppendOperationWrapper(obj2);
         }
 
-        public IInterpolatedStringContentOperation? Unwrap()
+        public Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? Unwrap()
             => wrappedObject;
     }
 }

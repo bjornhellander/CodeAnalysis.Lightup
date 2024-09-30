@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate StringComparer KeyComparerGetterDelegate();
+        private delegate System.StringComparer KeyComparerGetterDelegate();
 
-        private delegate IEnumerable<String> KeysGetterDelegate(object? _obj);
+        private delegate System.Collections.Generic.IEnumerable<System.String> KeysGetterDelegate(System.Object? _obj);
 
-        private delegate Boolean TryGetValueDelegate0(object? _obj, String key, out String? value);
+        private delegate System.Boolean TryGetValueDelegate0(System.Object? _obj, System.String key, out System.String? value);
 
         private static readonly KeyComparerGetterDelegate KeyComparerGetterFunc;
 
@@ -40,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly TryGetValueDelegate0 TryGetValueFunc0;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AnalyzerConfigOptionsWrapper()
         {
@@ -53,37 +41,37 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             TryGetValueFunc0 = LightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, "TryGetValue", "keyString", "valueString&");
         }
 
-        private AnalyzerConfigOptionsWrapper(object? obj)
+        private AnalyzerConfigOptionsWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static StringComparer KeyComparer
+        public static System.StringComparer KeyComparer
         {
             get => KeyComparerGetterFunc();
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly IEnumerable<String> Keys
+        public readonly System.Collections.Generic.IEnumerable<System.String> Keys
         {
             get => KeysGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AnalyzerConfigOptionsWrapper As(object? obj)
+        public static AnalyzerConfigOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Boolean TryGetValue(String key, out String? value)
+        public readonly System.Boolean TryGetValue(System.String key, out System.String? value)
             => TryGetValueFunc0(wrappedObject, key, out value);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SourceGeneratedDocument";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate String HintNameGetterDelegate(Document? _obj);
+        private delegate System.String HintNameGetterDelegate(Microsoft.CodeAnalysis.Document? _obj);
 
         private static readonly HintNameGetterDelegate HintNameGetterFunc;
 
-        private readonly Document? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Document? wrappedObject;
 
         static SourceGeneratedDocumentWrapper()
         {
@@ -45,30 +29,30 @@ namespace Microsoft.CodeAnalysis.Lightup
             HintNameGetterFunc = LightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
         }
 
-        private SourceGeneratedDocumentWrapper(Document? obj)
+        private SourceGeneratedDocumentWrapper(Microsoft.CodeAnalysis.Document? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly String HintName
+        public readonly System.String HintName
         {
             get => HintNameGetterFunc(wrappedObject);
         }
 
-        public static implicit operator Document?(SourceGeneratedDocumentWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SourceGeneratedDocumentWrapper As(object? obj)
+        public static SourceGeneratedDocumentWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Document>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 
-        public Document? Unwrap()
+        public Microsoft.CodeAnalysis.Document? Unwrap()
             => wrappedObject;
     }
 }

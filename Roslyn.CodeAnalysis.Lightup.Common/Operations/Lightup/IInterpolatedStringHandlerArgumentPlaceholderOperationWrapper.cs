@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate Int32 ArgumentIndexGetterDelegate(IOperation? _obj);
-        private delegate InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindGetterDelegate(IOperation? _obj);
+        private delegate System.Int32 ArgumentIndexGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.Operations.Lightup.InterpolatedStringArgumentPlaceholderKindEx PlaceholderKindGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly ArgumentIndexGetterDelegate ArgumentIndexGetterFunc;
         private static readonly PlaceholderKindGetterDelegate PlaceholderKindGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PlaceholderKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
-        private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(IOperation? obj)
+        private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly Int32 ArgumentIndex
+        public readonly System.Int32 ArgumentIndex
         {
             get => ArgumentIndexGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
+        public readonly Microsoft.CodeAnalysis.Operations.Lightup.InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
         {
             get => PlaceholderKindGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper As(object? obj)
+        public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

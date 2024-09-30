@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Formatting.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Formatting.Formatter";
 
-        private delegate Task<Document> OrganizeImportsAsyncDelegate0(Document document, CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document> OrganizeImportsAsyncDelegate0(Microsoft.CodeAnalysis.Document document, System.Threading.CancellationToken cancellationToken);
 
         private static readonly OrganizeImportsAsyncDelegate0 OrganizeImportsAsyncFunc0;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<Document> OrganizeImportsAsync(Document document, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document> OrganizeImportsAsync(Microsoft.CodeAnalysis.Document document, System.Threading.CancellationToken cancellationToken)
             => OrganizeImportsAsyncFunc0(document, cancellationToken);
     }
 }

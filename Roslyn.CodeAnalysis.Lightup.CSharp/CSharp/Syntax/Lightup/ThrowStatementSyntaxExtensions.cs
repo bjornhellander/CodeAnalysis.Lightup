@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,11 +14,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(ThrowStatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax? _obj);
 
-        private delegate ThrowStatementSyntax AddAttributeListsDelegate0(ThrowStatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate ThrowStatementSyntax UpdateDelegate1(ThrowStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken throwKeyword, ExpressionSyntax? expression, SyntaxToken semicolonToken);
-        private delegate ThrowStatementSyntax WithAttributeListsDelegate2(ThrowStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken throwKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax WithAttributeListsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
@@ -51,19 +38,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this ThrowStatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ThrowStatementSyntax AddAttributeLists(this ThrowStatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ThrowStatementSyntax Update(this ThrowStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken throwKeyword, ExpressionSyntax? expression, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken throwKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, throwKeyword, expression, semicolonToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ThrowStatementSyntax WithAttributeLists(this ThrowStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

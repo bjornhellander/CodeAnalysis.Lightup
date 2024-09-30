@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax";
 
-        private delegate SyntaxToken ReadOnlyKeywordGetterDelegate(CrefParameterSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj);
 
-        private delegate CrefParameterSyntax UpdateDelegate0(CrefParameterSyntax? _obj, SyntaxToken refKindKeyword, SyntaxToken readOnlyKeyword, TypeSyntax type);
-        private delegate CrefParameterSyntax WithReadOnlyKeywordDelegate1(CrefParameterSyntax? _obj, SyntaxToken readOnlyKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax UpdateDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeywordDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
 
         private static readonly ReadOnlyKeywordGetterDelegate ReadOnlyKeywordGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static SyntaxToken ReadOnlyKeyword(this CrefParameterSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj)
             => ReadOnlyKeywordGetterFunc(_obj);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static CrefParameterSyntax Update(this CrefParameterSyntax _obj, SyntaxToken refKindKeyword, SyntaxToken readOnlyKeyword, TypeSyntax type)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => UpdateFunc0(_obj, refKindKeyword, readOnlyKeyword, type);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static CrefParameterSyntax WithReadOnlyKeyword(this CrefParameterSyntax _obj, SyntaxToken readOnlyKeyword)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword)
             => WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
     }
 }

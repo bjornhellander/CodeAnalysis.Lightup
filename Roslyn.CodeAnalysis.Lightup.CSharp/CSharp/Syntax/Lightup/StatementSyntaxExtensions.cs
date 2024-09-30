@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(StatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj);
 
-        private delegate StatementSyntax AddAttributeListsDelegate0(StatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate StatementSyntax WithAttributeListsDelegate1(StatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax WithAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this StatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static StatementSyntax AddAttributeLists(this StatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static StatementSyntax WithAttributeLists(this StatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc1(_obj, attributeLists);
     }
 }

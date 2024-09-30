@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SymbolDisplay";
 
-        private delegate ImmutableArray<SymbolDisplayPart> ToDisplayPartsDelegate0(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SymbolDisplayFormat? format);
-        private delegate ImmutableArray<SymbolDisplayPart> ToDisplayPartsDelegate1(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SymbolDisplayFormat? format);
-        private delegate String ToDisplayStringDelegate2(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SymbolDisplayFormat? format);
-        private delegate String ToDisplayStringDelegate3(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SymbolDisplayFormat? format);
-        private delegate ImmutableArray<SymbolDisplayPart> ToMinimalDisplayPartsDelegate4(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format);
-        private delegate ImmutableArray<SymbolDisplayPart> ToMinimalDisplayPartsDelegate5(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format);
-        private delegate String ToMinimalDisplayStringDelegate6(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format);
-        private delegate String ToMinimalDisplayStringDelegate7(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate0(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate1(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToDisplayStringDelegate2(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToDisplayStringDelegate3(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayPartsDelegate4(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayPartsDelegate5(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToMinimalDisplayStringDelegate6(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToMinimalDisplayStringDelegate7(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
 
         private static readonly ToDisplayPartsDelegate0 ToDisplayPartsFunc0;
         private static readonly ToDisplayPartsDelegate1 ToDisplayPartsFunc1;
@@ -60,35 +47,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayPartsFunc0(symbol, nullableFlowState, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayPartsFunc1(symbol, nullableAnnotation, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToDisplayString(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SymbolDisplayFormat? format)
+        public static System.String ToDisplayString(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayStringFunc2(symbol, nullableFlowState, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToDisplayString(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SymbolDisplayFormat? format)
+        public static System.String ToDisplayString(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayStringFunc3(symbol, nullableAnnotation, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayPartsFunc4(symbol, nullableFlowState, semanticModel, position, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayPartsFunc5(symbol, nullableAnnotation, semanticModel, position, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToMinimalDisplayString(ITypeSymbol symbol, NullableFlowStateEx nullableFlowState, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format)
+        public static System.String ToMinimalDisplayString(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayStringFunc6(symbol, nullableFlowState, semanticModel, position, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToMinimalDisplayString(ITypeSymbol symbol, NullableAnnotationEx nullableAnnotation, SemanticModel semanticModel, Int32 position, SymbolDisplayFormat? format)
+        public static System.String ToMinimalDisplayString(Microsoft.CodeAnalysis.ITypeSymbol symbol, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, Microsoft.CodeAnalysis.SemanticModel semanticModel, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayStringFunc7(symbol, nullableAnnotation, semanticModel, position, format);
     }
 }

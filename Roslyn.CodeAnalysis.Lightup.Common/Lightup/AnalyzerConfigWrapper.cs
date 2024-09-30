@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate AnalyzerConfigWrapper ParseDelegate0(String text, String? pathToFile);
-        private delegate AnalyzerConfigWrapper ParseDelegate1(SourceText text, String? pathToFile);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper ParseDelegate0(System.String text, System.String? pathToFile);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper ParseDelegate1(Microsoft.CodeAnalysis.Text.SourceText text, System.String? pathToFile);
 
         private static readonly ParseDelegate0 ParseFunc0;
         private static readonly ParseDelegate1 ParseFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AnalyzerConfigWrapper()
         {
@@ -44,29 +32,29 @@ namespace Microsoft.CodeAnalysis.Lightup
             ParseFunc1 = LightupHelper.CreateStaticMethodAccessor<ParseDelegate1>(WrappedType, "Parse", "textSourceText", "pathToFileString");
         }
 
-        private AnalyzerConfigWrapper(object? obj)
+        private AnalyzerConfigWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AnalyzerConfigWrapper As(object? obj)
+        public static AnalyzerConfigWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnalyzerConfigWrapper Parse(String text, String? pathToFile)
+        public static Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(System.String text, System.String? pathToFile)
             => ParseFunc0(text, pathToFile);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnalyzerConfigWrapper Parse(SourceText text, String? pathToFile)
+        public static Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(Microsoft.CodeAnalysis.Text.SourceText text, System.String? pathToFile)
             => ParseFunc1(text, pathToFile);
     }
 }

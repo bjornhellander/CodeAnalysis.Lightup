@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
 
-        private delegate Boolean IsRequiredGetterDelegate(IPropertySymbol? _obj);
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IPropertySymbol? _obj);
+        private delegate System.Boolean IsRequiredGetterDelegate(Microsoft.CodeAnalysis.IPropertySymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IPropertySymbol? _obj);
 
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsRequired(this IPropertySymbol _obj)
+        public static System.Boolean IsRequired(this Microsoft.CodeAnalysis.IPropertySymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this IPropertySymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.IPropertySymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }
 }

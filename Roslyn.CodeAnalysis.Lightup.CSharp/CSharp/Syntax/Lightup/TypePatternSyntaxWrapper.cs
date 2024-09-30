@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,13 +14,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypePatternSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate TypeSyntax TypeGetterDelegate(PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
 
-        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate TypePatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, TypeSyntax type);
-        private delegate TypePatternSyntaxWrapper WithTypeDelegate2(PatternSyntax? _obj, TypeSyntax type);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper WithTypeDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
@@ -41,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly UpdateDelegate1 UpdateFunc1;
         private static readonly WithTypeDelegate2 WithTypeFunc2;
 
-        private readonly PatternSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? wrappedObject;
 
         static TypePatternSyntaxWrapper()
         {
@@ -54,42 +41,42 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate2>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private TypePatternSyntaxWrapper(PatternSyntax? obj)
+        private TypePatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly TypeSyntax Type
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
         }
 
-        public static implicit operator PatternSyntax?(TypePatternSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(TypePatternSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static TypePatternSyntaxWrapper As(object? obj)
+        public static TypePatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new TypePatternSyntaxWrapper(obj2);
         }
 
-        public PatternSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly TypePatternSyntaxWrapper Update(TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper Update(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => UpdateFunc1(wrappedObject, type);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly TypePatternSyntaxWrapper WithType(TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper WithType(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => WithTypeFunc2(wrappedObject, type);
     }
 }

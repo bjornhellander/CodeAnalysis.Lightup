@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxFacts";
 
-        private delegate Boolean IsCheckedOperatorDelegate0(String operatorMetadataName);
+        private delegate System.Boolean IsCheckedOperatorDelegate0(System.String operatorMetadataName);
 
         private static readonly IsCheckedOperatorDelegate0 IsCheckedOperatorFunc0;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static Boolean IsCheckedOperator(String operatorMetadataName)
+        public static System.Boolean IsCheckedOperator(System.String operatorMetadataName)
             => IsCheckedOperatorFunc0(operatorMetadataName);
     }
 }

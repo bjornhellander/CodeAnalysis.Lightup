@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionColonSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken ColonTokenGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate ExpressionSyntax ExpressionGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken ColonTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
-        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate ExpressionColonSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, ExpressionSyntax expression, SyntaxToken colonToken);
-        private delegate ExpressionColonSyntaxWrapper WithColonTokenDelegate2(CSharpSyntaxNode? _obj, SyntaxToken colonToken);
-        private delegate ExpressionColonSyntaxWrapper WithExpressionDelegate3(CSharpSyntaxNode? _obj, ExpressionSyntax expression);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithColonTokenDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithExpressionDelegate3(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
 
         private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
@@ -45,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithColonTokenDelegate2 WithColonTokenFunc2;
         private static readonly WithExpressionDelegate3 WithExpressionFunc3;
 
-        private readonly CSharpSyntaxNode? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? wrappedObject;
 
         static ExpressionColonSyntaxWrapper()
         {
@@ -60,52 +47,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
         }
 
-        private ExpressionColonSyntaxWrapper(CSharpSyntaxNode? obj)
+        private ExpressionColonSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken ColonToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken ColonToken
         {
             get => ColonTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly ExpressionSyntax Expression
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
 
-        public static implicit operator CSharpSyntaxNode?(ExpressionColonSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(ExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ExpressionColonSyntaxWrapper As(object? obj)
+        public static ExpressionColonSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new ExpressionColonSyntaxWrapper(obj2);
         }
 
-        public CSharpSyntaxNode? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly ExpressionColonSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken colonToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper Update(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, Microsoft.CodeAnalysis.SyntaxToken colonToken)
             => UpdateFunc1(wrappedObject, expression, colonToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly ExpressionColonSyntaxWrapper WithColonToken(SyntaxToken colonToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithColonToken(Microsoft.CodeAnalysis.SyntaxToken colonToken)
             => WithColonTokenFunc2(wrappedObject, colonToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly ExpressionColonSyntaxWrapper WithExpression(ExpressionSyntax expression)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithExpression(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
             => WithExpressionFunc3(wrappedObject, expression);
     }
 }

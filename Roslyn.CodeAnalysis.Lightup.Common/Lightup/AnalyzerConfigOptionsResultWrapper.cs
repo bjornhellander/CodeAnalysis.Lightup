@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ImmutableDictionary<String, String> AnalyzerOptionsGetterDelegate(object? _obj);
-        private delegate ImmutableArray<Diagnostic> DiagnosticsGetterDelegate(object? _obj);
-        private delegate ImmutableDictionary<String, ReportDiagnostic> TreeOptionsGetterDelegate(object? _obj);
+        private delegate System.Collections.Immutable.ImmutableDictionary<System.String, System.String> AnalyzerOptionsGetterDelegate(System.Object? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic> DiagnosticsGetterDelegate(System.Object? _obj);
+        private delegate System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptionsGetterDelegate(System.Object? _obj);
 
         private static readonly AnalyzerOptionsGetterDelegate AnalyzerOptionsGetterFunc;
         private static readonly DiagnosticsGetterDelegate DiagnosticsGetterFunc;
         private static readonly TreeOptionsGetterDelegate TreeOptionsGetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AnalyzerConfigOptionsResultWrapper()
         {
@@ -47,39 +35,39 @@ namespace Microsoft.CodeAnalysis.Lightup
             TreeOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TreeOptionsGetterDelegate>(WrappedType, nameof(TreeOptions));
         }
 
-        private AnalyzerConfigOptionsResultWrapper(object? obj)
+        private AnalyzerConfigOptionsResultWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ImmutableDictionary<String, String> AnalyzerOptions
+        public readonly System.Collections.Immutable.ImmutableDictionary<System.String, System.String> AnalyzerOptions
         {
             get => AnalyzerOptionsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ImmutableArray<Diagnostic> Diagnostics
+        public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic> Diagnostics
         {
             get => DiagnosticsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ImmutableDictionary<String, ReportDiagnostic> TreeOptions
+        public readonly System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptions
         {
             get => TreeOptionsGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AnalyzerConfigOptionsResultWrapper As(object? obj)
+        public static AnalyzerConfigOptionsResultWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsResultWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

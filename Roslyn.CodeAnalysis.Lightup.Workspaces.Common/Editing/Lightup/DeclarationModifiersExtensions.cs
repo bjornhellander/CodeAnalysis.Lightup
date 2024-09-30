@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
@@ -30,21 +14,21 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
 
-        private delegate DeclarationModifiers ExternGetterDelegate();
-        private delegate DeclarationModifiers FileGetterDelegate();
-        private delegate DeclarationModifiers RequiredGetterDelegate();
-        private delegate DeclarationModifiers VolatileGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers ExternGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers FileGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers RequiredGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers VolatileGetterDelegate();
 
-        private delegate Boolean IsExternGetterDelegate(DeclarationModifiers? _obj);
-        private delegate Boolean IsFileGetterDelegate(DeclarationModifiers? _obj);
-        private delegate Boolean IsRequiredGetterDelegate(DeclarationModifiers? _obj);
-        private delegate Boolean IsVolatileGetterDelegate(DeclarationModifiers? _obj);
+        private delegate System.Boolean IsExternGetterDelegate(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
+        private delegate System.Boolean IsFileGetterDelegate(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
+        private delegate System.Boolean IsRequiredGetterDelegate(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
+        private delegate System.Boolean IsVolatileGetterDelegate(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
 
-        private delegate DeclarationModifiers WithIsExternDelegate0(DeclarationModifiers? _obj, Boolean isExtern);
-        private delegate DeclarationModifiers WithIsFileDelegate1(DeclarationModifiers? _obj, Boolean isFile);
-        private delegate DeclarationModifiers WithIsRefDelegate2(DeclarationModifiers? _obj, Boolean isRef);
-        private delegate DeclarationModifiers WithIsRequiredDelegate3(DeclarationModifiers? _obj, Boolean isRequired);
-        private delegate DeclarationModifiers WithIsVolatileDelegate4(DeclarationModifiers? _obj, Boolean isVolatile);
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, System.Boolean isExtern);
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate1(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, System.Boolean isFile);
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate2(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, System.Boolean isRef);
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate3(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, System.Boolean isRequired);
+        private delegate Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate4(Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, System.Boolean isVolatile);
 
         private static readonly ExternGetterDelegate ExternGetterFunc;
         private static readonly FileGetterDelegate FileGetterFunc;
@@ -84,55 +68,55 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static DeclarationModifiers Extern()
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers Extern()
             => ExternGetterFunc();
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static DeclarationModifiers File()
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers File()
             => FileGetterFunc();
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static DeclarationModifiers Required()
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers Required()
             => RequiredGetterFunc();
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static DeclarationModifiers Volatile()
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers Volatile()
             => VolatileGetterFunc();
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsExtern(this DeclarationModifiers _obj)
+        public static System.Boolean IsExtern(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
             => IsExternGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsFile(this DeclarationModifiers _obj)
+        public static System.Boolean IsFile(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
             => IsFileGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsRequired(this DeclarationModifiers _obj)
+        public static System.Boolean IsRequired(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
             => IsRequiredGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsVolatile(this DeclarationModifiers _obj)
+        public static System.Boolean IsVolatile(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
             => IsVolatileGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static DeclarationModifiers WithIsExtern(this DeclarationModifiers _obj, Boolean isExtern)
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExtern(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, System.Boolean isExtern)
             => WithIsExternFunc0(_obj, isExtern);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static DeclarationModifiers WithIsFile(this DeclarationModifiers _obj, Boolean isFile)
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFile(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, System.Boolean isFile)
             => WithIsFileFunc1(_obj, isFile);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static DeclarationModifiers WithIsRef(this DeclarationModifiers _obj, Boolean isRef)
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRef(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, System.Boolean isRef)
             => WithIsRefFunc2(_obj, isRef);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static DeclarationModifiers WithIsRequired(this DeclarationModifiers _obj, Boolean isRequired)
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequired(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, System.Boolean isRequired)
             => WithIsRequiredFunc3(_obj, isRequired);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static DeclarationModifiers WithIsVolatile(this DeclarationModifiers _obj, Boolean isVolatile)
+        public static Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatile(this Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, System.Boolean isVolatile)
             => WithIsVolatileFunc4(_obj, isVolatile);
     }
 }

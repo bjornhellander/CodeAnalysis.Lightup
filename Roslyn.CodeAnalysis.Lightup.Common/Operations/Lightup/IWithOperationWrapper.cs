@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IWithOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IMethodSymbol? CloneMethodGetterDelegate(IOperation? _obj);
-        private delegate IObjectOrCollectionInitializerOperation InitializerGetterDelegate(IOperation? _obj);
-        private delegate IOperation OperandGetterDelegate(IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol? CloneMethodGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation InitializerGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly CloneMethodGetterDelegate CloneMethodGetterFunc;
         private static readonly InitializerGetterDelegate InitializerGetterFunc;
         private static readonly OperandGetterDelegate OperandGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IWithOperationWrapper()
         {
@@ -47,39 +35,39 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             OperandGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
-        private IWithOperationWrapper(IOperation? obj)
+        private IWithOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IMethodSymbol? CloneMethod
+        public readonly Microsoft.CodeAnalysis.IMethodSymbol? CloneMethod
         {
             get => CloneMethodGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IObjectOrCollectionInitializerOperation Initializer
+        public readonly Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IOperation Operand
+        public readonly Microsoft.CodeAnalysis.IOperation Operand
         {
             get => OperandGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IWithOperationWrapper As(object? obj)
+        public static IWithOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IWithOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

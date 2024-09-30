@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax";
 
-        private delegate ExpressionSyntax? ExpressionBodyGetterDelegate(AnonymousMethodExpressionSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(AnonymousMethodExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBodyGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj);
 
-        private delegate AnonymousMethodExpressionSyntax AddBlockAttributeListsDelegate0(AnonymousMethodExpressionSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate AnonymousMethodExpressionSyntax AddModifiersDelegate1(AnonymousMethodExpressionSyntax? _obj, params SyntaxToken[] items);
-        private delegate AnonymousMethodExpressionSyntax UpdateDelegate2(AnonymousMethodExpressionSyntax? _obj, SyntaxTokenList modifiers, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax block, ExpressionSyntax? expressionBody);
-        private delegate AnonymousMethodExpressionSyntax? UpdateDelegate3(AnonymousMethodExpressionSyntax? _obj, SyntaxToken asyncKeyword, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate AnonymousMethodExpressionSyntax WithExpressionBodyDelegate4(AnonymousMethodExpressionSyntax? _obj, ExpressionSyntax? expressionBody);
-        private delegate AnonymousMethodExpressionSyntax WithModifiersDelegate5(AnonymousMethodExpressionSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax AddBlockAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax AddModifiersDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? UpdateDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax WithExpressionBodyDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax WithModifiersDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
@@ -63,35 +50,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ExpressionSyntax? ExpressionBody(this AnonymousMethodExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj)
             => ExpressionBodyGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this AnonymousMethodExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax AddBlockAttributeLists(this AnonymousMethodExpressionSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax AddBlockAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax AddModifiers(this AnonymousMethodExpressionSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax Update(this AnonymousMethodExpressionSyntax _obj, SyntaxTokenList modifiers, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc2(_obj, modifiers, delegateKeyword, parameterList, block, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax? Update(this AnonymousMethodExpressionSyntax _obj, SyntaxToken asyncKeyword, SyntaxToken delegateKeyword, ParameterListSyntax? parameterList, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax? Update(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc3(_obj, asyncKeyword, delegateKeyword, parameterList, block, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax WithExpressionBody(this AnonymousMethodExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax WithExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => WithExpressionBodyFunc4(_obj, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnonymousMethodExpressionSyntax WithModifiers(this AnonymousMethodExpressionSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc5(_obj, modifiers);
     }
 }

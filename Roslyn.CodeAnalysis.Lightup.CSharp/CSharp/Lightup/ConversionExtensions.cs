@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
 
-        private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsCollectionExpressionGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsConditionalExpressionGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsDefaultLiteralGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsInlineArrayGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsInterpolatedStringHandlerGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsObjectCreationGetterDelegate(Conversion? _obj);
-        private delegate Boolean IsSwitchExpressionGetterDelegate(Conversion? _obj);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsCollectionExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsConditionalExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsDefaultLiteralGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsInlineArrayGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsInterpolatedStringHandlerGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsObjectCreationGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate System.Boolean IsSwitchExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsCollectionExpressionGetterDelegate IsCollectionExpressionGetterFunc;
@@ -60,35 +47,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ITypeSymbol? ConstrainedToType(this Conversion _obj)
+        public static Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static Boolean IsCollectionExpression(this Conversion _obj)
+        public static System.Boolean IsCollectionExpression(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsCollectionExpressionGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsConditionalExpression(this Conversion _obj)
+        public static System.Boolean IsConditionalExpression(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsConditionalExpressionGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsDefaultLiteral(this Conversion _obj)
+        public static System.Boolean IsDefaultLiteral(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsDefaultLiteralGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static Boolean IsInlineArray(this Conversion _obj)
+        public static System.Boolean IsInlineArray(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsInlineArrayGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Boolean IsInterpolatedStringHandler(this Conversion _obj)
+        public static System.Boolean IsInterpolatedStringHandler(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsInterpolatedStringHandlerGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsObjectCreation(this Conversion _obj)
+        public static System.Boolean IsObjectCreation(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsObjectCreationGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsSwitchExpression(this Conversion _obj)
+        public static System.Boolean IsSwitchExpression(this Microsoft.CodeAnalysis.CSharp.Conversion _obj)
             => IsSwitchExpressionGetterFunc(_obj);
     }
 }

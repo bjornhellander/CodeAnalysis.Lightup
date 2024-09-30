@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 
-        private delegate ImmutableArray<IImportScopeWrapper> GetImportScopesDelegate0(SemanticModel? _obj, Int32 position, CancellationToken cancellationToken);
-        private delegate NullableContextEx GetNullableContextDelegate1(SemanticModel? _obj, Int32 position);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopesDelegate0(Microsoft.CodeAnalysis.SemanticModel? _obj, System.Int32 position, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContextDelegate1(Microsoft.CodeAnalysis.SemanticModel? _obj, System.Int32 position);
 
         private static readonly GetImportScopesDelegate0 GetImportScopesFunc0;
         private static readonly GetNullableContextDelegate1 GetNullableContextFunc1;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static ImmutableArray<IImportScopeWrapper> GetImportScopes(this SemanticModel _obj, Int32 position, CancellationToken cancellationToken)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopes(this Microsoft.CodeAnalysis.SemanticModel _obj, System.Int32 position, System.Threading.CancellationToken cancellationToken)
             => GetImportScopesFunc0(_obj, position, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NullableContextEx GetNullableContext(this SemanticModel _obj, Int32 position)
+        public static Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContext(this Microsoft.CodeAnalysis.SemanticModel _obj, System.Int32 position)
             => GetNullableContextFunc1(_obj, position);
     }
 }

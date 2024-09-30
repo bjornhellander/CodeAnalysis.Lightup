@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CaseInsensitiveComparison";
 
-        private delegate Int32 CompareDelegate0(ReadOnlySpan<Char> left, ReadOnlySpan<Char> right);
-        private delegate Boolean EqualsDelegate1(ReadOnlySpan<Char> left, ReadOnlySpan<Char> right);
+        private delegate System.Int32 CompareDelegate0(System.ReadOnlySpan<System.Char> left, System.ReadOnlySpan<System.Char> right);
+        private delegate System.Boolean EqualsDelegate1(System.ReadOnlySpan<System.Char> left, System.ReadOnlySpan<System.Char> right);
 
         private static readonly CompareDelegate0 CompareFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static Int32 Compare(ReadOnlySpan<Char> left, ReadOnlySpan<Char> right)
+        public static System.Int32 Compare(System.ReadOnlySpan<System.Char> left, System.ReadOnlySpan<System.Char> right)
             => CompareFunc0(left, right);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static Boolean Equals(ReadOnlySpan<Char> left, ReadOnlySpan<Char> right)
+        public static System.Boolean Equals(System.ReadOnlySpan<System.Char> left, System.ReadOnlySpan<System.Char> right)
             => EqualsFunc1(left, right);
     }
 }

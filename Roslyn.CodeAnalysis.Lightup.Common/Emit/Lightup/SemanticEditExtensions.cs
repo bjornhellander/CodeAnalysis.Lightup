@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
 
-        private delegate MethodInstrumentationWrapper InstrumentationGetterDelegate(SemanticEdit? _obj);
+        private delegate Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper InstrumentationGetterDelegate(Microsoft.CodeAnalysis.Emit.SemanticEdit? _obj);
 
         private static readonly InstrumentationGetterDelegate InstrumentationGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static MethodInstrumentationWrapper Instrumentation(this SemanticEdit _obj)
+        public static Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper Instrumentation(this Microsoft.CodeAnalysis.Emit.SemanticEdit _obj)
             => InstrumentationGetterFunc(_obj);
     }
 }

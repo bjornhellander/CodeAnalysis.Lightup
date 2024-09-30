@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation";
 
-        private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(ICompoundAssignmentOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation? _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ITypeSymbol? ConstrainedToType(this ICompoundAssignmentOperation _obj)
+        public static Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation _obj)
             => ConstrainedToTypeGetterFunc(_obj);
     }
 }

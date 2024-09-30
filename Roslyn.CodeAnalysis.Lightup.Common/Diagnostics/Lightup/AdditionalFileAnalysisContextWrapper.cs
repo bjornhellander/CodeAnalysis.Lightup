@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate AdditionalText AdditionalFileGetterDelegate(object? _obj);
-        private delegate CancellationToken CancellationTokenGetterDelegate(object? _obj);
-        private delegate Compilation CompilationGetterDelegate(object? _obj);
-        private delegate Nullable<TextSpan> FilterSpanGetterDelegate(object? _obj);
-        private delegate AnalyzerOptions OptionsGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.AdditionalText AdditionalFileGetterDelegate(System.Object? _obj);
+        private delegate System.Threading.CancellationToken CancellationTokenGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(System.Object? _obj);
+        private delegate System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions OptionsGetterDelegate(System.Object? _obj);
 
-        private delegate void ReportDiagnosticDelegate0(object? _obj, Diagnostic diagnostic);
+        private delegate void ReportDiagnosticDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.Diagnostic diagnostic);
 
         private static readonly AdditionalFileGetterDelegate AdditionalFileGetterFunc;
         private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;
@@ -44,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly ReportDiagnosticDelegate0 ReportDiagnosticFunc0;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AdditionalFileAnalysisContextWrapper()
         {
@@ -59,55 +47,55 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             ReportDiagnosticFunc0 = LightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, "ReportDiagnostic", "diagnosticDiagnostic");
         }
 
-        private AdditionalFileAnalysisContextWrapper(object? obj)
+        private AdditionalFileAnalysisContextWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly AdditionalText AdditionalFile
+        public readonly Microsoft.CodeAnalysis.AdditionalText AdditionalFile
         {
             get => AdditionalFileGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly CancellationToken CancellationToken
+        public readonly System.Threading.CancellationToken CancellationToken
         {
             get => CancellationTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly Compilation Compilation
+        public readonly Microsoft.CodeAnalysis.Compilation Compilation
         {
             get => CompilationGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly Nullable<TextSpan> FilterSpan
+        public readonly System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
         {
             get => FilterSpanGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly AnalyzerOptions Options
+        public readonly Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Options
         {
             get => OptionsGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AdditionalFileAnalysisContextWrapper As(object? obj)
+        public static AdditionalFileAnalysisContextWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AdditionalFileAnalysisContextWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void ReportDiagnostic(Diagnostic diagnostic)
+        public readonly void ReportDiagnostic(Microsoft.CodeAnalysis.Diagnostic diagnostic)
             => ReportDiagnosticFunc0(wrappedObject, diagnostic);
     }
 }

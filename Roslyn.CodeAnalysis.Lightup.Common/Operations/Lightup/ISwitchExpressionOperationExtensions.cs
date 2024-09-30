@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation";
 
-        private delegate Boolean IsExhaustiveGetterDelegate(ISwitchExpressionOperation? _obj);
+        private delegate System.Boolean IsExhaustiveGetterDelegate(Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation? _obj);
 
         private static readonly IsExhaustiveGetterDelegate IsExhaustiveGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Boolean IsExhaustive(this ISwitchExpressionOperation _obj)
+        public static System.Boolean IsExhaustive(this Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation _obj)
             => IsExhaustiveGetterFunc(_obj);
     }
 }

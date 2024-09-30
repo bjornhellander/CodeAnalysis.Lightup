@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
@@ -30,8 +14,8 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllProvider";
 
-        private delegate FixAllProvider CreateDelegate0(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync);
-        private delegate FixAllProvider CreateDelegate1(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync, ImmutableArray<FixAllScope> supportedFixAllScopes);
+        private delegate Microsoft.CodeAnalysis.CodeFixes.FixAllProvider CreateDelegate0(System.Func<Microsoft.CodeAnalysis.CodeFixes.FixAllContext, Microsoft.CodeAnalysis.Document, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> fixAllAsync);
+        private delegate Microsoft.CodeAnalysis.CodeFixes.FixAllProvider CreateDelegate1(System.Func<Microsoft.CodeAnalysis.CodeFixes.FixAllContext, Microsoft.CodeAnalysis.Document, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> fixAllAsync, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeFixes.FixAllScope> supportedFixAllScopes);
 
         private static readonly CreateDelegate0 CreateFunc0;
         private static readonly CreateDelegate1 CreateFunc1;
@@ -45,11 +29,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync)
+        public static Microsoft.CodeAnalysis.CodeFixes.FixAllProvider Create(System.Func<Microsoft.CodeAnalysis.CodeFixes.FixAllContext, Microsoft.CodeAnalysis.Document, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> fixAllAsync)
             => CreateFunc0(fixAllAsync);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static FixAllProvider Create(Func<FixAllContext, Document, ImmutableArray<Diagnostic>, Task<Document>> fixAllAsync, ImmutableArray<FixAllScope> supportedFixAllScopes)
+        public static Microsoft.CodeAnalysis.CodeFixes.FixAllProvider Create(System.Func<Microsoft.CodeAnalysis.CodeFixes.FixAllContext, Microsoft.CodeAnalysis.Document, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> fixAllAsync, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeFixes.FixAllScope> supportedFixAllScopes)
             => CreateFunc1(fixAllAsync, supportedFixAllScopes);
     }
 }

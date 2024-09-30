@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,18 +14,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.WithExpressionSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ExpressionSyntax ExpressionGetterDelegate(ExpressionSyntax? _obj);
-        private delegate InitializerExpressionSyntax InitializerGetterDelegate(ExpressionSyntax? _obj);
-        private delegate SyntaxToken WithKeywordGetterDelegate(ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax InitializerGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken WithKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
 
-        private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate WithExpressionSyntaxWrapper AddInitializerExpressionsDelegate1(ExpressionSyntax? _obj, params ExpressionSyntax[] items);
-        private delegate WithExpressionSyntaxWrapper UpdateDelegate2(ExpressionSyntax? _obj, ExpressionSyntax expression, SyntaxToken withKeyword, InitializerExpressionSyntax initializer);
-        private delegate WithExpressionSyntaxWrapper WithExpressionDelegate3(ExpressionSyntax? _obj, ExpressionSyntax expression);
-        private delegate WithExpressionSyntaxWrapper WithInitializerDelegate4(ExpressionSyntax? _obj, InitializerExpressionSyntax initializer);
-        private delegate WithExpressionSyntaxWrapper WithWithKeywordDelegate5(ExpressionSyntax? _obj, SyntaxToken withKeyword);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper AddInitializerExpressionsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, Microsoft.CodeAnalysis.SyntaxToken withKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpressionDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithInitializerDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithWithKeywordDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken withKeyword);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
         private static readonly InitializerGetterDelegate InitializerGetterFunc;
@@ -51,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithInitializerDelegate4 WithInitializerFunc4;
         private static readonly WithWithKeywordDelegate5 WithWithKeywordFunc5;
 
-        private readonly ExpressionSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? wrappedObject;
 
         static WithExpressionSyntaxWrapper()
         {
@@ -69,66 +56,66 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithWithKeywordFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithWithKeywordDelegate5>(WrappedType, "WithWithKeyword", "withKeywordSyntaxToken");
         }
 
-        private WithExpressionSyntaxWrapper(ExpressionSyntax? obj)
+        private WithExpressionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ExpressionSyntax Expression
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly InitializerExpressionSyntax Initializer
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken WithKeyword
+        public readonly Microsoft.CodeAnalysis.SyntaxToken WithKeyword
         {
             get => WithKeywordGetterFunc(wrappedObject);
         }
 
-        public static implicit operator ExpressionSyntax?(WithExpressionSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax?(WithExpressionSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static WithExpressionSyntaxWrapper As(object? obj)
+        public static WithExpressionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<ExpressionSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new WithExpressionSyntaxWrapper(obj2);
         }
 
-        public ExpressionSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly WithExpressionSyntaxWrapper AddInitializerExpressions(params ExpressionSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper AddInitializerExpressions(params Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax[] items)
             => AddInitializerExpressionsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly WithExpressionSyntaxWrapper Update(ExpressionSyntax expression, SyntaxToken withKeyword, InitializerExpressionSyntax initializer)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper Update(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, Microsoft.CodeAnalysis.SyntaxToken withKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
             => UpdateFunc2(wrappedObject, expression, withKeyword, initializer);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly WithExpressionSyntaxWrapper WithExpression(ExpressionSyntax expression)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpression(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
             => WithExpressionFunc3(wrappedObject, expression);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly WithExpressionSyntaxWrapper WithInitializer(InitializerExpressionSyntax initializer)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithInitializer(Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
             => WithInitializerFunc4(wrappedObject, initializer);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly WithExpressionSyntaxWrapper WithWithKeyword(SyntaxToken withKeyword)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithWithKeyword(Microsoft.CodeAnalysis.SyntaxToken withKeyword)
             => WithWithKeywordFunc5(wrappedObject, withKeyword);
     }
 }

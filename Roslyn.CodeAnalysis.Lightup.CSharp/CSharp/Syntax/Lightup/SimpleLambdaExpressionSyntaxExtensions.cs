@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,22 +14,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(SimpleLambdaExpressionSyntax? _obj);
-        private delegate BlockSyntax? BlockGetterDelegate(SimpleLambdaExpressionSyntax? _obj);
-        private delegate ExpressionSyntax? ExpressionBodyGetterDelegate(SimpleLambdaExpressionSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(SimpleLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? BlockGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBodyGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj);
 
-        private delegate SimpleLambdaExpressionSyntax AddAttributeListsDelegate0(SimpleLambdaExpressionSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate SimpleLambdaExpressionSyntax AddBlockAttributeListsDelegate1(SimpleLambdaExpressionSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate SimpleLambdaExpressionSyntax AddBlockStatementsDelegate2(SimpleLambdaExpressionSyntax? _obj, params StatementSyntax[] items);
-        private delegate SimpleLambdaExpressionSyntax AddModifiersDelegate3(SimpleLambdaExpressionSyntax? _obj, params SyntaxToken[] items);
-        private delegate SimpleLambdaExpressionSyntax UpdateDelegate4(SimpleLambdaExpressionSyntax? _obj, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate SimpleLambdaExpressionSyntax UpdateDelegate5(SimpleLambdaExpressionSyntax? _obj, SyntaxToken asyncKeyword, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate SimpleLambdaExpressionSyntax UpdateDelegate6(SimpleLambdaExpressionSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate SimpleLambdaExpressionSyntax WithAttributeListsDelegate7(SimpleLambdaExpressionSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate SimpleLambdaExpressionSyntax WithBlockDelegate8(SimpleLambdaExpressionSyntax? _obj, BlockSyntax? block);
-        private delegate SimpleLambdaExpressionSyntax WithExpressionBodyDelegate9(SimpleLambdaExpressionSyntax? _obj, ExpressionSyntax? expressionBody);
-        private delegate SimpleLambdaExpressionSyntax WithModifiersDelegate10(SimpleLambdaExpressionSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddBlockAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddBlockStatementsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddModifiersDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax UpdateDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax UpdateDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax UpdateDelegate6(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithAttributeListsDelegate7(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithBlockDelegate8(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithExpressionBodyDelegate9(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithModifiersDelegate10(Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly BlockGetterDelegate BlockGetterFunc;
@@ -84,63 +71,63 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this SimpleLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static BlockSyntax? Block(this SimpleLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? Block(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj)
             => BlockGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ExpressionSyntax? ExpressionBody(this SimpleLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj)
             => ExpressionBodyGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this SimpleLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax AddAttributeLists(this SimpleLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax AddBlockAttributeLists(this SimpleLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddBlockAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax AddBlockStatements(this SimpleLambdaExpressionSyntax _obj, params StatementSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddBlockStatements(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
             => AddBlockStatementsFunc2(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax AddModifiers(this SimpleLambdaExpressionSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc3(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc4(_obj, modifiers, parameter, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxToken asyncKeyword, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc5(_obj, asyncKeyword, parameter, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax Update(this SimpleLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterSyntax parameter, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc6(_obj, attributeLists, modifiers, parameter, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax WithAttributeLists(this SimpleLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc7(_obj, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax WithBlock(this SimpleLambdaExpressionSyntax _obj, BlockSyntax? block)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithBlock(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block)
             => WithBlockFunc8(_obj, block);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax WithExpressionBody(this SimpleLambdaExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => WithExpressionBodyFunc9(_obj, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SimpleLambdaExpressionSyntax WithModifiers(this SimpleLambdaExpressionSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc10(_obj, modifiers);
     }
 }

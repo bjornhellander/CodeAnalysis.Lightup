@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,16 +14,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.PrimaryConstructorBaseTypeSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ArgumentListSyntax ArgumentListGetterDelegate(BaseTypeSyntax? _obj);
-        private delegate TypeSyntax TypeGetterDelegate(BaseTypeSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj);
 
-        private delegate void AcceptDelegate0(BaseTypeSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(BaseTypeSyntax? _obj, params ArgumentSyntax[] items);
-        private delegate PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(BaseTypeSyntax? _obj, TypeSyntax type, ArgumentListSyntax argumentList);
-        private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(BaseTypeSyntax? _obj, ArgumentListSyntax argumentList);
-        private delegate PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(BaseTypeSyntax? _obj, TypeSyntax type);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ArgumentListGetterDelegate ArgumentListGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
@@ -47,7 +34,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithArgumentListDelegate3 WithArgumentListFunc3;
         private static readonly WithTypeDelegate4 WithTypeFunc4;
 
-        private readonly BaseTypeSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? wrappedObject;
 
         static PrimaryConstructorBaseTypeSyntaxWrapper()
         {
@@ -63,56 +50,56 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private PrimaryConstructorBaseTypeSyntaxWrapper(BaseTypeSyntax? obj)
+        private PrimaryConstructorBaseTypeSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ArgumentListSyntax ArgumentList
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentList
         {
             get => ArgumentListGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly TypeSyntax Type
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
         }
 
-        public static implicit operator BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static PrimaryConstructorBaseTypeSyntaxWrapper As(object? obj)
+        public static PrimaryConstructorBaseTypeSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<BaseTypeSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 
-        public BaseTypeSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params ArgumentSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items)
             => AddArgumentListArgumentsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly PrimaryConstructorBaseTypeSyntaxWrapper Update(TypeSyntax type, ArgumentListSyntax argumentList)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper Update(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
             => UpdateFunc2(wrappedObject, type, argumentList);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(ArgumentListSyntax argumentList)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
             => WithArgumentListFunc3(wrappedObject, argumentList);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly PrimaryConstructorBaseTypeSyntaxWrapper WithType(TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithType(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => WithTypeFunc4(wrappedObject, type);
     }
 }

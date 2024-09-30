@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken ScopedKeywordGetterDelegate(TypeSyntax? _obj);
-        private delegate TypeSyntax TypeGetterDelegate(TypeSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken ScopedKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
 
-        private delegate void AcceptDelegate0(TypeSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate ScopedTypeSyntaxWrapper UpdateDelegate1(TypeSyntax? _obj, SyntaxToken scopedKeyword, TypeSyntax type);
-        private delegate ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(TypeSyntax? _obj, SyntaxToken scopedKeyword);
-        private delegate ScopedTypeSyntaxWrapper WithTypeDelegate3(TypeSyntax? _obj, TypeSyntax type);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken scopedKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithTypeDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ScopedKeywordGetterDelegate ScopedKeywordGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
@@ -45,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithScopedKeywordDelegate2 WithScopedKeywordFunc2;
         private static readonly WithTypeDelegate3 WithTypeFunc3;
 
-        private readonly TypeSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? wrappedObject;
 
         static ScopedTypeSyntaxWrapper()
         {
@@ -60,52 +47,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate3>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private ScopedTypeSyntaxWrapper(TypeSyntax? obj)
+        private ScopedTypeSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxToken ScopedKeyword
+        public readonly Microsoft.CodeAnalysis.SyntaxToken ScopedKeyword
         {
             get => ScopedKeywordGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly TypeSyntax Type
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
         }
 
-        public static implicit operator TypeSyntax?(ScopedTypeSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax?(ScopedTypeSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ScopedTypeSyntaxWrapper As(object? obj)
+        public static ScopedTypeSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<TypeSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax>(obj, WrappedType);
             return new ScopedTypeSyntaxWrapper(obj2);
         }
 
-        public TypeSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ScopedTypeSyntaxWrapper Update(SyntaxToken scopedKeyword, TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => UpdateFunc1(wrappedObject, scopedKeyword, type);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ScopedTypeSyntaxWrapper WithScopedKeyword(SyntaxToken scopedKeyword)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeyword(Microsoft.CodeAnalysis.SyntaxToken scopedKeyword)
             => WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ScopedTypeSyntaxWrapper WithType(TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithType(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => WithTypeFunc3(wrappedObject, type);
     }
 }

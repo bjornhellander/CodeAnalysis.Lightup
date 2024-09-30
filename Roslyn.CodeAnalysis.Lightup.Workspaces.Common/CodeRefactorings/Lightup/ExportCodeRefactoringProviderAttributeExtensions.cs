@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
@@ -30,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";
 
-        private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeRefactoringProviderAttribute? _obj);
-        private delegate void DocumentExtensionsSetterDelegate(ExportCodeRefactoringProviderAttribute? _obj, String[]? _value);
-        private delegate String[] DocumentKindsGetterDelegate(ExportCodeRefactoringProviderAttribute? _obj);
-        private delegate void DocumentKindsSetterDelegate(ExportCodeRefactoringProviderAttribute? _obj, String[] _value);
+        private delegate System.String[]? DocumentExtensionsGetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj);
+        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj, System.String[]? _value);
+        private delegate System.String[] DocumentKindsGetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj);
+        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj, System.String[] _value);
 
         private static readonly DocumentExtensionsGetterDelegate DocumentExtensionsGetterFunc;
         private static readonly DocumentExtensionsSetterDelegate DocumentExtensionsSetterFunc;
@@ -51,19 +35,19 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static String[]? DocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj)
+        public static System.String[]? DocumentExtensions(this Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static void SetDocumentExtensions(this ExportCodeRefactoringProviderAttribute _obj, String[]? _value)
+        public static void SetDocumentExtensions(this Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj, System.String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static String[] DocumentKinds(this ExportCodeRefactoringProviderAttribute _obj)
+        public static System.String[] DocumentKinds(this Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static void SetDocumentKinds(this ExportCodeRefactoringProviderAttribute _obj, String[] _value)
+        public static void SetDocumentKinds(this Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj, System.String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }
 }

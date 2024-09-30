@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,19 +14,19 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate String? AssemblyPathGetterDelegate(object? _obj);
+        private delegate System.String? AssemblyPathGetterDelegate(System.Object? _obj);
 
-        private delegate Boolean EqualsDelegate0(object? _obj, CompilationOutputInfoWrapper other);
-        private delegate CompilationOutputInfoWrapper WithAssemblyPathDelegate1(object? _obj, String? path);
+        private delegate System.Boolean EqualsDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other);
+        private delegate Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate1(System.Object? _obj, System.String? path);
 
         private static readonly AssemblyPathGetterDelegate AssemblyPathGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly WithAssemblyPathDelegate1 WithAssemblyPathFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static CompilationOutputInfoWrapper()
         {
@@ -54,35 +38,35 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithAssemblyPathFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "pathString");
         }
 
-        private CompilationOutputInfoWrapper(object? obj)
+        private CompilationOutputInfoWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly String? AssemblyPath
+        public readonly System.String? AssemblyPath
         {
             get => AssemblyPathGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static CompilationOutputInfoWrapper As(object? obj)
+        public static CompilationOutputInfoWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new CompilationOutputInfoWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Boolean Equals(CompilationOutputInfoWrapper other)
+        public readonly System.Boolean Equals(Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly CompilationOutputInfoWrapper WithAssemblyPath(String? path)
+        public readonly Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(System.String? path)
             => WithAssemblyPathFunc1(wrappedObject, path);
     }
 }

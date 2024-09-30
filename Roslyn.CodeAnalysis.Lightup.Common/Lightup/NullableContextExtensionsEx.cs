@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullableContextExtensions";
 
-        private delegate Boolean AnnotationsEnabledDelegate0(NullableContextEx context);
-        private delegate Boolean AnnotationsInheritedDelegate1(NullableContextEx context);
-        private delegate Boolean WarningsEnabledDelegate2(NullableContextEx context);
-        private delegate Boolean WarningsInheritedDelegate3(NullableContextEx context);
+        private delegate System.Boolean AnnotationsEnabledDelegate0(Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate System.Boolean AnnotationsInheritedDelegate1(Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate System.Boolean WarningsEnabledDelegate2(Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate System.Boolean WarningsInheritedDelegate3(Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
 
         private static readonly AnnotationsEnabledDelegate0 AnnotationsEnabledFunc0;
         private static readonly AnnotationsInheritedDelegate1 AnnotationsInheritedFunc1;
@@ -47,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean AnnotationsEnabled(this NullableContextEx context)
+        public static System.Boolean AnnotationsEnabled(this Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
             => AnnotationsEnabledFunc0(context);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean AnnotationsInherited(this NullableContextEx context)
+        public static System.Boolean AnnotationsInherited(this Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
             => AnnotationsInheritedFunc1(context);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean WarningsEnabled(this NullableContextEx context)
+        public static System.Boolean WarningsEnabled(this Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
             => WarningsEnabledFunc2(context);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean WarningsInherited(this NullableContextEx context)
+        public static System.Boolean WarningsInherited(this Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
             => WarningsInheritedFunc3(context);
     }
 }

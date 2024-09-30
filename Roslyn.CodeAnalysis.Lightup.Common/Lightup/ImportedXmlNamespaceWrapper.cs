@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedXmlNamespace";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(object? _obj);
-        private delegate String XmlNamespaceGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(System.Object? _obj);
+        private delegate System.String XmlNamespaceGetterDelegate(System.Object? _obj);
 
         private static readonly DeclaringSyntaxReferenceGetterDelegate DeclaringSyntaxReferenceGetterFunc;
         private static readonly XmlNamespaceGetterDelegate XmlNamespaceGetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static ImportedXmlNamespaceWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             XmlNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
         }
 
-        private ImportedXmlNamespaceWrapper(object? obj)
+        private ImportedXmlNamespaceWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxReference? DeclaringSyntaxReference
+        public readonly Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
         {
             get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly String XmlNamespace
+        public readonly System.String XmlNamespace
         {
             get => XmlNamespaceGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ImportedXmlNamespaceWrapper As(object? obj)
+        public static ImportedXmlNamespaceWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new ImportedXmlNamespaceWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

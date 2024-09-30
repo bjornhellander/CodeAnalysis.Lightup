@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
@@ -30,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate Task<CodeAction> GetFixAsyncDelegate0(FixAllProvider? _obj, FixAllContext fixAllContext);
-        private delegate IEnumerable<FixAllScope> GetSupportedFixAllScopesDelegate1(FixAllProvider? _obj);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsyncDelegate0(Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? _obj, Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopesDelegate1(Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? _obj);
 
         private static readonly GetFixAsyncDelegate0 GetFixAsyncFunc0;
         private static readonly GetSupportedFixAllScopesDelegate1 GetSupportedFixAllScopesFunc1;
 
-        private readonly FixAllProvider? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? wrappedObject;
 
         static DocumentBasedFixAllProviderWrapper()
         {
@@ -48,32 +32,32 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             GetSupportedFixAllScopesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
         }
 
-        private DocumentBasedFixAllProviderWrapper(FixAllProvider? obj)
+        private DocumentBasedFixAllProviderWrapper(Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? obj)
         {
             wrappedObject = obj;
         }
 
-        public static implicit operator FixAllProvider?(DocumentBasedFixAllProviderWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CodeFixes.FixAllProvider?(DocumentBasedFixAllProviderWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static DocumentBasedFixAllProviderWrapper As(object? obj)
+        public static DocumentBasedFixAllProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<FixAllProvider>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
             return new DocumentBasedFixAllProviderWrapper(obj2);
         }
 
-        public FixAllProvider? Unwrap()
+        public Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly Task<CodeAction> GetFixAsync(FixAllContext fixAllContext)
+        public readonly System.Threading.Tasks.Task<Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly IEnumerable<FixAllScope> GetSupportedFixAllScopes()
+        public readonly System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }
 }

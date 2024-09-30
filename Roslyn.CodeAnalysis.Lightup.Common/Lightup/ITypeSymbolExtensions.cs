@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,16 +14,16 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeSymbol";
 
-        private delegate Boolean IsNativeIntegerTypeGetterDelegate(ITypeSymbol? _obj);
-        private delegate Boolean IsReadOnlyGetterDelegate(ITypeSymbol? _obj);
-        private delegate Boolean IsRecordGetterDelegate(ITypeSymbol? _obj);
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(ITypeSymbol? _obj);
+        private delegate System.Boolean IsNativeIntegerTypeGetterDelegate(Microsoft.CodeAnalysis.ITypeSymbol? _obj);
+        private delegate System.Boolean IsReadOnlyGetterDelegate(Microsoft.CodeAnalysis.ITypeSymbol? _obj);
+        private delegate System.Boolean IsRecordGetterDelegate(Microsoft.CodeAnalysis.ITypeSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.ITypeSymbol? _obj);
 
-        private delegate ImmutableArray<SymbolDisplayPart> ToDisplayPartsDelegate0(ITypeSymbol? _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format);
-        private delegate String ToDisplayStringDelegate1(ITypeSymbol? _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format);
-        private delegate ImmutableArray<SymbolDisplayPart> ToMinimalDisplayPartsDelegate2(ITypeSymbol? _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format);
-        private delegate String ToMinimalDisplayStringDelegate3(ITypeSymbol? _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format);
-        private delegate ITypeSymbol WithNullableAnnotationDelegate4(ITypeSymbol? _obj, NullableAnnotationEx nullableAnnotation);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate0(Microsoft.CodeAnalysis.ITypeSymbol? _obj, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToDisplayStringDelegate1(Microsoft.CodeAnalysis.ITypeSymbol? _obj, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayPartsDelegate2(Microsoft.CodeAnalysis.ITypeSymbol? _obj, Microsoft.CodeAnalysis.SemanticModel semanticModel, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate System.String ToMinimalDisplayStringDelegate3(Microsoft.CodeAnalysis.ITypeSymbol? _obj, Microsoft.CodeAnalysis.SemanticModel semanticModel, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotationDelegate4(Microsoft.CodeAnalysis.ITypeSymbol? _obj, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation);
 
         private static readonly IsNativeIntegerTypeGetterDelegate IsNativeIntegerTypeGetterFunc;
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;
@@ -65,39 +53,39 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsNativeIntegerType(this ITypeSymbol _obj)
+        public static System.Boolean IsNativeIntegerType(this Microsoft.CodeAnalysis.ITypeSymbol _obj)
             => IsNativeIntegerTypeGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsReadOnly(this ITypeSymbol _obj)
+        public static System.Boolean IsReadOnly(this Microsoft.CodeAnalysis.ITypeSymbol _obj)
             => IsReadOnlyGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Boolean IsRecord(this ITypeSymbol _obj)
+        public static System.Boolean IsRecord(this Microsoft.CodeAnalysis.ITypeSymbol _obj)
             => IsRecordGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this ITypeSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.ITypeSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToDisplayParts(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(this Microsoft.CodeAnalysis.ITypeSymbol _obj, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayPartsFunc0(_obj, topLevelNullability, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToDisplayString(this ITypeSymbol _obj, NullableFlowStateEx topLevelNullability, SymbolDisplayFormat? format)
+        public static System.String ToDisplayString(this Microsoft.CodeAnalysis.ITypeSymbol _obj, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToDisplayStringFunc1(_obj, topLevelNullability, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ImmutableArray<SymbolDisplayPart> ToMinimalDisplayParts(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(this Microsoft.CodeAnalysis.ITypeSymbol _obj, Microsoft.CodeAnalysis.SemanticModel semanticModel, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayPartsFunc2(_obj, semanticModel, topLevelNullability, position, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String ToMinimalDisplayString(this ITypeSymbol _obj, SemanticModel semanticModel, NullableFlowStateEx topLevelNullability, Int32 position, SymbolDisplayFormat? format)
+        public static System.String ToMinimalDisplayString(this Microsoft.CodeAnalysis.ITypeSymbol _obj, Microsoft.CodeAnalysis.SemanticModel semanticModel, Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, System.Int32 position, Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
             => ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ITypeSymbol WithNullableAnnotation(this ITypeSymbol _obj, NullableAnnotationEx nullableAnnotation)
+        public static Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotation(this Microsoft.CodeAnalysis.ITypeSymbol _obj, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation)
             => WithNullableAnnotationFunc4(_obj, nullableAnnotation);
     }
 }

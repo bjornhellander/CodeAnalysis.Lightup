@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax";
 
-        private delegate ParameterListSyntax? ParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
 
-        private delegate TypeDeclarationSyntax AddParameterListParametersDelegate0(TypeDeclarationSyntax? _obj, params ParameterSyntax[] items);
-        private delegate TypeDeclarationSyntax WithParameterListDelegate1(TypeDeclarationSyntax? _obj, ParameterListSyntax? parameterList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParametersDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterListDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
 
         private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static ParameterListSyntax? ParameterList(this TypeDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj)
             => ParameterListGetterFunc(_obj);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static TypeDeclarationSyntax AddParameterListParameters(this TypeDeclarationSyntax _obj, params ParameterSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParameters(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
             => AddParameterListParametersFunc0(_obj, items);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static TypeDeclarationSyntax WithParameterList(this TypeDeclarationSyntax _obj, ParameterListSyntax? parameterList)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterList(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
             => WithParameterListFunc1(_obj, parameterList);
     }
 }

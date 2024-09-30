@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,20 +14,20 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownMemberNames";
 
-        private delegate String CountPropertyNameGetterDelegate();
-        private delegate String LengthPropertyNameGetterDelegate();
-        private delegate String SliceMethodNameGetterDelegate();
-        private delegate String TopLevelStatementsEntryPointMethodNameGetterDelegate();
-        private delegate String TopLevelStatementsEntryPointTypeNameGetterDelegate();
-        private delegate String PrintMembersMethodNameGetterDelegate();
-        private delegate String CheckedAdditionOperatorNameGetterDelegate();
-        private delegate String CheckedDecrementOperatorNameGetterDelegate();
-        private delegate String CheckedDivisionOperatorNameGetterDelegate();
-        private delegate String CheckedExplicitConversionNameGetterDelegate();
-        private delegate String CheckedIncrementOperatorNameGetterDelegate();
-        private delegate String CheckedMultiplyOperatorNameGetterDelegate();
-        private delegate String CheckedSubtractionOperatorNameGetterDelegate();
-        private delegate String CheckedUnaryNegationOperatorNameGetterDelegate();
+        private delegate System.String CountPropertyNameGetterDelegate();
+        private delegate System.String LengthPropertyNameGetterDelegate();
+        private delegate System.String SliceMethodNameGetterDelegate();
+        private delegate System.String TopLevelStatementsEntryPointMethodNameGetterDelegate();
+        private delegate System.String TopLevelStatementsEntryPointTypeNameGetterDelegate();
+        private delegate System.String PrintMembersMethodNameGetterDelegate();
+        private delegate System.String CheckedAdditionOperatorNameGetterDelegate();
+        private delegate System.String CheckedDecrementOperatorNameGetterDelegate();
+        private delegate System.String CheckedDivisionOperatorNameGetterDelegate();
+        private delegate System.String CheckedExplicitConversionNameGetterDelegate();
+        private delegate System.String CheckedIncrementOperatorNameGetterDelegate();
+        private delegate System.String CheckedMultiplyOperatorNameGetterDelegate();
+        private delegate System.String CheckedSubtractionOperatorNameGetterDelegate();
+        private delegate System.String CheckedUnaryNegationOperatorNameGetterDelegate();
 
         private static readonly CountPropertyNameGetterDelegate CountPropertyNameGetterFunc;
         private static readonly LengthPropertyNameGetterDelegate LengthPropertyNameGetterFunc;
@@ -77,85 +65,85 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String CountPropertyName
+        public static System.String CountPropertyName
         {
             get => CountPropertyNameGetterFunc();
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String LengthPropertyName
+        public static System.String LengthPropertyName
         {
             get => LengthPropertyNameGetterFunc();
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String SliceMethodName
+        public static System.String SliceMethodName
         {
             get => SliceMethodNameGetterFunc();
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String TopLevelStatementsEntryPointMethodName
+        public static System.String TopLevelStatementsEntryPointMethodName
         {
             get => TopLevelStatementsEntryPointMethodNameGetterFunc();
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
-        public static String TopLevelStatementsEntryPointTypeName
+        public static System.String TopLevelStatementsEntryPointTypeName
         {
             get => TopLevelStatementsEntryPointTypeNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
-        public static String PrintMembersMethodName
+        public static System.String PrintMembersMethodName
         {
             get => PrintMembersMethodNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedAdditionOperatorName
+        public static System.String CheckedAdditionOperatorName
         {
             get => CheckedAdditionOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedDecrementOperatorName
+        public static System.String CheckedDecrementOperatorName
         {
             get => CheckedDecrementOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedDivisionOperatorName
+        public static System.String CheckedDivisionOperatorName
         {
             get => CheckedDivisionOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedExplicitConversionName
+        public static System.String CheckedExplicitConversionName
         {
             get => CheckedExplicitConversionNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedIncrementOperatorName
+        public static System.String CheckedIncrementOperatorName
         {
             get => CheckedIncrementOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedMultiplyOperatorName
+        public static System.String CheckedMultiplyOperatorName
         {
             get => CheckedMultiplyOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedSubtractionOperatorName
+        public static System.String CheckedSubtractionOperatorName
         {
             get => CheckedSubtractionOperatorNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String CheckedUnaryNegationOperatorName
+        public static System.String CheckedUnaryNegationOperatorName
         {
             get => CheckedUnaryNegationOperatorNameGetterFunc();
         }

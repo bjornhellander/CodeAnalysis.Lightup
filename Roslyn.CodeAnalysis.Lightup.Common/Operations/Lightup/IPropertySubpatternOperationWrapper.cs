@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPropertySubpatternOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IOperation MemberGetterDelegate(IOperation? _obj);
-        private delegate IPatternOperation PatternGetterDelegate(IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation MemberGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.Operations.IPatternOperation PatternGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly MemberGetterDelegate MemberGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IPropertySubpatternOperationWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
         }
 
-        private IPropertySubpatternOperationWrapper(IOperation? obj)
+        private IPropertySubpatternOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IOperation Member
+        public readonly Microsoft.CodeAnalysis.IOperation Member
         {
             get => MemberGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IPatternOperation Pattern
+        public readonly Microsoft.CodeAnalysis.Operations.IPatternOperation Pattern
         {
             get => PatternGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IPropertySubpatternOperationWrapper As(object? obj)
+        public static IPropertySubpatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IPropertySubpatternOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

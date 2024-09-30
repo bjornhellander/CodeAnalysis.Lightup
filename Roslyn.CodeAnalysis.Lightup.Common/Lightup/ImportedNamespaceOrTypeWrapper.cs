@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(object? _obj);
-        private delegate INamespaceOrTypeSymbol NamespaceOrTypeGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrTypeGetterDelegate(System.Object? _obj);
 
         private static readonly DeclaringSyntaxReferenceGetterDelegate DeclaringSyntaxReferenceGetterFunc;
         private static readonly NamespaceOrTypeGetterDelegate NamespaceOrTypeGetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static ImportedNamespaceOrTypeWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(WrappedType, nameof(NamespaceOrType));
         }
 
-        private ImportedNamespaceOrTypeWrapper(object? obj)
+        private ImportedNamespaceOrTypeWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxReference? DeclaringSyntaxReference
+        public readonly Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
         {
             get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly INamespaceOrTypeSymbol NamespaceOrType
+        public readonly Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrType
         {
             get => NamespaceOrTypeGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ImportedNamespaceOrTypeWrapper As(object? obj)
+        public static ImportedNamespaceOrTypeWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new ImportedNamespaceOrTypeWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,11 +14,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownGeneratorInputs";
 
-        private delegate String AdditionalTextsGetterDelegate();
-        private delegate String AnalyzerConfigOptionsGetterDelegate();
-        private delegate String CompilationGetterDelegate();
-        private delegate String MetadataReferencesGetterDelegate();
-        private delegate String ParseOptionsGetterDelegate();
+        private delegate System.String AdditionalTextsGetterDelegate();
+        private delegate System.String AnalyzerConfigOptionsGetterDelegate();
+        private delegate System.String CompilationGetterDelegate();
+        private delegate System.String MetadataReferencesGetterDelegate();
+        private delegate System.String ParseOptionsGetterDelegate();
 
         private static readonly AdditionalTextsGetterDelegate AdditionalTextsGetterFunc;
         private static readonly AnalyzerConfigOptionsGetterDelegate AnalyzerConfigOptionsGetterFunc;
@@ -50,31 +38,31 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String AdditionalTexts
+        public static System.String AdditionalTexts
         {
             get => AdditionalTextsGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String AnalyzerConfigOptions
+        public static System.String AnalyzerConfigOptions
         {
             get => AnalyzerConfigOptionsGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String Compilation
+        public static System.String Compilation
         {
             get => CompilationGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String MetadataReferences
+        public static System.String MetadataReferences
         {
             get => MetadataReferencesGetterFunc();
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
-        public static String ParseOptions
+        public static System.String ParseOptions
         {
             get => ParseOptionsGetterFunc();
         }

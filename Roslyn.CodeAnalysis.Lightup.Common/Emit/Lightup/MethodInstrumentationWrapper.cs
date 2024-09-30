@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.MethodInstrumentation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ImmutableArray<InstrumentationKind> KindsGetterDelegate(object? _obj);
-        private delegate void KindsSetterDelegate(object? _obj, ImmutableArray<InstrumentationKind> _value);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Emit.InstrumentationKind> KindsGetterDelegate(System.Object? _obj);
+        private delegate void KindsSetterDelegate(System.Object? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Emit.InstrumentationKind> _value);
 
         private static readonly KindsGetterDelegate KindsGetterFunc;
         private static readonly KindsSetterDelegate KindsSetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static MethodInstrumentationWrapper()
         {
@@ -44,28 +32,28 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             KindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
         }
 
-        private MethodInstrumentationWrapper(object? obj)
+        private MethodInstrumentationWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly ImmutableArray<InstrumentationKind> Kinds
+        public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Emit.InstrumentationKind> Kinds
         {
             get => KindsGetterFunc(wrappedObject);
             set => KindsSetterFunc(wrappedObject, value);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static MethodInstrumentationWrapper As(object? obj)
+        public static MethodInstrumentationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new MethodInstrumentationWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

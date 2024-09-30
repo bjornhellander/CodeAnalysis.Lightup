@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,19 +14,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate TypeSyntax TypeGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
-        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerParameterSyntaxWrapper AddAttributeListsDelegate1(CSharpSyntaxNode? _obj, params AttributeListSyntax[] items);
-        private delegate FunctionPointerParameterSyntaxWrapper AddModifiersDelegate2(CSharpSyntaxNode? _obj, params SyntaxToken[] items);
-        private delegate FunctionPointerParameterSyntaxWrapper UpdateDelegate3(CSharpSyntaxNode? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type);
-        private delegate FunctionPointerParameterSyntaxWrapper WithAttributeListsDelegate4(CSharpSyntaxNode? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate FunctionPointerParameterSyntaxWrapper WithModifiersDelegate5(CSharpSyntaxNode? _obj, SyntaxTokenList modifiers);
-        private delegate FunctionPointerParameterSyntaxWrapper WithTypeDelegate6(CSharpSyntaxNode? _obj, TypeSyntax type);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper AddAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper AddModifiersDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper UpdateDelegate3(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithAttributeListsDelegate4(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithModifiersDelegate5(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithTypeDelegate6(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
@@ -53,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithModifiersDelegate5 WithModifiersFunc5;
         private static readonly WithTypeDelegate6 WithTypeFunc6;
 
-        private readonly CSharpSyntaxNode? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? wrappedObject;
 
         static FunctionPointerParameterSyntaxWrapper()
         {
@@ -72,70 +59,70 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate6>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private FunctionPointerParameterSyntaxWrapper(CSharpSyntaxNode? obj)
+        private FunctionPointerParameterSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxList<AttributeListSyntax> AttributeLists
+        public readonly Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxTokenList Modifiers
+        public readonly Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly TypeSyntax Type
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
             get => TypeGetterFunc(wrappedObject);
         }
 
-        public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerParameterSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static FunctionPointerParameterSyntaxWrapper As(object? obj)
+        public static FunctionPointerParameterSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerParameterSyntaxWrapper(obj2);
         }
 
-        public CSharpSyntaxNode? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper AddAttributeLists(params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper AddModifiers(params SyntaxToken[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper AddModifiers(params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc2(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => UpdateFunc3(wrappedObject, attributeLists, modifiers, type);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithAttributeLists(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc4(wrappedObject, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithModifiers(Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc5(wrappedObject, modifiers);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterSyntaxWrapper WithType(TypeSyntax type)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper WithType(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
             => WithTypeFunc6(wrappedObject, type);
     }
 }

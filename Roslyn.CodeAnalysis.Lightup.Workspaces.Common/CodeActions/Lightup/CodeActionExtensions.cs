@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
@@ -30,12 +14,12 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeActions.CodeAction";
 
-        private delegate CodeActionPriorityEx PriorityGetterDelegate(CodeAction? _obj);
+        private delegate Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx PriorityGetterDelegate(Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj);
 
-        private delegate CodeAction CreateDelegate0(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable);
-        private delegate CodeAction CreateDelegate1(String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority);
-        private delegate CodeAction CreateDelegate2(String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority);
-        private delegate CodeAction CreateDelegate3(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority);
+        private delegate Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate0(System.String title, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, System.Boolean isInlinable);
+        private delegate Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate1(System.String title, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> createChangedDocument, System.String? equivalenceKey, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate2(System.String title, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution>> createChangedSolution, System.String? equivalenceKey, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate3(System.String title, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, System.Boolean isInlinable, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
 
         private static readonly PriorityGetterDelegate PriorityGetterFunc;
 
@@ -57,23 +41,23 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static CodeActionPriorityEx Priority(this CodeAction _obj)
+        public static Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx Priority(this Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
             => PriorityGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable)
+        public static Microsoft.CodeAnalysis.CodeActions.CodeAction Create(System.String title, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, System.Boolean isInlinable)
             => CreateFunc0(title, nestedActions, isInlinable);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static CodeAction Create(String title, Func<CancellationToken, Task<Document>> createChangedDocument, String? equivalenceKey, CodeActionPriorityEx priority)
+        public static Microsoft.CodeAnalysis.CodeActions.CodeAction Create(System.String title, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Document>> createChangedDocument, System.String? equivalenceKey, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
             => CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static CodeAction Create(String title, Func<CancellationToken, Task<Solution>> createChangedSolution, String? equivalenceKey, CodeActionPriorityEx priority)
+        public static Microsoft.CodeAnalysis.CodeActions.CodeAction Create(System.String title, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution>> createChangedSolution, System.String? equivalenceKey, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
             => CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static CodeAction Create(String title, ImmutableArray<CodeAction> nestedActions, Boolean isInlinable, CodeActionPriorityEx priority)
+        public static Microsoft.CodeAnalysis.CodeActions.CodeAction Create(System.String title, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, System.Boolean isInlinable, Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
             => CreateFunc3(title, nestedActions, isInlinable, priority);
     }
 }

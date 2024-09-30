@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,33 +14,33 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdditionalDocument";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private readonly TextDocument? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.TextDocument? wrappedObject;
 
         static AdditionalDocumentWrapper()
         {
             WrappedType = LightupHelper.FindType(WrappedTypeName);
         }
 
-        private AdditionalDocumentWrapper(TextDocument? obj)
+        private AdditionalDocumentWrapper(Microsoft.CodeAnalysis.TextDocument? obj)
         {
             wrappedObject = obj;
         }
 
-        public static implicit operator TextDocument?(AdditionalDocumentWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.TextDocument?(AdditionalDocumentWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AdditionalDocumentWrapper As(object? obj)
+        public static AdditionalDocumentWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<TextDocument>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
             return new AdditionalDocumentWrapper(obj2);
         }
 
-        public TextDocument? Unwrap()
+        public Microsoft.CodeAnalysis.TextDocument? Unwrap()
             => wrappedObject;
     }
 }

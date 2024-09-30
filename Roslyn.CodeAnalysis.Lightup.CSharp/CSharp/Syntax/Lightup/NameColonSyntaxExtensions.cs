@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax";
 
-        private delegate ExpressionSyntax ExpressionGetterDelegate(NameColonSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? _obj);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static ExpressionSyntax Expression(this NameColonSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression(this Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax _obj)
             => ExpressionGetterFunc(_obj);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
@@ -30,21 +14,21 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(Boolean RenameOverloads, Boolean RenameInStrings, Boolean RenameInComments, Boolean RenameFile);
+        private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(System.Boolean RenameOverloads, System.Boolean RenameInStrings, System.Boolean RenameInComments, System.Boolean RenameFile);
 
-        private delegate Boolean RenameFileGetterDelegate(object? _obj);
-        private delegate void RenameFileSetterDelegate(object? _obj, Boolean _value);
-        private delegate Boolean RenameInCommentsGetterDelegate(object? _obj);
-        private delegate void RenameInCommentsSetterDelegate(object? _obj, Boolean _value);
-        private delegate Boolean RenameInStringsGetterDelegate(object? _obj);
-        private delegate void RenameInStringsSetterDelegate(object? _obj, Boolean _value);
-        private delegate Boolean RenameOverloadsGetterDelegate(object? _obj);
-        private delegate void RenameOverloadsSetterDelegate(object? _obj, Boolean _value);
+        private delegate System.Boolean RenameFileGetterDelegate(System.Object? _obj);
+        private delegate void RenameFileSetterDelegate(System.Object? _obj, System.Boolean _value);
+        private delegate System.Boolean RenameInCommentsGetterDelegate(System.Object? _obj);
+        private delegate void RenameInCommentsSetterDelegate(System.Object? _obj, System.Boolean _value);
+        private delegate System.Boolean RenameInStringsGetterDelegate(System.Object? _obj);
+        private delegate void RenameInStringsSetterDelegate(System.Object? _obj, System.Boolean _value);
+        private delegate System.Boolean RenameOverloadsGetterDelegate(System.Object? _obj);
+        private delegate void RenameOverloadsSetterDelegate(System.Object? _obj, System.Boolean _value);
 
-        private delegate void DeconstructDelegate0(object? _obj, out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile);
-        private delegate Boolean EqualsDelegate1(object? _obj, SymbolRenameOptionsWrapper other);
+        private delegate void DeconstructDelegate0(System.Object? _obj, out System.Boolean RenameOverloads, out System.Boolean RenameInStrings, out System.Boolean RenameInComments, out System.Boolean RenameFile);
+        private delegate System.Boolean EqualsDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -60,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private static readonly DeconstructDelegate0 DeconstructFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static SymbolRenameOptionsWrapper()
         {
@@ -81,61 +65,61 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
         }
 
-        private SymbolRenameOptionsWrapper(object? obj)
+        private SymbolRenameOptionsWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
-        public static SymbolRenameOptionsWrapper Create(Boolean RenameOverloads, Boolean RenameInStrings, Boolean RenameInComments, Boolean RenameFile)
+        public static SymbolRenameOptionsWrapper Create(System.Boolean RenameOverloads, System.Boolean RenameInStrings, System.Boolean RenameInComments, System.Boolean RenameFile)
             => ConstructorFunc0(RenameOverloads, RenameInStrings, RenameInComments, RenameFile);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly Boolean RenameFile
+        public readonly System.Boolean RenameFile
         {
             get => RenameFileGetterFunc(wrappedObject);
             set => RenameFileSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly Boolean RenameInComments
+        public readonly System.Boolean RenameInComments
         {
             get => RenameInCommentsGetterFunc(wrappedObject);
             set => RenameInCommentsSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly Boolean RenameInStrings
+        public readonly System.Boolean RenameInStrings
         {
             get => RenameInStringsGetterFunc(wrappedObject);
             set => RenameInStringsSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly Boolean RenameOverloads
+        public readonly System.Boolean RenameOverloads
         {
             get => RenameOverloadsGetterFunc(wrappedObject);
             set => RenameOverloadsSetterFunc(wrappedObject, value);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SymbolRenameOptionsWrapper As(object? obj)
+        public static SymbolRenameOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new SymbolRenameOptionsWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Deconstruct(out Boolean RenameOverloads, out Boolean RenameInStrings, out Boolean RenameInComments, out Boolean RenameFile)
+        public readonly void Deconstruct(out System.Boolean RenameOverloads, out System.Boolean RenameInStrings, out System.Boolean RenameInComments, out System.Boolean RenameFile)
             => DeconstructFunc0(wrappedObject, out RenameOverloads, out RenameInStrings, out RenameInComments, out RenameFile);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Boolean Equals(SymbolRenameOptionsWrapper other)
+        public readonly System.Boolean Equals(Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }
 }

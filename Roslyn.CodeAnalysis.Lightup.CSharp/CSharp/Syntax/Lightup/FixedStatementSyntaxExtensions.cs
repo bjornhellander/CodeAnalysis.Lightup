@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,11 +14,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(FixedStatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax? _obj);
 
-        private delegate FixedStatementSyntax AddAttributeListsDelegate0(FixedStatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate FixedStatementSyntax UpdateDelegate1(FixedStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken fixedKeyword, SyntaxToken openParenToken, VariableDeclarationSyntax declaration, SyntaxToken closeParenToken, StatementSyntax statement);
-        private delegate FixedStatementSyntax WithAttributeListsDelegate2(FixedStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken fixedKeyword, Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, Microsoft.CodeAnalysis.SyntaxToken closeParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax WithAttributeListsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
@@ -51,19 +38,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this FixedStatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static FixedStatementSyntax AddAttributeLists(this FixedStatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static FixedStatementSyntax Update(this FixedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken fixedKeyword, SyntaxToken openParenToken, VariableDeclarationSyntax declaration, SyntaxToken closeParenToken, StatementSyntax statement)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken fixedKeyword, Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, Microsoft.CodeAnalysis.SyntaxToken closeParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
             => UpdateFunc1(_obj, attributeLists, fixedKeyword, openParenToken, declaration, closeParenToken, statement);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static FixedStatementSyntax WithAttributeLists(this FixedStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

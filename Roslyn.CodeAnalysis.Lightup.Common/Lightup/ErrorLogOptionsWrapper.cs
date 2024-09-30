@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,19 +14,19 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ErrorLogOptionsWrapper ConstructorDelegate0(String path, SarifVersionEx sarifVersion);
+        private delegate ErrorLogOptionsWrapper ConstructorDelegate0(System.String path, Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion);
 
-        private delegate String PathGetterDelegate(object? _obj);
-        private delegate SarifVersionEx SarifVersionGetterDelegate(object? _obj);
+        private delegate System.String PathGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersionGetterDelegate(System.Object? _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly PathGetterDelegate PathGetterFunc;
         private static readonly SarifVersionGetterDelegate SarifVersionGetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static ErrorLogOptionsWrapper()
         {
@@ -50,37 +38,37 @@ namespace Microsoft.CodeAnalysis.Lightup
             SarifVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<SarifVersionGetterDelegate>(WrappedType, nameof(SarifVersion));
         }
 
-        private ErrorLogOptionsWrapper(object? obj)
+        private ErrorLogOptionsWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>
-        public static ErrorLogOptionsWrapper Create(String path, SarifVersionEx sarifVersion)
+        public static ErrorLogOptionsWrapper Create(System.String path, Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion)
             => ConstructorFunc0(path, sarifVersion);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly String Path
+        public readonly System.String Path
         {
             get => PathGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SarifVersionEx SarifVersion
+        public readonly Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
         {
             get => SarifVersionGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ErrorLogOptionsWrapper As(object? obj)
+        public static ErrorLogOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new ErrorLogOptionsWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

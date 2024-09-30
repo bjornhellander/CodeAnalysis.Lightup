@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,25 +14,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationVisitor";
 
-        private delegate void VisitAttributeDelegate0(OperationVisitor? _obj, IAttributeOperationWrapper operation);
-        private delegate void VisitBinaryPatternDelegate1(OperationVisitor? _obj, IBinaryPatternOperationWrapper operation);
-        private delegate void VisitFunctionPointerInvocationDelegate2(OperationVisitor? _obj, IFunctionPointerInvocationOperationWrapper operation);
-        private delegate void VisitImplicitIndexerReferenceDelegate3(OperationVisitor? _obj, IImplicitIndexerReferenceOperationWrapper operation);
-        private delegate void VisitInlineArrayAccessDelegate4(OperationVisitor? _obj, IInlineArrayAccessOperationWrapper operation);
-        private delegate void VisitInterpolatedStringAdditionDelegate5(OperationVisitor? _obj, IInterpolatedStringAdditionOperationWrapper operation);
-        private delegate void VisitInterpolatedStringAppendDelegate6(OperationVisitor? _obj, IInterpolatedStringAppendOperationWrapper operation);
-        private delegate void VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7(OperationVisitor? _obj, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation);
-        private delegate void VisitInterpolatedStringHandlerCreationDelegate8(OperationVisitor? _obj, IInterpolatedStringHandlerCreationOperationWrapper operation);
-        private delegate void VisitListPatternDelegate9(OperationVisitor? _obj, IListPatternOperationWrapper operation);
-        private delegate void VisitNegatedPatternDelegate10(OperationVisitor? _obj, INegatedPatternOperationWrapper operation);
-        private delegate void VisitPropertySubpatternDelegate11(OperationVisitor? _obj, IPropertySubpatternOperationWrapper operation);
-        private delegate void VisitRecursivePatternDelegate12(OperationVisitor? _obj, IRecursivePatternOperationWrapper operation);
-        private delegate void VisitRelationalPatternDelegate13(OperationVisitor? _obj, IRelationalPatternOperationWrapper operation);
-        private delegate void VisitSlicePatternDelegate14(OperationVisitor? _obj, ISlicePatternOperationWrapper operation);
-        private delegate void VisitTypePatternDelegate15(OperationVisitor? _obj, ITypePatternOperationWrapper operation);
-        private delegate void VisitUsingDeclarationDelegate16(OperationVisitor? _obj, IUsingDeclarationOperationWrapper operation);
-        private delegate void VisitUtf8StringDelegate17(OperationVisitor? _obj, IUtf8StringOperationWrapper operation);
-        private delegate void VisitWithDelegate18(OperationVisitor? _obj, IWithOperationWrapper operation);
+        private delegate void VisitAttributeDelegate0(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper operation);
+        private delegate void VisitBinaryPatternDelegate1(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IBinaryPatternOperationWrapper operation);
+        private delegate void VisitFunctionPointerInvocationDelegate2(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper operation);
+        private delegate void VisitImplicitIndexerReferenceDelegate3(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IImplicitIndexerReferenceOperationWrapper operation);
+        private delegate void VisitInlineArrayAccessDelegate4(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInlineArrayAccessOperationWrapper operation);
+        private delegate void VisitInterpolatedStringAdditionDelegate5(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAdditionOperationWrapper operation);
+        private delegate void VisitInterpolatedStringAppendDelegate6(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAppendOperationWrapper operation);
+        private delegate void VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation);
+        private delegate void VisitInterpolatedStringHandlerCreationDelegate8(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerCreationOperationWrapper operation);
+        private delegate void VisitListPatternDelegate9(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IListPatternOperationWrapper operation);
+        private delegate void VisitNegatedPatternDelegate10(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.INegatedPatternOperationWrapper operation);
+        private delegate void VisitPropertySubpatternDelegate11(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper operation);
+        private delegate void VisitRecursivePatternDelegate12(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOperationWrapper operation);
+        private delegate void VisitRelationalPatternDelegate13(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IRelationalPatternOperationWrapper operation);
+        private delegate void VisitSlicePatternDelegate14(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.ISlicePatternOperationWrapper operation);
+        private delegate void VisitTypePatternDelegate15(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.ITypePatternOperationWrapper operation);
+        private delegate void VisitUsingDeclarationDelegate16(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IUsingDeclarationOperationWrapper operation);
+        private delegate void VisitUtf8StringDelegate17(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IUtf8StringOperationWrapper operation);
+        private delegate void VisitWithDelegate18(Microsoft.CodeAnalysis.Operations.OperationVisitor? _obj, Microsoft.CodeAnalysis.Operations.Lightup.IWithOperationWrapper operation);
 
         private static readonly VisitAttributeDelegate0 VisitAttributeFunc0;
         private static readonly VisitBinaryPatternDelegate1 VisitBinaryPatternFunc1;
@@ -92,79 +80,79 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static void VisitAttribute(this OperationVisitor _obj, IAttributeOperationWrapper operation)
+        public static void VisitAttribute(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper operation)
             => VisitAttributeFunc0(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitBinaryPattern(this OperationVisitor _obj, IBinaryPatternOperationWrapper operation)
+        public static void VisitBinaryPattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IBinaryPatternOperationWrapper operation)
             => VisitBinaryPatternFunc1(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitFunctionPointerInvocation(this OperationVisitor _obj, IFunctionPointerInvocationOperationWrapper operation)
+        public static void VisitFunctionPointerInvocation(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper operation)
             => VisitFunctionPointerInvocationFunc2(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitImplicitIndexerReference(this OperationVisitor _obj, IImplicitIndexerReferenceOperationWrapper operation)
+        public static void VisitImplicitIndexerReference(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IImplicitIndexerReferenceOperationWrapper operation)
             => VisitImplicitIndexerReferenceFunc3(_obj, operation);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static void VisitInlineArrayAccess(this OperationVisitor _obj, IInlineArrayAccessOperationWrapper operation)
+        public static void VisitInlineArrayAccess(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInlineArrayAccessOperationWrapper operation)
             => VisitInlineArrayAccessFunc4(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitInterpolatedStringAddition(this OperationVisitor _obj, IInterpolatedStringAdditionOperationWrapper operation)
+        public static void VisitInterpolatedStringAddition(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAdditionOperationWrapper operation)
             => VisitInterpolatedStringAdditionFunc5(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitInterpolatedStringAppend(this OperationVisitor _obj, IInterpolatedStringAppendOperationWrapper operation)
+        public static void VisitInterpolatedStringAppend(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAppendOperationWrapper operation)
             => VisitInterpolatedStringAppendFunc6(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this OperationVisitor _obj, IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
+        public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
             => VisitInterpolatedStringHandlerArgumentPlaceholderFunc7(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitInterpolatedStringHandlerCreation(this OperationVisitor _obj, IInterpolatedStringHandlerCreationOperationWrapper operation)
+        public static void VisitInterpolatedStringHandlerCreation(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerCreationOperationWrapper operation)
             => VisitInterpolatedStringHandlerCreationFunc8(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitListPattern(this OperationVisitor _obj, IListPatternOperationWrapper operation)
+        public static void VisitListPattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IListPatternOperationWrapper operation)
             => VisitListPatternFunc9(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitNegatedPattern(this OperationVisitor _obj, INegatedPatternOperationWrapper operation)
+        public static void VisitNegatedPattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.INegatedPatternOperationWrapper operation)
             => VisitNegatedPatternFunc10(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitPropertySubpattern(this OperationVisitor _obj, IPropertySubpatternOperationWrapper operation)
+        public static void VisitPropertySubpattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper operation)
             => VisitPropertySubpatternFunc11(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitRecursivePattern(this OperationVisitor _obj, IRecursivePatternOperationWrapper operation)
+        public static void VisitRecursivePattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOperationWrapper operation)
             => VisitRecursivePatternFunc12(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitRelationalPattern(this OperationVisitor _obj, IRelationalPatternOperationWrapper operation)
+        public static void VisitRelationalPattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IRelationalPatternOperationWrapper operation)
             => VisitRelationalPatternFunc13(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitSlicePattern(this OperationVisitor _obj, ISlicePatternOperationWrapper operation)
+        public static void VisitSlicePattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.ISlicePatternOperationWrapper operation)
             => VisitSlicePatternFunc14(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitTypePattern(this OperationVisitor _obj, ITypePatternOperationWrapper operation)
+        public static void VisitTypePattern(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.ITypePatternOperationWrapper operation)
             => VisitTypePatternFunc15(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitUsingDeclaration(this OperationVisitor _obj, IUsingDeclarationOperationWrapper operation)
+        public static void VisitUsingDeclaration(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IUsingDeclarationOperationWrapper operation)
             => VisitUsingDeclarationFunc16(_obj, operation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static void VisitUtf8String(this OperationVisitor _obj, IUtf8StringOperationWrapper operation)
+        public static void VisitUtf8String(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IUtf8StringOperationWrapper operation)
             => VisitUtf8StringFunc17(_obj, operation);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitWith(this OperationVisitor _obj, IWithOperationWrapper operation)
+        public static void VisitWith(this Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, Microsoft.CodeAnalysis.Operations.Lightup.IWithOperationWrapper operation)
             => VisitWithFunc18(_obj, operation);
     }
 }

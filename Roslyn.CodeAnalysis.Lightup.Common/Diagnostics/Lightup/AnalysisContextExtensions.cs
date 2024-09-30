@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisContext";
 
-        private delegate void RegisterAdditionalFileActionDelegate0(AnalysisContext? _obj, Action<AdditionalFileAnalysisContextWrapper> action);
+        private delegate void RegisterAdditionalFileActionDelegate0(Microsoft.CodeAnalysis.Diagnostics.AnalysisContext? _obj, System.Action<Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
 
         private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void RegisterAdditionalFileAction(this AnalysisContext _obj, Action<AdditionalFileAnalysisContextWrapper> action)
+        public static void RegisterAdditionalFileAction(this Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, System.Action<Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action)
             => RegisterAdditionalFileActionFunc0(_obj, action);
     }
 }

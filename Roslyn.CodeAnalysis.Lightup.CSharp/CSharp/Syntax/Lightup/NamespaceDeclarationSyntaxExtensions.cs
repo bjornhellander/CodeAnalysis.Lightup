@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(NamespaceDeclarationSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(NamespaceDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj);
 
-        private delegate NamespaceDeclarationSyntax AddAttributeListsDelegate0(NamespaceDeclarationSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate NamespaceDeclarationSyntax AddModifiersDelegate1(NamespaceDeclarationSyntax? _obj, params SyntaxToken[] items);
-        private delegate NamespaceDeclarationSyntax UpdateDelegate2(NamespaceDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken openBraceToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
-        private delegate NamespaceDeclarationSyntax WithAttributeListsDelegate3(NamespaceDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate NamespaceDeclarationSyntax WithModifiersDelegate4(NamespaceDeclarationSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax AddModifiersDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax WithAttributeListsDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax WithModifiersDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
@@ -60,31 +47,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this NamespaceDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this NamespaceDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NamespaceDeclarationSyntax AddAttributeLists(this NamespaceDeclarationSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NamespaceDeclarationSyntax AddModifiers(this NamespaceDeclarationSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NamespaceDeclarationSyntax Update(this NamespaceDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken namespaceKeyword, NameSyntax name, SyntaxToken openBraceToken, SyntaxList<ExternAliasDirectiveSyntax> externs, SyntaxList<UsingDirectiveSyntax> usings, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc2(_obj, attributeLists, modifiers, namespaceKeyword, name, openBraceToken, externs, usings, members, closeBraceToken, semicolonToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NamespaceDeclarationSyntax WithAttributeLists(this NamespaceDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc3(_obj, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NamespaceDeclarationSyntax WithModifiers(this NamespaceDeclarationSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc4(_obj, modifiers);
     }
 }
