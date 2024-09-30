@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 {
@@ -26,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 
-        private delegate Int32 AdditionalFileActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
-        private delegate void AdditionalFileActionsCountSetterDelegate(AnalyzerTelemetryInfo? _obj, Int32 _value);
-        private delegate Int32 SuppressionActionsCountGetterDelegate(AnalyzerTelemetryInfo? _obj);
-        private delegate void SuppressionActionsCountSetterDelegate(AnalyzerTelemetryInfo? _obj, Int32 _value);
+        private delegate System.Int32 AdditionalFileActionsCountGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj);
+        private delegate void AdditionalFileActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj, System.Int32 _value);
+        private delegate System.Int32 SuppressionActionsCountGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj);
+        private delegate void SuppressionActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj, System.Int32 _value);
 
         private static readonly AdditionalFileActionsCountGetterDelegate AdditionalFileActionsCountGetterFunc;
         private static readonly AdditionalFileActionsCountSetterDelegate AdditionalFileActionsCountSetterFunc;
@@ -47,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Int32 AdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj)
+        public static System.Int32 AdditionalFileActionsCount(this Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
             => AdditionalFileActionsCountGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static void SetAdditionalFileActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
+        public static void SetAdditionalFileActionsCount(this Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, System.Int32 _value)
             => AdditionalFileActionsCountSetterFunc(_obj, _value);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Int32 SuppressionActionsCount(this AnalyzerTelemetryInfo _obj)
+        public static System.Int32 SuppressionActionsCount(this Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
             => SuppressionActionsCountGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static void SetSuppressionActionsCount(this AnalyzerTelemetryInfo _obj, Int32 _value)
+        public static void SetSuppressionActionsCount(this Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, System.Int32 _value)
             => SuppressionActionsCountSetterFunc(_obj, _value);
     }
 }

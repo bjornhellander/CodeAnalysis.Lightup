@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,11 +14,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(ContinueStatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax? _obj);
 
-        private delegate ContinueStatementSyntax AddAttributeListsDelegate0(ContinueStatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate ContinueStatementSyntax UpdateDelegate1(ContinueStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken continueKeyword, SyntaxToken semicolonToken);
-        private delegate ContinueStatementSyntax WithAttributeListsDelegate2(ContinueStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken continueKeyword, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithAttributeListsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
@@ -51,19 +38,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this ContinueStatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ContinueStatementSyntax AddAttributeLists(this ContinueStatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ContinueStatementSyntax Update(this ContinueStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxToken continueKeyword, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxToken continueKeyword, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, continueKeyword, semicolonToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ContinueStatementSyntax WithAttributeLists(this ContinueStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
     }
 }

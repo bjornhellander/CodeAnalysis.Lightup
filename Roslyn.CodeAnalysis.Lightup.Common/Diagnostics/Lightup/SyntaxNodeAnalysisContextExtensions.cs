@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext";
 
-        private delegate Nullable<TextSpan> FilterSpanGetterDelegate(SyntaxNodeAnalysisContext? _obj);
-        private delegate SyntaxTree FilterTreeGetterDelegate(SyntaxNodeAnalysisContext? _obj);
-        private delegate Boolean IsGeneratedCodeGetterDelegate(SyntaxNodeAnalysisContext? _obj);
+        private delegate System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree FilterTreeGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
+        private delegate System.Boolean IsGeneratedCodeGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
 
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly FilterTreeGetterDelegate FilterTreeGetterFunc;
@@ -44,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static Nullable<TextSpan> FilterSpan(this SyntaxNodeAnalysisContext _obj)
+        public static System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan(this Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj)
             => FilterSpanGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static SyntaxTree FilterTree(this SyntaxNodeAnalysisContext _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTree FilterTree(this Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj)
             => FilterTreeGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsGeneratedCode(this SyntaxNodeAnalysisContext _obj)
+        public static System.Boolean IsGeneratedCode(this Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj)
             => IsGeneratedCodeGetterFunc(_obj);
     }
 }

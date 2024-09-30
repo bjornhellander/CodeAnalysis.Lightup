@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,18 +14,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerParameterListSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken GreaterThanTokenGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken LessThanTokenGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> ParametersGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken GreaterThanTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken LessThanTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> ParametersGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
-        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate FunctionPointerParameterListSyntaxWrapper AddParametersDelegate1(CSharpSyntaxNode? _obj, params FunctionPointerParameterSyntaxWrapper[] items);
-        private delegate FunctionPointerParameterListSyntaxWrapper UpdateDelegate2(CSharpSyntaxNode? _obj, SyntaxToken lessThanToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters, SyntaxToken greaterThanToken);
-        private delegate FunctionPointerParameterListSyntaxWrapper WithGreaterThanTokenDelegate3(CSharpSyntaxNode? _obj, SyntaxToken greaterThanToken);
-        private delegate FunctionPointerParameterListSyntaxWrapper WithLessThanTokenDelegate4(CSharpSyntaxNode? _obj, SyntaxToken lessThanToken);
-        private delegate FunctionPointerParameterListSyntaxWrapper WithParametersDelegate5(CSharpSyntaxNode? _obj, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper AddParametersDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken lessThanToken, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters, Microsoft.CodeAnalysis.SyntaxToken greaterThanToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithGreaterThanTokenDelegate3(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken greaterThanToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithLessThanTokenDelegate4(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken lessThanToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithParametersDelegate5(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters);
 
         private static readonly GreaterThanTokenGetterDelegate GreaterThanTokenGetterFunc;
         private static readonly LessThanTokenGetterDelegate LessThanTokenGetterFunc;
@@ -51,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithLessThanTokenDelegate4 WithLessThanTokenFunc4;
         private static readonly WithParametersDelegate5 WithParametersFunc5;
 
-        private readonly CSharpSyntaxNode? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? wrappedObject;
 
         static FunctionPointerParameterListSyntaxWrapper()
         {
@@ -69,66 +56,66 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
         }
 
-        private FunctionPointerParameterListSyntaxWrapper(CSharpSyntaxNode? obj)
+        private FunctionPointerParameterListSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken GreaterThanToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken GreaterThanToken
         {
             get => GreaterThanTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken LessThanToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken LessThanToken
         {
             get => LessThanTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> Parameters
+        public readonly Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> Parameters
         {
             get => ParametersGetterFunc(wrappedObject);
         }
 
-        public static implicit operator CSharpSyntaxNode?(FunctionPointerParameterListSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerParameterListSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static FunctionPointerParameterListSyntaxWrapper As(object? obj)
+        public static FunctionPointerParameterListSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerParameterListSyntaxWrapper(obj2);
         }
 
-        public CSharpSyntaxNode? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterListSyntaxWrapper AddParameters(params FunctionPointerParameterSyntaxWrapper[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper AddParameters(params Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items)
             => AddParametersFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterListSyntaxWrapper Update(SyntaxToken lessThanToken, SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters, SyntaxToken greaterThanToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken lessThanToken, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters, Microsoft.CodeAnalysis.SyntaxToken greaterThanToken)
             => UpdateFunc2(wrappedObject, lessThanToken, parameters, greaterThanToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterListSyntaxWrapper WithGreaterThanToken(SyntaxToken greaterThanToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithGreaterThanToken(Microsoft.CodeAnalysis.SyntaxToken greaterThanToken)
             => WithGreaterThanTokenFunc3(wrappedObject, greaterThanToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterListSyntaxWrapper WithLessThanToken(SyntaxToken lessThanToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithLessThanToken(Microsoft.CodeAnalysis.SyntaxToken lessThanToken)
             => WithLessThanTokenFunc4(wrappedObject, lessThanToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly FunctionPointerParameterListSyntaxWrapper WithParameters(SeparatedSyntaxListWrapper<FunctionPointerParameterSyntaxWrapper> parameters)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper WithParameters(Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters)
             => WithParametersFunc5(wrappedObject, parameters);
     }
 }

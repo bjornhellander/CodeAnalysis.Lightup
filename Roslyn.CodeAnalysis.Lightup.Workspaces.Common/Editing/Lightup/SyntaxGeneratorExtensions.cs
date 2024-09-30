@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
@@ -30,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxGenerator";
 
-        private delegate SyntaxNode ConditionalAccessExpressionDelegate0(SyntaxGenerator? _obj, SyntaxNode expression, SyntaxNode whenNotNull);
-        private delegate SyntaxNode ElementBindingExpressionDelegate1(SyntaxGenerator? _obj, IEnumerable<SyntaxNode> arguments);
-        private delegate SyntaxNode ElementBindingExpressionDelegate2(SyntaxGenerator? _obj, params SyntaxNode[] arguments);
-        private delegate SyntaxNode MemberBindingExpressionDelegate3(SyntaxGenerator? _obj, SyntaxNode name);
+        private delegate Microsoft.CodeAnalysis.SyntaxNode ConditionalAccessExpressionDelegate0(Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, Microsoft.CodeAnalysis.SyntaxNode expression, Microsoft.CodeAnalysis.SyntaxNode whenNotNull);
+        private delegate Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate1(Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.SyntaxNode> arguments);
+        private delegate Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate2(Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, params Microsoft.CodeAnalysis.SyntaxNode[] arguments);
+        private delegate Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpressionDelegate3(Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, Microsoft.CodeAnalysis.SyntaxNode name);
 
         private static readonly ConditionalAccessExpressionDelegate0 ConditionalAccessExpressionFunc0;
         private static readonly ElementBindingExpressionDelegate1 ElementBindingExpressionFunc1;
@@ -51,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxNode ConditionalAccessExpression(this SyntaxGenerator _obj, SyntaxNode expression, SyntaxNode whenNotNull)
+        public static Microsoft.CodeAnalysis.SyntaxNode ConditionalAccessExpression(this Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, Microsoft.CodeAnalysis.SyntaxNode expression, Microsoft.CodeAnalysis.SyntaxNode whenNotNull)
             => ConditionalAccessExpressionFunc0(_obj, expression, whenNotNull);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator _obj, IEnumerable<SyntaxNode> arguments)
+        public static Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.SyntaxNode> arguments)
             => ElementBindingExpressionFunc1(_obj, arguments);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxNode ElementBindingExpression(this SyntaxGenerator _obj, params SyntaxNode[] arguments)
+        public static Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params Microsoft.CodeAnalysis.SyntaxNode[] arguments)
             => ElementBindingExpressionFunc2(_obj, arguments);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxNode MemberBindingExpression(this SyntaxGenerator _obj, SyntaxNode name)
+        public static Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpression(this Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, Microsoft.CodeAnalysis.SyntaxNode name)
             => MemberBindingExpressionFunc3(_obj, name);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate LoadTextOptionsWrapper ConstructorDelegate0(SourceHashAlgorithm checksumAlgorithm);
+        private delegate LoadTextOptionsWrapper ConstructorDelegate0(Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
 
-        private delegate SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(System.Object? _obj);
 
-        private delegate Boolean EqualsDelegate0(object? _obj, LoadTextOptionsWrapper other);
+        private delegate System.Boolean EqualsDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -44,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static LoadTextOptionsWrapper()
         {
@@ -57,35 +41,35 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLoadTextOptions");
         }
 
-        private LoadTextOptionsWrapper(object? obj)
+        private LoadTextOptionsWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
-        public static LoadTextOptionsWrapper Create(SourceHashAlgorithm checksumAlgorithm)
+        public static LoadTextOptionsWrapper Create(Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm)
             => ConstructorFunc0(checksumAlgorithm);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly SourceHashAlgorithm ChecksumAlgorithm
+        public readonly Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithm
         {
             get => ChecksumAlgorithmGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static LoadTextOptionsWrapper As(object? obj)
+        public static LoadTextOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new LoadTextOptionsWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly Boolean Equals(LoadTextOptionsWrapper other)
+        public readonly System.Boolean Equals(Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }
 }

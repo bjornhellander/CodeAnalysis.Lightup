@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IAttributeOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IOperation OperationGetterDelegate(IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation OperationGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly OperationGetterDelegate OperationGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IAttributeOperationWrapper()
         {
@@ -41,27 +29,27 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             OperationGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
         }
 
-        private IAttributeOperationWrapper(IOperation? obj)
+        private IAttributeOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly IOperation Operation
+        public readonly Microsoft.CodeAnalysis.IOperation Operation
         {
             get => OperationGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IAttributeOperationWrapper As(object? obj)
+        public static IAttributeOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IAttributeOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

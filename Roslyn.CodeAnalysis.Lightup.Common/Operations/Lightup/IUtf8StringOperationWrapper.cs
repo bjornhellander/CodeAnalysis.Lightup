@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUtf8StringOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate String ValueGetterDelegate(IOperation? _obj);
+        private delegate System.String ValueGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IUtf8StringOperationWrapper()
         {
@@ -41,27 +29,27 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ValueGetterFunc = LightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
-        private IUtf8StringOperationWrapper(IOperation? obj)
+        private IUtf8StringOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly String Value
+        public readonly System.String Value
         {
             get => ValueGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IUtf8StringOperationWrapper As(object? obj)
+        public static IUtf8StringOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IUtf8StringOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(IOperation? _obj);
-        private delegate Boolean IsAsynchronousGetterDelegate(IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate System.Boolean IsAsynchronousGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly DeclarationGroupGetterDelegate DeclarationGroupGetterFunc;
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IUsingDeclarationOperationWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
-        private IUsingDeclarationOperationWrapper(IOperation? obj)
+        private IUsingDeclarationOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IVariableDeclarationGroupOperation DeclarationGroup
+        public readonly Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroup
         {
             get => DeclarationGroupGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly Boolean IsAsynchronous
+        public readonly System.Boolean IsAsynchronous
         {
             get => IsAsynchronousGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IUsingDeclarationOperationWrapper As(object? obj)
+        public static IUsingDeclarationOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IUsingDeclarationOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

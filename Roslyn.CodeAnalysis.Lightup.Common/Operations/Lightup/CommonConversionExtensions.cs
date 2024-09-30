@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
 
-        private delegate ITypeSymbol? ConstrainedToTypeGetterDelegate(CommonConversion? _obj);
-        private delegate Boolean IsNullableGetterDelegate(CommonConversion? _obj);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate System.Boolean IsNullableGetterDelegate(Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
@@ -41,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ITypeSymbol? ConstrainedToType(this CommonConversion _obj)
+        public static Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
             => ConstrainedToTypeGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsNullable(this CommonConversion _obj)
+        public static System.Boolean IsNullable(this Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
             => IsNullableGetterFunc(_obj);
     }
 }

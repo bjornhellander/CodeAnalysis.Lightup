@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,18 +14,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CollectionExpressionSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken CloseBracketTokenGetterDelegate(ExpressionSyntax? _obj);
-        private delegate SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> ElementsGetterDelegate(ExpressionSyntax? _obj);
-        private delegate SyntaxToken OpenBracketTokenGetterDelegate(ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CloseBracketTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> ElementsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken OpenBracketTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
 
-        private delegate void AcceptDelegate0(ExpressionSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate CollectionExpressionSyntaxWrapper AddElementsDelegate1(ExpressionSyntax? _obj, params CollectionElementSyntaxWrapper[] items);
-        private delegate CollectionExpressionSyntaxWrapper UpdateDelegate2(ExpressionSyntax? _obj, SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements, SyntaxToken closeBracketToken);
-        private delegate CollectionExpressionSyntaxWrapper WithCloseBracketTokenDelegate3(ExpressionSyntax? _obj, SyntaxToken closeBracketToken);
-        private delegate CollectionExpressionSyntaxWrapper WithElementsDelegate4(ExpressionSyntax? _obj, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements);
-        private delegate CollectionExpressionSyntaxWrapper WithOpenBracketTokenDelegate5(ExpressionSyntax? _obj, SyntaxToken openBracketToken);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper AddElementsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken openBracketToken, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithCloseBracketTokenDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithElementsDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithOpenBracketTokenDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken openBracketToken);
 
         private static readonly CloseBracketTokenGetterDelegate CloseBracketTokenGetterFunc;
         private static readonly ElementsGetterDelegate ElementsGetterFunc;
@@ -51,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithElementsDelegate4 WithElementsFunc4;
         private static readonly WithOpenBracketTokenDelegate5 WithOpenBracketTokenFunc5;
 
-        private readonly ExpressionSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? wrappedObject;
 
         static CollectionExpressionSyntaxWrapper()
         {
@@ -69,66 +56,66 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
         }
 
-        private CollectionExpressionSyntaxWrapper(ExpressionSyntax? obj)
+        private CollectionExpressionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly SyntaxToken CloseBracketToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken CloseBracketToken
         {
             get => CloseBracketTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> Elements
+        public readonly Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> Elements
         {
             get => ElementsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly SyntaxToken OpenBracketToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken OpenBracketToken
         {
             get => OpenBracketTokenGetterFunc(wrappedObject);
         }
 
-        public static implicit operator ExpressionSyntax?(CollectionExpressionSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax?(CollectionExpressionSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static CollectionExpressionSyntaxWrapper As(object? obj)
+        public static CollectionExpressionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<ExpressionSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new CollectionExpressionSyntaxWrapper(obj2);
         }
 
-        public ExpressionSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly CollectionExpressionSyntaxWrapper AddElements(params CollectionElementSyntaxWrapper[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper AddElements(params Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper[] items)
             => AddElementsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly CollectionExpressionSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements, SyntaxToken closeBracketToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken openBracketToken, Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
             => UpdateFunc2(wrappedObject, openBracketToken, elements, closeBracketToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly CollectionExpressionSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithCloseBracketToken(Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
             => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly CollectionExpressionSyntaxWrapper WithElements(SeparatedSyntaxListWrapper<CollectionElementSyntaxWrapper> elements)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithElements(Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements)
             => WithElementsFunc4(wrappedObject, elements);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly CollectionExpressionSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithOpenBracketToken(Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
             => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
     }
 }

@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,11 +14,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax";
 
-        private delegate SyntaxTokenList ModifiersGetterDelegate(EnumMemberDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj);
 
-        private delegate EnumMemberDeclarationSyntax AddModifiersDelegate0(EnumMemberDeclarationSyntax? _obj, params SyntaxToken[] items);
-        private delegate EnumMemberDeclarationSyntax UpdateDelegate1(EnumMemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken identifier, EqualsValueClauseSyntax? equalsValue);
-        private delegate EnumMemberDeclarationSyntax WithModifiersDelegate2(EnumMemberDeclarationSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax AddModifiersDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax WithModifiersDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
 
@@ -51,19 +38,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this EnumMemberDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static EnumMemberDeclarationSyntax AddModifiers(this EnumMemberDeclarationSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static EnumMemberDeclarationSyntax Update(this EnumMemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken identifier, EqualsValueClauseSyntax? equalsValue)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue)
             => UpdateFunc1(_obj, attributeLists, modifiers, identifier, equalsValue);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static EnumMemberDeclarationSyntax WithModifiers(this EnumMemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc2(_obj, modifiers);
     }
 }

@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,20 +14,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken CloseBracketTokenGetterDelegate(PatternSyntax? _obj);
-        private delegate VariableDesignationSyntax? DesignationGetterDelegate(PatternSyntax? _obj);
-        private delegate SyntaxToken OpenBracketTokenGetterDelegate(PatternSyntax? _obj);
-        private delegate SeparatedSyntaxList<PatternSyntax> PatternsGetterDelegate(PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CloseBracketTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? DesignationGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken OpenBracketTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> PatternsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
 
-        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate ListPatternSyntaxWrapper AddPatternsDelegate1(PatternSyntax? _obj, params PatternSyntax[] items);
-        private delegate ListPatternSyntaxWrapper UpdateDelegate2(PatternSyntax? _obj, SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation);
-        private delegate ListPatternSyntaxWrapper WithCloseBracketTokenDelegate3(PatternSyntax? _obj, SyntaxToken closeBracketToken);
-        private delegate ListPatternSyntaxWrapper WithDesignationDelegate4(PatternSyntax? _obj, VariableDesignationSyntax? designation);
-        private delegate ListPatternSyntaxWrapper WithOpenBracketTokenDelegate5(PatternSyntax? _obj, SyntaxToken openBracketToken);
-        private delegate ListPatternSyntaxWrapper WithPatternsDelegate6(PatternSyntax? _obj, SeparatedSyntaxList<PatternSyntax> patterns);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper AddPatternsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken openBracketToken, Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> patterns, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? designation);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithCloseBracketTokenDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithDesignationDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? designation);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithOpenBracketTokenDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken openBracketToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithPatternsDelegate6(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> patterns);
 
         private static readonly CloseBracketTokenGetterDelegate CloseBracketTokenGetterFunc;
         private static readonly DesignationGetterDelegate DesignationGetterFunc;
@@ -55,7 +42,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithOpenBracketTokenDelegate5 WithOpenBracketTokenFunc5;
         private static readonly WithPatternsDelegate6 WithPatternsFunc6;
 
-        private readonly PatternSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? wrappedObject;
 
         static ListPatternSyntaxWrapper()
         {
@@ -75,76 +62,76 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithPatternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithPatternsDelegate6>(WrappedType, "WithPatterns", "patternsSeparatedSyntaxList`1");
         }
 
-        private ListPatternSyntaxWrapper(PatternSyntax? obj)
+        private ListPatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxToken CloseBracketToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken CloseBracketToken
         {
             get => CloseBracketTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly VariableDesignationSyntax? Designation
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? Designation
         {
             get => DesignationGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxToken OpenBracketToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken OpenBracketToken
         {
             get => OpenBracketTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SeparatedSyntaxList<PatternSyntax> Patterns
+        public readonly Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> Patterns
         {
             get => PatternsGetterFunc(wrappedObject);
         }
 
-        public static implicit operator PatternSyntax?(ListPatternSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(ListPatternSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ListPatternSyntaxWrapper As(object? obj)
+        public static ListPatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new ListPatternSyntaxWrapper(obj2);
         }
 
-        public PatternSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper AddPatterns(params PatternSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper AddPatterns(params Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax[] items)
             => AddPatternsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper Update(SyntaxToken openBracketToken, SeparatedSyntaxList<PatternSyntax> patterns, SyntaxToken closeBracketToken, VariableDesignationSyntax? designation)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken openBracketToken, Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> patterns, Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? designation)
             => UpdateFunc2(wrappedObject, openBracketToken, patterns, closeBracketToken, designation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper WithCloseBracketToken(SyntaxToken closeBracketToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithCloseBracketToken(Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
             => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper WithDesignation(VariableDesignationSyntax? designation)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithDesignation(Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? designation)
             => WithDesignationFunc4(wrappedObject, designation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper WithOpenBracketToken(SyntaxToken openBracketToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithOpenBracketToken(Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
             => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly ListPatternSyntaxWrapper WithPatterns(SeparatedSyntaxList<PatternSyntax> patterns)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper WithPatterns(Microsoft.CodeAnalysis.SeparatedSyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax> patterns)
             => WithPatternsFunc6(wrappedObject, patterns);
     }
 }

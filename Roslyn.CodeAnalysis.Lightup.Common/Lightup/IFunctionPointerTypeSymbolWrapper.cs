@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IMethodSymbol SignatureGetterDelegate(ITypeSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol SignatureGetterDelegate(Microsoft.CodeAnalysis.ITypeSymbol? _obj);
 
         private static readonly SignatureGetterDelegate SignatureGetterFunc;
 
-        private readonly ITypeSymbol? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.ITypeSymbol? wrappedObject;
 
         static IFunctionPointerTypeSymbolWrapper()
         {
@@ -41,27 +29,27 @@ namespace Microsoft.CodeAnalysis.Lightup
             SignatureGetterFunc = LightupHelper.CreateInstanceGetAccessor<SignatureGetterDelegate>(WrappedType, nameof(Signature));
         }
 
-        private IFunctionPointerTypeSymbolWrapper(ITypeSymbol? obj)
+        private IFunctionPointerTypeSymbolWrapper(Microsoft.CodeAnalysis.ITypeSymbol? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IMethodSymbol Signature
+        public readonly Microsoft.CodeAnalysis.IMethodSymbol Signature
         {
             get => SignatureGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IFunctionPointerTypeSymbolWrapper As(object? obj)
+        public static IFunctionPointerTypeSymbolWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<ITypeSymbol>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.ITypeSymbol>(obj, WrappedType);
             return new IFunctionPointerTypeSymbolWrapper(obj2);
         }
 
-        public ITypeSymbol? Unwrap()
+        public Microsoft.CodeAnalysis.ITypeSymbol? Unwrap()
             => wrappedObject;
     }
 }

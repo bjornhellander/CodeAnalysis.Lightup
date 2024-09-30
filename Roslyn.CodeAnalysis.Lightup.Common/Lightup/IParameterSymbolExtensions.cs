@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
 
-        private delegate Boolean IsDiscardGetterDelegate(IParameterSymbol? _obj);
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IParameterSymbol? _obj);
-        private delegate ScopedKindEx ScopedKindGetterDelegate(IParameterSymbol? _obj);
+        private delegate System.Boolean IsDiscardGetterDelegate(Microsoft.CodeAnalysis.IParameterSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IParameterSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(Microsoft.CodeAnalysis.IParameterSymbol? _obj);
 
         private static readonly IsDiscardGetterDelegate IsDiscardGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
@@ -44,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsDiscard(this IParameterSymbol _obj)
+        public static System.Boolean IsDiscard(this Microsoft.CodeAnalysis.IParameterSymbol _obj)
             => IsDiscardGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this IParameterSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.IParameterSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ScopedKindEx ScopedKind(this IParameterSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKind(this Microsoft.CodeAnalysis.IParameterSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }
 }

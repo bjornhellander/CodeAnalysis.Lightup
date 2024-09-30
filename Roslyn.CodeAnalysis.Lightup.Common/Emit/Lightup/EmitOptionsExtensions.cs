@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
@@ -26,11 +14,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
 
-        private delegate Encoding? DefaultSourceFileEncodingGetterDelegate(EmitOptions? _obj);
-        private delegate Encoding? FallbackSourceFileEncodingGetterDelegate(EmitOptions? _obj);
+        private delegate System.Text.Encoding? DefaultSourceFileEncodingGetterDelegate(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
+        private delegate System.Text.Encoding? FallbackSourceFileEncodingGetterDelegate(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
 
-        private delegate EmitOptions WithDefaultSourceFileEncodingDelegate0(EmitOptions? _obj, Encoding? defaultSourceFileEncoding);
-        private delegate EmitOptions WithFallbackSourceFileEncodingDelegate1(EmitOptions? _obj, Encoding? fallbackSourceFileEncoding);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, System.Text.Encoding? defaultSourceFileEncoding);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, System.Text.Encoding? fallbackSourceFileEncoding);
 
         private static readonly DefaultSourceFileEncodingGetterDelegate DefaultSourceFileEncodingGetterFunc;
         private static readonly FallbackSourceFileEncodingGetterDelegate FallbackSourceFileEncodingGetterFunc;
@@ -50,19 +38,19 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Encoding? DefaultSourceFileEncoding(this EmitOptions _obj)
+        public static System.Text.Encoding? DefaultSourceFileEncoding(this Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
             => DefaultSourceFileEncodingGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Encoding? FallbackSourceFileEncoding(this EmitOptions _obj)
+        public static System.Text.Encoding? FallbackSourceFileEncoding(this Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
             => FallbackSourceFileEncodingGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static EmitOptions WithDefaultSourceFileEncoding(this EmitOptions _obj, Encoding? defaultSourceFileEncoding)
+        public static Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncoding(this Microsoft.CodeAnalysis.Emit.EmitOptions _obj, System.Text.Encoding? defaultSourceFileEncoding)
             => WithDefaultSourceFileEncodingFunc0(_obj, defaultSourceFileEncoding);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static EmitOptions WithFallbackSourceFileEncoding(this EmitOptions _obj, Encoding? fallbackSourceFileEncoding)
+        public static Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncoding(this Microsoft.CodeAnalysis.Emit.EmitOptions _obj, System.Text.Encoding? fallbackSourceFileEncoding)
             => WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
     }
 }

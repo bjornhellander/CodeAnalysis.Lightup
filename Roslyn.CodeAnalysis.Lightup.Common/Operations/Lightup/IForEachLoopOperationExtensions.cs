@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IForEachLoopOperation";
 
-        private delegate Boolean IsAsynchronousGetterDelegate(IForEachLoopOperation? _obj);
+        private delegate System.Boolean IsAsynchronousGetterDelegate(Microsoft.CodeAnalysis.Operations.IForEachLoopOperation? _obj);
 
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsAsynchronous(this IForEachLoopOperation _obj)
+        public static System.Boolean IsAsynchronous(this Microsoft.CodeAnalysis.Operations.IForEachLoopOperation _obj)
             => IsAsynchronousGetterFunc(_obj);
     }
 }

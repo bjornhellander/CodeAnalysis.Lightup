@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
 
-        private delegate void VisitFunctionPointerTypeDelegate0(SymbolVisitor? _obj, IFunctionPointerTypeSymbolWrapper symbol);
+        private delegate void VisitFunctionPointerTypeDelegate0(Microsoft.CodeAnalysis.SymbolVisitor? _obj, Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol);
 
         private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static void VisitFunctionPointerType(this SymbolVisitor _obj, IFunctionPointerTypeSymbolWrapper symbol)
+        public static void VisitFunctionPointerType(this Microsoft.CodeAnalysis.SymbolVisitor _obj, Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol)
             => VisitFunctionPointerTypeFunc0(_obj, symbol);
     }
 }

@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,45 +14,45 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate BaseListSyntax? BaseListGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken ClassOrStructKeywordGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken CloseBraceTokenGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClausesGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken IdentifierGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken KeywordGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxList<MemberDeclarationSyntax> MembersGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken OpenBraceTokenGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate ParameterListSyntax? ParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate SyntaxToken SemicolonTokenGetterDelegate(TypeDeclarationSyntax? _obj);
-        private delegate TypeParameterListSyntax? TypeParameterListGetterDelegate(TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? BaseListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken ClassOrStructKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CloseBraceTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> ConstraintClausesGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken IdentifierGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken KeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> MembersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken OpenBraceTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken SemicolonTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? TypeParameterListGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
 
-        private delegate void AcceptDelegate0(TypeDeclarationSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate RecordDeclarationSyntaxWrapper AddAttributeListsDelegate1(TypeDeclarationSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddBaseListTypesDelegate2(TypeDeclarationSyntax? _obj, params BaseTypeSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddConstraintClausesDelegate3(TypeDeclarationSyntax? _obj, params TypeParameterConstraintClauseSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddMembersDelegate4(TypeDeclarationSyntax? _obj, params MemberDeclarationSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddModifiersDelegate5(TypeDeclarationSyntax? _obj, params SyntaxToken[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddParameterListParametersDelegate6(TypeDeclarationSyntax? _obj, params ParameterSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper AddTypeParameterListParametersDelegate7(TypeDeclarationSyntax? _obj, params TypeParameterSyntax[] items);
-        private delegate RecordDeclarationSyntaxWrapper UpdateDelegate8(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
-        private delegate RecordDeclarationSyntaxWrapper UpdateDelegate9(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken classOrStructKeyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken);
-        private delegate RecordDeclarationSyntaxWrapper WithAttributeListsDelegate10(TypeDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate RecordDeclarationSyntaxWrapper WithBaseListDelegate11(TypeDeclarationSyntax? _obj, BaseListSyntax? baseList);
-        private delegate RecordDeclarationSyntaxWrapper WithClassOrStructKeywordDelegate12(TypeDeclarationSyntax? _obj, SyntaxToken classOrStructKeyword);
-        private delegate RecordDeclarationSyntaxWrapper WithCloseBraceTokenDelegate13(TypeDeclarationSyntax? _obj, SyntaxToken closeBraceToken);
-        private delegate RecordDeclarationSyntaxWrapper WithConstraintClausesDelegate14(TypeDeclarationSyntax? _obj, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses);
-        private delegate RecordDeclarationSyntaxWrapper WithIdentifierDelegate15(TypeDeclarationSyntax? _obj, SyntaxToken identifier);
-        private delegate RecordDeclarationSyntaxWrapper WithKeywordDelegate16(TypeDeclarationSyntax? _obj, SyntaxToken keyword);
-        private delegate RecordDeclarationSyntaxWrapper WithMembersDelegate17(TypeDeclarationSyntax? _obj, SyntaxList<MemberDeclarationSyntax> members);
-        private delegate RecordDeclarationSyntaxWrapper WithModifiersDelegate18(TypeDeclarationSyntax? _obj, SyntaxTokenList modifiers);
-        private delegate RecordDeclarationSyntaxWrapper WithOpenBraceTokenDelegate19(TypeDeclarationSyntax? _obj, SyntaxToken openBraceToken);
-        private delegate RecordDeclarationSyntaxWrapper WithParameterListDelegate20(TypeDeclarationSyntax? _obj, ParameterListSyntax? parameterList);
-        private delegate RecordDeclarationSyntaxWrapper WithSemicolonTokenDelegate21(TypeDeclarationSyntax? _obj, SyntaxToken semicolonToken);
-        private delegate RecordDeclarationSyntaxWrapper WithTypeParameterListDelegate22(TypeDeclarationSyntax? _obj, TypeParameterListSyntax? typeParameterList);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddBaseListTypesDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddConstraintClausesDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddMembersDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddModifiersDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddParameterListParametersDelegate6(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddTypeParameterListParametersDelegate7(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper UpdateDelegate8(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper UpdateDelegate9(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithAttributeListsDelegate10(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithBaseListDelegate11(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithClassOrStructKeywordDelegate12(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithCloseBraceTokenDelegate13(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithConstraintClausesDelegate14(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithIdentifierDelegate15(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithKeywordDelegate16(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken keyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithMembersDelegate17(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithModifiersDelegate18(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithOpenBraceTokenDelegate19(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken openBraceToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithParameterListDelegate20(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithSemicolonTokenDelegate21(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithTypeParameterListDelegate22(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly BaseListGetterDelegate BaseListGetterFunc;
@@ -105,7 +92,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithSemicolonTokenDelegate21 WithSemicolonTokenFunc21;
         private static readonly WithTypeParameterListDelegate22 WithTypeParameterListFunc22;
 
-        private readonly TypeDeclarationSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? wrappedObject;
 
         static RecordDeclarationSyntaxWrapper()
         {
@@ -150,194 +137,194 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeParameterListFunc22 = LightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, "WithTypeParameterList", "typeParameterListTypeParameterListSyntax");
         }
 
-        private RecordDeclarationSyntaxWrapper(TypeDeclarationSyntax? obj)
+        private RecordDeclarationSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxList<AttributeListSyntax> AttributeLists
+        public readonly Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly BaseListSyntax? BaseList
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? BaseList
         {
             get => BaseListGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken ClassOrStructKeyword
+        public readonly Microsoft.CodeAnalysis.SyntaxToken ClassOrStructKeyword
         {
             get => ClassOrStructKeywordGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken CloseBraceToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken CloseBraceToken
         {
             get => CloseBraceTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxList<TypeParameterConstraintClauseSyntax> ConstraintClauses
+        public readonly Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> ConstraintClauses
         {
             get => ConstraintClausesGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken Identifier
+        public readonly Microsoft.CodeAnalysis.SyntaxToken Identifier
         {
             get => IdentifierGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken Keyword
+        public readonly Microsoft.CodeAnalysis.SyntaxToken Keyword
         {
             get => KeywordGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxList<MemberDeclarationSyntax> Members
+        public readonly Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> Members
         {
             get => MembersGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxTokenList Modifiers
+        public readonly Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken OpenBraceToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken OpenBraceToken
         {
             get => OpenBraceTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ParameterListSyntax? ParameterList
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList
         {
             get => ParameterListGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly SyntaxToken SemicolonToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken SemicolonToken
         {
             get => SemicolonTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly TypeParameterListSyntax? TypeParameterList
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? TypeParameterList
         {
             get => TypeParameterListGetterFunc(wrappedObject);
         }
 
-        public static implicit operator TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static RecordDeclarationSyntaxWrapper As(object? obj)
+        public static RecordDeclarationSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<TypeDeclarationSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax>(obj, WrappedType);
             return new RecordDeclarationSyntaxWrapper(obj2);
         }
 
-        public TypeDeclarationSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddAttributeLists(params AttributeListSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddAttributeLists(params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddBaseListTypes(params BaseTypeSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddBaseListTypes(params Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items)
             => AddBaseListTypesFunc2(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddConstraintClauses(params TypeParameterConstraintClauseSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddConstraintClauses(params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax[] items)
             => AddConstraintClausesFunc3(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddMembers(params MemberDeclarationSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddMembers(params Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items)
             => AddMembersFunc4(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddModifiers(params SyntaxToken[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddModifiers(params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc5(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddParameterListParameters(params ParameterSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddParameterListParameters(params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
             => AddParameterListParametersFunc6(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(params TypeParameterSyntax[] items)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax[] items)
             => AddTypeParameterListParametersFunc7(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc8(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper Update(SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, SyntaxToken keyword, SyntaxToken classOrStructKeyword, SyntaxToken identifier, TypeParameterListSyntax? typeParameterList, ParameterListSyntax? parameterList, BaseListSyntax? baseList, SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses, SyntaxToken openBraceToken, SyntaxList<MemberDeclarationSyntax> members, SyntaxToken closeBraceToken, SyntaxToken semicolonToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc9(wrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithAttributeLists(SyntaxList<AttributeListSyntax> attributeLists)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithAttributeLists(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc10(wrappedObject, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithBaseList(BaseListSyntax? baseList)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithBaseList(Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList)
             => WithBaseListFunc11(wrappedObject, baseList);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithClassOrStructKeyword(SyntaxToken classOrStructKeyword)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithClassOrStructKeyword(Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword)
             => WithClassOrStructKeywordFunc12(wrappedObject, classOrStructKeyword);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithCloseBraceToken(SyntaxToken closeBraceToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithCloseBraceToken(Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
             => WithCloseBraceTokenFunc13(wrappedObject, closeBraceToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithConstraintClauses(SyntaxList<TypeParameterConstraintClauseSyntax> constraintClauses)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithConstraintClauses(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses)
             => WithConstraintClausesFunc14(wrappedObject, constraintClauses);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithIdentifier(SyntaxToken identifier)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithIdentifier(Microsoft.CodeAnalysis.SyntaxToken identifier)
             => WithIdentifierFunc15(wrappedObject, identifier);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithKeyword(SyntaxToken keyword)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithKeyword(Microsoft.CodeAnalysis.SyntaxToken keyword)
             => WithKeywordFunc16(wrappedObject, keyword);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithMembers(SyntaxList<MemberDeclarationSyntax> members)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithMembers(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
             => WithMembersFunc17(wrappedObject, members);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithModifiers(SyntaxTokenList modifiers)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithModifiers(Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc18(wrappedObject, modifiers);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithOpenBraceToken(SyntaxToken openBraceToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithOpenBraceToken(Microsoft.CodeAnalysis.SyntaxToken openBraceToken)
             => WithOpenBraceTokenFunc19(wrappedObject, openBraceToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithParameterList(ParameterListSyntax? parameterList)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithParameterList(Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
             => WithParameterListFunc20(wrappedObject, parameterList);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithSemicolonToken(SyntaxToken semicolonToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithSemicolonToken(Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => WithSemicolonTokenFunc21(wrappedObject, semicolonToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly RecordDeclarationSyntaxWrapper WithTypeParameterList(TypeParameterListSyntax? typeParameterList)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithTypeParameterList(Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList)
             => WithTypeParameterListFunc22(wrappedObject, typeParameterList);
     }
 }

@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        private delegate ImmutableArray<MetadataReference> GetUsedAssemblyReferencesDelegate0(CSharpCompilation? _obj, CancellationToken cancellationToken);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetUsedAssemblyReferencesDelegate0 GetUsedAssemblyReferencesFunc0;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this CSharpCompilation _obj, CancellationToken cancellationToken)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, System.Threading.CancellationToken cancellationToken)
             => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
     }
 }

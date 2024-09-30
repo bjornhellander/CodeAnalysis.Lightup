@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax";
 
-        private delegate SyntaxToken CheckedKeywordGetterDelegate(OperatorDeclarationSyntax? _obj);
-        private delegate ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifierGetterDelegate(OperatorDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifierGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj);
 
-        private delegate OperatorDeclarationSyntax AddBodyAttributeListsDelegate0(OperatorDeclarationSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate OperatorDeclarationSyntax UpdateDelegate1(OperatorDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken);
-        private delegate OperatorDeclarationSyntax UpdateDelegate2(OperatorDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken);
-        private delegate OperatorDeclarationSyntax WithCheckedKeywordDelegate3(OperatorDeclarationSyntax? _obj, SyntaxToken checkedKeyword);
-        private delegate OperatorDeclarationSyntax WithExplicitInterfaceSpecifierDelegate4(OperatorDeclarationSyntax? _obj, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax AddBodyAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeywordDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifierDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
         private static readonly ExplicitInterfaceSpecifierGetterDelegate ExplicitInterfaceSpecifierGetterFunc;
@@ -60,31 +47,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static SyntaxToken CheckedKeyword(this OperatorDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken CheckedKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifier(this OperatorDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifier(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj)
             => ExplicitInterfaceSpecifierGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static OperatorDeclarationSyntax AddBodyAttributeLists(this OperatorDeclarationSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax AddBodyAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBodyAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static OperatorDeclarationSyntax Update(this OperatorDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax returnType, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, ParameterListSyntax parameterList, BlockSyntax? body, ArrowExpressionClauseSyntax? expressionBody, SyntaxToken semicolonToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
             => UpdateFunc2(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static OperatorDeclarationSyntax WithCheckedKeyword(this OperatorDeclarationSyntax _obj, SyntaxToken checkedKeyword)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
             => WithCheckedKeywordFunc3(_obj, checkedKeyword);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this OperatorDeclarationSyntax _obj, ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
             => WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
     }
 }

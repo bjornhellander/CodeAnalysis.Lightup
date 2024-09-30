@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,25 +14,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(ParenthesizedLambdaExpressionSyntax? _obj);
-        private delegate BlockSyntax? BlockGetterDelegate(ParenthesizedLambdaExpressionSyntax? _obj);
-        private delegate ExpressionSyntax? ExpressionBodyGetterDelegate(ParenthesizedLambdaExpressionSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(ParenthesizedLambdaExpressionSyntax? _obj);
-        private delegate TypeSyntax? ReturnTypeGetterDelegate(ParenthesizedLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? BlockGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBodyGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? ReturnTypeGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj);
 
-        private delegate ParenthesizedLambdaExpressionSyntax AddAttributeListsDelegate0(ParenthesizedLambdaExpressionSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate ParenthesizedLambdaExpressionSyntax AddBlockAttributeListsDelegate1(ParenthesizedLambdaExpressionSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate ParenthesizedLambdaExpressionSyntax AddBlockStatementsDelegate2(ParenthesizedLambdaExpressionSyntax? _obj, params StatementSyntax[] items);
-        private delegate ParenthesizedLambdaExpressionSyntax AddModifiersDelegate3(ParenthesizedLambdaExpressionSyntax? _obj, params SyntaxToken[] items);
-        private delegate ParenthesizedLambdaExpressionSyntax UpdateDelegate4(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate ParenthesizedLambdaExpressionSyntax UpdateDelegate5(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxToken asyncKeyword, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate ParenthesizedLambdaExpressionSyntax UpdateDelegate6(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate ParenthesizedLambdaExpressionSyntax UpdateDelegate7(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax? returnType, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody);
-        private delegate ParenthesizedLambdaExpressionSyntax WithAttributeListsDelegate8(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate ParenthesizedLambdaExpressionSyntax WithBlockDelegate9(ParenthesizedLambdaExpressionSyntax? _obj, BlockSyntax? block);
-        private delegate ParenthesizedLambdaExpressionSyntax WithExpressionBodyDelegate10(ParenthesizedLambdaExpressionSyntax? _obj, ExpressionSyntax? expressionBody);
-        private delegate ParenthesizedLambdaExpressionSyntax WithModifiersDelegate11(ParenthesizedLambdaExpressionSyntax? _obj, SyntaxTokenList modifiers);
-        private delegate ParenthesizedLambdaExpressionSyntax WithReturnTypeDelegate12(ParenthesizedLambdaExpressionSyntax? _obj, TypeSyntax? returnType);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddBlockAttributeListsDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddBlockStatementsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddModifiersDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax UpdateDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax UpdateDelegate5(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax UpdateDelegate6(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax UpdateDelegate7(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithAttributeListsDelegate8(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithBlockDelegate9(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithExpressionBodyDelegate10(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithModifiersDelegate11(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithReturnTypeDelegate12(Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly BlockGetterDelegate BlockGetterFunc;
@@ -93,75 +80,75 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this ParenthesizedLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static BlockSyntax? Block(this ParenthesizedLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? Block(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj)
             => BlockGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ExpressionSyntax? ExpressionBody(this ParenthesizedLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj)
             => ExpressionBodyGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this ParenthesizedLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static TypeSyntax? ReturnType(this ParenthesizedLambdaExpressionSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? ReturnType(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj)
             => ReturnTypeGetterFunc(_obj);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddBlockAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddBlockAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddBlockStatements(this ParenthesizedLambdaExpressionSyntax _obj, params StatementSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddBlockStatements(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
             => AddBlockStatementsFunc2(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax AddModifiers(this ParenthesizedLambdaExpressionSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc3(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc4(_obj, modifiers, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxToken asyncKeyword, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc5(_obj, asyncKeyword, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc6(_obj, attributeLists, modifiers, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax Update(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, TypeSyntax? returnType, ParameterListSyntax parameterList, SyntaxToken arrowToken, BlockSyntax? block, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, Microsoft.CodeAnalysis.SyntaxToken arrowToken, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => UpdateFunc7(_obj, attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithAttributeLists(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc8(_obj, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithBlock(this ParenthesizedLambdaExpressionSyntax _obj, BlockSyntax? block)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithBlock(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block)
             => WithBlockFunc9(_obj, block);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithExpressionBody(this ParenthesizedLambdaExpressionSyntax _obj, ExpressionSyntax? expressionBody)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithExpressionBody(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
             => WithExpressionBodyFunc10(_obj, expressionBody);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithModifiers(this ParenthesizedLambdaExpressionSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc11(_obj, modifiers);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ParenthesizedLambdaExpressionSyntax WithReturnType(this ParenthesizedLambdaExpressionSyntax _obj, TypeSyntax? returnType)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax WithReturnType(this Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType)
             => WithReturnTypeFunc12(_obj, returnType);
     }
 }

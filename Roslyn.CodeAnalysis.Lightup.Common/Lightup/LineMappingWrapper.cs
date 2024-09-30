@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,16 +14,16 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LineMapping";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate LineMappingWrapper ConstructorDelegate0(LinePositionSpan span, Nullable<Int32> characterOffset, FileLinePositionSpan mappedSpan);
+        private delegate LineMappingWrapper ConstructorDelegate0(Microsoft.CodeAnalysis.Text.LinePositionSpan span, System.Nullable<System.Int32> characterOffset, Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan);
 
-        private delegate Nullable<Int32> CharacterOffsetGetterDelegate(object? _obj);
-        private delegate Boolean IsHiddenGetterDelegate(object? _obj);
-        private delegate FileLinePositionSpan MappedSpanGetterDelegate(object? _obj);
-        private delegate LinePositionSpan SpanGetterDelegate(object? _obj);
+        private delegate System.Nullable<System.Int32> CharacterOffsetGetterDelegate(System.Object? _obj);
+        private delegate System.Boolean IsHiddenGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpanGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Text.LinePositionSpan SpanGetterDelegate(System.Object? _obj);
 
-        private delegate Boolean EqualsDelegate0(object? _obj, LineMappingWrapper other);
+        private delegate System.Boolean EqualsDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -46,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static LineMappingWrapper()
         {
@@ -62,53 +50,53 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLineMapping");
         }
 
-        private LineMappingWrapper(object? obj)
+        private LineMappingWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Constructor added in version 4.0.0.0.</summary>
-        public static LineMappingWrapper Create(LinePositionSpan span, Nullable<Int32> characterOffset, FileLinePositionSpan mappedSpan)
+        public static LineMappingWrapper Create(Microsoft.CodeAnalysis.Text.LinePositionSpan span, System.Nullable<System.Int32> characterOffset, Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan)
             => ConstructorFunc0(span, characterOffset, mappedSpan);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly Nullable<Int32> CharacterOffset
+        public readonly System.Nullable<System.Int32> CharacterOffset
         {
             get => CharacterOffsetGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly Boolean IsHidden
+        public readonly System.Boolean IsHidden
         {
             get => IsHiddenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly FileLinePositionSpan MappedSpan
+        public readonly Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpan
         {
             get => MappedSpanGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly LinePositionSpan Span
+        public readonly Microsoft.CodeAnalysis.Text.LinePositionSpan Span
         {
             get => SpanGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static LineMappingWrapper As(object? obj)
+        public static LineMappingWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new LineMappingWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly Boolean Equals(LineMappingWrapper other)
+        public readonly System.Boolean Equals(Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SarifVersionFacts";
 
-        private delegate Boolean TryParseDelegate0(String version, out SarifVersionEx result);
+        private delegate System.Boolean TryParseDelegate0(System.String version, out Microsoft.CodeAnalysis.Lightup.SarifVersionEx result);
 
         private static readonly TryParseDelegate0 TryParseFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean TryParse(String version, out SarifVersionEx result)
+        public static System.Boolean TryParse(System.String version, out Microsoft.CodeAnalysis.Lightup.SarifVersionEx result)
             => TryParseFunc0(version, out result);
     }
 }

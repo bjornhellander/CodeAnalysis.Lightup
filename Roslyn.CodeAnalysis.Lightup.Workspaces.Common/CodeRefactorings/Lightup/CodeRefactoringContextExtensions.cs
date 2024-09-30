@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
 
-        private delegate TextDocument TextDocumentGetterDelegate(CodeRefactoringContext? _obj);
+        private delegate Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext? _obj);
 
         private static readonly TextDocumentGetterDelegate TextDocumentGetterFunc;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static TextDocument TextDocument(this CodeRefactoringContext _obj)
+        public static Microsoft.CodeAnalysis.TextDocument TextDocument(this Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext _obj)
             => TextDocumentGetterFunc(_obj);
     }
 }

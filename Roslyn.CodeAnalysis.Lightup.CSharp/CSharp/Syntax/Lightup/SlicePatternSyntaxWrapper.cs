@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SlicePatternSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken DotDotTokenGetterDelegate(PatternSyntax? _obj);
-        private delegate PatternSyntax? PatternGetterDelegate(PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken DotDotTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? PatternGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
 
-        private delegate void AcceptDelegate0(PatternSyntax? _obj, CSharpSyntaxVisitor visitor);
-        private delegate SlicePatternSyntaxWrapper UpdateDelegate1(PatternSyntax? _obj, SyntaxToken dotDotToken, PatternSyntax? pattern);
-        private delegate SlicePatternSyntaxWrapper WithDotDotTokenDelegate2(PatternSyntax? _obj, SyntaxToken dotDotToken);
-        private delegate SlicePatternSyntaxWrapper WithPatternDelegate3(PatternSyntax? _obj, PatternSyntax? pattern);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken dotDotToken, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? pattern);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper WithDotDotTokenDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken dotDotToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper WithPatternDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? pattern);
 
         private static readonly DotDotTokenGetterDelegate DotDotTokenGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
@@ -45,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithDotDotTokenDelegate2 WithDotDotTokenFunc2;
         private static readonly WithPatternDelegate3 WithPatternFunc3;
 
-        private readonly PatternSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? wrappedObject;
 
         static SlicePatternSyntaxWrapper()
         {
@@ -60,52 +47,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithPatternFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate3>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
-        private SlicePatternSyntaxWrapper(PatternSyntax? obj)
+        private SlicePatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SyntaxToken DotDotToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken DotDotToken
         {
             get => DotDotTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly PatternSyntax? Pattern
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Pattern
         {
             get => PatternGetterFunc(wrappedObject);
         }
 
-        public static implicit operator PatternSyntax?(SlicePatternSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(SlicePatternSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SlicePatternSyntaxWrapper As(object? obj)
+        public static SlicePatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<PatternSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new SlicePatternSyntaxWrapper(obj2);
         }
 
-        public PatternSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly SlicePatternSyntaxWrapper Update(SyntaxToken dotDotToken, PatternSyntax? pattern)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken dotDotToken, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? pattern)
             => UpdateFunc1(wrappedObject, dotDotToken, pattern);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly SlicePatternSyntaxWrapper WithDotDotToken(SyntaxToken dotDotToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper WithDotDotToken(Microsoft.CodeAnalysis.SyntaxToken dotDotToken)
             => WithDotDotTokenFunc2(wrappedObject, dotDotToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly SlicePatternSyntaxWrapper WithPattern(PatternSyntax? pattern)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper WithPattern(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? pattern)
             => WithPatternFunc3(wrappedObject, pattern);
     }
 }

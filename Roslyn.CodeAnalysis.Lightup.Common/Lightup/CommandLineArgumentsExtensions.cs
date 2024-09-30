@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 
-        private delegate ImmutableArray<String> AnalyzerConfigPathsGetterDelegate(CommandLineArguments? _obj);
-        private delegate Boolean EmitPdbFileGetterDelegate(CommandLineArguments? _obj);
-        private delegate ErrorLogOptionsWrapper ErrorLogOptionsGetterDelegate(CommandLineArguments? _obj);
-        private delegate String? GeneratedFilesOutputDirectoryGetterDelegate(CommandLineArguments? _obj);
-        private delegate Boolean ReportInternalsVisibleToAttributesGetterDelegate(CommandLineArguments? _obj);
-        private delegate Boolean SkipAnalyzersGetterDelegate(CommandLineArguments? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<System.String> AnalyzerConfigPathsGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate System.Boolean EmitPdbFileGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptionsGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate System.String? GeneratedFilesOutputDirectoryGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate System.Boolean SkipAnalyzersGetterDelegate(Microsoft.CodeAnalysis.CommandLineArguments? _obj);
 
-        private delegate String GetOutputFilePathDelegate0(CommandLineArguments? _obj, String outputFileName);
-        private delegate String GetPdbFilePathDelegate1(CommandLineArguments? _obj, String outputFileName);
+        private delegate System.String GetOutputFilePathDelegate0(Microsoft.CodeAnalysis.CommandLineArguments? _obj, System.String outputFileName);
+        private delegate System.String GetPdbFilePathDelegate1(Microsoft.CodeAnalysis.CommandLineArguments? _obj, System.String outputFileName);
 
         private static readonly AnalyzerConfigPathsGetterDelegate AnalyzerConfigPathsGetterFunc;
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;
@@ -62,35 +50,35 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<String> AnalyzerConfigPaths(this CommandLineArguments _obj)
+        public static System.Collections.Immutable.ImmutableArray<System.String> AnalyzerConfigPaths(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => AnalyzerConfigPathsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean EmitPdbFile(this CommandLineArguments _obj)
+        public static System.Boolean EmitPdbFile(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => EmitPdbFileGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ErrorLogOptionsWrapper ErrorLogOptions(this CommandLineArguments _obj)
+        public static Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptions(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => ErrorLogOptionsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static String? GeneratedFilesOutputDirectory(this CommandLineArguments _obj)
+        public static System.String? GeneratedFilesOutputDirectory(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => GeneratedFilesOutputDirectoryGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static Boolean ReportInternalsVisibleToAttributes(this CommandLineArguments _obj)
+        public static System.Boolean ReportInternalsVisibleToAttributes(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => ReportInternalsVisibleToAttributesGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean SkipAnalyzers(this CommandLineArguments _obj)
+        public static System.Boolean SkipAnalyzers(this Microsoft.CodeAnalysis.CommandLineArguments _obj)
             => SkipAnalyzersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String GetOutputFilePath(this CommandLineArguments _obj, String outputFileName)
+        public static System.String GetOutputFilePath(this Microsoft.CodeAnalysis.CommandLineArguments _obj, System.String outputFileName)
             => GetOutputFilePathFunc0(_obj, outputFileName);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static String GetPdbFilePath(this CommandLineArguments _obj, String outputFileName)
+        public static System.String GetPdbFilePath(this Microsoft.CodeAnalysis.CommandLineArguments _obj, System.String outputFileName)
             => GetPdbFilePathFunc1(_obj, outputFileName);
     }
 }

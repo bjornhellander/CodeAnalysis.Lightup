@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
-        private delegate IMethodSymbol GetFunctionPointerSignatureDelegate0(IFunctionPointerInvocationOperationWrapper functionPointer);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate0(Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
 
         private static readonly GetFunctionPointerSignatureDelegate0 GetFunctionPointerSignatureFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static IMethodSymbol GetFunctionPointerSignature(this IFunctionPointerInvocationOperationWrapper functionPointer)
+        public static Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignature(this Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer)
             => GetFunctionPointerSignatureFunc0(functionPointer);
     }
 }

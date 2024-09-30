@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigSet";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate AnalyzerConfigOptionsResultWrapper GlobalConfigOptionsGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptionsGetterDelegate(System.Object? _obj);
 
-        private delegate AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePathDelegate0(object? _obj, String sourcePath);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePathDelegate0(System.Object? _obj, System.String sourcePath);
 
         private static readonly GlobalConfigOptionsGetterDelegate GlobalConfigOptionsGetterFunc;
 
         private static readonly GetOptionsForSourcePathDelegate0 GetOptionsForSourcePathFunc0;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AnalyzerConfigSetWrapper()
         {
@@ -47,31 +35,31 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetOptionsForSourcePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "sourcePathString");
         }
 
-        private AnalyzerConfigSetWrapper(object? obj)
+        private AnalyzerConfigSetWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
+        public readonly Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
         {
             get => GlobalConfigOptionsGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AnalyzerConfigSetWrapper As(object? obj)
+        public static AnalyzerConfigSetWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigSetWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(String sourcePath)
+        public readonly Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(System.String sourcePath)
             => GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
     }
 }

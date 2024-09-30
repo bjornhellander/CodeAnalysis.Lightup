@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax";
 
-        private delegate BaseExpressionColonSyntaxWrapper ExpressionColonGetterDelegate(SubpatternSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper ExpressionColonGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj);
 
-        private delegate SubpatternSyntax UpdateDelegate0(SubpatternSyntax? _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern);
-        private delegate SubpatternSyntax WithExpressionColonDelegate1(SubpatternSyntax? _obj, BaseExpressionColonSyntaxWrapper expressionColon);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax UpdateDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax WithExpressionColonDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon);
 
         private static readonly ExpressionColonGetterDelegate ExpressionColonGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static BaseExpressionColonSyntaxWrapper ExpressionColon(this SubpatternSyntax _obj)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper ExpressionColon(this Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj)
             => ExpressionColonGetterFunc(_obj);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static SubpatternSyntax Update(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon, PatternSyntax pattern)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon, Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
             => UpdateFunc0(_obj, expressionColon, pattern);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static SubpatternSyntax WithExpressionColon(this SubpatternSyntax _obj, BaseExpressionColonSyntaxWrapper expressionColon)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax WithExpressionColon(this Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon)
             => WithExpressionColonFunc1(_obj, expressionColon);
     }
 }

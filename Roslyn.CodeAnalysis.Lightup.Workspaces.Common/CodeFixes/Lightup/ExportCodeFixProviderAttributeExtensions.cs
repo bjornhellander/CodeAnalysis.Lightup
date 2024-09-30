@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
@@ -30,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
 
-        private delegate String[]? DocumentExtensionsGetterDelegate(ExportCodeFixProviderAttribute? _obj);
-        private delegate void DocumentExtensionsSetterDelegate(ExportCodeFixProviderAttribute? _obj, String[]? _value);
-        private delegate String[] DocumentKindsGetterDelegate(ExportCodeFixProviderAttribute? _obj);
-        private delegate void DocumentKindsSetterDelegate(ExportCodeFixProviderAttribute? _obj, String[] _value);
+        private delegate System.String[]? DocumentExtensionsGetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj);
+        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj, System.String[]? _value);
+        private delegate System.String[] DocumentKindsGetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj);
+        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj, System.String[] _value);
 
         private static readonly DocumentExtensionsGetterDelegate DocumentExtensionsGetterFunc;
         private static readonly DocumentExtensionsSetterDelegate DocumentExtensionsSetterFunc;
@@ -51,19 +35,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static String[]? DocumentExtensions(this ExportCodeFixProviderAttribute _obj)
+        public static System.String[]? DocumentExtensions(this Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj)
             => DocumentExtensionsGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static void SetDocumentExtensions(this ExportCodeFixProviderAttribute _obj, String[]? _value)
+        public static void SetDocumentExtensions(this Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, System.String[]? _value)
             => DocumentExtensionsSetterFunc(_obj, _value);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static String[] DocumentKinds(this ExportCodeFixProviderAttribute _obj)
+        public static System.String[] DocumentKinds(this Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj)
             => DocumentKindsGetterFunc(_obj);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public static void SetDocumentKinds(this ExportCodeFixProviderAttribute _obj, String[] _value)
+        public static void SetDocumentKinds(this Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, System.String[] _value)
             => DocumentKindsSetterFunc(_obj, _value);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate Boolean CanApplyChangeDelegate0(IWorkspaceService? _obj, ApplyChangesKind kind);
-        private delegate Boolean CanApplyCompilationOptionChangeDelegate1(IWorkspaceService? _obj, CompilationOptions oldOptions, CompilationOptions newOptions, Project project);
-        private delegate Boolean CanApplyParseOptionChangeDelegate2(IWorkspaceService? _obj, ParseOptions oldOptions, ParseOptions newOptions, Project project);
+        private delegate System.Boolean CanApplyChangeDelegate0(Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, Microsoft.CodeAnalysis.ApplyChangesKind kind);
+        private delegate System.Boolean CanApplyCompilationOptionChangeDelegate1(Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, Microsoft.CodeAnalysis.CompilationOptions oldOptions, Microsoft.CodeAnalysis.CompilationOptions newOptions, Microsoft.CodeAnalysis.Project project);
+        private delegate System.Boolean CanApplyParseOptionChangeDelegate2(Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, Microsoft.CodeAnalysis.ParseOptions oldOptions, Microsoft.CodeAnalysis.ParseOptions newOptions, Microsoft.CodeAnalysis.Project project);
 
         private static readonly CanApplyChangeDelegate0 CanApplyChangeFunc0;
         private static readonly CanApplyCompilationOptionChangeDelegate1 CanApplyCompilationOptionChangeFunc1;
         private static readonly CanApplyParseOptionChangeDelegate2 CanApplyParseOptionChangeFunc2;
 
-        private readonly IWorkspaceService? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Host.IWorkspaceService? wrappedObject;
 
         static ISupportedChangesServiceWrapper()
         {
@@ -51,33 +35,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             CanApplyParseOptionChangeFunc2 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
         }
 
-        private ISupportedChangesServiceWrapper(IWorkspaceService? obj)
+        private ISupportedChangesServiceWrapper(Microsoft.CodeAnalysis.Host.IWorkspaceService? obj)
         {
             wrappedObject = obj;
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ISupportedChangesServiceWrapper As(object? obj)
+        public static ISupportedChangesServiceWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IWorkspaceService>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 
-        public IWorkspaceService? Unwrap()
+        public Microsoft.CodeAnalysis.Host.IWorkspaceService? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Boolean CanApplyChange(ApplyChangesKind kind)
+        public readonly System.Boolean CanApplyChange(Microsoft.CodeAnalysis.ApplyChangesKind kind)
             => CanApplyChangeFunc0(wrappedObject, kind);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Boolean CanApplyCompilationOptionChange(CompilationOptions oldOptions, CompilationOptions newOptions, Project project)
+        public readonly System.Boolean CanApplyCompilationOptionChange(Microsoft.CodeAnalysis.CompilationOptions oldOptions, Microsoft.CodeAnalysis.CompilationOptions newOptions, Microsoft.CodeAnalysis.Project project)
             => CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Boolean CanApplyParseOptionChange(ParseOptions oldOptions, ParseOptions newOptions, Project project)
+        public readonly System.Boolean CanApplyParseOptionChange(Microsoft.CodeAnalysis.ParseOptions oldOptions, Microsoft.CodeAnalysis.ParseOptions newOptions, Microsoft.CodeAnalysis.Project project)
             => CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
     }
 }

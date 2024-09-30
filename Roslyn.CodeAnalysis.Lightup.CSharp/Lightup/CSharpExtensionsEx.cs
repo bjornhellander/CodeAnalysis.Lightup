@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharpExtensions";
 
-        private delegate Boolean ContainsDirectiveDelegate0(SyntaxNode node, SyntaxKind kind);
+        private delegate System.Boolean ContainsDirectiveDelegate0(Microsoft.CodeAnalysis.SyntaxNode node, Microsoft.CodeAnalysis.CSharp.SyntaxKind kind);
 
         private static readonly ContainsDirectiveDelegate0 ContainsDirectiveFunc0;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Boolean ContainsDirective(this SyntaxNode node, SyntaxKind kind)
+        public static System.Boolean ContainsDirective(this Microsoft.CodeAnalysis.SyntaxNode node, Microsoft.CodeAnalysis.CSharp.SyntaxKind kind)
             => ContainsDirectiveFunc0(node, kind);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
 
-        private delegate IEnumerable<DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(ProjectChanges? _obj);
-        private delegate IEnumerable<DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(ProjectChanges? _obj);
-        private delegate IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(ProjectChanges? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(Microsoft.CodeAnalysis.ProjectChanges? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(Microsoft.CodeAnalysis.ProjectChanges? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(Microsoft.CodeAnalysis.ProjectChanges? _obj);
 
         private static readonly GetAddedAnalyzerConfigDocumentsDelegate0 GetAddedAnalyzerConfigDocumentsFunc0;
         private static readonly GetChangedAnalyzerConfigDocumentsDelegate1 GetChangedAnalyzerConfigDocumentsFunc1;
@@ -48,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IEnumerable<DocumentId> GetAddedAnalyzerConfigDocuments(this ProjectChanges _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.ProjectChanges _obj)
             => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IEnumerable<DocumentId> GetChangedAnalyzerConfigDocuments(this ProjectChanges _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.ProjectChanges _obj)
             => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IEnumerable<DocumentId> GetRemovedAnalyzerConfigDocuments(this ProjectChanges _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.ProjectChanges _obj)
             => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
     }
 }

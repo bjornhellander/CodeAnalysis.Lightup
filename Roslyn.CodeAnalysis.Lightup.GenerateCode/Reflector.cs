@@ -782,14 +782,14 @@ internal class Reflector
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(type, typeName, fullTypeName);
+            return new NamedTypeReference(type, typeName, type.Namespace ?? "", fullTypeName);
         }
         else
         {
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(type, type.Name, fullTypeName);
+            return new NamedTypeReference(type, type.Name, type.Namespace ?? "", fullTypeName);
         }
     }
 

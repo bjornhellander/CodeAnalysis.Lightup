@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
-        private delegate NullableContextOptionsEx NullableContextOptionsGetterDelegate(CompilationOptions? _obj);
-        private delegate SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(CompilationOptions? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(Microsoft.CodeAnalysis.CompilationOptions? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(Microsoft.CodeAnalysis.CompilationOptions? _obj);
 
-        private delegate CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(CompilationOptions? _obj, SyntaxTreeOptionsProviderWrapper provider);
+        private delegate Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(Microsoft.CodeAnalysis.CompilationOptions? _obj, Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider);
 
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;
@@ -47,15 +35,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableContextOptionsEx NullableContextOptions(this CompilationOptions _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this Microsoft.CodeAnalysis.CompilationOptions _obj)
             => NullableContextOptionsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this CompilationOptions _obj)
+        public static Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this Microsoft.CodeAnalysis.CompilationOptions _obj)
             => SyntaxTreeOptionsProviderGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static CompilationOptions WithSyntaxTreeOptionsProvider(this CompilationOptions _obj, SyntaxTreeOptionsProviderWrapper provider)
+        public static Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this Microsoft.CodeAnalysis.CompilationOptions _obj, Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider)
             => WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
     }
 }

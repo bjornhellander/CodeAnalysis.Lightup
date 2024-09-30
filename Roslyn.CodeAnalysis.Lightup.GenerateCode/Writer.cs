@@ -331,9 +331,10 @@ internal class Writer
         var staticMethods = GetStaticMethods(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
-        var baseTypeName = GetBaseTypeName(typeDef);
+        var (baseTypeName, baseTypeNamespace) = GetBaseTypeName(typeDef);
         var hasBaseType = baseTypeName != null && typeDef is not InterfaceTypeDefinition;
-        baseTypeName ??= "object";
+        baseTypeName ??= "Object";
+        baseTypeNamespace ??= "System";
 
         var sb = new StringBuilder();
 
@@ -343,7 +344,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        AppendUsingStatements(sb, typeDef);
+        AppendUsingStatements(sb);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -352,7 +353,7 @@ internal class Writer
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly Type? WrappedType; // NOTE: Used via reflection");
+        sb.AppendLine($"        private static readonly System.Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -383,7 +384,7 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, baseTypeNamespace, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -401,7 +402,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, baseTypeNamespace, index, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -465,7 +466,7 @@ internal class Writer
             }
         }
         sb.AppendLine();
-        sb.AppendLine($"        private readonly {baseTypeName}? wrappedObject;");
+        sb.AppendLine($"        private readonly {baseTypeNamespace}.{baseTypeName}? wrappedObject;");
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
@@ -532,7 +533,7 @@ internal class Writer
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
-        sb.AppendLine($"        private {targetName}({baseTypeName}? obj)");
+        sb.AppendLine($"        private {targetName}({baseTypeNamespace}.{baseTypeName}? obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            wrappedObject = obj;");
         sb.AppendLine($"        }}");
@@ -583,20 +584,20 @@ internal class Writer
         if (hasBaseType)
         {
             sb.AppendLine();
-            sb.AppendLine($"        public static implicit operator {baseTypeName}?({targetName} obj)");
+            sb.AppendLine($"        public static implicit operator {baseTypeNamespace}.{baseTypeName}?({targetName} obj)");
             sb.AppendLine($"            => obj.Unwrap();");
         }
         sb.AppendLine();
-        sb.AppendLine($"        public static bool Is(object? obj)");
+        sb.AppendLine($"        public static bool Is(System.Object? obj)");
         sb.AppendLine($"            => LightupHelper.Is(obj, WrappedType);");
         sb.AppendLine();
-        sb.AppendLine($"        public static {targetName} As(object? obj)");
+        sb.AppendLine($"        public static {targetName} As(System.Object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = LightupHelper.As<{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
-        sb.AppendLine($"        public {baseTypeName}? Unwrap()");
+        sb.AppendLine($"        public {baseTypeNamespace}.{baseTypeName}? Unwrap()");
         sb.AppendLine($"            => wrappedObject;");
         foreach (var methodDef in staticMethods)
         {
@@ -646,6 +647,7 @@ internal class Writer
         var staticMethods = GetStaticMethods(typeDef);
 
         var baseTypeName = typeDef.Name;
+        var baseTypeNamespace = typeDef.Namespace;
 
         var sb = new StringBuilder();
 
@@ -655,7 +657,7 @@ internal class Writer
         sb.AppendLine();
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        AppendUsingStatements(sb, typeDef);
+        AppendUsingStatements(sb);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -684,7 +686,7 @@ internal class Writer
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, baseTypeNamespace, typeDefs);
             }
         }
         if (instanceEvents.Count != 0)
@@ -692,7 +694,7 @@ internal class Writer
             sb.AppendLine();
             foreach (var @event in instanceEvents)
             {
-                AppendInstanceEventDelegateDeclarations(sb, @event, baseTypeName, typeDefs);
+                AppendInstanceEventDelegateDeclarations(sb, @event, baseTypeName, baseTypeNamespace, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -710,7 +712,7 @@ internal class Writer
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, index, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, baseTypeNamespace, index, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -866,13 +868,13 @@ internal class Writer
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this {typeDef.Name} _obj)");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj)");
             sb.AppendLine($"            => {property.Name}GetterFunc(_obj);");
             if (property.HasSetter)
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
-                sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
+                sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
             }
         }
@@ -880,11 +882,11 @@ internal class Writer
         {
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Add{@event.Name}(this {typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Add{@event.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
             sb.AppendLine($"            => {@event.Name}AdderFunc(_obj, _delegate);");
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Remove{@event.Name}(this {typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Remove{@event.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
             sb.AppendLine($"            => {@event.Name}RemoverFunc(_obj, _delegate);");
         }
         foreach (var methodDef in staticMethods)
@@ -900,7 +902,7 @@ internal class Writer
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
         }
         sb.AppendLine($"    }}");
@@ -910,51 +912,51 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static string? GetBaseTypeName(TypeDefinition typeDef)
+    private static (string? Name, string? Namespace) GetBaseTypeName(TypeDefinition typeDef)
     {
         return typeDef switch
         {
             ClassTypeDefinition x => GetBaseTypeName(x),
             InterfaceTypeDefinition x => GetBaseTypeName(x),
-            StructTypeDefinition => null,
+            StructTypeDefinition => (null, null),
             _ => throw new NotImplementedException(),
         };
     }
 
-    private static string? GetBaseTypeName(
+    private static (string? Name, string? Namespace) GetBaseTypeName(
         ClassTypeDefinition typeDef)
     {
         var baseTypeRef = typeDef.BaseClass;
         if (baseTypeRef == null)
         {
-            return null;
+            return (null, null);
         }
 
         if (baseTypeRef is NamedTypeReference x)
         {
-            return x.Name;
+            return (x.Name, x.Namespace);
         }
 
         Assert.Fail("Could not get base type");
-        return null;
+        return (null, null);
     }
 
-    private static string? GetBaseTypeName(
+    private static (string? Name, string? Namespace) GetBaseTypeName(
         InterfaceTypeDefinition typeDef)
     {
         var baseTypeRef = typeDef.BaseInterface;
         if (baseTypeRef == null)
         {
-            return null;
+            return (null, null);
         }
 
         if (baseTypeRef is NamedTypeReference x)
         {
-            return x.Name;
+            return (x.Name, x.Namespace);
         }
 
         Assert.Fail("Could not get base type");
-        return null;
+        return (null, null);
     }
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
@@ -1055,53 +1057,9 @@ internal class Writer
         sb.AppendLine("// Licensed under the MIT License. See LICENSE.txt in the repository root for license information.");
     }
 
-    private static void AppendUsingStatements(StringBuilder sb, BaseTypeDefinition typeDef)
+    private static void AppendUsingStatements(StringBuilder sb)
     {
-        sb.AppendLine($"using System;");
-        sb.AppendLine($"using System.Collections.Generic;");
-        sb.AppendLine($"using System.Collections.Immutable;");
-        sb.AppendLine($"using System.IO;");
-        sb.AppendLine($"using System.Reflection;");
-        sb.AppendLine($"using System.Reflection.Metadata;");
-        sb.AppendLine($"using System.Text;");
-        sb.AppendLine($"using System.Threading;");
-        sb.AppendLine($"using System.Threading.Tasks;");
-
-        switch (typeDef.AssemblyKind)
-        {
-            case AssemblyKind.Common:
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Emit;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Operations.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
-                break;
-
-            case AssemblyKind.CSharp:
-                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
-                break;
-
-            case AssemblyKind.Workspaces:
-                sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.CodeActions.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Diagnostics;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Host;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Host.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Options;");
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Text;");
-                break;
-
-            case AssemblyKind.CSharpWorkspaces:
-                sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-                break;
-
-            default:
-                throw new NotImplementedException();
-        }
+        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
     }
 
     private static void AppendTypeSummary(StringBuilder sb, BaseTypeDefinition typeDef)
@@ -1197,16 +1155,17 @@ internal class Writer
         StringBuilder sb,
         PropertyDefinition propertyDef,
         string baseTypeName,
+        string baseTypeNamespace,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
         sb.Append(GetPropertyTypeDeclText(propertyDef, typeDefs));
-        sb.AppendLine($" {propertyDef.Name}GetterDelegate({baseTypeName}? _obj);");
+        sb.AppendLine($" {propertyDef.Name}GetterDelegate({baseTypeNamespace}.{baseTypeName}? _obj);");
 
         if (propertyDef.HasSetter)
         {
             sb.Append($"        private delegate void ");
-            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeName}? _obj, ");
+            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeNamespace}.{baseTypeName}? _obj, ");
             sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, typeDefs)} _value);");
         }
     }
@@ -1226,13 +1185,14 @@ internal class Writer
         StringBuilder sb,
         EventDefinition propertyDef,
         string baseTypeName,
+        string baseTypeNamespace,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}AdderDelegate({baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}AdderDelegate({baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
 
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}RemoverDelegate({baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}RemoverDelegate({baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
     }
 
     private static string GetEventTypeDeclText(
@@ -1262,12 +1222,13 @@ internal class Writer
         StringBuilder sb,
         MethodDefinition methodDef,
         string baseTypeName,
+        string baseTypeNamespace,
         int index,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
         sb.Append(GetMethodReturnTypeDeclText(methodDef, typeDefs));
-        sb.Append($" {methodDef.Name}Delegate{index}({baseTypeName}? _obj");
+        sb.Append($" {methodDef.Name}Delegate{index}({baseTypeNamespace}.{baseTypeName}? _obj");
         sb.Append(GetParametersDeclText(methodDef.Parameters, typeDefs, addLeadingComma: true));
         sb.AppendLine(");");
     }
@@ -1380,7 +1341,7 @@ internal class Writer
         {
             if (IsSeparatedSyntaxList(genericTypeRef) && IsNewType(genericTypeRef.TypeArguments[0], typeDefs))
             {
-                sb.Append("SeparatedSyntaxListWrapper");
+                sb.Append("Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper");
             }
             else
             {
@@ -1407,7 +1368,7 @@ internal class Writer
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
+            sb.Append($"{namedTypeRef.Namespace}{(isNew ? ".Lightup" : "")}.{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
     }
 

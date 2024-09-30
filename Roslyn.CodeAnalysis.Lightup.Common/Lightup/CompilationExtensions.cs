@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,18 +14,18 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Compilation";
 
-        private delegate INamedTypeSymbol CreateAnonymousTypeSymbolDelegate0(Compilation? _obj, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations);
-        private delegate IArrayTypeSymbol CreateArrayTypeSymbolDelegate1(Compilation? _obj, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation);
-        private delegate IMethodSymbol CreateBuiltinOperatorDelegate2(Compilation? _obj, String name, ITypeSymbol returnType, ITypeSymbol operandType);
-        private delegate IMethodSymbol CreateBuiltinOperatorDelegate3(Compilation? _obj, String name, ITypeSymbol returnType, ITypeSymbol leftType, ITypeSymbol rightType);
-        private delegate IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbolDelegate4(Compilation? _obj, ITypeSymbol returnType, RefKind returnRefKind, ImmutableArray<ITypeSymbol> parameterTypes, ImmutableArray<RefKind> parameterRefKinds, SignatureCallingConvention callingConvention, ImmutableArray<INamedTypeSymbol> callingConventionTypes);
-        private delegate INamedTypeSymbol CreateNativeIntegerTypeSymbolDelegate5(Compilation? _obj, Boolean signed);
-        private delegate INamedTypeSymbol CreateTupleTypeSymbolDelegate6(Compilation? _obj, ImmutableArray<ITypeSymbol> elementTypes, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations);
-        private delegate INamedTypeSymbol CreateTupleTypeSymbolDelegate7(Compilation? _obj, INamedTypeSymbol underlyingType, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations);
-        private delegate EmitDifferenceResult EmitDifferenceDelegate8(Compilation? _obj, EmitBaseline baseline, IEnumerable<SemanticEdit> edits, Func<ISymbol, Boolean> isAddedSymbol, Stream metadataStream, Stream ilStream, Stream pdbStream, CancellationToken cancellationToken);
-        private delegate ImmutableArray<INamedTypeSymbol> GetTypesByMetadataNameDelegate9(Compilation? _obj, String fullyQualifiedMetadataName);
-        private delegate ImmutableArray<MetadataReference> GetUsedAssemblyReferencesDelegate10(Compilation? _obj, CancellationToken cancellationToken);
-        private delegate Boolean SupportsRuntimeCapabilityDelegate11(Compilation? _obj, RuntimeCapabilityEx capability);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol CreateAnonymousTypeSymbolDelegate0(Microsoft.CodeAnalysis.Compilation? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> memberTypes, System.Collections.Immutable.ImmutableArray<System.String> memberNames, System.Collections.Immutable.ImmutableArray<System.Boolean> memberIsReadOnly, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> memberLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> memberNullableAnnotations);
+        private delegate Microsoft.CodeAnalysis.IArrayTypeSymbol CreateArrayTypeSymbolDelegate1(Microsoft.CodeAnalysis.Compilation? _obj, Microsoft.CodeAnalysis.ITypeSymbol elementType, System.Int32 rank, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx elementNullableAnnotation);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol CreateBuiltinOperatorDelegate2(Microsoft.CodeAnalysis.Compilation? _obj, System.String name, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.ITypeSymbol operandType);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol CreateBuiltinOperatorDelegate3(Microsoft.CodeAnalysis.Compilation? _obj, System.String name, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.ITypeSymbol leftType, Microsoft.CodeAnalysis.ITypeSymbol rightType);
+        private delegate Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbolDelegate4(Microsoft.CodeAnalysis.Compilation? _obj, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.RefKind returnRefKind, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> parameterTypes, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.RefKind> parameterRefKinds, System.Reflection.Metadata.SignatureCallingConvention callingConvention, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> callingConventionTypes);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbolDelegate5(Microsoft.CodeAnalysis.Compilation? _obj, System.Boolean signed);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate6(Microsoft.CodeAnalysis.Compilation? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, System.Collections.Immutable.ImmutableArray<System.String> elementNames, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> elementLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate7(Microsoft.CodeAnalysis.Compilation? _obj, Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, System.Collections.Immutable.ImmutableArray<System.String> elementNames, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> elementLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifferenceDelegate8(Microsoft.CodeAnalysis.Compilation? _obj, Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, System.Func<Microsoft.CodeAnalysis.ISymbol, System.Boolean> isAddedSymbol, System.IO.Stream metadataStream, System.IO.Stream ilStream, System.IO.Stream pdbStream, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataNameDelegate9(Microsoft.CodeAnalysis.Compilation? _obj, System.String fullyQualifiedMetadataName);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate10(Microsoft.CodeAnalysis.Compilation? _obj, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Boolean SupportsRuntimeCapabilityDelegate11(Microsoft.CodeAnalysis.Compilation? _obj, Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability);
 
         private static readonly CreateAnonymousTypeSymbolDelegate0 CreateAnonymousTypeSymbolFunc0;
         private static readonly CreateArrayTypeSymbolDelegate1 CreateArrayTypeSymbolFunc1;
@@ -71,51 +59,51 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol CreateAnonymousTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> memberTypes, ImmutableArray<String> memberNames, ImmutableArray<Boolean> memberIsReadOnly, ImmutableArray<Location> memberLocations, ImmutableArray<NullableAnnotationEx> memberNullableAnnotations)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol CreateAnonymousTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> memberTypes, System.Collections.Immutable.ImmutableArray<System.String> memberNames, System.Collections.Immutable.ImmutableArray<System.Boolean> memberIsReadOnly, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> memberLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> memberNullableAnnotations)
             => CreateAnonymousTypeSymbolFunc0(_obj, memberTypes, memberNames, memberIsReadOnly, memberLocations, memberNullableAnnotations);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IArrayTypeSymbol CreateArrayTypeSymbol(this Compilation _obj, ITypeSymbol elementType, Int32 rank, NullableAnnotationEx elementNullableAnnotation)
+        public static Microsoft.CodeAnalysis.IArrayTypeSymbol CreateArrayTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, Microsoft.CodeAnalysis.ITypeSymbol elementType, System.Int32 rank, Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx elementNullableAnnotation)
             => CreateArrayTypeSymbolFunc1(_obj, elementType, rank, elementNullableAnnotation);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol operandType)
+        public static Microsoft.CodeAnalysis.IMethodSymbol CreateBuiltinOperator(this Microsoft.CodeAnalysis.Compilation _obj, System.String name, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.ITypeSymbol operandType)
             => CreateBuiltinOperatorFunc2(_obj, name, returnType, operandType);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static IMethodSymbol CreateBuiltinOperator(this Compilation _obj, String name, ITypeSymbol returnType, ITypeSymbol leftType, ITypeSymbol rightType)
+        public static Microsoft.CodeAnalysis.IMethodSymbol CreateBuiltinOperator(this Microsoft.CodeAnalysis.Compilation _obj, System.String name, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.ITypeSymbol leftType, Microsoft.CodeAnalysis.ITypeSymbol rightType)
             => CreateBuiltinOperatorFunc3(_obj, name, returnType, leftType, rightType);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbol(this Compilation _obj, ITypeSymbol returnType, RefKind returnRefKind, ImmutableArray<ITypeSymbol> parameterTypes, ImmutableArray<RefKind> parameterRefKinds, SignatureCallingConvention callingConvention, ImmutableArray<INamedTypeSymbol> callingConventionTypes)
+        public static Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, Microsoft.CodeAnalysis.ITypeSymbol returnType, Microsoft.CodeAnalysis.RefKind returnRefKind, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> parameterTypes, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.RefKind> parameterRefKinds, System.Reflection.Metadata.SignatureCallingConvention callingConvention, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> callingConventionTypes)
             => CreateFunctionPointerTypeSymbolFunc4(_obj, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol CreateNativeIntegerTypeSymbol(this Compilation _obj, Boolean signed)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, System.Boolean signed)
             => CreateNativeIntegerTypeSymbolFunc5(_obj, signed);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, ImmutableArray<ITypeSymbol> elementTypes, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, System.Collections.Immutable.ImmutableArray<System.String> elementNames, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> elementLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
             => CreateTupleTypeSymbolFunc6(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol CreateTupleTypeSymbol(this Compilation _obj, INamedTypeSymbol underlyingType, ImmutableArray<String> elementNames, ImmutableArray<Location> elementLocations, ImmutableArray<NullableAnnotationEx> elementNullableAnnotations)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this Microsoft.CodeAnalysis.Compilation _obj, Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, System.Collections.Immutable.ImmutableArray<System.String> elementNames, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Location> elementLocations, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
             => CreateTupleTypeSymbolFunc7(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static EmitDifferenceResult EmitDifference(this Compilation _obj, EmitBaseline baseline, IEnumerable<SemanticEdit> edits, Func<ISymbol, Boolean> isAddedSymbol, Stream metadataStream, Stream ilStream, Stream pdbStream, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifference(this Microsoft.CodeAnalysis.Compilation _obj, Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, System.Func<Microsoft.CodeAnalysis.ISymbol, System.Boolean> isAddedSymbol, System.IO.Stream metadataStream, System.IO.Stream ilStream, System.IO.Stream pdbStream, System.Threading.CancellationToken cancellationToken)
             => EmitDifferenceFunc8(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static ImmutableArray<INamedTypeSymbol> GetTypesByMetadataName(this Compilation _obj, String fullyQualifiedMetadataName)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataName(this Microsoft.CodeAnalysis.Compilation _obj, System.String fullyQualifiedMetadataName)
             => GetTypesByMetadataNameFunc9(_obj, fullyQualifiedMetadataName);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ImmutableArray<MetadataReference> GetUsedAssemblyReferences(this Compilation _obj, CancellationToken cancellationToken)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this Microsoft.CodeAnalysis.Compilation _obj, System.Threading.CancellationToken cancellationToken)
             => GetUsedAssemblyReferencesFunc10(_obj, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Boolean SupportsRuntimeCapability(this Compilation _obj, RuntimeCapabilityEx capability)
+        public static System.Boolean SupportsRuntimeCapability(this Microsoft.CodeAnalysis.Compilation _obj, Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability)
             => SupportsRuntimeCapabilityFunc11(_obj, capability);
     }
 }

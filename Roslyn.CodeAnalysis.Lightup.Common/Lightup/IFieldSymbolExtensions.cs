@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,12 +14,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
 
-        private delegate Int32 FixedSizeGetterDelegate(IFieldSymbol? _obj);
-        private delegate Boolean IsExplicitlyNamedTupleElementGetterDelegate(IFieldSymbol? _obj);
-        private delegate Boolean IsRequiredGetterDelegate(IFieldSymbol? _obj);
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IFieldSymbol? _obj);
-        private delegate ImmutableArray<CustomModifier> RefCustomModifiersGetterDelegate(IFieldSymbol? _obj);
-        private delegate RefKind RefKindGetterDelegate(IFieldSymbol? _obj);
+        private delegate System.Int32 FixedSizeGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate System.Boolean IsExplicitlyNamedTupleElementGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate System.Boolean IsRequiredGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(Microsoft.CodeAnalysis.IFieldSymbol? _obj);
 
         private static readonly FixedSizeGetterDelegate FixedSizeGetterFunc;
         private static readonly IsExplicitlyNamedTupleElementGetterDelegate IsExplicitlyNamedTupleElementGetterFunc;
@@ -53,27 +41,27 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Int32 FixedSize(this IFieldSymbol _obj)
+        public static System.Int32 FixedSize(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => FixedSizeGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Boolean IsExplicitlyNamedTupleElement(this IFieldSymbol _obj)
+        public static System.Boolean IsExplicitlyNamedTupleElement(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => IsExplicitlyNamedTupleElementGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsRequired(this IFieldSymbol _obj)
+        public static System.Boolean IsRequired(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => IsRequiredGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this IFieldSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ImmutableArray<CustomModifier> RefCustomModifiers(this IFieldSymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => RefCustomModifiersGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static RefKind RefKind(this IFieldSymbol _obj)
+        public static Microsoft.CodeAnalysis.RefKind RefKind(this Microsoft.CodeAnalysis.IFieldSymbol _obj)
             => RefKindGetterFunc(_obj);
     }
 }

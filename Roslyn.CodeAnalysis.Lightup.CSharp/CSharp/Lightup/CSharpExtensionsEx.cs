@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,13 +14,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpExtensions";
 
-        private delegate DataFlowAnalysis? AnalyzeDataFlowDelegate0(SemanticModel? semanticModel, ConstructorInitializerSyntax constructorInitializer);
-        private delegate DataFlowAnalysis? AnalyzeDataFlowDelegate1(SemanticModel? semanticModel, PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType);
-        private delegate IMethodSymbol? GetDeclaredSymbolDelegate2(SemanticModel? semanticModel, CompilationUnitSyntax declarationSyntax, CancellationToken cancellationToken);
-        private delegate INamespaceSymbol? GetDeclaredSymbolDelegate3(SemanticModel? semanticModel, FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, CancellationToken cancellationToken);
-        private delegate SymbolInfo GetSpeculativeSymbolInfoDelegate4(SemanticModel? semanticModel, Int32 position, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer);
-        private delegate SymbolInfo GetSymbolInfoDelegate5(SemanticModel? semanticModel, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, CancellationToken cancellationToken);
-        private delegate Boolean TryGetSpeculativeSemanticModelDelegate6(SemanticModel? semanticModel, Int32 position, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out SemanticModel? speculativeModel);
+        private delegate Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlowDelegate0(Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax constructorInitializer);
+        private delegate Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlowDelegate1(Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate2(Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbolDelegate3(Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfoDelegate4(Microsoft.CodeAnalysis.SemanticModel? semanticModel, System.Int32 position, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer);
+        private delegate Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfoDelegate5(Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Boolean TryGetSpeculativeSemanticModelDelegate6(Microsoft.CodeAnalysis.SemanticModel? semanticModel, System.Int32 position, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out Microsoft.CodeAnalysis.SemanticModel? speculativeModel);
 
         private static readonly AnalyzeDataFlowDelegate0 AnalyzeDataFlowFunc0;
         private static readonly AnalyzeDataFlowDelegate1 AnalyzeDataFlowFunc1;
@@ -57,31 +44,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static DataFlowAnalysis? AnalyzeDataFlow(this SemanticModel? semanticModel, ConstructorInitializerSyntax constructorInitializer)
+        public static Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlow(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax constructorInitializer)
             => AnalyzeDataFlowFunc0(semanticModel, constructorInitializer);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static DataFlowAnalysis? AnalyzeDataFlow(this SemanticModel? semanticModel, PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType)
+        public static Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlow(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType)
             => AnalyzeDataFlowFunc1(semanticModel, primaryConstructorBaseType);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IMethodSymbol? GetDeclaredSymbol(this SemanticModel? semanticModel, CompilationUnitSyntax declarationSyntax, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, System.Threading.CancellationToken cancellationToken)
             => GetDeclaredSymbolFunc2(semanticModel, declarationSyntax, cancellationToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static INamespaceSymbol? GetDeclaredSymbol(this SemanticModel? semanticModel, FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbol(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, System.Threading.CancellationToken cancellationToken)
             => GetDeclaredSymbolFunc3(semanticModel, declarationSyntax, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SymbolInfo GetSpeculativeSymbolInfo(this SemanticModel? semanticModel, Int32 position, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer)
+        public static Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfo(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, System.Int32 position, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer)
             => GetSpeculativeSymbolInfoFunc4(semanticModel, position, constructorInitializer);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SymbolInfo GetSymbolInfo(this SemanticModel? semanticModel, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfo(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, System.Threading.CancellationToken cancellationToken)
             => GetSymbolInfoFunc5(semanticModel, constructorInitializer, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean TryGetSpeculativeSemanticModel(this SemanticModel? semanticModel, Int32 position, PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out SemanticModel? speculativeModel)
+        public static System.Boolean TryGetSpeculativeSemanticModel(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, System.Int32 position, Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out Microsoft.CodeAnalysis.SemanticModel? speculativeModel)
             => TryGetSpeculativeSemanticModelFunc6(semanticModel, position, constructorInitializer, out speculativeModel);
     }
 }

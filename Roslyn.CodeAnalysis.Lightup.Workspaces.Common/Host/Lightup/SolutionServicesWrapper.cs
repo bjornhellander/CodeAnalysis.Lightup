@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
@@ -30,19 +14,19 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.SolutionServices";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IEnumerable<String> SupportedLanguagesGetterDelegate(object? _obj);
+        private delegate System.Collections.Generic.IEnumerable<System.String> SupportedLanguagesGetterDelegate(System.Object? _obj);
 
-        private delegate LanguageServicesWrapper GetLanguageServicesDelegate0(object? _obj, String languageName);
-        private delegate Boolean IsSupportedDelegate1(object? _obj, String languageName);
+        private delegate Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServicesDelegate0(System.Object? _obj, System.String languageName);
+        private delegate System.Boolean IsSupportedDelegate1(System.Object? _obj, System.String languageName);
 
         private static readonly SupportedLanguagesGetterDelegate SupportedLanguagesGetterFunc;
 
         private static readonly GetLanguageServicesDelegate0 GetLanguageServicesFunc0;
         private static readonly IsSupportedDelegate1 IsSupportedFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static SolutionServicesWrapper()
         {
@@ -54,35 +38,35 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             IsSupportedFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "languageNameString");
         }
 
-        private SolutionServicesWrapper(object? obj)
+        private SolutionServicesWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly IEnumerable<String> SupportedLanguages
+        public readonly System.Collections.Generic.IEnumerable<System.String> SupportedLanguages
         {
             get => SupportedLanguagesGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SolutionServicesWrapper As(object? obj)
+        public static SolutionServicesWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new SolutionServicesWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly LanguageServicesWrapper GetLanguageServices(String languageName)
+        public readonly Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServices(System.String languageName)
             => GetLanguageServicesFunc0(wrappedObject, languageName);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Boolean IsSupported(String languageName)
+        public readonly System.Boolean IsSupported(System.String languageName)
             => IsSupportedFunc1(wrappedObject, languageName);
     }
 }

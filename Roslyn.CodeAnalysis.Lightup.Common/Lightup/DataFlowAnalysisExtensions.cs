@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
 
-        private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnEntryGetterDelegate(DataFlowAnalysis? _obj);
-        private delegate ImmutableArray<ISymbol> DefinitelyAssignedOnExitGetterDelegate(DataFlowAnalysis? _obj);
-        private delegate ImmutableArray<IMethodSymbol> UsedLocalFunctionsGetterDelegate(DataFlowAnalysis? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntryGetterDelegate(Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExitGetterDelegate(Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IMethodSymbol> UsedLocalFunctionsGetterDelegate(Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
 
         private static readonly DefinitelyAssignedOnEntryGetterDelegate DefinitelyAssignedOnEntryGetterFunc;
         private static readonly DefinitelyAssignedOnExitGetterDelegate DefinitelyAssignedOnExitGetterFunc;
@@ -44,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<ISymbol> DefinitelyAssignedOnEntry(this DataFlowAnalysis _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntry(this Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
             => DefinitelyAssignedOnEntryGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<ISymbol> DefinitelyAssignedOnExit(this DataFlowAnalysis _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExit(this Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
             => DefinitelyAssignedOnExitGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<IMethodSymbol> UsedLocalFunctions(this DataFlowAnalysis _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IMethodSymbol> UsedLocalFunctions(this Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
             => UsedLocalFunctionsGetterFunc(_obj);
     }
 }

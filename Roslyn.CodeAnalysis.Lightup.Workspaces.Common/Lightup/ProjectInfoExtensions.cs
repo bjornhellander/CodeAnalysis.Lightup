@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,12 +14,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectInfo";
 
-        private delegate IReadOnlyList<DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(ProjectInfo? _obj);
-        private delegate CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(ProjectInfo? _obj);
+        private delegate System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(Microsoft.CodeAnalysis.ProjectInfo? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(Microsoft.CodeAnalysis.ProjectInfo? _obj);
 
-        private delegate ProjectInfo WithAnalyzerConfigDocumentsDelegate0(ProjectInfo? _obj, IEnumerable<DocumentInfo>? analyzerConfigDocuments);
-        private delegate ProjectInfo WithCompilationOutputInfoDelegate1(ProjectInfo? _obj, in CompilationOutputInfoWrapper info);
-        private delegate ProjectInfo WithDefaultNamespaceDelegate2(ProjectInfo? _obj, String? defaultNamespace);
+        private delegate Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(Microsoft.CodeAnalysis.ProjectInfo? _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
+        private delegate Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(Microsoft.CodeAnalysis.ProjectInfo? _obj, in Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(Microsoft.CodeAnalysis.ProjectInfo? _obj, System.String? defaultNamespace);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;
@@ -57,23 +41,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static IReadOnlyList<DocumentInfo> AnalyzerConfigDocuments(this ProjectInfo _obj)
+        public static System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocuments(this Microsoft.CodeAnalysis.ProjectInfo _obj)
             => AnalyzerConfigDocumentsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static CompilationOutputInfoWrapper CompilationOutputInfo(this ProjectInfo _obj)
+        public static Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfo(this Microsoft.CodeAnalysis.ProjectInfo _obj)
             => CompilationOutputInfoGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ProjectInfo WithAnalyzerConfigDocuments(this ProjectInfo _obj, IEnumerable<DocumentInfo>? analyzerConfigDocuments)
+        public static Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.ProjectInfo _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments)
             => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ProjectInfo WithCompilationOutputInfo(this ProjectInfo _obj, in CompilationOutputInfoWrapper info)
+        public static Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this Microsoft.CodeAnalysis.ProjectInfo _obj, in Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
             => WithCompilationOutputInfoFunc1(_obj, in info);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static ProjectInfo WithDefaultNamespace(this ProjectInfo _obj, String? defaultNamespace)
+        public static Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this Microsoft.CodeAnalysis.ProjectInfo _obj, System.String? defaultNamespace)
             => WithDefaultNamespaceFunc2(_obj, defaultNamespace);
     }
 }

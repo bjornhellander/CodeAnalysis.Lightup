@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation";
 
-        private delegate ImmutableArray<IOperation> IgnoredDimensionsGetterDelegate(IVariableDeclarationOperation? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IOperation> IgnoredDimensionsGetterDelegate(Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation? _obj);
 
         private static readonly IgnoredDimensionsGetterDelegate IgnoredDimensionsGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<IOperation> IgnoredDimensions(this IVariableDeclarationOperation _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IOperation> IgnoredDimensions(this Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation _obj)
             => IgnoredDimensionsGetterFunc(_obj);
     }
 }

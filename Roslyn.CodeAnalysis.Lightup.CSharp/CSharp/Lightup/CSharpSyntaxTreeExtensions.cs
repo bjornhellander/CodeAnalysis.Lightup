@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree";
 
-        private delegate SyntaxTree CreateDelegate0(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions);
-        private delegate SyntaxTree CreateDelegate1(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode);
-        private delegate SyntaxTree ParseTextDelegate2(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken);
-        private delegate SyntaxTree ParseTextDelegate3(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken);
-        private delegate SyntaxTree ParseTextDelegate4(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken);
-        private delegate SyntaxTree ParseTextDelegate5(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree CreateDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree CreateDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate2(Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate3(Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate4(System.String text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate5(System.String text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode, System.Threading.CancellationToken cancellationToken);
 
-        private delegate IEnumerable<LineMappingWrapper> GetLineMappingsDelegate0(CSharpSyntaxTree? _obj, CancellationToken cancellationToken);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree? _obj, System.Threading.CancellationToken cancellationToken);
 
         private static readonly CreateDelegate0 CreateFunc0;
         private static readonly CreateDelegate1 CreateFunc1;
@@ -60,31 +47,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions)
+        public static Microsoft.CodeAnalysis.SyntaxTree Create(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions)
             => CreateFunc0(root, options, path, encoding, diagnosticOptions);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree Create(CSharpSyntaxNode root, CSharpParseOptions? options, String? path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode)
+        public static Microsoft.CodeAnalysis.SyntaxTree Create(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode)
             => CreateFunc1(root, options, path, encoding, diagnosticOptions, isGeneratedCode);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.SyntaxTree ParseText(Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Threading.CancellationToken cancellationToken)
             => ParseTextFunc2(text, options, path, diagnosticOptions, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree ParseText(SourceText text, CSharpParseOptions? options, String path, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.SyntaxTree ParseText(Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode, System.Threading.CancellationToken cancellationToken)
             => ParseTextFunc3(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.SyntaxTree ParseText(System.String text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Threading.CancellationToken cancellationToken)
             => ParseTextFunc4(text, options, path, encoding, diagnosticOptions, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static SyntaxTree ParseText(String text, CSharpParseOptions? options, String path, Encoding? encoding, ImmutableDictionary<String, ReportDiagnostic>? diagnosticOptions, Nullable<Boolean> isGeneratedCode, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.SyntaxTree ParseText(System.String text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode, System.Threading.CancellationToken cancellationToken)
             => ParseTextFunc5(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static IEnumerable<LineMappingWrapper> GetLineMappings(this CSharpSyntaxTree _obj, CancellationToken cancellationToken)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappings(this Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree _obj, System.Threading.CancellationToken cancellationToken)
             => GetLineMappingsFunc0(_obj, cancellationToken);
     }
 }

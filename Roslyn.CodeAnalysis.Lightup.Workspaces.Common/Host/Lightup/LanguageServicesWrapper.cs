@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
@@ -30,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.LanguageServices";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate String LanguageGetterDelegate(object? _obj);
-        private delegate SolutionServicesWrapper SolutionServicesGetterDelegate(object? _obj);
+        private delegate System.String LanguageGetterDelegate(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServicesGetterDelegate(System.Object? _obj);
 
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SolutionServicesGetterDelegate SolutionServicesGetterFunc;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static LanguageServicesWrapper()
         {
@@ -48,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             SolutionServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
         }
 
-        private LanguageServicesWrapper(object? obj)
+        private LanguageServicesWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly String Language
+        public readonly System.String Language
         {
             get => LanguageGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly SolutionServicesWrapper SolutionServices
+        public readonly Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServices
         {
             get => SolutionServicesGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static LanguageServicesWrapper As(object? obj)
+        public static LanguageServicesWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new LanguageServicesWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
     }
 }

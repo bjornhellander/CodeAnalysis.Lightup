@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,21 +14,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken CharacterGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken CloseParenTokenGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken CommaTokenGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken LineGetterDelegate(CSharpSyntaxNode? _obj);
-        private delegate SyntaxToken OpenParenTokenGetterDelegate(CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CharacterGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CloseParenTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CommaTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken LineGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken OpenParenTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
-        private delegate void AcceptDelegate0(CSharpSyntaxNode? _obj, CSharpSyntaxVisitor visitor);
-        private delegate LineDirectivePositionSyntaxWrapper UpdateDelegate1(CSharpSyntaxNode? _obj, SyntaxToken openParenToken, SyntaxToken line, SyntaxToken commaToken, SyntaxToken character, SyntaxToken closeParenToken);
-        private delegate LineDirectivePositionSyntaxWrapper WithCharacterDelegate2(CSharpSyntaxNode? _obj, SyntaxToken character);
-        private delegate LineDirectivePositionSyntaxWrapper WithCloseParenTokenDelegate3(CSharpSyntaxNode? _obj, SyntaxToken closeParenToken);
-        private delegate LineDirectivePositionSyntaxWrapper WithCommaTokenDelegate4(CSharpSyntaxNode? _obj, SyntaxToken commaToken);
-        private delegate LineDirectivePositionSyntaxWrapper WithLineDelegate5(CSharpSyntaxNode? _obj, SyntaxToken line);
-        private delegate LineDirectivePositionSyntaxWrapper WithOpenParenTokenDelegate6(CSharpSyntaxNode? _obj, SyntaxToken openParenToken);
+        private delegate void AcceptDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper UpdateDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.SyntaxToken line, Microsoft.CodeAnalysis.SyntaxToken commaToken, Microsoft.CodeAnalysis.SyntaxToken character, Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCharacterDelegate2(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken character);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCloseParenTokenDelegate3(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCommaTokenDelegate4(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken commaToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithLineDelegate5(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken line);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithOpenParenTokenDelegate6(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, Microsoft.CodeAnalysis.SyntaxToken openParenToken);
 
         private static readonly CharacterGetterDelegate CharacterGetterFunc;
         private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;
@@ -57,7 +44,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithLineDelegate5 WithLineFunc5;
         private static readonly WithOpenParenTokenDelegate6 WithOpenParenTokenFunc6;
 
-        private readonly CSharpSyntaxNode? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? wrappedObject;
 
         static LineDirectivePositionSyntaxWrapper()
         {
@@ -78,82 +65,82 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithOpenParenTokenFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate6>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
         }
 
-        private LineDirectivePositionSyntaxWrapper(CSharpSyntaxNode? obj)
+        private LineDirectivePositionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken Character
+        public readonly Microsoft.CodeAnalysis.SyntaxToken Character
         {
             get => CharacterGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken CloseParenToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken CloseParenToken
         {
             get => CloseParenTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken CommaToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken CommaToken
         {
             get => CommaTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken Line
+        public readonly Microsoft.CodeAnalysis.SyntaxToken Line
         {
             get => LineGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken OpenParenToken
+        public readonly Microsoft.CodeAnalysis.SyntaxToken OpenParenToken
         {
             get => OpenParenTokenGetterFunc(wrappedObject);
         }
 
-        public static implicit operator CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static LineDirectivePositionSyntaxWrapper As(object? obj)
+        public static LineDirectivePositionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new LineDirectivePositionSyntaxWrapper(obj2);
         }
 
-        public CSharpSyntaxNode? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly void Accept(CSharpSyntaxVisitor visitor)
+        public readonly void Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper Update(SyntaxToken openParenToken, SyntaxToken line, SyntaxToken commaToken, SyntaxToken character, SyntaxToken closeParenToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper Update(Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.SyntaxToken line, Microsoft.CodeAnalysis.SyntaxToken commaToken, Microsoft.CodeAnalysis.SyntaxToken character, Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
             => UpdateFunc1(wrappedObject, openParenToken, line, commaToken, character, closeParenToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper WithCharacter(SyntaxToken character)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCharacter(Microsoft.CodeAnalysis.SyntaxToken character)
             => WithCharacterFunc2(wrappedObject, character);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper WithCloseParenToken(SyntaxToken closeParenToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCloseParenToken(Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
             => WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper WithCommaToken(SyntaxToken commaToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCommaToken(Microsoft.CodeAnalysis.SyntaxToken commaToken)
             => WithCommaTokenFunc4(wrappedObject, commaToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper WithLine(SyntaxToken line)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithLine(Microsoft.CodeAnalysis.SyntaxToken line)
             => WithLineFunc5(wrappedObject, line);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineDirectivePositionSyntaxWrapper WithOpenParenToken(SyntaxToken openParenToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithOpenParenToken(Microsoft.CodeAnalysis.SyntaxToken openParenToken)
             => WithOpenParenTokenFunc6(wrappedObject, openParenToken);
     }
 }

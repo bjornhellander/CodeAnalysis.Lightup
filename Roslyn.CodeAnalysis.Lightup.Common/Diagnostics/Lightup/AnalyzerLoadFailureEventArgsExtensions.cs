@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs";
 
-        private delegate Version? ReferencedCompilerVersionGetterDelegate(AnalyzerLoadFailureEventArgs? _obj);
+        private delegate System.Version? ReferencedCompilerVersionGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs? _obj);
 
         private static readonly ReferencedCompilerVersionGetterDelegate ReferencedCompilerVersionGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Version? ReferencedCompilerVersion(this AnalyzerLoadFailureEventArgs _obj)
+        public static System.Version? ReferencedCompilerVersion(this Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs _obj)
             => ReferencedCompilerVersionGetterFunc(_obj);
     }
 }

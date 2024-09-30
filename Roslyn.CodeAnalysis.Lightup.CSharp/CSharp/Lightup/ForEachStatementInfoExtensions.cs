@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
 
-        private delegate Boolean IsAsynchronousGetterDelegate(ForEachStatementInfo? _obj);
+        private delegate System.Boolean IsAsynchronousGetterDelegate(Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo? _obj);
 
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsAsynchronous(this ForEachStatementInfo _obj)
+        public static System.Boolean IsAsynchronous(this Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo _obj)
             => IsAsynchronousGetterFunc(_obj);
     }
 }

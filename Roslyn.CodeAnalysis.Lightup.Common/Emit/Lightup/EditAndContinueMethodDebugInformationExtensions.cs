@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation";
 
-        private delegate EditAndContinueMethodDebugInformation CreateDelegate0(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap);
+        private delegate Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation CreateDelegate0(System.Collections.Immutable.ImmutableArray<System.Byte> compressedSlotMap, System.Collections.Immutable.ImmutableArray<System.Byte> compressedLambdaMap, System.Collections.Immutable.ImmutableArray<System.Byte> compressedStateMachineStateMap);
 
         private static readonly CreateDelegate0 CreateFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static EditAndContinueMethodDebugInformation Create(ImmutableArray<Byte> compressedSlotMap, ImmutableArray<Byte> compressedLambdaMap, ImmutableArray<Byte> compressedStateMachineStateMap)
+        public static Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation Create(System.Collections.Immutable.ImmutableArray<System.Byte> compressedSlotMap, System.Collections.Immutable.ImmutableArray<System.Byte> compressedLambdaMap, System.Collections.Immutable.ImmutableArray<System.Byte> compressedStateMachineStateMap)
             => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
 
-        private delegate Int32 MetadataTokenGetterDelegate(ISymbol? _obj);
+        private delegate System.Int32 MetadataTokenGetterDelegate(Microsoft.CodeAnalysis.ISymbol? _obj);
 
-        private delegate Boolean EqualsDelegate0(ISymbol? _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer);
+        private delegate System.Boolean EqualsDelegate0(Microsoft.CodeAnalysis.ISymbol? _obj, Microsoft.CodeAnalysis.ISymbol? other, Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer);
 
         private static readonly MetadataTokenGetterDelegate MetadataTokenGetterFunc;
 
@@ -44,11 +32,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Int32 MetadataToken(this ISymbol _obj)
+        public static System.Int32 MetadataToken(this Microsoft.CodeAnalysis.ISymbol _obj)
             => MetadataTokenGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean Equals(this ISymbol _obj, ISymbol? other, SymbolEqualityComparerWrapper equalityComparer)
+        public static System.Boolean Equals(this Microsoft.CodeAnalysis.ISymbol _obj, Microsoft.CodeAnalysis.ISymbol? other, Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer)
             => EqualsFunc0(_obj, other, equalityComparer);
     }
 }

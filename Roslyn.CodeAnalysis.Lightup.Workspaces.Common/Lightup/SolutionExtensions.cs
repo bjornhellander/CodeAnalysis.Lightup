@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,29 +14,29 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Solution";
 
-        private delegate IReadOnlyList<AnalyzerReference> AnalyzerReferencesGetterDelegate(Solution? _obj);
-        private delegate SolutionServicesWrapper ServicesGetterDelegate(Solution? _obj);
+        private delegate System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferencesGetterDelegate(Microsoft.CodeAnalysis.Solution? _obj);
+        private delegate Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper ServicesGetterDelegate(Microsoft.CodeAnalysis.Solution? _obj);
 
-        private delegate Solution AddAdditionalDocumentsDelegate0(Solution? _obj, ImmutableArray<DocumentInfo> documentInfos);
-        private delegate Solution AddAnalyzerConfigDocumentDelegate1(Solution? _obj, DocumentId documentId, String name, SourceText text, IEnumerable<String>? folders, String? filePath);
-        private delegate Solution AddAnalyzerConfigDocumentsDelegate2(Solution? _obj, ImmutableArray<DocumentInfo> documentInfos);
-        private delegate Solution AddAnalyzerReferenceDelegate3(Solution? _obj, AnalyzerReference analyzerReference);
-        private delegate Solution AddAnalyzerReferencesDelegate4(Solution? _obj, IEnumerable<AnalyzerReference> analyzerReferences);
-        private delegate Boolean ContainsAnalyzerConfigDocumentDelegate5(Solution? _obj, DocumentId? documentId);
-        private delegate AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocumentDelegate6(Solution? _obj, DocumentId? documentId);
-        private delegate ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate7(Solution? _obj, DocumentId documentId, CancellationToken cancellationToken);
-        private delegate Solution RemoveAdditionalDocumentsDelegate8(Solution? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Solution RemoveAnalyzerConfigDocumentDelegate9(Solution? _obj, DocumentId documentId);
-        private delegate Solution RemoveAnalyzerConfigDocumentsDelegate10(Solution? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Solution RemoveAnalyzerReferenceDelegate11(Solution? _obj, AnalyzerReference analyzerReference);
-        private delegate Solution RemoveDocumentsDelegate12(Solution? _obj, ImmutableArray<DocumentId> documentIds);
-        private delegate Solution WithAnalyzerConfigDocumentTextDelegate13(Solution? _obj, DocumentId documentId, SourceText text, PreservationMode mode);
-        private delegate Solution WithAnalyzerConfigDocumentTextDelegate14(Solution? _obj, DocumentId documentId, TextAndVersion textAndVersion, PreservationMode mode);
-        private delegate Solution WithAnalyzerConfigDocumentTextLoaderDelegate15(Solution? _obj, DocumentId documentId, TextLoader loader, PreservationMode mode);
-        private delegate Solution WithAnalyzerReferencesDelegate16(Solution? _obj, IEnumerable<AnalyzerReference> analyzerReferences);
-        private delegate Solution WithOptionsDelegate17(Solution? _obj, OptionSet options);
-        private delegate Solution WithProjectCompilationOutputInfoDelegate18(Solution? _obj, ProjectId projectId, in CompilationOutputInfoWrapper info);
-        private delegate Solution WithProjectDefaultNamespaceDelegate19(Solution? _obj, ProjectId projectId, String? defaultNamespace);
+        private delegate Microsoft.CodeAnalysis.Solution AddAdditionalDocumentsDelegate0(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentInfo> documentInfos);
+        private delegate Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocumentDelegate1(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.String name, Microsoft.CodeAnalysis.Text.SourceText text, System.Collections.Generic.IEnumerable<System.String>? folders, System.String? filePath);
+        private delegate Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocumentsDelegate2(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentInfo> documentInfos);
+        private delegate Microsoft.CodeAnalysis.Solution AddAnalyzerReferenceDelegate3(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference);
+        private delegate Microsoft.CodeAnalysis.Solution AddAnalyzerReferencesDelegate4(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
+        private delegate System.Boolean ContainsAnalyzerConfigDocumentDelegate5(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId? documentId);
+        private delegate Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocumentDelegate6(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId? documentId);
+        private delegate System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate7(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.Solution RemoveAdditionalDocumentsDelegate8(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocumentDelegate9(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocumentsDelegate10(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Solution RemoveAnalyzerReferenceDelegate11(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference);
+        private delegate Microsoft.CodeAnalysis.Solution RemoveDocumentsDelegate12(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate13(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.PreservationMode mode);
+        private delegate Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate14(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.TextAndVersion textAndVersion, Microsoft.CodeAnalysis.PreservationMode mode);
+        private delegate Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoaderDelegate15(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.TextLoader loader, Microsoft.CodeAnalysis.PreservationMode mode);
+        private delegate Microsoft.CodeAnalysis.Solution WithAnalyzerReferencesDelegate16(Microsoft.CodeAnalysis.Solution? _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
+        private delegate Microsoft.CodeAnalysis.Solution WithOptionsDelegate17(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.Options.OptionSet options);
+        private delegate Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate18(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.ProjectId projectId, in Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespaceDelegate19(Microsoft.CodeAnalysis.Solution? _obj, Microsoft.CodeAnalysis.ProjectId projectId, System.String? defaultNamespace);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
         private static readonly ServicesGetterDelegate ServicesGetterFunc;
@@ -108,91 +92,91 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static IReadOnlyList<AnalyzerReference> AnalyzerReferences(this Solution _obj)
+        public static System.Collections.Generic.IReadOnlyList<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this Microsoft.CodeAnalysis.Solution _obj)
             => AnalyzerReferencesGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static SolutionServicesWrapper Services(this Solution _obj)
+        public static Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper Services(this Microsoft.CodeAnalysis.Solution _obj)
             => ServicesGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution AddAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
+        public static Microsoft.CodeAnalysis.Solution AddAdditionalDocuments(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
             => AddAdditionalDocumentsFunc0(_obj, documentInfos);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution AddAnalyzerConfigDocument(this Solution _obj, DocumentId documentId, String name, SourceText text, IEnumerable<String>? folders, String? filePath)
+        public static Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.String name, Microsoft.CodeAnalysis.Text.SourceText text, System.Collections.Generic.IEnumerable<System.String>? folders, System.String? filePath)
             => AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution AddAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentInfo> documentInfos)
+        public static Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
             => AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution AddAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
+        public static Microsoft.CodeAnalysis.Solution AddAnalyzerReference(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
             => AddAnalyzerReferenceFunc3(_obj, analyzerReference);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution AddAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
+        public static Microsoft.CodeAnalysis.Solution AddAnalyzerReferences(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
             => AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Boolean ContainsAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
+        public static System.Boolean ContainsAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId? documentId)
             => ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Solution _obj, DocumentId? documentId)
+        public static Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId? documentId)
             => GetAnalyzerConfigDocumentFunc6(_obj, documentId);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public static ValueTask<SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Solution _obj, DocumentId documentId, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.ValueTask<Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId, System.Threading.CancellationToken cancellationToken)
             => GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution RemoveAdditionalDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Solution RemoveAdditionalDocuments(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveAdditionalDocumentsFunc8(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution RemoveAnalyzerConfigDocument(this Solution _obj, DocumentId documentId)
+        public static Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocument(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId)
             => RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution RemoveAnalyzerConfigDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocuments(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution RemoveAnalyzerReference(this Solution _obj, AnalyzerReference analyzerReference)
+        public static Microsoft.CodeAnalysis.Solution RemoveAnalyzerReference(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
             => RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution RemoveDocuments(this Solution _obj, ImmutableArray<DocumentId> documentIds)
+        public static Microsoft.CodeAnalysis.Solution RemoveDocuments(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.DocumentId> documentIds)
             => RemoveDocumentsFunc12(_obj, documentIds);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, SourceText text, PreservationMode mode)
+        public static Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.Text.SourceText text, Microsoft.CodeAnalysis.PreservationMode mode)
             => WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithAnalyzerConfigDocumentText(this Solution _obj, DocumentId documentId, TextAndVersion textAndVersion, PreservationMode mode)
+        public static Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.TextAndVersion textAndVersion, Microsoft.CodeAnalysis.PreservationMode mode)
             => WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithAnalyzerConfigDocumentTextLoader(this Solution _obj, DocumentId documentId, TextLoader loader, PreservationMode mode)
+        public static Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoader(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.DocumentId documentId, Microsoft.CodeAnalysis.TextLoader loader, Microsoft.CodeAnalysis.PreservationMode mode)
             => WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithAnalyzerReferences(this Solution _obj, IEnumerable<AnalyzerReference> analyzerReferences)
+        public static Microsoft.CodeAnalysis.Solution WithAnalyzerReferences(this Microsoft.CodeAnalysis.Solution _obj, System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
             => WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithOptions(this Solution _obj, OptionSet options)
+        public static Microsoft.CodeAnalysis.Solution WithOptions(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.Options.OptionSet options)
             => WithOptionsFunc17(_obj, options);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithProjectCompilationOutputInfo(this Solution _obj, ProjectId projectId, in CompilationOutputInfoWrapper info)
+        public static Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.ProjectId projectId, in Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
             => WithProjectCompilationOutputInfoFunc18(_obj, projectId, in info);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Solution WithProjectDefaultNamespace(this Solution _obj, ProjectId projectId, String? defaultNamespace)
+        public static Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespace(this Microsoft.CodeAnalysis.Solution _obj, Microsoft.CodeAnalysis.ProjectId projectId, System.String? defaultNamespace)
             => WithProjectDefaultNamespaceFunc19(_obj, projectId, defaultNamespace);
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Classification.Lightup
 {
@@ -30,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Classification.ClassificationTypeNames";
 
-        private delegate String RecordClassNameGetterDelegate();
-        private delegate String RecordStructNameGetterDelegate();
+        private delegate System.String RecordClassNameGetterDelegate();
+        private delegate System.String RecordStructNameGetterDelegate();
 
-        private delegate ImmutableArray<String> AllTypeNamesGetterDelegate();
+        private delegate System.Collections.Immutable.ImmutableArray<System.String> AllTypeNamesGetterDelegate();
 
         private static readonly RecordClassNameGetterDelegate RecordClassNameGetterFunc;
         private static readonly RecordStructNameGetterDelegate RecordStructNameGetterFunc;
@@ -51,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
-        public static String RecordClassName
+        public static System.String RecordClassName
         {
             get => RecordClassNameGetterFunc();
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
-        public static String RecordStructName
+        public static System.String RecordStructName
         {
             get => RecordStructNameGetterFunc();
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ImmutableArray<String> AllTypeNames()
+        public static System.Collections.Immutable.ImmutableArray<System.String> AllTypeNames()
             => AllTypeNamesGetterFunc();
     }
 }

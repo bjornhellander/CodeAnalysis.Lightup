@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax";
 
-        private delegate SyntaxToken CheckedKeywordGetterDelegate(OperatorMemberCrefSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj);
 
-        private delegate OperatorMemberCrefSyntax UpdateDelegate0(OperatorMemberCrefSyntax? _obj, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters);
-        private delegate OperatorMemberCrefSyntax WithCheckedKeywordDelegate1(OperatorMemberCrefSyntax? _obj, SyntaxToken checkedKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax UpdateDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax WithCheckedKeywordDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static SyntaxToken CheckedKeyword(this OperatorMemberCrefSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken CheckedKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj)
             => CheckedKeywordGetterFunc(_obj);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static OperatorMemberCrefSyntax Update(this OperatorMemberCrefSyntax _obj, SyntaxToken operatorKeyword, SyntaxToken checkedKeyword, SyntaxToken operatorToken, CrefParameterListSyntax? parameters)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, Microsoft.CodeAnalysis.SyntaxToken operatorToken, Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters)
             => UpdateFunc0(_obj, operatorKeyword, checkedKeyword, operatorToken, parameters);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static OperatorMemberCrefSyntax WithCheckedKeyword(this OperatorMemberCrefSyntax _obj, SyntaxToken checkedKeyword)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax WithCheckedKeyword(this Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
             => WithCheckedKeywordFunc1(_obj, checkedKeyword);
     }
 }

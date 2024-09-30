@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITypePatternOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ITypeSymbol MatchedTypeGetterDelegate(IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly MatchedTypeGetterDelegate MatchedTypeGetterFunc;
 
-        private readonly IPatternOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Operations.IPatternOperation? wrappedObject;
 
         static ITypePatternOperationWrapper()
         {
@@ -41,27 +29,27 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             MatchedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
         }
 
-        private ITypePatternOperationWrapper(IPatternOperation? obj)
+        private ITypePatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly ITypeSymbol MatchedType
+        public readonly Microsoft.CodeAnalysis.ITypeSymbol MatchedType
         {
             get => MatchedTypeGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static ITypePatternOperationWrapper As(object? obj)
+        public static ITypePatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IPatternOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new ITypePatternOperationWrapper(obj2);
         }
 
-        public IPatternOperation? Unwrap()
+        public Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
             => wrappedObject;
     }
 }

@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionChanges";
 
-        private delegate IEnumerable<AnalyzerReference> GetAddedAnalyzerReferencesDelegate0(SolutionChanges? _obj);
-        private delegate IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferencesDelegate1(SolutionChanges? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferencesDelegate0(Microsoft.CodeAnalysis.SolutionChanges? _obj);
+        private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferencesDelegate1(Microsoft.CodeAnalysis.SolutionChanges? _obj);
 
         private static readonly GetAddedAnalyzerReferencesDelegate0 GetAddedAnalyzerReferencesFunc0;
         private static readonly GetRemovedAnalyzerReferencesDelegate1 GetRemovedAnalyzerReferencesFunc1;
@@ -45,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IEnumerable<AnalyzerReference> GetAddedAnalyzerReferences(this SolutionChanges _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferences(this Microsoft.CodeAnalysis.SolutionChanges _obj)
             => GetAddedAnalyzerReferencesFunc0(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IEnumerable<AnalyzerReference> GetRemovedAnalyzerReferences(this SolutionChanges _obj)
+        public static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferences(this Microsoft.CodeAnalysis.SolutionChanges _obj)
             => GetRemovedAnalyzerReferencesFunc1(_obj);
     }
 }

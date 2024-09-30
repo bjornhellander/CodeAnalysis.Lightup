@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,9 +14,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
 
-        private delegate ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(ITypeParameterSymbol? _obj);
-        private delegate Boolean HasNotNullConstraintGetterDelegate(ITypeParameterSymbol? _obj);
-        private delegate NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(ITypeParameterSymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
+        private delegate System.Boolean HasNotNullConstraintGetterDelegate(Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
 
         private static readonly ConstraintNullableAnnotationsGetterDelegate ConstraintNullableAnnotationsGetterFunc;
         private static readonly HasNotNullConstraintGetterDelegate HasNotNullConstraintGetterFunc;
@@ -44,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<NullableAnnotationEx> ConstraintNullableAnnotations(this ITypeParameterSymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotations(this Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
             => ConstraintNullableAnnotationsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean HasNotNullConstraint(this ITypeParameterSymbol _obj)
+        public static System.Boolean HasNotNullConstraint(this Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
             => HasNotNullConstraintGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this ITypeParameterSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
             => ReferenceTypeConstraintNullableAnnotationGetterFunc(_obj);
     }
 }

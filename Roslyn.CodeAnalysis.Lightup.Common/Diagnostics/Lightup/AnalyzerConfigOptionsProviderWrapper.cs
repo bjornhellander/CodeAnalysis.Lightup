@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,19 +14,19 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(object? _obj);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(System.Object? _obj);
 
-        private delegate AnalyzerConfigOptionsWrapper GetOptionsDelegate0(object? _obj, SyntaxTree tree);
-        private delegate AnalyzerConfigOptionsWrapper GetOptionsDelegate1(object? _obj, AdditionalText textFile);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.SyntaxTree tree);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.AdditionalText textFile);
 
         private static readonly GlobalOptionsGetterDelegate GlobalOptionsGetterFunc;
 
         private static readonly GetOptionsDelegate0 GetOptionsFunc0;
         private static readonly GetOptionsDelegate1 GetOptionsFunc1;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static AnalyzerConfigOptionsProviderWrapper()
         {
@@ -50,35 +38,35 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             GetOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "textFileAdditionalText");
         }
 
-        private AnalyzerConfigOptionsProviderWrapper(object? obj)
+        private AnalyzerConfigOptionsProviderWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly AnalyzerConfigOptionsWrapper GlobalOptions
+        public readonly Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptions
         {
             get => GlobalOptionsGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static AnalyzerConfigOptionsProviderWrapper As(object? obj)
+        public static AnalyzerConfigOptionsProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsProviderWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly AnalyzerConfigOptionsWrapper GetOptions(SyntaxTree tree)
+        public readonly Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(Microsoft.CodeAnalysis.SyntaxTree tree)
             => GetOptionsFunc0(wrappedObject, tree);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly AnalyzerConfigOptionsWrapper GetOptions(AdditionalText textFile)
+        public readonly Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(Microsoft.CodeAnalysis.AdditionalText textFile)
             => GetOptionsFunc1(wrappedObject, textFile);
     }
 }

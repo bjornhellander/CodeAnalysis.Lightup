@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate IOperation ArgumentGetterDelegate(IOperation? _obj);
-        private delegate IOperation InstanceGetterDelegate(IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation ArgumentGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation InstanceGetterDelegate(Microsoft.CodeAnalysis.IOperation? _obj);
 
         private static readonly ArgumentGetterDelegate ArgumentGetterFunc;
         private static readonly InstanceGetterDelegate InstanceGetterFunc;
 
-        private readonly IOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.IOperation? wrappedObject;
 
         static IInlineArrayAccessOperationWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             InstanceGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
         }
 
-        private IInlineArrayAccessOperationWrapper(IOperation? obj)
+        private IInlineArrayAccessOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly IOperation Argument
+        public readonly Microsoft.CodeAnalysis.IOperation Argument
         {
             get => ArgumentGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly IOperation Instance
+        public readonly Microsoft.CodeAnalysis.IOperation Instance
         {
             get => InstanceGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IInlineArrayAccessOperationWrapper As(object? obj)
+        public static IInlineArrayAccessOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInlineArrayAccessOperationWrapper(obj2);
         }
 
-        public IOperation? Unwrap()
+        public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }
 }

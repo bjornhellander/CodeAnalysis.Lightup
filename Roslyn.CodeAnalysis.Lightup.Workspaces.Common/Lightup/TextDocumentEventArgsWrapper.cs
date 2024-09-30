@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -30,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate TextDocumentEventArgsWrapper ConstructorDelegate0(TextDocument document);
+        private delegate TextDocumentEventArgsWrapper ConstructorDelegate0(Microsoft.CodeAnalysis.TextDocument document);
 
-        private delegate TextDocument DocumentGetterDelegate(EventArgs? _obj);
+        private delegate Microsoft.CodeAnalysis.TextDocument DocumentGetterDelegate(System.EventArgs? _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly DocumentGetterDelegate DocumentGetterFunc;
 
-        private readonly EventArgs? wrappedObject;
+        private readonly System.EventArgs? wrappedObject;
 
         static TextDocumentEventArgsWrapper()
         {
@@ -51,34 +35,34 @@ namespace Microsoft.CodeAnalysis.Lightup
             DocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
-        private TextDocumentEventArgsWrapper(EventArgs? obj)
+        private TextDocumentEventArgsWrapper(System.EventArgs? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
-        public static TextDocumentEventArgsWrapper Create(TextDocument document)
+        public static TextDocumentEventArgsWrapper Create(Microsoft.CodeAnalysis.TextDocument document)
             => ConstructorFunc0(document);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly TextDocument Document
+        public readonly Microsoft.CodeAnalysis.TextDocument Document
         {
             get => DocumentGetterFunc(wrappedObject);
         }
 
-        public static implicit operator EventArgs?(TextDocumentEventArgsWrapper obj)
+        public static implicit operator System.EventArgs?(TextDocumentEventArgsWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static TextDocumentEventArgsWrapper As(object? obj)
+        public static TextDocumentEventArgsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<EventArgs>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.EventArgs>(obj, WrappedType);
             return new TextDocumentEventArgsWrapper(obj2);
         }
 
-        public EventArgs? Unwrap()
+        public System.EventArgs? Unwrap()
             => wrappedObject;
     }
 }

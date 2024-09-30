@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,9 +14,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax";
 
-        private delegate Boolean IsNintGetterDelegate(TypeSyntax? _obj);
-        private delegate Boolean IsNotNullGetterDelegate(TypeSyntax? _obj);
-        private delegate Boolean IsNuintGetterDelegate(TypeSyntax? _obj);
+        private delegate System.Boolean IsNintGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
+        private delegate System.Boolean IsNotNullGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
+        private delegate System.Boolean IsNuintGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
 
         private static readonly IsNintGetterDelegate IsNintGetterFunc;
         private static readonly IsNotNullGetterDelegate IsNotNullGetterFunc;
@@ -45,15 +32,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsNint(this TypeSyntax _obj)
+        public static System.Boolean IsNint(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
             => IsNintGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsNotNull(this TypeSyntax _obj)
+        public static System.Boolean IsNotNull(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
             => IsNotNullGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsNuint(this TypeSyntax _obj)
+        public static System.Boolean IsNuint(this Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
             => IsNuintGetterFunc(_obj);
     }
 }

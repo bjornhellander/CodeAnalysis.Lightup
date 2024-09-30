@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Simplification.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Simplification.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Simplification.Simplifier";
 
-        private delegate SyntaxAnnotation AddImportsAnnotationGetterDelegate();
+        private delegate Microsoft.CodeAnalysis.SyntaxAnnotation AddImportsAnnotationGetterDelegate();
 
         private static readonly AddImportsAnnotationGetterDelegate AddImportsAnnotationGetterFunc;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Simplification.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxAnnotation AddImportsAnnotation()
+        public static Microsoft.CodeAnalysis.SyntaxAnnotation AddImportsAnnotation()
             => AddImportsAnnotationGetterFunc();
     }
 }

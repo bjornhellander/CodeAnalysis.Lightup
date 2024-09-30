@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
 
-        private delegate SyntaxToken TargetTokenGetterDelegate(NullableDirectiveTriviaSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken TargetTokenGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj);
 
-        private delegate NullableDirectiveTriviaSyntax UpdateDelegate0(NullableDirectiveTriviaSyntax? _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive);
-        private delegate NullableDirectiveTriviaSyntax WithTargetTokenDelegate1(NullableDirectiveTriviaSyntax? _obj, SyntaxToken targetToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax UpdateDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken hashToken, Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, Microsoft.CodeAnalysis.SyntaxToken settingToken, Microsoft.CodeAnalysis.SyntaxToken targetToken, Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, System.Boolean isActive);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax WithTargetTokenDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken targetToken);
 
         private static readonly TargetTokenGetterDelegate TargetTokenGetterFunc;
 
@@ -48,15 +35,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxToken TargetToken(this NullableDirectiveTriviaSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxToken TargetToken(this Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj)
             => TargetTokenGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NullableDirectiveTriviaSyntax Update(this NullableDirectiveTriviaSyntax _obj, SyntaxToken hashToken, SyntaxToken nullableKeyword, SyntaxToken settingToken, SyntaxToken targetToken, SyntaxToken endOfDirectiveToken, Boolean isActive)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken hashToken, Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, Microsoft.CodeAnalysis.SyntaxToken settingToken, Microsoft.CodeAnalysis.SyntaxToken targetToken, Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, System.Boolean isActive)
             => UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static NullableDirectiveTriviaSyntax WithTargetToken(this NullableDirectiveTriviaSyntax _obj, SyntaxToken targetToken)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax WithTargetToken(this Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, Microsoft.CodeAnalysis.SyntaxToken targetToken)
             => WithTargetTokenFunc1(_obj, targetToken);
     }
 }

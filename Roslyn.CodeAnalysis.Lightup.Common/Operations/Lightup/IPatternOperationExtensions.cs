@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPatternOperation";
 
-        private delegate ITypeSymbol NarrowedTypeGetterDelegate(IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ITypeSymbol NarrowedTypeGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly NarrowedTypeGetterDelegate NarrowedTypeGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ITypeSymbol NarrowedType(this IPatternOperation _obj)
+        public static Microsoft.CodeAnalysis.ITypeSymbol NarrowedType(this Microsoft.CodeAnalysis.Operations.IPatternOperation _obj)
             => NarrowedTypeGetterFunc(_obj);
     }
 }

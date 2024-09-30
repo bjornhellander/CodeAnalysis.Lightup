@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
@@ -26,18 +14,18 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers";
 
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate0(CompilationWithAnalyzers? _obj, SyntaxTree tree, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate1(CompilationWithAnalyzers? _obj, AdditionalText file, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate2(CompilationWithAnalyzers? _obj, SyntaxTree tree, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate3(CompilationWithAnalyzers? _obj, AdditionalText file, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate4(CompilationWithAnalyzers? _obj, SemanticModel model, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate5(CompilationWithAnalyzers? _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate6(CompilationWithAnalyzers? _obj, AdditionalText file, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate7(CompilationWithAnalyzers? _obj, SemanticModel model, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate8(CompilationWithAnalyzers? _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
-        private delegate Task<AnalysisResult> GetAnalysisResultAsyncDelegate9(CompilationWithAnalyzers? _obj, AdditionalText file, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
-        private delegate Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate10(CompilationWithAnalyzers? _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken);
-        private delegate Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate11(CompilationWithAnalyzers? _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate0(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate1(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate2(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate3(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate4(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SemanticModel model, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate5(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate6(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate7(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SemanticModel model, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate8(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate9(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate10(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate11(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetAnalysisResultAsyncDelegate0 GetAnalysisResultAsyncFunc0;
         private static readonly GetAnalysisResultAsyncDelegate1 GetAnalysisResultAsyncFunc1;
@@ -71,51 +59,51 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc0(_obj, tree, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc1(_obj, file, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc2(_obj, tree, analyzers, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc3(_obj, file, analyzers, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SemanticModel model, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SemanticModel model, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc4(_obj, model, filterSpan, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc5(_obj, tree, filterSpan, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc6(_obj, file, filterSpan, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SemanticModel model, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SemanticModel model, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc7(_obj, model, filterSpan, analyzers, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc8(_obj, tree, filterSpan, analyzers, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<AnalysisResult> GetAnalysisResultAsync(this CompilationWithAnalyzers _obj, AdditionalText file, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalysisResultAsyncFunc9(_obj, file, filterSpan, analyzers, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken)
             => GetAnalyzerSyntaxDiagnosticsAsyncFunc10(_obj, tree, filterSpan, cancellationToken);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static Task<ImmutableArray<Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this CompilationWithAnalyzers _obj, SyntaxTree tree, Nullable<TextSpan> filterSpan, ImmutableArray<DiagnosticAnalyzer> analyzers, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken)
             => GetAnalyzerSyntaxDiagnosticsAsyncFunc11(_obj, tree, filterSpan, analyzers, cancellationToken);
     }
 }

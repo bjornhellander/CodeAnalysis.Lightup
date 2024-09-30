@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
@@ -30,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";
 
-        private delegate LanguageServicesWrapper LanguageServicesGetterDelegate(HostLanguageServices? _obj);
+        private delegate Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper LanguageServicesGetterDelegate(Microsoft.CodeAnalysis.Host.HostLanguageServices? _obj);
 
         private static readonly LanguageServicesGetterDelegate LanguageServicesGetterFunc;
 
@@ -42,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static LanguageServicesWrapper LanguageServices(this HostLanguageServices _obj)
+        public static Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper LanguageServices(this Microsoft.CodeAnalysis.Host.HostLanguageServices _obj)
             => LanguageServicesGetterFunc(_obj);
     }
 }

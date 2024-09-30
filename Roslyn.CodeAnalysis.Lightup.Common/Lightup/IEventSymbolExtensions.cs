@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
 
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(IEventSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IEventSymbol? _obj);
 
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this IEventSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.IEventSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
     }
 }

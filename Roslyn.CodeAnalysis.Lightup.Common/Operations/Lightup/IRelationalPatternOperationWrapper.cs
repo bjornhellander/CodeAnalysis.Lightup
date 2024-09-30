@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,15 +14,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IRelationalPatternOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate BinaryOperatorKind OperatorKindGetterDelegate(IPatternOperation? _obj);
-        private delegate IOperation ValueGetterDelegate(IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
-        private readonly IPatternOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Operations.IPatternOperation? wrappedObject;
 
         static IRelationalPatternOperationWrapper()
         {
@@ -44,33 +32,33 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ValueGetterFunc = LightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
-        private IRelationalPatternOperationWrapper(IPatternOperation? obj)
+        private IRelationalPatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly BinaryOperatorKind OperatorKind
+        public readonly Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
         {
             get => OperatorKindGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly IOperation Value
+        public readonly Microsoft.CodeAnalysis.IOperation Value
         {
             get => ValueGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IRelationalPatternOperationWrapper As(object? obj)
+        public static IRelationalPatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IPatternOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IRelationalPatternOperationWrapper(obj2);
         }
 
-        public IPatternOperation? Unwrap()
+        public Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
             => wrappedObject;
     }
 }

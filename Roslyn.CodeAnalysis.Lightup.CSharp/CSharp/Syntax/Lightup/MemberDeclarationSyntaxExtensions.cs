@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,13 +14,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(MemberDeclarationSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(MemberDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
 
-        private delegate MemberDeclarationSyntax AddAttributeListsDelegate0(MemberDeclarationSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate MemberDeclarationSyntax AddModifiersDelegate1(MemberDeclarationSyntax? _obj, params SyntaxToken[] items);
-        private delegate MemberDeclarationSyntax WithAttributeListsDelegate2(MemberDeclarationSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate MemberDeclarationSyntax WithModifiersDelegate3(MemberDeclarationSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddModifiersDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithAttributeListsDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithModifiersDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
@@ -57,27 +44,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this MemberDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this MemberDeclarationSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static MemberDeclarationSyntax AddAttributeLists(this MemberDeclarationSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static MemberDeclarationSyntax AddModifiers(this MemberDeclarationSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static MemberDeclarationSyntax WithAttributeLists(this MemberDeclarationSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(_obj, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static MemberDeclarationSyntax WithModifiers(this MemberDeclarationSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc3(_obj, modifiers);
     }
 }

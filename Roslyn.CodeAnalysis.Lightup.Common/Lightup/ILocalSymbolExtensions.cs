@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
 
-        private delegate Boolean IsForEachGetterDelegate(ILocalSymbol? _obj);
-        private delegate Boolean IsUsingGetterDelegate(ILocalSymbol? _obj);
-        private delegate NullableAnnotationEx NullableAnnotationGetterDelegate(ILocalSymbol? _obj);
-        private delegate ScopedKindEx ScopedKindGetterDelegate(ILocalSymbol? _obj);
+        private delegate System.Boolean IsForEachGetterDelegate(Microsoft.CodeAnalysis.ILocalSymbol? _obj);
+        private delegate System.Boolean IsUsingGetterDelegate(Microsoft.CodeAnalysis.ILocalSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.ILocalSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(Microsoft.CodeAnalysis.ILocalSymbol? _obj);
 
         private static readonly IsForEachGetterDelegate IsForEachGetterFunc;
         private static readonly IsUsingGetterDelegate IsUsingGetterFunc;
@@ -47,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsForEach(this ILocalSymbol _obj)
+        public static System.Boolean IsForEach(this Microsoft.CodeAnalysis.ILocalSymbol _obj)
             => IsForEachGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsUsing(this ILocalSymbol _obj)
+        public static System.Boolean IsUsing(this Microsoft.CodeAnalysis.ILocalSymbol _obj)
             => IsUsingGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx NullableAnnotation(this ILocalSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this Microsoft.CodeAnalysis.ILocalSymbol _obj)
             => NullableAnnotationGetterFunc(_obj);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static ScopedKindEx ScopedKind(this ILocalSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKind(this Microsoft.CodeAnalysis.ILocalSymbol _obj)
             => ScopedKindGetterFunc(_obj);
     }
 }

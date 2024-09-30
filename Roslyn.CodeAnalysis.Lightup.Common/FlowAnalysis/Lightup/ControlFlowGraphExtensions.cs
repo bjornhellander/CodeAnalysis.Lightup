@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph";
 
-        private delegate ControlFlowGraph CreateDelegate0(IAttributeOperationWrapper attribute, CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph CreateDelegate0(Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper attribute, System.Threading.CancellationToken cancellationToken);
 
         private static readonly CreateDelegate0 CreateFunc0;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public static ControlFlowGraph Create(IAttributeOperationWrapper attribute, CancellationToken cancellationToken)
+        public static Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph Create(Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper attribute, System.Threading.CancellationToken cancellationToken)
             => CreateFunc0(attribute, cancellationToken);
     }
 }

@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,18 +14,18 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
 
-        private delegate SignatureCallingConvention CallingConventionGetterDelegate(IMethodSymbol? _obj);
-        private delegate Boolean IsConditionalGetterDelegate(IMethodSymbol? _obj);
-        private delegate Boolean IsInitOnlyGetterDelegate(IMethodSymbol? _obj);
-        private delegate Boolean IsPartialDefinitionGetterDelegate(IMethodSymbol? _obj);
-        private delegate Boolean IsReadOnlyGetterDelegate(IMethodSymbol? _obj);
-        private delegate MethodImplAttributes MethodImplementationFlagsGetterDelegate(IMethodSymbol? _obj);
-        private delegate NullableAnnotationEx ReceiverNullableAnnotationGetterDelegate(IMethodSymbol? _obj);
-        private delegate NullableAnnotationEx ReturnNullableAnnotationGetterDelegate(IMethodSymbol? _obj);
-        private delegate ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(IMethodSymbol? _obj);
-        private delegate ImmutableArray<INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(IMethodSymbol? _obj);
+        private delegate System.Reflection.Metadata.SignatureCallingConvention CallingConventionGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Boolean IsConditionalGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Boolean IsInitOnlyGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Boolean IsPartialDefinitionGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Boolean IsReadOnlyGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Reflection.MethodImplAttributes MethodImplementationFlagsGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(Microsoft.CodeAnalysis.IMethodSymbol? _obj);
 
-        private delegate IMethodSymbol ConstructDelegate0(IMethodSymbol? _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations);
+        private delegate Microsoft.CodeAnalysis.IMethodSymbol ConstructDelegate0(Microsoft.CodeAnalysis.IMethodSymbol? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
         private static readonly CallingConventionGetterDelegate CallingConventionGetterFunc;
         private static readonly IsConditionalGetterDelegate IsConditionalGetterFunc;
@@ -71,47 +59,47 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SignatureCallingConvention CallingConvention(this IMethodSymbol _obj)
+        public static System.Reflection.Metadata.SignatureCallingConvention CallingConvention(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => CallingConventionGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsConditional(this IMethodSymbol _obj)
+        public static System.Boolean IsConditional(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => IsConditionalGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsInitOnly(this IMethodSymbol _obj)
+        public static System.Boolean IsInitOnly(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => IsInitOnlyGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static Boolean IsPartialDefinition(this IMethodSymbol _obj)
+        public static System.Boolean IsPartialDefinition(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => IsPartialDefinitionGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsReadOnly(this IMethodSymbol _obj)
+        public static System.Boolean IsReadOnly(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => IsReadOnlyGetterFunc(_obj);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public static MethodImplAttributes MethodImplementationFlags(this IMethodSymbol _obj)
+        public static System.Reflection.MethodImplAttributes MethodImplementationFlags(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => MethodImplementationFlagsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx ReceiverNullableAnnotation(this IMethodSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotation(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => ReceiverNullableAnnotationGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx ReturnNullableAnnotation(this IMethodSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotation(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => ReturnNullableAnnotationGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this IMethodSymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<INamedTypeSymbol> UnmanagedCallingConventionTypes(this IMethodSymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypes(this Microsoft.CodeAnalysis.IMethodSymbol _obj)
             => UnmanagedCallingConventionTypesGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static IMethodSymbol Construct(this IMethodSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+        public static Microsoft.CodeAnalysis.IMethodSymbol Construct(this Microsoft.CodeAnalysis.IMethodSymbol _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
             => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

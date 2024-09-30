@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,17 +14,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate GeneratedKindEx IsGeneratedDelegate0(object? _obj, SyntaxTree tree, CancellationToken cancellationToken);
-        private delegate Boolean TryGetDiagnosticValueDelegate1(object? _obj, SyntaxTree tree, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity);
-        private delegate Boolean TryGetGlobalDiagnosticValueDelegate2(object? _obj, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity);
+        private delegate Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGeneratedDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Boolean TryGetDiagnosticValueDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.String diagnosticId, System.Threading.CancellationToken cancellationToken, out Microsoft.CodeAnalysis.ReportDiagnostic severity);
+        private delegate System.Boolean TryGetGlobalDiagnosticValueDelegate2(System.Object? _obj, System.String diagnosticId, System.Threading.CancellationToken cancellationToken, out Microsoft.CodeAnalysis.ReportDiagnostic severity);
 
         private static readonly IsGeneratedDelegate0 IsGeneratedFunc0;
         private static readonly TryGetDiagnosticValueDelegate1 TryGetDiagnosticValueFunc1;
         private static readonly TryGetGlobalDiagnosticValueDelegate2 TryGetGlobalDiagnosticValueFunc2;
 
-        private readonly object? wrappedObject;
+        private readonly System.Object? wrappedObject;
 
         static SyntaxTreeOptionsProviderWrapper()
         {
@@ -47,33 +35,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             TryGetGlobalDiagnosticValueFunc2 = LightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, "TryGetGlobalDiagnosticValue", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
         }
 
-        private SyntaxTreeOptionsProviderWrapper(object? obj)
+        private SyntaxTreeOptionsProviderWrapper(System.Object? obj)
         {
             wrappedObject = obj;
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static SyntaxTreeOptionsProviderWrapper As(object? obj)
+        public static SyntaxTreeOptionsProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<object>(obj, WrappedType);
+            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
             return new SyntaxTreeOptionsProviderWrapper(obj2);
         }
 
-        public object? Unwrap()
+        public System.Object? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly GeneratedKindEx IsGenerated(SyntaxTree tree, CancellationToken cancellationToken)
+        public readonly Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGenerated(Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken)
             => IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Boolean TryGetDiagnosticValue(SyntaxTree tree, String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
+        public readonly System.Boolean TryGetDiagnosticValue(Microsoft.CodeAnalysis.SyntaxTree tree, System.String diagnosticId, System.Threading.CancellationToken cancellationToken, out Microsoft.CodeAnalysis.ReportDiagnostic severity)
             => TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly Boolean TryGetGlobalDiagnosticValue(String diagnosticId, CancellationToken cancellationToken, out ReportDiagnostic severity)
+        public readonly System.Boolean TryGetGlobalDiagnosticValue(System.String diagnosticId, System.Threading.CancellationToken cancellationToken, out Microsoft.CodeAnalysis.ReportDiagnostic severity)
             => TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
     }
 }

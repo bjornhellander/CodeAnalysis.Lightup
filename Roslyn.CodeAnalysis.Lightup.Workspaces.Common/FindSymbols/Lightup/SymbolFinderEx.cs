@@ -5,23 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Host;
-using Microsoft.CodeAnalysis.Host.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
 {
@@ -30,9 +14,9 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FindSymbols.SymbolFinder";
 
-        private delegate Task<IEnumerable<INamedTypeSymbol>> FindDerivedClassesAsyncDelegate0(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken);
-        private delegate Task<IEnumerable<INamedTypeSymbol>> FindDerivedInterfacesAsyncDelegate1(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken);
-        private delegate Task<IEnumerable<INamedTypeSymbol>> FindImplementationsAsyncDelegate2(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsyncDelegate0(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsyncDelegate1(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsyncDelegate2(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken);
 
         private static readonly FindDerivedClassesAsyncDelegate0 FindDerivedClassesAsyncFunc0;
         private static readonly FindDerivedInterfacesAsyncDelegate1 FindDerivedInterfacesAsyncFunc1;
@@ -48,15 +32,15 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<IEnumerable<INamedTypeSymbol>> FindDerivedClassesAsync(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsync(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken)
             => FindDerivedClassesAsyncFunc0(type, solution, transitive, projects, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<IEnumerable<INamedTypeSymbol>> FindDerivedInterfacesAsync(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsync(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken)
             => FindDerivedInterfacesAsyncFunc1(type, solution, transitive, projects, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static Task<IEnumerable<INamedTypeSymbol>> FindImplementationsAsync(INamedTypeSymbol type, Solution solution, Boolean transitive, IImmutableSet<Project>? projects, CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsync(Microsoft.CodeAnalysis.INamedTypeSymbol type, Microsoft.CodeAnalysis.Solution solution, System.Boolean transitive, System.Collections.Immutable.IImmutableSet<Microsoft.CodeAnalysis.Project>? projects, System.Threading.CancellationToken cancellationToken)
             => FindImplementationsAsyncFunc2(type, solution, transitive, projects, cancellationToken);
     }
 }

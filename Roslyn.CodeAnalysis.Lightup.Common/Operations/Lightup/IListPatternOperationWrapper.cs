@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
@@ -26,19 +14,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IListPatternOperation";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate ISymbol? DeclaredSymbolGetterDelegate(IPatternOperation? _obj);
-        private delegate ISymbol? IndexerSymbolGetterDelegate(IPatternOperation? _obj);
-        private delegate ISymbol? LengthSymbolGetterDelegate(IPatternOperation? _obj);
-        private delegate ImmutableArray<IPatternOperation> PatternsGetterDelegate(IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ISymbol? IndexerSymbolGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate Microsoft.CodeAnalysis.ISymbol? LengthSymbolGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Operations.IPatternOperation> PatternsGetterDelegate(Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly DeclaredSymbolGetterDelegate DeclaredSymbolGetterFunc;
         private static readonly IndexerSymbolGetterDelegate IndexerSymbolGetterFunc;
         private static readonly LengthSymbolGetterDelegate LengthSymbolGetterFunc;
         private static readonly PatternsGetterDelegate PatternsGetterFunc;
 
-        private readonly IPatternOperation? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.Operations.IPatternOperation? wrappedObject;
 
         static IListPatternOperationWrapper()
         {
@@ -50,45 +38,45 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
         }
 
-        private IListPatternOperationWrapper(IPatternOperation? obj)
+        private IListPatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly ISymbol? DeclaredSymbol
+        public readonly Microsoft.CodeAnalysis.ISymbol? DeclaredSymbol
         {
             get => DeclaredSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly ISymbol? IndexerSymbol
+        public readonly Microsoft.CodeAnalysis.ISymbol? IndexerSymbol
         {
             get => IndexerSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly ISymbol? LengthSymbol
+        public readonly Microsoft.CodeAnalysis.ISymbol? LengthSymbol
         {
             get => LengthSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly ImmutableArray<IPatternOperation> Patterns
+        public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Operations.IPatternOperation> Patterns
         {
             get => PatternsGetterFunc(wrappedObject);
         }
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static IListPatternOperationWrapper As(object? obj)
+        public static IListPatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<IPatternOperation>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IListPatternOperationWrapper(obj2);
         }
 
-        public IPatternOperation? Unwrap()
+        public Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
             => wrappedObject;
     }
 }

@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,14 +14,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax";
 
-        private delegate SyntaxList<AttributeListSyntax> AttributeListsGetterDelegate(GlobalStatementSyntax? _obj);
-        private delegate SyntaxTokenList ModifiersGetterDelegate(GlobalStatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj);
 
-        private delegate GlobalStatementSyntax AddAttributeListsDelegate0(GlobalStatementSyntax? _obj, params AttributeListSyntax[] items);
-        private delegate GlobalStatementSyntax AddModifiersDelegate1(GlobalStatementSyntax? _obj, params SyntaxToken[] items);
-        private delegate GlobalStatementSyntax UpdateDelegate2(GlobalStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, StatementSyntax statement);
-        private delegate GlobalStatementSyntax WithAttributeListsDelegate3(GlobalStatementSyntax? _obj, SyntaxList<AttributeListSyntax> attributeLists);
-        private delegate GlobalStatementSyntax WithModifiersDelegate4(GlobalStatementSyntax? _obj, SyntaxTokenList modifiers);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiersDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax UpdateDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeListsDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiersDelegate4(Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
@@ -60,31 +47,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxList<AttributeListSyntax> AttributeLists(this GlobalStatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj)
             => AttributeListsGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static SyntaxTokenList Modifiers(this GlobalStatementSyntax _obj)
+        public static Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj)
             => ModifiersGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static GlobalStatementSyntax AddAttributeLists(this GlobalStatementSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static GlobalStatementSyntax AddModifiers(this GlobalStatementSyntax _obj, params SyntaxToken[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc1(_obj, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static GlobalStatementSyntax Update(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists, SyntaxTokenList modifiers, StatementSyntax statement)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax Update(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
             => UpdateFunc2(_obj, attributeLists, modifiers, statement);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static GlobalStatementSyntax WithAttributeLists(this GlobalStatementSyntax _obj, SyntaxList<AttributeListSyntax> attributeLists)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc3(_obj, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static GlobalStatementSyntax WithModifiers(this GlobalStatementSyntax _obj, SyntaxTokenList modifiers)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiers(this Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc4(_obj, modifiers);
     }
 }

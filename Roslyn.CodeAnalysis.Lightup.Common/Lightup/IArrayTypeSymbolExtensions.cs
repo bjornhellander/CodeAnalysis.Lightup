@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IArrayTypeSymbol";
 
-        private delegate NullableAnnotationEx ElementNullableAnnotationGetterDelegate(IArrayTypeSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ElementNullableAnnotationGetterDelegate(Microsoft.CodeAnalysis.IArrayTypeSymbol? _obj);
 
         private static readonly ElementNullableAnnotationGetterDelegate ElementNullableAnnotationGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static NullableAnnotationEx ElementNullableAnnotation(this IArrayTypeSymbol _obj)
+        public static Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ElementNullableAnnotation(this Microsoft.CodeAnalysis.IArrayTypeSymbol _obj)
             => ElementNullableAnnotationGetterFunc(_obj);
     }
 }

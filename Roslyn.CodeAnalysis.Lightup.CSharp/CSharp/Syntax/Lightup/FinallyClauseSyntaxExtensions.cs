@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax";
 
-        private delegate FinallyClauseSyntax AddBlockAttributeListsDelegate0(FinallyClauseSyntax? _obj, params AttributeListSyntax[] items);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax AddBlockAttributeListsDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
 
         private static readonly AddBlockAttributeListsDelegate0 AddBlockAttributeListsFunc0;
 
@@ -39,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static FinallyClauseSyntax AddBlockAttributeLists(this FinallyClauseSyntax _obj, params AttributeListSyntax[] items)
+        public static Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax AddBlockAttributeLists(this Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax _obj, params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddBlockAttributeListsFunc0(_obj, items);
     }
 }

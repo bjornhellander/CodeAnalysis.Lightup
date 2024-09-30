@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
 
-        private delegate Boolean IsInitializationGetterDelegate(IFlowCaptureReferenceOperation? _obj);
+        private delegate System.Boolean IsInitializationGetterDelegate(Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation? _obj);
 
         private static readonly IsInitializationGetterDelegate IsInitializationGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsInitialization(this IFlowCaptureReferenceOperation _obj)
+        public static System.Boolean IsInitialization(this Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation _obj)
             => IsInitializationGetterFunc(_obj);
     }
 }

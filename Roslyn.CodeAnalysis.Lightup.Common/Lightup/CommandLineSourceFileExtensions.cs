@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 
-        private delegate Boolean IsInputRedirectedGetterDelegate(CommandLineSourceFile? _obj);
+        private delegate System.Boolean IsInputRedirectedGetterDelegate(Microsoft.CodeAnalysis.CommandLineSourceFile? _obj);
 
         private static readonly IsInputRedirectedGetterDelegate IsInputRedirectedGetterFunc;
 
@@ -38,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static Boolean IsInputRedirected(this CommandLineSourceFile _obj)
+        public static System.Boolean IsInputRedirected(this Microsoft.CodeAnalysis.CommandLineSourceFile _obj)
             => IsInputRedirectedGetterFunc(_obj);
     }
 }

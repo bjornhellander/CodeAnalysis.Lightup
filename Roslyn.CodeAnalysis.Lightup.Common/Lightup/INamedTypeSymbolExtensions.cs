@@ -5,19 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Operations.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
@@ -26,11 +14,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
-        private delegate Boolean IsFileLocalGetterDelegate(INamedTypeSymbol? _obj);
-        private delegate INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(INamedTypeSymbol? _obj);
-        private delegate ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(INamedTypeSymbol? _obj);
+        private delegate System.Boolean IsFileLocalGetterDelegate(Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
 
-        private delegate INamedTypeSymbol ConstructDelegate0(INamedTypeSymbol? _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations);
+        private delegate Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(Microsoft.CodeAnalysis.INamedTypeSymbol? _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
         private static readonly IsFileLocalGetterDelegate IsFileLocalGetterFunc;
         private static readonly NativeIntegerUnderlyingTypeGetterDelegate NativeIntegerUnderlyingTypeGetterFunc;
@@ -50,19 +38,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public static Boolean IsFileLocal(this INamedTypeSymbol _obj)
+        public static System.Boolean IsFileLocal(this Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
             => IsFileLocalGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol? NativeIntegerUnderlyingType(this INamedTypeSymbol _obj)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingType(this Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
             => NativeIntegerUnderlyingTypeGetterFunc(_obj);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static ImmutableArray<NullableAnnotationEx> TypeArgumentNullableAnnotations(this INamedTypeSymbol _obj)
+        public static System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
             => TypeArgumentNullableAnnotationsGetterFunc(_obj);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static INamedTypeSymbol Construct(this INamedTypeSymbol _obj, ImmutableArray<ITypeSymbol> typeArguments, ImmutableArray<NullableAnnotationEx> typeArgumentNullableAnnotations)
+        public static Microsoft.CodeAnalysis.INamedTypeSymbol Construct(this Microsoft.CodeAnalysis.INamedTypeSymbol _obj, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
             => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
     }
 }

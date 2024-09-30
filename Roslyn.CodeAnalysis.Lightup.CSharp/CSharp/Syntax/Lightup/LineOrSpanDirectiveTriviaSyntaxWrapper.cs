@@ -5,20 +5,7 @@
 
 #nullable enable
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.IO;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
@@ -27,15 +14,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineOrSpanDirectiveTriviaSyntax";
 
-        private static readonly Type? WrappedType; // NOTE: Used via reflection
+        private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate SyntaxToken FileGetterDelegate(DirectiveTriviaSyntax? _obj);
-        private delegate SyntaxToken LineKeywordGetterDelegate(DirectiveTriviaSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken FileGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj);
+        private delegate Microsoft.CodeAnalysis.SyntaxToken LineKeywordGetterDelegate(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj);
 
-        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(DirectiveTriviaSyntax? _obj, SyntaxToken endOfDirectiveToken);
-        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate1(DirectiveTriviaSyntax? _obj, SyntaxToken file);
-        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate2(DirectiveTriviaSyntax? _obj, SyntaxToken hashToken);
-        private delegate LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate3(DirectiveTriviaSyntax? _obj, SyntaxToken lineKeyword);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate1(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken file);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate2(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken hashToken);
+        private delegate Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate3(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? _obj, Microsoft.CodeAnalysis.SyntaxToken lineKeyword);
 
         private static readonly FileGetterDelegate FileGetterFunc;
         private static readonly LineKeywordGetterDelegate LineKeywordGetterFunc;
@@ -45,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithHashTokenDelegate2 WithHashTokenFunc2;
         private static readonly WithLineKeywordDelegate3 WithLineKeywordFunc3;
 
-        private readonly DirectiveTriviaSyntax? wrappedObject;
+        private readonly Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? wrappedObject;
 
         static LineOrSpanDirectiveTriviaSyntaxWrapper()
         {
@@ -60,52 +47,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithLineKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate3>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
         }
 
-        private LineOrSpanDirectiveTriviaSyntaxWrapper(DirectiveTriviaSyntax? obj)
+        private LineOrSpanDirectiveTriviaSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken File
+        public readonly Microsoft.CodeAnalysis.SyntaxToken File
         {
             get => FileGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly SyntaxToken LineKeyword
+        public readonly Microsoft.CodeAnalysis.SyntaxToken LineKeyword
         {
             get => LineKeywordGetterFunc(wrappedObject);
         }
 
-        public static implicit operator DirectiveTriviaSyntax?(LineOrSpanDirectiveTriviaSyntaxWrapper obj)
+        public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax?(LineOrSpanDirectiveTriviaSyntaxWrapper obj)
             => obj.Unwrap();
 
-        public static bool Is(object? obj)
+        public static bool Is(System.Object? obj)
             => LightupHelper.Is(obj, WrappedType);
 
-        public static LineOrSpanDirectiveTriviaSyntaxWrapper As(object? obj)
+        public static LineOrSpanDirectiveTriviaSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<DirectiveTriviaSyntax>(obj, WrappedType);
+            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax>(obj, WrappedType);
             return new LineOrSpanDirectiveTriviaSyntaxWrapper(obj2);
         }
 
-        public DirectiveTriviaSyntax? Unwrap()
+        public Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? Unwrap()
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(SyntaxToken endOfDirectiveToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken)
             => WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(SyntaxToken file)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(Microsoft.CodeAnalysis.SyntaxToken file)
             => WithFileFunc1(wrappedObject, file);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(SyntaxToken hashToken)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(Microsoft.CodeAnalysis.SyntaxToken hashToken)
             => WithHashTokenFunc2(wrappedObject, hashToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(SyntaxToken lineKeyword)
+        public readonly Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(Microsoft.CodeAnalysis.SyntaxToken lineKeyword)
             => WithLineKeywordFunc3(wrappedObject, lineKeyword);
     }
 }
