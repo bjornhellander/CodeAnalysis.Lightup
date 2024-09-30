@@ -16,9 +16,9 @@ internal abstract class BaseTypeDefinition
     {
         AssemblyKind = assemblyKind;
         AssemblyVersion = assemblyVersion;
-        Name = name;
-        Namespace = @namespace;
-        FullName = fullName;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
+        Namespace = @namespace ?? throw new ArgumentNullException(nameof(@namespace));
+        FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
     }
 
     public AssemblyKind AssemblyKind { get; }

@@ -331,7 +331,7 @@ internal class Writer
         var staticMethods = GetStaticMethods(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
-        var baseTypeName = GetBaseTypeName(typeDef, typeDefs);
+        var baseTypeName = GetBaseTypeName(typeDef);
         var hasBaseType = baseTypeName != null && typeDef is not InterfaceTypeDefinition;
         baseTypeName ??= "object";
 
@@ -910,13 +910,11 @@ internal class Writer
         return (targetName, source);
     }
 
-    private static string? GetBaseTypeName(
-        TypeDefinition typeDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    private static string? GetBaseTypeName(TypeDefinition typeDef)
     {
         return typeDef switch
         {
-            ClassTypeDefinition x => GetBaseTypeName(x, typeDefs),
+            ClassTypeDefinition x => GetBaseTypeName(x),
             InterfaceTypeDefinition x => GetBaseTypeName(x),
             StructTypeDefinition => null,
             _ => throw new NotImplementedException(),
@@ -924,88 +922,39 @@ internal class Writer
     }
 
     private static string? GetBaseTypeName(
-        ClassTypeDefinition typeDef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+        ClassTypeDefinition typeDef)
     {
-        if (typeDef.Name == "AnalyzerConfig")
+        var baseTypeRef = typeDef.BaseClass;
+        if (baseTypeRef == null)
         {
+            return null;
         }
 
-        while (true)
+        if (baseTypeRef is NamedTypeReference x)
         {
-            var baseTypeRef = typeDef.BaseClass;
-            switch (baseTypeRef)
-            {
-                case null:
-                    Assert.Fail("Could not get base type");
-                    return null;
-
-                case NamedTypeReference x:
-                    if (!IsNewType(x, typeDefs))
-                    {
-                        if (x.FullName == "System.Object")
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            return x.Name;
-                        }
-                    }
-                    else
-                    {
-                        typeDef = (ClassTypeDefinition)typeDefs[x.FullName];
-                        continue;
-                    }
-
-                default:
-                    Assert.Fail("Could not get base type");
-                    return null;
-            }
+            return x.Name;
         }
+
+        Assert.Fail("Could not get base type");
+        return null;
     }
 
     private static string? GetBaseTypeName(
         InterfaceTypeDefinition typeDef)
     {
-        var types = typeDef.Interfaces.OfType<NamedTypeReference>().ToList();
-        while (RemoveIndirectInterfaces(types))
-        {
-        }
-
-        if (types.Count == 1)
-        {
-            return types[0].Name;
-        }
-        else
+        var baseTypeRef = typeDef.BaseInterface;
+        if (baseTypeRef == null)
         {
             return null;
         }
 
-        static bool RemoveIndirectInterfaces(List<NamedTypeReference> typeRefs)
+        if (baseTypeRef is NamedTypeReference x)
         {
-            for (var i = 0; i < typeRefs.Count; i++)
-            {
-                var currTypeRef = typeRefs[i];
-
-                for (var j = 0; j < i; j++)
-                {
-                    var prevTypeRef = typeRefs[j];
-                    if (prevTypeRef.IsAssignableFrom(currTypeRef))
-                    {
-                        typeRefs.RemoveAt(j);
-                        return true;
-                    }
-                    else if (currTypeRef.IsAssignableFrom(prevTypeRef))
-                    {
-                        typeRefs.RemoveAt(i);
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return x.Name;
         }
+
+        Assert.Fail("Could not get base type");
+        return null;
     }
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)

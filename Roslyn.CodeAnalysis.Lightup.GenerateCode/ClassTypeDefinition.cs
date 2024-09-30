@@ -15,15 +15,14 @@ internal class ClassTypeDefinition : TypeDefinition
         string name,
         string @namespace,
         string fullName,
-        TypeReference? baseClass,
         bool isStatic)
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
     {
-        BaseClass = baseClass;
+        BaseClass = null;
         IsStatic = isStatic;
     }
 
-    public TypeReference? BaseClass { get; }
+    public TypeReference? BaseClass { get; set; }
 
     public bool IsStatic { get; }
 }

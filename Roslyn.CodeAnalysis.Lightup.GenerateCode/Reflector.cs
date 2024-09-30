@@ -5,7 +5,6 @@ namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -63,6 +62,18 @@ internal class Reflector
         var assemblyVersion = assembly.GetName().Version;
         Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
+        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
+        VisitTypes(assembly, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
+    }
+
+    private static void VisitTypes(
+        Assembly assembly,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version assemblyVersion,
+        bool isBaselineVersion,
+        AssemblyKind assemblyKind,
+        Action<Type, string, Dictionary<string, BaseTypeDefinition>, Version?, AssemblyKind> visit)
+    {
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         foreach (var type in types)
         {
@@ -75,37 +86,26 @@ internal class Reflector
                 continue;
             }
 
-            if (!typeDefs.TryGetValue(name, out var typeDef))
-            {
-                typeDef = CreateEmptyTypeDefinition(assemblyKind, isBaselineVersion ? null : assemblyVersion, type);
-                if (typeDef == null)
-                {
-                    continue;
-                }
+            visit(type, name, typeDefs, isBaselineVersion ? null : assemblyVersion, assemblyKind);
+        }
+    }
 
-                typeDefs.Add(name, typeDef);
+    private static void CreateEmptyTypeDefinition(
+        Type type,
+        string name,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version? assemblyVersion,
+        AssemblyKind assemblyKind)
+    {
+        if (!typeDefs.ContainsKey(name))
+        {
+            var typeDef = CreateEmptyTypeDefinition(assemblyKind, assemblyVersion, type);
+            if (typeDef == null)
+            {
+                return;
             }
 
-            if (typeDef is EnumTypeDefinition enumTypeDef)
-            {
-                UpdateEnumType(enumTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is StructTypeDefinition structTypeDef)
-            {
-                UpdateStructType(structTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is ClassTypeDefinition classTypeDef)
-            {
-                UpdateClassType(classTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
-            {
-                UpdateInterfaceType(interfaceTypeDef, type, isBaselineVersion ? null : assemblyVersion);
-            }
-            else
-            {
-                Assert.Fail("Unhandled type");
-            }
+            typeDefs.Add(name, typeDef);
         }
     }
 
@@ -175,15 +175,12 @@ internal class Reflector
         Version? version,
         Type type)
     {
-        var baseClassRef = type.BaseType != null ? CreateTypeReference(type.BaseType) : null;
-
         return new ClassTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
             type.FullName!,
-            baseClassRef,
             IsStaticType(type));
     }
 
@@ -192,16 +189,46 @@ internal class Reflector
         Version? version,
         Type type)
     {
-        var interfaces = type.GetInterfaces();
-        var interfaceTypeRefs = interfaces.Select(CreateTypeReference).ToImmutableArray();
-
         return new InterfaceTypeDefinition(
             assemblyKind,
             version,
             type.Name,
             type.Namespace!,
-            type.FullName!,
-            interfaceTypeRefs);
+            type.FullName!);
+    }
+
+    private static void AddTypeMemberDefinitions(
+        Type type,
+        string name,
+        Dictionary<string, BaseTypeDefinition> typeDefs,
+        Version? assemblyVersion,
+        AssemblyKind assemblyKind)
+    {
+        if (!typeDefs.TryGetValue(name, out var typeDef))
+        {
+            Assert.Fail("Could not find type");
+        }
+
+        if (typeDef is EnumTypeDefinition enumTypeDef)
+        {
+            UpdateEnumType(enumTypeDef, type, assemblyVersion);
+        }
+        else if (typeDef is StructTypeDefinition structTypeDef)
+        {
+            UpdateStructType(structTypeDef, type, assemblyVersion);
+        }
+        else if (typeDef is ClassTypeDefinition classTypeDef)
+        {
+            UpdateClassType(classTypeDef, type, assemblyVersion, typeDefs);
+        }
+        else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+        {
+            UpdateInterfaceType(interfaceTypeDef, type, assemblyVersion);
+        }
+        else
+        {
+            Assert.Fail("Unhandled type");
+        }
     }
 
     private static void UpdateEnumType(EnumTypeDefinition enumTypeDef, Type type, Version? version)
@@ -230,11 +257,48 @@ internal class Reflector
         UpdateType(structTypeDef, type, assemblyVersion);
     }
 
-    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion)
+    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion, Dictionary<string, BaseTypeDefinition> typeDefs)
     {
         UpdateType(classTypeDef, type, assemblyVersion);
 
+        var baseType = GetClassBaseType(type, typeDefs);
+        var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
+        classTypeDef.BaseClass = baseClassRef;
+
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
+    }
+
+    private static Type? GetClassBaseType(
+        Type type,
+        Dictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var currType = type;
+        while (true)
+        {
+            var baseType = currType.BaseType;
+            if (baseType == null)
+            {
+                Assert.Fail("Could not get base type");
+                return null;
+            }
+            else if (baseType.FullName == null)
+            {
+                Assert.Fail("Could not get base type");
+                return null;
+            }
+            else if (baseType.FullName == "System.Object")
+            {
+                return null;
+            }
+            else if (!typeDefs.TryGetValue(baseType.FullName, out var typeDef) || typeDef.AssemblyVersion == null)
+            {
+                return baseType;
+            }
+            else
+            {
+                currType = baseType;
+            }
+        }
     }
 
     private static bool IsStaticType(Type type)
@@ -246,6 +310,56 @@ internal class Reflector
     private static void UpdateInterfaceType(InterfaceTypeDefinition interfaceTypeDef, Type type, Version? assemblyVersion)
     {
         UpdateType(interfaceTypeDef, type, assemblyVersion);
+
+        var baseType = GetInterfaceBaseType(type);
+        var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
+        interfaceTypeDef.BaseInterface = baseClassRef;
+    }
+
+    private static Type? GetInterfaceBaseType(Type type)
+    {
+        if (type.Name == "IFunctionPointerTypeSymbol")
+        {
+        }
+
+        var types = type.GetInterfaces().ToList();
+        while (RemoveIndirectInterfaces(types))
+        {
+        }
+
+        if (types.Count == 1)
+        {
+            return types[0];
+        }
+        else
+        {
+            return null;
+        }
+
+        static bool RemoveIndirectInterfaces(List<Type> types)
+        {
+            for (var i = 0; i < types.Count; i++)
+            {
+                var currType = types[i];
+
+                for (var j = 0; j < i; j++)
+                {
+                    var prevType = types[j];
+                    if (prevType.IsAssignableFrom(currType))
+                    {
+                        types.RemoveAt(j);
+                        return true;
+                    }
+                    else if (currType.IsAssignableFrom(prevType))
+                    {
+                        types.RemoveAt(i);
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 
     private static void UpdateType(TypeDefinition typeDef, Type type, Version? assemblyVersion)

@@ -7,17 +7,10 @@ using System;
 
 internal abstract class TypeReference
 {
-    private readonly Type nativeType;
-
     protected TypeReference(Type nativeType)
     {
-        this.nativeType = nativeType;
+        NativeName = nativeType.Name;
     }
 
-    public string NativeName => nativeType.Name;
-
-    public bool IsAssignableFrom(TypeReference typeRef)
-    {
-        return nativeType.IsAssignableFrom(typeRef.nativeType);
-    }
+    public string NativeName { get; }
 }
