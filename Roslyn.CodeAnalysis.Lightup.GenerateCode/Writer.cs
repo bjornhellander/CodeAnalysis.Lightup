@@ -325,7 +325,7 @@ internal class Writer
         var staticEvents = GetStaticEvents(typeDef);
         Assert.IsTrue(staticEvents.Count == 0, "Unexpected static events");
         var instanceEvents = GetInstanceEvents(typeDef);
-        Assert.IsTrue(instanceEvents.Count == 0, "Unexpected events");
+        Assert.IsTrue(instanceEvents.Count == 0, "Unexpected instance events");
         var staticProperties = GetStaticProperties(typeDef);
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
@@ -604,9 +604,7 @@ internal class Writer
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
         var staticEvents = GetStaticEvents(typeDef);
         Assert.IsTrue(staticEvents.Count == 0, "Unexpected static events");
-        // TODO: Handle instance events
         var instanceEvents = GetInstanceEvents(typeDef);
-        _ = instanceEvents;
         var staticProperties = GetStaticProperties(typeDef);
         var instanceProperties = GetInstanceProperties(typeDef);
         var indexers = GetIndexers(typeDef);
@@ -654,6 +652,14 @@ internal class Writer
             foreach (var property in instanceProperties)
             {
                 AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, typeDefs);
+            }
+        }
+        if (instanceEvents.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var @event in instanceEvents)
+            {
+                AppendInstanceEventDelegateDeclarations(sb, @event, baseTypeName, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -705,6 +711,15 @@ internal class Writer
                 {
                     sb.AppendLine($"        private static readonly {property.Name}SetterDelegate {property.Name}SetterFunc;");
                 }
+            }
+        }
+        if (instanceEvents.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var @event in instanceEvents)
+            {
+                sb.AppendLine($"        private static readonly {@event.Name}AdderDelegate {@event.Name}AdderFunc;");
+                sb.AppendLine($"        private static readonly {@event.Name}RemoverDelegate {@event.Name}RemoverFunc;");
             }
         }
         if (staticMethods.Count != 0)
@@ -760,6 +775,15 @@ internal class Writer
                 {
                     sb.AppendLine($"            {property.Name}SetterFunc = LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
+            }
+        }
+        if (instanceEvents.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var @event in instanceEvents)
+            {
+                sb.AppendLine($"            {@event.Name}AdderFunc = LightupHelper.CreateInstanceAddAccessor<{@event.Name}AdderDelegate>(wrappedType, \"{@event.Name}\");");
+                sb.AppendLine($"            {@event.Name}RemoverFunc = LightupHelper.CreateInstanceRemoveAccessor<{@event.Name}RemoverDelegate>(wrappedType, \"{@event.Name}\");");
             }
         }
         if (staticMethods.Count != 0)
@@ -818,6 +842,17 @@ internal class Writer
                 sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
             }
+        }
+        foreach (var @event in instanceEvents)
+        {
+            sb.AppendLine();
+            AppendMemberSummary(sb, @event);
+            sb.AppendLine($"        public static void Add{@event.Name}(this {typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"            => {@event.Name}AdderFunc(_obj, _delegate);");
+            sb.AppendLine();
+            AppendMemberSummary(sb, @event);
+            sb.AppendLine($"        public static void Remove{@event.Name}(this {typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"            => {@event.Name}RemoverFunc(_obj, _delegate);");
         }
         foreach (var methodDef in staticMethods)
         {
@@ -1115,6 +1150,7 @@ internal class Writer
         {
             FieldDefinition => "Field",
             PropertyDefinition => "Property",
+            EventDefinition => "Event",
             MethodDefinition => "Method",
             _ => throw new NotImplementedException(),
         };
@@ -1186,6 +1222,29 @@ internal class Writer
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
         sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? "?" : "");
+        var result = sb.ToString();
+        return result;
+    }
+
+    private static void AppendInstanceEventDelegateDeclarations(
+        StringBuilder sb,
+        EventDefinition propertyDef,
+        string baseTypeName,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        sb.Append($"        private delegate void");
+        sb.AppendLine($" {propertyDef.Name}AdderDelegate({baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+
+        sb.Append($"        private delegate void");
+        sb.AppendLine($" {propertyDef.Name}RemoverDelegate({baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+    }
+
+    private static string GetEventTypeDeclText(
+        EventDefinition eventDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        var sb = new StringBuilder();
+        AppendTypeDeclText(sb, eventDef.Type, typeDefs);
         var result = sb.ToString();
         return result;
     }

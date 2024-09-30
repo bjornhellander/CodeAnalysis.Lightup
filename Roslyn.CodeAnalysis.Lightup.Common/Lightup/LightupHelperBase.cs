@@ -100,6 +100,34 @@ namespace Microsoft.CodeAnalysis.Lightup
             return func;
         }
 
+        public static TDelegate CreateInstanceAddAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
+        {
+            var instanceType = GetInstanceType<TDelegate>();
+            var paramTypes = GetParamTypes<TDelegate>();
+            var returnType = GetReturnType<TDelegate>();
+            var method = wrappedType?.GetPublicEventAdder(memberName);
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
+        public static TDelegate CreateInstanceRemoveAccessor<TDelegate>(Type? wrappedType, string memberName)
+            where TDelegate : Delegate
+        {
+            var instanceType = GetInstanceType<TDelegate>();
+            var paramTypes = GetParamTypes<TDelegate>();
+            var returnType = GetReturnType<TDelegate>();
+            var method = wrappedType?.GetPublicEventRemover(memberName);
+
+            var (body, parameters) = CreateCallExpression(wrappedType, method, instanceType, paramTypes, returnType);
+            var lambda = Expression.Lambda<TDelegate>(body, parameters);
+            var func = lambda.Compile();
+            return func;
+        }
+
         public static TDelegate CreateStaticMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
         {
@@ -340,6 +368,31 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var result = Expression.Call(toArrayMethod, temp1);
 
                 return result;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(EventHandler<>))
+            {
+                // EventHandler<X> where X is a wrapper
+                var wrapperArgsType = wrapperType.GetGenericArguments()[0];
+                var nativeArgsType = nativeType.GetGenericArguments()[0];
+
+                var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
+
+                // TODO: Investigate if this makes it possible to remove a delagte from an event. I suspect it doesn't.
+                var senderLambdaParameter = Expression.Parameter(typeof(object));
+                var nativeArgsLambdaParameter = Expression.Parameter(nativeArgsType);
+                var nativeLambda = Expression.Lambda(
+                    nativeType,
+                    Expression.Call(
+                        input,
+                        wrapperInvokeMethod,
+                        senderLambdaParameter,
+                        GetPossiblyWrappedValue(
+                            nativeArgsLambdaParameter,
+                            wrapperArgsType)),
+                    senderLambdaParameter,
+                    nativeArgsLambdaParameter);
+
+                return nativeLambda;
             }
             else if (wrapperType.IsEnum)
             {
