@@ -15,8 +15,9 @@ internal abstract class TypeDefinition : BaseTypeDefinition
         Version? assemblyVersion,
         string name,
         string @namespace,
-        string fullName)
-        : base(assemblyKind, assemblyVersion, name, @namespace, fullName)
+        string fullName,
+        TypeDefinition? enclosingType)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
     {
     }
 

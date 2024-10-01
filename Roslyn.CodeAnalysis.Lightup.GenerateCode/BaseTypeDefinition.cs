@@ -12,13 +12,15 @@ internal abstract class BaseTypeDefinition
         Version? assemblyVersion,
         string name,
         string @namespace,
-        string fullName)
+        string fullName,
+        TypeDefinition? enclosingType)
     {
         AssemblyKind = assemblyKind;
         AssemblyVersion = assemblyVersion;
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Namespace = @namespace ?? throw new ArgumentNullException(nameof(@namespace));
         FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
+        EnclosingType = enclosingType;
     }
 
     public AssemblyKind AssemblyKind { get; }
@@ -30,4 +32,6 @@ internal abstract class BaseTypeDefinition
     public string Namespace { get; }
 
     public string FullName { get; }
+
+    public TypeDefinition? EnclosingType { get; }
 }

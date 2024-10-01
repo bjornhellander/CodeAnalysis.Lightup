@@ -10,6 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     public class LightupHelperBase
     {
@@ -331,6 +332,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 return result;
             }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(Task<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(
+                    typeof(Task<>).MakeGenericType(nativeItemType));
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var continueWithMethod = GetTaskContinueWithMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(input, continueWithMethod, conversionLambda);
+
+                return result;
+            }
             else
             {
                 var wrapMethod = targetType.GetMethod("As");
@@ -573,6 +590,54 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             var parameterType = parameters[0].ParameterType;
             if (!parameterType.IsGenericType || parameterType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetTaskContinueWithMethod(sourceItemType);
+            var specializedMethod = genericMethod.MakeGenericMethod(resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType)
+        {
+            var result = typeof(Task<>).MakeGenericType(sourceItemType).GetMethods().Single(x => IsTaskContinueWithMethod(x, sourceItemType));
+            return result;
+        }
+
+        private static bool IsTaskContinueWithMethod(MethodInfo method, Type sourceItemType)
+        {
+            if (method.Name != "ContinueWith")
+            {
+                return false;
+            }
+
+            if (!method.ContainsGenericParameters)
+            {
+                return false;
+            }
+
+            var genericArguments = method.GetGenericArguments();
+            if (genericArguments.Length != 1)
+            {
+                return false;
+            }
+
+            var parameters = method.GetParameters();
+            if (parameters.Length != 1)
+            {
+                return false;
+            }
+
+            var expectedParameterType = typeof(Func<,>).MakeGenericType(
+                typeof(Task<>).MakeGenericType(sourceItemType),
+                genericArguments[0]);
+            if (parameters[0].ParameterType != expectedParameterType)
             {
                 return false;
             }
