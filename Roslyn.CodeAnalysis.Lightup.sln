@@ -37,6 +37,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Workspaces.Common", "Roslyn.CodeAnalysis.Lightup.Workspaces.Common\Roslyn.CodeAnalysis.Lightup.Workspaces.Common.csproj", "{4FC62995-09D0-41AB-97C4-790DCAB219BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Example.Analyzers", "Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj", "{3A2AD8EA-36A8-4462-A63D-2EA270105108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes", "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{4FC62995-09D0-41AB-97C4-790DCAB219BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC62995-09D0-41AB-97C4-790DCAB219BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC62995-09D0-41AB-97C4-790DCAB219BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2AD8EA-36A8-4462-A63D-2EA270105108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2AD8EA-36A8-4462-A63D-2EA270105108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2AD8EA-36A8-4462-A63D-2EA270105108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2AD8EA-36A8-4462-A63D-2EA270105108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

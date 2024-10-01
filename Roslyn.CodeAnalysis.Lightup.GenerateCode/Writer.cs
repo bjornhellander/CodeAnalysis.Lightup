@@ -73,7 +73,6 @@ internal class Writer
 
         // TODO: Generate these types
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs+FailureErrorCode", // Nested enum, does not compile
-        "Microsoft.CodeAnalysis.Rename.Renamer", // Method returning Task<XYZ>
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
