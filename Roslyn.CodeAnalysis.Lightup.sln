@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.GenerateCode", "Roslyn.CodeAnalysis.Lightup.GenerateCode\Roslyn.CodeAnalysis.Lightup.GenerateCode.csproj", "{D079273D-9CD2-42A6-87C3-59AD9688B0EC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0", "Roslyn.CodeAnalysis.Lightup.Test.V3_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj", "{F375961C-1693-490B-B2A5-C8FCDCD07696}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.V4_8_0", "Roslyn.CodeAnalysis.Lightup.Test.V4_8_0\Roslyn.CodeAnalysis.Lightup.Test.V4_8_0.csproj", "{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F}"
@@ -41,11 +39,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generator", "generator", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Runtime", "Roslyn.CodeAnalysis.Lightup.Runtime\Roslyn.CodeAnalysis.Lightup.Runtime.csproj", "{DF6641B0-2488-46F5-BB43-DF689F905871}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Definitions", "Roslyn.CodeAnalysis.Lightup.Definitions\Roslyn.CodeAnalysis.Lightup.Definitions.csproj", "{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Definitions", "Roslyn.CodeAnalysis.Lightup.Definitions\Roslyn.CodeAnalysis.Lightup.Definitions.csproj", "{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "collector", "collector", "{CE401EEE-7B30-47E3-9983-1E266B735B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Collector", "Roslyn.CodeAnalysis.Lightup.Collector\Roslyn.CodeAnalysis.Lightup.Collector.csproj", "{33624620-A2ED-4346-8A61-6CF055F1D4C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Collector", "Roslyn.CodeAnalysis.Lightup.Collector\Roslyn.CodeAnalysis.Lightup.Collector.csproj", "{33624620-A2ED-4346-8A61-6CF055F1D4C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.SourceGenerator", "Roslyn.CodeAnalysis.Lightup.SourceGenerator\Roslyn.CodeAnalysis.Lightup.SourceGenerator.csproj", "{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F375961C-1693-490B-B2A5-C8FCDCD07696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F375961C-1693-490B-B2A5-C8FCDCD07696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F375961C-1693-490B-B2A5-C8FCDCD07696}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,12 +97,15 @@ Global
 		{33624620-A2ED-4346-8A61-6CF055F1D4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33624620-A2ED-4346-8A61-6CF055F1D4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33624620-A2ED-4346-8A61-6CF055F1D4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D079273D-9CD2-42A6-87C3-59AD9688B0EC} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
 		{F375961C-1693-490B-B2A5-C8FCDCD07696} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 		{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 		{8FA55692-CDE9-40F9-AF42-1A00F2DF34E7} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
@@ -118,6 +117,7 @@ Global
 		{DF6641B0-2488-46F5-BB43-DF689F905871} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
 		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
 		{33624620-A2ED-4346-8A61-6CF055F1D4C6} = {CE401EEE-7B30-47E3-9983-1E266B735B74}
+		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}

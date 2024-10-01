@@ -20,7 +20,7 @@ internal class Program
 
         var types = Reflector.CollectTypes(testProjectNames, rootFolder);
 
-        var typesFilePath = Path.Combine(rootFolder, "Roslyn.CodeAnalysis.Lightup.GenerateCode", "Types.xml");
+        var typesFilePath = Path.Combine(rootFolder, "Roslyn.CodeAnalysis.Lightup.SourceGenerator", "Types.xml");
         using var stream = new FileStream(typesFilePath, FileMode.Create);
         var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
         serializer.Serialize(stream, types.Values.ToList());

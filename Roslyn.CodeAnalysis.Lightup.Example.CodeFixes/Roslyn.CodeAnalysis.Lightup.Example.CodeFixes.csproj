@@ -6,8 +6,22 @@
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>$(MSBuildProjectDirectory)\.generated</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<Compile Include=".generated\**\*.cs" />
+		<!-- The .generated file is excluded by default, but we want to show the items in Solution Explorer so we included it as None -->
+		<None Include=".generated\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Roslyn.CodeAnalysis.Lightup.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="Roslyn.CodeAnalysis.Lightup.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -16,6 +30,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.SourceGenerator\Roslyn.CodeAnalysis.Lightup.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
 </Project>
