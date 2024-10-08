@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     public class UnaryOperatorKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const UnaryOperatorKind Hat = (UnaryOperatorKind)7;
+        public const Microsoft.CodeAnalysis.Operations.UnaryOperatorKind Hat = (Microsoft.CodeAnalysis.Operations.UnaryOperatorKind)7;
     }
 }

@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     public class OperatorKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const OperatorKind UnsignedRightShift = (OperatorKind)26;
+        public const Microsoft.CodeAnalysis.Editing.OperatorKind UnsignedRightShift = (Microsoft.CodeAnalysis.Editing.OperatorKind)26;
     }
 }

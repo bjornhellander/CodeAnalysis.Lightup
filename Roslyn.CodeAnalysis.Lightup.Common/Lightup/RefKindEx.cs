@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public class RefKindEx
     {
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const RefKind RefReadOnlyParameter = (RefKind)4;
+        public const Microsoft.CodeAnalysis.RefKind RefReadOnlyParameter = (Microsoft.CodeAnalysis.RefKind)4;
     }
 }

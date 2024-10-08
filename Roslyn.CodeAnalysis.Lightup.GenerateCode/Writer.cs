@@ -70,9 +70,6 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-
-        // TODO: Generate these types
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs+FailureErrorCode", // Nested enum, does not compile
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -272,6 +269,8 @@ internal class Writer
             return null;
         }
 
+        var fullTypeName = GetFullEnumTypeName(typeDef);
+
         var targetName = typeDef.Name + "Ex";
 
         var sb = new StringBuilder();
@@ -296,7 +295,7 @@ internal class Writer
             }
 
             AppendEnumValueSummary(sb, value);
-            sb.AppendLine($"        public const {typeDef.Name} {value.Name} = ({typeDef.Name}){value.Value};");
+            sb.AppendLine($"        public const {fullTypeName} {value.Name} = ({fullTypeName}){value.Value};");
             isFirstValue = false;
         }
         sb.AppendLine($"    }}");
@@ -304,6 +303,27 @@ internal class Writer
 
         var source = sb.ToString();
         return (targetName, source);
+    }
+
+    private static string GetFullEnumTypeName(EnumTypeDefinition typeDef)
+    {
+        var sb = new StringBuilder();
+        sb.Append(typeDef.Namespace);
+        AppendEnclosingType(sb, typeDef.EnclosingType);
+        sb.Append(".");
+        sb.Append(typeDef.Name);
+        return sb.ToString();
+
+        static void AppendEnclosingType(StringBuilder sb, BaseTypeDefinition? enclosingType)
+        {
+            if (enclosingType != null)
+            {
+                AppendEnclosingType(sb, enclosingType.EnclosingType);
+
+                sb.Append(".");
+                sb.Append(enclosingType.Name);
+            }
+        }
     }
 
     private static (string Name, string Source) GenerateWrapper(

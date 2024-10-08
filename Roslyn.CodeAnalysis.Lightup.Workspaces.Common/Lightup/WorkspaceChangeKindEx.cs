@@ -11,15 +11,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     public class WorkspaceChangeKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const WorkspaceChangeKind AnalyzerConfigDocumentAdded = (WorkspaceChangeKind)18;
+        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentAdded = (Microsoft.CodeAnalysis.WorkspaceChangeKind)18;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const WorkspaceChangeKind AnalyzerConfigDocumentRemoved = (WorkspaceChangeKind)19;
+        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentRemoved = (Microsoft.CodeAnalysis.WorkspaceChangeKind)19;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const WorkspaceChangeKind AnalyzerConfigDocumentReloaded = (WorkspaceChangeKind)20;
+        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentReloaded = (Microsoft.CodeAnalysis.WorkspaceChangeKind)20;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const WorkspaceChangeKind AnalyzerConfigDocumentChanged = (WorkspaceChangeKind)21;
+        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentChanged = (Microsoft.CodeAnalysis.WorkspaceChangeKind)21;
     }
 }

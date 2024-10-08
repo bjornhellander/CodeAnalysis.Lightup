@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     public class BinaryOperatorKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const BinaryOperatorKind UnsignedRightShift = (BinaryOperatorKind)25;
+        public const Microsoft.CodeAnalysis.Operations.BinaryOperatorKind UnsignedRightShift = (Microsoft.CodeAnalysis.Operations.BinaryOperatorKind)25;
     }
 }

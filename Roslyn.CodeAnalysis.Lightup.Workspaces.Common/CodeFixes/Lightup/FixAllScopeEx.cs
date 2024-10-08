@@ -11,9 +11,9 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     public class FixAllScopeEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const FixAllScope ContainingMember = (FixAllScope)4;
+        public const Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingMember = (Microsoft.CodeAnalysis.CodeFixes.FixAllScope)4;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const FixAllScope ContainingType = (FixAllScope)5;
+        public const Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingType = (Microsoft.CodeAnalysis.CodeFixes.FixAllScope)5;
     }
 }

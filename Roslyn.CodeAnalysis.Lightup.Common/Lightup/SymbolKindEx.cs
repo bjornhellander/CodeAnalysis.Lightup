@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public class SymbolKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SymbolKind FunctionPointerType = (SymbolKind)20;
+        public const Microsoft.CodeAnalysis.SymbolKind FunctionPointerType = (Microsoft.CodeAnalysis.SymbolKind)20;
     }
 }

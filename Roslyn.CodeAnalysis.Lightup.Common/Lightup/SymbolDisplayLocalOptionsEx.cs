@@ -11,6 +11,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public class SymbolDisplayLocalOptionsEx
     {
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SymbolDisplayLocalOptions IncludeModifiers = (SymbolDisplayLocalOptions)4;
+        public const Microsoft.CodeAnalysis.SymbolDisplayLocalOptions IncludeModifiers = (Microsoft.CodeAnalysis.SymbolDisplayLocalOptions)4;
     }
 }
