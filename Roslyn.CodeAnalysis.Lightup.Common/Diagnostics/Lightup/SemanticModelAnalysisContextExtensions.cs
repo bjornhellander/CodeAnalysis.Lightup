@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.SemanticModelAnalysisContext.</summary>
-    public static class SemanticModelAnalysisContextExtensions
+    public static partial class SemanticModelAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SemanticModelAnalysisContext";
 

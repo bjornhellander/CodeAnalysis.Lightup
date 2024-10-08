@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolVisitor.</summary>
-    public static class SymbolVisitorExtensions
+    public static partial class SymbolVisitorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
 

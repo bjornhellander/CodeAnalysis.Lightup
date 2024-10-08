@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation.</summary>
-    public static class IFlowCaptureReferenceOperationExtensions
+    public static partial class IFlowCaptureReferenceOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
 

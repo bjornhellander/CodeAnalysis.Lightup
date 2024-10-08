@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.SemanticEdit.</summary>
-    public static class SemanticEditExtensions
+    public static partial class SemanticEditExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
 

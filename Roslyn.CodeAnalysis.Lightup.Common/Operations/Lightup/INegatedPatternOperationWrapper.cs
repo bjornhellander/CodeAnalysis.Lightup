@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.INegatedPatternOperation. Added in version 3.8.0.0.</summary>
-    public readonly struct INegatedPatternOperationWrapper
+    public readonly partial struct INegatedPatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.INegatedPatternOperation";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitOptions.</summary>
-    public static class EmitOptionsExtensions
+    public static partial class EmitOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
 

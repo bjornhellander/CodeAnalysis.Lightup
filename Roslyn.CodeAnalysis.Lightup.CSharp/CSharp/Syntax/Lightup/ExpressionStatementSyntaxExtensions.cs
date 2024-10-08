@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax.</summary>
-    public static class ExpressionStatementSyntaxExtensions
+    public static partial class ExpressionStatementSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax";
 

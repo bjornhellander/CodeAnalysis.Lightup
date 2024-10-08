@@ -285,7 +285,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public class {targetName}");
+        sb.AppendLine($"    public partial class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {
@@ -366,7 +366,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public readonly struct {targetName}");
+        sb.AppendLine($"    public readonly partial struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
@@ -679,7 +679,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public static class {targetName}");
+        sb.AppendLine($"    public static partial class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         if (staticFields.Count != 0)

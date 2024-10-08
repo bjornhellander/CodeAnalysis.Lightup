@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CaseInsensitiveComparison.</summary>
-    public static class CaseInsensitiveComparisonEx
+    public static partial class CaseInsensitiveComparisonEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CaseInsensitiveComparison";
 

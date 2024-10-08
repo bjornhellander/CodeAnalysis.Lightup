@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.INamedTypeSymbol.</summary>
-    public static class INamedTypeSymbolExtensions
+    public static partial class INamedTypeSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 

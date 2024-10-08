@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUnaryOperation.</summary>
-    public static class IUnaryOperationExtensions
+    public static partial class IUnaryOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUnaryOperation";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax.</summary>
-    public static class NullableDirectiveTriviaSyntaxExtensions
+    public static partial class NullableDirectiveTriviaSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
 

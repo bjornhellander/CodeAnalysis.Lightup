@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider.</summary>
-    public static class CodeRefactoringProviderExtensions
+    public static partial class CodeRefactoringProviderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider";
 

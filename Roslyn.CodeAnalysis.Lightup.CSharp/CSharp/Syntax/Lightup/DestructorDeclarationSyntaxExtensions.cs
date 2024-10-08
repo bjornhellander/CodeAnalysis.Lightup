@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax.</summary>
-    public static class DestructorDeclarationSyntaxExtensions
+    public static partial class DestructorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax";
 

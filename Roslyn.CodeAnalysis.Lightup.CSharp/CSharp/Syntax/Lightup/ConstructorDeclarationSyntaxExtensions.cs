@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax.</summary>
-    public static class ConstructorDeclarationSyntaxExtensions
+    public static partial class ConstructorDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax";
 

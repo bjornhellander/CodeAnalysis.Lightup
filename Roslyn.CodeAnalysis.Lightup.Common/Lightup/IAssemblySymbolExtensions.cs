@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IAssemblySymbol.</summary>
-    public static class IAssemblySymbolExtensions
+    public static partial class IAssemblySymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 

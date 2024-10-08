@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SpecialType.</summary>
-    public class SpecialTypeEx
+    public partial class SpecialTypeEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_RuntimeFeature = (Microsoft.CodeAnalysis.SpecialType)44;

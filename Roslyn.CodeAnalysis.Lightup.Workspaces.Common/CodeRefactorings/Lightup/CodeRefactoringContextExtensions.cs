@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext.</summary>
-    public static class CodeRefactoringContextExtensions
+    public static partial class CodeRefactoringContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
 

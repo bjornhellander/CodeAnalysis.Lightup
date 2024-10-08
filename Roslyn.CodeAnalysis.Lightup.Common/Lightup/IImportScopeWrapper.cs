@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IImportScope. Added in version 4.4.0.0.</summary>
-    public readonly struct IImportScopeWrapper
+    public readonly partial struct IImportScopeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IImportScope";
 

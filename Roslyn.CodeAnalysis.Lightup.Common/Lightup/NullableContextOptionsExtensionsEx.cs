@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.NullableContextOptionsExtensions. Added in version 3.8.0.0.</summary>
-    public static class NullableContextOptionsExtensionsEx
+    public static partial class NullableContextOptionsExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullableContextOptionsExtensions";
 

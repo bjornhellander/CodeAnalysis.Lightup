@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax.</summary>
-    public static class AnonymousMethodExpressionSyntaxExtensions
+    public static partial class AnonymousMethodExpressionSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax";
 

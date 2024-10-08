@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfigSet. Added in version 3.8.0.0.</summary>
-    public readonly struct AnalyzerConfigSetWrapper
+    public readonly partial struct AnalyzerConfigSetWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigSet";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IDiscardSymbol.</summary>
-    public static class IDiscardSymbolExtensions
+    public static partial class IDiscardSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IDiscardSymbol";
 

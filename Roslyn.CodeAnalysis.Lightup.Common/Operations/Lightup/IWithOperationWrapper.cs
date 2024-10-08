@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IWithOperation. Added in version 3.8.0.0.</summary>
-    public readonly struct IWithOperationWrapper
+    public readonly partial struct IWithOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IWithOperation";
 

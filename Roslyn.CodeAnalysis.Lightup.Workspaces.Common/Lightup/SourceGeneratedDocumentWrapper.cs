@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 4.0.0.0.</summary>
-    public readonly struct SourceGeneratedDocumentWrapper
+    public readonly partial struct SourceGeneratedDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SourceGeneratedDocument";
 

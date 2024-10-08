@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CommandLineArguments.</summary>
-    public static class CommandLineArgumentsExtensions
+    public static partial class CommandLineArgumentsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider. Added in version 3.8.0.0.</summary>
-    public readonly struct SyntaxTreeOptionsProviderWrapper
+    public readonly partial struct SyntaxTreeOptionsProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTreeOptionsProvider";
 

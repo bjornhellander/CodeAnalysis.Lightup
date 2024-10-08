@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax. Added in version 4.4.0.0.</summary>
-    public readonly struct ListPatternSyntaxWrapper
+    public readonly partial struct ListPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax";
 

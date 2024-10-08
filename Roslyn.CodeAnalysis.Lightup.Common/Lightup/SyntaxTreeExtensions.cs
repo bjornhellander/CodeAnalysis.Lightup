@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxTree.</summary>
-    public static class SyntaxTreeExtensions
+    public static partial class SyntaxTreeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
 

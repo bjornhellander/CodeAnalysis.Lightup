@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CodeFixes.CodeFixContext.</summary>
-    public static class CodeFixContextExtensions
+    public static partial class CodeFixContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixContext";
 

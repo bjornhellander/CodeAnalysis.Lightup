@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CommandLineProject. Added in version 4.0.0.0.</summary>
-    public static class CommandLineProjectEx
+    public static partial class CommandLineProjectEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineProject";
 

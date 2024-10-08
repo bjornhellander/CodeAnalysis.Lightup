@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitDifferenceResult.</summary>
-    public static class EmitDifferenceResultExtensions
+    public static partial class EmitDifferenceResultExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
 

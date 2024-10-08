@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUtf8StringOperation. Added in version 4.4.0.0.</summary>
-    public readonly struct IUtf8StringOperationWrapper
+    public readonly partial struct IUtf8StringOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUtf8StringOperation";
 

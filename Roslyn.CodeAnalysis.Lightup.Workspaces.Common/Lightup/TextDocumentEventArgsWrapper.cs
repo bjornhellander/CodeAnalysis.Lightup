@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.TextDocumentEventArgs. Added in version 4.4.0.0.</summary>
-    public readonly struct TextDocumentEventArgsWrapper
+    public readonly partial struct TextDocumentEventArgsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";
 

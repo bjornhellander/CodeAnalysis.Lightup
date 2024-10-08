@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.</summary>
-    public static class CSharpSyntaxRewriterExtensions
+    public static partial class CSharpSyntaxRewriterExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter";
 

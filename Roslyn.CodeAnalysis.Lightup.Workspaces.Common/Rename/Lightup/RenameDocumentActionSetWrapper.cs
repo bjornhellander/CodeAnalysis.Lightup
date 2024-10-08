@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet. Added in version 3.8.0.0.</summary>
-    public readonly struct RenameDocumentActionSetWrapper
+    public readonly partial struct RenameDocumentActionSetWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet";
 

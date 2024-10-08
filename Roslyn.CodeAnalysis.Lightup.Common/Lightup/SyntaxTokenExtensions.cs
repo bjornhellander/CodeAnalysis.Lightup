@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SyntaxToken.</summary>
-    public static class SyntaxTokenExtensions
+    public static partial class SyntaxTokenExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxToken";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Formatting.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Formatting.Formatter.</summary>
-    public static class FormatterEx
+    public static partial class FormatterEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Formatting.Formatter";
 

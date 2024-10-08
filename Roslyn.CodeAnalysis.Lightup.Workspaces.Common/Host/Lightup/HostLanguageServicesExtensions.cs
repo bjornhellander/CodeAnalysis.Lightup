@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.HostLanguageServices.</summary>
-    public static class HostLanguageServicesExtensions
+    public static partial class HostLanguageServicesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";
 

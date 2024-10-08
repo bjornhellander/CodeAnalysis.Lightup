@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.FileTextLoader.</summary>
-    public static class FileTextLoaderExtensions
+    public static partial class FileTextLoaderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FileTextLoader";
 

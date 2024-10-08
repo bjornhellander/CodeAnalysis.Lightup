@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation. Added in version 4.4.0.0.</summary>
-    public readonly struct IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper
+    public readonly partial struct IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation";
 

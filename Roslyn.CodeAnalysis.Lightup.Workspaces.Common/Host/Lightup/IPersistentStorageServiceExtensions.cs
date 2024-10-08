@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Host.IPersistentStorageService.</summary>
-    public static class IPersistentStorageServiceExtensions
+    public static partial class IPersistentStorageServiceExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.IPersistentStorageService";
 

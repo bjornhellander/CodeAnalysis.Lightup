@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharpExtensions.</summary>
-    public static class CSharpExtensionsEx
+    public static partial class CSharpExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharpExtensions";
 

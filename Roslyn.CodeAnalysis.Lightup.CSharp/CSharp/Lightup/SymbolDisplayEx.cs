@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.SymbolDisplay.</summary>
-    public static class SymbolDisplayEx
+    public static partial class SymbolDisplayEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SymbolDisplay";
 

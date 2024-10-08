@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Location.</summary>
-    public static class LocationExtensions
+    public static partial class LocationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Location";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.LineSpanDirectiveTriviaSyntax. Added in version 4.0.0.0.</summary>
-    public readonly struct LineSpanDirectiveTriviaSyntaxWrapper
+    public readonly partial struct LineSpanDirectiveTriviaSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineSpanDirectiveTriviaSyntax";
 

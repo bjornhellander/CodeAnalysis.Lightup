@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ModuleMetadata.</summary>
-    public static class ModuleMetadataExtensions
+    public static partial class ModuleMetadataExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
 

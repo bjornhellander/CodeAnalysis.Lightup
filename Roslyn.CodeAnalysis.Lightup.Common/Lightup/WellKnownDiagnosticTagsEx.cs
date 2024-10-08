@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownDiagnosticTags.</summary>
-    public static class WellKnownDiagnosticTagsEx
+    public static partial class WellKnownDiagnosticTagsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
 

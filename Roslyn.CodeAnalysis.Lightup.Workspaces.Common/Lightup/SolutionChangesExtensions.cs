@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SolutionChanges.</summary>
-    public static class SolutionChangesExtensions
+    public static partial class SolutionChangesExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionChanges";
 

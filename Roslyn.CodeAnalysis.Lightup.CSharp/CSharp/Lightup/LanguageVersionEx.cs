@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.LanguageVersion.</summary>
-    public class LanguageVersionEx
+    public partial class LanguageVersionEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp9 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)900;

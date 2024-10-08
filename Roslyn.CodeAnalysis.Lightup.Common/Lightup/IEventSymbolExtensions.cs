@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IEventSymbol.</summary>
-    public static class IEventSymbolExtensions
+    public static partial class IEventSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
 

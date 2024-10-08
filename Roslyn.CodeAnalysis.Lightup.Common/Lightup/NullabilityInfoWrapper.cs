@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.NullabilityInfo. Added in version 3.8.0.0.</summary>
-    public readonly struct NullabilityInfoWrapper
+    public readonly partial struct NullabilityInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullabilityInfo";
 

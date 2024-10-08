@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SarifVersionFacts. Added in version 3.8.0.0.</summary>
-    public static class SarifVersionFactsEx
+    public static partial class SarifVersionFactsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SarifVersionFacts";
 

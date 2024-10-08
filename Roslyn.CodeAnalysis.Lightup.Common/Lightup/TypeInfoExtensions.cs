@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.TypeInfo.</summary>
-    public static class TypeInfoExtensions
+    public static partial class TypeInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TypeInfo";
 

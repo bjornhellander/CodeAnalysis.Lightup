@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Simplification.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Simplification.Simplifier.</summary>
-    public static class SimplifierEx
+    public static partial class SimplifierEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Simplification.Simplifier";
 

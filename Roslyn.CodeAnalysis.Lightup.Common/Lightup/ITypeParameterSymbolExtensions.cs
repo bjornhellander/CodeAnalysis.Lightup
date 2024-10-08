@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ITypeParameterSymbol.</summary>
-    public static class ITypeParameterSymbolExtensions
+    public static partial class ITypeParameterSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
 

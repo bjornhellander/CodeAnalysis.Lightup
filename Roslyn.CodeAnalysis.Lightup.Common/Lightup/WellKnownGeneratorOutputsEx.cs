@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownGeneratorOutputs. Added in version 4.4.0.0.</summary>
-    public static class WellKnownGeneratorOutputsEx
+    public static partial class WellKnownGeneratorOutputsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownGeneratorOutputs";
 

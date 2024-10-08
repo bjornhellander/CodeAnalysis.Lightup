@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo.</summary>
-    public static class ForEachStatementInfoExtensions
+    public static partial class ForEachStatementInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute.</summary>
-    public static class ExportCodeFixProviderAttributeExtensions
+    public static partial class ExportCodeFixProviderAttributeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
 

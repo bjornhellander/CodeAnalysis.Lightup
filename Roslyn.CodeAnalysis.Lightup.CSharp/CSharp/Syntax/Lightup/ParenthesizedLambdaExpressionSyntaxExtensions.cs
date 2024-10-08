@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax.</summary>
-    public static class ParenthesizedLambdaExpressionSyntaxExtensions
+    public static partial class ParenthesizedLambdaExpressionSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax";
 

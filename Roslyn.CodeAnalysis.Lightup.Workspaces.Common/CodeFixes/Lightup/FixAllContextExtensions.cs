@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.FixAllContext.</summary>
-    public static class FixAllContextExtensions
+    public static partial class FixAllContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllContext";
 

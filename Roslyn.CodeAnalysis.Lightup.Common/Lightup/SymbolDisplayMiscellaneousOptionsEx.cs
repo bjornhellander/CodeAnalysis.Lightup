@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.</summary>
-    public class SymbolDisplayMiscellaneousOptionsEx
+    public partial class SymbolDisplayMiscellaneousOptionsEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions AllowDefaultLiteral = (Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)128;

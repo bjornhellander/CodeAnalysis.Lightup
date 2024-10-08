@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CommandLineSourceFile.</summary>
-    public static class CommandLineSourceFileExtensions
+    public static partial class CommandLineSourceFileExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionOrPatternSyntax. Added in version 3.8.0.0.</summary>
-    public readonly struct ExpressionOrPatternSyntaxWrapper
+    public readonly partial struct ExpressionOrPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionOrPatternSyntax";
 

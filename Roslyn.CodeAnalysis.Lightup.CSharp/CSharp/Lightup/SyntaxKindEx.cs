@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
-    public class SyntaxKindEx
+    public partial class SyntaxKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
         public const Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
