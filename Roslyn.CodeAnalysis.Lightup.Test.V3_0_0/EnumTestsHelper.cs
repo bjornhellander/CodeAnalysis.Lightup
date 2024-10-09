@@ -7,14 +7,14 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-public abstract class EnumTestsBase<TExtension, TNative>
+public static class EnumTestsHelper
 {
-    [TestMethod]
-    public void TestExtensionFieldsMatchActualType()
+    public static void CheckEnum(Type extensionEnumType, Type nativeEnumType)
     {
-        var enumNames = typeof(TNative).GetEnumNames();
+        Assert.IsTrue(nativeEnumType.IsEnum);
+        var enumNames = nativeEnumType.GetEnumNames();
 
-        var fields = typeof(TExtension).GetFields();
+        var fields = extensionEnumType.GetFields();
         foreach (var field in fields)
         {
             var fieldName = field.Name;
@@ -23,11 +23,11 @@ public abstract class EnumTestsBase<TExtension, TNative>
             Assert.IsNotNull(fieldValue);
 
             Assert.IsTrue(field.IsStatic && field.IsLiteral, $"All fields should be constants ({fieldName})");
-            Assert.AreEqual(typeof(TNative), field.FieldType, $"All constants should be of type {nameof(TNative)} ({fieldName})");
+            Assert.AreEqual(nativeEnumType, field.FieldType, $"All constants should be of type {nativeEnumType.Name} ({fieldName})");
 
             if (enumNames.Contains(fieldName))
             {
-                var enumValue = Enum.Parse(typeof(TNative), fieldName);
+                var enumValue = Enum.Parse(nativeEnumType, fieldName);
                 Assert.AreEqual(enumValue, fieldValue, $"Constants should have expected value, when name is known ({fieldName})");
             }
         }

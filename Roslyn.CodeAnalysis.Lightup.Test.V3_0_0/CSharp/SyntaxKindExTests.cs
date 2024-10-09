@@ -8,6 +8,11 @@ using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class SyntaxKindExTests : EnumTestsBase<SyntaxKindEx, SyntaxKind>
+public class SyntaxKindExTests
 {
+    [TestMethod]
+    public void TestEnum()
+    {
+        EnumTestsHelper.CheckEnum(typeof(SyntaxKindEx), typeof(SyntaxKind));
+    }
 }
