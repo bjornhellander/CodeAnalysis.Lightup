@@ -285,7 +285,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public partial class {targetName}");
+        sb.AppendLine($"    public static partial class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {

@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.OperationKind.</summary>
-    public partial class OperationKindEx
+    public static partial class OperationKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (Microsoft.CodeAnalysis.OperationKind)107;

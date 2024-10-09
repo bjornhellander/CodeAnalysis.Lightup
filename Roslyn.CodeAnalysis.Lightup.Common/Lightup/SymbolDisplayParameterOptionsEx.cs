@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolDisplayParameterOptions.</summary>
-    public partial class SymbolDisplayParameterOptionsEx
+    public static partial class SymbolDisplayParameterOptionsEx
     {
         /// <summary>Added in version 4.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.SymbolDisplayParameterOptions IncludeModifiers = (Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)2;

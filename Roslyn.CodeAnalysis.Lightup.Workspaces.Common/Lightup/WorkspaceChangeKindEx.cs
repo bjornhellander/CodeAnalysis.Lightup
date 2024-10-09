@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.WorkspaceChangeKind.</summary>
-    public partial class WorkspaceChangeKindEx
+    public static partial class WorkspaceChangeKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentAdded = (Microsoft.CodeAnalysis.WorkspaceChangeKind)18;

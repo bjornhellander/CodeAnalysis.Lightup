@@ -8,7 +8,7 @@
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs+FailureErrorCode.</summary>
-    public partial class FailureErrorCodeEx
+    public static partial class FailureErrorCodeEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         public const Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode ReferencesFramework = (Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode)4;
