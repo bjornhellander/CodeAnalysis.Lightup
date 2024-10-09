@@ -8,6 +8,6 @@ using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class SyntaxKindExTests : EnumTestsBase<SyntaxKindEx, SyntaxKind, ushort>
+public class SyntaxKindExTests : EnumTestsBase<SyntaxKindEx, SyntaxKind>
 {
 }

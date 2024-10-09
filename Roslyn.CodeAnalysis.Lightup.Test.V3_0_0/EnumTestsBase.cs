@@ -7,32 +7,28 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-public abstract class EnumTestsBase<TExtension, TNative, TInt>
+public abstract class EnumTestsBase<TExtension, TNative>
 {
     [TestMethod]
     public void TestExtensionFieldsMatchActualType()
     {
         var enumNames = typeof(TNative).GetEnumNames();
-        var enumValues = typeof(TNative).GetEnumValues().Cast<TNative>().ToArray();
-        var enumIntValues = enumValues.Cast<TInt>().ToArray();
 
         var fields = typeof(TExtension).GetFields();
         foreach (var field in fields)
         {
             var fieldName = field.Name;
 
-            var fieldObjValue = field.GetValue(null);
-            Assert.IsNotNull(fieldObjValue);
-            var fieldIntValue = (TInt)fieldObjValue;
+            var fieldValue = field.GetValue(null);
+            Assert.IsNotNull(fieldValue);
 
             Assert.IsTrue(field.IsStatic && field.IsLiteral, $"All fields should be constants ({fieldName})");
             Assert.AreEqual(typeof(TNative), field.FieldType, $"All constants should be of type {nameof(TNative)} ({fieldName})");
 
             if (enumNames.Contains(fieldName))
             {
-                var enumObjValue = Enum.Parse(typeof(TNative), fieldName);
-                var enumIntValue = (TInt)enumObjValue;
-                Assert.AreEqual(enumIntValue, fieldIntValue, $"Constants should have expected value, when name is known ({fieldName})");
+                var enumValue = Enum.Parse(typeof(TNative), fieldName);
+                Assert.AreEqual(enumValue, fieldValue, $"Constants should have expected value, when name is known ({fieldName})");
             }
         }
     }
