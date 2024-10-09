@@ -647,9 +647,7 @@ internal class Writer
         var targetNameSuffix = typeDef is ClassTypeDefinition classDef && classDef.IsStatic ? "Ex" : "Extensions";
         var targetName = typeDef.Name + targetNameSuffix;
 
-        // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
-        _ = instanceConstructors;
         var staticFields = GetStaticFields(typeDef);
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
@@ -688,6 +686,15 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 AppendStaticFieldDelegateDeclarations(sb, field, typeDefs);
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                AppendInstanceConstructorDelegateDeclarations(sb, baseTypeName, constructor, index, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -739,6 +746,15 @@ internal class Writer
             {
                 sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"        private static readonly ConstructorDelegate{index} ConstructorFunc{index};");
             }
         }
         if (staticProperties.Count != 0)
@@ -805,6 +821,15 @@ internal class Writer
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"            ConstructorFunc{index} = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(wrappedType{GetCreateConstructorAccessorArguments(constructor)});");
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -866,6 +891,14 @@ internal class Writer
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
             sb.AppendLine($"        }}");
+        }
+        foreach (var constructor in instanceConstructors)
+        {
+            var index = instanceConstructors.IndexOf(constructor);
+            sb.AppendLine();
+            AppendMemberSummary(sb, constructor);
+            sb.AppendLine($"        public static {baseTypeName} Create({GetParametersDeclText(constructor.Parameters, typeDefs)})");
+            sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
         }
         foreach (var property in staticProperties)
         {
@@ -978,6 +1011,12 @@ internal class Writer
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
     {
+        // TODO: Enable this type
+        if (typeDef.FullName.Contains("Microsoft.CodeAnalysis.CodeFixes.FixAllContext"))
+        {
+            return [];
+        }
+
         var result = typeDef.Constructors
             .Where(x => x.AssemblyVersion != null)
             .ToList();

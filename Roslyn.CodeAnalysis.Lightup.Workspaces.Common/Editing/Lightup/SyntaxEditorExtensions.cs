@@ -14,9 +14,26 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxEditor";
 
+        private delegate SyntaxEditor ConstructorDelegate0(Microsoft.CodeAnalysis.SyntaxNode root, Microsoft.CodeAnalysis.Host.HostWorkspaceServices services);
+        private delegate SyntaxEditor ConstructorDelegate1(Microsoft.CodeAnalysis.SyntaxNode root, Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
+        private static readonly ConstructorDelegate1 ConstructorFunc1;
+
         static SyntaxEditorExtensions()
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "rootSyntaxNode", "servicesHostWorkspaceServices");
+            ConstructorFunc1 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "rootSyntaxNode", "servicesSolutionServices");
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static SyntaxEditor Create(Microsoft.CodeAnalysis.SyntaxNode root, Microsoft.CodeAnalysis.Host.HostWorkspaceServices services)
+            => ConstructorFunc0(root, services);
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static SyntaxEditor Create(Microsoft.CodeAnalysis.SyntaxNode root, Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services)
+            => ConstructorFunc1(root, services);
     }
 }

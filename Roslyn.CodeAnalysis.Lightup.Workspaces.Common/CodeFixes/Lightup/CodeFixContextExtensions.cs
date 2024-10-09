@@ -14,7 +14,13 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.CodeFixContext";
 
+        private delegate CodeFixContext ConstructorDelegate0(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Text.TextSpan span, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic> diagnostics, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, System.Threading.CancellationToken cancellationToken);
+        private delegate CodeFixContext ConstructorDelegate1(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Diagnostic diagnostic, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, System.Threading.CancellationToken cancellationToken);
+
         private delegate Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(Microsoft.CodeAnalysis.CodeFixes.CodeFixContext? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
+        private static readonly ConstructorDelegate1 ConstructorFunc1;
 
         private static readonly TextDocumentGetterDelegate TextDocumentGetterFunc;
 
@@ -22,8 +28,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentTextDocument", "spanTextSpan", "diagnosticsImmutableArray`1", "registerCodeFixAction`2", "cancellationTokenCancellationToken");
+            ConstructorFunc1 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "documentTextDocument", "diagnosticDiagnostic", "registerCodeFixAction`2", "cancellationTokenCancellationToken");
+
             TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
+
+        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        public static CodeFixContext Create(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Text.TextSpan span, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic> diagnostics, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, System.Threading.CancellationToken cancellationToken)
+            => ConstructorFunc0(document, span, diagnostics, registerCodeFix, cancellationToken);
+
+        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        public static CodeFixContext Create(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Diagnostic diagnostic, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, System.Threading.CancellationToken cancellationToken)
+            => ConstructorFunc1(document, diagnostic, registerCodeFix, cancellationToken);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static Microsoft.CodeAnalysis.TextDocument TextDocument(this Microsoft.CodeAnalysis.CodeFixes.CodeFixContext _obj)

@@ -14,7 +14,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 
+        private delegate CommandLineSourceFile ConstructorDelegate0(System.String path, System.Boolean isScript, System.Boolean isInputRedirected);
+
         private delegate System.Boolean IsInputRedirectedGetterDelegate(Microsoft.CodeAnalysis.CommandLineSourceFile? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly IsInputRedirectedGetterDelegate IsInputRedirectedGetterFunc;
 
@@ -22,8 +26,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "pathString", "isScriptBoolean", "isInputRedirectedBoolean");
+
             IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
         }
+
+        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        public static CommandLineSourceFile Create(System.String path, System.Boolean isScript, System.Boolean isInputRedirected)
+            => ConstructorFunc0(path, isScript, isInputRedirected);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static System.Boolean IsInputRedirected(this Microsoft.CodeAnalysis.CommandLineSourceFile _obj)

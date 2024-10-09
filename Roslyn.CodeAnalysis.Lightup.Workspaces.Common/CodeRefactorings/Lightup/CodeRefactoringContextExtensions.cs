@@ -14,7 +14,11 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
 
+        private delegate CodeRefactoringContext ConstructorDelegate0(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Text.TextSpan span, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction> registerRefactoring, System.Threading.CancellationToken cancellationToken);
+
         private delegate Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly TextDocumentGetterDelegate TextDocumentGetterFunc;
 
@@ -22,8 +26,14 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentTextDocument", "spanTextSpan", "registerRefactoringAction`1", "cancellationTokenCancellationToken");
+
             TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
+
+        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        public static CodeRefactoringContext Create(Microsoft.CodeAnalysis.TextDocument document, Microsoft.CodeAnalysis.Text.TextSpan span, System.Action<Microsoft.CodeAnalysis.CodeActions.CodeAction> registerRefactoring, System.Threading.CancellationToken cancellationToken)
+            => ConstructorFunc0(document, span, registerRefactoring, cancellationToken);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static Microsoft.CodeAnalysis.TextDocument TextDocument(this Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext _obj)
