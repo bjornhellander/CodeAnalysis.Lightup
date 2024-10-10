@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Editing.SyntaxGenerator.</summary>
-    public static class SyntaxGeneratorExtensions
+    public static partial class SyntaxGeneratorExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxGenerator";
 

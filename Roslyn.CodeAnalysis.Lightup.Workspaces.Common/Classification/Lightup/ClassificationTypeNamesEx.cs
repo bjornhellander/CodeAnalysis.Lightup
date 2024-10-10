@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Classification.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Classification.ClassificationTypeNames.</summary>
-    public static class ClassificationTypeNamesEx
+    public static partial class ClassificationTypeNamesEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Classification.ClassificationTypeNames";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax.</summary>
-    public static class BaseMethodDeclarationSyntaxExtensions
+    public static partial class BaseMethodDeclarationSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax";
 

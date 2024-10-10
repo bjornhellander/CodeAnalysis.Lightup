@@ -8,12 +8,12 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolDisplayPartKind.</summary>
-    public class SymbolDisplayPartKindEx
+    public static partial class SymbolDisplayPartKindEx
     {
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SymbolDisplayPartKind RecordClassName = (SymbolDisplayPartKind)31;
+        public const Microsoft.CodeAnalysis.SymbolDisplayPartKind RecordClassName = (Microsoft.CodeAnalysis.SymbolDisplayPartKind)31;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SymbolDisplayPartKind RecordStructName = (SymbolDisplayPartKind)32;
+        public const Microsoft.CodeAnalysis.SymbolDisplayPartKind RecordStructName = (Microsoft.CodeAnalysis.SymbolDisplayPartKind)32;
     }
 }

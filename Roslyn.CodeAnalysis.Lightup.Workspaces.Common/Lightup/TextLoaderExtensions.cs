@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.TextLoader.</summary>
-    public static class TextLoaderExtensions
+    public static partial class TextLoaderExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextLoader";
 

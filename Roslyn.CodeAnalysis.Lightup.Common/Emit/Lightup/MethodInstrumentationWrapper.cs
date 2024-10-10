@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.MethodInstrumentation. Added in version 4.8.0.0.</summary>
-    public readonly struct MethodInstrumentationWrapper
+    public readonly partial struct MethodInstrumentationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.MethodInstrumentation";
 

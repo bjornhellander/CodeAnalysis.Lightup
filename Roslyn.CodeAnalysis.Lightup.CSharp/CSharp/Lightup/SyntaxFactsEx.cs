@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.SyntaxFacts.</summary>
-    public static class SyntaxFactsEx
+    public static partial class SyntaxFactsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxFacts";
 

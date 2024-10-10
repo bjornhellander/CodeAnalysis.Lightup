@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext.</summary>
-    public static class OperationBlockStartAnalysisContextExtensions
+    public static partial class OperationBlockStartAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ILocalSymbol.</summary>
-    public static class ILocalSymbolExtensions
+    public static partial class ILocalSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
 

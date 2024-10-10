@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SolutionInfo.</summary>
-    public static class SolutionInfoExtensions
+    public static partial class SolutionInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionInfo";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax. Added in version 3.8.0.0.</summary>
-    public readonly struct BaseObjectCreationExpressionSyntaxWrapper
+    public readonly partial struct BaseObjectCreationExpressionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax";
 

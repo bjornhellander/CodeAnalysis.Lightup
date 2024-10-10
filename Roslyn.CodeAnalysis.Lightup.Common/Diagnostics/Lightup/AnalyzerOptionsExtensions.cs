@@ -10,11 +10,15 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions.</summary>
-    public static class AnalyzerOptionsExtensions
+    public static partial class AnalyzerOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions";
 
+        private delegate AnalyzerOptions ConstructorDelegate0(System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.AdditionalText> additionalFiles, Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider);
+
         private delegate Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly AnalyzerConfigOptionsProviderGetterDelegate AnalyzerConfigOptionsProviderGetterFunc;
 
@@ -22,8 +26,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "additionalFilesImmutableArray`1", "optionsProviderAnalyzerConfigOptionsProvider");
+
             AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
+
+        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        public static AnalyzerOptions Create(System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.AdditionalText> additionalFiles, Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider)
+            => ConstructorFunc0(additionalFiles, optionsProvider);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj)

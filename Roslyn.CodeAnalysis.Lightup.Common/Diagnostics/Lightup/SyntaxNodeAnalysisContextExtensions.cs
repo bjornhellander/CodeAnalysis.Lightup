@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext.</summary>
-    public static class SyntaxNodeAnalysisContextExtensions
+    public static partial class SyntaxNodeAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext";
 

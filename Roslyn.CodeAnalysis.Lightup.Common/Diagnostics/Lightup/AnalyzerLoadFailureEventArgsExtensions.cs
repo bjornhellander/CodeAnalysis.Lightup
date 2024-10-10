@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.</summary>
-    public static class AnalyzerLoadFailureEventArgsExtensions
+    public static partial class AnalyzerLoadFailureEventArgsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs";
 

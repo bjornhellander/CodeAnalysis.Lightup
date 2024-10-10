@@ -8,6 +8,11 @@ using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class LanguageVersionExTests : EnumTestsBase<LanguageVersionEx, LanguageVersion, int>
+public class LanguageVersionExTests
 {
+    [TestMethod]
+    public void TestEnum()
+    {
+        EnumTestsHelper.CheckEnum(typeof(LanguageVersionEx), typeof(LanguageVersion));
+    }
 }

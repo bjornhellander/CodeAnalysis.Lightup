@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.Conversion.</summary>
-    public static class ConversionExtensions
+    public static partial class ConversionExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
 

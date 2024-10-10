@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LoadTextOptions. Added in version 4.8.0.0.</summary>
-    public readonly struct LoadTextOptionsWrapper
+    public readonly partial struct LoadTextOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
 

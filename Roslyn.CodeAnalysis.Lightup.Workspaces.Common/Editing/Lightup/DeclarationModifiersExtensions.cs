@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Editing.DeclarationModifiers.</summary>
-    public static class DeclarationModifiersExtensions
+    public static partial class DeclarationModifiersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
 

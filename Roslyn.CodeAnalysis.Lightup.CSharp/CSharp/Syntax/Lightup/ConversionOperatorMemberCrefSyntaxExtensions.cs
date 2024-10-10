@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax.</summary>
-    public static class ConversionOperatorMemberCrefSyntaxExtensions
+    public static partial class ConversionOperatorMemberCrefSyntaxExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax";
 

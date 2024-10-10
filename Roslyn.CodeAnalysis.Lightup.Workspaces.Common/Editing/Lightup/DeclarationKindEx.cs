@@ -8,9 +8,9 @@
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.DeclarationKind.</summary>
-    public class DeclarationKindEx
+    public static partial class DeclarationKindEx
     {
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const DeclarationKind RecordClass = (DeclarationKind)29;
+        public const Microsoft.CodeAnalysis.Editing.DeclarationKind RecordClass = (Microsoft.CodeAnalysis.Editing.DeclarationKind)29;
     }
 }

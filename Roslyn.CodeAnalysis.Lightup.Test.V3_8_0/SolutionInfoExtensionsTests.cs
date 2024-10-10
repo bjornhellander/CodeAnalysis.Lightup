@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class SolutionInfoExtensionsTests : V3_0_0.SolutionInfoExtensionsTests
 {
     [TestMethod]
-    public override void TestSignatureGivenNullObject()
+    public override void TestConstructor()
     {
         _ = CallCreate();
     }

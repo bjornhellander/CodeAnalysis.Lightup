@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.CodeBlockAnalysisContext.</summary>
-    public static class CodeBlockAnalysisContextExtensions
+    public static partial class CodeBlockAnalysisContextExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CodeBlockAnalysisContext";
 

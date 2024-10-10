@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SemanticModel.</summary>
-    public static class SemanticModelExtensions
+    public static partial class SemanticModelExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 

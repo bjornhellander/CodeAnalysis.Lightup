@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer.</summary>
-    public static class RenamerEx
+    public static partial class RenamerEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer";
 

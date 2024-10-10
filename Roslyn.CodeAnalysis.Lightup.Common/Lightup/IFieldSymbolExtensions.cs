@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFieldSymbol.</summary>
-    public static class IFieldSymbolExtensions
+    public static partial class IFieldSymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
 

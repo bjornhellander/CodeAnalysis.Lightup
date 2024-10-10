@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Rename.DocumentRenameOptions. Added in version 4.4.0.0.</summary>
-    public readonly struct DocumentRenameOptionsWrapper
+    public readonly partial struct DocumentRenameOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions";
 

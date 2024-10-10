@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolEqualityComparer. Added in version 3.8.0.0.</summary>
-    public readonly struct SymbolEqualityComparerWrapper
+    public readonly partial struct SymbolEqualityComparerWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolEqualityComparer";
 

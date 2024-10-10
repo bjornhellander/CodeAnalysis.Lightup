@@ -8,9 +8,9 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.InstanceReferenceKind.</summary>
-    public class InstanceReferenceKindEx
+    public static partial class InstanceReferenceKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const InstanceReferenceKind InterpolatedStringHandler = (InstanceReferenceKind)3;
+        public const Microsoft.CodeAnalysis.Operations.InstanceReferenceKind InterpolatedStringHandler = (Microsoft.CodeAnalysis.Operations.InstanceReferenceKind)3;
     }
 }

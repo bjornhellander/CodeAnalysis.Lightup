@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.SyntaxFactory.</summary>
-    public static class SyntaxFactoryEx
+    public static partial class SyntaxFactoryEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxFactory";
 

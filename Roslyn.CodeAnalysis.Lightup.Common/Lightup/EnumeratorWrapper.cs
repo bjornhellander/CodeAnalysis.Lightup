@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator. Added in version 4.4.0.0.</summary>
-    public readonly struct EnumeratorWrapper
+    public readonly partial struct EnumeratorWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownMemberNames.</summary>
-    public static class WellKnownMemberNamesEx
+    public static partial class WellKnownMemberNamesEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownMemberNames";
 

@@ -8,177 +8,177 @@
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
-    public class SyntaxKindEx
+    public static partial class SyntaxKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind GreaterThanGreaterThanGreaterThanToken = (SyntaxKind)8286;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (SyntaxKind)8287;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8287;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind OrKeyword = (SyntaxKind)8438;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind OrKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8438;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind AndKeyword = (SyntaxKind)8439;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind AndKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8439;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind NotKeyword = (SyntaxKind)8440;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind NotKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8440;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind DataKeyword = (SyntaxKind)8441;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind DataKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8441;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind WithKeyword = (SyntaxKind)8442;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind WithKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8442;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind InitKeyword = (SyntaxKind)8443;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind InitKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8443;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind RecordKeyword = (SyntaxKind)8444;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8444;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind ManagedKeyword = (SyntaxKind)8445;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ManagedKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8445;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind UnmanagedKeyword = (SyntaxKind)8446;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind UnmanagedKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8446;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind RequiredKeyword = (SyntaxKind)8447;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind RequiredKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8447;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind ScopedKeyword = (SyntaxKind)8448;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8448;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind FileKeyword = (SyntaxKind)8449;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FileKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8449;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind WarningsKeyword = (SyntaxKind)8488;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind WarningsKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8488;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind AnnotationsKeyword = (SyntaxKind)8489;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind SingleLineRawStringLiteralToken = (SyntaxKind)8518;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleLineRawStringLiteralToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8518;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind MultiLineRawStringLiteralToken = (SyntaxKind)8519;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind MultiLineRawStringLiteralToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8519;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind Utf8StringLiteralToken = (SyntaxKind)8520;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8520;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind Utf8SingleLineRawStringLiteralToken = (SyntaxKind)8521;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8SingleLineRawStringLiteralToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8521;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind Utf8MultiLineRawStringLiteralToken = (SyntaxKind)8522;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8MultiLineRawStringLiteralToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8522;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind ImplicitObjectCreationExpression = (SyntaxKind)8659;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind UnsignedRightShiftExpression = (SyntaxKind)8692;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8692;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind UnsignedRightShiftAssignmentExpression = (SyntaxKind)8726;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftAssignmentExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8726;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind Utf8StringLiteralExpression = (SyntaxKind)8756;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SyntaxKind FileScopedNamespaceDeclaration = (SyntaxKind)8845;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FileScopedNamespaceDeclaration = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)8845;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind ParenthesizedPattern = (SyntaxKind)9028;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ParenthesizedPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9028;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind RelationalPattern = (SyntaxKind)9029;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind RelationalPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9029;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind TypePattern = (SyntaxKind)9030;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind TypePattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9030;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind OrPattern = (SyntaxKind)9031;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind OrPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9031;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind AndPattern = (SyntaxKind)9032;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind AndPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9032;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind NotPattern = (SyntaxKind)9033;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind NotPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9033;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind SlicePattern = (SyntaxKind)9034;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind SlicePattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9034;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind ListPattern = (SyntaxKind)9035;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerType = (SyntaxKind)9056;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerType = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9056;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerParameter = (SyntaxKind)9057;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerParameter = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9057;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerParameterList = (SyntaxKind)9058;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerParameterList = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9058;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerCallingConvention = (SyntaxKind)9059;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerCallingConvention = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9059;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind InitAccessorDeclaration = (SyntaxKind)9060;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind InitAccessorDeclaration = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9060;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind WithExpression = (SyntaxKind)9061;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind WithExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9061;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind WithInitializerExpression = (SyntaxKind)9062;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind WithInitializerExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9062;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind RecordDeclaration = (SyntaxKind)9063;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordDeclaration = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9063;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind DefaultConstraint = (SyntaxKind)9064;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind DefaultConstraint = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9064;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind PrimaryConstructorBaseType = (SyntaxKind)9065;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind PrimaryConstructorBaseType = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9065;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerUnmanagedCallingConventionList = (SyntaxKind)9066;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerUnmanagedCallingConventionList = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9066;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SyntaxKind FunctionPointerUnmanagedCallingConvention = (SyntaxKind)9067;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerUnmanagedCallingConvention = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9067;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SyntaxKind RecordStructDeclaration = (SyntaxKind)9068;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordStructDeclaration = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9068;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SyntaxKind ExpressionColon = (SyntaxKind)9069;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ExpressionColon = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9069;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SyntaxKind LineDirectivePosition = (SyntaxKind)9070;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind LineDirectivePosition = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9070;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SyntaxKind LineSpanDirectiveTrivia = (SyntaxKind)9071;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind LineSpanDirectiveTrivia = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9071;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind InterpolatedSingleLineRawStringStartToken = (SyntaxKind)9072;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedSingleLineRawStringStartToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9072;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind InterpolatedMultiLineRawStringStartToken = (SyntaxKind)9073;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedMultiLineRawStringStartToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9073;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind InterpolatedRawStringEndToken = (SyntaxKind)9074;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedRawStringEndToken = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9074;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const SyntaxKind ScopedType = (SyntaxKind)9075;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedType = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9075;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SyntaxKind CollectionExpression = (SyntaxKind)9076;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind CollectionExpression = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9076;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SyntaxKind ExpressionElement = (SyntaxKind)9077;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind ExpressionElement = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9077;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SyntaxKind SpreadElement = (SyntaxKind)9078;
+        public const Microsoft.CodeAnalysis.CSharp.SyntaxKind SpreadElement = (Microsoft.CodeAnalysis.CSharp.SyntaxKind)9078;
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation.</summary>
-    public static class ICompoundAssignmentOperationExtensions
+    public static partial class ICompoundAssignmentOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ICompoundAssignmentOperation";
 

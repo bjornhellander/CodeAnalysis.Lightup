@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation. Added in version 3.8.0.0.</summary>
-    public readonly struct IRecursivePatternOperationWrapper
+    public readonly partial struct IRecursivePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation";
 

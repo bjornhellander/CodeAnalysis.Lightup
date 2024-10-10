@@ -8,9 +8,9 @@
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Emit.SemanticEditKind.</summary>
-    public class SemanticEditKindEx
+    public static partial class SemanticEditKindEx
     {
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const SemanticEditKind Replace = (SemanticEditKind)4;
+        public const Microsoft.CodeAnalysis.Emit.SemanticEditKind Replace = (Microsoft.CodeAnalysis.Emit.SemanticEditKind)4;
     }
 }

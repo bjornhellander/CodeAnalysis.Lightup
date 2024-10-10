@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation. Added in version 4.4.0.0.</summary>
-    public readonly struct IFunctionPointerInvocationOperationWrapper
+    public readonly partial struct IFunctionPointerInvocationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IFunctionPointerInvocationOperation";
 

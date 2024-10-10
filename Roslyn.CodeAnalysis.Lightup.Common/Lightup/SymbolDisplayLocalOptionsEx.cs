@@ -8,9 +8,9 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolDisplayLocalOptions.</summary>
-    public class SymbolDisplayLocalOptionsEx
+    public static partial class SymbolDisplayLocalOptionsEx
     {
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SymbolDisplayLocalOptions IncludeModifiers = (SymbolDisplayLocalOptions)4;
+        public const Microsoft.CodeAnalysis.SymbolDisplayLocalOptions IncludeModifiers = (Microsoft.CodeAnalysis.SymbolDisplayLocalOptions)4;
     }
 }

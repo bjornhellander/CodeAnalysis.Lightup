@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IPropertySymbol.</summary>
-    public static class IPropertySymbolExtensions
+    public static partial class IPropertySymbolExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
 

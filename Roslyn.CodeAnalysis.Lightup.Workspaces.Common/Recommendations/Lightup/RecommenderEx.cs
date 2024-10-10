@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Recommendations.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Recommendations.Recommender.</summary>
-    public static class RecommenderEx
+    public static partial class RecommenderEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Recommendations.Recommender";
 

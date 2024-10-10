@@ -10,15 +10,19 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Emit.EmitOptions.</summary>
-    public static class EmitOptionsExtensions
+    public static partial class EmitOptionsExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
+
+        private delegate EmitOptions ConstructorDelegate0(System.Boolean metadataOnly, Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, System.String? pdbFilePath, System.String? outputNameOverride, System.Int32 fileAlignment, System.UInt64 baseAddress, System.Boolean highEntropyVirtualAddressSpace, Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, System.String? runtimeMetadataVersion, System.Boolean tolerateErrors, System.Boolean includePrivateMembers, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, System.Nullable<System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, System.Text.Encoding? defaultSourceFileEncoding, System.Text.Encoding? fallbackSourceFileEncoding);
 
         private delegate System.Text.Encoding? DefaultSourceFileEncodingGetterDelegate(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
         private delegate System.Text.Encoding? FallbackSourceFileEncodingGetterDelegate(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
 
         private delegate Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, System.Text.Encoding? defaultSourceFileEncoding);
         private delegate Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, System.Text.Encoding? fallbackSourceFileEncoding);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly DefaultSourceFileEncodingGetterDelegate DefaultSourceFileEncodingGetterFunc;
         private static readonly FallbackSourceFileEncodingGetterDelegate FallbackSourceFileEncodingGetterFunc;
@@ -30,12 +34,18 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1", "defaultSourceFileEncodingEncoding", "fallbackSourceFileEncodingEncoding");
+
             DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
             FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
 
             WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
             WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
         }
+
+        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        public static EmitOptions Create(System.Boolean metadataOnly, Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, System.String? pdbFilePath, System.String? outputNameOverride, System.Int32 fileAlignment, System.UInt64 baseAddress, System.Boolean highEntropyVirtualAddressSpace, Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, System.String? runtimeMetadataVersion, System.Boolean tolerateErrors, System.Boolean includePrivateMembers, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, System.Nullable<System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, System.Text.Encoding? defaultSourceFileEncoding, System.Text.Encoding? fallbackSourceFileEncoding)
+            => ConstructorFunc0(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm, defaultSourceFileEncoding, fallbackSourceFileEncoding);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static System.Text.Encoding? DefaultSourceFileEncoding(this Microsoft.CodeAnalysis.Emit.EmitOptions _obj)

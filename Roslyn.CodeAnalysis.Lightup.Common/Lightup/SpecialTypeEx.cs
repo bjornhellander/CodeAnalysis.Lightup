@@ -8,15 +8,15 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SpecialType.</summary>
-    public class SpecialTypeEx
+    public static partial class SpecialTypeEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SpecialType System_Runtime_CompilerServices_RuntimeFeature = (SpecialType)44;
+        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_RuntimeFeature = (Microsoft.CodeAnalysis.SpecialType)44;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (SpecialType)45;
+        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (Microsoft.CodeAnalysis.SpecialType)45;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (SpecialType)46;
+        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (Microsoft.CodeAnalysis.SpecialType)46;
     }
 }

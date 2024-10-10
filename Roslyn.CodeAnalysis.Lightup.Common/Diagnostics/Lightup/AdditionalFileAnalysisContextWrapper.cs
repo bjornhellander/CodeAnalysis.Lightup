@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext. Added in version 3.8.0.0.</summary>
-    public readonly struct AdditionalFileAnalysisContextWrapper
+    public readonly partial struct AdditionalFileAnalysisContextWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext";
 

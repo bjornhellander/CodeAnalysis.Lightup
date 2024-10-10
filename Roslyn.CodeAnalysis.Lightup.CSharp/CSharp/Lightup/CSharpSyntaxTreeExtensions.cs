@@ -10,9 +10,11 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.</summary>
-    public static class CSharpSyntaxTreeExtensions
+    public static partial class CSharpSyntaxTreeExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree";
+
+        private delegate CSharpSyntaxTree ConstructorDelegate0();
 
         private delegate Microsoft.CodeAnalysis.SyntaxTree CreateDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions);
         private delegate Microsoft.CodeAnalysis.SyntaxTree CreateDelegate1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode);
@@ -22,6 +24,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate5(System.String text, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, System.Nullable<System.Boolean> isGeneratedCode, System.Threading.CancellationToken cancellationToken);
 
         private delegate System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree? _obj, System.Threading.CancellationToken cancellationToken);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly CreateDelegate0 CreateFunc0;
         private static readonly CreateDelegate1 CreateFunc1;
@@ -36,6 +40,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType);
+
             CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2");
             CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1");
             ParseTextFunc2 = LightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
@@ -45,6 +51,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
             GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static CSharpSyntaxTree Create()
+            => ConstructorFunc0();
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static Microsoft.CodeAnalysis.SyntaxTree Create(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, System.String? path, System.Text.Encoding? encoding, System.Collections.Immutable.ImmutableDictionary<System.String, Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions)

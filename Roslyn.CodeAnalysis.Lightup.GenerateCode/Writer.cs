@@ -33,28 +33,28 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         // Irrelevant new types related to source generators
-        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
+        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // References ISourceGeneratorWrapper etc
         "Microsoft.CodeAnalysis.GeneratedSourceResult",
         "Microsoft.CodeAnalysis.GeneratorAttribute",
         "Microsoft.CodeAnalysis.GeneratorAttributeSyntaxContext",
-        "Microsoft.CodeAnalysis.GeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratorDriver", // References GeneratorDriverRunResultWrapper etc
         "Microsoft.CodeAnalysis.GeneratorDriverOptions",
-        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
-        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // References GeneratorRunResultWrapper
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // References GeneratorTimingInfoWrapper
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
-        "Microsoft.CodeAnalysis.GeneratorExtensions",
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorExtensions", // References ISourceGeneratorWrapper
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Action<wrapper>
         "Microsoft.CodeAnalysis.GeneratorPostInitializationContext",
-        "Microsoft.CodeAnalysis.GeneratorRunResult",
+        "Microsoft.CodeAnalysis.GeneratorRunResult", // References ISourceGeneratorWrapper
         "Microsoft.CodeAnalysis.GeneratorSyntaxContext",
-        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
-        "Microsoft.CodeAnalysis.IIncrementalGenerator",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo", // References ISourceGeneratorWrapper
+        "Microsoft.CodeAnalysis.IIncrementalGenerator", // References IncrementalGeneratorInitializationContextWrapper
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // References IncrementalValuesProvider<>
         "Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind",
         "Microsoft.CodeAnalysis.IncrementalGeneratorPostInitializationContext",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // References ValueType<wrapper, ...>
         "Microsoft.CodeAnalysis.IncrementalStepRunReason",
-        "Microsoft.CodeAnalysis.ISourceGenerator",
+        "Microsoft.CodeAnalysis.ISourceGenerator", // References IncrementalGeneratorInitializationContext
         "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
         "Microsoft.CodeAnalysis.ISyntaxReceiver",
         "Microsoft.CodeAnalysis.SourceProductionContext",
@@ -70,9 +70,6 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-
-        // TODO: Generate these types
-        "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs+FailureErrorCode", // Nested enum, does not compile
     ];
 
     internal static void Write(IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs, string rootPath)
@@ -272,6 +269,8 @@ internal class Writer
             return null;
         }
 
+        var fullTypeName = GetFullEnumTypeName(typeDef);
+
         var targetName = typeDef.Name + "Ex";
 
         var sb = new StringBuilder();
@@ -286,7 +285,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public class {targetName}");
+        sb.AppendLine($"    public static partial class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {
@@ -296,7 +295,7 @@ internal class Writer
             }
 
             AppendEnumValueSummary(sb, value);
-            sb.AppendLine($"        public const {typeDef.Name} {value.Name} = ({typeDef.Name}){value.Value};");
+            sb.AppendLine($"        public const {fullTypeName} {value.Name} = ({fullTypeName}){value.Value};");
             isFirstValue = false;
         }
         sb.AppendLine($"    }}");
@@ -304,6 +303,16 @@ internal class Writer
 
         var source = sb.ToString();
         return (targetName, source);
+    }
+
+    private static string GetFullEnumTypeName(EnumTypeDefinition typeDef)
+    {
+        var sb = new StringBuilder();
+        sb.Append(typeDef.Namespace);
+        AppendEnclosingType(sb, typeDef.EnclosingType);
+        sb.Append(".");
+        sb.Append(typeDef.Name);
+        return sb.ToString();
     }
 
     private static (string Name, string Source) GenerateWrapper(
@@ -346,7 +355,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public readonly struct {targetName}");
+        sb.AppendLine($"    public readonly partial struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
@@ -627,9 +636,7 @@ internal class Writer
         var targetNameSuffix = typeDef is ClassTypeDefinition classDef && classDef.IsStatic ? "Ex" : "Extensions";
         var targetName = typeDef.Name + targetNameSuffix;
 
-        // TODO: Handle constructors
         var instanceConstructors = GetInstanceConstructors(typeDef);
-        _ = instanceConstructors;
         var staticFields = GetStaticFields(typeDef);
         var instanceFields = GetInstanceFields(typeDef);
         Assert.IsTrue(instanceFields.Count == 0, "Unexpected instance fields");
@@ -659,7 +666,7 @@ internal class Writer
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public static class {targetName}");
+        sb.AppendLine($"    public static partial class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         if (staticFields.Count != 0)
@@ -668,6 +675,15 @@ internal class Writer
             foreach (var field in staticFields)
             {
                 AppendStaticFieldDelegateDeclarations(sb, field, typeDefs);
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                AppendInstanceConstructorDelegateDeclarations(sb, baseTypeName, constructor, index, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -719,6 +735,15 @@ internal class Writer
             {
                 sb.AppendLine($"        private static readonly {field.Name}GetterDelegate {field.Name}GetterFunc;");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
+            }
+        }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"        private static readonly ConstructorDelegate{index} ConstructorFunc{index};");
             }
         }
         if (staticProperties.Count != 0)
@@ -785,6 +810,15 @@ internal class Writer
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
+        if (instanceConstructors.Count != 0)
+        {
+            sb.AppendLine();
+            foreach (var constructor in instanceConstructors)
+            {
+                var index = instanceConstructors.IndexOf(constructor);
+                sb.AppendLine($"            ConstructorFunc{index} = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(wrappedType{GetCreateConstructorAccessorArguments(constructor)});");
+            }
+        }
         if (staticProperties.Count != 0)
         {
             sb.AppendLine();
@@ -846,6 +880,14 @@ internal class Writer
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get => {field.Name}GetterFunc();");
             sb.AppendLine($"        }}");
+        }
+        foreach (var constructor in instanceConstructors)
+        {
+            var index = instanceConstructors.IndexOf(constructor);
+            sb.AppendLine();
+            AppendMemberSummary(sb, constructor);
+            sb.AppendLine($"        public static {baseTypeName} Create({GetParametersDeclText(constructor.Parameters, typeDefs)})");
+            sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
         }
         foreach (var property in staticProperties)
         {
@@ -1365,7 +1407,33 @@ internal class Writer
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Namespace}{(isNew ? ".Lightup" : "")}.{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
+            sb.Append($"{namedTypeRef.Namespace}");
+            sb.Append($"{(isNew ? ".Lightup" : "")}");
+            if (namedTypeRef.FullName == "Microsoft.CodeAnalysis.CodeFixes.FixAllContext+DiagnosticProvider") //// TODO: Fix this condition
+            {
+                AppendEnclosingType(sb, namedTypeRef, typeDefs);
+            }
+            sb.Append($".{namedTypeRef.Name}");
+            sb.Append($"{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
+        }
+    }
+
+    private static void AppendEnclosingType(StringBuilder sb, NamedTypeReference namedTypeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        if (typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef))
+        {
+            AppendEnclosingType(sb, typeDef.EnclosingType);
+        }
+    }
+
+    private static void AppendEnclosingType(StringBuilder sb, BaseTypeDefinition? enclosingType)
+    {
+        if (enclosingType != null)
+        {
+            AppendEnclosingType(sb, enclosingType.EnclosingType);
+
+            sb.Append(".");
+            sb.Append(enclosingType.Name);
         }
     }
 

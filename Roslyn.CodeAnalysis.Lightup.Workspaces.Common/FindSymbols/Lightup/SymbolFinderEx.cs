@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.FindSymbols.SymbolFinder.</summary>
-    public static class SymbolFinderEx
+    public static partial class SymbolFinderEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FindSymbols.SymbolFinder";
 

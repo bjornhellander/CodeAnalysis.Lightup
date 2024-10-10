@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo.</summary>
-    public static class AnalyzerTelemetryInfoExtensions
+    public static partial class AnalyzerTelemetryInfoExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 

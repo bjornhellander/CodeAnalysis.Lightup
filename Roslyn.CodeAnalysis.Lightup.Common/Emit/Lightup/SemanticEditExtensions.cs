@@ -10,11 +10,15 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.SemanticEdit.</summary>
-    public static class SemanticEditExtensions
+    public static partial class SemanticEditExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.SemanticEdit";
 
+        private delegate SemanticEdit ConstructorDelegate0(Microsoft.CodeAnalysis.Emit.SemanticEditKind kind, Microsoft.CodeAnalysis.ISymbol? oldSymbol, Microsoft.CodeAnalysis.ISymbol? newSymbol, System.Func<Microsoft.CodeAnalysis.SyntaxNode, Microsoft.CodeAnalysis.SyntaxNode>? syntaxMap, System.Boolean preserveLocalVariables, Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper instrumentation);
+
         private delegate Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper InstrumentationGetterDelegate(Microsoft.CodeAnalysis.Emit.SemanticEdit? _obj);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly InstrumentationGetterDelegate InstrumentationGetterFunc;
 
@@ -22,8 +26,14 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "kindSemanticEditKind", "oldSymbolISymbol", "newSymbolISymbol", "syntaxMapFunc`2", "preserveLocalVariablesBoolean", "instrumentationMethodInstrumentation");
+
             InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
         }
+
+        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        public static SemanticEdit Create(Microsoft.CodeAnalysis.Emit.SemanticEditKind kind, Microsoft.CodeAnalysis.ISymbol? oldSymbol, Microsoft.CodeAnalysis.ISymbol? newSymbol, System.Func<Microsoft.CodeAnalysis.SyntaxNode, Microsoft.CodeAnalysis.SyntaxNode>? syntaxMap, System.Boolean preserveLocalVariables, Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper instrumentation)
+            => ConstructorFunc0(kind, oldSymbol, newSymbol, syntaxMap, preserveLocalVariables, instrumentation);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper Instrumentation(this Microsoft.CodeAnalysis.Emit.SemanticEdit _obj)

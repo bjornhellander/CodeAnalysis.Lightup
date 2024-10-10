@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IMemberReferenceOperation.</summary>
-    public static class IMemberReferenceOperationExtensions
+    public static partial class IMemberReferenceOperationExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IMemberReferenceOperation";
 

@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzerExtensions.</summary>
-    public static class DiagnosticAnalyzerExtensionsEx
+    public static partial class DiagnosticAnalyzerExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzerExtensions";
 

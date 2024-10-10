@@ -8,18 +8,18 @@
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.LanguageVersion.</summary>
-    public class LanguageVersionEx
+    public static partial class LanguageVersionEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const LanguageVersion CSharp9 = (LanguageVersion)900;
+        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp9 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)900;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const LanguageVersion CSharp10 = (LanguageVersion)1000;
+        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp10 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1000;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const LanguageVersion CSharp11 = (LanguageVersion)1100;
+        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp11 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1100;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const LanguageVersion CSharp12 = (LanguageVersion)1200;
+        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp12 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1200;
     }
 }

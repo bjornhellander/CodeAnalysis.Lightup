@@ -10,9 +10,11 @@ using Microsoft.CodeAnalysis.Lightup;
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers.</summary>
-    public static class CompilationWithAnalyzersExtensions
+    public static partial class CompilationWithAnalyzersExtensions
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers";
+
+        private delegate CompilationWithAnalyzers ConstructorDelegate0(Microsoft.CodeAnalysis.Compilation compilation, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options);
 
         private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate0(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken);
         private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate1(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Threading.CancellationToken cancellationToken);
@@ -26,6 +28,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate9(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.AdditionalText file, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
         private delegate System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate10(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Threading.CancellationToken cancellationToken);
         private delegate System.Threading.Tasks.Task<System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate11(Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers? _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, System.Threading.CancellationToken cancellationToken);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly GetAnalysisResultAsyncDelegate0 GetAnalysisResultAsyncFunc0;
         private static readonly GetAnalysisResultAsyncDelegate1 GetAnalysisResultAsyncFunc1;
@@ -44,6 +48,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "compilationCompilation", "analyzersImmutableArray`1", "optionsAnalyzerOptions");
+
             GetAnalysisResultAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate0>(wrappedType, "GetAnalysisResultAsync", "treeSyntaxTree", "cancellationTokenCancellationToken");
             GetAnalysisResultAsyncFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate1>(wrappedType, "GetAnalysisResultAsync", "fileAdditionalText", "cancellationTokenCancellationToken");
             GetAnalysisResultAsyncFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate2>(wrappedType, "GetAnalysisResultAsync", "treeSyntaxTree", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
@@ -57,6 +63,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "cancellationTokenCancellationToken");
             GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
         }
+
+        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        public static CompilationWithAnalyzers Create(Microsoft.CodeAnalysis.Compilation compilation, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options)
+            => ConstructorFunc0(compilation, analyzers, options);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, Microsoft.CodeAnalysis.SyntaxTree tree, System.Threading.CancellationToken cancellationToken)
