@@ -33,28 +33,28 @@ internal class Writer
     private static readonly HashSet<string> TypesToSkip =
     [
         // Irrelevant new types related to source generators
-        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver",
+        "Microsoft.CodeAnalysis.CSharp.CSharpGeneratorDriver", // References ISourceGeneratorWrapper etc
         "Microsoft.CodeAnalysis.GeneratedSourceResult",
         "Microsoft.CodeAnalysis.GeneratorAttribute",
         "Microsoft.CodeAnalysis.GeneratorAttributeSyntaxContext",
-        "Microsoft.CodeAnalysis.GeneratorDriver",
+        "Microsoft.CodeAnalysis.GeneratorDriver", // References GeneratorDriverRunResultWrapper etc
         "Microsoft.CodeAnalysis.GeneratorDriverOptions",
-        "Microsoft.CodeAnalysis.GeneratorDriverRunResult",
-        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo",
+        "Microsoft.CodeAnalysis.GeneratorDriverRunResult", // References GeneratorRunResultWrapper
+        "Microsoft.CodeAnalysis.GeneratorDriverTimingInfo", // References GeneratorTimingInfoWrapper
         "Microsoft.CodeAnalysis.GeneratorExecutionContext",
-        "Microsoft.CodeAnalysis.GeneratorExtensions",
-        "Microsoft.CodeAnalysis.GeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorExtensions", // References ISourceGeneratorWrapper
+        "Microsoft.CodeAnalysis.GeneratorInitializationContext", // Action<wrapper>
         "Microsoft.CodeAnalysis.GeneratorPostInitializationContext",
-        "Microsoft.CodeAnalysis.GeneratorRunResult",
+        "Microsoft.CodeAnalysis.GeneratorRunResult", // References ISourceGeneratorWrapper
         "Microsoft.CodeAnalysis.GeneratorSyntaxContext",
-        "Microsoft.CodeAnalysis.GeneratorTimingInfo",
-        "Microsoft.CodeAnalysis.IIncrementalGenerator",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext",
+        "Microsoft.CodeAnalysis.GeneratorTimingInfo", // References ISourceGeneratorWrapper
+        "Microsoft.CodeAnalysis.IIncrementalGenerator", // References IncrementalGeneratorInitializationContextWrapper
+        "Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext", // References IncrementalValuesProvider<>
         "Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind",
         "Microsoft.CodeAnalysis.IncrementalGeneratorPostInitializationContext",
-        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // References ValueType<wrapper, ...>
         "Microsoft.CodeAnalysis.IncrementalStepRunReason",
-        "Microsoft.CodeAnalysis.ISourceGenerator",
+        "Microsoft.CodeAnalysis.ISourceGenerator", // References IncrementalGeneratorInitializationContext
         "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
         "Microsoft.CodeAnalysis.ISyntaxReceiver",
         "Microsoft.CodeAnalysis.SourceProductionContext",
