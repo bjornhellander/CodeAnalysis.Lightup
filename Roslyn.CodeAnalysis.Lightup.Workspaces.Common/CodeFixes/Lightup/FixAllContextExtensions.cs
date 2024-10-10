@@ -14,9 +14,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllContext";
 
+        private delegate FixAllContext ConstructorDelegate0(Microsoft.CodeAnalysis.Document document, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, System.String? codeActionEquivalenceKey, System.Collections.Generic.IEnumerable<System.String> diagnosticIds, Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, System.Threading.CancellationToken cancellationToken);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
+
         static FixAllContextExtensions()
         {
             var wrappedType = LightupHelper.FindType(WrappedTypeName);
+
+            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentDocument", "diagnosticSpanNullable`1", "codeFixProviderCodeFixProvider", "scopeFixAllScope", "codeActionEquivalenceKeyString", "diagnosticIdsIEnumerable`1", "fixAllDiagnosticProviderDiagnosticProvider", "cancellationTokenCancellationToken");
         }
+
+        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        public static FixAllContext Create(Microsoft.CodeAnalysis.Document document, System.Nullable<Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, System.String? codeActionEquivalenceKey, System.Collections.Generic.IEnumerable<System.String> diagnosticIds, Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, System.Threading.CancellationToken cancellationToken)
+            => ConstructorFunc0(document, diagnosticSpan, codeFixProvider, scope, codeActionEquivalenceKey, diagnosticIds, fixAllDiagnosticProvider, cancellationToken);
     }
 }

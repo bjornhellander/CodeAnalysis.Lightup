@@ -313,17 +313,6 @@ internal class Writer
         sb.Append(".");
         sb.Append(typeDef.Name);
         return sb.ToString();
-
-        static void AppendEnclosingType(StringBuilder sb, BaseTypeDefinition? enclosingType)
-        {
-            if (enclosingType != null)
-            {
-                AppendEnclosingType(sb, enclosingType.EnclosingType);
-
-                sb.Append(".");
-                sb.Append(enclosingType.Name);
-            }
-        }
     }
 
     private static (string Name, string Source) GenerateWrapper(
@@ -1011,12 +1000,6 @@ internal class Writer
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
     {
-        // TODO: Enable this type
-        if (typeDef.FullName.Contains("Microsoft.CodeAnalysis.CodeFixes.FixAllContext"))
-        {
-            return [];
-        }
-
         var result = typeDef.Constructors
             .Where(x => x.AssemblyVersion != null)
             .ToList();
@@ -1424,7 +1407,33 @@ internal class Writer
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Namespace}{(isNew ? ".Lightup" : "")}.{namedTypeRef.Name}{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
+            sb.Append($"{namedTypeRef.Namespace}");
+            sb.Append($"{(isNew ? ".Lightup" : "")}");
+            if (namedTypeRef.FullName == "Microsoft.CodeAnalysis.CodeFixes.FixAllContext+DiagnosticProvider") //// TODO: Fix this condition
+            {
+                AppendEnclosingType(sb, namedTypeRef, typeDefs);
+            }
+            sb.Append($".{namedTypeRef.Name}");
+            sb.Append($"{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
+        }
+    }
+
+    private static void AppendEnclosingType(StringBuilder sb, NamedTypeReference namedTypeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        if (typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef))
+        {
+            AppendEnclosingType(sb, typeDef.EnclosingType);
+        }
+    }
+
+    private static void AppendEnclosingType(StringBuilder sb, BaseTypeDefinition? enclosingType)
+    {
+        if (enclosingType != null)
+        {
+            AppendEnclosingType(sb, enclosingType.EnclosingType);
+
+            sb.Append(".");
+            sb.Append(enclosingType.Name);
         }
     }
 
