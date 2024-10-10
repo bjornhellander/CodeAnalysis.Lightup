@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class CommandLineSourceFileExtensionsTests : V3_0_0.CommandLineSourceFileExtensionsTests
 {
     [TestMethod]
-    public override void TestSignatureGivenNullObject()
+    public override void TestConstructor()
     {
         var obj = CallConstructor();
         Assert.AreEqual("a/b.c", obj.Path);

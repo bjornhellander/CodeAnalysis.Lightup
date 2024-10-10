@@ -12,7 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class SolutionInfoExtensionsTests
 {
     [TestMethod]
-    public virtual void TestSignatureGivenNullObject()
+    public virtual void TestConstructor()
     {
         Assert.ThrowsException<InvalidOperationException>(() => CallCreate());
     }

@@ -12,7 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class CommandLineSourceFileExtensionsTests
 {
     [TestMethod]
-    public virtual void TestSignatureGivenNullObject()
+    public virtual void TestConstructor()
     {
         Assert.ThrowsException<InvalidOperationException>(() => CallConstructor());
     }
