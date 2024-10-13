@@ -26,8 +26,10 @@ public class WrapperTests
         var types = assembly.GetTypes();
         foreach (var type in types.Where(IsRelevantType))
         {
-            var isMethod = type.GetMethod("Is");
-            isMethod?.Invoke(null, [new object()]);
+            // This forces the static constructor to be executed if there are any static (non-const) fields
+            var fields = type.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            var field = fields.FirstOrDefault(x => !x.IsLiteral);
+            _ = field?.GetValue(null);
         }
     }
 
