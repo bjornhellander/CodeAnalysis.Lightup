@@ -396,6 +396,21 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 return result;
             }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(selectMethod, input, conversionLambda);
+
+                return result;
+            }
             else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(Task<>))
             {
                 var wrapperItemType = targetType.GetGenericArguments()[0];
