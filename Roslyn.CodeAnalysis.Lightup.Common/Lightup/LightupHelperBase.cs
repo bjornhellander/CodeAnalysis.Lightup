@@ -505,7 +505,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
 
-                // TODO: Investigate if this makes it possible to remove a delagte from an event. I suspect it doesn't.
+                // TODO: Investigate if this makes it possible to remove a delegate from an event. I suspect it doesn't.
                 var senderLambdaParameter = Expression.Parameter(typeof(object));
                 var nativeArgsLambdaParameter = Expression.Parameter(nativeArgsType);
                 var nativeLambda = Expression.Lambda(
@@ -518,6 +518,27 @@ namespace Microsoft.CodeAnalysis.Lightup
                             nativeArgsLambdaParameter,
                             wrapperArgsType)),
                     senderLambdaParameter,
+                    nativeArgsLambdaParameter);
+
+                return nativeLambda;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(Action<>))
+            {
+                // Action<X> where X is a wrapper
+                var wrapperArgsType = wrapperType.GetGenericArguments()[0];
+                var nativeArgsType = nativeType.GetGenericArguments()[0];
+
+                var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
+
+                var nativeArgsLambdaParameter = Expression.Parameter(nativeArgsType);
+                var nativeLambda = Expression.Lambda(
+                    nativeType,
+                    Expression.Call(
+                        input,
+                        wrapperInvokeMethod,
+                        GetPossiblyWrappedValue(
+                            nativeArgsLambdaParameter,
+                            wrapperArgsType)),
                     nativeArgsLambdaParameter);
 
                 return nativeLambda;
