@@ -238,6 +238,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
             var allParameters = instanceParameter != null ? new[] { instanceParameter }.Concat(argParameters).ToArray() : argParameters;
 
+            var variables = new List<ParameterExpression>();
             var expressions = new List<Expression>();
 
             if (method == null)
@@ -255,17 +256,80 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 var parameters = method.GetParameters();
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], parameters[i].ParameterType)).ToArray();
-                var returnValue = instance != null
+                var postCallExpressions = new List<Expression>();
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeArgumentValue(argParameters[i], wrapperParameterTypes[i], parameters[i], variables, postCallExpressions)).ToArray();
+
+                var nativeReturnValue = instance != null
                     ? Expression.Call(instance, method, argValues)
                     : Expression.Call(method, argValues);
-                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-                expressions.Add(wrappedReturnValue);
+
+                var resultVariable = wrapperReturnType != typeof(void) ? Expression.Variable(wrapperReturnType) : null;
+                if (resultVariable != null)
+                {
+                    variables.Add(resultVariable);
+
+                    var wrappedReturnValue = GetPossiblyWrappedValue(nativeReturnValue, wrapperReturnType);
+                    expressions.Add(
+                        Expression.Assign(
+                            resultVariable,
+                            wrappedReturnValue));
+                }
+                else
+                {
+                    expressions.Add(nativeReturnValue);
+                }
+
+                expressions.AddRange(postCallExpressions);
+
+                if (resultVariable != null)
+                {
+                    expressions.Add(resultVariable);
+                }
             }
 
-            var block = Expression.Block(expressions);
+            var block = Expression.Block(
+                variables,
+                expressions);
 
             return (block, allParameters);
+        }
+
+        private static Expression GetNativeArgumentValue(
+            ParameterExpression input,
+            Type wrapperType,
+            ParameterInfo nativeParam,
+            List<ParameterExpression> variables,
+            List<Expression> postCallExpressions)
+        {
+            var nativeType = nativeParam.ParameterType;
+            if (nativeType == wrapperType)
+            {
+                return input;
+            }
+
+            if (wrapperType.IsByRef && nativeParam.IsOut)
+            {
+                var wrapperElementType = wrapperType.GetElementType();
+                var nativeElementType = nativeType.GetElementType();
+
+                var tempNativeVar = Expression.Variable(nativeElementType);
+                variables.Add(tempNativeVar);
+
+                postCallExpressions.Add(
+                    Expression.Assign(
+                        input,
+                        Expression.Convert(
+                            tempNativeVar,
+                            wrapperElementType)));
+
+                return tempNativeVar;
+            }
+            else
+            {
+                Debug.Assert(!wrapperType.IsByRef, "Unhandled parameter mode");
+                var result = GetNativeValue(input, wrapperType, nativeType);
+                return result;
+            }
         }
 
         private static (Expression Body, ParameterExpression[] Parameters) CreateNewExpression(
