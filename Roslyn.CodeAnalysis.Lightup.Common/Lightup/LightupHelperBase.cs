@@ -7,6 +7,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     using System.Collections.Generic;
     using System.Collections.Immutable;
     using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -416,6 +417,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
+                // TODO: Why use Task<T>? Try to simplify!
                 var conversionLambdaParameter = Expression.Parameter(
                     typeof(Task<>).MakeGenericType(nativeItemType));
                 var conversionLambda = Expression.Lambda(
@@ -424,6 +426,21 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 var continueWithMethod = GetTaskContinueWithMethod(nativeItemType, wrapperItemType);
                 var result = Expression.Call(input, continueWithMethod, conversionLambda);
+
+                return result;
+            }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ValueTask<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var continueWithMethod = GetValueTaskContinueWithMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(continueWithMethod, input, conversionLambda);
 
                 return result;
             }
@@ -743,6 +760,57 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
 
             return true;
+        }
+
+        private static MethodInfo GetValueTaskContinueWithMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetValueTaskContinueWithMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetValueTaskContinueWithMethod()
+        {
+            var result = typeof(LightupHelperBase).GetMethod("ContinueWith", BindingFlags.Static | BindingFlags.NonPublic);
+            return result;
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used via reflection")]
+        private static ValueTask<TResult> ContinueWith<TSource, TResult>(
+            ValueTask<TSource> valueTask,
+            Func<TSource, TResult> continuation)
+        {
+            if (valueTask.IsCompletedSuccessfully)
+            {
+                try
+                {
+                    TResult continuationResult = continuation(valueTask.Result);
+                    return new ValueTask<TResult>(continuationResult);
+                }
+                catch (Exception ex)
+                {
+                    return new ValueTask<TResult>(Task.FromException<TResult>(ex));
+                }
+            }
+            else
+            {
+                return ContinueWithNotCompleted(valueTask, continuation);
+            }
+        }
+
+        private static async ValueTask<TResult> ContinueWithNotCompleted<TSource, TResult>(
+            ValueTask<TSource> valueTask,
+            Func<TSource, TResult> continuation)
+        {
+            try
+            {
+                var result = await valueTask;
+                return continuation(result);
+            }
+            catch (Exception ex)
+            {
+                return await new ValueTask<TResult>(Task.FromException<TResult>(ex));
+            }
         }
     }
 }

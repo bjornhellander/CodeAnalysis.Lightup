@@ -3,9 +3,21 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Test.V4_0_1;
 
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public class ProjectExtensionsTests : V3_8_0.ProjectExtensionsTests
 {
+    [TestMethod]
+    public override async Task GetSourceGeneratedDocumentsAsync()
+    {
+        using var workspace = new AdhocWorkspace();
+        var project = workspace.AddProject("Project1", LanguageNames.CSharp);
+        var result = await ProjectExtensions.GetSourceGeneratedDocumentsAsync(project, default);
+        Assert.AreEqual(0, result.Count());
+    }
 }

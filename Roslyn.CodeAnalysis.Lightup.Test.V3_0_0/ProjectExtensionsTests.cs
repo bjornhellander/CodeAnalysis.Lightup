@@ -4,6 +4,7 @@
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
 
 using System;
+using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,5 +18,13 @@ public class ProjectExtensionsTests
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);
         Assert.ThrowsException<InvalidOperationException>(() => project.AnalyzerConfigDocuments());
+    }
+
+    [TestMethod]
+    public virtual async Task GetSourceGeneratedDocumentsAsync()
+    {
+        using var workspace = new AdhocWorkspace();
+        var project = workspace.AddProject("Project1", LanguageNames.CSharp);
+        await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await project.GetSourceGeneratedDocumentsAsync(default));
     }
 }
