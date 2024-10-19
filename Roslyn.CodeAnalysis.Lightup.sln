@@ -37,9 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Workspaces.Common", "Roslyn.CodeAnalysis.Lightup.Workspaces.Common\Roslyn.CodeAnalysis.Lightup.Workspaces.Common.csproj", "{4FC62995-09D0-41AB-97C4-790DCAB219BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Example.Analyzers", "Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj", "{3A2AD8EA-36A8-4462-A63D-2EA270105108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Example.Analyzers", "Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj", "{3A2AD8EA-36A8-4462-A63D-2EA270105108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes", "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes", "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generation", "generation", "{E63EEBD0-7C02-4D6F-8286-1B3E5127538A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "runtime", "runtime", "{B016B61F-0E60-4DE7-B556-35857ACBBDF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +108,21 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D079273D-9CD2-42A6-87C3-59AD9688B0EC} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
+		{463C8FC6-7EB3-4697-BBCF-16E1912DEF71} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
+		{B4E02BB1-D031-480D-AD33-4EFF12581A64} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
+		{F375961C-1693-490B-B2A5-C8FCDCD07696} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{8FA55692-CDE9-40F9-AF42-1A00F2DF34E7} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{5317C65F-971D-49AD-B28A-35D0C644E138} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{430FC4C4-9FF2-4E21-B9B1-02196582E4C8} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{E75915B2-B112-42C2-AC13-0A5190C304B9} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{3482DBB4-F729-486F-9CEF-DFDEAA8032F5} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
+		{4FC62995-09D0-41AB-97C4-790DCAB219BA} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
+		{3A2AD8EA-36A8-4462-A63D-2EA270105108} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
+		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}
