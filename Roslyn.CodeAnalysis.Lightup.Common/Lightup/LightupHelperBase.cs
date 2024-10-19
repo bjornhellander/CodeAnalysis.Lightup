@@ -239,6 +239,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
             var allParameters = instanceParameter != null ? new[] { instanceParameter }.Concat(argParameters).ToArray() : argParameters;
 
+            // TODO: Try to get rid of these allocations
             var variables = new List<ParameterExpression>();
             var expressions = new List<Expression>();
 
@@ -257,6 +258,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 var parameters = method.GetParameters();
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+                //// TODO: Try to get rid of these allocations
                 var preCallExpressions = new List<Expression>();
                 var postCallExpressions = new List<Expression>();
                 var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeArgumentValue(argParameters[i], wrapperParameterTypes[i], parameters[i], variables, preCallExpressions, postCallExpressions)).ToArray();
@@ -312,44 +314,52 @@ namespace Microsoft.CodeAnalysis.Lightup
                 return input;
             }
 
-            if (wrapperType.IsByRef && nativeParam.IsOut)
+            if (wrapperType.IsByRef)
             {
-                var wrapperElementType = wrapperType.GetElementType();
-                var nativeElementType = nativeType.GetElementType();
+                if (nativeParam.IsIn)
+                {
+                    var wrapperElementType = wrapperType.GetElementType();
+                    var nativeElementType = nativeType.GetElementType();
 
-                var tempNativeVar = Expression.Variable(nativeElementType);
-                variables.Add(tempNativeVar);
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
 
-                postCallExpressions.Add(
-                    Expression.Assign(
-                        input,
-                        Expression.Convert(
+                    preCallExpressions.Add(
+                        Expression.Assign(
                             tempNativeVar,
-                            wrapperElementType)));
+                            GetNativeValue(
+                                input,
+                                wrapperElementType,
+                                nativeElementType)));
 
-                return tempNativeVar;
-            }
-            else if (wrapperType.IsByRef && nativeParam.IsIn)
-            {
-                var wrapperElementType = wrapperType.GetElementType();
-                var nativeElementType = nativeType.GetElementType();
+                    return tempNativeVar;
+                }
+                else if (nativeParam.IsOut)
+                {
+                    var wrapperElementType = wrapperType.GetElementType();
+                    var nativeElementType = nativeType.GetElementType();
 
-                var tempNativeVar = Expression.Variable(nativeElementType);
-                variables.Add(tempNativeVar);
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
 
-                preCallExpressions.Add(
-                    Expression.Assign(
-                        tempNativeVar,
-                        GetNativeValue(
+                    // TODO: If needed, use GetNativeValue instead of Convert
+                    postCallExpressions.Add(
+                        Expression.Assign(
                             input,
-                            wrapperElementType,
-                            nativeElementType)));
+                            Expression.Convert(
+                                tempNativeVar,
+                                wrapperElementType)));
 
-                return tempNativeVar;
+                    return tempNativeVar;
+                }
+                else
+                {
+                    // TODO: If needed, handle for example ref parameter
+                    throw new NotImplementedException("Unhandled parameter mode");
+                }
             }
             else
             {
-                Debug.Assert(!wrapperType.IsByRef, "Unhandled parameter mode");
                 var result = GetNativeValue(input, wrapperType, nativeType);
                 return result;
             }
@@ -412,10 +422,10 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
             }
@@ -525,10 +535,10 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(wrapperItemType, nativeItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(nativeItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
             }
@@ -544,10 +554,10 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
             }
