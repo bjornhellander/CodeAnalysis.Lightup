@@ -4,12 +4,16 @@
 #pragma warning disable SA1516 // Elements should be separated by blank line
 #pragma warning disable SA1201 // Elements should appear in the correct order
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace Microsoft.CodeAnalysis.Lightup
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.Text;
+    using Roslyn.CodeAnalysis.Lightup.Support;
 
     // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
@@ -31,8 +35,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = LightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
-            AddRangeAccessor = LightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "nodesIEnumerable`1");
+            CountAccessor = LightupHelperBase.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            AddRangeAccessor = LightupHelperBase.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "nodesIEnumerable`1");
         }
 
         private SeparatedSyntaxListWrapper(object? obj)

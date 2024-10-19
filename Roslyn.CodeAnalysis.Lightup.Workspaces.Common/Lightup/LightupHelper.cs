@@ -5,6 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     using System;
     using System.Reflection;
+    using Roslyn.CodeAnalysis.Lightup.Support;
 
     internal class LightupHelper : LightupHelperBase
     {
