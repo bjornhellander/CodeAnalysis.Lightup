@@ -194,6 +194,7 @@ internal class Reflector
             type.Namespace!,
             type.FullName!,
             IsStaticType(type),
+            IsAbstractType(type),
             enclosingTypeDef);
     }
 
@@ -285,6 +286,7 @@ internal class Reflector
         classTypeDef.BaseClass = baseClassRef;
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
+        Assert.IsTrue(classTypeDef.IsAbstract == IsAbstractType(type), "IsAbstract has changed");
     }
 
     private static Type? GetClassBaseType(
@@ -323,6 +325,12 @@ internal class Reflector
     private static bool IsStaticType(Type type)
     {
         var result = type.IsAbstract && type.IsSealed;
+        return result;
+    }
+
+    private static bool IsAbstractType(Type type)
+    {
+        var result = type.IsAbstract && !type.IsSealed;
         return result;
     }
 
