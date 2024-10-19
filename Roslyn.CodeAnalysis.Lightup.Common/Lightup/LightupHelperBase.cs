@@ -257,8 +257,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 var parameters = method.GetParameters();
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
+                var preCallExpressions = new List<Expression>();
                 var postCallExpressions = new List<Expression>();
-                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeArgumentValue(argParameters[i], wrapperParameterTypes[i], parameters[i], variables, postCallExpressions)).ToArray();
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeArgumentValue(argParameters[i], wrapperParameterTypes[i], parameters[i], variables, preCallExpressions, postCallExpressions)).ToArray();
+
+                expressions.AddRange(preCallExpressions);
 
                 var nativeReturnValue = instance != null
                     ? Expression.Call(instance, method, argValues)
@@ -300,6 +303,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             Type wrapperType,
             ParameterInfo nativeParam,
             List<ParameterExpression> variables,
+            List<Expression> preCallExpressions,
             List<Expression> postCallExpressions)
         {
             var nativeType = nativeParam.ParameterType;
@@ -322,6 +326,24 @@ namespace Microsoft.CodeAnalysis.Lightup
                         Expression.Convert(
                             tempNativeVar,
                             wrapperElementType)));
+
+                return tempNativeVar;
+            }
+            else if (wrapperType.IsByRef && nativeParam.IsIn)
+            {
+                var wrapperElementType = wrapperType.GetElementType();
+                var nativeElementType = nativeType.GetElementType();
+
+                var tempNativeVar = Expression.Variable(nativeElementType);
+                variables.Add(tempNativeVar);
+
+                preCallExpressions.Add(
+                    Expression.Assign(
+                        tempNativeVar,
+                        GetNativeValue(
+                            input,
+                            wrapperElementType,
+                            nativeElementType)));
 
                 return tempNativeVar;
             }
