@@ -7,6 +7,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     using System.Collections.Generic;
     using System.Collections.Immutable;
     using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -238,6 +239,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             var argParameters = wrapperParameterTypes.Select((x, i) => Expression.Parameter(x, $"arg{i + 1}")).ToArray();
             var allParameters = instanceParameter != null ? new[] { instanceParameter }.Concat(argParameters).ToArray() : argParameters;
 
+            // TODO: Try to get rid of these allocations
+            var variables = new List<ParameterExpression>();
             var expressions = new List<Expression>();
 
             if (method == null)
@@ -255,17 +258,111 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 var parameters = method.GetParameters();
                 var instance = instanceParameter != null ? Expression.Convert(instanceParameter, wrappedType) : null;
-                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeValue(argParameters[i], wrapperParameterTypes[i], parameters[i].ParameterType)).ToArray();
-                var returnValue = instance != null
+                //// TODO: Try to get rid of these allocations
+                var preCallExpressions = new List<Expression>();
+                var postCallExpressions = new List<Expression>();
+                var argValues = Enumerable.Range(0, argParameters.Length).Select(i => GetNativeArgumentValue(argParameters[i], wrapperParameterTypes[i], parameters[i], variables, preCallExpressions, postCallExpressions)).ToArray();
+
+                expressions.AddRange(preCallExpressions);
+
+                var nativeReturnValue = instance != null
                     ? Expression.Call(instance, method, argValues)
                     : Expression.Call(method, argValues);
-                var wrappedReturnValue = GetPossiblyWrappedValue(returnValue, wrapperReturnType);
-                expressions.Add(wrappedReturnValue);
+
+                var resultVariable = wrapperReturnType != typeof(void) ? Expression.Variable(wrapperReturnType) : null;
+                if (resultVariable != null)
+                {
+                    variables.Add(resultVariable);
+
+                    var wrappedReturnValue = GetPossiblyWrappedValue(nativeReturnValue, wrapperReturnType);
+                    expressions.Add(
+                        Expression.Assign(
+                            resultVariable,
+                            wrappedReturnValue));
+                }
+                else
+                {
+                    expressions.Add(nativeReturnValue);
+                }
+
+                expressions.AddRange(postCallExpressions);
+
+                if (resultVariable != null)
+                {
+                    expressions.Add(resultVariable);
+                }
             }
 
-            var block = Expression.Block(expressions);
+            var block = Expression.Block(
+                variables,
+                expressions);
 
             return (block, allParameters);
+        }
+
+        private static Expression GetNativeArgumentValue(
+            ParameterExpression input,
+            Type wrapperType,
+            ParameterInfo nativeParam,
+            List<ParameterExpression> variables,
+            List<Expression> preCallExpressions,
+            List<Expression> postCallExpressions)
+        {
+            var nativeType = nativeParam.ParameterType;
+            if (nativeType == wrapperType)
+            {
+                return input;
+            }
+
+            if (wrapperType.IsByRef)
+            {
+                if (nativeParam.IsIn)
+                {
+                    var wrapperElementType = wrapperType.GetElementType();
+                    var nativeElementType = nativeType.GetElementType();
+
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
+
+                    preCallExpressions.Add(
+                        Expression.Assign(
+                            tempNativeVar,
+                            GetNativeValue(
+                                input,
+                                wrapperElementType,
+                                nativeElementType)));
+
+                    return tempNativeVar;
+                }
+                else if (nativeParam.IsOut)
+                {
+                    var wrapperElementType = wrapperType.GetElementType();
+                    var nativeElementType = nativeType.GetElementType();
+
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
+
+                    // TODO: If needed, use GetNativeValue instead of Convert
+                    postCallExpressions.Add(
+                        Expression.Assign(
+                            input,
+                            Expression.Convert(
+                                tempNativeVar,
+                                wrapperElementType)));
+
+                    return tempNativeVar;
+                }
+                else
+                {
+                    // TODO: If needed, handle for example ref parameter
+                    throw new NotImplementedException("Unhandled parameter mode");
+                }
+            }
+            else
+            {
+                var result = GetNativeValue(input, wrapperType, nativeType);
+                return result;
+            }
         }
 
         private static (Expression Body, ParameterExpression[] Parameters) CreateNewExpression(
@@ -325,10 +422,25 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
+
+                return result;
+            }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = GetEnumerableSelectMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(selectMethod, input, conversionLambda);
 
                 return result;
             }
@@ -337,6 +449,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
+                // TODO: Why use Task<T>? Try to simplify!
                 var conversionLambdaParameter = Expression.Parameter(
                     typeof(Task<>).MakeGenericType(nativeItemType));
                 var conversionLambda = Expression.Lambda(
@@ -345,6 +458,21 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 var continueWithMethod = GetTaskContinueWithMethod(nativeItemType, wrapperItemType);
                 var result = Expression.Call(input, continueWithMethod, conversionLambda);
+
+                return result;
+            }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(ValueTask<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var continueWithMethod = GetValueTaskContinueWithMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(continueWithMethod, input, conversionLambda);
 
                 return result;
             }
@@ -407,10 +535,10 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetImmutableArraySelectMethod(wrapperItemType, nativeItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(nativeItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
             }
@@ -426,10 +554,10 @@ namespace Microsoft.CodeAnalysis.Lightup
                     conversionLambdaParameter);
 
                 var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
-                var temp1 = Expression.Call(selectMethod, input, conversionLambda);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
 
                 var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
-                var result = Expression.Call(toArrayMethod, temp1);
+                var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
             }
@@ -441,7 +569,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
                 var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
 
-                // TODO: Investigate if this makes it possible to remove a delagte from an event. I suspect it doesn't.
+                // TODO: Investigate if this makes it possible to remove a delegate from an event. I suspect it doesn't.
                 var senderLambdaParameter = Expression.Parameter(typeof(object));
                 var nativeArgsLambdaParameter = Expression.Parameter(nativeArgsType);
                 var nativeLambda = Expression.Lambda(
@@ -454,6 +582,27 @@ namespace Microsoft.CodeAnalysis.Lightup
                             nativeArgsLambdaParameter,
                             wrapperArgsType)),
                     senderLambdaParameter,
+                    nativeArgsLambdaParameter);
+
+                return nativeLambda;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(Action<>))
+            {
+                // Action<X> where X is a wrapper
+                var wrapperArgsType = wrapperType.GetGenericArguments()[0];
+                var nativeArgsType = nativeType.GetGenericArguments()[0];
+
+                var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
+
+                var nativeArgsLambdaParameter = Expression.Parameter(nativeArgsType);
+                var nativeLambda = Expression.Lambda(
+                    nativeType,
+                    Expression.Call(
+                        input,
+                        wrapperInvokeMethod,
+                        GetPossiblyWrappedValue(
+                            nativeArgsLambdaParameter,
+                            wrapperArgsType)),
                     nativeArgsLambdaParameter);
 
                 return nativeLambda;
@@ -643,6 +792,57 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
 
             return true;
+        }
+
+        private static MethodInfo GetValueTaskContinueWithMethod(Type sourceItemType, Type resultItemType)
+        {
+            var genericMethod = GetValueTaskContinueWithMethod();
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
+            return specializedMethod;
+        }
+
+        private static MethodInfo GetValueTaskContinueWithMethod()
+        {
+            var result = typeof(LightupHelperBase).GetMethod("ContinueWith", BindingFlags.Static | BindingFlags.NonPublic);
+            return result;
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used via reflection")]
+        private static ValueTask<TResult> ContinueWith<TSource, TResult>(
+            ValueTask<TSource> valueTask,
+            Func<TSource, TResult> continuation)
+        {
+            if (valueTask.IsCompletedSuccessfully)
+            {
+                try
+                {
+                    TResult continuationResult = continuation(valueTask.Result);
+                    return new ValueTask<TResult>(continuationResult);
+                }
+                catch (Exception ex)
+                {
+                    return new ValueTask<TResult>(Task.FromException<TResult>(ex));
+                }
+            }
+            else
+            {
+                return ContinueWithNotCompleted(valueTask, continuation);
+            }
+        }
+
+        private static async ValueTask<TResult> ContinueWithNotCompleted<TSource, TResult>(
+            ValueTask<TSource> valueTask,
+            Func<TSource, TResult> continuation)
+        {
+            try
+            {
+                var result = await valueTask;
+                return continuation(result);
+            }
+            catch (Exception ex)
+            {
+                return await new ValueTask<TResult>(Task.FromException<TResult>(ex));
+            }
         }
     }
 }

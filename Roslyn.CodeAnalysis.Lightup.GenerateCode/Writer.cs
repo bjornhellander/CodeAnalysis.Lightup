@@ -1000,6 +1000,11 @@ internal class Writer
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
     {
+        if (typeDef is ClassTypeDefinition classTypeDef && classTypeDef.IsAbstract)
+        {
+            return [];
+        }
+
         var result = typeDef.Constructors
             .Where(x => x.AssemblyVersion != null)
             .ToList();
