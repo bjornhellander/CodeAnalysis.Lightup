@@ -7,7 +7,6 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
     using System.Collections.Generic;
     using System.Collections.Immutable;
     using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
@@ -803,46 +802,8 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
 
         private static MethodInfo GetValueTaskContinueWithMethod()
         {
-            var result = typeof(LightupHelperBase).GetMethod("ContinueWith", BindingFlags.Static | BindingFlags.NonPublic);
+            var result = typeof(ValueTaskExtensions).GetMethod("ContinueWith");
             return result;
-        }
-
-        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used via reflection")]
-        private static ValueTask<TResult> ContinueWith<TSource, TResult>(
-            ValueTask<TSource> valueTask,
-            Func<TSource, TResult> continuation)
-        {
-            if (valueTask.IsCompletedSuccessfully)
-            {
-                try
-                {
-                    TResult continuationResult = continuation(valueTask.Result);
-                    return new ValueTask<TResult>(continuationResult);
-                }
-                catch (Exception ex)
-                {
-                    return new ValueTask<TResult>(Task.FromException<TResult>(ex));
-                }
-            }
-            else
-            {
-                return ContinueWithNotCompleted(valueTask, continuation);
-            }
-        }
-
-        private static async ValueTask<TResult> ContinueWithNotCompleted<TSource, TResult>(
-            ValueTask<TSource> valueTask,
-            Func<TSource, TResult> continuation)
-        {
-            try
-            {
-                var result = await valueTask;
-                return continuation(result);
-            }
-            catch (Exception ex)
-            {
-                return await new ValueTask<TResult>(Task.FromException<TResult>(ex));
-            }
         }
     }
 }
