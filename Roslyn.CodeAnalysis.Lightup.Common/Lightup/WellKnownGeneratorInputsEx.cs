@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WellKnownGeneratorInputsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AdditionalTextsGetterFunc = LightupHelper.CreateStaticReadAccessor<AdditionalTextsGetterDelegate>(wrappedType, nameof(AdditionalTexts));
-            AnalyzerConfigOptionsGetterFunc = LightupHelper.CreateStaticReadAccessor<AnalyzerConfigOptionsGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptions));
-            CompilationGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationGetterDelegate>(wrappedType, nameof(Compilation));
-            MetadataReferencesGetterFunc = LightupHelper.CreateStaticReadAccessor<MetadataReferencesGetterDelegate>(wrappedType, nameof(MetadataReferences));
-            ParseOptionsGetterFunc = LightupHelper.CreateStaticReadAccessor<ParseOptionsGetterDelegate>(wrappedType, nameof(ParseOptions));
+            AdditionalTextsGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<AdditionalTextsGetterDelegate>(wrappedType, nameof(AdditionalTexts));
+            AnalyzerConfigOptionsGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<AnalyzerConfigOptionsGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptions));
+            CompilationGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CompilationGetterDelegate>(wrappedType, nameof(Compilation));
+            MetadataReferencesGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<MetadataReferencesGetterDelegate>(wrappedType, nameof(MetadataReferences));
+            ParseOptionsGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<ParseOptionsGetterDelegate>(wrappedType, nameof(ParseOptions));
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>

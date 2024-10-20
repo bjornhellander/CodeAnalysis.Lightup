@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WellKnownDiagnosticTagsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CustomObsoleteGetterFunc = LightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
-            CompilationEndGetterFunc = LightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
+            CustomObsoleteGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
+            CompilationEndGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>

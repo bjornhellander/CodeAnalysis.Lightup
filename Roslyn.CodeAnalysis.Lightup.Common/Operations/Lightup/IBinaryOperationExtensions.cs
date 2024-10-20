@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IBinaryOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            ConstrainedToTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

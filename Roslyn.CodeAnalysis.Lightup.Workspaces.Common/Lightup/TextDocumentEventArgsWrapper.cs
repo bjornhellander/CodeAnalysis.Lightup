@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static TextDocumentEventArgsWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "documentTextDocument");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "documentTextDocument");
 
-            DocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
+            DocumentGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
         private TextDocumentEventArgsWrapper(System.EventArgs? obj)
@@ -54,11 +54,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static TextDocumentEventArgsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.EventArgs>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.EventArgs>(obj, WrappedType);
             return new TextDocumentEventArgsWrapper(obj2);
         }
 

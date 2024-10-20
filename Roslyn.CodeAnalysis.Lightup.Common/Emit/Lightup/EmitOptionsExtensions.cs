@@ -32,15 +32,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EmitOptionsExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1", "defaultSourceFileEncodingEncoding", "fallbackSourceFileEncodingEncoding");
+            ConstructorFunc0 = CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1", "defaultSourceFileEncodingEncoding", "fallbackSourceFileEncodingEncoding");
 
-            DefaultSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
-            FallbackSourceFileEncodingGetterFunc = LightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
+            DefaultSourceFileEncodingGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
+            FallbackSourceFileEncodingGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
 
-            WithDefaultSourceFileEncodingFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
-            WithFallbackSourceFileEncodingFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
+            WithDefaultSourceFileEncodingFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
+            WithFallbackSourceFileEncodingFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
         }
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>

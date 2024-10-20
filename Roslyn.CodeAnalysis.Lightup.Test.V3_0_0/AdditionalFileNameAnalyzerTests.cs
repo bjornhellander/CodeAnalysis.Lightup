@@ -4,9 +4,8 @@
 namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
 
 using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Roslyn.CodeAnalysis.Lightup.Example.Support;
 using VerifyCS = Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers.CSharpAnalyzerVerifier<
     Roslyn.CodeAnalysis.Lightup.Example.Analyzers.AdditionalFileNameAnalyzer>;
 

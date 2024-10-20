@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static SemanticEditExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "kindSemanticEditKind", "oldSymbolISymbol", "newSymbolISymbol", "syntaxMapFunc`2", "preserveLocalVariablesBoolean", "instrumentationMethodInstrumentation");
+            ConstructorFunc0 = CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "kindSemanticEditKind", "oldSymbolISymbol", "newSymbolISymbol", "syntaxMapFunc`2", "preserveLocalVariablesBoolean", "instrumentationMethodInstrumentation");
 
-            InstrumentationGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
+            InstrumentationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<InstrumentationGetterDelegate>(wrappedType, nameof(Instrumentation));
         }
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>

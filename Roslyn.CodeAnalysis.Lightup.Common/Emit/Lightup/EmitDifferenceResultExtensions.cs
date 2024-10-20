@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EmitDifferenceResultExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ChangedTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(wrappedType, nameof(ChangedTypes));
-            UpdatedMethodsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(wrappedType, nameof(UpdatedMethods));
+            ChangedTypesGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ChangedTypesGetterDelegate>(wrappedType, nameof(ChangedTypes));
+            UpdatedMethodsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<UpdatedMethodsGetterDelegate>(wrappedType, nameof(UpdatedMethods));
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static DataFlowAnalysisExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DefinitelyAssignedOnEntryGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnEntry));
-            DefinitelyAssignedOnExitGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnExit));
-            UsedLocalFunctionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
+            DefinitelyAssignedOnEntryGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnEntryGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnEntry));
+            DefinitelyAssignedOnExitGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DefinitelyAssignedOnExitGetterDelegate>(wrappedType, nameof(DefinitelyAssignedOnExit));
+            UsedLocalFunctionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

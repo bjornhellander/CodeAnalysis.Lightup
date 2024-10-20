@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static SubpatternSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ExpressionColonGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(wrappedType, nameof(ExpressionColon));
+            ExpressionColonGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionColonGetterDelegate>(wrappedType, nameof(ExpressionColon));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
-            WithExpressionColonFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, "WithExpressionColon", "expressionColonBaseExpressionColonSyntax");
+            UpdateFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
+            WithExpressionColonFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate1>(wrappedType, "WithExpressionColon", "expressionColonBaseExpressionColonSyntax");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

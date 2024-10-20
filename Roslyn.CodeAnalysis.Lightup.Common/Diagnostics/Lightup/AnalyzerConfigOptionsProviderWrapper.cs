@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalyzerConfigOptionsProviderWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            GlobalOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
+            GlobalOptionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
 
-            GetOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, "GetOptions", "treeSyntaxTree");
-            GetOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "textFileAdditionalText");
+            GetOptionsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, "GetOptions", "treeSyntaxTree");
+            GetOptionsFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "textFileAdditionalText");
         }
 
         private AnalyzerConfigOptionsProviderWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static AnalyzerConfigOptionsProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsProviderWrapper(obj2);
         }
 

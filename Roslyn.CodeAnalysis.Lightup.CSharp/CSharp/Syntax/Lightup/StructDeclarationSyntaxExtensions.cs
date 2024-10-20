@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static StructDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
+            ParameterListGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            WithParameterListFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            AddParameterListParametersFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            WithParameterListFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate2>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

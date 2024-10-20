@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         static LanguageServicesWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            LanguageGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(WrappedType, nameof(Language));
-            SolutionServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
+            LanguageGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(WrappedType, nameof(Language));
+            SolutionServicesGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
         }
 
         private LanguageServicesWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static LanguageServicesWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new LanguageServicesWrapper(obj2);
         }
 

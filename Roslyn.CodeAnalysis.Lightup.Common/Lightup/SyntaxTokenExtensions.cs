@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxTokenExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsIncrementallyIdenticalToFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, "IsIncrementallyIdenticalTo", "tokenSyntaxToken");
+            IsIncrementallyIdenticalToFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, "IsIncrementallyIdenticalTo", "tokenSyntaxToken");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

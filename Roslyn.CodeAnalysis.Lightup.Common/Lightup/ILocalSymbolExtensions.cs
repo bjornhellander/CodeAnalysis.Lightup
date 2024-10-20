@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ILocalSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsForEachGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
-            IsUsingGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
+            IsForEachGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
+            IsUsingGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static EditAndContinueMethodDebugInformationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "compressedSlotMapImmutableArray`1", "compressedLambdaMapImmutableArray`1", "compressedStateMachineStateMapImmutableArray`1");
+            CreateFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "compressedSlotMapImmutableArray`1", "compressedLambdaMapImmutableArray`1", "compressedStateMachineStateMapImmutableArray`1");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

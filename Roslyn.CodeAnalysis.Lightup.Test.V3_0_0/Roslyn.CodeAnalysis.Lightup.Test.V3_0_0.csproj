@@ -14,6 +14,7 @@
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.CSharp\Roslyn.CodeAnalysis.Lightup.CSharp.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.Support\Roslyn.CodeAnalysis.Lightup.Example.Support.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Workspaces.Common\Roslyn.CodeAnalysis.Lightup.Workspaces.Common.csproj" />
 	</ItemGroup>
 

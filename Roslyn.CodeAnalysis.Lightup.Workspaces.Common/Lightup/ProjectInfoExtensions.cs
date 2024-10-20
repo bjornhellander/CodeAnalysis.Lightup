@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectInfoExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
-            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
+            AnalyzerConfigDocumentsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
+            CompilationOutputInfoGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
 
-            WithAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "analyzerConfigDocumentsIEnumerable`1");
-            WithCompilationOutputInfoFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
-            WithDefaultNamespaceFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
+            WithAnalyzerConfigDocumentsFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "analyzerConfigDocumentsIEnumerable`1");
+            WithCompilationOutputInfoFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
+            WithDefaultNamespaceFunc2 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

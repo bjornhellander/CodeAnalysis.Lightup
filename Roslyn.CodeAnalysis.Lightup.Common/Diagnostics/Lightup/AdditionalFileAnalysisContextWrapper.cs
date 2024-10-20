@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AdditionalFileAnalysisContextWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileGetterDelegate>(WrappedType, nameof(AdditionalFile));
-            CancellationTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CancellationTokenGetterDelegate>(WrappedType, nameof(CancellationToken));
-            CompilationGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationGetterDelegate>(WrappedType, nameof(Compilation));
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
-            OptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<OptionsGetterDelegate>(WrappedType, nameof(Options));
+            AdditionalFileGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AdditionalFileGetterDelegate>(WrappedType, nameof(AdditionalFile));
+            CancellationTokenGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CancellationTokenGetterDelegate>(WrappedType, nameof(CancellationToken));
+            CompilationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CompilationGetterDelegate>(WrappedType, nameof(Compilation));
+            FilterSpanGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(WrappedType, nameof(FilterSpan));
+            OptionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<OptionsGetterDelegate>(WrappedType, nameof(Options));
 
-            ReportDiagnosticFunc0 = LightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, "ReportDiagnostic", "diagnosticDiagnostic");
+            ReportDiagnosticFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, "ReportDiagnostic", "diagnosticDiagnostic");
         }
 
         private AdditionalFileAnalysisContextWrapper(System.Object? obj)
@@ -83,11 +83,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static AdditionalFileAnalysisContextWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new AdditionalFileAnalysisContextWrapper(obj2);
         }
 

@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxTreeOptionsProviderWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsGeneratedFunc0 = LightupHelper.CreateInstanceMethodAccessor<IsGeneratedDelegate0>(WrappedType, "IsGenerated", "treeSyntaxTree", "cancellationTokenCancellationToken");
-            TryGetDiagnosticValueFunc1 = LightupHelper.CreateInstanceMethodAccessor<TryGetDiagnosticValueDelegate1>(WrappedType, "TryGetDiagnosticValue", "treeSyntaxTree", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
-            TryGetGlobalDiagnosticValueFunc2 = LightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, "TryGetGlobalDiagnosticValue", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
+            IsGeneratedFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<IsGeneratedDelegate0>(WrappedType, "IsGenerated", "treeSyntaxTree", "cancellationTokenCancellationToken");
+            TryGetDiagnosticValueFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<TryGetDiagnosticValueDelegate1>(WrappedType, "TryGetDiagnosticValue", "treeSyntaxTree", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
+            TryGetGlobalDiagnosticValueFunc2 = CommonLightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, "TryGetGlobalDiagnosticValue", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
         }
 
         private SyntaxTreeOptionsProviderWrapper(System.Object? obj)
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static SyntaxTreeOptionsProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SyntaxTreeOptionsProviderWrapper(obj2);
         }
 

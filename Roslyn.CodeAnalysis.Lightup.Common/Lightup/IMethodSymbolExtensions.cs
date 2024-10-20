@@ -42,20 +42,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IMethodSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(wrappedType, nameof(CallingConvention));
-            IsConditionalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(wrappedType, nameof(IsConditional));
-            IsInitOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(wrappedType, nameof(IsInitOnly));
-            IsPartialDefinitionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
-            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
-            MethodImplementationFlagsGetterFunc = LightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
-            ReceiverNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(wrappedType, nameof(ReceiverNullableAnnotation));
-            ReturnNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(wrappedType, nameof(ReturnNullableAnnotation));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
-            UnmanagedCallingConventionTypesGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
+            CallingConventionGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(wrappedType, nameof(CallingConvention));
+            IsConditionalGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(wrappedType, nameof(IsConditional));
+            IsInitOnlyGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(wrappedType, nameof(IsInitOnly));
+            IsPartialDefinitionGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
+            IsReadOnlyGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
+            MethodImplementationFlagsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
+            ReceiverNullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(wrappedType, nameof(ReceiverNullableAnnotation));
+            ReturnNullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(wrappedType, nameof(ReturnNullableAnnotation));
+            TypeArgumentNullableAnnotationsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
+            UnmanagedCallingConventionTypesGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
+            ConstructFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

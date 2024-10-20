@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CaseInsensitiveComparisonEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CompareFunc0 = LightupHelper.CreateStaticMethodAccessor<CompareDelegate0>(wrappedType, "Compare", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
-            EqualsFunc1 = LightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, "Equals", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
+            CompareFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<CompareDelegate0>(wrappedType, "Compare", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
+            EqualsFunc1 = CommonLightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, "Equals", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

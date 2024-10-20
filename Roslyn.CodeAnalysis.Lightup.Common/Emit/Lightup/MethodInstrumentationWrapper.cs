@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         static MethodInstrumentationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            KindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
-            KindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
+            KindsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<KindsGetterDelegate>(WrappedType, nameof(Kinds));
+            KindsSetterFunc = CommonLightupHelper.CreateInstanceSetAccessor<KindsSetterDelegate>(WrappedType, nameof(Kinds));
         }
 
         private MethodInstrumentationWrapper(System.Object? obj)
@@ -45,11 +45,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static MethodInstrumentationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new MethodInstrumentationWrapper(obj2);
         }
 

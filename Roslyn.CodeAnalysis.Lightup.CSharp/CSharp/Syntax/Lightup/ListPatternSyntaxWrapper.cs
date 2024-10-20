@@ -46,20 +46,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ListPatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
-            DesignationGetterFunc = LightupHelper.CreateInstanceGetAccessor<DesignationGetterDelegate>(WrappedType, nameof(Designation));
-            OpenBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
-            PatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
+            CloseBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            DesignationGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<DesignationGetterDelegate>(WrappedType, nameof(Designation));
+            OpenBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
+            PatternsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddPatternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddPatternsDelegate1>(WrappedType, "AddPatterns", "itemsPatternSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "patternsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken", "designationVariableDesignationSyntax");
-            WithCloseBracketTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
-            WithDesignationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithDesignationDelegate4>(WrappedType, "WithDesignation", "designationVariableDesignationSyntax");
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
-            WithPatternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithPatternsDelegate6>(WrappedType, "WithPatterns", "patternsSeparatedSyntaxList`1");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddPatternsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddPatternsDelegate1>(WrappedType, "AddPatterns", "itemsPatternSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "patternsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken", "designationVariableDesignationSyntax");
+            WithCloseBracketTokenFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
+            WithDesignationFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithDesignationDelegate4>(WrappedType, "WithDesignation", "designationVariableDesignationSyntax");
+            WithOpenBracketTokenFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
+            WithPatternsFunc6 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternsDelegate6>(WrappedType, "WithPatterns", "patternsSeparatedSyntaxList`1");
         }
 
         private ListPatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
@@ -95,11 +95,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static ListPatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new ListPatternSyntaxWrapper(obj2);
         }
 

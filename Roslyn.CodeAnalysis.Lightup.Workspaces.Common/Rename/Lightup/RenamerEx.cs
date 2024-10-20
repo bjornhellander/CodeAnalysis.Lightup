@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         static RenamerEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            RenameDocumentAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<RenameDocumentAsyncDelegate0>(wrappedType, "RenameDocumentAsync", "documentDocument", "newDocumentNameString", "newDocumentFoldersIReadOnlyList`1", "optionSetOptionSet", "cancellationTokenCancellationToken");
-            RenameDocumentAsyncFunc1 = LightupHelper.CreateStaticMethodAccessor<RenameDocumentAsyncDelegate1>(wrappedType, "RenameDocumentAsync", "documentDocument", "optionsDocumentRenameOptions", "newDocumentNameString", "newDocumentFoldersIReadOnlyList`1", "cancellationTokenCancellationToken");
-            RenameSymbolAsyncFunc2 = LightupHelper.CreateStaticMethodAccessor<RenameSymbolAsyncDelegate2>(wrappedType, "RenameSymbolAsync", "solutionSolution", "symbolISymbol", "optionsSymbolRenameOptions", "newNameString", "cancellationTokenCancellationToken");
+            RenameDocumentAsyncFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<RenameDocumentAsyncDelegate0>(wrappedType, "RenameDocumentAsync", "documentDocument", "newDocumentNameString", "newDocumentFoldersIReadOnlyList`1", "optionSetOptionSet", "cancellationTokenCancellationToken");
+            RenameDocumentAsyncFunc1 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<RenameDocumentAsyncDelegate1>(wrappedType, "RenameDocumentAsync", "documentDocument", "optionsDocumentRenameOptions", "newDocumentNameString", "newDocumentFoldersIReadOnlyList`1", "cancellationTokenCancellationToken");
+            RenameSymbolAsyncFunc2 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<RenameSymbolAsyncDelegate2>(wrappedType, "RenameSymbolAsync", "solutionSolution", "symbolISymbol", "optionsSymbolRenameOptions", "newNameString", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

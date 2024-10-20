@@ -38,18 +38,18 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ITypeSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsNativeIntegerTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNativeIntegerTypeGetterDelegate>(wrappedType, nameof(IsNativeIntegerType));
-            IsReadOnlyGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
-            IsRecordGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            IsNativeIntegerTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsNativeIntegerTypeGetterDelegate>(wrappedType, nameof(IsNativeIntegerType));
+            IsReadOnlyGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
+            IsRecordGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
 
-            ToDisplayPartsFunc0 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
-            ToDisplayStringFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, "ToDisplayString", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
-            ToMinimalDisplayPartsFunc2 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, "ToMinimalDisplayParts", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
-            ToMinimalDisplayStringFunc3 = LightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, "ToMinimalDisplayString", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
-            WithNullableAnnotationFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, "WithNullableAnnotation", "nullableAnnotationNullableAnnotation");
+            ToDisplayPartsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
+            ToDisplayStringFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<ToDisplayStringDelegate1>(wrappedType, "ToDisplayString", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
+            ToMinimalDisplayPartsFunc2 = CommonLightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate2>(wrappedType, "ToMinimalDisplayParts", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
+            ToMinimalDisplayStringFunc3 = CommonLightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate3>(wrappedType, "ToMinimalDisplayString", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
+            WithNullableAnnotationFunc4 = CommonLightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate4>(wrappedType, "WithNullableAnnotation", "nullableAnnotationNullableAnnotation");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

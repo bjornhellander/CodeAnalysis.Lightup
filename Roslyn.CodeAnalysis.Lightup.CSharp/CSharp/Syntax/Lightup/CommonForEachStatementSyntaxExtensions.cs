@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CommonForEachStatementSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            WithAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            WithAttributeListsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

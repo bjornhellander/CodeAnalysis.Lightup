@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         static IFlowCaptureReferenceOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsInitializationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(wrappedType, nameof(IsInitialization));
+            IsInitializationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(wrappedType, nameof(IsInitialization));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

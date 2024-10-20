@@ -48,21 +48,21 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         static SymbolRenameOptionsWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "RenameOverloadsBoolean", "RenameInStringsBoolean", "RenameInCommentsBoolean", "RenameFileBoolean");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "RenameOverloadsBoolean", "RenameInStringsBoolean", "RenameInCommentsBoolean", "RenameFileBoolean");
 
-            RenameFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
-            RenameFileSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameFileSetterDelegate>(WrappedType, nameof(RenameFile));
-            RenameInCommentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
-            RenameInCommentsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameInCommentsSetterDelegate>(WrappedType, nameof(RenameInComments));
-            RenameInStringsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameInStringsGetterDelegate>(WrappedType, nameof(RenameInStrings));
-            RenameInStringsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameInStringsSetterDelegate>(WrappedType, nameof(RenameInStrings));
-            RenameOverloadsGetterFunc = LightupHelper.CreateInstanceGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
-            RenameOverloadsSetterFunc = LightupHelper.CreateInstanceSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
+            RenameFileGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RenameFileGetterDelegate>(WrappedType, nameof(RenameFile));
+            RenameFileSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameFileSetterDelegate>(WrappedType, nameof(RenameFile));
+            RenameInCommentsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RenameInCommentsGetterDelegate>(WrappedType, nameof(RenameInComments));
+            RenameInCommentsSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameInCommentsSetterDelegate>(WrappedType, nameof(RenameInComments));
+            RenameInStringsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RenameInStringsGetterDelegate>(WrappedType, nameof(RenameInStrings));
+            RenameInStringsSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameInStringsSetterDelegate>(WrappedType, nameof(RenameInStrings));
+            RenameOverloadsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RenameOverloadsGetterDelegate>(WrappedType, nameof(RenameOverloads));
+            RenameOverloadsSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
 
-            DeconstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameOverloadsBoolean&", "RenameInStringsBoolean&", "RenameInCommentsBoolean&", "RenameFileBoolean&");
-            EqualsFunc1 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
+            DeconstructFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameOverloadsBoolean&", "RenameInStringsBoolean&", "RenameInCommentsBoolean&", "RenameFileBoolean&");
+            EqualsFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
         }
 
         private SymbolRenameOptionsWrapper(System.Object? obj)
@@ -103,11 +103,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static SymbolRenameOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SymbolRenameOptionsWrapper(obj2);
         }
 

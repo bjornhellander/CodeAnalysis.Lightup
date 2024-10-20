@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IPatternOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            NarrowedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(wrappedType, nameof(NarrowedType));
+            NarrowedTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(wrappedType, nameof(NarrowedType));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         static SolutionServicesWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            SupportedLanguagesGetterFunc = LightupHelper.CreateInstanceGetAccessor<SupportedLanguagesGetterDelegate>(WrappedType, nameof(SupportedLanguages));
+            SupportedLanguagesGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<SupportedLanguagesGetterDelegate>(WrappedType, nameof(SupportedLanguages));
 
-            GetLanguageServicesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, "GetLanguageServices", "languageNameString");
-            IsSupportedFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "languageNameString");
+            GetLanguageServicesFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, "GetLanguageServices", "languageNameString");
+            IsSupportedFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "languageNameString");
         }
 
         private SolutionServicesWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static SolutionServicesWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SolutionServicesWrapper(obj2);
         }
 

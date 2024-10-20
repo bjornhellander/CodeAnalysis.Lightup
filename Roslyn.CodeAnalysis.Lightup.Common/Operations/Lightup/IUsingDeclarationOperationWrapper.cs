@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IUsingDeclarationOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DeclarationGroupGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
+            DeclarationGroupGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeclarationGroupGetterDelegate>(WrappedType, nameof(DeclarationGroup));
+            IsAsynchronousGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(WrappedType, nameof(IsAsynchronous));
         }
 
         private IUsingDeclarationOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IUsingDeclarationOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IUsingDeclarationOperationWrapper(obj2);
         }
 

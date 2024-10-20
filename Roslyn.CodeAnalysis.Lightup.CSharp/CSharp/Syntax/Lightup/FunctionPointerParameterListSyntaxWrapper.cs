@@ -42,18 +42,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FunctionPointerParameterListSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            GreaterThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<GreaterThanTokenGetterDelegate>(WrappedType, nameof(GreaterThanToken));
-            LessThanTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
-            ParametersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
+            GreaterThanTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<GreaterThanTokenGetterDelegate>(WrappedType, nameof(GreaterThanToken));
+            LessThanTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<LessThanTokenGetterDelegate>(WrappedType, nameof(LessThanToken));
+            ParametersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ParametersGetterDelegate>(WrappedType, nameof(Parameters));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddParametersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, "AddParameters", "itemsFunctionPointerParameterSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "lessThanTokenSyntaxToken", "parametersSeparatedSyntaxList`1", "greaterThanTokenSyntaxToken");
-            WithGreaterThanTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, "WithGreaterThanToken", "greaterThanTokenSyntaxToken");
-            WithLessThanTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, "WithLessThanToken", "lessThanTokenSyntaxToken");
-            WithParametersFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddParametersFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate1>(WrappedType, "AddParameters", "itemsFunctionPointerParameterSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "lessThanTokenSyntaxToken", "parametersSeparatedSyntaxList`1", "greaterThanTokenSyntaxToken");
+            WithGreaterThanTokenFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithGreaterThanTokenDelegate3>(WrappedType, "WithGreaterThanToken", "greaterThanTokenSyntaxToken");
+            WithLessThanTokenFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithLessThanTokenDelegate4>(WrappedType, "WithLessThanToken", "lessThanTokenSyntaxToken");
+            WithParametersFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate5>(WrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
         }
 
         private FunctionPointerParameterListSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -83,11 +83,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static FunctionPointerParameterListSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerParameterListSyntaxWrapper(obj2);
         }
 

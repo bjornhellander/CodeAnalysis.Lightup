@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypeSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            IsNintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(wrappedType, nameof(IsNint));
-            IsNotNullGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(wrappedType, nameof(IsNotNull));
-            IsNuintGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
+            IsNintGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(wrappedType, nameof(IsNint));
+            IsNotNullGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(wrappedType, nameof(IsNotNull));
+            IsNuintGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

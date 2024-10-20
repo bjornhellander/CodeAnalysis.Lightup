@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CompilationOutputInfoWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            AssemblyPathGetterFunc = LightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
+            AssemblyPathGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherCompilationOutputInfo");
-            WithAssemblyPathFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "pathString");
+            EqualsFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherCompilationOutputInfo");
+            WithAssemblyPathFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "pathString");
         }
 
         private CompilationOutputInfoWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static CompilationOutputInfoWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new CompilationOutputInfoWrapper(obj2);
         }
 

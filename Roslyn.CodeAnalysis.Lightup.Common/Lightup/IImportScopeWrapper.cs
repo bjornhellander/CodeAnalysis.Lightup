@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IImportScopeWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AliasesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AliasesGetterDelegate>(WrappedType, nameof(Aliases));
-            ExternAliasesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExternAliasesGetterDelegate>(WrappedType, nameof(ExternAliases));
-            ImportsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ImportsGetterDelegate>(WrappedType, nameof(Imports));
-            XmlNamespacesGetterFunc = LightupHelper.CreateInstanceGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
+            AliasesGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AliasesGetterDelegate>(WrappedType, nameof(Aliases));
+            ExternAliasesGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ExternAliasesGetterDelegate>(WrappedType, nameof(ExternAliases));
+            ImportsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ImportsGetterDelegate>(WrappedType, nameof(Imports));
+            XmlNamespacesGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
         }
 
         private IImportScopeWrapper(System.Object? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IImportScopeWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new IImportScopeWrapper(obj2);
         }
 

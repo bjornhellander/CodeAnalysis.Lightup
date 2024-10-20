@@ -42,18 +42,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static WithExpressionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
-            InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
-            WithKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<WithKeywordGetterDelegate>(WrappedType, nameof(WithKeyword));
+            ExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            InitializerGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            WithKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<WithKeywordGetterDelegate>(WrappedType, nameof(WithKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddInitializerExpressionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, "AddInitializerExpressions", "itemsExpressionSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "expressionExpressionSyntax", "withKeywordSyntaxToken", "initializerInitializerExpressionSyntax");
-            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
-            WithInitializerFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate4>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
-            WithWithKeywordFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithWithKeywordDelegate5>(WrappedType, "WithWithKeyword", "withKeywordSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddInitializerExpressionsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, "AddInitializerExpressions", "itemsExpressionSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "expressionExpressionSyntax", "withKeywordSyntaxToken", "initializerInitializerExpressionSyntax");
+            WithExpressionFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithInitializerFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate4>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
+            WithWithKeywordFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithWithKeywordDelegate5>(WrappedType, "WithWithKeyword", "withKeywordSyntaxToken");
         }
 
         private WithExpressionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
@@ -83,11 +83,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static WithExpressionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new WithExpressionSyntaxWrapper(obj2);
         }
 

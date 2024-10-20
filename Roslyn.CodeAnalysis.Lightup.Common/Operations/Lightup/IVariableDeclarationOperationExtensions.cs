@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IVariableDeclarationOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IgnoredDimensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(wrappedType, nameof(IgnoredDimensions));
+            IgnoredDimensionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(wrappedType, nameof(IgnoredDimensions));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

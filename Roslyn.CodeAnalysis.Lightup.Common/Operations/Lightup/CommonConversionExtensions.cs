@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static CommonConversionExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
-            IsNullableGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
+            ConstrainedToTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsNullableGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

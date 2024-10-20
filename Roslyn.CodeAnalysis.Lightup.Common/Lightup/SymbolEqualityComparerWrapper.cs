@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SymbolEqualityComparerWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DefaultGetterFunc = LightupHelper.CreateStaticReadAccessor<DefaultGetterDelegate>(WrappedType, nameof(Default));
-            IncludeNullabilityGetterFunc = LightupHelper.CreateStaticReadAccessor<IncludeNullabilityGetterDelegate>(WrappedType, nameof(IncludeNullability));
+            DefaultGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<DefaultGetterDelegate>(WrappedType, nameof(Default));
+            IncludeNullabilityGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<IncludeNullabilityGetterDelegate>(WrappedType, nameof(IncludeNullability));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "xISymbol", "yISymbol");
-            GetHashCodeFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "objISymbol");
+            EqualsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "xISymbol", "yISymbol");
+            GetHashCodeFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "objISymbol");
         }
 
         private SymbolEqualityComparerWrapper(System.Object? obj)
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static SymbolEqualityComparerWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SymbolEqualityComparerWrapper(obj2);
         }
 

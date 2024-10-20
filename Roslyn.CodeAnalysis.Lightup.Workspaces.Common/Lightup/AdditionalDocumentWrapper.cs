@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static AdditionalDocumentWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
         }
 
         private AdditionalDocumentWrapper(Microsoft.CodeAnalysis.TextDocument? obj)
@@ -32,11 +32,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static AdditionalDocumentWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
             return new AdditionalDocumentWrapper(obj2);
         }
 

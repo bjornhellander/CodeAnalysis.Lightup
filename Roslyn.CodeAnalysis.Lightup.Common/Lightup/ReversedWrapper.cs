@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ReversedWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CountGetterFunc = LightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
+            CountGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
 
-            GetEnumeratorFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate0>(WrappedType, "GetEnumerator");
-            ToImmutableArrayFunc1 = LightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate1>(WrappedType, "ToImmutableArray");
+            GetEnumeratorFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate0>(WrappedType, "GetEnumerator");
+            ToImmutableArrayFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate1>(WrappedType, "ToImmutableArray");
         }
 
         private ReversedWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static ReversedWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new ReversedWrapper(obj2);
         }
 

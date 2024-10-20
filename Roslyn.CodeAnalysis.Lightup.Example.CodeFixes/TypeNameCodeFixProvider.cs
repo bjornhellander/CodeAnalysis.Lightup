@@ -14,10 +14,10 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.CodeFixes
     using Microsoft.CodeAnalysis.CodeFixes;
     using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
-    using Microsoft.CodeAnalysis.Lightup;
     using Microsoft.CodeAnalysis.Rename;
     using Microsoft.CodeAnalysis.Rename.Lightup;
     using Roslyn.CodeAnalysis.Lightup.Example.Analyzers;
+    using Roslyn.CodeAnalysis.Lightup.Example.Support;
 
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(TypeNameCodeFixProvider))]
     [Shared]

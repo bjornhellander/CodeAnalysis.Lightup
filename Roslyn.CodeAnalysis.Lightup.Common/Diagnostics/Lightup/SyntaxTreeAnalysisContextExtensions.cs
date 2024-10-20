@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static SyntaxTreeAnalysisContextExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            IsGeneratedCodeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalyzerLoadFailureEventArgsExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ReferencedCompilerVersionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(wrappedType, nameof(ReferencedCompilerVersion));
+            ReferencedCompilerVersionGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(wrappedType, nameof(ReferencedCompilerVersion));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

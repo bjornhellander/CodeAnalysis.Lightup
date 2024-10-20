@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IPropertySymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            IsRequiredGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

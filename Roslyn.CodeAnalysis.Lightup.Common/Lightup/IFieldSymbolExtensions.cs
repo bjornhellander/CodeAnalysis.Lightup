@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IFieldSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            FixedSizeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FixedSizeGetterDelegate>(wrappedType, nameof(FixedSize));
-            IsExplicitlyNamedTupleElementGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(wrappedType, nameof(IsExplicitlyNamedTupleElement));
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
-            RefCustomModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
-            RefKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
+            FixedSizeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FixedSizeGetterDelegate>(wrappedType, nameof(FixedSize));
+            IsExplicitlyNamedTupleElementGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(wrappedType, nameof(IsExplicitlyNamedTupleElement));
+            IsRequiredGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            RefCustomModifiersGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
+            RefKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

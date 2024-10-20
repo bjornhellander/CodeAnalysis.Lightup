@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IInlineArrayAccessOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ArgumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
-            InstanceGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
+            ArgumentGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
+            InstanceGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
         }
 
         private IInlineArrayAccessOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IInlineArrayAccessOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInlineArrayAccessOperationWrapper(obj2);
         }
 

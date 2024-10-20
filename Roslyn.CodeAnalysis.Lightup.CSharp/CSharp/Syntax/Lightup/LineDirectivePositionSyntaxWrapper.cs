@@ -48,21 +48,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static LineDirectivePositionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CharacterGetterFunc = LightupHelper.CreateInstanceGetAccessor<CharacterGetterDelegate>(WrappedType, nameof(Character));
-            CloseParenTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseParenTokenGetterDelegate>(WrappedType, nameof(CloseParenToken));
-            CommaTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CommaTokenGetterDelegate>(WrappedType, nameof(CommaToken));
-            LineGetterFunc = LightupHelper.CreateInstanceGetAccessor<LineGetterDelegate>(WrappedType, nameof(Line));
-            OpenParenTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
+            CharacterGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CharacterGetterDelegate>(WrappedType, nameof(Character));
+            CloseParenTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CloseParenTokenGetterDelegate>(WrappedType, nameof(CloseParenToken));
+            CommaTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CommaTokenGetterDelegate>(WrappedType, nameof(CommaToken));
+            LineGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<LineGetterDelegate>(WrappedType, nameof(Line));
+            OpenParenTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OpenParenTokenGetterDelegate>(WrappedType, nameof(OpenParenToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "openParenTokenSyntaxToken", "lineSyntaxToken", "commaTokenSyntaxToken", "characterSyntaxToken", "closeParenTokenSyntaxToken");
-            WithCharacterFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithCharacterDelegate2>(WrappedType, "WithCharacter", "characterSyntaxToken");
-            WithCloseParenTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
-            WithCommaTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithCommaTokenDelegate4>(WrappedType, "WithCommaToken", "commaTokenSyntaxToken");
-            WithLineFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithLineDelegate5>(WrappedType, "WithLine", "lineSyntaxToken");
-            WithOpenParenTokenFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate6>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "openParenTokenSyntaxToken", "lineSyntaxToken", "commaTokenSyntaxToken", "characterSyntaxToken", "closeParenTokenSyntaxToken");
+            WithCharacterFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCharacterDelegate2>(WrappedType, "WithCharacter", "characterSyntaxToken");
+            WithCloseParenTokenFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
+            WithCommaTokenFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCommaTokenDelegate4>(WrappedType, "WithCommaToken", "commaTokenSyntaxToken");
+            WithLineFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithLineDelegate5>(WrappedType, "WithLine", "lineSyntaxToken");
+            WithOpenParenTokenFunc6 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate6>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
         }
 
         private LineDirectivePositionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -104,11 +104,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static LineDirectivePositionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new LineDirectivePositionSyntaxWrapper(obj2);
         }
 

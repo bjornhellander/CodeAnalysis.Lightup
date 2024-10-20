@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static CSharpCompilationOptionsExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "outputKindOutputKind", "reportSuppressedDiagnosticsBoolean", "moduleNameString", "mainTypeNameString", "scriptClassNameString", "usingsIEnumerable`1", "optimizationLevelOptimizationLevel", "checkOverflowBoolean", "allowUnsafeBoolean", "cryptoKeyContainerString", "cryptoKeyFileString", "cryptoPublicKeyImmutableArray`1", "delaySignNullable`1", "platformPlatform", "generalDiagnosticOptionReportDiagnostic", "warningLevelInt32", "specificDiagnosticOptionsIEnumerable`1", "concurrentBuildBoolean", "deterministicBoolean", "xmlReferenceResolverXmlReferenceResolver", "sourceReferenceResolverSourceReferenceResolver", "metadataReferenceResolverMetadataReferenceResolver", "assemblyIdentityComparerAssemblyIdentityComparer", "strongNameProviderStrongNameProvider", "publicSignBoolean", "metadataImportOptionsMetadataImportOptions", "nullableContextOptionsNullableContextOptions");
+            ConstructorFunc0 = CSharpLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "outputKindOutputKind", "reportSuppressedDiagnosticsBoolean", "moduleNameString", "mainTypeNameString", "scriptClassNameString", "usingsIEnumerable`1", "optimizationLevelOptimizationLevel", "checkOverflowBoolean", "allowUnsafeBoolean", "cryptoKeyContainerString", "cryptoKeyFileString", "cryptoPublicKeyImmutableArray`1", "delaySignNullable`1", "platformPlatform", "generalDiagnosticOptionReportDiagnostic", "warningLevelInt32", "specificDiagnosticOptionsIEnumerable`1", "concurrentBuildBoolean", "deterministicBoolean", "xmlReferenceResolverXmlReferenceResolver", "sourceReferenceResolverSourceReferenceResolver", "metadataReferenceResolverMetadataReferenceResolver", "assemblyIdentityComparerAssemblyIdentityComparer", "strongNameProviderStrongNameProvider", "publicSignBoolean", "metadataImportOptionsMetadataImportOptions", "nullableContextOptionsNullableContextOptions");
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
+            NullableContextOptionsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
 
-            WithNullableContextOptionsFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
-            WithSyntaxTreeOptionsProviderFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithNullableContextOptionsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
+            WithSyntaxTreeOptionsProviderFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>

@@ -34,16 +34,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static ConversionExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ConstrainedToTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
-            IsCollectionExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(wrappedType, nameof(IsCollectionExpression));
-            IsConditionalExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(wrappedType, nameof(IsConditionalExpression));
-            IsDefaultLiteralGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(wrappedType, nameof(IsDefaultLiteral));
-            IsInlineArrayGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
-            IsInterpolatedStringHandlerGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
-            IsObjectCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
-            IsSwitchExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
+            ConstrainedToTypeGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsCollectionExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(wrappedType, nameof(IsCollectionExpression));
+            IsConditionalExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(wrappedType, nameof(IsConditionalExpression));
+            IsDefaultLiteralGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(wrappedType, nameof(IsDefaultLiteral));
+            IsInlineArrayGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
+            IsInterpolatedStringHandlerGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
+            IsObjectCreationGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
+            IsSwitchExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

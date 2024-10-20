@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CSharpExtensionsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateStaticMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "nodeSyntaxNode", "kindSyntaxKind");
+            ContainsDirectiveFunc0 = CSharpLightupHelper.CreateStaticMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "nodeSyntaxNode", "kindSyntaxKind");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

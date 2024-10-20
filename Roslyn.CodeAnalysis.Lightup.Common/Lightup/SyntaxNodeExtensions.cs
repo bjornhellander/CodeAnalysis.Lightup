@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxNodeExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ContainsDirectiveFunc0 = LightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "rawKindInt32");
-            IsIncrementallyIdenticalToFunc1 = LightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
+            ContainsDirectiveFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "rawKindInt32");
+            IsIncrementallyIdenticalToFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static CodeBlockAnalysisContextExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            FilterSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
-            FilterTreeGetterFunc = LightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
-            IsGeneratedCodeGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
+            FilterSpanGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
+            FilterTreeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
+            IsGeneratedCodeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

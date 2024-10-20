@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ITypeParameterSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstraintNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
-            HasNotNullConstraintGetterFunc = LightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
-            ReferenceTypeConstraintNullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
+            ConstraintNullableAnnotationsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
+            HasNotNullConstraintGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
+            ReferenceTypeConstraintNullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

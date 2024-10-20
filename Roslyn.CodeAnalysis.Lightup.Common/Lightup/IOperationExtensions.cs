@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ChildOperationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChildOperationsGetterDelegate>(wrappedType, nameof(ChildOperations));
+            ChildOperationsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ChildOperationsGetterDelegate>(wrappedType, nameof(ChildOperations));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

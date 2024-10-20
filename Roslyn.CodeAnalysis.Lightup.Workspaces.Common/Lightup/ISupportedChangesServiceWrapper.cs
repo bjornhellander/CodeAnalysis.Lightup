@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ISupportedChangesServiceWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            CanApplyChangeFunc0 = LightupHelper.CreateInstanceMethodAccessor<CanApplyChangeDelegate0>(WrappedType, "CanApplyChange", "kindApplyChangesKind");
-            CanApplyCompilationOptionChangeFunc1 = LightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate1>(WrappedType, "CanApplyCompilationOptionChange", "oldOptionsCompilationOptions", "newOptionsCompilationOptions", "projectProject");
-            CanApplyParseOptionChangeFunc2 = LightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
+            CanApplyChangeFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyChangeDelegate0>(WrappedType, "CanApplyChange", "kindApplyChangesKind");
+            CanApplyCompilationOptionChangeFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate1>(WrappedType, "CanApplyCompilationOptionChange", "oldOptionsCompilationOptions", "newOptionsCompilationOptions", "projectProject");
+            CanApplyParseOptionChangeFunc2 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
         }
 
         private ISupportedChangesServiceWrapper(Microsoft.CodeAnalysis.Host.IWorkspaceService? obj)
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static ISupportedChangesServiceWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 

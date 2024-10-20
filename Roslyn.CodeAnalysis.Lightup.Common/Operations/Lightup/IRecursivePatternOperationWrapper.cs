@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IRecursivePatternOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
-            DeconstructionSubpatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeconstructionSubpatternsGetterDelegate>(WrappedType, nameof(DeconstructionSubpatterns));
-            DeconstructSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeconstructSymbolGetterDelegate>(WrappedType, nameof(DeconstructSymbol));
-            MatchedTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
-            PropertySubpatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PropertySubpatternsGetterDelegate>(WrappedType, nameof(PropertySubpatterns));
+            DeclaredSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
+            DeconstructionSubpatternsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeconstructionSubpatternsGetterDelegate>(WrappedType, nameof(DeconstructionSubpatterns));
+            DeconstructSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeconstructSymbolGetterDelegate>(WrappedType, nameof(DeconstructSymbol));
+            MatchedTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
+            PropertySubpatternsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<PropertySubpatternsGetterDelegate>(WrappedType, nameof(PropertySubpatterns));
         }
 
         private IRecursivePatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
@@ -77,11 +77,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IRecursivePatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IRecursivePatternOperationWrapper(obj2);
         }
 

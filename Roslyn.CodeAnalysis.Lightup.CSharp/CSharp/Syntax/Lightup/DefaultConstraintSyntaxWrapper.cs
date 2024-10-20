@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static DefaultConstraintSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            DefaultKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
+            DefaultKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "defaultKeywordSyntaxToken");
-            WithDefaultKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "defaultKeywordSyntaxToken");
+            WithDefaultKeywordFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
         }
 
         private DefaultConstraintSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? obj)
@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static DefaultConstraintSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax>(obj, WrappedType);
             return new DefaultConstraintSyntaxWrapper(obj2);
         }
 

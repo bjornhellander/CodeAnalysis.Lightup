@@ -24,9 +24,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IInterpolatedStringAppendOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AppendCallGetterFunc = LightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
+            AppendCallGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
         private IInterpolatedStringAppendOperationWrapper(Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? obj)
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IInterpolatedStringAppendOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation>(obj, WrappedType);
             return new IInterpolatedStringAppendOperationWrapper(obj2);
         }
 

@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CompilationOptionsExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            NullableContextOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
-            SyntaxTreeOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
+            NullableContextOptionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
+            SyntaxTreeOptionsProviderGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
-            WithSyntaxTreeOptionsProviderFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithSyntaxTreeOptionsProviderFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static NullableContextOptionsExtensionsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AnnotationsEnabledFunc0 = LightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContextOptions");
-            WarningsEnabledFunc1 = LightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, "WarningsEnabled", "contextNullableContextOptions");
+            AnnotationsEnabledFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContextOptions");
+            WarningsEnabledFunc1 = CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, "WarningsEnabled", "contextNullableContextOptions");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

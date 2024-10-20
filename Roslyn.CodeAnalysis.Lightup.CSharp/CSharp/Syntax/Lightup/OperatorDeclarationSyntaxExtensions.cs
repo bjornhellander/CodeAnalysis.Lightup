@@ -34,16 +34,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static OperatorDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
-            ExplicitInterfaceSpecifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(wrappedType, nameof(ExplicitInterfaceSpecifier));
+            CheckedKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
+            ExplicitInterfaceSpecifierGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(wrappedType, nameof(ExplicitInterfaceSpecifier));
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            WithCheckedKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
-            WithExplicitInterfaceSpecifierFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
+            AddBodyAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            WithCheckedKeywordFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
+            WithExplicitInterfaceSpecifierFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

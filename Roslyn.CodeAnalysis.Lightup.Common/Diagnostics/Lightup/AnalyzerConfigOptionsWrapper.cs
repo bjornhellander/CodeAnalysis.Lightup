@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalyzerConfigOptionsWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            KeyComparerGetterFunc = LightupHelper.CreateStaticGetAccessor<KeyComparerGetterDelegate>(WrappedType, nameof(KeyComparer));
+            KeyComparerGetterFunc = CommonLightupHelper.CreateStaticGetAccessor<KeyComparerGetterDelegate>(WrappedType, nameof(KeyComparer));
 
-            KeysGetterFunc = LightupHelper.CreateInstanceGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
+            KeysGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<KeysGetterDelegate>(WrappedType, nameof(Keys));
 
-            TryGetValueFunc0 = LightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, "TryGetValue", "keyString", "valueString&");
+            TryGetValueFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<TryGetValueDelegate0>(WrappedType, "TryGetValue", "keyString", "valueString&");
         }
 
         private AnalyzerConfigOptionsWrapper(System.Object? obj)
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static AnalyzerConfigOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsWrapper(obj2);
         }
 

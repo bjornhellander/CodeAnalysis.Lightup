@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IParameterSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsDiscardGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(wrappedType, nameof(IsDiscard));
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
-            ScopedKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
+            IsDiscardGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(wrappedType, nameof(IsDiscard));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            ScopedKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

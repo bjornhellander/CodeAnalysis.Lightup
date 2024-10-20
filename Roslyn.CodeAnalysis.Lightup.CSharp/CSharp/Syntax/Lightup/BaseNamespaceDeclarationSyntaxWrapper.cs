@@ -58,26 +58,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static BaseNamespaceDeclarationSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ExternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
-            MembersGetterFunc = LightupHelper.CreateInstanceGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
-            NameGetterFunc = LightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
-            NamespaceKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
-            UsingsGetterFunc = LightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
+            ExternsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExternsGetterDelegate>(WrappedType, nameof(Externs));
+            MembersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            NameGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NamespaceKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<NamespaceKeywordGetterDelegate>(WrappedType, nameof(NamespaceKeyword));
+            UsingsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<UsingsGetterDelegate>(WrappedType, nameof(Usings));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddExternsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, "AddExterns", "itemsExternAliasDirectiveSyntax[]");
-            AddMembersFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
-            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            AddUsingsFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, "AddUsings", "itemsUsingDirectiveSyntax[]");
-            WithAttributeListsFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithExternsFunc6 = LightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, "WithExterns", "externsSyntaxList`1");
-            WithMembersFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, "WithMembers", "membersSyntaxList`1");
-            WithModifiersFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithNameFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, "WithName", "nameNameSyntax");
-            WithNamespaceKeywordFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, "WithNamespaceKeyword", "namespaceKeywordSyntaxToken");
-            WithUsingsFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddExternsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddExternsDelegate1>(WrappedType, "AddExterns", "itemsExternAliasDirectiveSyntax[]");
+            AddMembersFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate2>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
+            AddModifiersFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddUsingsFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddUsingsDelegate4>(WrappedType, "AddUsings", "itemsUsingDirectiveSyntax[]");
+            WithAttributeListsFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithExternsFunc6 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExternsDelegate6>(WrappedType, "WithExterns", "externsSyntaxList`1");
+            WithMembersFunc7 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate7>(WrappedType, "WithMembers", "membersSyntaxList`1");
+            WithModifiersFunc8 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithNameFunc9 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithNameDelegate9>(WrappedType, "WithName", "nameNameSyntax");
+            WithNamespaceKeywordFunc10 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithNamespaceKeywordDelegate10>(WrappedType, "WithNamespaceKeyword", "namespaceKeywordSyntaxToken");
+            WithUsingsFunc11 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
         }
 
         private BaseNamespaceDeclarationSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? obj)
@@ -119,11 +119,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static BaseNamespaceDeclarationSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax>(obj, WrappedType);
             return new BaseNamespaceDeclarationSyntaxWrapper(obj2);
         }
 

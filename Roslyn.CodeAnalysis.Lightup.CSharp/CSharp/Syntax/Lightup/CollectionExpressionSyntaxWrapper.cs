@@ -42,18 +42,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CollectionExpressionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CloseBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
-            ElementsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ElementsGetterDelegate>(WrappedType, nameof(Elements));
-            OpenBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
+            CloseBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            ElementsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ElementsGetterDelegate>(WrappedType, nameof(Elements));
+            OpenBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddElementsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddElementsDelegate1>(WrappedType, "AddElements", "itemsCollectionElementSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "elementsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
-            WithCloseBracketTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
-            WithElementsFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithElementsDelegate4>(WrappedType, "WithElements", "elementsSeparatedSyntaxList`1");
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddElementsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddElementsDelegate1>(WrappedType, "AddElements", "itemsCollectionElementSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "elementsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
+            WithCloseBracketTokenFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
+            WithElementsFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithElementsDelegate4>(WrappedType, "WithElements", "elementsSeparatedSyntaxList`1");
+            WithOpenBracketTokenFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
         }
 
         private CollectionExpressionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
@@ -83,11 +83,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static CollectionExpressionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new CollectionExpressionSyntaxWrapper(obj2);
         }
 

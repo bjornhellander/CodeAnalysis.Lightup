@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CommandLineSourceFileExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "pathString", "isScriptBoolean", "isInputRedirectedBoolean");
+            ConstructorFunc0 = CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "pathString", "isScriptBoolean", "isInputRedirectedBoolean");
 
-            IsInputRedirectedGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
+            IsInputRedirectedGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
         }
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>

@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ExpressionColonSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ColonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            ColonTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
+            ExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "expressionExpressionSyntax", "colonTokenSyntaxToken");
-            WithColonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate2>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
-            WithExpressionFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "expressionExpressionSyntax", "colonTokenSyntaxToken");
+            WithColonTokenFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate2>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
+            WithExpressionFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
         }
 
         private ExpressionColonSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static ExpressionColonSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new ExpressionColonSyntaxWrapper(obj2);
         }
 

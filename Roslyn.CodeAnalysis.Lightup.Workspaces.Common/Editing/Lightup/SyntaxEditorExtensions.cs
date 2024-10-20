@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         static SyntaxEditorExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "rootSyntaxNode", "servicesHostWorkspaceServices");
-            ConstructorFunc1 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "rootSyntaxNode", "servicesSolutionServices");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "rootSyntaxNode", "servicesHostWorkspaceServices");
+            ConstructorFunc1 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "rootSyntaxNode", "servicesSolutionServices");
         }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>

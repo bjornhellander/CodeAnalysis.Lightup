@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static CSharpCompilationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            GetUsedAssemblyReferencesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            GetUsedAssemblyReferencesFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

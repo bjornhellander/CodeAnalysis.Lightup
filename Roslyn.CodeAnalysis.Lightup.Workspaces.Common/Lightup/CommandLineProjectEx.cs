@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static CommandLineProjectEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateProjectInfoFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate0>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineArgsIEnumerable`1", "projectDirectoryString", "workspaceWorkspace");
-            CreateProjectInfoFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate1>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineString", "baseDirectoryString", "workspaceWorkspace");
+            CreateProjectInfoFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate0>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineArgsIEnumerable`1", "projectDirectoryString", "workspaceWorkspace");
+            CreateProjectInfoFunc1 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate1>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineString", "baseDirectoryString", "workspaceWorkspace");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

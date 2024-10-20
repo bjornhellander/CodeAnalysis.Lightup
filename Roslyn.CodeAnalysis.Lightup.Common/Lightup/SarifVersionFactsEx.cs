@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SarifVersionFactsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            TryParseFunc0 = LightupHelper.CreateStaticMethodAccessor<TryParseDelegate0>(wrappedType, "TryParse", "versionString", "resultSarifVersion&");
+            TryParseFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<TryParseDelegate0>(wrappedType, "TryParse", "versionString", "resultSarifVersion&");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
