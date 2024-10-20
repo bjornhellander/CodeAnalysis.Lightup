@@ -38,16 +38,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static LineMappingWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "spanLinePositionSpan", "characterOffsetNullable`1", "mappedSpanFileLinePositionSpan");
+            ConstructorFunc0 = CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "spanLinePositionSpan", "characterOffsetNullable`1", "mappedSpanFileLinePositionSpan");
 
-            CharacterOffsetGetterFunc = LightupHelper.CreateInstanceGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
-            IsHiddenGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsHiddenGetterDelegate>(WrappedType, nameof(IsHidden));
-            MappedSpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
-            SpanGetterFunc = LightupHelper.CreateInstanceGetAccessor<SpanGetterDelegate>(WrappedType, nameof(Span));
+            CharacterOffsetGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CharacterOffsetGetterDelegate>(WrappedType, nameof(CharacterOffset));
+            IsHiddenGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsHiddenGetterDelegate>(WrappedType, nameof(IsHidden));
+            MappedSpanGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<MappedSpanGetterDelegate>(WrappedType, nameof(MappedSpan));
+            SpanGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<SpanGetterDelegate>(WrappedType, nameof(Span));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLineMapping");
+            EqualsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLineMapping");
         }
 
         private LineMappingWrapper(System.Object? obj)
@@ -84,11 +84,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static LineMappingWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new LineMappingWrapper(obj2);
         }
 

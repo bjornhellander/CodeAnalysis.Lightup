@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static FileTextLoaderExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            LoadTextAndVersionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, "LoadTextAndVersionAsync", "optionsLoadTextOptions", "cancellationTokenCancellationToken");
+            LoadTextAndVersionAsyncFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, "LoadTextAndVersionAsync", "optionsLoadTextOptions", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

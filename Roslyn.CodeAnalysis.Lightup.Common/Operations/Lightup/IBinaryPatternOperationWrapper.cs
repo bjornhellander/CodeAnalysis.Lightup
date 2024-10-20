@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IBinaryPatternOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            LeftPatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<LeftPatternGetterDelegate>(WrappedType, nameof(LeftPattern));
-            OperatorKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
-            RightPatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightPatternGetterDelegate>(WrappedType, nameof(RightPattern));
+            LeftPatternGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<LeftPatternGetterDelegate>(WrappedType, nameof(LeftPattern));
+            OperatorKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
+            RightPatternGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<RightPatternGetterDelegate>(WrappedType, nameof(RightPattern));
         }
 
         private IBinaryPatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IBinaryPatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IBinaryPatternOperationWrapper(obj2);
         }
 

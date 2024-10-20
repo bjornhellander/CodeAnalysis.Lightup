@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static NameColonSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(wrappedType, nameof(Expression));
+            ExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(wrappedType, nameof(Expression));
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static DocumentBasedFixAllProviderWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            GetFixAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetFixAsyncDelegate0>(WrappedType, "GetFixAsync", "fixAllContextFixAllContext");
-            GetSupportedFixAllScopesFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
+            GetFixAsyncFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetFixAsyncDelegate0>(WrappedType, "GetFixAsync", "fixAllContextFixAllContext");
+            GetSupportedFixAllScopesFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
         }
 
         private DocumentBasedFixAllProviderWrapper(Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? obj)
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static DocumentBasedFixAllProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
             return new DocumentBasedFixAllProviderWrapper(obj2);
         }
 

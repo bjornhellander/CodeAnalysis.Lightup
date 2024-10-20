@@ -24,9 +24,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IAttributeOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            OperationGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
+            OperationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<OperationGetterDelegate>(WrappedType, nameof(Operation));
         }
 
         private IAttributeOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -41,11 +41,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IAttributeOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IAttributeOperationWrapper(obj2);
         }
 

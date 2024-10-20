@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static AnalyzerConfigSetWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            GlobalConfigOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
+            GlobalConfigOptionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<GlobalConfigOptionsGetterDelegate>(WrappedType, nameof(GlobalConfigOptions));
 
-            GetOptionsForSourcePathFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "sourcePathString");
+            GetOptionsForSourcePathFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "sourcePathString");
         }
 
         private AnalyzerConfigSetWrapper(System.Object? obj)
@@ -47,11 +47,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static AnalyzerConfigSetWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new AnalyzerConfigSetWrapper(obj2);
         }
 

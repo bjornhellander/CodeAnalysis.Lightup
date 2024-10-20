@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static IEventSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            NullableAnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            NullableAnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

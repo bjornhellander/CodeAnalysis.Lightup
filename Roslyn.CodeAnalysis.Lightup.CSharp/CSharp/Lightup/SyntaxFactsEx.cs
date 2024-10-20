@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static SyntaxFactsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            IsCheckedOperatorFunc0 = LightupHelper.CreateStaticMethodAccessor<IsCheckedOperatorDelegate0>(wrappedType, "IsCheckedOperator", "operatorMetadataNameString");
+            IsCheckedOperatorFunc0 = CSharpLightupHelper.CreateStaticMethodAccessor<IsCheckedOperatorDelegate0>(wrappedType, "IsCheckedOperator", "operatorMetadataNameString");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

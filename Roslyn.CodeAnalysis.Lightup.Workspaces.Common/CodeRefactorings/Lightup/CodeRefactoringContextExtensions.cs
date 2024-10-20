@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         static CodeRefactoringContextExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentTextDocument", "spanTextSpan", "registerRefactoringAction`1", "cancellationTokenCancellationToken");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentTextDocument", "spanTextSpan", "registerRefactoringAction`1", "cancellationTokenCancellationToken");
 
-            TextDocumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
+            TextDocumentGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>

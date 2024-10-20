@@ -36,17 +36,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static UsingDirectiveSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            GlobalKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<GlobalKeywordGetterDelegate>(wrappedType, nameof(GlobalKeyword));
-            NamespaceOrTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(wrappedType, nameof(NamespaceOrType));
-            UnsafeKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(wrappedType, nameof(UnsafeKeyword));
+            GlobalKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<GlobalKeywordGetterDelegate>(wrappedType, nameof(GlobalKeyword));
+            NamespaceOrTypeGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<NamespaceOrTypeGetterDelegate>(wrappedType, nameof(NamespaceOrType));
+            UnsafeKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<UnsafeKeywordGetterDelegate>(wrappedType, nameof(UnsafeKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "aliasNameEqualsSyntax", "nameNameSyntax", "semicolonTokenSyntaxToken");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "unsafeKeywordSyntaxToken", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax", "semicolonTokenSyntaxToken");
-            WithGlobalKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(wrappedType, "WithGlobalKeyword", "globalKeywordSyntaxToken");
-            WithNamespaceOrTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(wrappedType, "WithNamespaceOrType", "namespaceOrTypeTypeSyntax");
-            WithUnsafeKeywordFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, "WithUnsafeKeyword", "unsafeKeywordSyntaxToken");
+            UpdateFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "aliasNameEqualsSyntax", "nameNameSyntax", "semicolonTokenSyntaxToken");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "unsafeKeywordSyntaxToken", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax", "semicolonTokenSyntaxToken");
+            WithGlobalKeywordFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithGlobalKeywordDelegate2>(wrappedType, "WithGlobalKeyword", "globalKeywordSyntaxToken");
+            WithNamespaceOrTypeFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithNamespaceOrTypeDelegate3>(wrappedType, "WithNamespaceOrType", "namespaceOrTypeTypeSyntax");
+            WithUnsafeKeywordFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, "WithUnsafeKeyword", "unsafeKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

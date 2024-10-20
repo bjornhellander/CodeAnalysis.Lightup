@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IForEachLoopOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

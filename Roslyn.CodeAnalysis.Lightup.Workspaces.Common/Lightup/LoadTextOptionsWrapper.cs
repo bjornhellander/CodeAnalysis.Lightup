@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static LoadTextOptionsWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "checksumAlgorithmSourceHashAlgorithm");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "checksumAlgorithmSourceHashAlgorithm");
 
-            ChecksumAlgorithmGetterFunc = LightupHelper.CreateInstanceGetAccessor<ChecksumAlgorithmGetterDelegate>(WrappedType, nameof(ChecksumAlgorithm));
+            ChecksumAlgorithmGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ChecksumAlgorithmGetterDelegate>(WrappedType, nameof(ChecksumAlgorithm));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLoadTextOptions");
+            EqualsFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLoadTextOptions");
         }
 
         private LoadTextOptionsWrapper(System.Object? obj)
@@ -57,11 +57,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static LoadTextOptionsWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new LoadTextOptionsWrapper(obj2);
         }
 

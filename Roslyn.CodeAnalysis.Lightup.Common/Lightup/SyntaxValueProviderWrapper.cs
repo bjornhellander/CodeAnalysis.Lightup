@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxValueProviderWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
         }
 
         private SyntaxValueProviderWrapper(System.Object? obj)
@@ -29,11 +29,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static SyntaxValueProviderWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SyntaxValueProviderWrapper(obj2);
         }
 

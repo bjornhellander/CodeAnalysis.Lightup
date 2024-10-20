@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectChangesExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            GetAddedAnalyzerConfigDocumentsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetAddedAnalyzerConfigDocuments");
-            GetChangedAnalyzerConfigDocumentsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, "GetChangedAnalyzerConfigDocuments");
-            GetRemovedAnalyzerConfigDocumentsFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
+            GetAddedAnalyzerConfigDocumentsFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetAddedAnalyzerConfigDocuments");
+            GetChangedAnalyzerConfigDocumentsFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, "GetChangedAnalyzerConfigDocuments");
+            GetRemovedAnalyzerConfigDocumentsFunc2 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

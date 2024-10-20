@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static NullableContextExtensionsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AnnotationsEnabledFunc0 = LightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContext");
-            AnnotationsInheritedFunc1 = LightupHelper.CreateStaticMethodAccessor<AnnotationsInheritedDelegate1>(wrappedType, "AnnotationsInherited", "contextNullableContext");
-            WarningsEnabledFunc2 = LightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate2>(wrappedType, "WarningsEnabled", "contextNullableContext");
-            WarningsInheritedFunc3 = LightupHelper.CreateStaticMethodAccessor<WarningsInheritedDelegate3>(wrappedType, "WarningsInherited", "contextNullableContext");
+            AnnotationsEnabledFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContext");
+            AnnotationsInheritedFunc1 = CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsInheritedDelegate1>(wrappedType, "AnnotationsInherited", "contextNullableContext");
+            WarningsEnabledFunc2 = CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate2>(wrappedType, "WarningsEnabled", "contextNullableContext");
+            WarningsInheritedFunc3 = CommonLightupHelper.CreateStaticMethodAccessor<WarningsInheritedDelegate3>(wrappedType, "WarningsInherited", "contextNullableContext");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

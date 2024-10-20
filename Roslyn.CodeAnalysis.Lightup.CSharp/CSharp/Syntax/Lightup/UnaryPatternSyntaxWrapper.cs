@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static UnaryPatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
-            PatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
+            OperatorTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
+            PatternGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "operatorTokenSyntaxToken", "patternPatternSyntax");
-            WithOperatorTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate2>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
-            WithPatternFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate3>(WrappedType, "WithPattern", "patternPatternSyntax");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "operatorTokenSyntaxToken", "patternPatternSyntax");
+            WithOperatorTokenFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate2>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
+            WithPatternFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate3>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
         private UnaryPatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static UnaryPatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new UnaryPatternSyntaxWrapper(obj2);
         }
 

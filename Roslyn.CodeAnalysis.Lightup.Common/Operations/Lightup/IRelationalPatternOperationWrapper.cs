@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IRelationalPatternOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            OperatorKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
-            ValueGetterFunc = LightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
+            OperatorKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<OperatorKindGetterDelegate>(WrappedType, nameof(OperatorKind));
+            ValueGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
         private IRelationalPatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IRelationalPatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IRelationalPatternOperationWrapper(obj2);
         }
 

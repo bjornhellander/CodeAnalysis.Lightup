@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IImplicitIndexerReferenceOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ArgumentGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
-            IndexerSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
-            InstanceGetterFunc = LightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
-            LengthSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
+            ArgumentGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ArgumentGetterDelegate>(WrappedType, nameof(Argument));
+            IndexerSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            InstanceGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
+            LengthSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
         }
 
         private IImplicitIndexerReferenceOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IImplicitIndexerReferenceOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IImplicitIndexerReferenceOperationWrapper(obj2);
         }
 

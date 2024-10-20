@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         static ForEachStatementInfoExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            IsAsynchronousGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
+            IsAsynchronousGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

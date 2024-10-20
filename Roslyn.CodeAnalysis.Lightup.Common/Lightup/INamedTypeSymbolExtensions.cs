@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static INamedTypeSymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsFileLocalGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
-            NativeIntegerUnderlyingTypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
-            TypeArgumentNullableAnnotationsGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
+            IsFileLocalGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
+            NativeIntegerUnderlyingTypeGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
+            TypeArgumentNullableAnnotationsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
-            ConstructFunc0 = LightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
+            ConstructFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

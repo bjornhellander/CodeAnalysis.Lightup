@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SymbolVisitorExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            VisitFunctionPointerTypeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
+            VisitFunctionPointerTypeFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

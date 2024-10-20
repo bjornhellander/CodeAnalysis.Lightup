@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IWithOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CloneMethodGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloneMethodGetterDelegate>(WrappedType, nameof(CloneMethod));
-            InitializerGetterFunc = LightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
-            OperandGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
+            CloneMethodGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CloneMethodGetterDelegate>(WrappedType, nameof(CloneMethod));
+            InitializerGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(WrappedType, nameof(Initializer));
+            OperandGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
         private IWithOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IWithOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IWithOperationWrapper(obj2);
         }
 

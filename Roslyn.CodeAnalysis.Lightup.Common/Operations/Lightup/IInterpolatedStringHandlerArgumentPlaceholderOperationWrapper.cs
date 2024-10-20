@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ArgumentIndexGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentIndexGetterDelegate>(WrappedType, nameof(ArgumentIndex));
-            PlaceholderKindGetterFunc = LightupHelper.CreateInstanceGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
+            ArgumentIndexGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ArgumentIndexGetterDelegate>(WrappedType, nameof(ArgumentIndex));
+            PlaceholderKindGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
         private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(obj2);
         }
 

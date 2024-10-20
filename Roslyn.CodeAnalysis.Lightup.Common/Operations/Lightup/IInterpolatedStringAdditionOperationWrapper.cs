@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IInterpolatedStringAdditionOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            LeftGetterFunc = LightupHelper.CreateInstanceGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
-            RightGetterFunc = LightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
+            LeftGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<LeftGetterDelegate>(WrappedType, nameof(Left));
+            RightGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
         }
 
         private IInterpolatedStringAdditionOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IInterpolatedStringAdditionOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringAdditionOperationWrapper(obj2);
         }
 

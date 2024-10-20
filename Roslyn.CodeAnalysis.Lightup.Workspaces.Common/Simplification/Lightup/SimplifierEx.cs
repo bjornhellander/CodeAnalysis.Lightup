@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Simplification.Lightup
 
         static SimplifierEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            AddImportsAnnotationGetterFunc = LightupHelper.CreateStaticGetAccessor<AddImportsAnnotationGetterDelegate>(wrappedType, nameof(AddImportsAnnotation));
+            AddImportsAnnotationGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AddImportsAnnotationGetterDelegate>(wrappedType, nameof(AddImportsAnnotation));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

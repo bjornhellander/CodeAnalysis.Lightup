@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static ExportCodeFixProviderAttributeExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            DocumentExtensionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(wrappedType, nameof(DocumentExtensions));
-            DocumentExtensionsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(wrappedType, nameof(DocumentExtensions));
-            DocumentKindsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(wrappedType, nameof(DocumentKinds));
-            DocumentKindsSetterFunc = LightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
+            DocumentExtensionsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DocumentExtensionsGetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentExtensionsSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<DocumentExtensionsSetterDelegate>(wrappedType, nameof(DocumentExtensions));
+            DocumentKindsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DocumentKindsGetterDelegate>(wrappedType, nameof(DocumentKinds));
+            DocumentKindsSetterFunc = WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<DocumentKindsSetterDelegate>(wrappedType, nameof(DocumentKinds));
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

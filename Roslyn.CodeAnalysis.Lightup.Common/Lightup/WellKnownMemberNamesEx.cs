@@ -46,22 +46,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WellKnownMemberNamesEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CountPropertyNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CountPropertyNameGetterDelegate>(wrappedType, nameof(CountPropertyName));
-            LengthPropertyNameGetterFunc = LightupHelper.CreateStaticReadAccessor<LengthPropertyNameGetterDelegate>(wrappedType, nameof(LengthPropertyName));
-            SliceMethodNameGetterFunc = LightupHelper.CreateStaticReadAccessor<SliceMethodNameGetterDelegate>(wrappedType, nameof(SliceMethodName));
-            TopLevelStatementsEntryPointMethodNameGetterFunc = LightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointMethodNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointMethodName));
-            TopLevelStatementsEntryPointTypeNameGetterFunc = LightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
-            PrintMembersMethodNameGetterFunc = LightupHelper.CreateStaticReadAccessor<PrintMembersMethodNameGetterDelegate>(wrappedType, nameof(PrintMembersMethodName));
-            CheckedAdditionOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedAdditionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedAdditionOperatorName));
-            CheckedDecrementOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedDecrementOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDecrementOperatorName));
-            CheckedDivisionOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedDivisionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDivisionOperatorName));
-            CheckedExplicitConversionNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedExplicitConversionNameGetterDelegate>(wrappedType, nameof(CheckedExplicitConversionName));
-            CheckedIncrementOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedIncrementOperatorNameGetterDelegate>(wrappedType, nameof(CheckedIncrementOperatorName));
-            CheckedMultiplyOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedMultiplyOperatorNameGetterDelegate>(wrappedType, nameof(CheckedMultiplyOperatorName));
-            CheckedSubtractionOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedSubtractionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedSubtractionOperatorName));
-            CheckedUnaryNegationOperatorNameGetterFunc = LightupHelper.CreateStaticReadAccessor<CheckedUnaryNegationOperatorNameGetterDelegate>(wrappedType, nameof(CheckedUnaryNegationOperatorName));
+            CountPropertyNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CountPropertyNameGetterDelegate>(wrappedType, nameof(CountPropertyName));
+            LengthPropertyNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<LengthPropertyNameGetterDelegate>(wrappedType, nameof(LengthPropertyName));
+            SliceMethodNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<SliceMethodNameGetterDelegate>(wrappedType, nameof(SliceMethodName));
+            TopLevelStatementsEntryPointMethodNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointMethodNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointMethodName));
+            TopLevelStatementsEntryPointTypeNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
+            PrintMembersMethodNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<PrintMembersMethodNameGetterDelegate>(wrappedType, nameof(PrintMembersMethodName));
+            CheckedAdditionOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedAdditionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedAdditionOperatorName));
+            CheckedDecrementOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedDecrementOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDecrementOperatorName));
+            CheckedDivisionOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedDivisionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDivisionOperatorName));
+            CheckedExplicitConversionNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedExplicitConversionNameGetterDelegate>(wrappedType, nameof(CheckedExplicitConversionName));
+            CheckedIncrementOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedIncrementOperatorNameGetterDelegate>(wrappedType, nameof(CheckedIncrementOperatorName));
+            CheckedMultiplyOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedMultiplyOperatorNameGetterDelegate>(wrappedType, nameof(CheckedMultiplyOperatorName));
+            CheckedSubtractionOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedSubtractionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedSubtractionOperatorName));
+            CheckedUnaryNegationOperatorNameGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<CheckedUnaryNegationOperatorNameGetterDelegate>(wrappedType, nameof(CheckedUnaryNegationOperatorName));
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>

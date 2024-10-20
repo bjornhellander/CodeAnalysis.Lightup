@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static EnumeratorWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CurrentGetterFunc = LightupHelper.CreateInstanceGetAccessor<CurrentGetterDelegate>(WrappedType, nameof(Current));
+            CurrentGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CurrentGetterDelegate>(WrappedType, nameof(Current));
 
-            MoveNextFunc0 = LightupHelper.CreateInstanceMethodAccessor<MoveNextDelegate0>(WrappedType, "MoveNext");
-            ResetFunc1 = LightupHelper.CreateInstanceMethodAccessor<ResetDelegate1>(WrappedType, "Reset");
+            MoveNextFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<MoveNextDelegate0>(WrappedType, "MoveNext");
+            ResetFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<ResetDelegate1>(WrappedType, "Reset");
         }
 
         private EnumeratorWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static EnumeratorWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new EnumeratorWrapper(obj2);
         }
 

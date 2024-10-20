@@ -50,24 +50,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static SimpleLambdaExpressionSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
-            BlockGetterFunc = LightupHelper.CreateInstanceGetAccessor<BlockGetterDelegate>(wrappedType, nameof(Block));
-            ExpressionBodyGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
+            AttributeListsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
+            BlockGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<BlockGetterDelegate>(wrappedType, nameof(Block));
+            ExpressionBodyGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
+            ModifiersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockStatementsFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(wrappedType, "AddBlockStatements", "itemsStatementSyntax[]");
-            AddModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            UpdateFunc4 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate4>(wrappedType, "Update", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            UpdateFunc5 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate5>(wrappedType, "Update", "asyncKeywordSyntaxToken", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            UpdateFunc6 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            WithAttributeListsFunc7 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithBlockFunc8 = LightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate8>(wrappedType, "WithBlock", "blockBlockSyntax");
-            WithExpressionBodyFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate9>(wrappedType, "WithExpressionBody", "expressionBodyExpressionSyntax");
-            WithModifiersFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddBlockAttributeListsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
+            AddBlockStatementsFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(wrappedType, "AddBlockStatements", "itemsStatementSyntax[]");
+            AddModifiersFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate4>(wrappedType, "Update", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            UpdateFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate5>(wrappedType, "Update", "asyncKeywordSyntaxToken", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            UpdateFunc6 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate6>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            WithAttributeListsFunc7 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBlockFunc8 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate8>(wrappedType, "WithBlock", "blockBlockSyntax");
+            WithExpressionBodyFunc9 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate9>(wrappedType, "WithExpressionBody", "expressionBodyExpressionSyntax");
+            WithModifiersFunc10 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

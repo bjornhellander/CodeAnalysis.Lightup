@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static ISwitchExpressionOperationExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            IsExhaustiveGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(wrappedType, nameof(IsExhaustive));
+            IsExhaustiveGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IsExhaustiveGetterDelegate>(wrappedType, nameof(IsExhaustive));
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

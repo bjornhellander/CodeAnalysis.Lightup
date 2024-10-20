@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static WellKnownGeneratorOutputsEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ImplementationSourceOutputGetterFunc = LightupHelper.CreateStaticReadAccessor<ImplementationSourceOutputGetterDelegate>(wrappedType, nameof(ImplementationSourceOutput));
-            SourceOutputGetterFunc = LightupHelper.CreateStaticReadAccessor<SourceOutputGetterDelegate>(wrappedType, nameof(SourceOutput));
+            ImplementationSourceOutputGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<ImplementationSourceOutputGetterDelegate>(wrappedType, nameof(ImplementationSourceOutput));
+            SourceOutputGetterFunc = CommonLightupHelper.CreateStaticReadAccessor<SourceOutputGetterDelegate>(wrappedType, nameof(SourceOutput));
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>

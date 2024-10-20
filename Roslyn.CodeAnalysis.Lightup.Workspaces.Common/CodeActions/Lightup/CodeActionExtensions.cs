@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
         static CodeActionExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            PriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(wrappedType, nameof(Priority));
+            PriorityGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(wrappedType, nameof(Priority));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean");
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
-            CreateFunc2 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
-            CreateFunc3 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean", "priorityCodeActionPriority");
+            CreateFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean");
+            CreateFunc1 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc2 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc3 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean", "priorityCodeActionPriority");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

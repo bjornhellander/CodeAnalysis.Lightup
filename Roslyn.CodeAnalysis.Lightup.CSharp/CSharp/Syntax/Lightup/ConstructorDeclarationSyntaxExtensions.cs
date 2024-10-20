@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ConstructorDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AddBodyAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
+            AddBodyAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

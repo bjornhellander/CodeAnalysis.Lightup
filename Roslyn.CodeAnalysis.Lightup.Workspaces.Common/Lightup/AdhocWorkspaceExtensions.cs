@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static AdhocWorkspaceExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            CloseAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
-            OpenAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
+            CloseAnalyzerConfigDocumentFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
+            OpenAnalyzerConfigDocumentFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

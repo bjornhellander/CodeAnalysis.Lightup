@@ -96,45 +96,45 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static RecordDeclarationSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
-            BaseListGetterFunc = LightupHelper.CreateInstanceGetAccessor<BaseListGetterDelegate>(WrappedType, nameof(BaseList));
-            ClassOrStructKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ClassOrStructKeywordGetterDelegate>(WrappedType, nameof(ClassOrStructKeyword));
-            CloseBraceTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseBraceTokenGetterDelegate>(WrappedType, nameof(CloseBraceToken));
-            ConstraintClausesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConstraintClausesGetterDelegate>(WrappedType, nameof(ConstraintClauses));
-            IdentifierGetterFunc = LightupHelper.CreateInstanceGetAccessor<IdentifierGetterDelegate>(WrappedType, nameof(Identifier));
-            KeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<KeywordGetterDelegate>(WrappedType, nameof(Keyword));
-            MembersGetterFunc = LightupHelper.CreateInstanceGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
-            OpenBraceTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBraceTokenGetterDelegate>(WrappedType, nameof(OpenBraceToken));
-            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
-            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
-            TypeParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeParameterListGetterDelegate>(WrappedType, nameof(TypeParameterList));
+            AttributeListsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            BaseListGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<BaseListGetterDelegate>(WrappedType, nameof(BaseList));
+            ClassOrStructKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ClassOrStructKeywordGetterDelegate>(WrappedType, nameof(ClassOrStructKeyword));
+            CloseBraceTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CloseBraceTokenGetterDelegate>(WrappedType, nameof(CloseBraceToken));
+            ConstraintClausesGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ConstraintClausesGetterDelegate>(WrappedType, nameof(ConstraintClauses));
+            IdentifierGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<IdentifierGetterDelegate>(WrappedType, nameof(Identifier));
+            KeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<KeywordGetterDelegate>(WrappedType, nameof(Keyword));
+            MembersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<MembersGetterDelegate>(WrappedType, nameof(Members));
+            ModifiersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            OpenBraceTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OpenBraceTokenGetterDelegate>(WrappedType, nameof(OpenBraceToken));
+            ParameterListGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
+            SemicolonTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(WrappedType, nameof(SemicolonToken));
+            TypeParameterListGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<TypeParameterListGetterDelegate>(WrappedType, nameof(TypeParameterList));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBaseListTypesFunc2 = LightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate2>(WrappedType, "AddBaseListTypes", "itemsBaseTypeSyntax[]");
-            AddConstraintClausesFunc3 = LightupHelper.CreateInstanceMethodAccessor<AddConstraintClausesDelegate3>(WrappedType, "AddConstraintClauses", "itemsTypeParameterConstraintClauseSyntax[]");
-            AddMembersFunc4 = LightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate4>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
-            AddModifiersFunc5 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate5>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            AddParameterListParametersFunc6 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate6>(WrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
-            AddTypeParameterListParametersFunc7 = LightupHelper.CreateInstanceMethodAccessor<AddTypeParameterListParametersDelegate7>(WrappedType, "AddTypeParameterListParameters", "itemsTypeParameterSyntax[]");
-            UpdateFunc8 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate8>(WrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            UpdateFunc9 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate9>(WrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "classOrStructKeywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            WithAttributeListsFunc10 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate10>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithBaseListFunc11 = LightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate11>(WrappedType, "WithBaseList", "baseListBaseListSyntax");
-            WithClassOrStructKeywordFunc12 = LightupHelper.CreateInstanceMethodAccessor<WithClassOrStructKeywordDelegate12>(WrappedType, "WithClassOrStructKeyword", "classOrStructKeywordSyntaxToken");
-            WithCloseBraceTokenFunc13 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate13>(WrappedType, "WithCloseBraceToken", "closeBraceTokenSyntaxToken");
-            WithConstraintClausesFunc14 = LightupHelper.CreateInstanceMethodAccessor<WithConstraintClausesDelegate14>(WrappedType, "WithConstraintClauses", "constraintClausesSyntaxList`1");
-            WithIdentifierFunc15 = LightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate15>(WrappedType, "WithIdentifier", "identifierSyntaxToken");
-            WithKeywordFunc16 = LightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate16>(WrappedType, "WithKeyword", "keywordSyntaxToken");
-            WithMembersFunc17 = LightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate17>(WrappedType, "WithMembers", "membersSyntaxList`1");
-            WithModifiersFunc18 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate18>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithOpenBraceTokenFunc19 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate19>(WrappedType, "WithOpenBraceToken", "openBraceTokenSyntaxToken");
-            WithParameterListFunc20 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate20>(WrappedType, "WithParameterList", "parameterListParameterListSyntax");
-            WithSemicolonTokenFunc21 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate21>(WrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
-            WithTypeParameterListFunc22 = LightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, "WithTypeParameterList", "typeParameterListTypeParameterListSyntax");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddAttributeListsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddBaseListTypesFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate2>(WrappedType, "AddBaseListTypes", "itemsBaseTypeSyntax[]");
+            AddConstraintClausesFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddConstraintClausesDelegate3>(WrappedType, "AddConstraintClauses", "itemsTypeParameterConstraintClauseSyntax[]");
+            AddMembersFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate4>(WrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
+            AddModifiersFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate5>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddParameterListParametersFunc6 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate6>(WrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            AddTypeParameterListParametersFunc7 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddTypeParameterListParametersDelegate7>(WrappedType, "AddTypeParameterListParameters", "itemsTypeParameterSyntax[]");
+            UpdateFunc8 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate8>(WrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            UpdateFunc9 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate9>(WrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "classOrStructKeywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            WithAttributeListsFunc10 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate10>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBaseListFunc11 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate11>(WrappedType, "WithBaseList", "baseListBaseListSyntax");
+            WithClassOrStructKeywordFunc12 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithClassOrStructKeywordDelegate12>(WrappedType, "WithClassOrStructKeyword", "classOrStructKeywordSyntaxToken");
+            WithCloseBraceTokenFunc13 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate13>(WrappedType, "WithCloseBraceToken", "closeBraceTokenSyntaxToken");
+            WithConstraintClausesFunc14 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithConstraintClausesDelegate14>(WrappedType, "WithConstraintClauses", "constraintClausesSyntaxList`1");
+            WithIdentifierFunc15 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate15>(WrappedType, "WithIdentifier", "identifierSyntaxToken");
+            WithKeywordFunc16 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate16>(WrappedType, "WithKeyword", "keywordSyntaxToken");
+            WithMembersFunc17 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate17>(WrappedType, "WithMembers", "membersSyntaxList`1");
+            WithModifiersFunc18 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate18>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithOpenBraceTokenFunc19 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate19>(WrappedType, "WithOpenBraceToken", "openBraceTokenSyntaxToken");
+            WithParameterListFunc20 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate20>(WrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            WithSemicolonTokenFunc21 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate21>(WrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            WithTypeParameterListFunc22 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, "WithTypeParameterList", "typeParameterListTypeParameterListSyntax");
         }
 
         private RecordDeclarationSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? obj)
@@ -224,11 +224,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static RecordDeclarationSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax>(obj, WrappedType);
             return new RecordDeclarationSyntaxWrapper(obj2);
         }
 

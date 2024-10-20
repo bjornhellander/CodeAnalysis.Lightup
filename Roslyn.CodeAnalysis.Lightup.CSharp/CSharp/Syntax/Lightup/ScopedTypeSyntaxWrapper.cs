@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static ScopedTypeSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ScopedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ScopedKeywordGetterDelegate>(WrappedType, nameof(ScopedKeyword));
-            TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
+            ScopedKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ScopedKeywordGetterDelegate>(WrappedType, nameof(ScopedKeyword));
+            TypeGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "scopedKeywordSyntaxToken", "typeTypeSyntax");
-            WithScopedKeywordFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithScopedKeywordDelegate2>(WrappedType, "WithScopedKeyword", "scopedKeywordSyntaxToken");
-            WithTypeFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate3>(WrappedType, "WithType", "typeTypeSyntax");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "scopedKeywordSyntaxToken", "typeTypeSyntax");
+            WithScopedKeywordFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithScopedKeywordDelegate2>(WrappedType, "WithScopedKeyword", "scopedKeywordSyntaxToken");
+            WithTypeFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate3>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private ScopedTypeSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static ScopedTypeSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax>(obj, WrappedType);
             return new ScopedTypeSyntaxWrapper(obj2);
         }
 

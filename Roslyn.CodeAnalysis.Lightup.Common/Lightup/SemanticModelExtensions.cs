@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SemanticModelExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            GetImportScopesFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, "GetImportScopes", "positionInt32", "cancellationTokenCancellationToken");
-            GetNullableContextFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
+            GetImportScopesFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, "GetImportScopes", "positionInt32", "cancellationTokenCancellationToken");
+            GetNullableContextFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

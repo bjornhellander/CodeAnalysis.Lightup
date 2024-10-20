@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static NullabilityInfoWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AnnotationGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
-            FlowStateGetterFunc = LightupHelper.CreateInstanceGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
+            AnnotationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AnnotationGetterDelegate>(WrappedType, nameof(Annotation));
+            FlowStateGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<FlowStateGetterDelegate>(WrappedType, nameof(FlowState));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherNullabilityInfo");
+            EqualsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherNullabilityInfo");
         }
 
         private NullabilityInfoWrapper(System.Object? obj)
@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static NullabilityInfoWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new NullabilityInfoWrapper(obj2);
         }
 

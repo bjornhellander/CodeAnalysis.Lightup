@@ -56,27 +56,27 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static OperationVisitorExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            VisitAttributeFunc0 = LightupHelper.CreateInstanceMethodAccessor<VisitAttributeDelegate0>(wrappedType, "VisitAttribute", "operationIAttributeOperation");
-            VisitBinaryPatternFunc1 = LightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate1>(wrappedType, "VisitBinaryPattern", "operationIBinaryPatternOperation");
-            VisitFunctionPointerInvocationFunc2 = LightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerInvocationDelegate2>(wrappedType, "VisitFunctionPointerInvocation", "operationIFunctionPointerInvocationOperation");
-            VisitImplicitIndexerReferenceFunc3 = LightupHelper.CreateInstanceMethodAccessor<VisitImplicitIndexerReferenceDelegate3>(wrappedType, "VisitImplicitIndexerReference", "operationIImplicitIndexerReferenceOperation");
-            VisitInlineArrayAccessFunc4 = LightupHelper.CreateInstanceMethodAccessor<VisitInlineArrayAccessDelegate4>(wrappedType, "VisitInlineArrayAccess", "operationIInlineArrayAccessOperation");
-            VisitInterpolatedStringAdditionFunc5 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAdditionDelegate5>(wrappedType, "VisitInterpolatedStringAddition", "operationIInterpolatedStringAdditionOperation");
-            VisitInterpolatedStringAppendFunc6 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAppendDelegate6>(wrappedType, "VisitInterpolatedStringAppend", "operationIInterpolatedStringAppendOperation");
-            VisitInterpolatedStringHandlerArgumentPlaceholderFunc7 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7>(wrappedType, "VisitInterpolatedStringHandlerArgumentPlaceholder", "operationIInterpolatedStringHandlerArgumentPlaceholderOperation");
-            VisitInterpolatedStringHandlerCreationFunc8 = LightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerCreationDelegate8>(wrappedType, "VisitInterpolatedStringHandlerCreation", "operationIInterpolatedStringHandlerCreationOperation");
-            VisitListPatternFunc9 = LightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate9>(wrappedType, "VisitListPattern", "operationIListPatternOperation");
-            VisitNegatedPatternFunc10 = LightupHelper.CreateInstanceMethodAccessor<VisitNegatedPatternDelegate10>(wrappedType, "VisitNegatedPattern", "operationINegatedPatternOperation");
-            VisitPropertySubpatternFunc11 = LightupHelper.CreateInstanceMethodAccessor<VisitPropertySubpatternDelegate11>(wrappedType, "VisitPropertySubpattern", "operationIPropertySubpatternOperation");
-            VisitRecursivePatternFunc12 = LightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate12>(wrappedType, "VisitRecursivePattern", "operationIRecursivePatternOperation");
-            VisitRelationalPatternFunc13 = LightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate13>(wrappedType, "VisitRelationalPattern", "operationIRelationalPatternOperation");
-            VisitSlicePatternFunc14 = LightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate14>(wrappedType, "VisitSlicePattern", "operationISlicePatternOperation");
-            VisitTypePatternFunc15 = LightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate15>(wrappedType, "VisitTypePattern", "operationITypePatternOperation");
-            VisitUsingDeclarationFunc16 = LightupHelper.CreateInstanceMethodAccessor<VisitUsingDeclarationDelegate16>(wrappedType, "VisitUsingDeclaration", "operationIUsingDeclarationOperation");
-            VisitUtf8StringFunc17 = LightupHelper.CreateInstanceMethodAccessor<VisitUtf8StringDelegate17>(wrappedType, "VisitUtf8String", "operationIUtf8StringOperation");
-            VisitWithFunc18 = LightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate18>(wrappedType, "VisitWith", "operationIWithOperation");
+            VisitAttributeFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitAttributeDelegate0>(wrappedType, "VisitAttribute", "operationIAttributeOperation");
+            VisitBinaryPatternFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate1>(wrappedType, "VisitBinaryPattern", "operationIBinaryPatternOperation");
+            VisitFunctionPointerInvocationFunc2 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerInvocationDelegate2>(wrappedType, "VisitFunctionPointerInvocation", "operationIFunctionPointerInvocationOperation");
+            VisitImplicitIndexerReferenceFunc3 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitImplicitIndexerReferenceDelegate3>(wrappedType, "VisitImplicitIndexerReference", "operationIImplicitIndexerReferenceOperation");
+            VisitInlineArrayAccessFunc4 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitInlineArrayAccessDelegate4>(wrappedType, "VisitInlineArrayAccess", "operationIInlineArrayAccessOperation");
+            VisitInterpolatedStringAdditionFunc5 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAdditionDelegate5>(wrappedType, "VisitInterpolatedStringAddition", "operationIInterpolatedStringAdditionOperation");
+            VisitInterpolatedStringAppendFunc6 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringAppendDelegate6>(wrappedType, "VisitInterpolatedStringAppend", "operationIInterpolatedStringAppendOperation");
+            VisitInterpolatedStringHandlerArgumentPlaceholderFunc7 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerArgumentPlaceholderDelegate7>(wrappedType, "VisitInterpolatedStringHandlerArgumentPlaceholder", "operationIInterpolatedStringHandlerArgumentPlaceholderOperation");
+            VisitInterpolatedStringHandlerCreationFunc8 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitInterpolatedStringHandlerCreationDelegate8>(wrappedType, "VisitInterpolatedStringHandlerCreation", "operationIInterpolatedStringHandlerCreationOperation");
+            VisitListPatternFunc9 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate9>(wrappedType, "VisitListPattern", "operationIListPatternOperation");
+            VisitNegatedPatternFunc10 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitNegatedPatternDelegate10>(wrappedType, "VisitNegatedPattern", "operationINegatedPatternOperation");
+            VisitPropertySubpatternFunc11 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitPropertySubpatternDelegate11>(wrappedType, "VisitPropertySubpattern", "operationIPropertySubpatternOperation");
+            VisitRecursivePatternFunc12 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate12>(wrappedType, "VisitRecursivePattern", "operationIRecursivePatternOperation");
+            VisitRelationalPatternFunc13 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate13>(wrappedType, "VisitRelationalPattern", "operationIRelationalPatternOperation");
+            VisitSlicePatternFunc14 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate14>(wrappedType, "VisitSlicePattern", "operationISlicePatternOperation");
+            VisitTypePatternFunc15 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate15>(wrappedType, "VisitTypePattern", "operationITypePatternOperation");
+            VisitUsingDeclarationFunc16 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitUsingDeclarationDelegate16>(wrappedType, "VisitUsingDeclaration", "operationIUsingDeclarationOperation");
+            VisitUtf8StringFunc17 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitUtf8StringDelegate17>(wrappedType, "VisitUtf8String", "operationIUtf8StringOperation");
+            VisitWithFunc18 = CommonLightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate18>(wrappedType, "VisitWith", "operationIWithOperation");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

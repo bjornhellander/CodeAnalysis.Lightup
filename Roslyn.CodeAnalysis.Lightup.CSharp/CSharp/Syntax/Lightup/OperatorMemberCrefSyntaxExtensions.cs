@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static OperatorMemberCrefSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CheckedKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
+            CheckedKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parametersCrefParameterListSyntax");
-            WithCheckedKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
+            UpdateFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parametersCrefParameterListSyntax");
+            WithCheckedKeywordFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

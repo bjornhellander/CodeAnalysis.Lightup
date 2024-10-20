@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         static HostLanguageServicesExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            LanguageServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(wrappedType, nameof(LanguageServices));
+            LanguageServicesGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<LanguageServicesGetterDelegate>(wrappedType, nameof(LanguageServices));
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

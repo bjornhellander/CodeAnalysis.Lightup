@@ -34,16 +34,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static GlobalStatementSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
+            AttributeListsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
+            ModifiersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddModifiersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
-            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithModifiersFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddModifiersFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
+            WithAttributeListsFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithModifiersFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

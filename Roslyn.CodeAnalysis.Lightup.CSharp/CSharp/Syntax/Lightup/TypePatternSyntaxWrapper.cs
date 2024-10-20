@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypePatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
+            TypeGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "typeTypeSyntax");
-            WithTypeFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate2>(WrappedType, "WithType", "typeTypeSyntax");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "typeTypeSyntax");
+            WithTypeFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate2>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private TypePatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static TypePatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new TypePatternSyntaxWrapper(obj2);
         }
 

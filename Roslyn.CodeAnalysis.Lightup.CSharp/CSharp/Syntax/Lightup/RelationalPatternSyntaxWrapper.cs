@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static RelationalPatternSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ExpressionGetterFunc = LightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
-            OperatorTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
+            ExpressionGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
+            OperatorTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OperatorTokenGetterDelegate>(WrappedType, nameof(OperatorToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
-            WithExpressionFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, "WithExpression", "expressionExpressionSyntax");
-            WithOperatorTokenFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
+            WithExpressionFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithOperatorTokenFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
         }
 
         private RelationalPatternSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static RelationalPatternSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new RelationalPatternSyntaxWrapper(obj2);
         }
 

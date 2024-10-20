@@ -38,16 +38,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static OperationListWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CountGetterFunc = LightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
+            CountGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
 
-            AnyFunc0 = LightupHelper.CreateInstanceMethodAccessor<AnyDelegate0>(WrappedType, "Any");
-            FirstFunc1 = LightupHelper.CreateInstanceMethodAccessor<FirstDelegate1>(WrappedType, "First");
-            GetEnumeratorFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate2>(WrappedType, "GetEnumerator");
-            LastFunc3 = LightupHelper.CreateInstanceMethodAccessor<LastDelegate3>(WrappedType, "Last");
-            ReverseFunc4 = LightupHelper.CreateInstanceMethodAccessor<ReverseDelegate4>(WrappedType, "Reverse");
-            ToImmutableArrayFunc5 = LightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate5>(WrappedType, "ToImmutableArray");
+            AnyFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<AnyDelegate0>(WrappedType, "Any");
+            FirstFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<FirstDelegate1>(WrappedType, "First");
+            GetEnumeratorFunc2 = CommonLightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate2>(WrappedType, "GetEnumerator");
+            LastFunc3 = CommonLightupHelper.CreateInstanceMethodAccessor<LastDelegate3>(WrappedType, "Last");
+            ReverseFunc4 = CommonLightupHelper.CreateInstanceMethodAccessor<ReverseDelegate4>(WrappedType, "Reverse");
+            ToImmutableArrayFunc5 = CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate5>(WrappedType, "ToImmutableArray");
         }
 
         private OperationListWrapper(System.Object? obj)
@@ -62,11 +62,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static OperationListWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new OperationListWrapper(obj2);
         }
 

@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static CodeFixProviderExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            RequestPriorityGetterFunc = LightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
+            RequestPriorityGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

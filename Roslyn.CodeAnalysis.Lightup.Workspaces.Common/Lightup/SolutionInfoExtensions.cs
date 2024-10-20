@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SolutionInfoExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerReferencesGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(wrappedType, nameof(AnalyzerReferences));
+            AnalyzerReferencesGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(wrappedType, nameof(AnalyzerReferences));
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "idSolutionId", "versionVersionStamp", "filePathString", "projectsIEnumerable`1", "analyzerReferencesIEnumerable`1");
+            CreateFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "idSolutionId", "versionVersionStamp", "filePathString", "projectsIEnumerable`1", "analyzerReferencesIEnumerable`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

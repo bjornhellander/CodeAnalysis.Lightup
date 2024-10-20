@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SyntaxTreeExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DiagnosticOptionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(wrappedType, nameof(DiagnosticOptions));
+            DiagnosticOptionsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DiagnosticOptionsGetterDelegate>(wrappedType, nameof(DiagnosticOptions));
 
-            GetLineMappingsFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
-            WithDiagnosticOptionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, "WithDiagnosticOptions", "optionsImmutableDictionary`2");
+            GetLineMappingsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
+            WithDiagnosticOptionsFunc1 = CommonLightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, "WithDiagnosticOptions", "optionsImmutableDictionary`2");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

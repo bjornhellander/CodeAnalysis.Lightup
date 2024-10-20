@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ImportedXmlNamespaceWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DeclaringSyntaxReferenceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
-            XmlNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
+            DeclaringSyntaxReferenceGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeclaringSyntaxReferenceGetterDelegate>(WrappedType, nameof(DeclaringSyntaxReference));
+            XmlNamespaceGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<XmlNamespaceGetterDelegate>(WrappedType, nameof(XmlNamespace));
         }
 
         private ImportedXmlNamespaceWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static ImportedXmlNamespaceWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new ImportedXmlNamespaceWrapper(obj2);
         }
 

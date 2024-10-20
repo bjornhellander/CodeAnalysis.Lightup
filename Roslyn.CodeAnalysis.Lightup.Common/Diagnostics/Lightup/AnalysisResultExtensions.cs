@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalysisResultExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileDiagnosticsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(wrappedType, nameof(AdditionalFileDiagnostics));
+            AdditionalFileDiagnosticsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AdditionalFileDiagnosticsGetterDelegate>(wrappedType, nameof(AdditionalFileDiagnostics));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

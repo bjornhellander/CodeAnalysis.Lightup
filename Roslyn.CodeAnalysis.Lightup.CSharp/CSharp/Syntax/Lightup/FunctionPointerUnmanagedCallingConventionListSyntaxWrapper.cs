@@ -42,18 +42,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FunctionPointerUnmanagedCallingConventionListSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            CallingConventionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<CallingConventionsGetterDelegate>(WrappedType, nameof(CallingConventions));
-            CloseBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
-            OpenBracketTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
+            CallingConventionsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CallingConventionsGetterDelegate>(WrappedType, nameof(CallingConventions));
+            CloseBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<CloseBracketTokenGetterDelegate>(WrappedType, nameof(CloseBracketToken));
+            OpenBracketTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<OpenBracketTokenGetterDelegate>(WrappedType, nameof(OpenBracketToken));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddCallingConventionsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddCallingConventionsDelegate1>(WrappedType, "AddCallingConventions", "itemsFunctionPointerUnmanagedCallingConventionSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "callingConventionsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
-            WithCallingConventionsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithCallingConventionsDelegate3>(WrappedType, "WithCallingConventions", "callingConventionsSeparatedSyntaxList`1");
-            WithCloseBracketTokenFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate4>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
-            WithOpenBracketTokenFunc5 = LightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            AddCallingConventionsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddCallingConventionsDelegate1>(WrappedType, "AddCallingConventions", "itemsFunctionPointerUnmanagedCallingConventionSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openBracketTokenSyntaxToken", "callingConventionsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
+            WithCallingConventionsFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCallingConventionsDelegate3>(WrappedType, "WithCallingConventions", "callingConventionsSeparatedSyntaxList`1");
+            WithCloseBracketTokenFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate4>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
+            WithOpenBracketTokenFunc5 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
         }
 
         private FunctionPointerUnmanagedCallingConventionListSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -83,11 +83,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static FunctionPointerUnmanagedCallingConventionListSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerUnmanagedCallingConventionListSyntaxWrapper(obj2);
         }
 

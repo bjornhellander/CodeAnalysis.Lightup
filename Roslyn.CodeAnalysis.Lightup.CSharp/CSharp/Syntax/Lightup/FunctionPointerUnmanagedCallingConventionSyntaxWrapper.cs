@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static FunctionPointerUnmanagedCallingConventionSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            NameGetterFunc = LightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
+            NameGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(WrappedType, nameof(Name));
 
-            AcceptFunc0 = LightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "nameSyntaxToken");
-            WithNameFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, "WithName", "nameSyntaxToken");
+            AcceptFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "nameSyntaxToken");
+            WithNameFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(WrappedType, "WithName", "nameSyntaxToken");
         }
 
         private FunctionPointerUnmanagedCallingConventionSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static FunctionPointerUnmanagedCallingConventionSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new FunctionPointerUnmanagedCallingConventionSyntaxWrapper(obj2);
         }
 

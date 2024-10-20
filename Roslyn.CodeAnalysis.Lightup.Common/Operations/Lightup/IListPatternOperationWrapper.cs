@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IListPatternOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            DeclaredSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
-            IndexerSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
-            LengthSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
-            PatternsGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
+            DeclaredSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<DeclaredSymbolGetterDelegate>(WrappedType, nameof(DeclaredSymbol));
+            IndexerSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<IndexerSymbolGetterDelegate>(WrappedType, nameof(IndexerSymbol));
+            LengthSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<LengthSymbolGetterDelegate>(WrappedType, nameof(LengthSymbol));
+            PatternsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
         }
 
         private IListPatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IListPatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IListPatternOperationWrapper(obj2);
         }
 

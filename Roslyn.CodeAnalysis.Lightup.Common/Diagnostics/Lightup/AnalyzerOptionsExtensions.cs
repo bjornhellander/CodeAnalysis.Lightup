@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         static AnalyzerOptionsExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "additionalFilesImmutableArray`1", "optionsProviderAnalyzerConfigOptionsProvider");
+            ConstructorFunc0 = CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "additionalFilesImmutableArray`1", "optionsProviderAnalyzerConfigOptionsProvider");
 
-            AnalyzerConfigOptionsProviderGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
+            AnalyzerConfigOptionsProviderGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>

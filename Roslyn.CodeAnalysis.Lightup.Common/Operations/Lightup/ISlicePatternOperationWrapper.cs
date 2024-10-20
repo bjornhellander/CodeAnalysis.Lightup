@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static ISlicePatternOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            PatternGetterFunc = LightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
-            SliceSymbolGetterFunc = LightupHelper.CreateInstanceGetAccessor<SliceSymbolGetterDelegate>(WrappedType, nameof(SliceSymbol));
+            PatternGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
+            SliceSymbolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<SliceSymbolGetterDelegate>(WrappedType, nameof(SliceSymbol));
         }
 
         private ISlicePatternOperationWrapper(Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static ISlicePatternOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new ISlicePatternOperationWrapper(obj2);
         }
 

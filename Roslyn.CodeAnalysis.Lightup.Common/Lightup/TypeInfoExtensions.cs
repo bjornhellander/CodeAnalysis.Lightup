@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static TypeInfoExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConvertedNullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(wrappedType, nameof(ConvertedNullability));
-            NullabilityGetterFunc = LightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(wrappedType, nameof(Nullability));
+            ConvertedNullabilityGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ConvertedNullabilityGetterDelegate>(wrappedType, nameof(ConvertedNullability));
+            NullabilityGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<NullabilityGetterDelegate>(wrappedType, nameof(Nullability));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

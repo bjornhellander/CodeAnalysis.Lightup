@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
 
         static SymbolFinderEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            FindDerivedClassesAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
-            FindDerivedInterfacesAsyncFunc1 = LightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate1>(wrappedType, "FindDerivedInterfacesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
-            FindImplementationsAsyncFunc2 = LightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate2>(wrappedType, "FindImplementationsAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindDerivedClassesAsyncFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindDerivedInterfacesAsyncFunc1 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate1>(wrappedType, "FindDerivedInterfacesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindImplementationsAsyncFunc2 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate2>(wrappedType, "FindImplementationsAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

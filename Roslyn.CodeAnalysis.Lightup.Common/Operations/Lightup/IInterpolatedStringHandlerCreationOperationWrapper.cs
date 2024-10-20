@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IInterpolatedStringHandlerCreationOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ContentGetterFunc = LightupHelper.CreateInstanceGetAccessor<ContentGetterDelegate>(WrappedType, nameof(Content));
-            HandlerAppendCallsReturnBoolGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerAppendCallsReturnBoolGetterDelegate>(WrappedType, nameof(HandlerAppendCallsReturnBool));
-            HandlerCreationGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerCreationGetterDelegate>(WrappedType, nameof(HandlerCreation));
-            HandlerCreationHasSuccessParameterGetterFunc = LightupHelper.CreateInstanceGetAccessor<HandlerCreationHasSuccessParameterGetterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
+            ContentGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ContentGetterDelegate>(WrappedType, nameof(Content));
+            HandlerAppendCallsReturnBoolGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<HandlerAppendCallsReturnBoolGetterDelegate>(WrappedType, nameof(HandlerAppendCallsReturnBool));
+            HandlerCreationGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<HandlerCreationGetterDelegate>(WrappedType, nameof(HandlerCreation));
+            HandlerCreationHasSuccessParameterGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<HandlerCreationHasSuccessParameterGetterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
         }
 
         private IInterpolatedStringHandlerCreationOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IInterpolatedStringHandlerCreationOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerCreationOperationWrapper(obj2);
         }
 

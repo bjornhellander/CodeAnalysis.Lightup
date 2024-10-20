@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ModuleMetadataExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateFromMetadataFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
+            CreateFromMetadataFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

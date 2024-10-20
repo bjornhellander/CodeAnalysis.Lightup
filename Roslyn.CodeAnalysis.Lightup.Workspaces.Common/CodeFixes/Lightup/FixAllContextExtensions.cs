@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static FixAllContextExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentDocument", "diagnosticSpanNullable`1", "codeFixProviderCodeFixProvider", "scopeFixAllScope", "codeActionEquivalenceKeyString", "diagnosticIdsIEnumerable`1", "fixAllDiagnosticProviderDiagnosticProvider", "cancellationTokenCancellationToken");
+            ConstructorFunc0 = WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentDocument", "diagnosticSpanNullable`1", "codeFixProviderCodeFixProvider", "scopeFixAllScope", "codeActionEquivalenceKeyString", "diagnosticIdsIEnumerable`1", "fixAllDiagnosticProviderDiagnosticProvider", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>

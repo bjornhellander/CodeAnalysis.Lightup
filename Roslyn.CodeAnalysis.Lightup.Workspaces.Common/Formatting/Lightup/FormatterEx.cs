@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
 
         static FormatterEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            OrganizeImportsAsyncFunc0 = LightupHelper.CreateStaticMethodAccessor<OrganizeImportsAsyncDelegate0>(wrappedType, "OrganizeImportsAsync", "documentDocument", "cancellationTokenCancellationToken");
+            OrganizeImportsAsyncFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<OrganizeImportsAsyncDelegate0>(wrappedType, "OrganizeImportsAsync", "documentDocument", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

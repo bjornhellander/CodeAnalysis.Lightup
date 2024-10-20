@@ -36,15 +36,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static LineOrSpanDirectiveTriviaSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            FileGetterFunc = LightupHelper.CreateInstanceGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
-            LineKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<LineKeywordGetterDelegate>(WrappedType, nameof(LineKeyword));
+            FileGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<FileGetterDelegate>(WrappedType, nameof(File));
+            LineKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<LineKeywordGetterDelegate>(WrappedType, nameof(LineKeyword));
 
-            WithEndOfDirectiveTokenFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
-            WithFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithFileDelegate1>(WrappedType, "WithFile", "fileSyntaxToken");
-            WithHashTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate2>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
-            WithLineKeywordFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate3>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
+            WithEndOfDirectiveTokenFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
+            WithFileFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithFileDelegate1>(WrappedType, "WithFile", "fileSyntaxToken");
+            WithHashTokenFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate2>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
+            WithLineKeywordFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate3>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
         }
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? obj)
@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static LineOrSpanDirectiveTriviaSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax>(obj, WrappedType);
             return new LineOrSpanDirectiveTriviaSyntaxWrapper(obj2);
         }
 

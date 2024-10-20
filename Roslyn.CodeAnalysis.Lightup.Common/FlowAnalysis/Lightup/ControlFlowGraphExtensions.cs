@@ -20,9 +20,9 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         static ControlFlowGraphExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "attributeIAttributeOperation", "cancellationTokenCancellationToken");
+            CreateFunc0 = CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "attributeIAttributeOperation", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>

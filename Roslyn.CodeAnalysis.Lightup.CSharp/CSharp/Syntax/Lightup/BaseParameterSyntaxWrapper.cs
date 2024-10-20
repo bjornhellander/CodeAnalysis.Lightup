@@ -40,17 +40,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static BaseParameterSyntaxWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
-            TypeGetterFunc = LightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
+            AttributeListsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(WrappedType, nameof(AttributeLists));
+            ModifiersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(WrappedType, nameof(Modifiers));
+            TypeGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddModifiersFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            WithAttributeListsFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithModifiersFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate3>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithTypeFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddModifiersFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(WrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithAttributeListsFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithModifiersFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate3>(WrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithTypeFunc4 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private BaseParameterSyntaxWrapper(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
@@ -80,11 +80,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CSharpLightupHelper.Is(obj, WrappedType);
 
         public static BaseParameterSyntaxWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new BaseParameterSyntaxWrapper(obj2);
         }
 

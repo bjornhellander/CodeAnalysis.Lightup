@@ -30,14 +30,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TryStatementSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            AttributeListsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
+            AttributeListsGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
-            AddAttributeListsFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockAttributeListsFunc1 = LightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc2 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
-            WithAttributeListsFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            AddAttributeListsFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddBlockAttributeListsFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
+            UpdateFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
+            WithAttributeListsFunc3 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

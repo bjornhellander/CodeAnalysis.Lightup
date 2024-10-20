@@ -48,23 +48,23 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         static DeclarationModifiersExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ExternGetterFunc = LightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
-            FileGetterFunc = LightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
-            RequiredGetterFunc = LightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
-            VolatileGetterFunc = LightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
+            ExternGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
+            FileGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
+            RequiredGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
+            VolatileGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
 
-            IsExternGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
-            IsFileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
-            IsRequiredGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
-            IsVolatileGetterFunc = LightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
+            IsExternGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
+            IsFileGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
+            IsRequiredGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
+            IsVolatileGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
-            WithIsExternFunc0 = LightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "isExternBoolean");
-            WithIsFileFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, "WithIsFile", "isFileBoolean");
-            WithIsRefFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, "WithIsRef", "isRefBoolean");
-            WithIsRequiredFunc3 = LightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, "WithIsRequired", "isRequiredBoolean");
-            WithIsVolatileFunc4 = LightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
+            WithIsExternFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "isExternBoolean");
+            WithIsFileFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, "WithIsFile", "isFileBoolean");
+            WithIsRefFunc2 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, "WithIsRef", "isRefBoolean");
+            WithIsRequiredFunc3 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, "WithIsRequired", "isRequiredBoolean");
+            WithIsVolatileFunc4 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

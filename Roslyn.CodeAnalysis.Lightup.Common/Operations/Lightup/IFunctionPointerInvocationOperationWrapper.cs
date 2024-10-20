@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         static IFunctionPointerInvocationOperationWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            ArgumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ArgumentsGetterDelegate>(WrappedType, nameof(Arguments));
-            TargetGetterFunc = LightupHelper.CreateInstanceGetAccessor<TargetGetterDelegate>(WrappedType, nameof(Target));
+            ArgumentsGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<ArgumentsGetterDelegate>(WrappedType, nameof(Arguments));
+            TargetGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<TargetGetterDelegate>(WrappedType, nameof(Target));
         }
 
         private IFunctionPointerInvocationOperationWrapper(Microsoft.CodeAnalysis.IOperation? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => CommonLightupHelper.Is(obj, WrappedType);
 
         public static IFunctionPointerInvocationOperationWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IFunctionPointerInvocationOperationWrapper(obj2);
         }
 

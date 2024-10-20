@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static EventDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            SemicolonTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(wrappedType, nameof(SemicolonToken));
+            SemicolonTokenGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<SemicolonTokenGetterDelegate>(wrappedType, nameof(SemicolonToken));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "semicolonTokenSyntaxToken");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "accessorListAccessorListSyntax", "semicolonTokenSyntaxToken");
-            WithSemicolonTokenFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            UpdateFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "semicolonTokenSyntaxToken");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "accessorListAccessorListSyntax", "semicolonTokenSyntaxToken");
+            WithSemicolonTokenFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate2>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

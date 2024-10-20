@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
 
         static ClassificationTypeNamesEx()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            RecordClassNameGetterFunc = LightupHelper.CreateStaticReadAccessor<RecordClassNameGetterDelegate>(wrappedType, nameof(RecordClassName));
-            RecordStructNameGetterFunc = LightupHelper.CreateStaticReadAccessor<RecordStructNameGetterDelegate>(wrappedType, nameof(RecordStructName));
+            RecordClassNameGetterFunc = WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RecordClassNameGetterDelegate>(wrappedType, nameof(RecordClassName));
+            RecordStructNameGetterFunc = WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RecordStructNameGetterDelegate>(wrappedType, nameof(RecordStructName));
 
-            AllTypeNamesGetterFunc = LightupHelper.CreateStaticGetAccessor<AllTypeNamesGetterDelegate>(wrappedType, nameof(AllTypeNames));
+            AllTypeNamesGetterFunc = WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AllTypeNamesGetterDelegate>(wrappedType, nameof(AllTypeNames));
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>

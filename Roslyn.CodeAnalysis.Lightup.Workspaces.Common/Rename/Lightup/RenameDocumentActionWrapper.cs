@@ -26,10 +26,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         static RenameDocumentActionWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            GetDescriptionFunc0 = LightupHelper.CreateInstanceMethodAccessor<GetDescriptionDelegate0>(WrappedType, "GetDescription", "cultureCultureInfo");
-            GetErrorsFunc1 = LightupHelper.CreateInstanceMethodAccessor<GetErrorsDelegate1>(WrappedType, "GetErrors", "cultureCultureInfo");
+            GetDescriptionFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetDescriptionDelegate0>(WrappedType, "GetDescription", "cultureCultureInfo");
+            GetErrorsFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetErrorsDelegate1>(WrappedType, "GetErrors", "cultureCultureInfo");
         }
 
         private RenameDocumentActionWrapper(System.Object? obj)
@@ -38,11 +38,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static RenameDocumentActionWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new RenameDocumentActionWrapper(obj2);
         }
 

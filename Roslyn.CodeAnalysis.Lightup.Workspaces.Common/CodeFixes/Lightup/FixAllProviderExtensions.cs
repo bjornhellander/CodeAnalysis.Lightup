@@ -22,10 +22,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         static FixAllProviderExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateFunc0 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "fixAllAsyncFunc`4");
-            CreateFunc1 = LightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "fixAllAsyncFunc`4", "supportedFixAllScopesImmutableArray`1");
+            CreateFunc0 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "fixAllAsyncFunc`4");
+            CreateFunc1 = WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "fixAllAsyncFunc`4", "supportedFixAllScopesImmutableArray`1");
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>

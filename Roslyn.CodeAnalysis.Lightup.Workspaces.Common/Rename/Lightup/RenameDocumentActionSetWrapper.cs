@@ -30,12 +30,12 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         static RenameDocumentActionSetWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            ApplicableActionsGetterFunc = LightupHelper.CreateInstanceGetAccessor<ApplicableActionsGetterDelegate>(WrappedType, nameof(ApplicableActions));
+            ApplicableActionsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ApplicableActionsGetterDelegate>(WrappedType, nameof(ApplicableActions));
 
-            UpdateSolutionAsyncFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate0>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "cancellationTokenCancellationToken");
-            UpdateSolutionAsyncFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate1>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "actionsImmutableArray`1", "cancellationTokenCancellationToken");
+            UpdateSolutionAsyncFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate0>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "cancellationTokenCancellationToken");
+            UpdateSolutionAsyncFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate1>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "actionsImmutableArray`1", "cancellationTokenCancellationToken");
         }
 
         private RenameDocumentActionSetWrapper(System.Object? obj)
@@ -50,11 +50,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static RenameDocumentActionSetWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<System.Object>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new RenameDocumentActionSetWrapper(obj2);
         }
 

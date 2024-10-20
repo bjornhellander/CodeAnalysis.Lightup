@@ -24,11 +24,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ISymbolExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            MetadataTokenGetterFunc = LightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
+            MetadataTokenGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
 
-            EqualsFunc0 = LightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, "Equals", "otherISymbol", "equalityComparerSymbolEqualityComparer");
+            EqualsFunc0 = CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, "Equals", "otherISymbol", "equalityComparerSymbolEqualityComparer");
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

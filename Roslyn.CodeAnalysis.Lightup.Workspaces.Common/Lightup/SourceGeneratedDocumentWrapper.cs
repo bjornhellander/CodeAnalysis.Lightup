@@ -24,9 +24,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static SourceGeneratedDocumentWrapper()
         {
-            WrappedType = LightupHelper.FindType(WrappedTypeName);
+            WrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            HintNameGetterFunc = LightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
+            HintNameGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
         }
 
         private SourceGeneratedDocumentWrapper(Microsoft.CodeAnalysis.Document? obj)
@@ -44,11 +44,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => obj.Unwrap();
 
         public static bool Is(System.Object? obj)
-            => LightupHelper.Is(obj, WrappedType);
+            => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
         public static SourceGeneratedDocumentWrapper As(System.Object? obj)
         {
-            var obj2 = LightupHelper.As<Microsoft.CodeAnalysis.Document>(obj, WrappedType);
+            var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 

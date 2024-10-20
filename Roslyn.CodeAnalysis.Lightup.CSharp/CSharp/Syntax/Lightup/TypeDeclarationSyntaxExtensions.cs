@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static TypeDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ParameterListGetterFunc = LightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
+            ParameterListGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
-            WithParameterListFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            AddParameterListParametersFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            WithParameterListFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>

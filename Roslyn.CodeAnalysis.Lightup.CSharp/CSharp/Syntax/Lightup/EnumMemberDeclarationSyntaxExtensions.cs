@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static EnumMemberDeclarationSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ModifiersGetterFunc = LightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
+            ModifiersGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
-            AddModifiersFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            UpdateFunc1 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "equalsValueEqualsValueClauseSyntax");
-            WithModifiersFunc2 = LightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            AddModifiersFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "equalsValueEqualsValueClauseSyntax");
+            WithModifiersFunc2 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate2>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

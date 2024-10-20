@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
 
         static AnalyzerTelemetryInfoExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CommonLightupHelper.FindType(WrappedTypeName);
 
-            AdditionalFileActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
-            AdditionalFileActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
-            SuppressionActionsCountGetterFunc = LightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
-            SuppressionActionsCountSetterFunc = LightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
+            AdditionalFileActionsCountGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            AdditionalFileActionsCountSetterFunc = CommonLightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
+            SuppressionActionsCountGetterFunc = CommonLightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
+            SuppressionActionsCountSetterFunc = CommonLightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

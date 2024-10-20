@@ -48,23 +48,23 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         static ProjectExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            AnalyzerConfigDocumentsGetterFunc = LightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
-            CompilationOutputInfoGetterFunc = LightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
-            DefaultNamespaceGetterFunc = LightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(wrappedType, nameof(DefaultNamespace));
-            ServicesGetterFunc = LightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
+            AnalyzerConfigDocumentsGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigDocumentsGetterDelegate>(wrappedType, nameof(AnalyzerConfigDocuments));
+            CompilationOutputInfoGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
+            DefaultNamespaceGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(wrappedType, nameof(DefaultNamespace));
+            ServicesGetterFunc = WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
 
-            AddAnalyzerConfigDocumentFunc0 = LightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, "AddAnalyzerConfigDocument", "nameString", "textSourceText", "foldersIEnumerable`1", "filePathString");
-            ContainsAnalyzerConfigDocumentFunc1 = LightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(wrappedType, "ContainsAnalyzerConfigDocument", "documentIdDocumentId");
-            GetAnalyzerConfigDocumentFunc2 = LightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(wrappedType, "GetAnalyzerConfigDocument", "documentIdDocumentId");
-            GetSourceGeneratedDocumentAsyncFunc3 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(wrappedType, "GetSourceGeneratedDocumentAsync", "documentIdDocumentId", "cancellationTokenCancellationToken");
-            GetSourceGeneratedDocumentsAsyncFunc4 = LightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(wrappedType, "GetSourceGeneratedDocumentsAsync", "cancellationTokenCancellationToken");
-            RemoveAdditionalDocumentsFunc5 = LightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(wrappedType, "RemoveAdditionalDocuments", "documentIdsImmutableArray`1");
-            RemoveAnalyzerConfigDocumentFunc6 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(wrappedType, "RemoveAnalyzerConfigDocument", "documentIdDocumentId");
-            RemoveAnalyzerConfigDocumentsFunc7 = LightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(wrappedType, "RemoveAnalyzerConfigDocuments", "documentIdsImmutableArray`1");
-            RemoveDocumentsFunc8 = LightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(wrappedType, "RemoveDocuments", "documentIdsImmutableArray`1");
-            WithDefaultNamespaceFunc9 = LightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
+            AddAnalyzerConfigDocumentFunc0 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, "AddAnalyzerConfigDocument", "nameString", "textSourceText", "foldersIEnumerable`1", "filePathString");
+            ContainsAnalyzerConfigDocumentFunc1 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ContainsAnalyzerConfigDocumentDelegate1>(wrappedType, "ContainsAnalyzerConfigDocument", "documentIdDocumentId");
+            GetAnalyzerConfigDocumentFunc2 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetAnalyzerConfigDocumentDelegate2>(wrappedType, "GetAnalyzerConfigDocument", "documentIdDocumentId");
+            GetSourceGeneratedDocumentAsyncFunc3 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentAsyncDelegate3>(wrappedType, "GetSourceGeneratedDocumentAsync", "documentIdDocumentId", "cancellationTokenCancellationToken");
+            GetSourceGeneratedDocumentsAsyncFunc4 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSourceGeneratedDocumentsAsyncDelegate4>(wrappedType, "GetSourceGeneratedDocumentsAsync", "cancellationTokenCancellationToken");
+            RemoveAdditionalDocumentsFunc5 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveAdditionalDocumentsDelegate5>(wrappedType, "RemoveAdditionalDocuments", "documentIdsImmutableArray`1");
+            RemoveAnalyzerConfigDocumentFunc6 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentDelegate6>(wrappedType, "RemoveAnalyzerConfigDocument", "documentIdDocumentId");
+            RemoveAnalyzerConfigDocumentsFunc7 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate7>(wrappedType, "RemoveAnalyzerConfigDocuments", "documentIdsImmutableArray`1");
+            RemoveDocumentsFunc8 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate8>(wrappedType, "RemoveDocuments", "documentIdsImmutableArray`1");
+            WithDefaultNamespaceFunc9 = WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -26,12 +26,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         static CrefParameterSyntaxExtensions()
         {
-            var wrappedType = LightupHelper.FindType(WrappedTypeName);
+            var wrappedType = CSharpLightupHelper.FindType(WrappedTypeName);
 
-            ReadOnlyKeywordGetterFunc = LightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(wrappedType, nameof(ReadOnlyKeyword));
+            ReadOnlyKeywordGetterFunc = CSharpLightupHelper.CreateInstanceGetAccessor<ReadOnlyKeywordGetterDelegate>(wrappedType, nameof(ReadOnlyKeyword));
 
-            UpdateFunc0 = LightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "refKindKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
-            WithReadOnlyKeywordFunc1 = LightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
+            UpdateFunc0 = CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "refKindKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
+            WithReadOnlyKeywordFunc1 = CSharpLightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
