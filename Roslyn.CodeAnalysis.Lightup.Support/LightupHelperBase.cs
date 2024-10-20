@@ -11,6 +11,8 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
     using System.Linq.Expressions;
     using System.Reflection;
     using System.Threading.Tasks;
+    using Roslyn.CodeAnalysis.Lightup.Support.Extensions;
+    using Roslyn.CodeAnalysis.Lightup.Support.Helpers;
 
     public class LightupHelperBase
     {
@@ -420,10 +422,10 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var selectMethod = GetImmutableArraySelectMethod(nativeItemType, wrapperItemType);
+                var selectMethod = ImmutableArrayHelpers.GetSelectMethod(nativeItemType, wrapperItemType);
                 var temp = Expression.Call(selectMethod, input, conversionLambda);
 
-                var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(wrapperItemType);
+                var toArrayMethod = ImmutableArrayHelpers.GetToImmutableArrayMethod(wrapperItemType);
                 var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
@@ -438,7 +440,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var selectMethod = GetEnumerableSelectMethod(nativeItemType, wrapperItemType);
+                var selectMethod = EnumerableHelpers.GetSelectMethod(nativeItemType, wrapperItemType);
                 var result = Expression.Call(selectMethod, input, conversionLambda);
 
                 return result;
@@ -455,7 +457,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var continueWithMethod = GetTaskContinueWithMethod(nativeItemType, wrapperItemType);
+                var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
                 var result = Expression.Call(input, continueWithMethod, conversionLambda);
 
                 return result;
@@ -470,7 +472,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var continueWithMethod = GetValueTaskContinueWithMethod(nativeItemType, wrapperItemType);
+                var continueWithMethod = ValueTaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
                 var result = Expression.Call(continueWithMethod, input, conversionLambda);
 
                 return result;
@@ -517,7 +519,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
                     conversionLambdaParameter);
 
-                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+                var selectMethod = EnumerableHelpers.GetSelectMethod(wrapperItemType, nativeItemType);
                 var result = Expression.Call(selectMethod, input, conversionLambda);
 
                 return result;
@@ -533,10 +535,10 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
                     conversionLambdaParameter);
 
-                var selectMethod = GetImmutableArraySelectMethod(wrapperItemType, nativeItemType);
+                var selectMethod = ImmutableArrayHelpers.GetSelectMethod(wrapperItemType, nativeItemType);
                 var temp = Expression.Call(selectMethod, input, conversionLambda);
 
-                var toArrayMethod = GetImmutableArrayToImmutableArrayMethod(nativeItemType);
+                var toArrayMethod = ImmutableArrayHelpers.GetToImmutableArrayMethod(nativeItemType);
                 var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
@@ -552,10 +554,10 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                     GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
                     conversionLambdaParameter);
 
-                var selectMethod = GetEnumerableSelectMethod(wrapperItemType, nativeItemType);
+                var selectMethod = EnumerableHelpers.GetSelectMethod(wrapperItemType, nativeItemType);
                 var temp = Expression.Call(selectMethod, input, conversionLambda);
 
-                var toArrayMethod = GetEnumerableToArrayMethod(nativeItemType);
+                var toArrayMethod = EnumerableHelpers.GetToArrayMethod(nativeItemType);
                 var result = Expression.Call(toArrayMethod, temp);
 
                 return result;
@@ -621,189 +623,6 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
                 var nativeValue = Expression.Convert(unwrappedValue, nativeType);
                 return nativeValue;
             }
-        }
-
-        private static MethodInfo GetEnumerableSelectMethod(Type sourceItemType, Type resultItemType)
-        {
-            var genericMethod = GetEnumerableSelectMethod();
-            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetEnumerableSelectMethod()
-        {
-            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableSelectMethod);
-            return result;
-        }
-
-        private static bool IsEnumerableSelectMethod(MethodInfo method)
-        {
-            if (method.Name != "Select")
-            {
-                return false;
-            }
-
-            var parameters = method.GetParameters();
-            if (parameters.Length != 2)
-            {
-                return false;
-            }
-
-            var parameterType = parameters[1].ParameterType;
-            if (parameterType.Name != "Func`2")
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private static MethodInfo GetEnumerableToArrayMethod(Type nativeItemType)
-        {
-            var genericMethod = GetEnumerableToArrayMethod();
-            var specializedMethod = genericMethod.MakeGenericMethod(nativeItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetEnumerableToArrayMethod()
-        {
-            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableToArrayMethod);
-            return result;
-        }
-
-        private static bool IsEnumerableToArrayMethod(MethodInfo method)
-        {
-            if (method.Name != "ToArray")
-            {
-                return false;
-            }
-
-            var parameters = method.GetParameters();
-            if (parameters.Length != 1)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private static MethodInfo GetImmutableArraySelectMethod(Type sourceItemType, Type resultItemType)
-        {
-            var genericMethod = GetImmutableArraySelectMethod();
-            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetImmutableArraySelectMethod()
-        {
-            var result = typeof(ImmutableArrayExtensions).GetMethods().Single(IsImmutableArraySelectMethod);
-            return result;
-        }
-
-        private static bool IsImmutableArraySelectMethod(MethodInfo method)
-        {
-            if (method.Name != "Select")
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private static MethodInfo GetImmutableArrayToImmutableArrayMethod(Type nativeItemType)
-        {
-            var genericMethod = GetImmutableArrayToImmutableArrayMethod();
-            var specializedMethod = genericMethod.MakeGenericMethod(nativeItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetImmutableArrayToImmutableArrayMethod()
-        {
-            var result = typeof(ImmutableArray).GetMethods().Single(IsImmutableArrayToImmutableArrayMethod);
-            return result;
-        }
-
-        private static bool IsImmutableArrayToImmutableArrayMethod(MethodInfo method)
-        {
-            if (method.Name != "ToImmutableArray")
-            {
-                return false;
-            }
-
-            var parameters = method.GetParameters();
-            if (parameters.Length != 1)
-            {
-                return false;
-            }
-
-            var parameterType = parameters[0].ParameterType;
-            if (!parameterType.IsGenericType || parameterType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType, Type resultItemType)
-        {
-            var genericMethod = GetTaskContinueWithMethod(sourceItemType);
-            var specializedMethod = genericMethod.MakeGenericMethod(resultItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType)
-        {
-            var result = typeof(Task<>).MakeGenericType(sourceItemType).GetMethods().Single(x => IsTaskContinueWithMethod(x, sourceItemType));
-            return result;
-        }
-
-        private static bool IsTaskContinueWithMethod(MethodInfo method, Type sourceItemType)
-        {
-            if (method.Name != "ContinueWith")
-            {
-                return false;
-            }
-
-            if (!method.ContainsGenericParameters)
-            {
-                return false;
-            }
-
-            var genericArguments = method.GetGenericArguments();
-            if (genericArguments.Length != 1)
-            {
-                return false;
-            }
-
-            var parameters = method.GetParameters();
-            if (parameters.Length != 1)
-            {
-                return false;
-            }
-
-            var expectedParameterType = typeof(Func<,>).MakeGenericType(
-                typeof(Task<>).MakeGenericType(sourceItemType),
-                genericArguments[0]);
-            if (parameters[0].ParameterType != expectedParameterType)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private static MethodInfo GetValueTaskContinueWithMethod(Type sourceItemType, Type resultItemType)
-        {
-            var genericMethod = GetValueTaskContinueWithMethod();
-            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
-            return specializedMethod;
-        }
-
-        private static MethodInfo GetValueTaskContinueWithMethod()
-        {
-            var result = typeof(ValueTaskExtensions).GetMethod("ContinueWith");
-            return result;
         }
     }
 }

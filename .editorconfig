@@ -155,6 +155,9 @@ dotnet_diagnostic.SX1101.severity = warning
 # SA1122: Use string.Empty for empty strings
 dotnet_diagnostic.SA1122.severity = none
 
+# SA1202: Elements should be ordered by access
+dotnet_diagnostic.SA1202.severity = none
+
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
