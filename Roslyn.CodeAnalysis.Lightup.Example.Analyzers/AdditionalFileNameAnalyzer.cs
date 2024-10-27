@@ -42,7 +42,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.Analyzers
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            if (CommonLightupStatus.CodeAnalysisVersion >= new Version(3, 8, 0))
+            if (LightupStatus.CodeAnalysisVersion >= new Version(3, 8, 0))
             {
                 context.RegisterAdditionalFileAction(HandleAdditionalFile);
             }

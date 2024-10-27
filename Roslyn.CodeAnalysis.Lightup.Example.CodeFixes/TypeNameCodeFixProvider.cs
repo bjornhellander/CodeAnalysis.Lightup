@@ -70,7 +70,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.CodeFixes
         private static async Task<Solution> RenameAsync(Solution orgSolution, ITypeSymbol typeSymbol, string newName, CancellationToken cancellationToken)
         {
             Solution newSolution;
-            if (CommonLightupStatus.CodeAnalysisVersion >= new Version(4, 4, 0, 0))
+            if (LightupStatus.CodeAnalysisVersion >= new Version(4, 4, 0, 0))
             {
                 var options = SymbolRenameOptionsWrapper.Create(false, false, false, false);
                 newSolution = await RenamerEx.RenameSymbolAsync(orgSolution, typeSymbol, options, newName, cancellationToken).ConfigureAwait(false);

@@ -24,7 +24,7 @@ public class AdditionalFileNameAnalyzerTests
             },
         };
 
-        if (CommonLightupStatus.CodeAnalysisVersion >= new System.Version(3, 8, 0))
+        if (LightupStatus.CodeAnalysisVersion >= new System.Version(3, 8, 0))
         {
             var expected = VerifyCS.Diagnostic().WithNoLocation();
             test.TestState.ExpectedDiagnostics.Add(expected);

@@ -25,14 +25,14 @@ public class LightupStatusTests
     protected static void CheckCodeAnalysisVersion(int major, int minor, int build, int revision)
     {
         var expectedVersion = new Version(major, minor, build, revision);
-        Assert.AreEqual(expectedVersion, CommonLightupStatus.CodeAnalysisVersion);
+        Assert.AreEqual(expectedVersion, LightupStatus.CodeAnalysisVersion);
     }
 
     protected static void CheckSupportedLanguageVersions(bool csharp9, bool csharp10, bool csharp11, bool csharp12)
     {
-        Assert.AreEqual(csharp9, CSharpLightupStatus.SupportsCSharp9);
-        Assert.AreEqual(csharp10, CSharpLightupStatus.SupportsCSharp10);
-        Assert.AreEqual(csharp11, CSharpLightupStatus.SupportsCSharp11);
-        Assert.AreEqual(csharp12, CSharpLightupStatus.SupportsCSharp12);
+        Assert.AreEqual(csharp9, LightupStatus.SupportsCSharp9);
+        Assert.AreEqual(csharp10, LightupStatus.SupportsCSharp10);
+        Assert.AreEqual(csharp11, LightupStatus.SupportsCSharp11);
+        Assert.AreEqual(csharp12, LightupStatus.SupportsCSharp12);
     }
 }
