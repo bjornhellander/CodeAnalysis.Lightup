@@ -16,8 +16,8 @@ public abstract class TypeDefinition : BaseTypeDefinition
         string name,
         string @namespace,
         string fullName,
-        TypeDefinition? enclosingType)
-        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
+        string? enclosingTypeFullName)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingTypeFullName)
     {
     }
 

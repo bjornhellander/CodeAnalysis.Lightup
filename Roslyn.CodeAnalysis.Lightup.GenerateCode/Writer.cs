@@ -366,7 +366,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
             else if (typeDef.IsUpdated)
             {
-                return GenerateUpdatedEnum(enumTypeDef, targetNamespace);
+                return GenerateUpdatedEnum(enumTypeDef, typeDefs, targetNamespace);
             }
             else
             {
@@ -478,12 +478,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
     private static string GenerateUpdatedEnum(
         EnumTypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace)
     {
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
         Assert.IsTrue(newValues.Count > 0, "Unexpected unchanged enum");
 
-        var fullTypeName = GetFullEnumTypeName(typeDef);
+        var fullTypeName = GetFullEnumTypeName(typeDef, typeDefs);
 
         var targetName = typeDef.GeneratedName;
 
@@ -519,11 +520,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         return source;
     }
 
-    private static string GetFullEnumTypeName(EnumTypeDefinition typeDef)
+    private static string GetFullEnumTypeName(
+        EnumTypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         sb.Append(typeDef.Namespace);
-        AppendEnclosingType(sb, false, typeDef.EnclosingType);
+        AppendEnclosingType(sb, typeDef.EnclosingTypeFullName, false, typeDefs);
         sb.Append(".");
         sb.Append(typeDef.Name);
         return sb.ToString();
@@ -569,7 +572,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
-        AppendEnclosingTypesStart(sb, typeDef.EnclosingType);
+        AppendEnclosingTypesStart(sb, typeDef.EnclosingTypeFullName, typeDefs);
         AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public readonly partial struct {targetName}");
         sb.AppendLine($"    {{");
@@ -838,28 +841,36 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
         }
         sb.AppendLine($"    }}");
-        AppendEnclosingTypesEnd(sb, typeDef.EnclosingType);
+        AppendEnclosingTypesEnd(sb, typeDef.EnclosingTypeFullName, typeDefs);
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
         return source;
     }
 
-    private static void AppendEnclosingTypesStart(StringBuilder sb, TypeDefinition? enclosingType)
+    private static void AppendEnclosingTypesStart(
+        StringBuilder sb,
+        string? enclosingTypeFullName,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        if (enclosingType != null)
+        if (enclosingTypeFullName != null)
         {
-            AppendEnclosingTypesStart(sb, enclosingType.EnclosingType);
+            var enclosingType = typeDefs[enclosingTypeFullName];
+            AppendEnclosingTypesStart(sb, enclosingType.EnclosingTypeFullName, typeDefs);
             var typeKeyword = enclosingType.AssemblyVersion != null ? "struct" : "class";
             sb.AppendLine($"public partial {typeKeyword} {enclosingType.GeneratedName} {{");
         }
     }
 
-    private static void AppendEnclosingTypesEnd(StringBuilder sb, TypeDefinition? enclosingType)
+    private static void AppendEnclosingTypesEnd(
+        StringBuilder sb,
+        string? enclosingTypeFullName,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        if (enclosingType != null)
+        if (enclosingTypeFullName != null)
         {
-            AppendEnclosingTypesEnd(sb, enclosingType.EnclosingType);
+            var enclosingType = typeDefs[enclosingTypeFullName];
+            AppendEnclosingTypesEnd(sb, enclosingType.EnclosingTypeFullName, typeDefs);
             sb.AppendLine("}");
         }
     }
@@ -1656,19 +1667,28 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
     }
 
-    private static void AppendEnclosingType(StringBuilder sb, NamedTypeReference namedTypeRef, bool isNew, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    private static void AppendEnclosingType(
+        StringBuilder sb,
+        NamedTypeReference namedTypeRef,
+        bool isNew,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef))
         {
-            AppendEnclosingType(sb, isNew, typeDef.EnclosingType);
+            AppendEnclosingType(sb, typeDef.EnclosingTypeFullName, isNew, typeDefs);
         }
     }
 
-    private static void AppendEnclosingType(StringBuilder sb, bool isNew, BaseTypeDefinition? enclosingType)
+    private static void AppendEnclosingType(
+        StringBuilder sb,
+        string? enclosingTypeFullName,
+        bool isNew,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        if (enclosingType != null)
+        if (enclosingTypeFullName != null)
         {
-            AppendEnclosingType(sb, isNew, enclosingType.EnclosingType);
+            var enclosingType = typeDefs[enclosingTypeFullName];
+            AppendEnclosingType(sb, enclosingType.EnclosingTypeFullName, isNew, typeDefs);
 
             sb.Append(".");
             sb.Append(isNew ? enclosingType.GeneratedName : enclosingType.Name);

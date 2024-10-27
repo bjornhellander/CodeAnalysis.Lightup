@@ -17,8 +17,8 @@ public class ClassTypeDefinition : TypeDefinition
         string fullName,
         bool isStatic,
         bool isAbstract,
-        TypeDefinition? enclosingType)
-        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
+        string? enclosingTypeFullName)
+        : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingTypeFullName)
     {
         BaseClass = null;
         IsStatic = isStatic;

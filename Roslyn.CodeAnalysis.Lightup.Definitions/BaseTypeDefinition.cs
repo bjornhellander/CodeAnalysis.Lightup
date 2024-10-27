@@ -13,14 +13,14 @@ public abstract class BaseTypeDefinition
         string name,
         string @namespace,
         string fullName,
-        TypeDefinition? enclosingType)
+        string? enclosingTypeName)
     {
         AssemblyKind = assemblyKind;
         AssemblyVersion = assemblyVersion;
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Namespace = @namespace ?? throw new ArgumentNullException(nameof(@namespace));
         FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
-        EnclosingType = enclosingType;
+        EnclosingTypeFullName = enclosingTypeName;
     }
 
     public AssemblyKind AssemblyKind { get; }
@@ -33,7 +33,7 @@ public abstract class BaseTypeDefinition
 
     public string FullName { get; }
 
-    public TypeDefinition? EnclosingType { get; }
+    public string? EnclosingTypeFullName { get; }
 
     public string GeneratedName { get; set; } = "";
 

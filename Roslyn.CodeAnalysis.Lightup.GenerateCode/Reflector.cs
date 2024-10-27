@@ -182,7 +182,7 @@ internal class Reflector
             type.FullName!,
             underlyingTypeName,
             isFlagsEnum,
-            enclosingTypeDef);
+            enclosingTypeDef?.FullName);
     }
 
     private static StructTypeDefinition CreateEmptyStructTypeDefinition(
@@ -197,7 +197,7 @@ internal class Reflector
             type.Name,
             type.Namespace!,
             type.FullName!,
-            enclosingTypeDef);
+            enclosingTypeDef?.FullName);
     }
 
     private static ClassTypeDefinition CreateEmptyClassTypeDefinition(
@@ -214,7 +214,7 @@ internal class Reflector
             type.FullName!,
             IsStaticType(type),
             IsAbstractType(type),
-            enclosingTypeDef);
+            enclosingTypeDef?.FullName);
     }
 
     private static InterfaceTypeDefinition CreateEmptyInterfaceTypeDefinition(
@@ -229,7 +229,7 @@ internal class Reflector
             type.Name,
             type.Namespace!,
             type.FullName!,
-            enclosingTypeDef);
+            enclosingTypeDef?.FullName);
     }
 
     private static void AddTypeMemberDefinitions(
@@ -902,7 +902,7 @@ internal class Reflector
             {
                 typeDef.GeneratedName = result.Value.GeneratedName;
                 typeDef.IsUpdated = result.Value.IsUpdated;
-                typeDef.GeneratedFileName = CreateGeneratedFileName(result.Value.GeneratedName, typeDef.EnclosingType);
+                typeDef.GeneratedFileName = CreateGeneratedFileName(result.Value.GeneratedName, typeDef.EnclosingTypeFullName, typeDefs);
             }
         }
     }
@@ -987,19 +987,26 @@ internal class Reflector
             typeDef.Methods.Any(x => x.AssemblyVersion != null);
     }
 
-    private static string CreateGeneratedFileName(string generatedName, TypeDefinition? enclosingType)
+    private static string CreateGeneratedFileName(
+        string generatedName,
+        string? enclosingTypeFullName,
+        Dictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
-        AppendEnclosingType(sb, enclosingType);
+        AppendEnclosingType(sb, enclosingTypeFullName, typeDefs);
         sb.Append(generatedName);
         sb.Append(".cs");
         return sb.ToString();
 
-        static void AppendEnclosingType(StringBuilder sb, TypeDefinition? enclosingType)
+        static void AppendEnclosingType(
+            StringBuilder sb,
+            string? enclosingTypeFullName,
+            Dictionary<string, BaseTypeDefinition> typeDefs)
         {
-            if (enclosingType != null)
+            if (enclosingTypeFullName != null)
             {
-                AppendEnclosingType(sb, enclosingType.EnclosingType);
+                var enclosingType = typeDefs[enclosingTypeFullName];
+                AppendEnclosingType(sb, enclosingType.EnclosingTypeFullName, typeDefs);
                 sb.Append(enclosingType.Name);
                 sb.Append(".");
             }
