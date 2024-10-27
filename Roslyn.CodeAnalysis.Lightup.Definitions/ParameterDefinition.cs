@@ -3,8 +3,18 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
+using System;
+
 public class ParameterDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public ParameterDefinition()
+        : base()
+    {
+        Name = "";
+        Type = new NamedTypeReference();
+    }
+
     public ParameterDefinition(string name, bool isParams, TypeReference type, bool isNullable, ParameterMode mode)
     {
         Name = name;
@@ -14,13 +24,13 @@ public class ParameterDefinition
         Mode = mode;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
 
-    public bool IsParams { get; }
+    public bool IsParams { get; set; }
 
-    public TypeReference Type { get; }
+    public TypeReference Type { get; set; }
 
-    public bool IsNullable { get; }
+    public bool IsNullable { get; set; }
 
-    public ParameterMode Mode { get; }
+    public ParameterMode Mode { get; set; }
 }

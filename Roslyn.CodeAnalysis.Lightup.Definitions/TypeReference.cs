@@ -4,13 +4,24 @@
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System;
+using System.Xml.Serialization;
 
+[XmlInclude(typeof(ArrayTypeReference))]
+[XmlInclude(typeof(GenericTypeReference))]
+[XmlInclude(typeof(GenericTypeParameterReference))]
+[XmlInclude(typeof(NamedTypeReference))]
 public abstract class TypeReference
 {
+    [Obsolete("Only intended for serializer")]
+    protected TypeReference()
+    {
+        NativeName = "";
+    }
+
     protected TypeReference(Type nativeType)
     {
         NativeName = nativeType.Name;
     }
 
-    public string NativeName { get; }
+    public string NativeName { get; set; }
 }

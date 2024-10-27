@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Generate": {
+    "Generate code": {
       "commandName": "Project",
       "commandLineArgs": "/force"
     }

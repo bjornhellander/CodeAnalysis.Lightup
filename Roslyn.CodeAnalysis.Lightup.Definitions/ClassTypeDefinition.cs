@@ -9,6 +9,12 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 public class ClassTypeDefinition : TypeDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public ClassTypeDefinition()
+        : base()
+    {
+    }
+
     public ClassTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
@@ -27,7 +33,7 @@ public class ClassTypeDefinition : TypeDefinition
 
     public TypeReference? BaseClass { get; set; }
 
-    public bool IsStatic { get; }
+    public bool IsStatic { get; set; }
 
-    public bool IsAbstract { get; }
+    public bool IsAbstract { get; set; }
 }

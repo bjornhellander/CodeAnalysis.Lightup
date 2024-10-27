@@ -8,6 +8,12 @@ using System.Collections.Generic;
 
 public class EnumTypeDefinition : BaseTypeDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    protected EnumTypeDefinition()
+    {
+        UnderlyingTypeName = "";
+    }
+
     public EnumTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
@@ -23,9 +29,9 @@ public class EnumTypeDefinition : BaseTypeDefinition
         IsFlagsEnum = isFlagsEnum;
     }
 
-    public string UnderlyingTypeName { get; }
+    public string UnderlyingTypeName { get; set; }
 
-    public bool IsFlagsEnum { get; }
+    public bool IsFlagsEnum { get; set; }
 
     public List<EnumValueDefinition> Values { get; } = [];
 }

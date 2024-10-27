@@ -3,11 +3,20 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
+using System;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
 public class EventDefinition : MemberDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public EventDefinition()
+        : base()
+    {
+        Name = "";
+        Type = new NamedTypeReference();
+    }
+
     public EventDefinition(string name, TypeReference type, bool isStatic)
     {
         Name = name;
@@ -15,9 +24,9 @@ public class EventDefinition : MemberDefinition
         IsStatic = isStatic;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
 
-    public TypeReference Type { get; }
+    public TypeReference Type { get; set; }
 
-    public bool IsStatic { get; }
+    public bool IsStatic { get; set; }
 }

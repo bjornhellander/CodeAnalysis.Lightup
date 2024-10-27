@@ -9,6 +9,12 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 public class StructTypeDefinition : TypeDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    protected StructTypeDefinition()
+        : base()
+    {
+    }
+
     public StructTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,

@@ -9,6 +9,15 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 public class NamedTypeReference : TypeReference
 {
+    [Obsolete("Only intended for serializer")]
+    public NamedTypeReference()
+        : base()
+    {
+        Name = "";
+        Namespace = "";
+        FullName = "";
+    }
+
     public NamedTypeReference(Type nativeType, string name, string @namespace, string fullName)
         : base(nativeType)
     {
@@ -17,9 +26,9 @@ public class NamedTypeReference : TypeReference
         FullName = fullName;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
 
-    public string Namespace { get; }
+    public string Namespace { get; set; }
 
-    public string FullName { get; }
+    public string FullName { get; set; }
 }

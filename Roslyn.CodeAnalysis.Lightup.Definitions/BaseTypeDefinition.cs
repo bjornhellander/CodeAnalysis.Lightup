@@ -4,9 +4,22 @@
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System;
+using System.Xml.Serialization;
 
+[XmlInclude(typeof(ClassTypeDefinition))]
+[XmlInclude(typeof(StructTypeDefinition))]
+[XmlInclude(typeof(InterfaceTypeDefinition))]
+[XmlInclude(typeof(EnumTypeDefinition))]
 public abstract class BaseTypeDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    protected BaseTypeDefinition()
+    {
+        Name = "";
+        Namespace = "";
+        FullName = "";
+    }
+
     protected BaseTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
@@ -23,17 +36,25 @@ public abstract class BaseTypeDefinition
         EnclosingTypeFullName = enclosingTypeName;
     }
 
-    public AssemblyKind AssemblyKind { get; }
+    public AssemblyKind AssemblyKind { get; set; }
 
-    public Version? AssemblyVersion { get; }
+    [XmlIgnore]
+    public Version? AssemblyVersion { get; set; }
 
-    public string Name { get; }
+    [XmlElement("AssemblyVersion")]
+    public string? AssemblyVersionString
+    {
+        get => AssemblyVersion?.ToString();
+        set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
+    }
 
-    public string Namespace { get; }
+    public string Name { get; set; }
 
-    public string FullName { get; }
+    public string Namespace { get; set; }
 
-    public string? EnclosingTypeFullName { get; }
+    public string FullName { get; set; }
+
+    public string? EnclosingTypeFullName { get; set; }
 
     public string GeneratedName { get; set; } = "";
 

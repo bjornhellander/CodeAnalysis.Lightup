@@ -10,7 +10,13 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 public abstract class TypeDefinition : BaseTypeDefinition
 {
-    public TypeDefinition(
+    [Obsolete("Only intended for serializer")]
+    protected TypeDefinition()
+        : base()
+    {
+    }
+
+    protected TypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
         string name,

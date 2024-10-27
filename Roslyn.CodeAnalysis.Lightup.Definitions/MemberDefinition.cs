@@ -4,12 +4,17 @@
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System;
+using System.Xml.Serialization;
 
 public abstract class MemberDefinition
 {
-    public MemberDefinition()
-    {
-    }
-
+    [XmlIgnore]
     public Version? AssemblyVersion { get; set; }
+
+    [XmlElement("AssemblyVersion")]
+    public string? AssemblyVersionString
+    {
+        get => AssemblyVersion?.ToString();
+        set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
+    }
 }

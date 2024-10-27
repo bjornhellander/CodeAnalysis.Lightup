@@ -3,11 +3,20 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
+using System;
 using System.Collections.Generic;
 
 // NOTE: Indexers can not be static
 public class IndexerDefinition : MemberDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public IndexerDefinition()
+        : base()
+    {
+        Type = new NamedTypeReference();
+        Parameters = [];
+    }
+
     public IndexerDefinition(
         TypeReference type,
         bool isNullable,
@@ -20,11 +29,11 @@ public class IndexerDefinition : MemberDefinition
         HasSetter = hasSetter;
     }
 
-    public TypeReference Type { get; }
+    public TypeReference Type { get; set; }
 
-    public bool IsNullable { get; }
+    public bool IsNullable { get; set; }
 
     public List<ParameterDefinition> Parameters { get; }
 
-    public bool HasSetter { get; }
+    public bool HasSetter { get; set; }
 }

@@ -7,11 +7,18 @@ using System;
 
 public class ArrayTypeReference : TypeReference
 {
+    [Obsolete("Only intended for serializer")]
+    public ArrayTypeReference()
+        : base()
+    {
+        ElementType = new NamedTypeReference();
+    }
+
     public ArrayTypeReference(Type nativeType, TypeReference elementType)
         : base(nativeType)
     {
         ElementType = elementType;
     }
 
-    public TypeReference ElementType { get; }
+    public TypeReference ElementType { get; set; }
 }

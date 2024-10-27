@@ -7,11 +7,18 @@ using System;
 
 public class GenericTypeParameterReference : TypeReference
 {
+    [Obsolete("Only intended for serializer")]
+    public GenericTypeParameterReference()
+        : base()
+    {
+        Name = "";
+    }
+
     public GenericTypeParameterReference(Type nativeType, string name)
         : base(nativeType)
     {
         Name = name;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
 }

@@ -9,6 +9,11 @@ using System.Diagnostics;
 [DebuggerDisplay("{Name}")]
 public class InterfaceTypeDefinition : TypeDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    protected InterfaceTypeDefinition()
+    {
+    }
+
     public InterfaceTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,

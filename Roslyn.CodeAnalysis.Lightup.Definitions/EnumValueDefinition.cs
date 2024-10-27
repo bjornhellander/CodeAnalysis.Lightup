@@ -4,9 +4,17 @@
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System;
+using System.Xml.Serialization;
 
 public class EnumValueDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public EnumValueDefinition()
+        : base()
+    {
+        Name = "";
+    }
+
     public EnumValueDefinition(Version? assemblyVersion, string name, int value)
     {
         AssemblyVersion = assemblyVersion;
@@ -14,9 +22,17 @@ public class EnumValueDefinition
         Value = value;
     }
 
-    public Version? AssemblyVersion { get; }
+    [XmlIgnore]
+    public Version? AssemblyVersion { get; set; }
 
-    public string Name { get; }
+    [XmlElement("AssemblyVersion")]
+    public string? AssemblyVersionString
+    {
+        get => AssemblyVersion?.ToString();
+        set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
+    }
 
-    public int Value { get; }
+    public string Name { get; set; }
+
+    public int Value { get; set; }
 }

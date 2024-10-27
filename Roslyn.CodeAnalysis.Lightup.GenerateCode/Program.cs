@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Serialization;
+using Roslyn.CodeAnalysis.Lightup.Definitions;
 
 internal class Program
 {
@@ -17,11 +19,13 @@ internal class Program
 
         var rootFolder = GetRepositoryRoot();
 
+        var assembly = Assembly.GetExecutingAssembly();
+        using var stream = assembly.GetManifestResourceStream("Roslyn.CodeAnalysis.Lightup.GenerateCode.Types.xml")!;
+        var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
+        var typeList = (List<BaseTypeDefinition>)serializer.Deserialize(stream)!;
+        var types = typeList.ToDictionary(x => x.FullName, x => x);
+
         RemoveGeneratedSourceFiles(rootFolder, force);
-
-        var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x).ToList();
-
-        var types = Reflector.CollectTypes(testProjectNames, rootFolder);
 
         Writer.Write(types, rootFolder);
     }
@@ -77,12 +81,5 @@ internal class Program
         }
 
         Assert.IsTrue(count > 100 || force, "Probably failed to remove generated source files!");
-    }
-
-    private static List<string> GetTestProjectNames(string rootFolder)
-    {
-        var folders = Directory.GetDirectories(rootFolder).Select(x => Path.GetFileName(x)).ToList();
-        var testProjectFolders = folders.Where(x => x.StartsWith("Roslyn.CodeAnalysis.Lightup.Test") && !x.EndsWith(".Internal")).ToList();
-        return testProjectFolders;
     }
 }

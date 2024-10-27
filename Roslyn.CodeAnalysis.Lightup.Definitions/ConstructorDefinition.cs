@@ -3,17 +3,25 @@
 
 namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
+using System;
 using System.Collections.Generic;
 
 public class ConstructorDefinition : MemberDefinition
 {
+    [Obsolete("Only intended for serializer")]
+    public ConstructorDefinition()
+        : base()
+    {
+        Parameters = [];
+    }
+
     public ConstructorDefinition(List<ParameterDefinition> parameters, bool isStatic)
     {
         Parameters = parameters;
         IsStatic = isStatic;
     }
 
-    public List<ParameterDefinition> Parameters { get; }
+    public List<ParameterDefinition> Parameters { get; set; }
 
-    public bool IsStatic { get; }
+    public bool IsStatic { get; set; }
 }
