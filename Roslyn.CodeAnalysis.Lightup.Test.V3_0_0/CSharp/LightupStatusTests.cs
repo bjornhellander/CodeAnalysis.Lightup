@@ -5,7 +5,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.Example.Support;
+using Roslyn.CodeAnalysis.Lightup.Example.Analyzers;
 
 [TestClass]
 public class LightupStatusTests

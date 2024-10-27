@@ -11,7 +11,6 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.Analyzers
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.Diagnostics;
     using Microsoft.CodeAnalysis.Diagnostics.Lightup;
-    using Roslyn.CodeAnalysis.Lightup.Example.Support;
 
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class AdditionalFileNameAnalyzer : DiagnosticAnalyzer

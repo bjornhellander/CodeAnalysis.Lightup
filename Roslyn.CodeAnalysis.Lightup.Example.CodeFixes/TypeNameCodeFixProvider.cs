@@ -17,7 +17,6 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.CodeFixes
     using Microsoft.CodeAnalysis.Rename;
     using Microsoft.CodeAnalysis.Rename.Lightup;
     using Roslyn.CodeAnalysis.Lightup.Example.Analyzers;
-    using Roslyn.CodeAnalysis.Lightup.Example.Support;
 
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(TypeNameCodeFixProvider))]
     [Shared]
