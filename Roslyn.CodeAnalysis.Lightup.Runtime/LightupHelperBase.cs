@@ -1,7 +1,7 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.Support
+namespace Roslyn.CodeAnalysis.Lightup.Runtime
 {
     using System;
     using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace Roslyn.CodeAnalysis.Lightup.Support
     using System.Linq.Expressions;
     using System.Reflection;
     using System.Threading.Tasks;
-    using Roslyn.CodeAnalysis.Lightup.Support.Extensions;
-    using Roslyn.CodeAnalysis.Lightup.Support.Helpers;
+    using Roslyn.CodeAnalysis.Lightup.Runtime.Extensions;
+    using Roslyn.CodeAnalysis.Lightup.Runtime.Helpers;
 
     public class LightupHelperBase
     {

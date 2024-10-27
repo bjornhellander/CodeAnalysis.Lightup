@@ -7,7 +7,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    internal class CommonLightupHelper : Roslyn.CodeAnalysis.Lightup.Support.LightupHelperBase
+    internal class CommonLightupHelper : Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelperBase
     {
         private static readonly System.Reflection.Assembly Assembly = typeof(Microsoft.CodeAnalysis.IOperation).Assembly;
 

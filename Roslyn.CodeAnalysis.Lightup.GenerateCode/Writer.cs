@@ -117,7 +117,7 @@ internal class Writer
 
 namespace Microsoft.CodeAnalysis.Lightup
 {{
-    internal class {name} : Roslyn.CodeAnalysis.Lightup.Support.LightupHelperBase
+    internal class {name} : Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelperBase
     {{
         private static readonly System.Reflection.Assembly Assembly = typeof({ExampleTypeNames[assemblyKind]}).Assembly;
 
