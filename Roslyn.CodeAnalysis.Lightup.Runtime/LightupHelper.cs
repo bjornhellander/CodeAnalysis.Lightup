@@ -14,7 +14,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Runtime
     using Roslyn.CodeAnalysis.Lightup.Runtime.Extensions;
     using Roslyn.CodeAnalysis.Lightup.Runtime.Helpers;
 
-    public class LightupHelperBase
+    public class LightupHelper
     {
         public static Type? FindType(Assembly assembly, string wrappedTypeName)
         {
