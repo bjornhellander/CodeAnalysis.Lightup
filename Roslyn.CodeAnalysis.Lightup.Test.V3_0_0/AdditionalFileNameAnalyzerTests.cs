@@ -5,7 +5,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
 
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Roslyn.CodeAnalysis.Lightup.Example.Support;
+using Roslyn.CodeAnalysis.Lightup.Example.Analyzers;
 using VerifyCS = Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers.CSharpAnalyzerVerifier<
     Roslyn.CodeAnalysis.Lightup.Example.Analyzers.AdditionalFileNameAnalyzer>;
 
@@ -24,7 +24,7 @@ public class AdditionalFileNameAnalyzerTests
             },
         };
 
-        if (CommonLightupStatus.CodeAnalysisVersion >= new System.Version(3, 8, 0))
+        if (LightupStatus.CodeAnalysisVersion >= new System.Version(3, 8, 0))
         {
             var expected = VerifyCS.Diagnostic().WithNoLocation();
             test.TestState.ExpectedDiagnostics.Add(expected);

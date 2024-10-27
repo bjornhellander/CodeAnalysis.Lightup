@@ -11,7 +11,6 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.Analyzers
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.Diagnostics;
     using Microsoft.CodeAnalysis.Diagnostics.Lightup;
-    using Roslyn.CodeAnalysis.Lightup.Example.Support;
 
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class AdditionalFileNameAnalyzer : DiagnosticAnalyzer
@@ -43,7 +42,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Example.Analyzers
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            if (CommonLightupStatus.CodeAnalysisVersion >= new Version(3, 8, 0))
+            if (LightupStatus.CodeAnalysisVersion >= new Version(3, 8, 0))
             {
                 context.RegisterAdditionalFileAction(HandleAdditionalFile);
             }
