@@ -12,7 +12,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     using System.Reflection;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.Text;
-    using Roslyn.CodeAnalysis.Lightup.Support;
 
     // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
@@ -34,8 +33,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = LightupHelperBase.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
-            AddRangeAccessor = LightupHelperBase.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "nodesIEnumerable`1");
+            CountAccessor = CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            AddRangeAccessor = CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "nodesIEnumerable`1");
         }
 
         private SeparatedSyntaxListWrapper(object? obj)
