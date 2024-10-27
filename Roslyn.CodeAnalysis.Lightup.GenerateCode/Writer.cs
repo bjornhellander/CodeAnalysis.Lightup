@@ -17,10 +17,10 @@ internal class Writer
 {
     private static readonly Dictionary<AssemblyKind, string> ProjectNames = new()
     {
-        [AssemblyKind.Common] = "Roslyn.CodeAnalysis.Lightup.Common",
-        [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.CSharp",
-        [AssemblyKind.Workspaces] = "Roslyn.CodeAnalysis.Lightup.Workspaces.Common",
-        [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.CSharp.Workspaces",
+        [AssemblyKind.Common] = "Roslyn.CodeAnalysis.Lightup.Example.Analyzers",
+        [AssemblyKind.CSharp] = "Roslyn.CodeAnalysis.Lightup.Example.Analyzers",
+        [AssemblyKind.Workspaces] = "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes",
+        [AssemblyKind.CSharpWorkspaces] = "Roslyn.CodeAnalysis.Lightup.Example.CodeFixes",
     };
 
     private static readonly Dictionary<AssemblyKind, string> HelperPrefixes = new()
@@ -129,14 +129,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 }}
 ";
 
-        var sourcePath = Path.Combine(rootPath, ProjectNames[assemblyKind]);
-        var targetFolderPath = Path.Combine(sourcePath, "Lightup");
+        var targetFolderPath = GetGeneratedFolder(rootPath, assemblyKind);
         if (!Directory.Exists(targetFolderPath))
         {
             Directory.CreateDirectory(targetFolderPath);
         }
 
-        var targetFilePath = Path.Combine(targetFolderPath, $"{name}.cs");
+        var targetFilePath = Path.Combine(targetFolderPath, $"{name}.g.cs");
         File.WriteAllText(targetFilePath, text, Encoding.UTF8);
     }
 
@@ -306,14 +305,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 }
 ";
 
-        var sourcePath = Path.Combine(rootPath, ProjectNames[AssemblyKind.CSharp]);
-        var targetFolderPath = Path.Combine(sourcePath, "Lightup");
+        var targetFolderPath = GetGeneratedFolder(rootPath, AssemblyKind.CSharp);
         if (!Directory.Exists(targetFolderPath))
         {
             Directory.CreateDirectory(targetFolderPath);
         }
 
-        var targetFilePath = Path.Combine(targetFolderPath, "SeparatedSyntaxListWrapper.cs");
+        var targetFilePath = Path.Combine(targetFolderPath, "SeparatedSyntaxListWrapper.g.cs");
         File.WriteAllText(targetFilePath, text, Encoding.UTF8);
     }
 
@@ -330,7 +328,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             if (source != null)
             {
-                var sourcePath = Path.Combine(rootPath, ProjectNames[assemblyKind]);
+                var sourcePath = GetGeneratedFolder(rootPath, assemblyKind);
                 var targetFolder = GetTargetFolder(typeDef, sourcePath);
                 if (!Directory.Exists(targetFolder))
                 {
@@ -1718,11 +1716,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         return true;
     }
 
+    private static string GetGeneratedFolder(string rootPath, AssemblyKind assemblyKind)
+    {
+        var projectFolderPath = Path.Combine(rootPath, ProjectNames[assemblyKind]);
+        var generatedFolderPath = Path.Combine(projectFolderPath, ".generated", "Roslyn.CodeAnalysis.Lightup.SourceGenerator", "Roslyn.CodeAnalysis.Lightup.SourceGenerator.LightupGenerator");
+        return generatedFolderPath;
+    }
+
     private static string GetTargetFolder(BaseTypeDefinition typeDef, string targetProjectPath)
     {
         var sourceNamespace = typeDef.Namespace!;
-        var targetNamespace = sourceNamespace + ".Lightup";
-        var targetFolder = targetNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
+        var targetFolder = sourceNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
         return Path.Combine(targetProjectPath, targetFolder);
     }
 
