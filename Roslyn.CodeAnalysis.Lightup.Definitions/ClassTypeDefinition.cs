@@ -1,25 +1,33 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System;
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class InterfaceTypeDefinition : TypeDefinition
+public class ClassTypeDefinition : TypeDefinition
 {
-    public InterfaceTypeDefinition(
+    public ClassTypeDefinition(
         AssemblyKind assemblyKind,
         Version? assemblyVersion,
         string name,
         string @namespace,
         string fullName,
+        bool isStatic,
+        bool isAbstract,
         TypeDefinition? enclosingType)
         : base(assemblyKind, assemblyVersion, name, @namespace, fullName, enclosingType)
     {
-        BaseInterface = null;
+        BaseClass = null;
+        IsStatic = isStatic;
+        IsAbstract = isAbstract;
     }
 
-    public TypeReference? BaseInterface { get; set; }
+    public TypeReference? BaseClass { get; set; }
+
+    public bool IsStatic { get; }
+
+    public bool IsAbstract { get; }
 }

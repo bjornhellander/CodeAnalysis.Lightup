@@ -35,11 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generation", "generation", "{E63EEBD0-7C02-4D6F-8286-1B3E5127538A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "runtime", "runtime", "{B016B61F-0E60-4DE7-B556-35857ACBBDF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Runtime", "Roslyn.CodeAnalysis.Lightup.Runtime\Roslyn.CodeAnalysis.Lightup.Runtime.csproj", "{DF6641B0-2488-46F5-BB43-DF689F905871}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generator", "generator", "{E63EEBD0-7C02-4D6F-8286-1B3E5127538A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Runtime", "Roslyn.CodeAnalysis.Lightup.Runtime\Roslyn.CodeAnalysis.Lightup.Runtime.csproj", "{DF6641B0-2488-46F5-BB43-DF689F905871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Definitions", "Roslyn.CodeAnalysis.Lightup.Definitions\Roslyn.CodeAnalysis.Lightup.Definitions.csproj", "{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{DF6641B0-2488-46F5-BB43-DF689F905871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF6641B0-2488-46F5-BB43-DF689F905871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF6641B0-2488-46F5-BB43-DF689F905871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{3A2AD8EA-36A8-4462-A63D-2EA270105108} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 		{C4424DD5-7DE5-441C-99EB-76FFFA910E6E} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 		{DF6641B0-2488-46F5-BB43-DF689F905871} = {B016B61F-0E60-4DE7-B556-35857ACBBDF3}
+		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}

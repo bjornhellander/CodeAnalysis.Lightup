@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Roslyn.CodeAnalysis.Lightup.Definitions;
 
 internal class Writer
 {

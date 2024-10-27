@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 using System.Text;
+using Roslyn.CodeAnalysis.Lightup.Definitions;
 
 internal class Reflector
 {

@@ -1,12 +1,12 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.GenerateCode;
+namespace Roslyn.CodeAnalysis.Lightup.Definitions;
 
 using System.Diagnostics;
 
 [DebuggerDisplay("{Name}")]
-internal class PropertyDefinition : MemberDefinition
+public class PropertyDefinition : MemberDefinition
 {
     public PropertyDefinition(string name, TypeReference type, bool isNullable, bool hasSetter, bool isStatic)
     {
