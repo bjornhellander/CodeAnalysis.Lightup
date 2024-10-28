@@ -325,9 +325,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         foreach (var typeDef in relevantTypeDefs)
         {
             var targetNamespace = GetTargetNamespace(typeDef);
-            var result = GenerateType(typeDef, typeDefs, targetNamespace, HelperPrefixes[assemblyKind]);
+            var source = GenerateType(typeDef, typeDefs, targetNamespace, HelperPrefixes[assemblyKind]);
 
-            if (result != null)
+            if (source != null)
             {
                 var sourcePath = Path.Combine(rootPath, ProjectNames[assemblyKind]);
                 var targetFolder = GetTargetFolder(typeDef, sourcePath);
@@ -336,7 +336,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                     Directory.CreateDirectory(targetFolder);
                 }
 
-                File.WriteAllText(Path.Combine(targetFolder, result.Value.Name + ".cs"), result.Value.Source, Encoding.UTF8);
+                File.WriteAllText(Path.Combine(targetFolder, typeDef.GeneratedName + ".cs"), source, Encoding.UTF8);
             }
         }
     }
@@ -348,7 +348,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         return targetNamespace;
     }
 
-    private static (string Name, string Source)? GenerateType(
+    private static string? GenerateType(
         BaseTypeDefinition typeDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
@@ -442,6 +442,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
     }
 
+    // TODO: Remove from this class
     private static bool HasNewMembers(TypeDefinition typeDef)
     {
         return
@@ -453,12 +454,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             typeDef.Methods.Any(x => x.AssemblyVersion != null);
     }
 
-    private static (string Name, string Source) GenerateNewEnum(
+    private static string GenerateNewEnum(
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
-        var targetName = typeDef.Name + "Ex";
+        var targetName = typeDef.GeneratedName;
 
         var sb = new StringBuilder();
         var isFirstValue = true;
@@ -493,10 +494,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
-        return (targetName, source);
+        return source;
     }
 
-    private static (string Name, string Source)? GenerateUpdatedEnum(
+    private static string? GenerateUpdatedEnum(
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
@@ -508,7 +509,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         var fullTypeName = GetFullEnumTypeName(typeDef);
 
-        var targetName = typeDef.Name + "Ex";
+        var targetName = typeDef.GeneratedName;
 
         var sb = new StringBuilder();
         var isFirstValue = true;
@@ -539,7 +540,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
-        return (targetName, source);
+        return source;
     }
 
     private static string GetFullEnumTypeName(EnumTypeDefinition typeDef)
@@ -552,13 +553,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         return sb.ToString();
     }
 
-    private static (string Name, string Source) GenerateWrapper(
+    private static string GenerateWrapper(
         TypeDefinition typeDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
         string helperPrefix)
     {
-        var targetName = typeDef.Name + "Wrapper";
+        var targetName = typeDef.GeneratedName;
 
         var instanceConstructors = GetInstanceConstructors(typeDef);
         var staticFields = GetStaticFields(typeDef);
@@ -863,17 +864,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
-        return (targetName, source);
+        return source;
     }
 
-    private static (string Name, string Source) GenerateExtension(
+    private static string GenerateExtension(
         TypeDefinition typeDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
         string helperPrefix)
     {
-        var targetNameSuffix = typeDef is ClassTypeDefinition classDef && classDef.IsStatic ? "Ex" : "Extensions";
-        var targetName = typeDef.Name + targetNameSuffix;
+        var targetName = typeDef.GeneratedName;
 
         var instanceConstructors = GetInstanceConstructors(typeDef);
         var staticFields = GetStaticFields(typeDef);
@@ -1187,7 +1187,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
-        return (targetName, source);
+        return source;
     }
 
     private static (string? Name, string? Namespace) GetBaseTypeName(TypeDefinition typeDef)

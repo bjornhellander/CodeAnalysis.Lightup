@@ -33,6 +33,8 @@ internal class Reflector
             isFirst = false;
         }
 
+        SetGeneratedTypeNames(types);
+
         return types;
     }
 
@@ -887,5 +889,97 @@ internal class Reflector
     private static bool AreEqual(ArrayTypeReference x, ArrayTypeReference y)
     {
         return AreEqual(x.ElementType, y.ElementType);
+    }
+
+    private static void SetGeneratedTypeNames(Dictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        foreach (var typeDef in typeDefs.Values)
+        {
+            var generatedName = CreateGeneratedTypeName(typeDef);
+            if (generatedName != null)
+            {
+                typeDef.GeneratedName = generatedName;
+            }
+        }
+    }
+
+    private static string? CreateGeneratedTypeName(BaseTypeDefinition typeDef)
+    {
+        if (typeDef is EnumTypeDefinition enumTypeDefinition)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return $"{typeDef.Name}Ex";
+            }
+            else if (HasNewValues(enumTypeDefinition))
+            {
+                return $"{typeDef.Name}Ex";
+            }
+        }
+        else if (typeDef is StructTypeDefinition structTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return $"{typeDef.Name}Wrapper";
+            }
+            else if (HasNewMembers(structTypeDef))
+            {
+                return $"{typeDef.Name}Extensions";
+            }
+        }
+        else if (typeDef is ClassTypeDefinition classTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                if (classTypeDef.IsStatic)
+                {
+                    return $"{typeDef.Name}Ex";
+                }
+                else
+                {
+                    return $"{typeDef.Name}Wrapper";
+                }
+            }
+            else if (HasNewMembers(classTypeDef))
+            {
+                if (classTypeDef.IsStatic)
+                {
+                    return $"{typeDef.Name}Ex";
+                }
+                else
+                {
+                    return $"{typeDef.Name}Extensions";
+                }
+            }
+        }
+        else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return $"{typeDef.Name}Wrapper";
+            }
+            else if (HasNewMembers(interfaceTypeDef))
+            {
+                return $"{typeDef.Name}Extensions";
+            }
+        }
+
+        return null;
+    }
+
+    private static bool HasNewValues(EnumTypeDefinition typeDef)
+    {
+        return typeDef.Values.Any(x => x.AssemblyVersion != null);
+    }
+
+    private static bool HasNewMembers(TypeDefinition typeDef)
+    {
+        return
+            typeDef.Constructors.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Fields.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Events.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Indexers.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Methods.Any(x => x.AssemblyVersion != null);
     }
 }
