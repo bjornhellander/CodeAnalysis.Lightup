@@ -19,15 +19,9 @@ internal class Program
 
         RemoveGeneratedSourceFiles(rootFolder, force);
 
-        var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x);
+        var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x).ToList();
 
-        var isFirst = true;
-        var types = new Dictionary<string, BaseTypeDefinition>();
-        foreach (var testProjectName in testProjectNames)
-        {
-            Reflector.CollectTypes(testProjectName, rootFolder, types, isFirst);
-            isFirst = false;
-        }
+        var types = Reflector.CollectTypes(testProjectNames, rootFolder);
 
         Writer.Write(types, rootFolder);
     }

@@ -21,7 +21,22 @@ internal class Reflector
         [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Workspaces",
     };
 
-    public static void CollectTypes(
+    public static Dictionary<string, BaseTypeDefinition> CollectTypes(
+        IReadOnlyList<string> testProjectNames,
+        string rootFolder)
+    {
+        var isFirst = true;
+        var types = new Dictionary<string, BaseTypeDefinition>();
+        foreach (var testProjectName in testProjectNames)
+        {
+            CollectTypes(testProjectName, rootFolder, types, isFirst);
+            isFirst = false;
+        }
+
+        return types;
+    }
+
+    private static void CollectTypes(
         string testProjectName,
         string rootFolder,
         Dictionary<string, BaseTypeDefinition> typeDefs,
