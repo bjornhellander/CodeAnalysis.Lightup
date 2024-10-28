@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
+using System.Text;
 
 internal class Reflector
 {
@@ -21,7 +22,24 @@ internal class Reflector
         [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Workspaces",
     };
 
-    public static void CollectTypes(
+    public static Dictionary<string, BaseTypeDefinition> CollectTypes(
+        IReadOnlyList<string> testProjectNames,
+        string rootFolder)
+    {
+        var isFirst = true;
+        var types = new Dictionary<string, BaseTypeDefinition>();
+        foreach (var testProjectName in testProjectNames)
+        {
+            CollectTypes(testProjectName, rootFolder, types, isFirst);
+            isFirst = false;
+        }
+
+        AnalyzeTypes(types);
+
+        return types;
+    }
+
+    private static void CollectTypes(
         string testProjectName,
         string rootFolder,
         Dictionary<string, BaseTypeDefinition> typeDefs,
@@ -872,5 +890,118 @@ internal class Reflector
     private static bool AreEqual(ArrayTypeReference x, ArrayTypeReference y)
     {
         return AreEqual(x.ElementType, y.ElementType);
+    }
+
+    private static void AnalyzeTypes(Dictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        foreach (var typeDef in typeDefs.Values)
+        {
+            var result = AnalyzeType(typeDef);
+            if (result != null)
+            {
+                typeDef.GeneratedName = result.Value.GeneratedName;
+                typeDef.IsUpdated = result.Value.IsUpdated;
+                typeDef.GeneratedFileName = CreateGeneratedFileName(result.Value.GeneratedName, typeDef.EnclosingType);
+            }
+        }
+    }
+
+    private static (string GeneratedName, bool IsUpdated)? AnalyzeType(BaseTypeDefinition typeDef)
+    {
+        if (typeDef is EnumTypeDefinition enumTypeDefinition)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return ($"{typeDef.Name}Ex", false);
+            }
+            else if (HasNewValues(enumTypeDefinition))
+            {
+                return ($"{typeDef.Name}Ex", true);
+            }
+        }
+        else if (typeDef is StructTypeDefinition structTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return ($"{typeDef.Name}Wrapper", false);
+            }
+            else if (HasNewMembers(structTypeDef))
+            {
+                return ($"{typeDef.Name}Extensions", true);
+            }
+        }
+        else if (typeDef is ClassTypeDefinition classTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                if (classTypeDef.IsStatic)
+                {
+                    return ($"{typeDef.Name}Ex", false);
+                }
+                else
+                {
+                    return ($"{typeDef.Name}Wrapper", false);
+                }
+            }
+            else if (HasNewMembers(classTypeDef))
+            {
+                if (classTypeDef.IsStatic)
+                {
+                    return ($"{typeDef.Name}Ex", true);
+                }
+                else
+                {
+                    return ($"{typeDef.Name}Extensions", true);
+                }
+            }
+        }
+        else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
+        {
+            if (typeDef.AssemblyVersion != null)
+            {
+                return ($"{typeDef.Name}Wrapper", false);
+            }
+            else if (HasNewMembers(interfaceTypeDef))
+            {
+                return ($"{typeDef.Name}Extensions", true);
+            }
+        }
+
+        return null;
+    }
+
+    private static bool HasNewValues(EnumTypeDefinition typeDef)
+    {
+        return typeDef.Values.Any(x => x.AssemblyVersion != null);
+    }
+
+    private static bool HasNewMembers(TypeDefinition typeDef)
+    {
+        return
+            typeDef.Constructors.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Fields.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Events.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Indexers.Any(x => x.AssemblyVersion != null) ||
+            typeDef.Methods.Any(x => x.AssemblyVersion != null);
+    }
+
+    private static string CreateGeneratedFileName(string generatedName, TypeDefinition? enclosingType)
+    {
+        var sb = new StringBuilder();
+        AppendEnclosingType(sb, enclosingType);
+        sb.Append(generatedName);
+        sb.Append(".cs");
+        return sb.ToString();
+
+        static void AppendEnclosingType(StringBuilder sb, TypeDefinition? enclosingType)
+        {
+            if (enclosingType != null)
+            {
+                AppendEnclosingType(sb, enclosingType.EnclosingType);
+                sb.Append(enclosingType.Name);
+                sb.Append(".");
+            }
+        }
     }
 }

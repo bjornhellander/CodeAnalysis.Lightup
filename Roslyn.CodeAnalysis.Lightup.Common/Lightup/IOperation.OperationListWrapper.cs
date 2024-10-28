@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+public partial class IOperationExtensions {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList. Added in version 4.4.0.0.</summary>
     public readonly partial struct OperationListWrapper
     {
@@ -20,9 +21,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate System.Boolean AnyDelegate0(System.Object? _obj);
         private delegate Microsoft.CodeAnalysis.IOperation FirstDelegate1(System.Object? _obj);
-        private delegate Microsoft.CodeAnalysis.Lightup.EnumeratorWrapper GetEnumeratorDelegate2(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(System.Object? _obj);
         private delegate Microsoft.CodeAnalysis.IOperation LastDelegate3(System.Object? _obj);
-        private delegate Microsoft.CodeAnalysis.Lightup.ReversedWrapper ReverseDelegate4(System.Object? _obj);
+        private delegate Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper ReverseDelegate4(System.Object? _obj);
         private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(System.Object? _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
@@ -82,7 +83,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => FirstFunc1(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Microsoft.CodeAnalysis.Lightup.EnumeratorWrapper GetEnumerator()
+        public readonly Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumerator()
             => GetEnumeratorFunc2(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
@@ -90,11 +91,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             => LastFunc3(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly Microsoft.CodeAnalysis.Lightup.ReversedWrapper Reverse()
+        public readonly Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper Reverse()
             => ReverseFunc4(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
             => ToImmutableArrayFunc5(wrappedObject);
     }
+}
 }
