@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
+using System.Text;
 
 internal class Reflector
 {
@@ -900,6 +901,7 @@ internal class Reflector
             {
                 typeDef.GeneratedName = result.Value.GeneratedName;
                 typeDef.IsUpdated = result.Value.IsUpdated;
+                typeDef.GeneratedFileName = CreateGeneratedFileName(result.Value.GeneratedName, typeDef.EnclosingType);
             }
         }
     }
@@ -982,5 +984,24 @@ internal class Reflector
             typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
             typeDef.Indexers.Any(x => x.AssemblyVersion != null) ||
             typeDef.Methods.Any(x => x.AssemblyVersion != null);
+    }
+
+    private static string CreateGeneratedFileName(string generatedName, TypeDefinition? enclosingType)
+    {
+        var sb = new StringBuilder();
+        AppendEnclosingType(sb, enclosingType);
+        sb.Append(generatedName);
+        sb.Append(".cs");
+        return sb.ToString();
+
+        static void AppendEnclosingType(StringBuilder sb, TypeDefinition? enclosingType)
+        {
+            if (enclosingType != null)
+            {
+                AppendEnclosingType(sb, enclosingType.EnclosingType);
+                sb.Append(enclosingType.Name);
+                sb.Append(".");
+            }
+        }
     }
 }

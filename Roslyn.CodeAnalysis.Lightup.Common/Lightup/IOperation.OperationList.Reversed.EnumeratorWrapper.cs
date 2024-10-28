@@ -9,6 +9,9 @@ using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
+public partial class IOperationExtensions {
+public partial struct OperationListWrapper {
+public partial struct ReversedWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator. Added in version 4.4.0.0.</summary>
     public readonly partial struct EnumeratorWrapper
     {
@@ -69,4 +72,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         public readonly void Reset()
             => ResetFunc1(wrappedObject);
     }
+}
+}
+}
 }

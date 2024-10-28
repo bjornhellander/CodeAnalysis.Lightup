@@ -38,4 +38,6 @@ internal abstract class BaseTypeDefinition
     public string GeneratedName { get; set; } = "";
 
     public bool IsUpdated { get; set; }
+
+    public string GeneratedFileName { get; set; } = "";
 }

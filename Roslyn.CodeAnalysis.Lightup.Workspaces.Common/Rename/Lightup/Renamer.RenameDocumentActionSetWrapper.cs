@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
+public partial class RenamerEx {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet. Added in version 3.8.0.0.</summary>
     public readonly partial struct RenameDocumentActionSetWrapper
     {
@@ -16,10 +17,10 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private static readonly System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(System.Object? _obj);
+        private delegate System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(System.Object? _obj);
 
         private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate0(System.Object? _obj, Microsoft.CodeAnalysis.Solution solution, System.Threading.CancellationToken cancellationToken);
-        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.Solution solution, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionWrapper> actions, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(System.Object? _obj, Microsoft.CodeAnalysis.Solution solution, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, System.Threading.CancellationToken cancellationToken);
 
         private static readonly ApplicableActionsGetterDelegate ApplicableActionsGetterFunc;
 
@@ -44,7 +45,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionWrapper> ApplicableActions
+        public readonly System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActions
         {
             get => ApplicableActionsGetterFunc(wrappedObject);
         }
@@ -66,7 +67,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             => UpdateSolutionAsyncFunc0(wrappedObject, solution, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(Microsoft.CodeAnalysis.Solution solution, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionWrapper> actions, System.Threading.CancellationToken cancellationToken)
+        public readonly System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(Microsoft.CodeAnalysis.Solution solution, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, System.Threading.CancellationToken cancellationToken)
             => UpdateSolutionAsyncFunc1(wrappedObject, solution, actions, cancellationToken);
     }
+}
 }

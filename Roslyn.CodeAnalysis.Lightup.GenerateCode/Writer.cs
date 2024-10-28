@@ -337,7 +337,7 @@ namespace Microsoft.CodeAnalysis.Lightup
                     Directory.CreateDirectory(targetFolder);
                 }
 
-                File.WriteAllText(Path.Combine(targetFolder, typeDef.GeneratedName + ".cs"), source, Encoding.UTF8);
+                File.WriteAllText(Path.Combine(targetFolder, typeDef.GeneratedFileName), source, Encoding.UTF8);
             }
         }
     }
@@ -525,7 +525,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         var sb = new StringBuilder();
         sb.Append(typeDef.Namespace);
-        AppendEnclosingType(sb, typeDef.EnclosingType);
+        AppendEnclosingType(sb, false, typeDef.EnclosingType);
         sb.Append(".");
         sb.Append(typeDef.Name);
         return sb.ToString();
@@ -571,6 +571,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
+        AppendEnclosingTypesStart(sb, typeDef.EnclosingType);
         AppendTypeSummary(sb, typeDef);
         sb.AppendLine($"    public readonly partial struct {targetName}");
         sb.AppendLine($"    {{");
@@ -839,10 +840,30 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
         }
         sb.AppendLine($"    }}");
+        AppendEnclosingTypesEnd(sb, typeDef.EnclosingType);
         sb.AppendLine($"}}");
 
         var source = sb.ToString();
         return source;
+    }
+
+    private static void AppendEnclosingTypesStart(StringBuilder sb, TypeDefinition? enclosingType)
+    {
+        if (enclosingType != null)
+        {
+            AppendEnclosingTypesStart(sb, enclosingType.EnclosingType);
+            var typeKeyword = enclosingType.AssemblyVersion != null ? "struct" : "class";
+            sb.AppendLine($"public partial {typeKeyword} {enclosingType.GeneratedName} {{");
+        }
+    }
+
+    private static void AppendEnclosingTypesEnd(StringBuilder sb, TypeDefinition? enclosingType)
+    {
+        if (enclosingType != null)
+        {
+            AppendEnclosingTypesEnd(sb, enclosingType.EnclosingType);
+            sb.AppendLine("}");
+        }
     }
 
     private static string GenerateExtension(
@@ -1631,31 +1652,28 @@ namespace Microsoft.CodeAnalysis.Lightup
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
             sb.Append($"{namedTypeRef.Namespace}");
             sb.Append($"{(isNew ? ".Lightup" : "")}");
-            if (namedTypeRef.FullName == "Microsoft.CodeAnalysis.CodeFixes.FixAllContext+DiagnosticProvider") //// TODO: Fix this condition
-            {
-                AppendEnclosingType(sb, namedTypeRef, typeDefs);
-            }
+            AppendEnclosingType(sb, namedTypeRef, isNew, typeDefs);
             sb.Append($".{namedTypeRef.Name}");
             sb.Append($"{(isNewEnum ? "Ex" : isNew ? "Wrapper" : "")}");
         }
     }
 
-    private static void AppendEnclosingType(StringBuilder sb, NamedTypeReference namedTypeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    private static void AppendEnclosingType(StringBuilder sb, NamedTypeReference namedTypeRef, bool isNew, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         if (typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef))
         {
-            AppendEnclosingType(sb, typeDef.EnclosingType);
+            AppendEnclosingType(sb, isNew, typeDef.EnclosingType);
         }
     }
 
-    private static void AppendEnclosingType(StringBuilder sb, BaseTypeDefinition? enclosingType)
+    private static void AppendEnclosingType(StringBuilder sb, bool isNew, BaseTypeDefinition? enclosingType)
     {
         if (enclosingType != null)
         {
-            AppendEnclosingType(sb, enclosingType.EnclosingType);
+            AppendEnclosingType(sb, isNew, enclosingType.EnclosingType);
 
             sb.Append(".");
-            sb.Append(enclosingType.Name);
+            sb.Append(isNew ? enclosingType.GeneratedName : enclosingType.Name);
         }
     }
 

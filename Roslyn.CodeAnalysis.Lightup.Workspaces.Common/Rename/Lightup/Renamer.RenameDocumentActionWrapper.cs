@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.Lightup;
 
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
+public partial class RenamerEx {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction. Added in version 3.8.0.0.</summary>
     public readonly partial struct RenameDocumentActionWrapper
     {
@@ -57,4 +58,5 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         public readonly System.Collections.Immutable.ImmutableArray<System.String> GetErrors(System.Globalization.CultureInfo? culture)
             => GetErrorsFunc1(wrappedObject, culture);
     }
+}
 }

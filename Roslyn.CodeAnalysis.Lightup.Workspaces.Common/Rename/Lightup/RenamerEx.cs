@@ -14,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer";
 
-        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionSetWrapper> RenameDocumentAsyncDelegate0(Microsoft.CodeAnalysis.Document document, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, Microsoft.CodeAnalysis.Options.OptionSet? optionSet, System.Threading.CancellationToken cancellationToken);
-        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionSetWrapper> RenameDocumentAsyncDelegate1(Microsoft.CodeAnalysis.Document document, Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper options, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsyncDelegate0(Microsoft.CodeAnalysis.Document document, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, Microsoft.CodeAnalysis.Options.OptionSet? optionSet, System.Threading.CancellationToken cancellationToken);
+        private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsyncDelegate1(Microsoft.CodeAnalysis.Document document, Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper options, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, System.Threading.CancellationToken cancellationToken);
         private delegate System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Solution> RenameSymbolAsyncDelegate2(Microsoft.CodeAnalysis.Solution solution, Microsoft.CodeAnalysis.ISymbol symbol, Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper options, System.String newName, System.Threading.CancellationToken cancellationToken);
 
         private static readonly RenameDocumentAsyncDelegate0 RenameDocumentAsyncFunc0;
@@ -32,11 +32,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionSetWrapper> RenameDocumentAsync(Microsoft.CodeAnalysis.Document document, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, Microsoft.CodeAnalysis.Options.OptionSet? optionSet, System.Threading.CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsync(Microsoft.CodeAnalysis.Document document, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, Microsoft.CodeAnalysis.Options.OptionSet? optionSet, System.Threading.CancellationToken cancellationToken)
             => RenameDocumentAsyncFunc0(document, newDocumentName, newDocumentFolders, optionSet, cancellationToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenameDocumentActionSetWrapper> RenameDocumentAsync(Microsoft.CodeAnalysis.Document document, Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper options, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, System.Threading.CancellationToken cancellationToken)
+        public static System.Threading.Tasks.Task<Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsync(Microsoft.CodeAnalysis.Document document, Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper options, System.String? newDocumentName, System.Collections.Generic.IReadOnlyList<System.String>? newDocumentFolders, System.Threading.CancellationToken cancellationToken)
             => RenameDocumentAsyncFunc1(document, options, newDocumentName, newDocumentFolders, cancellationToken);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
