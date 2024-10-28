@@ -70,6 +70,7 @@ internal class Writer
         "Microsoft.CodeAnalysis.IncrementalGeneratorPostInitializationContext",
         "Microsoft.CodeAnalysis.IncrementalGeneratorRunStep", // References ValueType<wrapper, ...>
         "Microsoft.CodeAnalysis.IncrementalStepRunReason",
+        "Microsoft.CodeAnalysis.IncrementalValueProviderExtensions", // Only generic methods
         "Microsoft.CodeAnalysis.ISourceGenerator", // References IncrementalGeneratorInitializationContext
         "Microsoft.CodeAnalysis.ISyntaxContextReceiver",
         "Microsoft.CodeAnalysis.ISyntaxReceiver",
@@ -365,74 +366,65 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 return GenerateNewEnum(enumTypeDef, targetNamespace);
             }
-            else
+            else if (typeDef.IsUpdated)
             {
                 return GenerateUpdatedEnum(enumTypeDef, targetNamespace);
+            }
+            else
+            {
+                return null;
             }
         }
         else if (typeDef is StructTypeDefinition structTypeDef)
         {
-            if (typeDef.AssemblyVersion == null)
+            if (typeDef.AssemblyVersion != null)
             {
-                if (HasNewMembers(structTypeDef))
-                {
-                    return GenerateExtension(structTypeDef, typeDefs, targetNamespace, helperPrefix);
-                }
-                else
-                {
-                    return null;
-                }
+                return GenerateWrapper(structTypeDef, typeDefs, targetNamespace, helperPrefix);
+            }
+            else if (structTypeDef.IsUpdated)
+            {
+                return GenerateExtension(structTypeDef, typeDefs, targetNamespace, helperPrefix);
             }
             else
             {
-                return GenerateWrapper(structTypeDef, typeDefs, targetNamespace, helperPrefix);
+                return null;
             }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            if (classTypeDef.IsStatic)
+            if (classTypeDef.AssemblyVersion != null)
             {
-                if (HasNewMembers(classTypeDef))
+                if (classTypeDef.IsStatic)
                 {
                     return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix);
                 }
                 else
                 {
-                    return null;
+                    return GenerateWrapper(classTypeDef, typeDefs, targetNamespace, helperPrefix);
                 }
             }
-            else if (typeDef.AssemblyVersion == null)
+            else if (classTypeDef.IsUpdated)
             {
-                if (HasNewMembers(classTypeDef))
-                {
-                    return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix);
-                }
-                else
-                {
-                    return null;
-                }
+                return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix);
             }
             else
             {
-                return GenerateWrapper(classTypeDef, typeDefs, targetNamespace, helperPrefix);
+                return null;
             }
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
         {
-            if (typeDef.AssemblyVersion == null)
+            if (typeDef.AssemblyVersion != null)
             {
-                if (HasNewMembers(interfaceTypeDef))
-                {
-                    return GenerateExtension(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix);
-                }
-                else
-                {
-                    return null;
-                }
+                return GenerateWrapper(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix);
+            }
+            else if (interfaceTypeDef.IsUpdated)
+            {
+                return GenerateExtension(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix);
             }
             else
             {
-                return GenerateWrapper(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix);
+                return null;
             }
         }
         else
@@ -442,22 +434,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
     }
 
-    // TODO: Remove from this class
-    private static bool HasNewMembers(TypeDefinition typeDef)
-    {
-        return
-            typeDef.Constructors.Any(x => x.AssemblyVersion != null) ||
-            typeDef.Fields.Any(x => x.AssemblyVersion != null) ||
-            typeDef.Events.Any(x => x.AssemblyVersion != null) ||
-            typeDef.Properties.Any(x => x.AssemblyVersion != null) ||
-            typeDef.Indexers.Any(x => x.AssemblyVersion != null) ||
-            typeDef.Methods.Any(x => x.AssemblyVersion != null);
-    }
-
     private static string GenerateNewEnum(
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
+        // TODO: No need to check AssemblyVersion here, right?
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
         var targetName = typeDef.GeneratedName;
 
@@ -497,15 +478,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         return source;
     }
 
-    private static string? GenerateUpdatedEnum(
+    private static string GenerateUpdatedEnum(
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
         var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
-        if (newValues.Count == 0)
-        {
-            return null;
-        }
+        Assert.IsTrue(newValues.Count > 0, "Unexpected unchanged enum");
 
         var fullTypeName = GetFullEnumTypeName(typeDef);
 

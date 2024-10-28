@@ -36,4 +36,6 @@ internal abstract class BaseTypeDefinition
     public TypeDefinition? EnclosingType { get; }
 
     public string GeneratedName { get; set; } = "";
+
+    public bool IsUpdated { get; set; }
 }

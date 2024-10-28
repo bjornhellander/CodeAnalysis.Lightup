@@ -33,7 +33,7 @@ internal class Reflector
             isFirst = false;
         }
 
-        SetGeneratedTypeNames(types);
+        AnalyzeTypes(types);
 
         return types;
     }
@@ -891,40 +891,41 @@ internal class Reflector
         return AreEqual(x.ElementType, y.ElementType);
     }
 
-    private static void SetGeneratedTypeNames(Dictionary<string, BaseTypeDefinition> typeDefs)
+    private static void AnalyzeTypes(Dictionary<string, BaseTypeDefinition> typeDefs)
     {
         foreach (var typeDef in typeDefs.Values)
         {
-            var generatedName = CreateGeneratedTypeName(typeDef);
-            if (generatedName != null)
+            var result = AnalyzeType(typeDef);
+            if (result != null)
             {
-                typeDef.GeneratedName = generatedName;
+                typeDef.GeneratedName = result.Value.GeneratedName;
+                typeDef.IsUpdated = result.Value.IsUpdated;
             }
         }
     }
 
-    private static string? CreateGeneratedTypeName(BaseTypeDefinition typeDef)
+    private static (string GeneratedName, bool IsUpdated)? AnalyzeType(BaseTypeDefinition typeDef)
     {
         if (typeDef is EnumTypeDefinition enumTypeDefinition)
         {
             if (typeDef.AssemblyVersion != null)
             {
-                return $"{typeDef.Name}Ex";
+                return ($"{typeDef.Name}Ex", false);
             }
             else if (HasNewValues(enumTypeDefinition))
             {
-                return $"{typeDef.Name}Ex";
+                return ($"{typeDef.Name}Ex", true);
             }
         }
         else if (typeDef is StructTypeDefinition structTypeDef)
         {
             if (typeDef.AssemblyVersion != null)
             {
-                return $"{typeDef.Name}Wrapper";
+                return ($"{typeDef.Name}Wrapper", false);
             }
             else if (HasNewMembers(structTypeDef))
             {
-                return $"{typeDef.Name}Extensions";
+                return ($"{typeDef.Name}Extensions", true);
             }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
@@ -933,22 +934,22 @@ internal class Reflector
             {
                 if (classTypeDef.IsStatic)
                 {
-                    return $"{typeDef.Name}Ex";
+                    return ($"{typeDef.Name}Ex", false);
                 }
                 else
                 {
-                    return $"{typeDef.Name}Wrapper";
+                    return ($"{typeDef.Name}Wrapper", false);
                 }
             }
             else if (HasNewMembers(classTypeDef))
             {
                 if (classTypeDef.IsStatic)
                 {
-                    return $"{typeDef.Name}Ex";
+                    return ($"{typeDef.Name}Ex", true);
                 }
                 else
                 {
-                    return $"{typeDef.Name}Extensions";
+                    return ($"{typeDef.Name}Extensions", true);
                 }
             }
         }
@@ -956,11 +957,11 @@ internal class Reflector
         {
             if (typeDef.AssemblyVersion != null)
             {
-                return $"{typeDef.Name}Wrapper";
+                return ($"{typeDef.Name}Wrapper", false);
             }
             else if (HasNewMembers(interfaceTypeDef))
             {
-                return $"{typeDef.Name}Extensions";
+                return ($"{typeDef.Name}Extensions", true);
             }
         }
 
