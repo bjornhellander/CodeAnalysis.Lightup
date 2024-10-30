@@ -49,15 +49,18 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             get => SliceSymbolGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => CommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ISlicePatternOperationWrapper As(System.Object? obj)
         {
             var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new ISlicePatternOperationWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
             => wrappedObject;
     }

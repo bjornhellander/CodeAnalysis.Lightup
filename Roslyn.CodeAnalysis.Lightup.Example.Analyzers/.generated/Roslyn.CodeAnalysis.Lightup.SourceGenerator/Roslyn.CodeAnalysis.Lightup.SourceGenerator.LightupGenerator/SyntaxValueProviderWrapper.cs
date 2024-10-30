@@ -28,15 +28,18 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => CommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SyntaxValueProviderWrapper As(System.Object? obj)
         {
             var obj2 = CommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SyntaxValueProviderWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public System.Object? Unwrap()
             => wrappedObject;
     }

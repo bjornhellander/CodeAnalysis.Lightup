@@ -67,18 +67,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get => TypeGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public static implicit operator Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
             => obj.Unwrap();
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => CSharpLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static PrimaryConstructorBaseTypeSyntaxWrapper As(System.Object? obj)
         {
             var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? Unwrap()
             => wrappedObject;
 

@@ -40,18 +40,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             get => HintNameGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public static implicit operator Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
             => obj.Unwrap();
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SourceGeneratedDocumentWrapper As(System.Object? obj)
         {
             var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.Document? Unwrap()
             => wrappedObject;
     }

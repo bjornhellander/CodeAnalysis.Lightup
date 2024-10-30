@@ -64,18 +64,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get => ExpressionGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public static implicit operator Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(ExpressionColonSyntaxWrapper obj)
             => obj.Unwrap();
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => CSharpLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ExpressionColonSyntaxWrapper As(System.Object? obj)
         {
             var obj2 = CSharpLightupHelper.As<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new ExpressionColonSyntaxWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
             => wrappedObject;
 

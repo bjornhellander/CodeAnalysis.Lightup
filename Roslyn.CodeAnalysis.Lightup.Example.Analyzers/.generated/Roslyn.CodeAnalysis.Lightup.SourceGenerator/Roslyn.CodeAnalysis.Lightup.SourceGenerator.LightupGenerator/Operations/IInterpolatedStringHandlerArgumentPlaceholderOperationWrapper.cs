@@ -49,15 +49,18 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             get => PlaceholderKindGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => CommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper As(System.Object? obj)
         {
             var obj2 = CommonLightupHelper.As<Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.IOperation? Unwrap()
             => wrappedObject;
     }

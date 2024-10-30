@@ -49,15 +49,18 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             get => SupportedLanguagesGetterFunc(wrappedObject);
         }
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SolutionServicesWrapper As(System.Object? obj)
         {
             var obj2 = WorkspacesCommonLightupHelper.As<System.Object>(obj, WrappedType);
             return new SolutionServicesWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public System.Object? Unwrap()
             => wrappedObject;
 

@@ -40,15 +40,18 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(System.Object? obj)
             => WorkspacesCommonLightupHelper.Is(obj, WrappedType);
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ISupportedChangesServiceWrapper As(System.Object? obj)
         {
             var obj2 = WorkspacesCommonLightupHelper.As<Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 
+        /// <summary>Returns the wrapped object.</summary>
         public Microsoft.CodeAnalysis.Host.IWorkspaceService? Unwrap()
             => wrappedObject;
 
