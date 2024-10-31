@@ -800,7 +800,7 @@ internal class Reflector
 
         if (type.IsGenericParameter)
         {
-            return new GenericTypeParameterReference(type, type.Name);
+            return new GenericTypeParameterReference(type.Name, type.Name);
         }
         else if (type.IsArray)
         {
@@ -808,7 +808,7 @@ internal class Reflector
             Assert.IsTrue(elementType != null, "Could not get array's element type");
             var elementTypeRef = CreateTypeReference(elementType);
 
-            return new ArrayTypeReference(type, elementTypeRef);
+            return new ArrayTypeReference(type.Name, elementTypeRef);
         }
         else if (type.IsGenericType && !type.IsGenericTypeDefinition)
         {
@@ -819,7 +819,7 @@ internal class Reflector
 
             var typeArgumentsRefs = type.GenericTypeArguments.Select(CreateTypeReference).ToList();
 
-            return new GenericTypeReference(type, originalTypeRef, typeArgumentsRefs);
+            return new GenericTypeReference(type.Name, originalTypeRef, typeArgumentsRefs);
         }
         else if (type.IsGenericType)
         {
@@ -828,14 +828,14 @@ internal class Reflector
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(type, typeName, type.Namespace ?? "", fullTypeName);
+            return new NamedTypeReference(type.Name, typeName, type.Namespace ?? "", fullTypeName);
         }
         else
         {
             var fullTypeName = type.FullName;
             Assert.IsTrue(fullTypeName != null, "Could not get type's full name");
 
-            return new NamedTypeReference(type, type.Name, type.Namespace ?? "", fullTypeName);
+            return new NamedTypeReference(type.Name, type.Name, type.Namespace ?? "", fullTypeName);
         }
     }
 

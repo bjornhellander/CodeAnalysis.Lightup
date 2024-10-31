@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.SourceGenerator", "Roslyn.CodeAnalysis.Lightup.SourceGenerator\Roslyn.CodeAnalysis.Lightup.SourceGenerator.csproj", "{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator", "Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator\Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
 		{33624620-A2ED-4346-8A61-6CF055F1D4C6} = {CE401EEE-7B30-47E3-9983-1E266B735B74}
 		{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4} = {E63EEBD0-7C02-4D6F-8286-1B3E5127538A}
+		{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F} = {BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}

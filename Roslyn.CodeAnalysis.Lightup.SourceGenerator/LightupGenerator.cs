@@ -7,10 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Microsoft.CodeAnalysis;
 using Roslyn.CodeAnalysis.Lightup.Definitions;
 
@@ -22,10 +20,7 @@ public class LightupGenerator : IIncrementalGenerator
 
     private static Dictionary<string, BaseTypeDefinition> ReadTypes()
     {
-        var assembly = Assembly.GetExecutingAssembly();
-        using var stream = assembly.GetManifestResourceStream("Roslyn.CodeAnalysis.Lightup.SourceGenerator.Types.xml")!;
-        var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
-        var typeList = (List<BaseTypeDefinition>)serializer.Deserialize(stream)!;
+        var typeList = TypesReader.Read();
         var types = typeList.ToDictionary(x => x.FullName, x => x);
         return types;
     }

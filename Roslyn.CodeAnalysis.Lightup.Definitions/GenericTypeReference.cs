@@ -16,8 +16,8 @@ public class GenericTypeReference : TypeReference
         TypeArguments = [];
     }
 
-    public GenericTypeReference(Type nativeType, TypeReference originalType, List<TypeReference> typeArguments)
-        : base(nativeType)
+    public GenericTypeReference(string nativeName, TypeReference originalType, List<TypeReference> typeArguments)
+        : base(nativeName)
     {
         OriginalType = originalType;
         TypeArguments = typeArguments;

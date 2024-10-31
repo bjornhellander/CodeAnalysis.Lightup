@@ -14,8 +14,8 @@ public class GenericTypeParameterReference : TypeReference
         Name = "";
     }
 
-    public GenericTypeParameterReference(Type nativeType, string name)
-        : base(nativeType)
+    public GenericTypeParameterReference(string nativeName, string name)
+        : base(nativeName)
     {
         Name = name;
     }

@@ -18,9 +18,9 @@ public abstract class TypeReference
         NativeName = "";
     }
 
-    protected TypeReference(Type nativeType)
+    protected TypeReference(string nativeName)
     {
-        NativeName = nativeType.Name;
+        NativeName = nativeName;
     }
 
     public string NativeName { get; set; }

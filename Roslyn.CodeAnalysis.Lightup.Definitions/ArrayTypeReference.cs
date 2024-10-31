@@ -14,8 +14,8 @@ public class ArrayTypeReference : TypeReference
         ElementType = new NamedTypeReference();
     }
 
-    public ArrayTypeReference(Type nativeType, TypeReference elementType)
-        : base(nativeType)
+    public ArrayTypeReference(string nativeName, TypeReference elementType)
+        : base(nativeName)
     {
         ElementType = elementType;
     }

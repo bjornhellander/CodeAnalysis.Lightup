@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<InternalsVisibleTo Include="Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<!-- Linking from other project, since I got exceptions when having a project reference -->
 		<Compile Include="..\Roslyn.CodeAnalysis.Lightup.Definitions\*.cs" />
 	</ItemGroup>

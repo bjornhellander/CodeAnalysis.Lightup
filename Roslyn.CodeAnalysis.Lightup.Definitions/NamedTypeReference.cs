@@ -18,8 +18,8 @@ public class NamedTypeReference : TypeReference
         FullName = "";
     }
 
-    public NamedTypeReference(Type nativeType, string name, string @namespace, string fullName)
-        : base(nativeType)
+    public NamedTypeReference(string nativeName, string name, string @namespace, string fullName)
+        : base(nativeName)
     {
         Name = name;
         Namespace = @namespace;

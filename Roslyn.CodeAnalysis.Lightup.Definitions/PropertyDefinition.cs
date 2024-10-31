@@ -17,7 +17,12 @@ public class PropertyDefinition : MemberDefinition
         Type = new NamedTypeReference();
     }
 
-    public PropertyDefinition(string name, TypeReference type, bool isNullable, bool hasSetter, bool isStatic)
+    public PropertyDefinition(
+        string name,
+        TypeReference type,
+        bool isNullable,
+        bool hasSetter,
+        bool isStatic)
     {
         Name = name;
         Type = type;
