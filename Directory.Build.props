@@ -11,6 +11,7 @@
 
 	<PropertyGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<NuGetAudit>false</NuGetAudit>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -39,13 +40,16 @@
 
 	<ItemGroup Condition="$(ProjectFileName.Contains('.Test.'))">
 		<PackageReference Include="MSTest" Version="3.6.1" />
+		<PackageReference Include="Moq" Version="4.20.72" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(ProjectFileName.Contains('.Test.V'))">
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing" Version="1.1.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Analyzer.Testing" Version="1.1.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing" Version="1.1.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing" Version="1.1.2" />
-		<PackageReference Include="Moq" Version="4.20.72" />
 	</ItemGroup>
 
 </Project>
