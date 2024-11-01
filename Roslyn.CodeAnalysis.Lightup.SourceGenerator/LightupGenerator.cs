@@ -27,21 +27,18 @@ public class LightupGenerator : IIncrementalGenerator
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        var typesFiles = context.AdditionalTextsProvider.Where(x => SettingsFileNameRegex.IsMatch(Path.GetFileName(x.Path)));
+        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(file => SettingsFileNameRegex.IsMatch(Path.GetFileName(file.Path)));
+
+        IncrementalValuesProvider<string> configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
+
         context.RegisterSourceOutput(
-            typesFiles,
+            configFileContents,
             (context, value) => Execute(context, value));
     }
 
-    private static void Execute(SourceProductionContext context, AdditionalText typesFile)
+    private static void Execute(SourceProductionContext context, string configFileContent)
     {
-        var syntaxText = typesFile.GetText(context.CancellationToken);
-        if (syntaxText is null)
-        {
-            throw new InvalidOperationException($"Failed to read settings file {typesFile.Path}");
-        }
-
-        var doc = XDocument.Parse(syntaxText.ToString());
+        var doc = XDocument.Parse(configFileContent);
         var root = doc.Root;
         var assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
         var baselineVersion = root.Element("BaselineVersion")?.Value;
