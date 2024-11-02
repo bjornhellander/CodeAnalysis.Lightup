@@ -7,7 +7,7 @@
 - Some other types, mostly related to source generators and diagnostic suppressors, are not generated.
 - SeparatedSyntaxListWrapper is incomplete.
 - C# 8.0 is required in the target project(s).
-- Version 3.0.0 is required of the Microsoft.CodeAnalysis packages in the target project(s).
+- Version 3.0.0 of the Microsoft.CodeAnalysis packages is required in the target project(s).
 
 ## Troubleshooting
 
