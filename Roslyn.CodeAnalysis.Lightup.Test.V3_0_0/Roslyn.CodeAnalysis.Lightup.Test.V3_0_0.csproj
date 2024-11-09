@@ -11,6 +11,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.Analyzers\Roslyn.CodeAnalysis.Lightup.Example.Analyzers.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes\Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.csproj" />
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.Support\Roslyn.CodeAnalysis.Lightup.Test.Support.csproj" />
 	</ItemGroup>
 
 </Project>

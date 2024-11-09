@@ -1,29 +1,29 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+namespace Roslyn.CodeAnalysis.Lightup.Test.Support.Verifiers;
 
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing;
+using Microsoft.CodeAnalysis.VisualBasic.Testing;
 
-public static partial class CSharpAnalyzerVerifier<TAnalyzer>
+public static partial class VisualBasicAnalyzerVerifier<TAnalyzer>
     where TAnalyzer : DiagnosticAnalyzer, new()
 {
     /// <inheritdoc cref="AnalyzerVerifier{TAnalyzer, TTest, TVerifier}.Diagnostic()"/>
     public static DiagnosticResult Diagnostic()
-        => CSharpAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic();
+        => VisualBasicAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic();
 
     /// <inheritdoc cref="AnalyzerVerifier{TAnalyzer, TTest, TVerifier}.Diagnostic(string)"/>
     public static DiagnosticResult Diagnostic(string diagnosticId)
-        => CSharpAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic(diagnosticId);
+        => VisualBasicAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic(diagnosticId);
 
     /// <inheritdoc cref="AnalyzerVerifier{TAnalyzer, TTest, TVerifier}.Diagnostic(DiagnosticDescriptor)"/>
     public static DiagnosticResult Diagnostic(DiagnosticDescriptor descriptor)
-        => CSharpAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic(descriptor);
+        => VisualBasicAnalyzerVerifier<TAnalyzer, DefaultVerifier>.Diagnostic(descriptor);
 
     /// <inheritdoc cref="AnalyzerVerifier{TAnalyzer, TTest, TVerifier}.VerifyAnalyzerAsync(string, DiagnosticResult[])"/>
     public static async Task VerifyAnalyzerAsync(string source, params DiagnosticResult[] expected)

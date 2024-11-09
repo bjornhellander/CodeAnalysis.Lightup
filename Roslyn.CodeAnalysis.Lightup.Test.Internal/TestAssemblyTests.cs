@@ -83,7 +83,7 @@ public class TestAssemblyTests
     {
         var rootFolder = GetRepositoryRoot();
         var folders = Directory.GetDirectories(rootFolder).Select(x => Path.GetFileName(x)).ToList();
-        var testProjectFolders = folders.Where(x => x.StartsWith("Roslyn.CodeAnalysis.Lightup.Test") && !x.EndsWith(".Internal") && !x.EndsWith(".SourceGenerator")).ToList();
+        var testProjectFolders = folders.Where(x => x.StartsWith("Roslyn.CodeAnalysis.Lightup.Test") && !x.EndsWith(".Internal") && !x.EndsWith(".SourceGenerator") && !x.EndsWith(".Support")).ToList();
         return testProjectFolders;
     }
 
