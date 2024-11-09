@@ -12,7 +12,9 @@
 
 	<ItemGroup>
 		<!-- Linking from other project, since I got exceptions when having a project reference -->
-		<Compile Include="..\Roslyn.CodeAnalysis.Lightup.Definitions\*.cs" />
+		<Compile Include="..\Roslyn.CodeAnalysis.Lightup.Definitions\*.cs">
+			<Link>Definitions\%(RecursiveDir)/%(FileName)%(Extension)</Link>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>

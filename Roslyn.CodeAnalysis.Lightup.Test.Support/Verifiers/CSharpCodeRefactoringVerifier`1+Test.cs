@@ -1,18 +1,16 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+namespace Roslyn.CodeAnalysis.Lightup.Test.Support.Verifiers;
 
-using Microsoft.CodeAnalysis.CodeFixes;
+using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp.Testing;
-using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing;
 
-public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
-    where TAnalyzer : DiagnosticAnalyzer, new()
-    where TCodeFix : CodeFixProvider, new()
+public static partial class CSharpCodeRefactoringVerifier<TCodeRefactoring>
+    where TCodeRefactoring : CodeRefactoringProvider, new()
 {
-    internal class Test : CSharpCodeFixTest<TAnalyzer, TCodeFix, DefaultVerifier>
+    internal class Test : CSharpCodeRefactoringTest<TCodeRefactoring, DefaultVerifier>
     {
         public Test()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using VerifyCS = Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers.CSharpCodeFixVerifier<
+using VerifyCS = Roslyn.CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpCodeFixVerifier<
     Roslyn.CodeAnalysis.Lightup.Example.Analyzers.TypeNameAnalyzer,
     Roslyn.CodeAnalysis.Lightup.Example.CodeFixes.TypeNameCodeFixProvider>;
 

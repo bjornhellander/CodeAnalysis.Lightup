@@ -1,16 +1,17 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.Verifiers;
+namespace Roslyn.CodeAnalysis.Lightup.Test.Support.Verifiers;
 
-using Microsoft.CodeAnalysis.CodeRefactorings;
 using Microsoft.CodeAnalysis.CSharp.Testing;
+using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Testing;
 
-public static partial class CSharpCodeRefactoringVerifier<TCodeRefactoring>
-    where TCodeRefactoring : CodeRefactoringProvider, new()
+public static partial class CSharpAnalyzerVerifier<TAnalyzer>
+    where TAnalyzer : DiagnosticAnalyzer, new()
 {
-    internal class Test : CSharpCodeRefactoringTest<TCodeRefactoring, DefaultVerifier>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "MSTEST0004:Public types should be test classes", Justification = "Ok")]
+    public class Test : CSharpAnalyzerTest<TAnalyzer, DefaultVerifier>
     {
         public Test()
         {
