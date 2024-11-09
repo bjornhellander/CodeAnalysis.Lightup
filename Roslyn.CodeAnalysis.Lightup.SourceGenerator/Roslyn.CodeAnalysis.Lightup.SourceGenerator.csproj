@@ -6,6 +6,23 @@
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Description>
+			Source generator package adding runtime support for newer Roslyn features than for example an analyzer is compiled against.
+		</Description>
+		<PackageVersion>0.0.1.0</PackageVersion>
+		<Authors>Björn Hellander</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
+		<!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
+		<RepositoryUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
+		<PackageTags>Roslyn, CodeAnalysis, CSharp, Syntax, Semantics, Analyzers, CodeFixes, CodeRefactorings</PackageTags>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<InternalsVisibleTo Include="Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator" />
 	</ItemGroup>
