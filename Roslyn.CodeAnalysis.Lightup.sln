@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81BD22A1-2666-4966-B473-548B9610D73B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
@@ -49,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator", "Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator\Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CodeAnalysis.Lightup.Test.Support", "Roslyn.CodeAnalysis.Lightup.Test.Support\Roslyn.CodeAnalysis.Lightup.Test.Support.csproj", "{76508F2B-3484-4618-BC2E-A883A5670532}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.CodeAnalysis.Lightup.Test.Support", "Roslyn.CodeAnalysis.Lightup.Test.Support\Roslyn.CodeAnalysis.Lightup.Test.Support.csproj", "{76508F2B-3484-4618-BC2E-A883A5670532}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
