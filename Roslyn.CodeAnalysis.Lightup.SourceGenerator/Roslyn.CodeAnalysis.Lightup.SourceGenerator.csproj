@@ -4,7 +4,31 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>12.0</LangVersion>
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+		<!-- Do not include the generator as a lib dependency -->
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<PropertyGroup>
+		<Description>
+			Source generator package adding runtime support for newer Roslyn features than for example an analyzer is compiled against.
+		</Description>
+		<PackageVersion>0.0.4.0</PackageVersion>
+		<Authors>Björn Hellander</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
+		<!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
+		<RepositoryUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
+		<PackageTags>Roslyn, CodeAnalysis, CSharp, Syntax, Semantics, Analyzers, CodeFixes, CodeRefactorings</PackageTags>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Package the generator in the analyzer directory of the nuget package -->
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="Roslyn.CodeAnalysis.Lightup.Test.SourceGenerator" />
@@ -26,11 +50,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.1" PrivateAssets="All" />
 		<PackageReference Include="Nullable" Version="1.3.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Not needed in the generator, but makes sure we get a package reference to it in the consuming project -->
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Runtime\Roslyn.CodeAnalysis.Lightup.Runtime.csproj" PrivateAssets="None "/>
 	</ItemGroup>
 
 </Project>
