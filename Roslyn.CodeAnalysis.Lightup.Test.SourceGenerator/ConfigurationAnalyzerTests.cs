@@ -66,7 +66,7 @@ public class ConfigurationAnalyzerTests
 <Settings>
 	<Assembly>Common</Assembly>
 	<Assembly>CSharp</Assembly>
-	<Assembly>Workspaces</Assembly>
+	<Assembly>WorkspacesCommon</Assembly>
 	<Assembly>CSharpWorkspaces</Assembly>
 	<BaselineVersion>3.0.0.0</BaselineVersion>
 </Settings>

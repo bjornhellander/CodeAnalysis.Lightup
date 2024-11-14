@@ -22,7 +22,7 @@ internal class Writer
     {
         [AssemblyKind.Common] = "Common",
         [AssemblyKind.CSharp] = "CSharp",
-        [AssemblyKind.Workspaces] = "WorkspacesCommon",
+        [AssemblyKind.WorkspacesCommon] = "WorkspacesCommon",
         [AssemblyKind.CSharpWorkspaces] = "CSharpWorkspaces",
     };
 
@@ -30,7 +30,7 @@ internal class Writer
     {
         [AssemblyKind.Common] = "Microsoft.CodeAnalysis.IOperation",
         [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp.Syntax.ClassDeclarationSyntax",
-        [AssemblyKind.Workspaces] = "Microsoft.CodeAnalysis.WorkspaceChangeKind",
+        [AssemblyKind.WorkspacesCommon] = "Microsoft.CodeAnalysis.WorkspaceChangeKind",
         [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions",
     };
 
