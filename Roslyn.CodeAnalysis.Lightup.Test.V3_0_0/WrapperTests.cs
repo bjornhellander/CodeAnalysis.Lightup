@@ -6,18 +6,15 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V3_0_0;
 using System;
 using System.Linq;
 using Microsoft.CodeAnalysis.CodeFixes.Lightup;
-using Microsoft.CodeAnalysis.CSharp.Lightup;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public class WrapperTests
 {
-    // TODO: Add a type from the CSharp.Workspaces project when we generate something there
     [TestMethod]
-    [DataRow(typeof(OperationKindEx))] // From the Common project
-    [DataRow(typeof(SyntaxKindEx))] // From the CSharp project
-    [DataRow(typeof(FixAllScopeEx))] // From the Workspaces.Common project
+    [DataRow(typeof(OperationKindEx))] // From the Example.Analyzers project
+    [DataRow(typeof(FixAllScopeEx))] // From the Example.CodeFixes project
     public void TestStaticConstructor(Type exampleType)
     {
         var dummyObj = new object();
