@@ -4,6 +4,7 @@
 namespace Roslyn.CodeAnalysis.Lightup.SourceGenerator;
 
 using System.Collections.Immutable;
+using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
@@ -30,11 +31,11 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
         new DiagnosticDescriptor(
             id: BadFileDiagnosticId,
             title: "Incorrect configuration file",
-            messageFormat: "Incorrect configuration file {0}",
+            messageFormat: "Incorrect configuration file {0}: {1}",
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
-            description: "The configuration file could not be parsed correctly.",
+            description: "The configuration file was incorrect.",
             helpLinkUri: "");
 
     /// <inheritdoc/>
@@ -67,15 +68,15 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             var configFileContent = configFile.GetText()!.ToString();
             if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var errorMessage))
             {
-                ReportDiagnostic(context, BadFileDescriptor, errorMessage);
+                ReportDiagnostic(context, BadFileDescriptor, Path.GetFileName(configFile.Path), errorMessage);
                 return;
             }
         }
     }
 
-    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, string? parameter = null)
+    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, params string[] parameters)
     {
-        var diagnostic = parameter != null ? Diagnostic.Create(descriptor, null, parameter) : Diagnostic.Create(descriptor, null);
+        var diagnostic = Diagnostic.Create(descriptor, null, parameters);
         context.ReportDiagnostic(diagnostic);
     }
 }

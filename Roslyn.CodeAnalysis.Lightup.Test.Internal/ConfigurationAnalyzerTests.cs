@@ -35,7 +35,22 @@ public class ConfigurationAnalyzerTests
     public async Task TestEmptyConfigurationFile()
     {
         var test = CreateTest("Roslyn.CodeAnalysis.Lightup.xml", content: "");
-        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Roslyn.CodeAnalysis.Lightup.xml", "Failed to parse file");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestNoAssembliesInConfigurationFile()
+    {
+        var content = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+</Settings>
+";
+
+        var test = CreateTest("Roslyn.CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Roslyn.CodeAnalysis.Lightup.xml", "No assemblies specified");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }

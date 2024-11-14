@@ -33,6 +33,13 @@ internal static class Helpers
             var root = doc.Root;
             assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
             baselineVersion = new Version(root.Element("BaselineVersion")?.Value);
+
+            if (assemblies.Count == 0)
+            {
+                errorMessage = "No assemblies specified";
+                return false;
+            }
+
             errorMessage = "";
             return true;
         }
