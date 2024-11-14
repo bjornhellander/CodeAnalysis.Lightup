@@ -202,3 +202,9 @@ dotnet_diagnostic.MSTEST0026.severity = warning
 
 # MSTEST0029: Public methods should be test methods
 dotnet_diagnostic.MSTEST0029.severity = warning
+
+# RS1004: Recommend adding language support to diagnostic analyzer
+dotnet_diagnostic.RS1004.severity = none
+
+# RS2008: Enable analyzer release tracking
+dotnet_diagnostic.RS2008.severity = none

@@ -5,9 +5,7 @@ namespace Roslyn.CodeAnalysis.Lightup.SourceGenerator;
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
 using Roslyn.CodeAnalysis.Lightup.Definitions;
@@ -15,7 +13,6 @@ using Roslyn.CodeAnalysis.Lightup.Definitions;
 [Generator]
 public class LightupGenerator : IIncrementalGenerator
 {
-    private static readonly Regex SettingsFileNameRegex = new("Roslyn\\.CodeAnalysis\\.Lightup.*\\.xml");
     private static readonly Lazy<Dictionary<string, BaseTypeDefinition>> Types = new(ReadTypes);
 
     private static Dictionary<string, BaseTypeDefinition> ReadTypes()
@@ -27,7 +24,7 @@ public class LightupGenerator : IIncrementalGenerator
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(file => SettingsFileNameRegex.IsMatch(Path.GetFileName(file.Path)));
+        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
 
         IncrementalValuesProvider<string> configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
 

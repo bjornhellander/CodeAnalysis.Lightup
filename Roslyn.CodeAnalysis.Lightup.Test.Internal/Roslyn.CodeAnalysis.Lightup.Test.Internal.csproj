@@ -5,6 +5,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.SourceGenerator\Roslyn.CodeAnalysis.Lightup.SourceGenerator.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0\Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0\Roslyn.CodeAnalysis.Lightup.Test.V3_8_0.csproj" />
 		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1\Roslyn.CodeAnalysis.Lightup.Test.V4_0_1.csproj" />
