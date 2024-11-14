@@ -6,7 +6,6 @@ namespace Roslyn.CodeAnalysis.Lightup.SourceGenerator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
 using Roslyn.CodeAnalysis.Lightup.Definitions;
 
@@ -33,13 +32,12 @@ public class LightupGenerator : IIncrementalGenerator
             (context, value) => Execute(context, value));
     }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "TODO")]
     private static void Execute(SourceProductionContext context, string configFileContent)
     {
-        var doc = XDocument.Parse(configFileContent);
-        var root = doc.Root;
-        var assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
-        var baselineVersion = root.Element("BaselineVersion")?.Value;
-
-        Writer.Write(context, assemblies, Types.Value);
+        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var _))
+        {
+            Writer.Write(context, assemblies, Types.Value);
+        }
     }
 }

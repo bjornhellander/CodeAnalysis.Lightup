@@ -12,11 +12,12 @@ using Microsoft.CodeAnalysis.Diagnostics;
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class ConfigurationAnalyzer : DiagnosticAnalyzer
 {
-    public const string NoConfigurationFileDiagnosticId = "ROSLYNLIGHTUP001";
+    public const string NoFileDiagnosticId = "ROSLYNLIGHTUP001";
+    public const string BadFileDiagnosticId = "ROSLYNLIGHTUP002";
 
-    private static readonly DiagnosticDescriptor NoConfigurationFilDescriptor =
+    private static readonly DiagnosticDescriptor NoFileDescriptor =
         new DiagnosticDescriptor(
-            id: NoConfigurationFileDiagnosticId,
+            id: NoFileDiagnosticId,
             title: "Missing configuration file(s)",
             messageFormat: "The project needs at least one configuration file to be able to use the source generator",
             category: "Source Generator",
@@ -25,9 +26,22 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             description: "Add at least one file with name atching 'Roslyn.CodeAnalysis.Lightup*.xml', with build action 'C# analyzer additional file'.",
             helpLinkUri: "");
 
+    private static readonly DiagnosticDescriptor BadFileDescriptor =
+        new DiagnosticDescriptor(
+            id: BadFileDiagnosticId,
+            title: "Incorrect configuration file",
+            messageFormat: "Incorrect configuration file {0}",
+            category: "Source Generator",
+            defaultSeverity: DiagnosticSeverity.Warning,
+            isEnabledByDefault: true,
+            description: "The configuration file could not be parsed correctly.",
+            helpLinkUri: "");
+
     /// <inheritdoc/>
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =
-        ImmutableArray.Create(NoConfigurationFilDescriptor);
+        ImmutableArray.Create(
+            NoFileDescriptor,
+            BadFileDescriptor);
 
     public override void Initialize(AnalysisContext context)
     {
@@ -44,14 +58,24 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
 
         if (configFiles.Length == 0)
         {
-            ReportDiagnostic(context, NoConfigurationFilDescriptor, null);
+            ReportDiagnostic(context, NoFileDescriptor);
             return;
+        }
+
+        foreach (var configFile in configFiles)
+        {
+            var configFileContent = configFile.GetText()!.ToString();
+            if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var errorMessage))
+            {
+                ReportDiagnostic(context, BadFileDescriptor, errorMessage);
+                return;
+            }
         }
     }
 
-    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, Location? location)
+    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, string? parameter = null)
     {
-        var diagnostic = Diagnostic.Create(descriptor, location);
+        var diagnostic = parameter != null ? Diagnostic.Create(descriptor, null, parameter) : Diagnostic.Create(descriptor, null);
         context.ReportDiagnostic(diagnostic);
     }
 }

@@ -20,7 +20,7 @@ public class ConfigurationAnalyzerTests
     public async Task TestNoConfigurationFile(string? fileName)
     {
         var test = CreateTest(fileName);
-        test.ExpectedDiagnostics.Add(VerifyCS.Diagnostic(ConfigurationAnalyzer.NoConfigurationFileDiagnosticId));
+        test.ExpectedDiagnostics.Add(VerifyCS.Diagnostic(ConfigurationAnalyzer.NoFileDiagnosticId));
         await test.RunAsync();
     }
 
@@ -31,14 +31,32 @@ public class ConfigurationAnalyzerTests
         await test.RunAsync();
     }
 
-    private static VerifyCS.Test CreateTest(string? fileName)
+    [TestMethod]
+    public async Task TestEmptyConfigurationFile()
+    {
+        var test = CreateTest("Roslyn.CodeAnalysis.Lightup.xml", content: "");
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    private static VerifyCS.Test CreateTest(string? fileName, string? content = null)
     {
         var test = new VerifyCS.Test();
         test.TestCode = "";
 
         if (fileName != null)
         {
-            test.TestState.AdditionalFiles.Add((fileName, ""));
+            var configFileContent = content ?? @"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<Assembly>CSharp</Assembly>
+	<Assembly>Workspaces</Assembly>
+	<Assembly>CSharpWorkspaces</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+</Settings>
+";
+            test.TestState.AdditionalFiles.Add((fileName, configFileContent));
         }
 
         return test;
