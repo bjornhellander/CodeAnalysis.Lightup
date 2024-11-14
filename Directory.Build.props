@@ -14,18 +14,23 @@
 		<NuGetAudit>false</NuGetAudit>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<!-- Ignore nuget vulnerabilities -->
+		<NoWarn>$(NoWarn),NU1903</NoWarn>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<AdditionalFiles Include="..\stylecop.json" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="All" />
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0-preview.24454.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" PrivateAssets="All" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(ProjectFileName.Contains('.Test.'))">
-		<PackageReference Include="MSTest" Version="3.6.1" />
+		<PackageReference Include="MSTest" Version="3.6.3" />
 		<PackageReference Include="Moq" Version="4.20.72" />
 	</ItemGroup>
 

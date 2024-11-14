@@ -5,17 +5,13 @@ namespace Roslyn.CodeAnalysis.Lightup.SourceGenerator;
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
 using Roslyn.CodeAnalysis.Lightup.Definitions;
 
 [Generator]
 public class LightupGenerator : IIncrementalGenerator
 {
-    private static readonly Regex SettingsFileNameRegex = new("Roslyn\\.CodeAnalysis\\.Lightup.*\\.xml");
     private static readonly Lazy<Dictionary<string, BaseTypeDefinition>> Types = new(ReadTypes);
 
     private static Dictionary<string, BaseTypeDefinition> ReadTypes()
@@ -27,7 +23,7 @@ public class LightupGenerator : IIncrementalGenerator
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(file => SettingsFileNameRegex.IsMatch(Path.GetFileName(file.Path)));
+        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
 
         IncrementalValuesProvider<string> configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
 
@@ -36,13 +32,12 @@ public class LightupGenerator : IIncrementalGenerator
             (context, value) => Execute(context, value));
     }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "TODO")]
     private static void Execute(SourceProductionContext context, string configFileContent)
     {
-        var doc = XDocument.Parse(configFileContent);
-        var root = doc.Root;
-        var assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
-        var baselineVersion = root.Element("BaselineVersion")?.Value;
-
-        Writer.Write(context, assemblies, Types.Value);
+        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var _))
+        {
+            Writer.Write(context, assemblies, Types.Value);
+        }
     }
 }
