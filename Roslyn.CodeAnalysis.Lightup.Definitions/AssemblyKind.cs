@@ -7,6 +7,6 @@ public enum AssemblyKind
 {
     Common,
     CSharp,
-    Workspaces, // TODO: Change name to WorkspacesCommon to match nuget package?
+    WorkspacesCommon,
     CSharpWorkspaces,
 }
