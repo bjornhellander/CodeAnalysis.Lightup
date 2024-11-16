@@ -7,14 +7,13 @@
 		<!-- Do not include the generator as a lib dependency -->
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<developmentDependency>true</developmentDependency>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Description>
 			Source generator package adding runtime support for newer Roslyn features than for example an analyzer is compiled against.
 		</Description>
-		<PackageVersion>0.0.8.0</PackageVersion>
+		<PackageVersion>0.0.9.0</PackageVersion>
 		<Authors>Björn Hellander</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
