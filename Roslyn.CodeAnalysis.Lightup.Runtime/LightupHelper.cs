@@ -450,11 +450,12 @@ namespace Roslyn.CodeAnalysis.Lightup.Runtime
                 var wrapperItemType = targetType.GetGenericArguments()[0];
                 var nativeItemType = input.Type.GetGenericArguments()[0];
 
-                // TODO: Why use Task<T>? Try to simplify!
                 var conversionLambdaParameter = Expression.Parameter(
                     typeof(Task<>).MakeGenericType(nativeItemType));
                 var conversionLambda = Expression.Lambda(
-                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    GetPossiblyWrappedValue(
+                        Expression.Property(conversionLambdaParameter, "Result"),
+                        wrapperItemType),
                     conversionLambdaParameter);
 
                 var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
