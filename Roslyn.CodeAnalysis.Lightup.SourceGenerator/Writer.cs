@@ -112,11 +112,11 @@ internal class Writer
 
 namespace Microsoft.CodeAnalysis.Lightup
 {{
-    internal class {name} : Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelper
+    internal class {name} : global::Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelper
     {{
-        private static readonly System.Reflection.Assembly Assembly = typeof({ExampleTypeNames[assemblyKind]}).Assembly;
+        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::{ExampleTypeNames[assemblyKind]}).Assembly;
 
-        public static System.Type? FindType(string wrappedTypeName)
+        public static global::System.Type? FindType(string wrappedTypeName)
         {{
             return FindType(Assembly, wrappedTypeName);
         }}
@@ -138,19 +138,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.Text;
-
     // TODO: Implement remaining members
     public readonly struct SeparatedSyntaxListWrapper<TNode>
     {
-        private static readonly Type? WrappedType; // NOTE: Possibly used via reflection
+        private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
         private delegate int CountDelegate(object? obj);
-        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, IEnumerable<TNode> arg1);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
@@ -160,12 +154,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         static SeparatedSyntaxListWrapper()
         {
             var wrapperNodeType = typeof(TNode);
-            var wrappedNodeTypeField = wrapperNodeType.GetField(""WrappedType"", BindingFlags.Static | BindingFlags.NonPublic);
-            var wrappedNodeType = (Type)wrappedNodeTypeField.GetValue(null);
+            var wrappedNodeTypeField = wrapperNodeType.GetField(""WrappedType"", global::System.Reflection.BindingFlags.Static | global::System.Reflection.BindingFlags.NonPublic);
+            var wrappedNodeType = (global::System.Type)wrappedNodeTypeField.GetValue(null);
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
-            CountAccessor = CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
-            AddRangeAccessor = CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
+            CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
         }
 
         private SeparatedSyntaxListWrapper(object? obj)
@@ -177,22 +171,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             => CountAccessor(wrappedObject);
 
         public readonly int SeparatorCount
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly TextSpan FullSpan
-            => throw new NotImplementedException();
+        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
+            => throw new global::System.NotImplementedException();
 
-        public readonly TextSpan Span
-            => throw new NotImplementedException();
+        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan Span
+            => throw new global::System.NotImplementedException();
 
         public readonly TNode this[int index]
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public static bool Is(object? obj)
         {
@@ -217,77 +211,77 @@ namespace Microsoft.CodeAnalysis.Lightup
         public readonly object? Unwrap()
             => wrappedObject;
 
-        public readonly SyntaxToken GetSeparator(int index)
-            => throw new NotImplementedException();
+        public readonly global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
+            => throw new global::System.NotImplementedException();
 
-        public readonly IEnumerable<SyntaxToken> GetSeparators()
-            => throw new NotImplementedException();
+        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
+            => throw new global::System.NotImplementedException();
 
         public readonly override string ToString()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly string ToFullString()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly TNode First()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly TNode FirstOrDefault()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly TNode Last()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public TNode LastOrDefault()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly bool Contains(TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly int IndexOf(TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly int IndexOf(Func<TNode, bool> predicate)
-            => throw new NotImplementedException();
+        public readonly int IndexOf(global::System.Func<TNode, bool> predicate)
+            => throw new global::System.NotImplementedException();
 
         public readonly int LastIndexOf(TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly int LastIndexOf(Func<TNode, bool> predicate)
-            => throw new NotImplementedException();
+        public readonly int LastIndexOf(global::System.Func<TNode, bool> predicate)
+            => throw new global::System.NotImplementedException();
 
         public readonly bool Any()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly SyntaxNodeOrTokenList GetWithSeparators()
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly SeparatedSyntaxListWrapper<TNode> Add(TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> AddRange(IEnumerable<TNode> nodes)
+        public readonly SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
             => AddRangeAccessor(wrappedObject, nodes);
 
         public readonly SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> InsertRange(int index, IEnumerable<TNode> nodes)
-            => throw new NotImplementedException();
+        public readonly SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
+            => throw new global::System.NotImplementedException();
 
         public readonly SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
         public readonly SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
-            => throw new NotImplementedException();
+            => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, IEnumerable<TNode> newNodes)
-            => throw new NotImplementedException();
+        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
+            => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(SyntaxToken separatorToken, SyntaxToken newSeparator)
-            => throw new NotImplementedException();
+        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
+            => throw new global::System.NotImplementedException();
     }
 }
 ";
@@ -428,7 +422,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine($"    [System.Flags]");
         }
-        sb.AppendLine($"    public enum {targetName} : {typeDef.UnderlyingTypeName}");
+        sb.AppendLine($"    public enum {targetName} : global::{typeDef.UnderlyingTypeName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {
@@ -479,7 +473,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
 
             AppendEnumValueSummary(sb, value);
-            sb.AppendLine($"        public const {fullTypeName} {value.Name} = ({fullTypeName}){value.Value};");
+            sb.AppendLine($"        public const global::{fullTypeName} {value.Name} = (global::{fullTypeName}){value.Value};");
             isFirstValue = false;
         }
         sb.AppendLine($"    }}");
@@ -524,6 +518,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         var staticMethods = GetStaticMethods(typeDef);
         var instanceMethods = GetInstanceMethods(typeDef);
 
+        var fullHelperName = $"Microsoft.CodeAnalysis.Lightup.{helperPrefix}LightupHelper";
+
         var (baseTypeName, baseTypeNamespace) = GetBaseTypeName(typeDef);
         var hasBaseType = baseTypeName != null && typeDef is not InterfaceTypeDefinition;
         baseTypeName ??= "Object";
@@ -534,8 +530,6 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"// <auto-generated/>");
         sb.AppendLine($"#nullable enable");
         sb.AppendLine();
-        AppendUsingStatements(sb);
-        sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendEnclosingTypesStart(sb, typeDef.EnclosingTypeFullName, typeDefs);
@@ -544,7 +538,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly System.Type? WrappedType; // NOTE: Used via reflection");
+        sb.AppendLine($"        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
@@ -657,17 +651,17 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
         }
         sb.AppendLine();
-        sb.AppendLine($"        private readonly {baseTypeNamespace}.{baseTypeName}? wrappedObject;");
+        sb.AppendLine($"        private readonly global::{baseTypeNamespace}.{baseTypeName}? wrappedObject;");
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            WrappedType = {helperPrefix}LightupHelper.FindType(WrappedTypeName);");
+        sb.AppendLine($"            WrappedType = global::{fullHelperName}.FindType(WrappedTypeName);");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                sb.AppendLine($"            {field.Name}GetterFunc = {helperPrefix}LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
+                sb.AppendLine($"            {field.Name}GetterFunc = global::{fullHelperName}.CreateStaticReadAccessor<{field.Name}GetterDelegate>(WrappedType, nameof({field.Name}));");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
@@ -677,7 +671,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var constructor in instanceConstructors)
             {
                 var index = instanceConstructors.IndexOf(constructor);
-                sb.AppendLine($"            ConstructorFunc{index} = {helperPrefix}LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(WrappedType{GetCreateConstructorAccessorArguments(constructor)});");
+                sb.AppendLine($"            ConstructorFunc{index} = global::{fullHelperName}.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(WrappedType{GetCreateConstructorAccessorArguments(constructor)});");
             }
         }
         if (staticProperties.Count != 0)
@@ -685,10 +679,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = {helperPrefix}LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = global::{fullHelperName}.CreateStaticGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = {helperPrefix}LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = global::{fullHelperName}.CreateStaticSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -697,10 +691,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = {helperPrefix}LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = global::{fullHelperName}.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(WrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = {helperPrefix}LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = global::{fullHelperName}.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(WrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -710,7 +704,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = {helperPrefix}LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
+                sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -719,12 +713,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = {helperPrefix}LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
+                sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
-        sb.AppendLine($"        private {targetName}({baseTypeNamespace}.{baseTypeName}? obj)");
+        sb.AppendLine($"        private {targetName}(global::{baseTypeNamespace}.{baseTypeName}? obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            wrappedObject = obj;");
         sb.AppendLine($"        }}");
@@ -776,23 +770,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
-            sb.AppendLine($"        public static implicit operator {baseTypeNamespace}.{baseTypeName}?({targetName} obj)");
+            sb.AppendLine($"        public static implicit operator global::{baseTypeNamespace}.{baseTypeName}?({targetName} obj)");
             sb.AppendLine($"            => obj.Unwrap();");
         }
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>");
-        sb.AppendLine($"        public static bool Is(System.Object? obj)");
-        sb.AppendLine($"            => {helperPrefix}LightupHelper.Is(obj, WrappedType);");
+        sb.AppendLine($"        public static bool Is(global::System.Object? obj)");
+        sb.AppendLine($"            => global::{fullHelperName}.Is(obj, WrappedType);");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>");
-        sb.AppendLine($"        public static {targetName} As(System.Object? obj)");
+        sb.AppendLine($"        public static {targetName} As(global::System.Object? obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = {helperPrefix}LightupHelper.As<{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = global::{fullHelperName}.As<global::{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
-        sb.AppendLine($"        public {baseTypeNamespace}.{baseTypeName}? Unwrap()");
+        sb.AppendLine($"        public global::{baseTypeNamespace}.{baseTypeName}? Unwrap()");
         sb.AppendLine($"            => wrappedObject;");
         foreach (var methodDef in staticMethods)
         {
@@ -867,6 +861,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         var instanceMethods = GetInstanceMethods(typeDef);
         var staticMethods = GetStaticMethods(typeDef);
 
+        var fullHelperName = $"Microsoft.CodeAnalysis.Lightup.{helperPrefix}LightupHelper";
+
         var baseTypeName = typeDef.Name;
         var baseTypeNamespace = typeDef.Namespace;
 
@@ -874,8 +870,6 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         sb.AppendLine($"// <auto-generated/>");
         sb.AppendLine($"#nullable enable");
-        sb.AppendLine();
-        AppendUsingStatements(sb);
         sb.AppendLine();
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
@@ -1014,13 +1008,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var wrappedType = {helperPrefix}LightupHelper.FindType(WrappedTypeName);");
+        sb.AppendLine($"            var wrappedType = global::{fullHelperName}.FindType(WrappedTypeName);");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                sb.AppendLine($"            {field.Name}GetterFunc = {helperPrefix}LightupHelper.CreateStaticReadAccessor<{field.Name}GetterDelegate>(wrappedType, nameof({field.Name}));");
+                sb.AppendLine($"            {field.Name}GetterFunc = global::{fullHelperName}.CreateStaticReadAccessor<{field.Name}GetterDelegate>(wrappedType, nameof({field.Name}));");
                 Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             }
         }
@@ -1030,7 +1024,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var constructor in instanceConstructors)
             {
                 var index = instanceConstructors.IndexOf(constructor);
-                sb.AppendLine($"            ConstructorFunc{index} = {helperPrefix}LightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(wrappedType{GetCreateConstructorAccessorArguments(constructor)});");
+                sb.AppendLine($"            ConstructorFunc{index} = global::{fullHelperName}.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(wrappedType{GetCreateConstructorAccessorArguments(constructor)});");
             }
         }
         if (staticProperties.Count != 0)
@@ -1038,10 +1032,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = {helperPrefix}LightupHelper.CreateStaticGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = global::{fullHelperName}.CreateStaticGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = {helperPrefix}LightupHelper.CreateStaticSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = global::{fullHelperName}.CreateStaticSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -1050,10 +1044,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                sb.AppendLine($"            {property.Name}GetterFunc = {helperPrefix}LightupHelper.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
+                sb.AppendLine($"            {property.Name}GetterFunc = global::{fullHelperName}.CreateInstanceGetAccessor<{property.Name}GetterDelegate>(wrappedType, nameof({property.Name}));");
                 if (property.HasSetter)
                 {
-                    sb.AppendLine($"            {property.Name}SetterFunc = {helperPrefix}LightupHelper.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
+                    sb.AppendLine($"            {property.Name}SetterFunc = global::{fullHelperName}.CreateInstanceSetAccessor<{property.Name}SetterDelegate>(wrappedType, nameof({property.Name}));");
                 }
             }
         }
@@ -1062,8 +1056,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var @event in instanceEvents)
             {
-                sb.AppendLine($"            {@event.Name}AdderFunc = {helperPrefix}LightupHelper.CreateInstanceAddAccessor<{@event.Name}AdderDelegate>(wrappedType, \"{@event.Name}\");");
-                sb.AppendLine($"            {@event.Name}RemoverFunc = {helperPrefix}LightupHelper.CreateInstanceRemoveAccessor<{@event.Name}RemoverDelegate>(wrappedType, \"{@event.Name}\");");
+                sb.AppendLine($"            {@event.Name}AdderFunc = global::{fullHelperName}.CreateInstanceAddAccessor<{@event.Name}AdderDelegate>(wrappedType, \"{@event.Name}\");");
+                sb.AppendLine($"            {@event.Name}RemoverFunc = global::{fullHelperName}.CreateInstanceRemoveAccessor<{@event.Name}RemoverDelegate>(wrappedType, \"{@event.Name}\");");
             }
         }
         if (staticMethods.Count != 0)
@@ -1072,7 +1066,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in staticMethods)
             {
                 var index = staticMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = {helperPrefix}LightupHelper.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
+                sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
@@ -1081,7 +1075,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                sb.AppendLine($"            {method.Name}Func{index} = {helperPrefix}LightupHelper.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
+                sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         sb.AppendLine($"        }}");
@@ -1100,7 +1094,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var index = instanceConstructors.IndexOf(constructor);
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
-            sb.AppendLine($"        public static {baseTypeName} Create({GetParametersDeclText(constructor.Parameters, typeDefs)})");
+            sb.AppendLine($"        public static global::{baseTypeNamespace}.{baseTypeName} Create({GetParametersDeclText(constructor.Parameters, typeDefs)})");
             sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
         }
         foreach (var property in staticProperties)
@@ -1121,13 +1115,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj)");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, typeDefs)} {property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj)");
             sb.AppendLine($"            => {property.Name}GetterFunc(_obj);");
             if (property.HasSetter)
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
-                sb.AppendLine($"        public static void Set{property.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
+                sb.AppendLine($"        public static void Set{property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, typeDefs)} _value)");
                 sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
             }
         }
@@ -1135,11 +1129,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Add{@event.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Add{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
             sb.AppendLine($"            => {@event.Name}AdderFunc(_obj, _delegate);");
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Remove{@event.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Remove{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
             sb.AppendLine($"            => {@event.Name}RemoverFunc(_obj, _delegate);");
         }
         foreach (var methodDef in staticMethods)
@@ -1155,7 +1149,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this {typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, typeDefs)} {methodDef.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, typeDefs, true)})");
             sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
         }
         sb.AppendLine($"    }}");
@@ -1309,11 +1303,6 @@ namespace Microsoft.CodeAnalysis.Lightup
         return result;
     }
 
-    private static void AppendUsingStatements(StringBuilder sb)
-    {
-        sb.AppendLine($"using Microsoft.CodeAnalysis.Lightup;");
-    }
-
     private static void AppendTypeSummary(StringBuilder sb, BaseTypeDefinition typeDef)
     {
         var kind = typeDef switch
@@ -1412,7 +1401,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         sb.Append($"        private delegate ");
         sb.Append(GetPropertyTypeDeclText(propertyDef, typeDefs));
-        sb.AppendLine($" {propertyDef.Name}GetterDelegate({baseTypeNamespace}.{baseTypeName}? _obj);");
+        sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{baseTypeNamespace}.{baseTypeName}? _obj);");
 
         if (propertyDef.HasSetter)
         {
@@ -1441,10 +1430,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}AdderDelegate({baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}AdderDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
 
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}RemoverDelegate({baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}RemoverDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
     }
 
     private static string GetEventTypeDeclText(
@@ -1480,7 +1469,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         sb.Append($"        private delegate ");
         sb.Append(GetMethodReturnTypeDeclText(methodDef, typeDefs));
-        sb.Append($" {methodDef.Name}Delegate{index}({baseTypeNamespace}.{baseTypeName}? _obj");
+        sb.Append($" {methodDef.Name}Delegate{index}(global::{baseTypeNamespace}.{baseTypeName}? _obj");
         sb.Append(GetParametersDeclText(methodDef.Parameters, typeDefs, addLeadingComma: true));
         sb.AppendLine(");");
     }
@@ -1593,7 +1582,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             if (IsSeparatedSyntaxList(genericTypeRef) && IsNewType(genericTypeRef.TypeArguments[0], typeDefs))
             {
-                sb.Append("Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper");
+                sb.Append("global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper");
             }
             else
             {
@@ -1620,7 +1609,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var isNew = IsNewType(namedTypeRef, typeDefs);
             var isNewEnum = isNew && IsEnumType(namedTypeRef, typeDefs);
-            sb.Append($"{namedTypeRef.Namespace}");
+            sb.Append($"global::{namedTypeRef.Namespace}");
             sb.Append($"{(isNew ? ".Lightup" : "")}");
             AppendEnclosingType(sb, namedTypeRef, isNew, typeDefs);
             sb.Append($".{namedTypeRef.Name}");

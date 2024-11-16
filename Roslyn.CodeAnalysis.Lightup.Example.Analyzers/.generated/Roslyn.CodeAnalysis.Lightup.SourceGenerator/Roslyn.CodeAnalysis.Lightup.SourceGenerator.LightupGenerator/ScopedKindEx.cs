@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.ScopedKind. Added in version 4.4.0.0.</summary>
-    public enum ScopedKindEx : System.Byte
+    public enum ScopedKindEx : global::System.Byte
     {
         /// <summary>Added in version 4.4.0.0.</summary>
         None = 0,

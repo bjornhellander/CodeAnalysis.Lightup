@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     public static partial class BinaryOperatorKindEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.Operations.BinaryOperatorKind UnsignedRightShift = (Microsoft.CodeAnalysis.Operations.BinaryOperatorKind)25;
+        public const global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind UnsignedRightShift = (global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind)25;
     }
 }

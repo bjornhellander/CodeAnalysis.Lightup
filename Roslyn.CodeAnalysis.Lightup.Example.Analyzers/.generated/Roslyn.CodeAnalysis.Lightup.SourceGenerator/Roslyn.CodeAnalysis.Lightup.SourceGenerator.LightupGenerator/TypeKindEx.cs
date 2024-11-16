@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class TypeKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.TypeKind FunctionPointer = (Microsoft.CodeAnalysis.TypeKind)13;
+        public const global::Microsoft.CodeAnalysis.TypeKind FunctionPointer = (global::Microsoft.CodeAnalysis.TypeKind)13;
     }
 }

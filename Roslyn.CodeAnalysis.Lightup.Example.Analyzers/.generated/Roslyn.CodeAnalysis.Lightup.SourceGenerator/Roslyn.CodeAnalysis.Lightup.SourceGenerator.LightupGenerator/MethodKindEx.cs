@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class MethodKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.MethodKind FunctionPointerSignature = (Microsoft.CodeAnalysis.MethodKind)18;
+        public const global::Microsoft.CodeAnalysis.MethodKind FunctionPointerSignature = (global::Microsoft.CodeAnalysis.MethodKind)18;
     }
 }

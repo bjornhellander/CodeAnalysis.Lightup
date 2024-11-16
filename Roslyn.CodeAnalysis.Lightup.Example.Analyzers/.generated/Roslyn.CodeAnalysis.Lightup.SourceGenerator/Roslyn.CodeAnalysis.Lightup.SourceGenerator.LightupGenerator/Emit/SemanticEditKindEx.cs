@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     public static partial class SemanticEditKindEx
     {
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const Microsoft.CodeAnalysis.Emit.SemanticEditKind Replace = (Microsoft.CodeAnalysis.Emit.SemanticEditKind)4;
+        public const global::Microsoft.CodeAnalysis.Emit.SemanticEditKind Replace = (global::Microsoft.CodeAnalysis.Emit.SemanticEditKind)4;
     }
 }

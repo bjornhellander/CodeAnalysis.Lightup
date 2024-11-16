@@ -7,9 +7,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     public static partial class FailureErrorCodeEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode ReferencesFramework = (Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode)4;
+        public const global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode ReferencesFramework = (global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode)4;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode ReferencesNewerCompiler = (Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode)5;
+        public const global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode ReferencesNewerCompiler = (global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs.FailureErrorCode)5;
     }
 }

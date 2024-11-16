@@ -7,9 +7,9 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     public static partial class FixAllScopeEx
     {
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingMember = (Microsoft.CodeAnalysis.CodeFixes.FixAllScope)4;
+        public const global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingMember = (global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope)4;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingType = (Microsoft.CodeAnalysis.CodeFixes.FixAllScope)5;
+        public const global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope ContainingType = (global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope)5;
     }
 }

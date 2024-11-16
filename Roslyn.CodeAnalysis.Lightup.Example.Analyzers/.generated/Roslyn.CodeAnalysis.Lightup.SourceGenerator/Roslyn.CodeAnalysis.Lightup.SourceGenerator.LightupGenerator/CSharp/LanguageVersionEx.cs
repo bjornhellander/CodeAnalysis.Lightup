@@ -7,15 +7,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     public static partial class LanguageVersionEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp9 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)900;
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp9 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)900;
 
         /// <summary>Added in version 4.0.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp10 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1000;
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp10 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1000;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp11 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1100;
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp11 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1100;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp12 = (Microsoft.CodeAnalysis.CSharp.LanguageVersion)1200;
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp12 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1200;
     }
 }

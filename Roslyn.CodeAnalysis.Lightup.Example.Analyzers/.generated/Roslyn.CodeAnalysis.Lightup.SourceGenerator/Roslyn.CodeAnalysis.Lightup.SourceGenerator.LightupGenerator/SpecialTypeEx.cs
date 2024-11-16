@@ -7,12 +7,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class SpecialTypeEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_RuntimeFeature = (Microsoft.CodeAnalysis.SpecialType)44;
+        public const global::Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_RuntimeFeature = (global::Microsoft.CodeAnalysis.SpecialType)44;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (Microsoft.CodeAnalysis.SpecialType)45;
+        public const global::Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (global::Microsoft.CodeAnalysis.SpecialType)45;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (Microsoft.CodeAnalysis.SpecialType)46;
+        public const global::Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (global::Microsoft.CodeAnalysis.SpecialType)46;
     }
 }

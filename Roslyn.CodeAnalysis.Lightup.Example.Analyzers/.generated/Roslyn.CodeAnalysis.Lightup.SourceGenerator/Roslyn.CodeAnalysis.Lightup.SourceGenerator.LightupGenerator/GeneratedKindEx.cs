@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.GeneratedKind. Added in version 3.8.0.0.</summary>
-    public enum GeneratedKindEx : System.Int32
+    public enum GeneratedKindEx : global::System.Int32
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         Unknown = 0,

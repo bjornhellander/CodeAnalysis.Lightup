@@ -7,63 +7,63 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class OperationKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (Microsoft.CodeAnalysis.OperationKind)107;
+        public const global::Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (global::Microsoft.CodeAnalysis.OperationKind)107;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind UsingDeclaration = (Microsoft.CodeAnalysis.OperationKind)108;
+        public const global::Microsoft.CodeAnalysis.OperationKind UsingDeclaration = (global::Microsoft.CodeAnalysis.OperationKind)108;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind NegatedPattern = (Microsoft.CodeAnalysis.OperationKind)109;
+        public const global::Microsoft.CodeAnalysis.OperationKind NegatedPattern = (global::Microsoft.CodeAnalysis.OperationKind)109;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind BinaryPattern = (Microsoft.CodeAnalysis.OperationKind)110;
+        public const global::Microsoft.CodeAnalysis.OperationKind BinaryPattern = (global::Microsoft.CodeAnalysis.OperationKind)110;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind TypePattern = (Microsoft.CodeAnalysis.OperationKind)111;
+        public const global::Microsoft.CodeAnalysis.OperationKind TypePattern = (global::Microsoft.CodeAnalysis.OperationKind)111;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind RelationalPattern = (Microsoft.CodeAnalysis.OperationKind)112;
+        public const global::Microsoft.CodeAnalysis.OperationKind RelationalPattern = (global::Microsoft.CodeAnalysis.OperationKind)112;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind With = (Microsoft.CodeAnalysis.OperationKind)113;
+        public const global::Microsoft.CodeAnalysis.OperationKind With = (global::Microsoft.CodeAnalysis.OperationKind)113;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerCreation = (Microsoft.CodeAnalysis.OperationKind)114;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerCreation = (global::Microsoft.CodeAnalysis.OperationKind)114;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringAddition = (Microsoft.CodeAnalysis.OperationKind)115;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAddition = (global::Microsoft.CodeAnalysis.OperationKind)115;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendLiteral = (Microsoft.CodeAnalysis.OperationKind)116;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendLiteral = (global::Microsoft.CodeAnalysis.OperationKind)116;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendFormatted = (Microsoft.CodeAnalysis.OperationKind)117;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendFormatted = (global::Microsoft.CodeAnalysis.OperationKind)117;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendInvalid = (Microsoft.CodeAnalysis.OperationKind)118;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendInvalid = (global::Microsoft.CodeAnalysis.OperationKind)118;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerArgumentPlaceholder = (Microsoft.CodeAnalysis.OperationKind)119;
+        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerArgumentPlaceholder = (global::Microsoft.CodeAnalysis.OperationKind)119;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind FunctionPointerInvocation = (Microsoft.CodeAnalysis.OperationKind)120;
+        public const global::Microsoft.CodeAnalysis.OperationKind FunctionPointerInvocation = (global::Microsoft.CodeAnalysis.OperationKind)120;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind ListPattern = (Microsoft.CodeAnalysis.OperationKind)121;
+        public const global::Microsoft.CodeAnalysis.OperationKind ListPattern = (global::Microsoft.CodeAnalysis.OperationKind)121;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind SlicePattern = (Microsoft.CodeAnalysis.OperationKind)122;
+        public const global::Microsoft.CodeAnalysis.OperationKind SlicePattern = (global::Microsoft.CodeAnalysis.OperationKind)122;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind ImplicitIndexerReference = (Microsoft.CodeAnalysis.OperationKind)123;
+        public const global::Microsoft.CodeAnalysis.OperationKind ImplicitIndexerReference = (global::Microsoft.CodeAnalysis.OperationKind)123;
 
         /// <summary>Added in version 4.4.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind Utf8String = (Microsoft.CodeAnalysis.OperationKind)124;
+        public const global::Microsoft.CodeAnalysis.OperationKind Utf8String = (global::Microsoft.CodeAnalysis.OperationKind)124;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind Attribute = (Microsoft.CodeAnalysis.OperationKind)125;
+        public const global::Microsoft.CodeAnalysis.OperationKind Attribute = (global::Microsoft.CodeAnalysis.OperationKind)125;
 
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (Microsoft.CodeAnalysis.OperationKind)126;
+        public const global::Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (global::Microsoft.CodeAnalysis.OperationKind)126;
     }
 }

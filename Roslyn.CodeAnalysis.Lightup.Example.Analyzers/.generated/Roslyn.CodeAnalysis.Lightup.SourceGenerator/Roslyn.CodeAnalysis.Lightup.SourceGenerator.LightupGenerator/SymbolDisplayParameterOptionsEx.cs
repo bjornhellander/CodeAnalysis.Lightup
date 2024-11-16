@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class SymbolDisplayParameterOptionsEx
     {
         /// <summary>Added in version 4.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.SymbolDisplayParameterOptions IncludeModifiers = (Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)2;
+        public const global::Microsoft.CodeAnalysis.SymbolDisplayParameterOptions IncludeModifiers = (global::Microsoft.CodeAnalysis.SymbolDisplayParameterOptions)2;
     }
 }

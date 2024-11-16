@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CodeActions.CodeActionPriority. Added in version 4.8.0.0.</summary>
-    public enum CodeActionPriorityEx : System.Int32
+    public enum CodeActionPriorityEx : global::System.Int32
     {
         /// <summary>Added in version 4.8.0.0.</summary>
         Lowest = 0,
