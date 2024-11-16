@@ -7,18 +7,18 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class ApplyChangesKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.ApplyChangesKind AddAnalyzerConfigDocument = (Microsoft.CodeAnalysis.ApplyChangesKind)17;
+        public const global::Microsoft.CodeAnalysis.ApplyChangesKind AddAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)17;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.ApplyChangesKind RemoveAnalyzerConfigDocument = (Microsoft.CodeAnalysis.ApplyChangesKind)18;
+        public const global::Microsoft.CodeAnalysis.ApplyChangesKind RemoveAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)18;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.ApplyChangesKind ChangeAnalyzerConfigDocument = (Microsoft.CodeAnalysis.ApplyChangesKind)19;
+        public const global::Microsoft.CodeAnalysis.ApplyChangesKind ChangeAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)19;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.ApplyChangesKind AddSolutionAnalyzerReference = (Microsoft.CodeAnalysis.ApplyChangesKind)20;
+        public const global::Microsoft.CodeAnalysis.ApplyChangesKind AddSolutionAnalyzerReference = (global::Microsoft.CodeAnalysis.ApplyChangesKind)20;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.ApplyChangesKind RemoveSolutionAnalyzerReference = (Microsoft.CodeAnalysis.ApplyChangesKind)21;
+        public const global::Microsoft.CodeAnalysis.ApplyChangesKind RemoveSolutionAnalyzerReference = (global::Microsoft.CodeAnalysis.ApplyChangesKind)21;
     }
 }

@@ -4,11 +4,11 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    internal class WorkspacesCommonLightupHelper : Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelper
+    internal class WorkspacesCommonLightupHelper : global::Roslyn.CodeAnalysis.Lightup.Runtime.LightupHelper
     {
-        private static readonly System.Reflection.Assembly Assembly = typeof(Microsoft.CodeAnalysis.WorkspaceChangeKind).Assembly;
+        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::Microsoft.CodeAnalysis.WorkspaceChangeKind).Assembly;
 
-        public static System.Type? FindType(string wrappedTypeName)
+        public static global::System.Type? FindType(string wrappedTypeName)
         {
             return FindType(Assembly, wrappedTypeName);
         }

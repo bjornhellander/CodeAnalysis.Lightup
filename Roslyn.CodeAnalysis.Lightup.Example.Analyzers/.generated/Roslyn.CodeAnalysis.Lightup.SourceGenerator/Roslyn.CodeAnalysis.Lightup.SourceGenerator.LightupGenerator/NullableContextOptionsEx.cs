@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.NullableContextOptions. Added in version 3.8.0.0.</summary>
     [System.Flags]
-    public enum NullableContextOptionsEx : System.Int32
+    public enum NullableContextOptionsEx : global::System.Int32
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         Disable = 0,

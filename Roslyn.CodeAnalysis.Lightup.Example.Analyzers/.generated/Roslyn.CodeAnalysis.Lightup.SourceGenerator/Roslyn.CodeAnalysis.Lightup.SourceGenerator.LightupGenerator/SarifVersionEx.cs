@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SarifVersion. Added in version 3.8.0.0.</summary>
-    public enum SarifVersionEx : System.Int32
+    public enum SarifVersionEx : global::System.Int32
     {
         /// <summary>Added in version 3.8.0.0.</summary>
         Sarif1 = 1,

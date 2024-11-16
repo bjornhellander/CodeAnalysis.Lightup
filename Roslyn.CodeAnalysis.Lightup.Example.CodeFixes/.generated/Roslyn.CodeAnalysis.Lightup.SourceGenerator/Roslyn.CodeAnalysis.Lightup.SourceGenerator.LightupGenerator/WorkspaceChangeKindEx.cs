@@ -7,15 +7,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     public static partial class WorkspaceChangeKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentAdded = (Microsoft.CodeAnalysis.WorkspaceChangeKind)18;
+        public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentAdded = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)18;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentRemoved = (Microsoft.CodeAnalysis.WorkspaceChangeKind)19;
+        public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentRemoved = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)19;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentReloaded = (Microsoft.CodeAnalysis.WorkspaceChangeKind)20;
+        public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentReloaded = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)20;
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentChanged = (Microsoft.CodeAnalysis.WorkspaceChangeKind)21;
+        public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentChanged = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)21;
     }
 }

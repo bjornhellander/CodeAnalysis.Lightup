@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.InterpolatedStringArgumentPlaceholderKind. Added in version 4.4.0.0.</summary>
-    public enum InterpolatedStringArgumentPlaceholderKindEx : System.Int32
+    public enum InterpolatedStringArgumentPlaceholderKindEx : global::System.Int32
     {
         /// <summary>Added in version 4.4.0.0.</summary>
         CallsiteArgument = 0,
