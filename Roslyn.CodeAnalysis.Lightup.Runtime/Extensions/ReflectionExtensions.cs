@@ -11,7 +11,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Runtime.Extensions
         public static Type? GetPublicType(this Assembly assembly, string name)
         {
             var type = assembly.GetType(name);
-            return type != null && type.IsPublic ? type : null;
+            return type != null && (type.IsPublic || type.IsNestedPublic) ? type : null;
         }
 
         public static FieldInfo? GetPublicField(this Type type, string name)
