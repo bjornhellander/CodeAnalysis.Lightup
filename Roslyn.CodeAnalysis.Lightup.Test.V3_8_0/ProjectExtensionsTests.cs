@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class ProjectExtensionsTests : V3_0_0.ProjectExtensionsTests
+public partial class ProjectExtensionsTests
 {
     [TestMethod]
     public override void TestAnalyzerConfigDocuments()

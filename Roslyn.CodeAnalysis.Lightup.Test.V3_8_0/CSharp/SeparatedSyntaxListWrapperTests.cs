@@ -14,7 +14,7 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
     Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper>;
 
 [TestClass]
-public class SeparatedSyntaxListWrapperTests : V3_0_0.CSharp.SeparatedSyntaxListWrapperTests
+public partial class SeparatedSyntaxListWrapperTests
 {
     [TestMethod]
     public override void TestCountGivenNullObject()

@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class WorkspaceExtensionsTests : V4_0_1.WorkspaceExtensionsTests
+public partial class WorkspaceExtensionsTests
 {
     [TestMethod]
     public override void TestAddTextDocumentClosedGivenCompatibleObject()

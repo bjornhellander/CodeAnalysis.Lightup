@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.CodeActions.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class CodeActionExtensionsTests : V4_4_0.CodeActions.CodeActionExtensionsTests
+public partial class CodeActionExtensionsTests
 {
     // NOTE: Intentionally skipping High, because it can magically be changed to Default
     [TestMethod]

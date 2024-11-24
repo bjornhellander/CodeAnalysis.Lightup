@@ -11,7 +11,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper;
 
 [TestClass]
-public class IFunctionPointerTypeSymbolWrapperTests : V3_0_0.IFunctionPointerTypeSymbolWrapperTests
+public partial class IFunctionPointerTypeSymbolWrapperTests
 {
     [TestMethod]
     public override void TestSignatureGivenNullObject()

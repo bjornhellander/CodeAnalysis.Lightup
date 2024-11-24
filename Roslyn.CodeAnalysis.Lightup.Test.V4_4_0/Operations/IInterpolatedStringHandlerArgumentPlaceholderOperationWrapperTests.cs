@@ -12,7 +12,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper;
 
 [TestClass]
-public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests : V4_0_1.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
+public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
 {
     [TestMethod]
     public override void TestPlaceholderKindGivenNullObject()

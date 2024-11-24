@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 // NOTE: The main reason for adding these tests is that this wrapper refers to other newly created syntax nodes,
 // thereby requiring that the wrapper's properties etc are defined using another wrapper.
 [TestClass]
-public class LineSpanDirectiveTriviaSyntaxWrapperTests : V3_8_0.CSharp.LineSpanDirectiveTriviaSyntaxWrapperTests
+public partial class LineSpanDirectiveTriviaSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestEndGivenNullObject()

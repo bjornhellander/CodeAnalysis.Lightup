@@ -13,7 +13,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper;
 
 [TestClass]
-public class OperationExtensionsExtensionsTests : V4_0_1.Operations.OperationExtensionsExtensionsTests
+public partial class OperationExtensionsExtensionsTests
 {
     [TestMethod]
     public override void TestGetFunctionPointerSignatureGivenNullObject()

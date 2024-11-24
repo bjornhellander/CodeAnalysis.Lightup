@@ -10,7 +10,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class RecordDeclarationSyntaxWrapperTests : V3_8_0.CSharp.RecordDeclarationSyntaxWrapperTests
+public partial class RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestClassOrStructKeywordGivenCompatibleObject()

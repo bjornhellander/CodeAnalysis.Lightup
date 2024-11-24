@@ -7,7 +7,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class FixAllContextExtensionsTests : V4_0_1.FixAllContextExtensionsTests
+public partial class FixAllContextExtensionsTests
 {
     [TestMethod]
     public override void TestConstructor()
