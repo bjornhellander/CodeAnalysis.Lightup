@@ -11,7 +11,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper;
 
 [TestClass]
-public class IImportScopeWrapperTests : V4_0_1.IImportScopeWrapperTests
+public partial class IImportScopeWrapperTests
 {
     [TestMethod]
     public override void TestImportsGivenNullObject()

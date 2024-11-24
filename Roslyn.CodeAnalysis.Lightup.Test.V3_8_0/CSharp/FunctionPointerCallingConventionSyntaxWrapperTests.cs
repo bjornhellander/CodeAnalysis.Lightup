@@ -11,7 +11,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class FunctionPointerCallingConventionSyntaxWrapperTests : V3_0_0.CSharp.FunctionPointerCallingConventionSyntaxWrapperTests
+public partial class FunctionPointerCallingConventionSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestUnmanagedCallingConventionListGivenNullObject()

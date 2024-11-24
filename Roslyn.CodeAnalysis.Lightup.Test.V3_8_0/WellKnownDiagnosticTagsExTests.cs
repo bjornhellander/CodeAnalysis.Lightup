@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class WellKnownDiagnosticTagsExTests : V3_0_0.WellKnownDiagnosticTagsExTests
+public partial class WellKnownDiagnosticTagsExTests
 {
     [TestMethod]
     public override void TestCustomObsolete()

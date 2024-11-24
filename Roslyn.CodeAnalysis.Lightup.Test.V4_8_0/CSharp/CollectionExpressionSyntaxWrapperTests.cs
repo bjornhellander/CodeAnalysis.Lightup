@@ -11,7 +11,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class CollectionExpressionSyntaxWrapperTests : V4_4_0.CSharp.CollectionExpressionSyntaxWrapperTests
+public partial class CollectionExpressionSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestAddElementsGivenNullObject()

@@ -9,7 +9,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class BreakStatementSyntaxExtensionsTests : V3_0_0.CSharp.BreakStatementSyntaxExtensionsTests
+public partial class BreakStatementSyntaxExtensionsTests
 {
     [TestMethod]
     public override void TestAttributeLists()

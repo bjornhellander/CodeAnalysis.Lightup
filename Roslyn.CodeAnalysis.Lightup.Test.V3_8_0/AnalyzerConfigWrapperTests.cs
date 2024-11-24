@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper;
 
 [TestClass]
-public class AnalyzerConfigWrapperTests : V3_0_0.AnalyzerConfigWrapperTests
+public partial class AnalyzerConfigWrapperTests
 {
     [TestMethod]
     public override void TestParse()

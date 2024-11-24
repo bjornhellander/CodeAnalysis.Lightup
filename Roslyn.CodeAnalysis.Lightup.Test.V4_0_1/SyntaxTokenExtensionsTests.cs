@@ -6,7 +6,7 @@ namespace Roslyn.CodeAnalysis.Lightup.Test.V4_0_1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class SyntaxTokenExtensionsTests : V3_8_0.SyntaxTokenExtensionsTests
+public partial class SyntaxTokenExtensionsTests
 {
     [TestMethod]
     public override void TestIsIncrementallyIdenticalTo()

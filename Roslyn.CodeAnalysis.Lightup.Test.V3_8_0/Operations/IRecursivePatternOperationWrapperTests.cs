@@ -12,7 +12,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOperationWrapper;
 
 [TestClass]
-public class IRecursivePatternOperationWrapperTests : V3_0_0.Operations.IRecursivePatternOperationWrapperTests
+public partial class IRecursivePatternOperationWrapperTests
 {
     [TestMethod]
     public override void TestPropertySubpatternsGivenNullObject()

@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class SarifVersionFactsExTests : V3_0_0.SarifVersionFactsExTests
+public partial class SarifVersionFactsExTests
 {
     [TestMethod]
     public override void TestTryParse()

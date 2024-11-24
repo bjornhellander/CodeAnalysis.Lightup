@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper;
 
 [TestClass]
-public class SymbolEqualityComparerWrapperTests : V3_0_0.SymbolEqualityComparerWrapperTests
+public partial class SymbolEqualityComparerWrapperTests
 {
     [TestMethod]
     public override void TestDefault()

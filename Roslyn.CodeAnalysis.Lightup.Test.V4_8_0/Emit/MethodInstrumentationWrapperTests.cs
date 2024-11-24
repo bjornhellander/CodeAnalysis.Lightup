@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wrapper = Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper;
 
 [TestClass]
-public class MethodInstrumentationWrapperTests : V4_4_0.Emit.MethodInstrumentationWrapperTests
+public partial class MethodInstrumentationWrapperTests
 {
     [TestMethod]
     public override void TestKindsGivenNullObject()

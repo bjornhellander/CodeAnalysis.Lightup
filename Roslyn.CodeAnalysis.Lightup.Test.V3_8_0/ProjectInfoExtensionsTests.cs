@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class ProjectInfoExtensionsTests : V3_0_0.ProjectInfoExtensionsTests
+public partial class ProjectInfoExtensionsTests
 {
     [TestMethod]
     public override void TestWithCompilationOutputInfo()

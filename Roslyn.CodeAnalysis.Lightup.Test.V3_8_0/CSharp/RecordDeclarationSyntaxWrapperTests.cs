@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Roslyn.CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 [TestClass]
-public class RecordDeclarationSyntaxWrapperTests : V3_0_0.CSharp.RecordDeclarationSyntaxWrapperTests
+public partial class RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
     public override void TestIdentifierGivenNullObject()

@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper;
 
 [TestClass]
-public class ErrorLogOptionsWrapperTests : V3_0_0.ErrorLogOptionsWrapperTests
+public partial class ErrorLogOptionsWrapperTests
 {
     [TestMethod]
     public override void TestConstructor()

@@ -12,7 +12,7 @@ using Moq;
 using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper;
 
 [TestClass]
-public class AnalyzerConfigOptionsWrapperTests : V3_0_0.Diagnostics.AnalyzerConfigOptionsWrapperTests
+public partial class AnalyzerConfigOptionsWrapperTests
 {
     [TestMethod]
     public override void TestTryGetValueGivenNullObject()

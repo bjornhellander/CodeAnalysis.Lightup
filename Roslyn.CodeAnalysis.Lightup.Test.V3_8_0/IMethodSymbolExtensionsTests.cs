@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 [TestClass]
-public class IMethodSymbolExtensionsTests : V3_0_0.IMethodSymbolExtensionsTests
+public partial class IMethodSymbolExtensionsTests
 {
     [TestMethod]
     [DataRow(NullableAnnotationEx.None)]

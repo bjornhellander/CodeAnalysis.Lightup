@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
-public class IAssemblySymbolExtensionsTests : V3_0_0.IAssemblySymbolExtensionsTests
+public partial class IAssemblySymbolExtensionsTests
 {
     [TestMethod]
     public override void TestGetForwardedTypesGivenCompatibleObject()
