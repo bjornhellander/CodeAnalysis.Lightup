@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.RuntimeCapability. Added in version 4.8.0.0.</summary>
-    public enum RuntimeCapabilityEx : System.Int32
+    public enum RuntimeCapabilityEx : global::System.Int32
     {
         /// <summary>Added in version 4.8.0.0.</summary>
         ByRefFields = 1,

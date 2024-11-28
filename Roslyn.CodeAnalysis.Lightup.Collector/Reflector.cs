@@ -19,7 +19,7 @@ internal class Reflector
     {
         [AssemblyKind.Common] = "Microsoft.CodeAnalysis",
         [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp",
-        [AssemblyKind.Workspaces] = "Microsoft.CodeAnalysis.Workspaces",
+        [AssemblyKind.WorkspacesCommon] = "Microsoft.CodeAnalysis.Workspaces",
         [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Workspaces",
     };
 

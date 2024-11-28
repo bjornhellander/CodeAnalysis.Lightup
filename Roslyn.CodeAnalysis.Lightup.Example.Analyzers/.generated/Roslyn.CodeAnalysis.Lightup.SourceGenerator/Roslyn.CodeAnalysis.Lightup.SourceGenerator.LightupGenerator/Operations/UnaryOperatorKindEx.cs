@@ -7,6 +7,6 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     public static partial class UnaryOperatorKindEx
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        public const Microsoft.CodeAnalysis.Operations.UnaryOperatorKind Hat = (Microsoft.CodeAnalysis.Operations.UnaryOperatorKind)7;
+        public const global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind Hat = (global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind)7;
     }
 }

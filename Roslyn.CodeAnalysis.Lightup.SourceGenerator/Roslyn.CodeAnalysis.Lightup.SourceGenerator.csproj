@@ -6,15 +6,15 @@
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 		<!-- Do not include the generator as a lib dependency -->
 		<IncludeBuildOutput>false</IncludeBuildOutput>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<developmentDependency>true</developmentDependency>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<DevelopmentDependency>true</DevelopmentDependency>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Description>
 			Source generator package adding runtime support for newer Roslyn features than for example an analyzer is compiled against.
 		</Description>
-		<PackageVersion>0.0.6.0</PackageVersion>
+		<PackageVersion>1.0.0.0-alpha.1</PackageVersion>
 		<Authors>Björn Hellander</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
@@ -56,11 +56,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<!-- Not needed in the generator, but makes sure we get a package reference to it in the consuming project -->
-		<ProjectReference Include="..\Roslyn.CodeAnalysis.Lightup.Runtime\Roslyn.CodeAnalysis.Lightup.Runtime.csproj" PrivateAssets="None "/>
 	</ItemGroup>
 
 </Project>
