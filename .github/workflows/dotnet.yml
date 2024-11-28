@@ -28,7 +28,7 @@ jobs:
     - name: Build
       run: dotnet build -c ${{matrix.configuration}} --no-restore
     - name: Collect type info
-      run: dotnet run -c ${{matrix.configuration}} --no-build --project Roslyn.CodeAnalysis.Lightup.Collector
+      run: dotnet run -c ${{matrix.configuration}} --no-build --project CodeAnalysis.Lightup.Collector
     - name: Build again
       run: dotnet build -c ${{matrix.configuration}} --no-restore
     - name: Check that generated files did not change

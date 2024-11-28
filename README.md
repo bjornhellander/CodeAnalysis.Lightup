@@ -1,4 +1,4 @@
-# Roslyn.CodeAnalysis.Lightup
+# CodeAnalysis.Lightup
 
 ## Limitations
 
