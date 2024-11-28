@@ -13,9 +13,9 @@
 		<PackageVersion>1.0.0.0-alpha.1</PackageVersion>
 		<Authors>Björn Hellander</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/bjornhellander/CodeAnalysis.Lightup</PackageProjectUrl>
 		<!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
-		<RepositoryUrl>https://github.com/bjornhellander/Roslyn.CodeAnalysis.Lightup</RepositoryUrl>
+		<RepositoryUrl>https://github.com/bjornhellander/CodeAnalysis.Lightup</RepositoryUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
 		<PackageTags>Roslyn, CodeAnalysis, CSharp, Syntax, Semantics, Analyzers, CodeFixes, CodeRefactorings</PackageTags>
