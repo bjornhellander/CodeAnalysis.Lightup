@@ -24,12 +24,13 @@
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<Copyright>Copyright © Björn Hellander 2024. Licensed under the MIT License.</Copyright>
 		<PackageTags>Roslyn, CodeAnalysis, CSharp, Syntax, Semantics, Analyzers, CodeFixes, CodeRefactorings</PackageTags>
-		<NoPackageAnalysis>true</NoPackageAnalysis>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- Package the generator in the analyzer directory of the nuget package -->
 		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 	<ItemGroup>
