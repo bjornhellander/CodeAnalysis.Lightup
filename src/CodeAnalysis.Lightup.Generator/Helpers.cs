@@ -25,6 +25,7 @@ internal static class Helpers
         string configFileContent,
         out List<AssemblyKind> assemblies,
         out Version baselineVersion,
+        out List<string> typesToInclude,
         out string errorMessage)
     {
         try
@@ -33,6 +34,7 @@ internal static class Helpers
             var root = doc.Root;
             assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
             baselineVersion = new Version(root.Element("BaselineVersion")?.Value);
+            typesToInclude = root.Elements("IncludeType").Select(x => x.Value).ToList();
 
             if (assemblies.Count == 0)
             {
@@ -47,6 +49,7 @@ internal static class Helpers
         {
             assemblies = [];
             baselineVersion = new Version();
+            typesToInclude = [];
             errorMessage = "Failed to parse file";
             return false;
         }

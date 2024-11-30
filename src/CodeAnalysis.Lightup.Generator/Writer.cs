@@ -87,6 +87,7 @@ internal class Writer
     internal static void Write(
         SourceProductionContext context,
         IReadOnlyList<AssemblyKind> assemblyKinds,
+        List<string> typesToInclude,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         foreach (var assemblyKind in assemblyKinds)
@@ -98,7 +99,7 @@ internal class Writer
                 WriteSeparatedSyntaxListWrapper(context);
             }
 
-            Write(context, assemblyKind, typeDefs);
+            Write(context, assemblyKind, typesToInclude, typeDefs);
         }
     }
 
@@ -293,11 +294,21 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static void Write(
         SourceProductionContext context,
         AssemblyKind assemblyKind,
+        List<string> typesToInclude,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        var relevantTypeDefs = typeDefs.Values.Where(x => x.AssemblyKind == assemblyKind).ToList();
-        foreach (var typeDef in relevantTypeDefs)
+        foreach (var typeDef in typeDefs.Values)
         {
+            if (typeDef.AssemblyKind != assemblyKind)
+            {
+                continue;
+            }
+
+            if (typesToInclude.Count > 0 && !typesToInclude.Contains(typeDef.FullName))
+            {
+                continue;
+            }
+
             var targetNamespace = GetTargetNamespace(typeDef);
             var source = GenerateType(typeDef, typeDefs, targetNamespace, HelperPrefixes[assemblyKind]);
 
@@ -305,6 +316,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 var targetFolder = GetTargetFolder(typeDef);
                 var targetFilePath = Path.Combine(targetFolder, typeDef.GeneratedFileName);
+
+                // NOTE: Roslyn versions older than 4.6.0 do not accept folders in the file path, so I have changed referenced version in the generator and in the generator test project
+                // See https://github.com/dotnet/roslyn/pull/66438
+                // TODO: Handle versions back to 4.0.1 by generating files some other way?
                 context.AddSource(targetFilePath, SourceText.From(source, Encoding.UTF8));
             }
         }

@@ -35,9 +35,9 @@ public class LightupGenerator : IIncrementalGenerator
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "TODO")]
     private static void Execute(SourceProductionContext context, string configFileContent)
     {
-        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var _))
+        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
         {
-            Writer.Write(context, assemblies, Types.Value);
+            Writer.Write(context, assemblies, typesToInclude, Types.Value);
         }
     }
 }
