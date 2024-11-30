@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V3_0_0\CodeAnalysis.Lightup.Test.V3_0_0.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V3_8_0\CodeAnalysis.Lightup.Test.V3_8_0.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V4_0_1\CodeAnalysis.Lightup.Test.V4_0_1.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V4_4_0\CodeAnalysis.Lightup.Test.V4_4_0.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V4_8_0\CodeAnalysis.Lightup.Test.V4_8_0.csproj" />
+	</ItemGroup>
+
+</Project>
