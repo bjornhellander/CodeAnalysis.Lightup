@@ -16,9 +16,9 @@ internal class Program
     {
         var rootFolder = GetRepositoryRoot();
 
-        var testProjectNames = GetTestProjectNames(rootFolder).OrderBy(x => x).ToList();
+        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x).ToList();
 
-        var types = Reflector.CollectTypes(testProjectNames, rootFolder);
+        var types = Reflector.CollectTypes(referenceProjectNames, rootFolder);
 
         var typesFilePath = Path.Combine(rootFolder, "src", "CodeAnalysis.Lightup.Generator", "Types.xml");
         using var stream = new FileStream(typesFilePath, FileMode.Create);
@@ -44,10 +44,10 @@ internal class Program
         return null;
     }
 
-    private static List<string> GetTestProjectNames(string rootFolder)
+    private static List<string> GetReferenceProjectNames(string rootFolder)
     {
-        var testFolder = Path.Combine(rootFolder, "test");
-        var testProjectNames = Directory.GetDirectories(testFolder, "CodeAnalysis.Lightup.Test.V*").Select(x => Path.GetFileName(x)).ToList();
-        return testProjectNames;
+        var testFolder = Path.Combine(rootFolder, "ref");
+        var referenceProjectNames = Directory.GetDirectories(testFolder).Select(x => Path.GetFileName(x)).ToList();
+        return referenceProjectNames;
     }
 }
