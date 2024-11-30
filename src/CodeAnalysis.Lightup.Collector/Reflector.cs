@@ -46,7 +46,7 @@ internal class Reflector
         Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion)
     {
-        var testProjectFolder = Path.Combine(rootFolder, testProjectName, "bin");
+        var testProjectFolder = Path.Combine(rootFolder, "test", testProjectName, "bin");
         var testAssemblyPaths = Directory.GetFiles(testProjectFolder, $"{testProjectName}.dll", SearchOption.AllDirectories);
         var testAssemblyPath = testAssemblyPaths.SingleOrDefault();
         Assert.IsTrue(testAssemblyPath != null, $"Could not find test assembly in {testProjectFolder}");

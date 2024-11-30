@@ -20,7 +20,7 @@ internal class Program
 
         var types = Reflector.CollectTypes(testProjectNames, rootFolder);
 
-        var typesFilePath = Path.Combine(rootFolder, "CodeAnalysis.Lightup.Generator", "Types.xml");
+        var typesFilePath = Path.Combine(rootFolder, "src", "CodeAnalysis.Lightup.Generator", "Types.xml");
         using var stream = new FileStream(typesFilePath, FileMode.Create);
         var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
         serializer.Serialize(stream, types.Values.ToList());
@@ -46,8 +46,8 @@ internal class Program
 
     private static List<string> GetTestProjectNames(string rootFolder)
     {
-        var folders = Directory.GetDirectories(rootFolder).Select(x => Path.GetFileName(x)).ToList();
-        var testProjectFolders = folders.Where(x => x.StartsWith("CodeAnalysis.Lightup.Test") && !x.EndsWith(".Internal") && !x.EndsWith(".Generator")).ToList();
-        return testProjectFolders;
+        var testFolder = Path.Combine(rootFolder, "test");
+        var testProjectNames = Directory.GetDirectories(testFolder, "CodeAnalysis.Lightup.Test.V*").Select(x => Path.GetFileName(x)).ToList();
+        return testProjectNames;
     }
 }

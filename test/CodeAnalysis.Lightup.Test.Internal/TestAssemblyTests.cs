@@ -82,9 +82,9 @@ public class TestAssemblyTests
     private static List<string> GetTestProjectNames()
     {
         var rootFolder = GetRepositoryRoot();
-        var folders = Directory.GetDirectories(rootFolder).Select(x => Path.GetFileName(x)).ToList();
-        var testProjectFolders = folders.Where(x => x.StartsWith("CodeAnalysis.Lightup.Test") && !x.EndsWith(".Internal") && !x.EndsWith(".Generator") && !x.EndsWith(".Support")).ToList();
-        return testProjectFolders;
+        var testFolder = Path.Combine(rootFolder, "test");
+        var testProjectNames = Directory.GetDirectories(testFolder, "CodeAnalysis.Lightup.Test.V*").Select(x => Path.GetFileName(x)).ToList();
+        return testProjectNames;
     }
 
     private static List<Type> GetTestTypes(Assembly assembly)

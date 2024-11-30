@@ -17,37 +17,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V3_0_0", "CodeAnalysis.Lightup.Test.V3_0_0\CodeAnalysis.Lightup.Test.V3_0_0.csproj", "{F375961C-1693-490B-B2A5-C8FCDCD07696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V3_0_0", "test\CodeAnalysis.Lightup.Test.V3_0_0\CodeAnalysis.Lightup.Test.V3_0_0.csproj", "{F375961C-1693-490B-B2A5-C8FCDCD07696}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_8_0", "CodeAnalysis.Lightup.Test.V4_8_0\CodeAnalysis.Lightup.Test.V4_8_0.csproj", "{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_8_0", "test\CodeAnalysis.Lightup.Test.V4_8_0\CodeAnalysis.Lightup.Test.V4_8_0.csproj", "{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_4_0", "CodeAnalysis.Lightup.Test.V4_4_0\CodeAnalysis.Lightup.Test.V4_4_0.csproj", "{8FA55692-CDE9-40F9-AF42-1A00F2DF34E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_4_0", "test\CodeAnalysis.Lightup.Test.V4_4_0\CodeAnalysis.Lightup.Test.V4_4_0.csproj", "{8FA55692-CDE9-40F9-AF42-1A00F2DF34E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_0_1", "CodeAnalysis.Lightup.Test.V4_0_1\CodeAnalysis.Lightup.Test.V4_0_1.csproj", "{5317C65F-971D-49AD-B28A-35D0C644E138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_0_1", "test\CodeAnalysis.Lightup.Test.V4_0_1\CodeAnalysis.Lightup.Test.V4_0_1.csproj", "{5317C65F-971D-49AD-B28A-35D0C644E138}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V3_8_0", "CodeAnalysis.Lightup.Test.V3_8_0\CodeAnalysis.Lightup.Test.V3_8_0.csproj", "{430FC4C4-9FF2-4E21-B9B1-02196582E4C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V3_8_0", "test\CodeAnalysis.Lightup.Test.V3_8_0\CodeAnalysis.Lightup.Test.V3_8_0.csproj", "{430FC4C4-9FF2-4E21-B9B1-02196582E4C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Internal", "CodeAnalysis.Lightup.Test.Internal\CodeAnalysis.Lightup.Test.Internal.csproj", "{E75915B2-B112-42C2-AC13-0A5190C304B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Internal", "test\CodeAnalysis.Lightup.Test.Internal\CodeAnalysis.Lightup.Test.Internal.csproj", "{E75915B2-B112-42C2-AC13-0A5190C304B9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Example.Analyzers", "CodeAnalysis.Lightup.Example.Analyzers\CodeAnalysis.Lightup.Example.Analyzers.csproj", "{3A2AD8EA-36A8-4462-A63D-2EA270105108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Example.Analyzers", "test\CodeAnalysis.Lightup.Example.Analyzers\CodeAnalysis.Lightup.Example.Analyzers.csproj", "{3A2AD8EA-36A8-4462-A63D-2EA270105108}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Example.CodeFixes", "CodeAnalysis.Lightup.Example.CodeFixes\CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Example.CodeFixes", "test\CodeAnalysis.Lightup.Example.CodeFixes\CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Runtime", "CodeAnalysis.Lightup.Runtime\CodeAnalysis.Lightup.Runtime.csproj", "{DF6641B0-2488-46F5-BB43-DF689F905871}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Runtime", "src\CodeAnalysis.Lightup.Runtime\CodeAnalysis.Lightup.Runtime.csproj", "{DF6641B0-2488-46F5-BB43-DF689F905871}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Definitions", "CodeAnalysis.Lightup.Definitions\CodeAnalysis.Lightup.Definitions.csproj", "{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Definitions", "src\CodeAnalysis.Lightup.Definitions\CodeAnalysis.Lightup.Definitions.csproj", "{0F4BA8A3-FB3D-4E2B-8576-A99CDA5656DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CE401EEE-7B30-47E3-9983-1E266B735B74}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Collector", "CodeAnalysis.Lightup.Collector\CodeAnalysis.Lightup.Collector.csproj", "{33624620-A2ED-4346-8A61-6CF055F1D4C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Collector", "src\CodeAnalysis.Lightup.Collector\CodeAnalysis.Lightup.Collector.csproj", "{33624620-A2ED-4346-8A61-6CF055F1D4C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Generator", "CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj", "{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Generator", "src\CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj", "{B64F81F3-3AD2-4D54-B61E-5C3E59C2A1B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Generator", "CodeAnalysis.Lightup.Test.Generator\CodeAnalysis.Lightup.Test.Generator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Generator", "test\CodeAnalysis.Lightup.Test.Generator\CodeAnalysis.Lightup.Test.Generator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Support", "CodeAnalysis.Lightup.Test.Support\CodeAnalysis.Lightup.Test.Support.csproj", "{76508F2B-3484-4618-BC2E-A883A5670532}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Support", "test\CodeAnalysis.Lightup.Test.Support\CodeAnalysis.Lightup.Test.Support.csproj", "{76508F2B-3484-4618-BC2E-A883A5670532}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

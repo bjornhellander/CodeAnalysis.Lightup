@@ -4,7 +4,6 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>8.0</LangVersion>
 		<IsPackable>false</IsPackable>
-		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -22,12 +21,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.0.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Runtime\CodeAnalysis.Lightup.Runtime.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Example.Analyzers\CodeAnalysis.Lightup.Example.Analyzers.csproj" />
+		<ProjectReference Include="..\..\src\CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
 </Project>
