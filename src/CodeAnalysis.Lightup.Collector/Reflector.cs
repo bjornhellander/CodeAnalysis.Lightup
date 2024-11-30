@@ -24,14 +24,14 @@ internal class Reflector
     };
 
     public static Dictionary<string, BaseTypeDefinition> CollectTypes(
-        IReadOnlyList<string> testProjectNames,
+        IReadOnlyList<string> referenceProjectNames,
         string rootFolder)
     {
         var isFirst = true;
         var types = new Dictionary<string, BaseTypeDefinition>();
-        foreach (var testProjectName in testProjectNames)
+        foreach (var referenceProjectName in referenceProjectNames)
         {
-            CollectTypes(testProjectName, rootFolder, types, isFirst);
+            CollectTypes(referenceProjectName, rootFolder, types, isFirst);
             isFirst = false;
         }
 
@@ -41,19 +41,19 @@ internal class Reflector
     }
 
     private static void CollectTypes(
-        string testProjectName,
+        string referenceProjectName,
         string rootFolder,
         Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion)
     {
-        var testProjectFolder = Path.Combine(rootFolder, "test", testProjectName, "bin");
-        var testAssemblyPaths = Directory.GetFiles(testProjectFolder, $"{testProjectName}.dll", SearchOption.AllDirectories);
-        var testAssemblyPath = testAssemblyPaths.SingleOrDefault();
-        Assert.IsTrue(testAssemblyPath != null, $"Could not find test assembly in {testProjectFolder}");
-        var testProjectBinFolder = Path.GetDirectoryName(testAssemblyPath);
-        Assert.IsTrue(testProjectBinFolder != null, "Could not get test projects's bin folder");
+        var referenceProjectFolder = Path.Combine(rootFolder, "ref", referenceProjectName, "bin");
+        var referenceAssemblyPaths = Directory.GetFiles(referenceProjectFolder, $"{referenceProjectName}.dll", SearchOption.AllDirectories);
+        var referenceAssemblyPath = referenceAssemblyPaths.SingleOrDefault();
+        Assert.IsTrue(referenceAssemblyPath != null, $"Could not find reference assembly in {referenceProjectFolder}");
+        var referenceProjectBinFolder = Path.GetDirectoryName(referenceAssemblyPath);
+        Assert.IsTrue(referenceProjectBinFolder != null, "Could not get reference projects's bin folder");
 
-        var assemblyLoadContext = new AssemblyLoadContext(testProjectName);
+        var assemblyLoadContext = new AssemblyLoadContext(referenceProjectName);
         assemblyLoadContext.Resolving += ResolveAssembly;
 
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
@@ -63,7 +63,7 @@ internal class Reflector
 
         Assembly? ResolveAssembly(AssemblyLoadContext context, AssemblyName assemblyName)
         {
-            var assemblyPath = Path.Combine(testProjectBinFolder, assemblyName.Name + ".dll");
+            var assemblyPath = Path.Combine(referenceProjectBinFolder, assemblyName.Name + ".dll");
             var assembly = context.LoadFromAssemblyPath(assemblyPath);
             return assembly;
         }
