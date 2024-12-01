@@ -69,28 +69,28 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             => ConstructorFunc0(RenameOverloads, RenameInStrings, RenameInComments, RenameFile);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameFile
+        public global::System.Boolean RenameFile
         {
             get => RenameFileGetterFunc(wrappedObject);
             set => RenameFileSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameInComments
+        public global::System.Boolean RenameInComments
         {
             get => RenameInCommentsGetterFunc(wrappedObject);
             set => RenameInCommentsSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameInStrings
+        public global::System.Boolean RenameInStrings
         {
             get => RenameInStringsGetterFunc(wrappedObject);
             set => RenameInStringsSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameOverloads
+        public global::System.Boolean RenameOverloads
         {
             get => RenameOverloadsGetterFunc(wrappedObject);
             set => RenameOverloadsSetterFunc(wrappedObject, value);
@@ -112,11 +112,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Deconstruct(out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile)
+        public void Deconstruct(out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile)
             => DeconstructFunc0(wrappedObject, out RenameOverloads, out RenameInStrings, out RenameInComments, out RenameFile);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }
 }

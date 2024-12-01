@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> Arguments
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> Arguments
         {
             get => ArgumentsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Target
+        public global::Microsoft.CodeAnalysis.IOperation Target
         {
             get => TargetGetterFunc(wrappedObject);
         }

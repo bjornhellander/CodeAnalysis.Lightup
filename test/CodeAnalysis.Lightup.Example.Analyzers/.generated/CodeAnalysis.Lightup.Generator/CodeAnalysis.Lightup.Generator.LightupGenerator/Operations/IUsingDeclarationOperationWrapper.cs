@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroup
+        public global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroup
         {
             get => DeclarationGroupGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean IsAsynchronous
+        public global::System.Boolean IsAsynchronous
         {
             get => IsAsynchronousGetterFunc(wrappedObject);
         }

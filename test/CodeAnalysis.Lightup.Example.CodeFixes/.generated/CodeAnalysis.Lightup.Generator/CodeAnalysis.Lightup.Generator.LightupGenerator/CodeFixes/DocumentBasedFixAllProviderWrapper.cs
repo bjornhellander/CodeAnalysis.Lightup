@@ -51,11 +51,11 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
+        public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
             => GetFixAsyncFunc0(wrappedObject, fixAllContext);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
+        public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
             => GetSupportedFixAllScopesFunc1(wrappedObject);
     }
 }

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation Pattern
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Pattern
         {
             get => PatternGetterFunc(wrappedObject);
         }

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation AppendCall
+        public global::Microsoft.CodeAnalysis.IOperation AppendCall
         {
             get => AppendCallGetterFunc(wrappedObject);
         }

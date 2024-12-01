@@ -42,13 +42,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ConstructorFunc0(path, sarifVersion);
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.String Path
+        public global::System.String Path
         {
             get => PathGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
+        public global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
         {
             get => SarifVersionGetterFunc(wrappedObject);
         }

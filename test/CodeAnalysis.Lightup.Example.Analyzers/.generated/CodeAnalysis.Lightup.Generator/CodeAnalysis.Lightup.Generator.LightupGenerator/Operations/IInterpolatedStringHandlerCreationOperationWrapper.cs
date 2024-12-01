@@ -38,25 +38,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Content
+        public global::Microsoft.CodeAnalysis.IOperation Content
         {
             get => ContentGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean HandlerAppendCallsReturnBool
+        public global::System.Boolean HandlerAppendCallsReturnBool
         {
             get => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation HandlerCreation
+        public global::Microsoft.CodeAnalysis.IOperation HandlerCreation
         {
             get => HandlerCreationGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean HandlerCreationHasSuccessParameter
+        public global::System.Boolean HandlerCreationHasSuccessParameter
         {
             get => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);
         }

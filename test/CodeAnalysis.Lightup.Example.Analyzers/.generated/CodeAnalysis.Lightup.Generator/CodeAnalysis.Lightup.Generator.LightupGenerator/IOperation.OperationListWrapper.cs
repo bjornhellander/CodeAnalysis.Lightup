@@ -51,7 +51,7 @@ public partial class IOperationExtensions {
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Int32 Count
+        public global::System.Int32 Count
         {
             get => CountGetterFunc(wrappedObject);
         }
@@ -72,27 +72,27 @@ public partial class IOperationExtensions {
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean Any()
+        public global::System.Boolean Any()
             => AnyFunc0(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation First()
+        public global::Microsoft.CodeAnalysis.IOperation First()
             => FirstFunc1(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumerator()
             => GetEnumeratorFunc2(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Last()
+        public global::Microsoft.CodeAnalysis.IOperation Last()
             => LastFunc3(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper Reverse()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper Reverse()
             => ReverseFunc4(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
             => ToImmutableArrayFunc5(wrappedObject);
     }
 }

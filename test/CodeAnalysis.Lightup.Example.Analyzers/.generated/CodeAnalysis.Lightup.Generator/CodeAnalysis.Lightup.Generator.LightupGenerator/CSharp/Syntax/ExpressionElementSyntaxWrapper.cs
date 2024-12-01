@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
@@ -66,15 +66,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
             => UpdateFunc1(wrappedObject, expression);
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
             => WithExpressionFunc2(wrappedObject, expression);
     }
 }

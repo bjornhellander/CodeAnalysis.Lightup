@@ -53,19 +53,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
+        public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
         {
             get => AttributeListsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
+        public global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
         {
             get => ModifiersGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? Type
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? Type
         {
             get => TypeGetterFunc(wrappedObject);
         }
@@ -90,23 +90,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddAttributeLists(params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddAttributeLists(params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
             => AddAttributeListsFunc0(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddModifiers(params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddModifiers(params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
             => AddModifiersFunc1(wrappedObject, items);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
             => WithAttributeListsFunc2(wrappedObject, attributeLists);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithModifiers(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithModifiers(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
             => WithModifiersFunc3(wrappedObject, modifiers);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type)
             => WithTypeFunc4(wrappedObject, type);
     }
 }

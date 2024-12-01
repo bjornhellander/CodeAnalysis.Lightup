@@ -41,31 +41,31 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbol
         {
             get => DeclaredSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatterns
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatterns
         {
             get => DeconstructionSubpatternsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbol
         {
             get => DeconstructSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
+        public global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
         {
             get => MatchedTypeGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatterns
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatterns
         {
             get => PropertySubpatternsGetterFunc(wrappedObject);
         }

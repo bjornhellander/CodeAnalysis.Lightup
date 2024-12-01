@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IMethodSymbol Signature
+        public global::Microsoft.CodeAnalysis.IMethodSymbol Signature
         {
             get => SignatureGetterFunc(wrappedObject);
         }

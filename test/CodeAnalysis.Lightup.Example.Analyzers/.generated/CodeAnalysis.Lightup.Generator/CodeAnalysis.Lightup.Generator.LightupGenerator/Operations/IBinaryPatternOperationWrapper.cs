@@ -35,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation LeftPattern
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation LeftPattern
         {
             get => LeftPatternGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
+        public global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
         {
             get => OperatorKindGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation RightPattern
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation RightPattern
         {
             get => RightPatternGetterFunc(wrappedObject);
         }

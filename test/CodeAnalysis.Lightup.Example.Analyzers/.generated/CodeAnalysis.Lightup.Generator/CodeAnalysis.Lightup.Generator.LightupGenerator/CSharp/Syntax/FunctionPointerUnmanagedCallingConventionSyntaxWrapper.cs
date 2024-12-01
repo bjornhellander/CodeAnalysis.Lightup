@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken Name
+        public global::Microsoft.CodeAnalysis.SyntaxToken Name
         {
             get => NameGetterFunc(wrappedObject);
         }
@@ -66,15 +66,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken name)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken name)
             => UpdateFunc1(wrappedObject, name);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(global::Microsoft.CodeAnalysis.SyntaxToken name)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper WithName(global::Microsoft.CodeAnalysis.SyntaxToken name)
             => WithNameFunc2(wrappedObject, name);
     }
 }

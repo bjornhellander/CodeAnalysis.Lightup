@@ -35,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptions
+        public global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptions
         {
             get => AnalyzerOptionsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> Diagnostics
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> Diagnostics
         {
             get => DiagnosticsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptions
+        public global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptions
         {
             get => TreeOptionsGetterFunc(wrappedObject);
         }

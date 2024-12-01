@@ -39,7 +39,7 @@ public partial class RenamerEx {
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActions
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActions
         {
             get => ApplicableActionsGetterFunc(wrappedObject);
         }
@@ -60,11 +60,11 @@ public partial class RenamerEx {
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken)
+        public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken)
             => UpdateSolutionAsyncFunc0(wrappedObject, solution, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken)
+        public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken)
             => UpdateSolutionAsyncFunc1(wrappedObject, solution, actions, cancellationToken);
     }
 }

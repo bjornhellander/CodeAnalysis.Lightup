@@ -54,25 +54,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ConstructorFunc0(span, characterOffset, mappedSpan);
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.Nullable<global::System.Int32> CharacterOffset
+        public global::System.Nullable<global::System.Int32> CharacterOffset
         {
             get => CharacterOffsetGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.Boolean IsHidden
+        public global::System.Boolean IsHidden
         {
             get => IsHiddenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpan
+        public global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpan
         {
             get => MappedSpanGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Text.LinePositionSpan Span
+        public global::Microsoft.CodeAnalysis.Text.LinePositionSpan Span
         {
             get => SpanGetterFunc(wrappedObject);
         }
@@ -93,7 +93,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }
 }

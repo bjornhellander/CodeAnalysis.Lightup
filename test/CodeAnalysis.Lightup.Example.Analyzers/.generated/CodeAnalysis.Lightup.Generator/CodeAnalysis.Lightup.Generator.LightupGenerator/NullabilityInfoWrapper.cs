@@ -38,13 +38,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx Annotation
+        public global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx Annotation
         {
             get => AnnotationGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx FlowState
+        public global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx FlowState
         {
             get => FlowStateGetterFunc(wrappedObject);
         }
@@ -65,7 +65,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }
 }

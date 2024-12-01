@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptions
+        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptions
         {
             get => GlobalOptionsGetterFunc(wrappedObject);
         }
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
+        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
             => GetOptionsFunc0(wrappedObject, tree);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
+        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
             => GetOptionsFunc1(wrappedObject, textFile);
     }
 }

@@ -50,15 +50,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean CanApplyChange(global::Microsoft.CodeAnalysis.ApplyChangesKind kind)
+        public global::System.Boolean CanApplyChange(global::Microsoft.CodeAnalysis.ApplyChangesKind kind)
             => CanApplyChangeFunc0(wrappedObject, kind);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean CanApplyCompilationOptionChange(global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
+        public global::System.Boolean CanApplyCompilationOptionChange(global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
             => CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean CanApplyParseOptionChange(global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
+        public global::System.Boolean CanApplyParseOptionChange(global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
             => CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
     }
 }

@@ -41,13 +41,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken ColonToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken ColonToken
         {
             get => ColonTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
             get => ExpressionGetterFunc(wrappedObject);
         }
@@ -72,11 +72,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
             => WithColonTokenFunc0(wrappedObject, colonToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
             => WithExpressionFunc1(wrappedObject, expression);
     }
 }

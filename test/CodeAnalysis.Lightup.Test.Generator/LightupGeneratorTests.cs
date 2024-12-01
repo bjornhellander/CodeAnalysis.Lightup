@@ -65,19 +65,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        public readonly int Count
+        public int Count
             => CountAccessor(wrappedObject);
 
-        public readonly int SeparatorCount
+        public int SeparatorCount
             => throw new global::System.NotImplementedException();
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
+        public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
             => throw new global::System.NotImplementedException();
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan Span
+        public global::Microsoft.CodeAnalysis.Text.TextSpan Span
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode this[int index]
+        public TNode this[int index]
             => throw new global::System.NotImplementedException();
 
         public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
@@ -106,79 +106,79 @@ namespace Microsoft.CodeAnalysis.Lightup
             return new SeparatedSyntaxListWrapper<TNode>(obj);
         }
 
-        public readonly object? Unwrap()
+        public object? Unwrap()
             => wrappedObject;
 
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
+        public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
             => throw new global::System.NotImplementedException();
 
-        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
+        public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
             => throw new global::System.NotImplementedException();
 
-        public readonly override string ToString()
+        public override string ToString()
             => throw new global::System.NotImplementedException();
 
-        public readonly string ToFullString()
+        public string ToFullString()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode First()
+        public TNode First()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode FirstOrDefault()
+        public TNode FirstOrDefault()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode Last()
+        public TNode Last()
             => throw new global::System.NotImplementedException();
 
         public TNode LastOrDefault()
             => throw new global::System.NotImplementedException();
 
-        public readonly bool Contains(TNode node)
+        public bool Contains(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int IndexOf(TNode node)
+        public int IndexOf(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int IndexOf(global::System.Func<TNode, bool> predicate)
+        public int IndexOf(global::System.Func<TNode, bool> predicate)
             => throw new global::System.NotImplementedException();
 
-        public readonly int LastIndexOf(TNode node)
+        public int LastIndexOf(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int LastIndexOf(global::System.Func<TNode, bool> predicate)
+        public int LastIndexOf(global::System.Func<TNode, bool> predicate)
             => throw new global::System.NotImplementedException();
 
-        public readonly bool Any()
+        public bool Any()
             => throw new global::System.NotImplementedException();
 
-        public readonly SyntaxNodeOrTokenList GetWithSeparators()
+        public SyntaxNodeOrTokenList GetWithSeparators()
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Add(TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        public SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
             => AddRangeAccessor(wrappedObject, nodes);
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
+        public SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
+        public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
+        public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
+        public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
             => throw new global::System.NotImplementedException();
     }
 }
@@ -402,7 +402,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.String HintName
+        public global::System.String HintName
         {
             get => HintNameGetterFunc(wrappedObject);
         }

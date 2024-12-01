@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
+        public global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
         {
             get => GlobalConfigOptionsGetterFunc(wrappedObject);
         }
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(global::System.String sourcePath)
+        public global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(global::System.String sourcePath)
             => GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
     }
 }

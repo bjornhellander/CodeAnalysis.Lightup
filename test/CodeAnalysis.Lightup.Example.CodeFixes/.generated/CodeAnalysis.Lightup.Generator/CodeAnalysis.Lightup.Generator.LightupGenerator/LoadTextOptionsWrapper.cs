@@ -45,7 +45,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ConstructorFunc0(checksumAlgorithm);
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithm
+        public global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithm
         {
             get => ChecksumAlgorithmGetterFunc(wrappedObject);
         }
@@ -66,7 +66,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.8.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other)
             => EqualsFunc0(wrappedObject, other);
     }
 }

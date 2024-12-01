@@ -39,7 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             => ConstructorFunc0(document);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.TextDocument Document
+        public global::Microsoft.CodeAnalysis.TextDocument Document
         {
             get => DocumentGetterFunc(wrappedObject);
         }

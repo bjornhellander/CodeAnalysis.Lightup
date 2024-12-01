@@ -68,11 +68,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y)
             => EqualsFunc0(wrappedObject, x, y);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Int32 GetHashCode(global::Microsoft.CodeAnalysis.ISymbol? obj)
+        public global::System.Int32 GetHashCode(global::Microsoft.CodeAnalysis.ISymbol? obj)
             => GetHashCodeFunc1(wrappedObject, obj);
     }
 }

@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Int32 ArgumentIndex
+        public global::System.Int32 ArgumentIndex
         {
             get => ArgumentIndexGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.Lightup.InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
         {
             get => PlaceholderKindGetterFunc(wrappedObject);
         }

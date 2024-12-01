@@ -38,25 +38,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Argument
+        public global::Microsoft.CodeAnalysis.IOperation Argument
         {
             get => ArgumentGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol IndexerSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol IndexerSymbol
         {
             get => IndexerSymbolGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Instance
+        public global::Microsoft.CodeAnalysis.IOperation Instance
         {
             get => InstanceGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol LengthSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol LengthSymbol
         {
             get => LengthSymbolGetterFunc(wrappedObject);
         }

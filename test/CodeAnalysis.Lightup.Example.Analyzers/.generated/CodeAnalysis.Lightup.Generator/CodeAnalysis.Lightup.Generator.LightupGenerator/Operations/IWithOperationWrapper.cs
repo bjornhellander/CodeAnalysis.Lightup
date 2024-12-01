@@ -35,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IMethodSymbol? CloneMethod
+        public global::Microsoft.CodeAnalysis.IMethodSymbol? CloneMethod
         {
             get => CloneMethodGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation Initializer
+        public global::Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation Initializer
         {
             get => InitializerGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Operand
+        public global::Microsoft.CodeAnalysis.IOperation Operand
         {
             get => OperandGetterFunc(wrappedObject);
         }

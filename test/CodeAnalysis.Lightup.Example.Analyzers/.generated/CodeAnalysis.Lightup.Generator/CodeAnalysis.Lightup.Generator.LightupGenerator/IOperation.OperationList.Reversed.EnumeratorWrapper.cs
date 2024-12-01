@@ -41,7 +41,7 @@ public partial struct ReversedWrapper {
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Current
+        public global::Microsoft.CodeAnalysis.IOperation Current
         {
             get => CurrentGetterFunc(wrappedObject);
         }
@@ -62,11 +62,11 @@ public partial struct ReversedWrapper {
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean MoveNext()
+        public global::System.Boolean MoveNext()
             => MoveNextFunc0(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Reset()
+        public void Reset()
             => ResetFunc1(wrappedObject);
     }
 }

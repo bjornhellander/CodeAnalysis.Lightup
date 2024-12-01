@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Operation
+        public global::Microsoft.CodeAnalysis.IOperation Operation
         {
             get => OperationGetterFunc(wrappedObject);
         }

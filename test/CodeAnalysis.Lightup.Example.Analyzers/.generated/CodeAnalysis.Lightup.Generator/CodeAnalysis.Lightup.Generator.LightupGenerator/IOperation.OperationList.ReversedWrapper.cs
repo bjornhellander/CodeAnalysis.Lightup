@@ -40,7 +40,7 @@ public partial struct OperationListWrapper {
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Int32 Count
+        public global::System.Int32 Count
         {
             get => CountGetterFunc(wrappedObject);
         }
@@ -61,11 +61,11 @@ public partial struct OperationListWrapper {
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
             => GetEnumeratorFunc0(wrappedObject);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
             => ToImmutableArrayFunc1(wrappedObject);
     }
 }

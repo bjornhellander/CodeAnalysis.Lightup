@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Pattern
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Pattern
         {
             get => PatternGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol? SliceSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol? SliceSymbol
         {
             get => SliceSymbolGetterFunc(wrappedObject);
         }

@@ -47,7 +47,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Generic.IEnumerable<global::System.String> Keys
+        public global::System.Collections.Generic.IEnumerable<global::System.String> Keys
         {
             get => KeysGetterFunc(wrappedObject);
         }
@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean TryGetValue(global::System.String key, out global::System.String? value)
+        public global::System.Boolean TryGetValue(global::System.String key, out global::System.String? value)
             => TryGetValueFunc0(wrappedObject, key, out value);
     }
 }

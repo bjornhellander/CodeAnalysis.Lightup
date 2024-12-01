@@ -53,19 +53,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Left
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Left
         {
             get => LeftGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
         {
             get => OperatorTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Right
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Right
         {
             get => RightGetterFunc(wrappedObject);
         }
@@ -90,23 +90,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
             => UpdateFunc1(wrappedObject, left, operatorToken, right);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithLeft(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithLeft(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left)
             => WithLeftFunc2(wrappedObject, left);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
             => WithOperatorTokenFunc3(wrappedObject, operatorToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithRight(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithRight(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
             => WithRightFunc4(wrappedObject, right);
     }
 }

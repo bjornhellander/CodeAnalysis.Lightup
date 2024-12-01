@@ -48,11 +48,11 @@ public partial class RenamerEx {
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
+        public global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
             => GetDescriptionFunc0(wrappedObject, culture);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
+        public global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
             => GetErrorsFunc1(wrappedObject, culture);
     }
 }

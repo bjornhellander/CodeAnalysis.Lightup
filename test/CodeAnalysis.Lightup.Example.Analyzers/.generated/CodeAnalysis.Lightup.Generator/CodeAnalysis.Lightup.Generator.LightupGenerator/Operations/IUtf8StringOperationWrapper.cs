@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.String Value
+        public global::System.String Value
         {
             get => ValueGetterFunc(wrappedObject);
         }

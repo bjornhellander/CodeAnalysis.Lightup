@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken DefaultKeyword
+        public global::Microsoft.CodeAnalysis.SyntaxToken DefaultKeyword
         {
             get => DefaultKeywordGetterFunc(wrappedObject);
         }
@@ -66,15 +66,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
             => AcceptFunc0(wrappedObject, visitor);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
             => UpdateFunc1(wrappedObject, defaultKeyword);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeyword(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeyword(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
             => WithDefaultKeywordFunc2(wrappedObject, defaultKeyword);
     }
 }

@@ -47,31 +47,31 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.AdditionalText AdditionalFile
+        public global::Microsoft.CodeAnalysis.AdditionalText AdditionalFile
         {
             get => AdditionalFileGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Threading.CancellationToken CancellationToken
+        public global::System.Threading.CancellationToken CancellationToken
         {
             get => CancellationTokenGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Compilation Compilation
+        public global::Microsoft.CodeAnalysis.Compilation Compilation
         {
             get => CompilationGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
+        public global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
         {
             get => FilterSpanGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Options
+        public global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Options
         {
             get => OptionsGetterFunc(wrappedObject);
         }
@@ -92,7 +92,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void ReportDiagnostic(global::Microsoft.CodeAnalysis.Diagnostic diagnostic)
+        public void ReportDiagnostic(global::Microsoft.CodeAnalysis.Diagnostic diagnostic)
             => ReportDiagnosticFunc0(wrappedObject, diagnostic);
     }
 }

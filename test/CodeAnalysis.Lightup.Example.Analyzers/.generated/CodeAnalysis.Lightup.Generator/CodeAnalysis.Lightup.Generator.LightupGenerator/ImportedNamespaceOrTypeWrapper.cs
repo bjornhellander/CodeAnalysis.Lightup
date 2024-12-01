@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
+        public global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
         {
             get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrType
+        public global::Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrType
         {
             get => NamespaceOrTypeGetterFunc(wrappedObject);
         }

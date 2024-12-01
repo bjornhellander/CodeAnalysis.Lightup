@@ -38,25 +38,25 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> Aliases
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> Aliases
         {
             get => AliasesGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> ExternAliases
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> ExternAliases
         {
             get => ExternAliasesGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedNamespaceOrTypeWrapper> Imports
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedNamespaceOrTypeWrapper> Imports
         {
             get => ImportsGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedXmlNamespaceWrapper> XmlNamespaces
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedXmlNamespaceWrapper> XmlNamespaces
         {
             get => XmlNamespacesGetterFunc(wrappedObject);
         }

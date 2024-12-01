@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguages
+        public global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguages
         {
             get => SupportedLanguagesGetterFunc(wrappedObject);
         }
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServices(global::System.String languageName)
+        public global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServices(global::System.String languageName)
             => GetLanguageServicesFunc0(wrappedObject, languageName);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean IsSupported(global::System.String languageName)
+        public global::System.Boolean IsSupported(global::System.String languageName)
             => IsSupportedFunc1(wrappedObject, languageName);
     }
 }

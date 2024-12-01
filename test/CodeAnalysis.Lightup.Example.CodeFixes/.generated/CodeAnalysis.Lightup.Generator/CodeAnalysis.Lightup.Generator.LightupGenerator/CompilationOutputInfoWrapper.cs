@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.String? AssemblyPath
+        public global::System.String? AssemblyPath
         {
             get => AssemblyPathGetterFunc(wrappedObject);
         }
@@ -59,11 +59,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
             => EqualsFunc0(wrappedObject, other);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
+        public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
             => WithAssemblyPathFunc1(wrappedObject, path);
     }
 }

@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> Kinds
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> Kinds
         {
             get => KindsGetterFunc(wrappedObject);
             set => KindsSetterFunc(wrappedObject, value);

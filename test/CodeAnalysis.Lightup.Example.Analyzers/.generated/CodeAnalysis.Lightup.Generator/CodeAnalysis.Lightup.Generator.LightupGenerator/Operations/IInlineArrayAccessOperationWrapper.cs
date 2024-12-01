@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Argument
+        public global::Microsoft.CodeAnalysis.IOperation Argument
         {
             get => ArgumentGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Instance
+        public global::Microsoft.CodeAnalysis.IOperation Instance
         {
             get => InstanceGetterFunc(wrappedObject);
         }

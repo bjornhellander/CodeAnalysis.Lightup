@@ -47,13 +47,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken File
+        public global::Microsoft.CodeAnalysis.SyntaxToken File
         {
             get => FileGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken LineKeyword
+        public global::Microsoft.CodeAnalysis.SyntaxToken LineKeyword
         {
             get => LineKeywordGetterFunc(wrappedObject);
         }
@@ -78,19 +78,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken)
             => WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(global::Microsoft.CodeAnalysis.SyntaxToken file)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(global::Microsoft.CodeAnalysis.SyntaxToken file)
             => WithFileFunc1(wrappedObject, file);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
             => WithHashTokenFunc2(wrappedObject, hashToken);
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword)
             => WithLineKeywordFunc3(wrappedObject, lineKeyword);
     }
 }

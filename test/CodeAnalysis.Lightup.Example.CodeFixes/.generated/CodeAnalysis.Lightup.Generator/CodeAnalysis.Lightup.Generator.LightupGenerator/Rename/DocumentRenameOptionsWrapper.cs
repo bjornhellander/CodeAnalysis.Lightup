@@ -57,14 +57,14 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             => ConstructorFunc0(RenameMatchingTypeInStrings, RenameMatchingTypeInComments);
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameMatchingTypeInComments
+        public global::System.Boolean RenameMatchingTypeInComments
         {
             get => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
             set => RenameMatchingTypeInCommentsSetterFunc(wrappedObject, value);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean RenameMatchingTypeInStrings
+        public global::System.Boolean RenameMatchingTypeInStrings
         {
             get => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
             set => RenameMatchingTypeInStringsSetterFunc(wrappedObject, value);
@@ -86,11 +86,11 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Deconstruct(out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments)
+        public void Deconstruct(out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments)
             => DeconstructFunc0(wrappedObject, out RenameMatchingTypeInStrings, out RenameMatchingTypeInComments);
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other)
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other)
             => EqualsFunc1(wrappedObject, other);
     }
 }

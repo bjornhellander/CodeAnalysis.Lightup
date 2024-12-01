@@ -50,15 +50,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             => wrappedObject;
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGenerated(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken)
+        public global::Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGenerated(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken)
             => IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean TryGetDiagnosticValue(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
+        public global::System.Boolean TryGetDiagnosticValue(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
             => TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean TryGetGlobalDiagnosticValue(global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
+        public global::System.Boolean TryGetGlobalDiagnosticValue(global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
             => TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
     }
 }

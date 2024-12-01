@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
+        public global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
         {
             get => OperatorKindGetterFunc(wrappedObject);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Value
+        public global::Microsoft.CodeAnalysis.IOperation Value
         {
             get => ValueGetterFunc(wrappedObject);
         }

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.String HintName
+        public global::System.String HintName
         {
             get => HintNameGetterFunc(wrappedObject);
         }
