@@ -84,7 +84,7 @@ internal static class TypesReader
 
     private static EnumValueDefinition CreateEnumValueDefinition(XElement element)
     {
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         var name = GetChildString(element, "Name");
         var value = GetChildInt(element, "Value");
 
@@ -211,7 +211,7 @@ internal static class TypesReader
             parameters,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -240,7 +240,7 @@ internal static class TypesReader
             isReadOnly,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -265,7 +265,7 @@ internal static class TypesReader
             typeRef,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -294,7 +294,7 @@ internal static class TypesReader
             hasSetter,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -321,7 +321,7 @@ internal static class TypesReader
             parameters,
             hasSetter);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -352,7 +352,7 @@ internal static class TypesReader
             isNullable,
             parameters);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -393,7 +393,7 @@ internal static class TypesReader
         out string? enclosingTypeFullName)
     {
         assemblyKind = GetChildEnum<AssemblyKind>(element, "AssemblyKind");
-        assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        assemblyVersion = GetOptionalChildAssemblyVersion(element);
         name = GetChildString(element, "Name");
         @namespace = GetChildString(element, "Namespace");
         fullName = GetChildString(element, "FullName");
@@ -529,7 +529,7 @@ internal static class TypesReader
         return result;
     }
 
-    private static Version? GetOptionalChildAssemblyVesion(XElement parent)
+    private static Version? GetOptionalChildAssemblyVersion(XElement parent)
     {
         var strValue = parent.Element("AssemblyVersion")?.Value;
         var result = strValue != null ? new Version(strValue) : null;
