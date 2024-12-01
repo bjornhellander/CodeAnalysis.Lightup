@@ -159,7 +159,7 @@ public class LightupGenerator : IIncrementalGenerator
         var sb = new StringBuilder();
         AppendEnclosingType(sb, enclosingTypeFullName, typeDefs);
         sb.Append(generatedName);
-        sb.Append(".cs");
+        sb.Append(".g.cs");
         return sb.ToString();
 
         static void AppendEnclosingType(

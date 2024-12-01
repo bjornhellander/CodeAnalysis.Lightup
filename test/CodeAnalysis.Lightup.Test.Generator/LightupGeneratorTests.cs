@@ -234,7 +234,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.3.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -272,7 +272,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -310,7 +310,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"], LanguageVersion.CSharp7_3);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -332,7 +332,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.Operations.BinaryOperatorKind"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/BinaryOperatorKindEx.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/BinaryOperatorKindEx.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -367,7 +367,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.GeneratedKind"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "GeneratedKindEx.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "GeneratedKindEx.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -446,7 +446,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.WorkspacesCommon, "3.0.0.0", ["Microsoft.CodeAnalysis.SourceGeneratedDocument"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "SourceGeneratedDocumentWrapper.cs", SourceText.From(source, Encoding.UTF8)));
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "SourceGeneratedDocumentWrapper.g.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
