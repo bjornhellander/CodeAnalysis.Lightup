@@ -30,18 +30,26 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ConditionalAccessExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression, global::Microsoft.CodeAnalysis.SyntaxNode whenNotNull)
-            => ConditionalAccessExpressionFunc0(_obj, expression, whenNotNull);
+        {
+            return ConditionalAccessExpressionFunc0(_obj, expression, whenNotNull);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments)
-            => ElementBindingExpressionFunc1(_obj, arguments);
+        {
+            return ElementBindingExpressionFunc1(_obj, arguments);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments)
-            => ElementBindingExpressionFunc2(_obj, arguments);
+        {
+            return ElementBindingExpressionFunc2(_obj, arguments);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode name)
-            => MemberBindingExpressionFunc3(_obj, name);
+        {
+            return MemberBindingExpressionFunc3(_obj, name);
+        }
     }
 }

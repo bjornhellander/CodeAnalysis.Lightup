@@ -45,34 +45,50 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPaths(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => AnalyzerConfigPathsGetterFunc(_obj);
+        {
+            return AnalyzerConfigPathsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean EmitPdbFile(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => EmitPdbFileGetterFunc(_obj);
+        {
+            return EmitPdbFileGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => ErrorLogOptionsGetterFunc(_obj);
+        {
+            return ErrorLogOptionsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.String? GeneratedFilesOutputDirectory(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => GeneratedFilesOutputDirectoryGetterFunc(_obj);
+        {
+            return GeneratedFilesOutputDirectoryGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.Boolean ReportInternalsVisibleToAttributes(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => ReportInternalsVisibleToAttributesGetterFunc(_obj);
+        {
+            return ReportInternalsVisibleToAttributesGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean SkipAnalyzers(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
-            => SkipAnalyzersGetterFunc(_obj);
+        {
+            return SkipAnalyzersGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.String GetOutputFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
-            => GetOutputFilePathFunc0(_obj, outputFileName);
+        {
+            return GetOutputFilePathFunc0(_obj, outputFileName);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.String GetPdbFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
-            => GetPdbFilePathFunc1(_obj, outputFileName);
+        {
+            return GetPdbFilePathFunc1(_obj, outputFileName);
+        }
     }
 }

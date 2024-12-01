@@ -48,38 +48,56 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? Block(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj)
-            => BlockGetterFunc(_obj);
+        {
+            return BlockGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj)
-            => ExpressionBodyGetterFunc(_obj);
+        {
+            return ExpressionBodyGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj)
-            => ModifiersGetterFunc(_obj);
+        {
+            return ModifiersGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc0(_obj, items);
+        {
+            return AddBlockAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatements(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
-            => AddBlockStatementsFunc1(_obj, items);
+        {
+            return AddBlockStatementsFunc1(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
-            => AddModifiersFunc2(_obj, items);
+        {
+            return AddModifiersFunc2(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithBlock(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block)
-            => WithBlockFunc3(_obj, block);
+        {
+            return WithBlockFunc3(_obj, block);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
-            => WithExpressionBodyFunc4(_obj, expressionBody);
+        {
+            return WithExpressionBodyFunc4(_obj, expressionBody);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
-            => WithModifiersFunc5(_obj, modifiers);
+        {
+            return WithModifiersFunc5(_obj, modifiers);
+        }
     }
 }

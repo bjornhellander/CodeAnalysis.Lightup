@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext. Added in version 3.8.0.0.</summary>
-    public readonly partial struct AdditionalFileAnalysisContextWrapper
+    public partial struct AdditionalFileAnalysisContextWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AdditionalFileAnalysisContext";
 
@@ -47,38 +47,40 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.AdditionalText AdditionalFile
+        public global::Microsoft.CodeAnalysis.AdditionalText AdditionalFile
         {
-            get => AdditionalFileGetterFunc(wrappedObject);
+            get { return AdditionalFileGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.Threading.CancellationToken CancellationToken
+        public global::System.Threading.CancellationToken CancellationToken
         {
-            get => CancellationTokenGetterFunc(wrappedObject);
+            get { return CancellationTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Compilation Compilation
+        public global::Microsoft.CodeAnalysis.Compilation Compilation
         {
-            get => CompilationGetterFunc(wrappedObject);
+            get { return CompilationGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
-        public readonly global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
+        public global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
         {
-            get => FilterSpanGetterFunc(wrappedObject);
+            get { return FilterSpanGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Options
+        public global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Options
         {
-            get => OptionsGetterFunc(wrappedObject);
+            get { return OptionsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AdditionalFileAnalysisContextWrapper As(global::System.Object? obj)
@@ -89,10 +91,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void ReportDiagnostic(global::Microsoft.CodeAnalysis.Diagnostic diagnostic)
-            => ReportDiagnosticFunc0(wrappedObject, diagnostic);
+        public void ReportDiagnostic(global::Microsoft.CodeAnalysis.Diagnostic diagnostic)
+        {
+            ReportDiagnosticFunc0(wrappedObject, diagnostic);
+        }
     }
 }

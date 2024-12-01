@@ -42,30 +42,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj)
-            => CheckedKeywordGetterFunc(_obj);
+        {
+            return CheckedKeywordGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj)
-            => ExplicitInterfaceSpecifierGetterFunc(_obj);
+        {
+            return ExplicitInterfaceSpecifierGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax AddBodyAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddBodyAttributeListsFunc0(_obj, items);
+        {
+            return AddBodyAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
-            => UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        {
+            return UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
-            => UpdateFunc2(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        {
+            return UpdateFunc2(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc3(_obj, checkedKeyword);
+        {
+            return WithCheckedKeywordFunc3(_obj, checkedKeyword);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
-            => WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
+        {
+            return WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
+        }
     }
 }

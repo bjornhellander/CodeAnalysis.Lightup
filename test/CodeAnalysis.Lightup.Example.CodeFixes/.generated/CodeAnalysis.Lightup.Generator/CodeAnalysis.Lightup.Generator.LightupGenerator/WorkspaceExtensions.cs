@@ -45,34 +45,50 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Event added in version 4.4.0.0.</summary>
         public static void AddTextDocumentClosed(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
-            => TextDocumentClosedAdderFunc(_obj, _delegate);
+        {
+            TextDocumentClosedAdderFunc(_obj, _delegate);
+        }
 
         /// <summary>Event added in version 4.4.0.0.</summary>
         public static void RemoveTextDocumentClosed(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
-            => TextDocumentClosedRemoverFunc(_obj, _delegate);
+        {
+            TextDocumentClosedRemoverFunc(_obj, _delegate);
+        }
 
         /// <summary>Event added in version 4.4.0.0.</summary>
         public static void AddTextDocumentOpened(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
-            => TextDocumentOpenedAdderFunc(_obj, _delegate);
+        {
+            TextDocumentOpenedAdderFunc(_obj, _delegate);
+        }
 
         /// <summary>Event added in version 4.4.0.0.</summary>
         public static void RemoveTextDocumentOpened(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate)
-            => TextDocumentOpenedRemoverFunc(_obj, _delegate);
+        {
+            TextDocumentOpenedRemoverFunc(_obj, _delegate);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::System.Boolean CanApplyCompilationOptionChange(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
-            => CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
+        {
+            return CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean CanApplyParseOptionChange(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
-            => CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
+        {
+            return CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void CloseAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
-            => CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
+        {
+            CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
+        {
+            OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
+        }
     }
 }

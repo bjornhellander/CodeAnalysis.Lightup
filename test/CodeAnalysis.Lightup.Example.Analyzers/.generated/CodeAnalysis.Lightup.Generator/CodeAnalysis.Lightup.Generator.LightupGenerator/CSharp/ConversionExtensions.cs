@@ -42,34 +42,50 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => ConstrainedToTypeGetterFunc(_obj);
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.Boolean IsCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsCollectionExpressionGetterFunc(_obj);
+        {
+            return IsCollectionExpressionGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsConditionalExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsConditionalExpressionGetterFunc(_obj);
+        {
+            return IsConditionalExpressionGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsDefaultLiteral(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsDefaultLiteralGetterFunc(_obj);
+        {
+            return IsDefaultLiteralGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.Boolean IsInlineArray(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsInlineArrayGetterFunc(_obj);
+        {
+            return IsInlineArrayGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsInterpolatedStringHandler(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsInterpolatedStringHandlerGetterFunc(_obj);
+        {
+            return IsInterpolatedStringHandlerGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsObjectCreation(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsObjectCreationGetterFunc(_obj);
+        {
+            return IsObjectCreationGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsSwitchExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-            => IsSwitchExpressionGetterFunc(_obj);
+        {
+            return IsSwitchExpressionGetterFunc(_obj);
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoaderDelegate15(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextLoader loader, global::Microsoft.CodeAnalysis.PreservationMode mode);
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerReferencesDelegate16(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
         private delegate global::Microsoft.CodeAnalysis.Solution WithOptionsDelegate17(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.Options.OptionSet options);
-        private delegate global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate18(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate18(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespaceDelegate19(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? defaultNamespace);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
@@ -87,90 +87,134 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj)
-            => AnalyzerReferencesGetterFunc(_obj);
+        {
+            return AnalyzerReferencesGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper Services(this global::Microsoft.CodeAnalysis.Solution _obj)
-            => ServicesGetterFunc(_obj);
+        {
+            return ServicesGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAdditionalDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
-            => AddAdditionalDocumentsFunc0(_obj, documentInfos);
+        {
+            return AddAdditionalDocumentsFunc0(_obj, documentInfos);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath)
-            => AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
+        {
+            return AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
-            => AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
+        {
+            return AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerReference(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
-            => AddAnalyzerReferenceFunc3(_obj, analyzerReference);
+        {
+            return AddAnalyzerReferenceFunc3(_obj, analyzerReference);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
-            => AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
+        {
+            return AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean ContainsAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
-            => ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
+        {
+            return ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
-            => GetAnalyzerConfigDocumentFunc6(_obj, documentId);
+        {
+            return GetAnalyzerConfigDocumentFunc6(_obj, documentId);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Threading.CancellationToken cancellationToken)
-            => GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
+        {
+            return GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAdditionalDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
-            => RemoveAdditionalDocumentsFunc8(_obj, documentIds);
+        {
+            return RemoveAdditionalDocumentsFunc8(_obj, documentIds);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
-            => RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
+        {
+            return RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
-            => RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
+        {
+            return RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerReference(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
-            => RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
+        {
+            return RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
-            => RemoveDocumentsFunc12(_obj, documentIds);
+        {
+            return RemoveDocumentsFunc12(_obj, documentIds);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
+        {
+            return WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
+        {
+            return WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoader(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextLoader loader, global::Microsoft.CodeAnalysis.PreservationMode mode)
-            => WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
+        {
+            return WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
-            => WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
+        {
+            return WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithOptions(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Options.OptionSet options)
-            => WithOptionsFunc17(_obj, options);
+        {
+            return WithOptionsFunc17(_obj, options);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
-            => WithProjectCompilationOutputInfoFunc18(_obj, projectId, in info);
+        public static global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
+        {
+            return WithProjectCompilationOutputInfoFunc18(_obj, projectId, ref info);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespace(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? defaultNamespace)
-            => WithProjectDefaultNamespaceFunc19(_obj, projectId, defaultNamespace);
+        {
+            return WithProjectDefaultNamespaceFunc19(_obj, projectId, defaultNamespace);
+        }
     }
 }

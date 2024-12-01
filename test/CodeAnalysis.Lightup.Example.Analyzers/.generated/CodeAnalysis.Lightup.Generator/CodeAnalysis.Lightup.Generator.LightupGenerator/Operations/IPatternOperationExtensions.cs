@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol NarrowedType(this global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj)
-            => NarrowedTypeGetterFunc(_obj);
+        {
+            return NarrowedTypeGetterFunc(_obj);
+        }
     }
 }

@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj)
-            => ReadOnlyKeywordGetterFunc(_obj);
+        {
+            return ReadOnlyKeywordGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
-            => UpdateFunc0(_obj, refKindKeyword, readOnlyKeyword, type);
+        {
+            return UpdateFunc0(_obj, refKindKeyword, readOnlyKeyword, type);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword)
-            => WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
+        {
+            return WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
+        }
     }
 }

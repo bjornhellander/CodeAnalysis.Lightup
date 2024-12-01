@@ -31,17 +31,19 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
         /// <summary>Field added in version 4.0.0.0.</summary>
         public static global::System.String RecordClassName
         {
-            get => RecordClassNameGetterFunc();
+            get { return RecordClassNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
         public static global::System.String RecordStructName
         {
-            get => RecordStructNameGetterFunc();
+            get { return RecordStructNameGetterFunc(); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AllTypeNames()
-            => AllTypeNamesGetterFunc();
+        {
+            return AllTypeNamesGetterFunc();
+        }
     }
 }

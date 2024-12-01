@@ -48,38 +48,56 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNativeIntegerType(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
-            => IsNativeIntegerTypeGetterFunc(_obj);
+        {
+            return IsNativeIntegerTypeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsReadOnly(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
-            => IsReadOnlyGetterFunc(_obj);
+        {
+            return IsReadOnlyGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsRecord(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
-            => IsRecordGetterFunc(_obj);
+        {
+            return IsRecordGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
-            => NullableAnnotationGetterFunc(_obj);
+        {
+            return NullableAnnotationGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
-            => ToDisplayPartsFunc0(_obj, topLevelNullability, format);
+        {
+            return ToDisplayPartsFunc0(_obj, topLevelNullability, format);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.String ToDisplayString(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
-            => ToDisplayStringFunc1(_obj, topLevelNullability, format);
+        {
+            return ToDisplayStringFunc1(_obj, topLevelNullability, format);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
-            => ToMinimalDisplayPartsFunc2(_obj, semanticModel, topLevelNullability, position, format);
+        {
+            return ToMinimalDisplayPartsFunc2(_obj, semanticModel, topLevelNullability, position, format);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.String ToMinimalDisplayString(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
-            => ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
+        {
+            return ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation)
-            => WithNullableAnnotationFunc4(_obj, nullableAnnotation);
+        {
+            return WithNullableAnnotationFunc4(_obj, nullableAnnotation);
+        }
     }
 }

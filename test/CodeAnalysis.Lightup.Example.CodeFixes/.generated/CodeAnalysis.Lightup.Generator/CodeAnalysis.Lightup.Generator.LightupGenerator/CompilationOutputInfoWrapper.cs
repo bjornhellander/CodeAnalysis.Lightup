@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CompilationOutputInfo. Added in version 3.8.0.0.</summary>
-    public readonly partial struct CompilationOutputInfoWrapper
+    public partial struct CompilationOutputInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
 
@@ -38,14 +38,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.String? AssemblyPath
+        public global::System.String? AssemblyPath
         {
-            get => AssemblyPathGetterFunc(wrappedObject);
+            get { return AssemblyPathGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static CompilationOutputInfoWrapper As(global::System.Object? obj)
@@ -56,14 +58,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
-            => EqualsFunc0(wrappedObject, other);
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
+        {
+            return EqualsFunc0(wrappedObject, other);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
-            => WithAssemblyPathFunc1(wrappedObject, path);
+        public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
+        {
+            return WithAssemblyPathFunc1(wrappedObject, path);
+        }
     }
 }

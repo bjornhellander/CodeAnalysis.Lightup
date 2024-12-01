@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 4.0.0.0.</summary>
-    public readonly partial struct SourceGeneratedDocumentWrapper
+    public partial struct SourceGeneratedDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SourceGeneratedDocument";
 
@@ -29,18 +29,22 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.String HintName
+        public global::System.String HintName
         {
-            get => HintNameGetterFunc(wrappedObject);
+            get { return HintNameGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SourceGeneratedDocumentWrapper As(global::System.Object? obj)
@@ -51,6 +55,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.Document? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

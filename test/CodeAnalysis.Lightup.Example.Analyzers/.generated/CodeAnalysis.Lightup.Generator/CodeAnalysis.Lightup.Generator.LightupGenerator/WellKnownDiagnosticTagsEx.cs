@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String CustomObsolete
         {
-            get => CustomObsoleteGetterFunc();
+            get { return CustomObsoleteGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
         public static global::System.String CompilationEnd
         {
-            get => CompilationEndGetterFunc();
+            get { return CompilationEndGetterFunc(); }
         }
     }
 }

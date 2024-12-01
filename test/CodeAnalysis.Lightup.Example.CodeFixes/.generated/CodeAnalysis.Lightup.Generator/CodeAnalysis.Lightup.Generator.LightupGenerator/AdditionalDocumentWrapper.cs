@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AdditionalDocument. Added in version 3.8.0.0.</summary>
-    public readonly partial struct AdditionalDocumentWrapper
+    public partial struct AdditionalDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdditionalDocument";
 
@@ -24,11 +24,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.TextDocument?(AdditionalDocumentWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AdditionalDocumentWrapper As(global::System.Object? obj)
@@ -39,6 +43,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.TextDocument? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

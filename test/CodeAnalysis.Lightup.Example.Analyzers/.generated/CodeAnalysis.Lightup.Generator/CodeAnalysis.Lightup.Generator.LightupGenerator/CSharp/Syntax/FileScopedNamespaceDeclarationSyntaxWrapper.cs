@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FileScopedNamespaceDeclarationSyntax. Added in version 4.0.0.0.</summary>
-    public readonly partial struct FileScopedNamespaceDeclarationSyntaxWrapper
+    public partial struct FileScopedNamespaceDeclarationSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FileScopedNamespaceDeclarationSyntax";
 
@@ -98,60 +98,64 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
+        public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
         {
-            get => AttributeListsGetterFunc(wrappedObject);
+            get { return AttributeListsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> Externs
+        public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> Externs
         {
-            get => ExternsGetterFunc(wrappedObject);
+            get { return ExternsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> Members
+        public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> Members
         {
-            get => MembersGetterFunc(wrappedObject);
+            get { return MembersGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
+        public global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
         {
-            get => ModifiersGetterFunc(wrappedObject);
+            get { return ModifiersGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax Name
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax Name
         {
-            get => NameGetterFunc(wrappedObject);
+            get { return NameGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken NamespaceKeyword
+        public global::Microsoft.CodeAnalysis.SyntaxToken NamespaceKeyword
         {
-            get => NamespaceKeywordGetterFunc(wrappedObject);
+            get { return NamespaceKeywordGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken SemicolonToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken SemicolonToken
         {
-            get => SemicolonTokenGetterFunc(wrappedObject);
+            get { return SemicolonTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> Usings
+        public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> Usings
         {
-            get => UsingsGetterFunc(wrappedObject);
+            get { return UsingsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax?(FileScopedNamespaceDeclarationSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static FileScopedNamespaceDeclarationSyntaxWrapper As(global::System.Object? obj)
@@ -162,66 +166,98 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc1(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddAttributeLists(params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
+        {
+            return AddAttributeListsFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax[] items)
-            => AddExternsFunc2(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddExterns(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax[] items)
+        {
+            return AddExternsFunc2(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items)
-            => AddMembersFunc3(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddMembers(params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items)
+        {
+            return AddMembersFunc3(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
-            => AddModifiersFunc4(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddModifiers(params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
+        {
+            return AddModifiersFunc4(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(params global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax[] items)
-            => AddUsingsFunc5(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper AddUsings(params global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax[] items)
+        {
+            return AddUsingsFunc5(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
-            => UpdateFunc6(wrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
+        {
+            return UpdateFunc6(wrappedObject, attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc7(wrappedObject, attributeLists);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
+        {
+            return WithAttributeListsFunc7(wrappedObject, attributeLists);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithExterns(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs)
-            => WithExternsFunc8(wrappedObject, externs);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithExterns(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs)
+        {
+            return WithExternsFunc8(wrappedObject, externs);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithMembers(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
-            => WithMembersFunc9(wrappedObject, members);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithMembers(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
+        {
+            return WithMembersFunc9(wrappedObject, members);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithModifiers(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
-            => WithModifiersFunc10(wrappedObject, modifiers);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithModifiers(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
+        {
+            return WithModifiersFunc10(wrappedObject, modifiers);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithName(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name)
-            => WithNameFunc11(wrappedObject, name);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithName(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name)
+        {
+            return WithNameFunc11(wrappedObject, name);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword)
-            => WithNamespaceKeywordFunc12(wrappedObject, namespaceKeyword);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithNamespaceKeyword(global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword)
+        {
+            return WithNamespaceKeywordFunc12(wrappedObject, namespaceKeyword);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonToken(global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
-            => WithSemicolonTokenFunc13(wrappedObject, semicolonToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithSemicolonToken(global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
+        {
+            return WithSemicolonTokenFunc13(wrappedObject, semicolonToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithUsings(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings)
-            => WithUsingsFunc14(wrappedObject, usings);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper WithUsings(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings)
+        {
+            return WithUsingsFunc14(wrappedObject, usings);
+        }
     }
 }

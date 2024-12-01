@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CommandLineSourceFile Create(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected)
-            => ConstructorFunc0(path, isScript, isInputRedirected);
+        {
+            return ConstructorFunc0(path, isScript, isInputRedirected);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsInputRedirected(this global::Microsoft.CodeAnalysis.CommandLineSourceFile _obj)
-            => IsInputRedirectedGetterFunc(_obj);
+        {
+            return IsInputRedirectedGetterFunc(_obj);
+        }
     }
 }

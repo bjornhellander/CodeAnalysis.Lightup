@@ -36,26 +36,38 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Int32 FixedSize(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => FixedSizeGetterFunc(_obj);
+        {
+            return FixedSizeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsExplicitlyNamedTupleElement(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => IsExplicitlyNamedTupleElementGetterFunc(_obj);
+        {
+            return IsExplicitlyNamedTupleElementGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => IsRequiredGetterFunc(_obj);
+        {
+            return IsRequiredGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => NullableAnnotationGetterFunc(_obj);
+        {
+            return NullableAnnotationGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => RefCustomModifiersGetterFunc(_obj);
+        {
+            return RefCustomModifiersGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
-            => RefKindGetterFunc(_obj);
+        {
+            return RefKindGetterFunc(_obj);
+        }
     }
 }

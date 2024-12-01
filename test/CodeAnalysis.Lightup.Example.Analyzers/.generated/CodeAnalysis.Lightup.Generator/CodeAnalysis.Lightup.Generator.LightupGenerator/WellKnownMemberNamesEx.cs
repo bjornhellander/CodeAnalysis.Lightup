@@ -61,85 +61,85 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String CountPropertyName
         {
-            get => CountPropertyNameGetterFunc();
+            get { return CountPropertyNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String LengthPropertyName
         {
-            get => LengthPropertyNameGetterFunc();
+            get { return LengthPropertyNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String SliceMethodName
         {
-            get => SliceMethodNameGetterFunc();
+            get { return SliceMethodNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String TopLevelStatementsEntryPointMethodName
         {
-            get => TopLevelStatementsEntryPointMethodNameGetterFunc();
+            get { return TopLevelStatementsEntryPointMethodNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::System.String TopLevelStatementsEntryPointTypeName
         {
-            get => TopLevelStatementsEntryPointTypeNameGetterFunc();
+            get { return TopLevelStatementsEntryPointTypeNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.0.0.0.</summary>
         public static global::System.String PrintMembersMethodName
         {
-            get => PrintMembersMethodNameGetterFunc();
+            get { return PrintMembersMethodNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedAdditionOperatorName
         {
-            get => CheckedAdditionOperatorNameGetterFunc();
+            get { return CheckedAdditionOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedDecrementOperatorName
         {
-            get => CheckedDecrementOperatorNameGetterFunc();
+            get { return CheckedDecrementOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedDivisionOperatorName
         {
-            get => CheckedDivisionOperatorNameGetterFunc();
+            get { return CheckedDivisionOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedExplicitConversionName
         {
-            get => CheckedExplicitConversionNameGetterFunc();
+            get { return CheckedExplicitConversionNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedIncrementOperatorName
         {
-            get => CheckedIncrementOperatorNameGetterFunc();
+            get { return CheckedIncrementOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedMultiplyOperatorName
         {
-            get => CheckedMultiplyOperatorNameGetterFunc();
+            get { return CheckedMultiplyOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedSubtractionOperatorName
         {
-            get => CheckedSubtractionOperatorNameGetterFunc();
+            get { return CheckedSubtractionOperatorNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String CheckedUnaryNegationOperatorName
         {
-            get => CheckedUnaryNegationOperatorNameGetterFunc();
+            get { return CheckedUnaryNegationOperatorNameGetterFunc(); }
         }
     }
 }

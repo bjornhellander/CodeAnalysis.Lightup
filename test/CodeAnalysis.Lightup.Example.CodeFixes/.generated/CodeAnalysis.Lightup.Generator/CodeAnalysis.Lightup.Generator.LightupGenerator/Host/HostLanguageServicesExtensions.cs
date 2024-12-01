@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper LanguageServices(this global::Microsoft.CodeAnalysis.Host.HostLanguageServices _obj)
-            => LanguageServicesGetterFunc(_obj);
+        {
+            return LanguageServicesGetterFunc(_obj);
+        }
     }
 }

@@ -30,18 +30,26 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsForEach(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
-            => IsForEachGetterFunc(_obj);
+        {
+            return IsForEachGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsUsing(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
-            => IsUsingGetterFunc(_obj);
+        {
+            return IsUsingGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
-            => NullableAnnotationGetterFunc(_obj);
+        {
+            return NullableAnnotationGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKind(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
-            => ScopedKindGetterFunc(_obj);
+        {
+            return ScopedKindGetterFunc(_obj);
+        }
     }
 }

@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct IInterpolatedStringHandlerCreationOperationWrapper
+    public partial struct IInterpolatedStringHandlerCreationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerCreationOperation";
 
@@ -38,32 +38,34 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Content
+        public global::Microsoft.CodeAnalysis.IOperation Content
         {
-            get => ContentGetterFunc(wrappedObject);
+            get { return ContentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean HandlerAppendCallsReturnBool
+        public global::System.Boolean HandlerAppendCallsReturnBool
         {
-            get => HandlerAppendCallsReturnBoolGetterFunc(wrappedObject);
+            get { return HandlerAppendCallsReturnBoolGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation HandlerCreation
+        public global::Microsoft.CodeAnalysis.IOperation HandlerCreation
         {
-            get => HandlerCreationGetterFunc(wrappedObject);
+            get { return HandlerCreationGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean HandlerCreationHasSuccessParameter
+        public global::System.Boolean HandlerCreationHasSuccessParameter
         {
-            get => HandlerCreationHasSuccessParameterGetterFunc(wrappedObject);
+            get { return HandlerCreationHasSuccessParameterGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IInterpolatedStringHandlerCreationOperationWrapper As(global::System.Object? obj)
@@ -74,6 +76,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

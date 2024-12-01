@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.TextAndVersion> LoadTextAndVersionAsync(this global::Microsoft.CodeAnalysis.FileTextLoader _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper options, global::System.Threading.CancellationToken cancellationToken)
-            => LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
+        {
+            return LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);
+        }
     }
 }

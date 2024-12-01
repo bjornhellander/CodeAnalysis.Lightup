@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.SolutionServices. Added in version 4.4.0.0.</summary>
-    public readonly partial struct SolutionServicesWrapper
+    public partial struct SolutionServicesWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.SolutionServices";
 
@@ -38,14 +38,16 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguages
+        public global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguages
         {
-            get => SupportedLanguagesGetterFunc(wrappedObject);
+            get { return SupportedLanguagesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SolutionServicesWrapper As(global::System.Object? obj)
@@ -56,14 +58,20 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServices(global::System.String languageName)
-            => GetLanguageServicesFunc0(wrappedObject, languageName);
+        public global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServices(global::System.String languageName)
+        {
+            return GetLanguageServicesFunc0(wrappedObject, languageName);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean IsSupported(global::System.String languageName)
-            => IsSupportedFunc1(wrappedObject, languageName);
+        public global::System.Boolean IsSupported(global::System.String languageName)
+        {
+            return IsSupportedFunc1(wrappedObject, languageName);
+        }
     }
 }

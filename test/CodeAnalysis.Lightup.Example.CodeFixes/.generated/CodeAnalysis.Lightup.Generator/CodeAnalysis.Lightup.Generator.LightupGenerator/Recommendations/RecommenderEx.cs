@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsync(global::Microsoft.CodeAnalysis.Document document, global::System.Int32 position, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken)
-            => GetRecommendedSymbolsAtPositionAsyncFunc0(document, position, options, cancellationToken);
+        {
+            return GetRecommendedSymbolsAtPositionAsyncFunc0(document, position, options, cancellationToken);
+        }
     }
 }

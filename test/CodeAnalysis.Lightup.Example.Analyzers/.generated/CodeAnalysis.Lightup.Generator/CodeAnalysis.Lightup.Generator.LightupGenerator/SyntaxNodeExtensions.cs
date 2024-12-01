@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::System.Boolean ContainsDirective(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 rawKind)
-            => ContainsDirectiveFunc0(_obj, rawKind);
+        {
+            return ContainsDirectiveFunc0(_obj, rawKind);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsIncrementallyIdenticalTo(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other)
-            => IsIncrementallyIdenticalToFunc1(_obj, other);
+        {
+            return IsIncrementallyIdenticalToFunc1(_obj, other);
+        }
     }
 }

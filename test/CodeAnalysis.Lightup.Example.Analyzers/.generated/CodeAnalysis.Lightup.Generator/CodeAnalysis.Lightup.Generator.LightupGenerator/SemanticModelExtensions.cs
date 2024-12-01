@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopes(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken)
-            => GetImportScopesFunc0(_obj, position, cancellationToken);
+        {
+            return GetImportScopesFunc0(_obj, position, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContext(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position)
-            => GetNullableContextFunc1(_obj, position);
+        {
+            return GetNullableContextFunc1(_obj, position);
+        }
     }
 }

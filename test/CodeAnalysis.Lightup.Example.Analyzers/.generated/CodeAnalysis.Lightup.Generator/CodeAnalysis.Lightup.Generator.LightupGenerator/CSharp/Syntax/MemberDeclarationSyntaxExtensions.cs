@@ -39,26 +39,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj)
-            => AttributeListsGetterFunc(_obj);
+        {
+            return AttributeListsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj)
-            => ModifiersGetterFunc(_obj);
+        {
+            return ModifiersGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(_obj, items);
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
-            => AddModifiersFunc1(_obj, items);
+        {
+            return AddModifiersFunc1(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc2(_obj, attributeLists);
+        {
+            return WithAttributeListsFunc2(_obj, attributeLists);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
-            => WithModifiersFunc3(_obj, modifiers);
+        {
+            return WithModifiersFunc3(_obj, modifiers);
+        }
     }
 }

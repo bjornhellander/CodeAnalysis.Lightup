@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerType(this global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol)
-            => VisitFunctionPointerTypeFunc0(_obj, symbol);
+        {
+            VisitFunctionPointerTypeFunc0(_obj, symbol);
+        }
     }
 }

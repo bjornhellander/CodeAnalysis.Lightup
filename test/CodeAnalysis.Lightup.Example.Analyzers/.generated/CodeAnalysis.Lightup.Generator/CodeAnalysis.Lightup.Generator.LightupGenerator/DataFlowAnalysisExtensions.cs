@@ -27,14 +27,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntry(this global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
-            => DefinitelyAssignedOnEntryGetterFunc(_obj);
+        {
+            return DefinitelyAssignedOnEntryGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExit(this global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
-            => DefinitelyAssignedOnExitGetterFunc(_obj);
+        {
+            return DefinitelyAssignedOnExitGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IMethodSymbol> UsedLocalFunctions(this global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
-            => UsedLocalFunctionsGetterFunc(_obj);
+        {
+            return UsedLocalFunctionsGetterFunc(_obj);
+        }
     }
 }

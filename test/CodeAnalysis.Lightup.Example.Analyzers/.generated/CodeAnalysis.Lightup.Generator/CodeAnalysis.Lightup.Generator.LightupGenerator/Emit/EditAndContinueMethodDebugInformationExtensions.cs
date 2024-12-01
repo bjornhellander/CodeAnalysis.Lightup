@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation Create(global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedSlotMap, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedLambdaMap, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedStateMachineStateMap)
-            => CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
+        {
+            return CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);
+        }
     }
 }

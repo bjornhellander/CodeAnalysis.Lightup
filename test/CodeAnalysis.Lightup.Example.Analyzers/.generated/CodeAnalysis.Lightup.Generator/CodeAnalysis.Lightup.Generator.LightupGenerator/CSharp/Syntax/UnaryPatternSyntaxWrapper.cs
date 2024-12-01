@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct UnaryPatternSyntaxWrapper
+    public partial struct UnaryPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax";
 
@@ -47,24 +47,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
         {
-            get => OperatorTokenGetterFunc(wrappedObject);
+            get { return OperatorTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Pattern
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Pattern
         {
-            get => PatternGetterFunc(wrappedObject);
+            get { return PatternGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(UnaryPatternSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static UnaryPatternSyntaxWrapper As(global::System.Object? obj)
@@ -75,22 +79,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
-            => UpdateFunc1(wrappedObject, operatorToken, pattern);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
+        {
+            return UpdateFunc1(wrappedObject, operatorToken, pattern);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
-            => WithOperatorTokenFunc2(wrappedObject, operatorToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
+        {
+            return WithOperatorTokenFunc2(wrappedObject, operatorToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
-            => WithPatternFunc3(wrappedObject, pattern);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
+        {
+            return WithPatternFunc3(wrappedObject, pattern);
+        }
     }
 }

@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct FunctionPointerCallingConventionSyntaxWrapper
+    public partial struct FunctionPointerCallingConventionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax";
 
@@ -50,24 +50,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken ManagedOrUnmanagedKeyword
+        public global::Microsoft.CodeAnalysis.SyntaxToken ManagedOrUnmanagedKeyword
         {
-            get => ManagedOrUnmanagedKeywordGetterFunc(wrappedObject);
+            get { return ManagedOrUnmanagedKeywordGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionList
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionList
         {
-            get => UnmanagedCallingConventionListGetterFunc(wrappedObject);
+            get { return UnmanagedCallingConventionListGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerCallingConventionSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static FunctionPointerCallingConventionSyntaxWrapper As(global::System.Object? obj)
@@ -78,26 +82,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper AddUnmanagedCallingConventionListCallingConventions(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items)
-            => AddUnmanagedCallingConventionListCallingConventionsFunc1(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper AddUnmanagedCallingConventionListCallingConventions(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items)
+        {
+            return AddUnmanagedCallingConventionListCallingConventionsFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
-            => UpdateFunc2(wrappedObject, managedOrUnmanagedKeyword, unmanagedCallingConventionList);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
+        {
+            return UpdateFunc2(wrappedObject, managedOrUnmanagedKeyword, unmanagedCallingConventionList);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithManagedOrUnmanagedKeyword(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword)
-            => WithManagedOrUnmanagedKeywordFunc3(wrappedObject, managedOrUnmanagedKeyword);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithManagedOrUnmanagedKeyword(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword)
+        {
+            return WithManagedOrUnmanagedKeywordFunc3(wrappedObject, managedOrUnmanagedKeyword);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
-            => WithUnmanagedCallingConventionListFunc4(wrappedObject, unmanagedCallingConventionList);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
+        {
+            return WithUnmanagedCallingConventionListFunc4(wrappedObject, unmanagedCallingConventionList);
+        }
     }
 }

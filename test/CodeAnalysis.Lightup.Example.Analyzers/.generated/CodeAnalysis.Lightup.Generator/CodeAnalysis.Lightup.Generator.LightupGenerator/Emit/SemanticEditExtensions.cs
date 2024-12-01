@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.SemanticEdit Create(global::Microsoft.CodeAnalysis.Emit.SemanticEditKind kind, global::Microsoft.CodeAnalysis.ISymbol? oldSymbol, global::Microsoft.CodeAnalysis.ISymbol? newSymbol, global::System.Func<global::Microsoft.CodeAnalysis.SyntaxNode, global::Microsoft.CodeAnalysis.SyntaxNode>? syntaxMap, global::System.Boolean preserveLocalVariables, global::Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper instrumentation)
-            => ConstructorFunc0(kind, oldSymbol, newSymbol, syntaxMap, preserveLocalVariables, instrumentation);
+        {
+            return ConstructorFunc0(kind, oldSymbol, newSymbol, syntaxMap, preserveLocalVariables, instrumentation);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper Instrumentation(this global::Microsoft.CodeAnalysis.Emit.SemanticEdit _obj)
-            => InstrumentationGetterFunc(_obj);
+        {
+            return InstrumentationGetterFunc(_obj);
+        }
     }
 }

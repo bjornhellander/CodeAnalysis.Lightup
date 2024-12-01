@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void CloseAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
-            => CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
+        {
+            CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate)
-            => OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
+        {
+            OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
+        }
     }
 }

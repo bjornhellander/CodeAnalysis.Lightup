@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
 public partial class RenamerEx {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction. Added in version 3.8.0.0.</summary>
-    public readonly partial struct RenameDocumentActionWrapper
+    public partial struct RenameDocumentActionWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction";
 
@@ -34,7 +34,9 @@ public partial class RenamerEx {
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static RenameDocumentActionWrapper As(global::System.Object? obj)
@@ -45,15 +47,21 @@ public partial class RenamerEx {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
-            => GetDescriptionFunc0(wrappedObject, culture);
+        public global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
+        {
+            return GetDescriptionFunc0(wrappedObject, culture);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
-            => GetErrorsFunc1(wrappedObject, culture);
+        public global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
+        {
+            return GetErrorsFunc1(wrappedObject, culture);
+        }
     }
 }
 }

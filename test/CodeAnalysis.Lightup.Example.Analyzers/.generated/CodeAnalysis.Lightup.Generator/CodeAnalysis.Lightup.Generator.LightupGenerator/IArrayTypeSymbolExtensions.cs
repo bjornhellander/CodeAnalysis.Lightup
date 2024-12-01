@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ElementNullableAnnotation(this global::Microsoft.CodeAnalysis.IArrayTypeSymbol _obj)
-            => ElementNullableAnnotationGetterFunc(_obj);
+        {
+            return ElementNullableAnnotationGetterFunc(_obj);
+        }
     }
 }

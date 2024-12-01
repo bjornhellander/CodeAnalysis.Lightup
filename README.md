@@ -20,6 +20,8 @@ it should generate lightup code.
 The generated code needs some support code to compile. That code is available in a separate NuGet package called CodeAnalysis.Lightup.Runtime.
 Note that a reference to that package needs to be added manually for now.
 
+When the consuming project is using c# 8.0 or newer, the generated code enables the nullable context in the generated files.
+
 ## Alternatives
 
 There is at least one other way of accomplishing more or less the same thing: It is possible to package multiple versions of for example an
@@ -32,7 +34,7 @@ A short description can for example be found here: https://www.meziantou.net/ros
 - Generic members are not handled.
 - Some types, mostly related to source generators and diagnostic suppressors, are not handled.
 - SeparatedSyntaxListWrapper is incomplete.
-- C# 8.0 is required in the consuming project(s).
+- C# 6.0 is required in the consuming project(s).
 - Roslyn versions before 3.0.0 are not supported.
 
 ## Troubleshooting

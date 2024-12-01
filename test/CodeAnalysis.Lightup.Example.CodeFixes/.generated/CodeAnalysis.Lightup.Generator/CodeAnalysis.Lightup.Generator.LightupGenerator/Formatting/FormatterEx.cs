@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document> OrganizeImportsAsync(global::Microsoft.CodeAnalysis.Document document, global::System.Threading.CancellationToken cancellationToken)
-            => OrganizeImportsAsyncFunc0(document, cancellationToken);
+        {
+            return OrganizeImportsAsyncFunc0(document, cancellationToken);
+        }
     }
 }

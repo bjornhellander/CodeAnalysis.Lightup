@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadata(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose)
-            => CreateFromMetadataFunc0(metadata, size, onDispose);
+        {
+            return CreateFromMetadataFunc0(metadata, size, onDispose);
+        }
     }
 }

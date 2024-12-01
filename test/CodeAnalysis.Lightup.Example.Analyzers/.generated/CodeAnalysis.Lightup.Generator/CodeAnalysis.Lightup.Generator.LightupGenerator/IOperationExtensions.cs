@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper ChildOperations(this global::Microsoft.CodeAnalysis.IOperation _obj)
-            => ChildOperationsGetterFunc(_obj);
+        {
+            return ChildOperationsGetterFunc(_obj);
+        }
     }
 }

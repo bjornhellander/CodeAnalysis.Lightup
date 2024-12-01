@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.RelationalPatternSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct RelationalPatternSyntaxWrapper
+    public partial struct RelationalPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RelationalPatternSyntax";
 
@@ -47,24 +47,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
-            get => ExpressionGetterFunc(wrappedObject);
+            get { return ExpressionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
         {
-            get => OperatorTokenGetterFunc(wrappedObject);
+            get { return OperatorTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(RelationalPatternSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static RelationalPatternSyntaxWrapper As(global::System.Object? obj)
@@ -75,22 +79,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
-            => UpdateFunc1(wrappedObject, operatorToken, expression);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        {
+            return UpdateFunc1(wrappedObject, operatorToken, expression);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
-            => WithExpressionFunc2(wrappedObject, expression);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        {
+            return WithExpressionFunc2(wrappedObject, expression);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
-            => WithOperatorTokenFunc3(wrappedObject, operatorToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
+        {
+            return WithOperatorTokenFunc3(wrappedObject, operatorToken);
+        }
     }
 }

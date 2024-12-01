@@ -34,31 +34,31 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String AdditionalTexts
         {
-            get => AdditionalTextsGetterFunc();
+            get { return AdditionalTextsGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String AnalyzerConfigOptions
         {
-            get => AnalyzerConfigOptionsGetterFunc();
+            get { return AnalyzerConfigOptionsGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String Compilation
         {
-            get => CompilationGetterFunc();
+            get { return CompilationGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String MetadataReferences
         {
-            get => MetadataReferencesGetterFunc();
+            get { return MetadataReferencesGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String ParseOptions
         {
-            get => ParseOptionsGetterFunc();
+            get { return ParseOptionsGetterFunc(); }
         }
     }
 }

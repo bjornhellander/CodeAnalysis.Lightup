@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionChanges _obj)
-            => GetAddedAnalyzerReferencesFunc0(_obj);
+        {
+            return GetAddedAnalyzerReferencesFunc0(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionChanges _obj)
-            => GetRemovedAnalyzerReferencesFunc1(_obj);
+        {
+            return GetRemovedAnalyzerReferencesFunc1(_obj);
+        }
     }
 }

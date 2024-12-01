@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct FunctionPointerUnmanagedCallingConventionListSyntaxWrapper
+    public partial struct FunctionPointerUnmanagedCallingConventionListSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerUnmanagedCallingConventionListSyntax";
 
@@ -56,30 +56,34 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> CallingConventions
+        public global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> CallingConventions
         {
-            get => CallingConventionsGetterFunc(wrappedObject);
+            get { return CallingConventionsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken CloseBracketToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken CloseBracketToken
         {
-            get => CloseBracketTokenGetterFunc(wrappedObject);
+            get { return CloseBracketTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken OpenBracketToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken OpenBracketToken
         {
-            get => OpenBracketTokenGetterFunc(wrappedObject);
+            get { return OpenBracketTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerUnmanagedCallingConventionListSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static FunctionPointerUnmanagedCallingConventionListSyntaxWrapper As(global::System.Object? obj)
@@ -90,30 +94,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper AddCallingConventions(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items)
-            => AddCallingConventionsFunc1(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper AddCallingConventions(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items)
+        {
+            return AddCallingConventionsFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
-            => UpdateFunc2(wrappedObject, openBracketToken, callingConventions, closeBracketToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
+        {
+            return UpdateFunc2(wrappedObject, openBracketToken, callingConventions, closeBracketToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCallingConventions(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions)
-            => WithCallingConventionsFunc3(wrappedObject, callingConventions);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCallingConventions(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions)
+        {
+            return WithCallingConventionsFunc3(wrappedObject, callingConventions);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCloseBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
-            => WithCloseBracketTokenFunc4(wrappedObject, closeBracketToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithCloseBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
+        {
+            return WithCloseBracketTokenFunc4(wrappedObject, closeBracketToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithOpenBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
-            => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper WithOpenBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
+        {
+            return WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
+        }
     }
 }

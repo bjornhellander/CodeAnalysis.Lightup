@@ -48,38 +48,56 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj)
-            => AttributeListsGetterFunc(_obj);
+        {
+            return AttributeListsGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(_obj, items);
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(_obj, items);
+        {
+            return AddBlockAttributeListsFunc1(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatements(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
-            => AddBlockStatementsFunc2(_obj, items);
+        {
+            return AddBlockStatementsFunc2(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
-            => AddModifiersFunc3(_obj, items);
+        {
+            return AddModifiersFunc3(_obj, items);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc4(_obj, attributeLists);
+        {
+            return WithAttributeListsFunc4(_obj, attributeLists);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithBlock(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block)
-            => WithBlockFunc5(_obj, block);
+        {
+            return WithBlockFunc5(_obj, block);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
-            => WithExpressionBodyFunc6(_obj, expressionBody);
+        {
+            return WithExpressionBodyFunc6(_obj, expressionBody);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
-            => WithModifiersFunc7(_obj, modifiers);
+        {
+            return WithModifiersFunc7(_obj, modifiers);
+        }
     }
 }

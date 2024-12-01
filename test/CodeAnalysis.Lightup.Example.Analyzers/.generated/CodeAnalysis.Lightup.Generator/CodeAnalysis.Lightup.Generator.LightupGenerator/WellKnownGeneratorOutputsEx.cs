@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String ImplementationSourceOutput
         {
-            get => ImplementationSourceOutputGetterFunc();
+            get { return ImplementationSourceOutputGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
         public static global::System.String SourceOutput
         {
-            get => SourceOutputGetterFunc();
+            get { return SourceOutputGetterFunc(); }
         }
     }
 }

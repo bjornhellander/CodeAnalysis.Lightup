@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfig. Added in version 3.8.0.0.</summary>
-    public readonly partial struct AnalyzerConfigWrapper
+    public partial struct AnalyzerConfigWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
 
@@ -33,7 +33,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AnalyzerConfigWrapper As(global::System.Object? obj)
@@ -44,14 +46,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(global::System.String text, global::System.String? pathToFile)
-            => ParseFunc0(text, pathToFile);
+        {
+            return ParseFunc0(text, pathToFile);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.String? pathToFile)
-            => ParseFunc1(text, pathToFile);
+        {
+            return ParseFunc1(text, pathToFile);
+        }
     }
 }

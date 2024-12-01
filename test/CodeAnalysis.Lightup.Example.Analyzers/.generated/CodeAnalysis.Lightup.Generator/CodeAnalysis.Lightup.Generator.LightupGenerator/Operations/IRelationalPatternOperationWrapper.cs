@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IRelationalPatternOperation. Added in version 3.8.0.0.</summary>
-    public readonly partial struct IRelationalPatternOperationWrapper
+    public partial struct IRelationalPatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IRelationalPatternOperation";
 
@@ -32,20 +32,22 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
+        public global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
         {
-            get => OperatorKindGetterFunc(wrappedObject);
+            get { return OperatorKindGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Value
+        public global::Microsoft.CodeAnalysis.IOperation Value
         {
-            get => ValueGetterFunc(wrappedObject);
+            get { return ValueGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IRelationalPatternOperationWrapper As(global::System.Object? obj)
@@ -56,6 +58,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

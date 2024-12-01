@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext Create(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> registerRefactoring, global::System.Threading.CancellationToken cancellationToken)
-            => ConstructorFunc0(document, span, registerRefactoring, cancellationToken);
+        {
+            return ConstructorFunc0(document, span, registerRefactoring, cancellationToken);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.TextDocument TextDocument(this global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext _obj)
-            => TextDocumentGetterFunc(_obj);
+        {
+            return TextDocumentGetterFunc(_obj);
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsInitialization(this global::Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation _obj)
-            => IsInitializationGetterFunc(_obj);
+        {
+            return IsInitializationGetterFunc(_obj);
+        }
     }
 }

@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
-            => ConstrainedToTypeGetterFunc(_obj);
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNullable(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
-            => IsNullableGetterFunc(_obj);
+        {
+            return IsNullableGetterFunc(_obj);
+        }
     }
 }

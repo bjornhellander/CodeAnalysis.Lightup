@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsCheckedOperator(global::System.String operatorMetadataName)
-            => IsCheckedOperatorFunc0(operatorMetadataName);
+        {
+            return IsCheckedOperatorFunc0(operatorMetadataName);
+        }
     }
 }

@@ -36,22 +36,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax _obj)
-            => AttributeListsGetterFunc(_obj);
+        {
+            return AttributeListsGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(_obj, items);
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddBlockAttributeListsFunc1(_obj, items);
+        {
+            return AddBlockAttributeListsFunc1(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block)
-            => UpdateFunc2(_obj, attributeLists, keyword, block);
+        {
+            return UpdateFunc2(_obj, attributeLists, keyword, block);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CheckedStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc3(_obj, attributeLists);
+        {
+            return WithAttributeListsFunc3(_obj, attributeLists);
+        }
     }
 }

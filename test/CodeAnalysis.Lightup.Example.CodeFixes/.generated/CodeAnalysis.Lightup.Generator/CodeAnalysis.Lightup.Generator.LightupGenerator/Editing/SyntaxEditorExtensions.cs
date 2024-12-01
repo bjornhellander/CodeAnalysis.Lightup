@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.SyntaxEditor Create(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices services)
-            => ConstructorFunc0(root, services);
+        {
+            return ConstructorFunc0(root, services);
+        }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.SyntaxEditor Create(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services)
-            => ConstructorFunc1(root, services);
+        {
+            return ConstructorFunc1(root, services);
+        }
     }
 }

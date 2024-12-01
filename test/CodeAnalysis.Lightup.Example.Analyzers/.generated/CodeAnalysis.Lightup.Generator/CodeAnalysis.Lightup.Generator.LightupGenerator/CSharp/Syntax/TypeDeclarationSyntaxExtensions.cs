@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj)
-            => ParameterListGetterFunc(_obj);
+        {
+            return ParameterListGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
-            => AddParameterListParametersFunc0(_obj, items);
+        {
+            return AddParameterListParametersFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
-            => WithParameterListFunc1(_obj, parameterList);
+        {
+            return WithParameterListFunc1(_obj, parameterList);
+        }
     }
 }

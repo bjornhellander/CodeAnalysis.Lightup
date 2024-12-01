@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.PrimaryConstructorBaseTypeSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct PrimaryConstructorBaseTypeSyntaxWrapper
+    public partial struct PrimaryConstructorBaseTypeSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.PrimaryConstructorBaseTypeSyntax";
 
@@ -50,24 +50,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentList
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentList
         {
-            get => ArgumentListGetterFunc(wrappedObject);
+            get { return ArgumentListGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
-            get => TypeGetterFunc(wrappedObject);
+            get { return TypeGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static PrimaryConstructorBaseTypeSyntaxWrapper As(global::System.Object? obj)
@@ -78,26 +82,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items)
-            => AddArgumentListArgumentsFunc1(wrappedObject, items);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items)
+        {
+            return AddArgumentListArgumentsFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
-            => UpdateFunc2(wrappedObject, type, argumentList);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
+        {
+            return UpdateFunc2(wrappedObject, type, argumentList);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
-            => WithArgumentListFunc3(wrappedObject, argumentList);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
+        {
+            return WithArgumentListFunc3(wrappedObject, argumentList);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
-            => WithTypeFunc4(wrappedObject, type);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
+        {
+            return WithTypeFunc4(wrappedObject, type);
+        }
     }
 }

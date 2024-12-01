@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionColonSyntax. Added in version 4.0.0.0.</summary>
-    public readonly partial struct ExpressionColonSyntaxWrapper
+    public partial struct ExpressionColonSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionColonSyntax";
 
@@ -47,24 +47,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken ColonToken
+        public global::Microsoft.CodeAnalysis.SyntaxToken ColonToken
         {
-            get => ColonTokenGetterFunc(wrappedObject);
+            get { return ColonTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
-            get => ExpressionGetterFunc(wrappedObject);
+            get { return ExpressionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(ExpressionColonSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ExpressionColonSyntaxWrapper As(global::System.Object? obj)
@@ -75,22 +79,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
-            => UpdateFunc1(wrappedObject, expression, colonToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
+        {
+            return UpdateFunc1(wrappedObject, expression, colonToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
-            => WithColonTokenFunc2(wrappedObject, colonToken);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
+        {
+            return WithColonTokenFunc2(wrappedObject, colonToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
-            => WithExpressionFunc3(wrappedObject, expression);
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
+        {
+            return WithExpressionFunc3(wrappedObject, expression);
+        }
     }
 }

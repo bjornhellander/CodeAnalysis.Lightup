@@ -27,14 +27,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNint(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
-            => IsNintGetterFunc(_obj);
+        {
+            return IsNintGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNotNull(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
-            => IsNotNullGetterFunc(_obj);
+        {
+            return IsNotNullGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNuint(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
-            => IsNuintGetterFunc(_obj);
+        {
+            return IsNuintGetterFunc(_obj);
+        }
     }
 }

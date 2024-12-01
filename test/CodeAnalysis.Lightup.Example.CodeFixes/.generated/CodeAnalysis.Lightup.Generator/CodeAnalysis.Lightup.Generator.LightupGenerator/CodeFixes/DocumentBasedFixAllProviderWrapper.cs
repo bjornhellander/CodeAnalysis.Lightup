@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 4.0.0.0.</summary>
-    public readonly partial struct DocumentBasedFixAllProviderWrapper
+    public partial struct DocumentBasedFixAllProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 
@@ -33,11 +33,15 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider?(DocumentBasedFixAllProviderWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static DocumentBasedFixAllProviderWrapper As(global::System.Object? obj)
@@ -48,14 +52,20 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
-            => GetFixAsyncFunc0(wrappedObject, fixAllContext);
+        public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
+        {
+            return GetFixAsyncFunc0(wrappedObject, fixAllContext);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
-        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
-            => GetSupportedFixAllScopesFunc1(wrappedObject);
+        public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
+        {
+            return GetSupportedFixAllScopesFunc1(wrappedObject);
+        }
     }
 }

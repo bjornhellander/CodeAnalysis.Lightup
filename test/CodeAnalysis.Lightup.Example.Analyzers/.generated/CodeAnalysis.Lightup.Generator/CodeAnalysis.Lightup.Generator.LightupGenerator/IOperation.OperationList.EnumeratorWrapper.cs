@@ -6,7 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 public partial class IOperationExtensions {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator. Added in version 4.4.0.0.</summary>
-    public readonly partial struct EnumeratorWrapper
+    public partial struct EnumeratorWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator";
 
@@ -40,14 +40,16 @@ public partial struct OperationListWrapper {
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Current
+        public global::Microsoft.CodeAnalysis.IOperation Current
         {
-            get => CurrentGetterFunc(wrappedObject);
+            get { return CurrentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static EnumeratorWrapper As(global::System.Object? obj)
@@ -58,15 +60,21 @@ public partial struct OperationListWrapper {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly global::System.Boolean MoveNext()
-            => MoveNextFunc0(wrappedObject);
+        public global::System.Boolean MoveNext()
+        {
+            return MoveNextFunc0(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
-        public readonly void Reset()
-            => ResetFunc1(wrappedObject);
+        public void Reset()
+        {
+            ResetFunc1(wrappedObject);
+        }
     }
 }
 }

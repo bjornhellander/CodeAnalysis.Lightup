@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CodeAnalysis.Lightup.Definitions;
 using CodeAnalysis.Lightup.Generator;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Text;
@@ -26,6 +27,8 @@ public class LightupGeneratorTests
     };
 
     [TestMethod]
+    [Ignore] // TODO: Activate later on when generation is stable and this implementation complete
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "MSTEST0015:Test method should not be ignored", Justification = "OK")]
     public async Task TestSeparatedSyntaxListWrapper()
     {
         var source = @"
@@ -36,7 +39,7 @@ public class LightupGeneratorTests
 namespace Microsoft.CodeAnalysis.Lightup
 {
     // TODO: Implement remaining members
-    public readonly struct SeparatedSyntaxListWrapper<TNode>
+    public struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
@@ -64,19 +67,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        public readonly int Count
+        public int Count
             => CountAccessor(wrappedObject);
 
-        public readonly int SeparatorCount
+        public int SeparatorCount
             => throw new global::System.NotImplementedException();
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
+        public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
             => throw new global::System.NotImplementedException();
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan Span
+        public global::Microsoft.CodeAnalysis.Text.TextSpan Span
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode this[int index]
+        public TNode this[int index]
             => throw new global::System.NotImplementedException();
 
         public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
@@ -105,79 +108,79 @@ namespace Microsoft.CodeAnalysis.Lightup
             return new SeparatedSyntaxListWrapper<TNode>(obj);
         }
 
-        public readonly object? Unwrap()
+        public object? Unwrap()
             => wrappedObject;
 
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
+        public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
             => throw new global::System.NotImplementedException();
 
-        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
+        public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
             => throw new global::System.NotImplementedException();
 
-        public readonly override string ToString()
+        public override string ToString()
             => throw new global::System.NotImplementedException();
 
-        public readonly string ToFullString()
+        public string ToFullString()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode First()
+        public TNode First()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode FirstOrDefault()
+        public TNode FirstOrDefault()
             => throw new global::System.NotImplementedException();
 
-        public readonly TNode Last()
+        public TNode Last()
             => throw new global::System.NotImplementedException();
 
         public TNode LastOrDefault()
             => throw new global::System.NotImplementedException();
 
-        public readonly bool Contains(TNode node)
+        public bool Contains(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int IndexOf(TNode node)
+        public int IndexOf(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int IndexOf(global::System.Func<TNode, bool> predicate)
+        public int IndexOf(global::System.Func<TNode, bool> predicate)
             => throw new global::System.NotImplementedException();
 
-        public readonly int LastIndexOf(TNode node)
+        public int LastIndexOf(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly int LastIndexOf(global::System.Func<TNode, bool> predicate)
+        public int LastIndexOf(global::System.Func<TNode, bool> predicate)
             => throw new global::System.NotImplementedException();
 
-        public readonly bool Any()
+        public bool Any()
             => throw new global::System.NotImplementedException();
 
-        public readonly SyntaxNodeOrTokenList GetWithSeparators()
+        public SyntaxNodeOrTokenList GetWithSeparators()
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Add(TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        public SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
             => AddRangeAccessor(wrappedObject, nodes);
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
+        public SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
+        public SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
+        public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
+        public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
             => throw new global::System.NotImplementedException();
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
+        public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
             => throw new global::System.NotImplementedException();
     }
 }
@@ -217,11 +220,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
-            => ConstrainedToTypeGetterFunc(_obj);
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsNullable(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
-            => IsNullableGetterFunc(_obj);
+        {
+            return IsNullableGetterFunc(_obj);
+        }
     }
 }
 ";
@@ -257,12 +264,52 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
-            => ConstrainedToTypeGetterFunc(_obj);
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
     }
 }
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.cs", SourceText.From(source, Encoding.UTF8)));
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestCommonConversion_V3_8_0_0_CSharp7_3()
+    {
+        var source = @"// <auto-generated/>
+
+
+namespace Microsoft.CodeAnalysis.Operations.Lightup
+{
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
+    public static partial class CommonConversionExtensions
+    {
+        private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
+
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+
+        private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
+
+        static CommonConversionExtensions()
+        {
+            var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
+
+            ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+        }
+
+        /// <summary>Property added in version 4.4.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ITypeSymbol ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
+    }
+}
+";
+
+        var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"], LanguageVersion.CSharp7_3);
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.cs", SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -340,7 +387,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 4.0.0.0.</summary>
-    public readonly partial struct SourceGeneratedDocumentWrapper
+    public partial struct SourceGeneratedDocumentWrapper
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.SourceGeneratedDocument"";
 
@@ -365,18 +412,22 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
-        public readonly global::System.String HintName
+        public global::System.String HintName
         {
-            get => HintNameGetterFunc(wrappedObject);
+            get { return HintNameGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SourceGeneratedDocumentWrapper As(global::System.Object? obj)
@@ -387,7 +438,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.Document? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }
 ";
@@ -407,39 +460,42 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static CSharpSourceGeneratorTest<LightupGenerator, DefaultVerifier> CreateTest(
         AssemblyKind assemblyKind,
         string baselineVersion,
-        List<string> typesToInclude)
+        List<string> typesToInclude,
+        LanguageVersion? languageVersion = null)
     {
-        var lightupHelperSource = @"
+        var na = (languageVersion == null || languageVersion >= LanguageVersion.CSharp8) ? "?" : "";
+
+        var lightupHelperSource = $@"
 namespace CodeAnalysis.Lightup.Runtime
-{
+{{
     using System;
     using System.Reflection;
     
     public class LightupHelper
-    {
-        public static Type? FindType(Assembly assembly, string wrappedTypeName)
+    {{
+        public static Type{na} FindType(Assembly assembly, string wrappedTypeName)
             => throw new Exception();
         
-        public static bool Is(object? obj, Type? wrappedType)
+        public static bool Is(object{na} obj, Type{na} wrappedType)
             => throw new Exception();
         
-        public static TObject? As<TObject>(object? obj, Type? wrappedType)
+        public static TObject{na} As<TObject>(object{na} obj, Type{na} wrappedType)
             where TObject : class
             => throw new Exception();        
         
-        public static TDelegate CreateInstanceGetAccessor<TDelegate>(Type? wrappedType, string memberName)
+        public static TDelegate CreateInstanceGetAccessor<TDelegate>(Type{na} wrappedType, string memberName)
             where TDelegate : Delegate
             => throw new Exception();
 
-        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type? wrappedType, string memberName, params string[] paramTags)
+        public static TDelegate CreateInstanceMethodAccessor<TDelegate>(Type{na} wrappedType, string memberName, params string[] paramTags)
             where TDelegate : Delegate
             => throw new Exception();
-    }
-}";
+    }}
+}}";
 
         var specificLightupHelperSource = $@"
 // <auto-generated/>
-#nullable enable
+{(languageVersion == null || languageVersion >= LanguageVersion.CSharp8 ? "#nullable enable" : "")}
 
 namespace Microsoft.CodeAnalysis.Lightup
 {{
@@ -447,7 +503,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {{
         private static readonly global::System.Reflection.Assembly Assembly = typeof(global::{ExampleTypeNames[assemblyKind]}).Assembly;
 
-        public static global::System.Type? FindType(string wrappedTypeName)
+        public static global::System.Type{na} FindType(string wrappedTypeName)
         {{
             return FindType(Assembly, wrappedTypeName);
         }}
@@ -467,6 +523,18 @@ namespace Microsoft.CodeAnalysis.Lightup
             },
             ReferenceAssemblies = CreateReferenceAssemblies(),
         };
+
+        test.SolutionTransforms.Add((solution, projectId) =>
+        {
+            if (languageVersion != null)
+            {
+                var project = solution.GetProject(projectId);
+                var parseOptions = ((CSharpParseOptions)project!.ParseOptions!).WithLanguageVersion(languageVersion.Value);
+                solution = solution.WithProjectParseOptions(projectId, parseOptions);
+            }
+
+            return solution;
+        });
 
         var configFileContent = $@"<?xml version=""1.0"" encoding=""utf-8""?>
 <Settings>

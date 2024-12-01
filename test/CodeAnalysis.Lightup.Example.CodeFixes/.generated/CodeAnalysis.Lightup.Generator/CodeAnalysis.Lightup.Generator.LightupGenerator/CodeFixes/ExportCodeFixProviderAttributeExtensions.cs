@@ -30,18 +30,26 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.String[]? DocumentExtensions(this global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj)
-            => DocumentExtensionsGetterFunc(_obj);
+        {
+            return DocumentExtensionsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentExtensions(this global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, global::System.String[]? _value)
-            => DocumentExtensionsSetterFunc(_obj, _value);
+        {
+            DocumentExtensionsSetterFunc(_obj, _value);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.String[] DocumentKinds(this global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj)
-            => DocumentKindsGetterFunc(_obj);
+        {
+            return DocumentKindsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static void SetDocumentKinds(this global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, global::System.String[] _value)
-            => DocumentKindsSetterFunc(_obj, _value);
+        {
+            DocumentKindsSetterFunc(_obj, _value);
+        }
     }
 }

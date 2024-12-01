@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.LanguageServices. Added in version 4.4.0.0.</summary>
-    public readonly partial struct LanguageServicesWrapper
+    public partial struct LanguageServicesWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.LanguageServices";
 
@@ -32,20 +32,22 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::System.String Language
+        public global::System.String Language
         {
-            get => LanguageGetterFunc(wrappedObject);
+            get { return LanguageGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServices
+        public global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServices
         {
-            get => SolutionServicesGetterFunc(wrappedObject);
+            get { return SolutionServicesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static LanguageServicesWrapper As(global::System.Object? obj)
@@ -56,6 +58,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

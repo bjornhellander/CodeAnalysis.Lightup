@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ITypePatternOperation. Added in version 3.8.0.0.</summary>
-    public readonly partial struct ITypePatternOperationWrapper
+    public partial struct ITypePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITypePatternOperation";
 
@@ -29,14 +29,16 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
+        public global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
         {
-            get => MatchedTypeGetterFunc(wrappedObject);
+            get { return MatchedTypeGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ITypePatternOperationWrapper As(global::System.Object? obj)
@@ -47,6 +49,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

@@ -6,7 +6,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     // TODO: Implement remaining members
-    public readonly struct SeparatedSyntaxListWrapper<TNode>
+    public struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
@@ -34,26 +34,40 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        public readonly int Count
-            => CountAccessor(wrappedObject);
+        public int Count
+        {
+            get { return CountAccessor(wrappedObject); }
+        }
 
-        public readonly int SeparatorCount
-            => throw new global::System.NotImplementedException();
+        public int SeparatorCount
+        {
+            get { throw new global::System.NotImplementedException(); }
+        }
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
-            => throw new global::System.NotImplementedException();
+        public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
+        {
+             get { throw new global::System.NotImplementedException(); }
+        }
 
-        public readonly global::Microsoft.CodeAnalysis.Text.TextSpan Span
-            => throw new global::System.NotImplementedException();
+        public global::Microsoft.CodeAnalysis.Text.TextSpan Span
+        {
+             get { throw new global::System.NotImplementedException(); }
+        }
 
-        public readonly TNode this[int index]
-            => throw new global::System.NotImplementedException();
+        public TNode this[int index]
+        {
+             get { throw new global::System.NotImplementedException(); }
+        }
 
         public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
-            => throw new global::System.NotImplementedException();
+        {
+             throw new global::System.NotImplementedException();
+        }
 
         public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
-            => throw new global::System.NotImplementedException();
+        {
+             throw new global::System.NotImplementedException();
+        }
 
         public static bool Is(object? obj)
         {
@@ -75,79 +89,129 @@ namespace Microsoft.CodeAnalysis.Lightup
             return new SeparatedSyntaxListWrapper<TNode>(obj);
         }
 
-        public readonly object? Unwrap()
-            => wrappedObject;
+        public object? Unwrap()
+        {
+             return wrappedObject;
+        }
 
-        public readonly global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
-            => throw new global::System.NotImplementedException();
+        public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
-            => throw new global::System.NotImplementedException();
+        public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly override string ToString()
-            => throw new global::System.NotImplementedException();
+        public override string ToString()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly string ToFullString()
-            => throw new global::System.NotImplementedException();
+        public string ToFullString()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly TNode First()
-            => throw new global::System.NotImplementedException();
+        public TNode First()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly TNode FirstOrDefault()
-            => throw new global::System.NotImplementedException();
+        public TNode FirstOrDefault()
+        {
+            throw new global::System.NotImplementedException();
+        }
 
-        public readonly TNode Last()
-            => throw new global::System.NotImplementedException();
+        public TNode Last()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
         public TNode LastOrDefault()
-            => throw new global::System.NotImplementedException();
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly bool Contains(TNode node)
-            => throw new global::System.NotImplementedException();
+        public bool Contains(TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly int IndexOf(TNode node)
-            => throw new global::System.NotImplementedException();
+        public int IndexOf(TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly int IndexOf(global::System.Func<TNode, bool> predicate)
-            => throw new global::System.NotImplementedException();
+        public int IndexOf(global::System.Func<TNode, bool> predicate)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly int LastIndexOf(TNode node)
-            => throw new global::System.NotImplementedException();
+        public int LastIndexOf(TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly int LastIndexOf(global::System.Func<TNode, bool> predicate)
-            => throw new global::System.NotImplementedException();
+        public int LastIndexOf(global::System.Func<TNode, bool> predicate)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly bool Any()
-            => throw new global::System.NotImplementedException();
+        public bool Any()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SyntaxNodeOrTokenList GetWithSeparators()
-            => throw new global::System.NotImplementedException();
+        public SyntaxNodeOrTokenList GetWithSeparators()
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Add(TNode node)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
-            => AddRangeAccessor(wrappedObject, nodes);
+        public SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        {
+             return AddRangeAccessor(wrappedObject, nodes);
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
+        {
+             throw new global::System.NotImplementedException();
+        }
 
-        public readonly SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
-            => throw new global::System.NotImplementedException();
+        public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
+        {
+             throw new global::System.NotImplementedException();
+        }
     }
 }

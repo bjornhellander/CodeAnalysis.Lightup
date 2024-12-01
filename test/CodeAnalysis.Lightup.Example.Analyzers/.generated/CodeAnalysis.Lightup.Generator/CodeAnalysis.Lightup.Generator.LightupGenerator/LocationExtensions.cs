@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Location Create(global::System.String filePath, global::Microsoft.CodeAnalysis.Text.TextSpan textSpan, global::Microsoft.CodeAnalysis.Text.LinePositionSpan lineSpan, global::System.String mappedFilePath, global::Microsoft.CodeAnalysis.Text.LinePositionSpan mappedLineSpan)
-            => CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
+        {
+            return CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);
+        }
     }
 }

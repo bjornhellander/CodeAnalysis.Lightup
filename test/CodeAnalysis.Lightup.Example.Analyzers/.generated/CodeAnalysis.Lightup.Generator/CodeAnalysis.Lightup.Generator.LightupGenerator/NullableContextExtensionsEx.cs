@@ -30,18 +30,26 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean AnnotationsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
-            => AnnotationsEnabledFunc0(context);
+        {
+            return AnnotationsEnabledFunc0(context);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean AnnotationsInherited(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
-            => AnnotationsInheritedFunc1(context);
+        {
+            return AnnotationsInheritedFunc1(context);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean WarningsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
-            => WarningsEnabledFunc2(context);
+        {
+            return WarningsEnabledFunc2(context);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean WarningsInherited(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
-            => WarningsInheritedFunc3(context);
+        {
+            return WarningsInheritedFunc3(context);
+        }
     }
 }

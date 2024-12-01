@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfigSet. Added in version 3.8.0.0.</summary>
-    public readonly partial struct AnalyzerConfigSetWrapper
+    public partial struct AnalyzerConfigSetWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigSet";
 
@@ -35,14 +35,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
+        public global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GlobalConfigOptions
         {
-            get => GlobalConfigOptionsGetterFunc(wrappedObject);
+            get { return GlobalConfigOptionsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AnalyzerConfigSetWrapper As(global::System.Object? obj)
@@ -53,10 +55,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(global::System.String sourcePath)
-            => GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
+        public global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigOptionsResultWrapper GetOptionsForSourcePath(global::System.String sourcePath)
+        {
+            return GetOptionsForSourcePathFunc0(wrappedObject, sourcePath);
+        }
     }
 }

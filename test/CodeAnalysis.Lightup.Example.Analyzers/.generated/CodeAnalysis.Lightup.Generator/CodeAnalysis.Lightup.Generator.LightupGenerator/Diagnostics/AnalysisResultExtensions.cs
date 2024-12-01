@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.AdditionalText, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> AdditionalFileDiagnostics(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult _obj)
-            => AdditionalFileDiagnosticsGetterFunc(_obj);
+        {
+            return AdditionalFileDiagnosticsGetterFunc(_obj);
+        }
     }
 }

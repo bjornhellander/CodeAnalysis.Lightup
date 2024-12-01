@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct IImplicitIndexerReferenceOperationWrapper
+    public partial struct IImplicitIndexerReferenceOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation";
 
@@ -38,32 +38,34 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Argument
+        public global::Microsoft.CodeAnalysis.IOperation Argument
         {
-            get => ArgumentGetterFunc(wrappedObject);
+            get { return ArgumentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol IndexerSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol IndexerSymbol
         {
-            get => IndexerSymbolGetterFunc(wrappedObject);
+            get { return IndexerSymbolGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.IOperation Instance
+        public global::Microsoft.CodeAnalysis.IOperation Instance
         {
-            get => InstanceGetterFunc(wrappedObject);
+            get { return InstanceGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.ISymbol LengthSymbol
+        public global::Microsoft.CodeAnalysis.ISymbol LengthSymbol
         {
-            get => LengthSymbolGetterFunc(wrappedObject);
+            get { return LengthSymbolGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IImplicitIndexerReferenceOperationWrapper As(global::System.Object? obj)
@@ -74,6 +76,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

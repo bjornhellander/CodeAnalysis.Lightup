@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ErrorLogOptions. Added in version 3.8.0.0.</summary>
-    public readonly partial struct ErrorLogOptionsWrapper
+    public partial struct ErrorLogOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
 
@@ -39,23 +39,27 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>
         public static ErrorLogOptionsWrapper Create(global::System.String path, global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion)
-            => ConstructorFunc0(path, sarifVersion);
-
-        /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::System.String Path
         {
-            get => PathGetterFunc(wrappedObject);
+            return ConstructorFunc0(path, sarifVersion);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public readonly global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
+        public global::System.String Path
         {
-            get => SarifVersionGetterFunc(wrappedObject);
+            get { return PathGetterFunc(wrappedObject); }
+        }
+
+        /// <summary>Property added in version 3.8.0.0.</summary>
+        public global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
+        {
+            get { return SarifVersionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ErrorLogOptionsWrapper As(global::System.Object? obj)
@@ -66,6 +70,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

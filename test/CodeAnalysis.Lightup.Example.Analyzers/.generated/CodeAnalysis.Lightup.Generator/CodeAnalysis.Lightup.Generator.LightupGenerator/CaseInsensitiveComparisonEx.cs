@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Int32 Compare(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right)
-            => CompareFunc0(left, right);
+        {
+            return CompareFunc0(left, right);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Boolean Equals(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right)
-            => EqualsFunc1(left, right);
+        {
+            return EqualsFunc1(left, right);
+        }
     }
 }

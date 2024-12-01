@@ -27,14 +27,20 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
-            => FindDerivedClassesAsyncFunc0(type, solution, transitive, projects, cancellationToken);
+        {
+            return FindDerivedClassesAsyncFunc0(type, solution, transitive, projects, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
-            => FindDerivedInterfacesAsyncFunc1(type, solution, transitive, projects, cancellationToken);
+        {
+            return FindDerivedInterfacesAsyncFunc1(type, solution, transitive, projects, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
-            => FindImplementationsAsyncFunc2(type, solution, transitive, projects, cancellationToken);
+        {
+            return FindImplementationsAsyncFunc2(type, solution, transitive, projects, cancellationToken);
+        }
     }
 }

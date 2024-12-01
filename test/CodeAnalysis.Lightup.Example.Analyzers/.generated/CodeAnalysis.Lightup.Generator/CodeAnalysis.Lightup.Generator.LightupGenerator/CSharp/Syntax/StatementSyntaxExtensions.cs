@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj)
-            => AttributeListsGetterFunc(_obj);
+        {
+            return AttributeListsGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(_obj, items);
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc1(_obj, attributeLists);
+        {
+            return WithAttributeListsFunc1(_obj, attributeLists);
+        }
     }
 }

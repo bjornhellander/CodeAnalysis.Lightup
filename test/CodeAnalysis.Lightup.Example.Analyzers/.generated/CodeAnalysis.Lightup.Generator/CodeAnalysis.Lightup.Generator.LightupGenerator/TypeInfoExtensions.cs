@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper ConvertedNullability(this global::Microsoft.CodeAnalysis.TypeInfo _obj)
-            => ConvertedNullabilityGetterFunc(_obj);
+        {
+            return ConvertedNullabilityGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper Nullability(this global::Microsoft.CodeAnalysis.TypeInfo _obj)
-            => NullabilityGetterFunc(_obj);
+        {
+            return NullabilityGetterFunc(_obj);
+        }
     }
 }
