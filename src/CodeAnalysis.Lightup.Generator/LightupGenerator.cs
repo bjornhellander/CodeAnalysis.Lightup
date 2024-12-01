@@ -19,12 +19,8 @@ public class LightupGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
-
         var configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
-
-        context.RegisterSourceOutput(
-            configFileContents,
-            (context, value) => Execute(context, value));
+        context.RegisterSourceOutput(configFileContents, Execute);
     }
 
     private static void Execute(SourceProductionContext context, string configFileContent)
@@ -46,7 +42,6 @@ public class LightupGenerator : IIncrementalGenerator
         var typeList = TypesReader.Read(baselineVersion);
         var types = typeList.ToDictionary(x => x.FullName, x => x);
         AnalyzeTypes(types);
-
         return types;
     }
 
