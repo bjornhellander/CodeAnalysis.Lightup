@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Example.CodeFixes", "test\CodeAnalysis.Lightup.Example.CodeFixes\CodeAnalysis.Lightup.Example.CodeFixes.csproj", "{C4424DD5-7DE5-441C-99EB-76FFFA910E6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Example.CSharp6", "test\CodeAnalysis.Lightup.Example.CSharp6\CodeAnalysis.Lightup.Example.CSharp6.csproj", "{9643947F-4A65-4D3C-83CE-65BB081492C6}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Generator", "test\CodeAnalysis.Lightup.Test.Generator\CodeAnalysis.Lightup.Test.Generator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Internal", "test\CodeAnalysis.Lightup.Test.Internal\CodeAnalysis.Lightup.Test.Internal.csproj", "{E75915B2-B112-42C2-AC13-0A5190C304B9}"
@@ -60,8 +62,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_4_0", "ref\CodeAnalysis.Lightup.Reference.V4_4_0\CodeAnalysis.Lightup.Reference.V4_4_0.csproj", "{ECA4FC3B-6B04-4159-9174-088DC0F80967}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_8_0", "ref\CodeAnalysis.Lightup.Reference.V4_8_0\CodeAnalysis.Lightup.Reference.V4_8_0.csproj", "{1559FB87-8D6D-4F6C-9219-A0D6F1EB80A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.NotNullable", "test\CodeAnalysis.Lightup.Example.NotNullable\CodeAnalysis.Lightup.NotNullable.csproj", "{9643947F-4A65-4D3C-83CE-65BB081492C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
