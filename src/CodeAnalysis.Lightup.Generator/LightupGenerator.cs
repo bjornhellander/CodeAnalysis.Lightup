@@ -17,7 +17,7 @@ public class LightupGenerator : IIncrementalGenerator
 
     private static Dictionary<string, BaseTypeDefinition> ReadTypes()
     {
-        var typeList = TypesReader.Read();
+        var typeList = TypesReader.Read(new Version(3, 0, 0, 0));
         var types = typeList.ToDictionary(x => x.FullName, x => x);
         AnalyzeTypes(types);
         return types;
