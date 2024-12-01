@@ -28,7 +28,7 @@ public class LightupGenerator : IIncrementalGenerator
         if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
         {
             var types = GetOrReadTypes(baselineVersion);
-            Writer.Write(context, assemblies, typesToInclude, types);
+            Writer.Write(context, assemblies, typesToInclude, true, types);
         }
     }
 
