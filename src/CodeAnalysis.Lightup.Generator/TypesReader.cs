@@ -71,8 +71,6 @@ internal static class TypesReader
         var values = CreateEnumValueDefinitions(typeElement);
         result.Values.AddRange(values);
 
-        UpdatedBaseTypeDefinition(result, typeElement);
-
         return result;
     }
 
@@ -120,7 +118,6 @@ internal static class TypesReader
         result.BaseClass = baseClass;
 
         UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
 
         return result;
     }
@@ -147,7 +144,6 @@ internal static class TypesReader
         result.BaseInterface = baseInterface;
 
         UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
 
         return result;
     }
@@ -171,7 +167,6 @@ internal static class TypesReader
             enclosingTypeFullName);
 
         UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
 
         return result;
     }
@@ -197,20 +192,6 @@ internal static class TypesReader
 
         var methods = CreateMethodDefinitions(parent);
         typeDef.Methods.AddRange(methods);
-    }
-
-    private static void UpdatedBaseTypeDefinition(
-        BaseTypeDefinition typeDef,
-        XElement parent)
-    {
-        var generatedName = GetChildString(parent, "GeneratedName");
-        typeDef.GeneratedName = generatedName;
-
-        var isUpdated = GetChildBool(parent, "IsUpdated");
-        typeDef.IsUpdated = isUpdated;
-
-        var generatedFileName = GetChildString(parent, "GeneratedFileName");
-        typeDef.GeneratedFileName = generatedFileName;
     }
 
     private static List<ConstructorDefinition> CreateConstructorDefinitions(XElement parent)

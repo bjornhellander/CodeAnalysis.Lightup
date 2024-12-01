@@ -56,9 +56,12 @@ public abstract class BaseTypeDefinition
 
     public string? EnclosingTypeFullName { get; set; }
 
+    [XmlIgnore]
     public string GeneratedName { get; set; } = "";
 
+    [XmlIgnore]
     public bool IsUpdated { get; set; }
 
+    [XmlIgnore]
     public string GeneratedFileName { get; set; } = "";
 }
