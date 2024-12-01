@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IAttributeOperation. Added in version 4.8.0.0.</summary>
-    public readonly partial struct IAttributeOperationWrapper
+    public partial struct IAttributeOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IAttributeOperation";
 

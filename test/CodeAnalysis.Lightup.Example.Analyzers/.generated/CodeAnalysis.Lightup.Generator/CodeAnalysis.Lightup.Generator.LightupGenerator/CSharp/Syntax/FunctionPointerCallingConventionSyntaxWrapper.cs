@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct FunctionPointerCallingConventionSyntaxWrapper
+    public partial struct FunctionPointerCallingConventionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerCallingConventionSyntax";
 

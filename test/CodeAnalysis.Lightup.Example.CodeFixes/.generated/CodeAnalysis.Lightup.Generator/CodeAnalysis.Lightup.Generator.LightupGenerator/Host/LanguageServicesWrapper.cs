@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Host.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Host.LanguageServices. Added in version 4.4.0.0.</summary>
-    public readonly partial struct LanguageServicesWrapper
+    public partial struct LanguageServicesWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.LanguageServices";
 

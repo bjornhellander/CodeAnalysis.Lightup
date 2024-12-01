@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedPatternSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct ParenthesizedPatternSyntaxWrapper
+    public partial struct ParenthesizedPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedPatternSyntax";
 

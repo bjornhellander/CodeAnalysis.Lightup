@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 4.0.0.0.</summary>
-    public readonly partial struct DocumentBasedFixAllProviderWrapper
+    public partial struct DocumentBasedFixAllProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 

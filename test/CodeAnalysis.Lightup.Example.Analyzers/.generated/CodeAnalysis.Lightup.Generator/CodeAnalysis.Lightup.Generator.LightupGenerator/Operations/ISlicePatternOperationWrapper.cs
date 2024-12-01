@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ISlicePatternOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ISlicePatternOperationWrapper
+    public partial struct ISlicePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISlicePatternOperation";
 

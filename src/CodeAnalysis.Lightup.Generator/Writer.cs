@@ -147,7 +147,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Lightup
 {{
     // TODO: Implement remaining members
-    public readonly struct SeparatedSyntaxListWrapper<TNode>
+    public struct SeparatedSyntaxListWrapper<TNode>
     {{
         private static readonly global::System.Type{na} WrappedType; // NOTE: Possibly used via reflection
 
@@ -565,7 +565,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"{{");
         AppendEnclosingTypesStart(sb, typeDef.EnclosingTypeFullName, typeDefs);
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public readonly partial struct {targetName}");
+        sb.AppendLine($"    public partial struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();

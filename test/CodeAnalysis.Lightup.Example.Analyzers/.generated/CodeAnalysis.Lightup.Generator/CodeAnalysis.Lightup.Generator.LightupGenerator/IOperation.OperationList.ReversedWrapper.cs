@@ -6,7 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 public partial class IOperationExtensions {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ReversedWrapper
+    public partial struct ReversedWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Reversed";
 

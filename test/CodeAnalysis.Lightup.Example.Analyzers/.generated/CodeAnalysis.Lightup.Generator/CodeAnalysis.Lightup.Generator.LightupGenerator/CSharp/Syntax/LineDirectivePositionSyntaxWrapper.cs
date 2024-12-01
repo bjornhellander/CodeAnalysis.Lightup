@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax. Added in version 4.0.0.0.</summary>
-    public readonly partial struct LineDirectivePositionSyntaxWrapper
+    public partial struct LineDirectivePositionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LineDirectivePositionSyntax";
 

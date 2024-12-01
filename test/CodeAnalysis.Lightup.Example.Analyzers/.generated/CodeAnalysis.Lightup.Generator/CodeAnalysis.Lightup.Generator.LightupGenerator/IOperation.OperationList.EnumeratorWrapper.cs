@@ -6,7 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 public partial class IOperationExtensions {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator. Added in version 4.4.0.0.</summary>
-    public readonly partial struct EnumeratorWrapper
+    public partial struct EnumeratorWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator";
 

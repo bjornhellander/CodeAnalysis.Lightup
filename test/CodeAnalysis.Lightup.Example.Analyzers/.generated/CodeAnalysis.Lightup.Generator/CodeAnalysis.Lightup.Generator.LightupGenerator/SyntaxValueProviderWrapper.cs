@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.SyntaxValueProvider. Added in version 4.0.0.0.</summary>
-    public readonly partial struct SyntaxValueProviderWrapper
+    public partial struct SyntaxValueProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxValueProvider";
 

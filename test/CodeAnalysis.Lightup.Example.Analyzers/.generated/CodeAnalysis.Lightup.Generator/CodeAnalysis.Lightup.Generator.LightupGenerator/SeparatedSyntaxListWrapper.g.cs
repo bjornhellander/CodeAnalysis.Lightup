@@ -6,7 +6,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     // TODO: Implement remaining members
-    public readonly struct SeparatedSyntaxListWrapper<TNode>
+    public struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 

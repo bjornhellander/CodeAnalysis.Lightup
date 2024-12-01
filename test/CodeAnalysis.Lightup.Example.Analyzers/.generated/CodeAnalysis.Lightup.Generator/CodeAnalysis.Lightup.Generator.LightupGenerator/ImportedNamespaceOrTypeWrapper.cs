@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ImportedNamespaceOrType. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ImportedNamespaceOrTypeWrapper
+    public partial struct ImportedNamespaceOrTypeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
 

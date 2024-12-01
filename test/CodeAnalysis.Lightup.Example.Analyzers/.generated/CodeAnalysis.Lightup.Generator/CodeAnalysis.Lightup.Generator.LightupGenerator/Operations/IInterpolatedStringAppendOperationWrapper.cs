@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct IInterpolatedStringAppendOperationWrapper
+    public partial struct IInterpolatedStringAppendOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringAppendOperation";
 

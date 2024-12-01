@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.ISupportedChangesService. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ISupportedChangesServiceWrapper
+    public partial struct ISupportedChangesServiceWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
 

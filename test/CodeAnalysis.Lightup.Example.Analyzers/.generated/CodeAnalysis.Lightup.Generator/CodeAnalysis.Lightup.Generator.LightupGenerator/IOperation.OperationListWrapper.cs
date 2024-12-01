@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
 public partial class IOperationExtensions {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList. Added in version 4.4.0.0.</summary>
-    public readonly partial struct OperationListWrapper
+    public partial struct OperationListWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList";
 

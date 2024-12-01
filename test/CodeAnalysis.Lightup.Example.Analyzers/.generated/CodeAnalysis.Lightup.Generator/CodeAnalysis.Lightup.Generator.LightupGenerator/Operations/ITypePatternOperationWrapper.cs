@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ITypePatternOperation. Added in version 3.8.0.0.</summary>
-    public readonly partial struct ITypePatternOperationWrapper
+    public partial struct ITypePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITypePatternOperation";
 

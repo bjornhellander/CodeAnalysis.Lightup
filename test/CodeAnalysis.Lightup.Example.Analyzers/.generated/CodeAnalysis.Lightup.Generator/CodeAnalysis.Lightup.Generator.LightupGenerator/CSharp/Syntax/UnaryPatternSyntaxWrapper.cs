@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax. Added in version 3.8.0.0.</summary>
-    public readonly partial struct UnaryPatternSyntaxWrapper
+    public partial struct UnaryPatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnaryPatternSyntax";
 

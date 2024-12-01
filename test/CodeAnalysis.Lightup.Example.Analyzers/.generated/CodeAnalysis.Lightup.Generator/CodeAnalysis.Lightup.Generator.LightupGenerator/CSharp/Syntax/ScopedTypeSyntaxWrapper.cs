@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ScopedTypeSyntaxWrapper
+    public partial struct ScopedTypeSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ScopedTypeSyntax";
 

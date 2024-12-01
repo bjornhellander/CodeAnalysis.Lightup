@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider. Added in version 3.8.0.0.</summary>
-    public readonly partial struct AnalyzerConfigOptionsProviderWrapper
+    public partial struct AnalyzerConfigOptionsProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider";
 

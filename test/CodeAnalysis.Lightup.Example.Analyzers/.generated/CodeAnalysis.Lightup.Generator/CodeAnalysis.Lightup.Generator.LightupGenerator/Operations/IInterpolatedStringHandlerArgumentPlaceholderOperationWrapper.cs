@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper
+    public partial struct IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation";
 

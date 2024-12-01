@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation. Added in version 4.8.0.0.</summary>
-    public readonly partial struct IInlineArrayAccessOperationWrapper
+    public partial struct IInlineArrayAccessOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation";
 

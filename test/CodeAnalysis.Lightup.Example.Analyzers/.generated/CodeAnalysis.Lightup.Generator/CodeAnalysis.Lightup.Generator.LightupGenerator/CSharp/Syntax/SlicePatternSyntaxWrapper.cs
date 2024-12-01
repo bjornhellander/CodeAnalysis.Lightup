@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.SlicePatternSyntax. Added in version 4.4.0.0.</summary>
-    public readonly partial struct SlicePatternSyntaxWrapper
+    public partial struct SlicePatternSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SlicePatternSyntax";
 

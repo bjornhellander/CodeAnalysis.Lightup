@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol. Added in version 3.8.0.0.</summary>
-    public readonly partial struct IFunctionPointerTypeSymbolWrapper
+    public partial struct IFunctionPointerTypeSymbolWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol";
 

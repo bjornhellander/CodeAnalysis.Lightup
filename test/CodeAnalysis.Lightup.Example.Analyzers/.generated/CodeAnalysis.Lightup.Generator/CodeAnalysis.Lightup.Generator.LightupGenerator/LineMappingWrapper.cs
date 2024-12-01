@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LineMapping. Added in version 4.0.0.0.</summary>
-    public readonly partial struct LineMappingWrapper
+    public partial struct LineMappingWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LineMapping";
 

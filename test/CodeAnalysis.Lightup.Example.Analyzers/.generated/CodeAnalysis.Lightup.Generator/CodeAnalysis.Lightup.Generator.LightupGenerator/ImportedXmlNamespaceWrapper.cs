@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ImportedXmlNamespace. Added in version 4.4.0.0.</summary>
-    public readonly partial struct ImportedXmlNamespaceWrapper
+    public partial struct ImportedXmlNamespaceWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedXmlNamespace";
 

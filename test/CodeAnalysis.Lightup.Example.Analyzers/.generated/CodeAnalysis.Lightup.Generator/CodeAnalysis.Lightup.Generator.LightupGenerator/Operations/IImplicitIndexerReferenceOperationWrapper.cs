@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation. Added in version 4.4.0.0.</summary>
-    public readonly partial struct IImplicitIndexerReferenceOperationWrapper
+    public partial struct IImplicitIndexerReferenceOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation";
 

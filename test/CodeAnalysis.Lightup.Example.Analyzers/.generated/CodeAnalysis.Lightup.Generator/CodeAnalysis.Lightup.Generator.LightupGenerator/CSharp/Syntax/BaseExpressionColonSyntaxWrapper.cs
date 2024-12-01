@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionColonSyntax. Added in version 4.0.0.0.</summary>
-    public readonly partial struct BaseExpressionColonSyntaxWrapper
+    public partial struct BaseExpressionColonSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionColonSyntax";
 

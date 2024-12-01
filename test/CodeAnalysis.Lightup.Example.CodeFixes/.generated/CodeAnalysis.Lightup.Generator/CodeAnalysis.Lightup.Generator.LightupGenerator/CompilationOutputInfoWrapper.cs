@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CompilationOutputInfo. Added in version 3.8.0.0.</summary>
-    public readonly partial struct CompilationOutputInfoWrapper
+    public partial struct CompilationOutputInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
 
