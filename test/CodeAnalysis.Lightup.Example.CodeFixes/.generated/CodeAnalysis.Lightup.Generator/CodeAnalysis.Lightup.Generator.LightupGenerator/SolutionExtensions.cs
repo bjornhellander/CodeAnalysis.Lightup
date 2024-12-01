@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoaderDelegate15(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextLoader loader, global::Microsoft.CodeAnalysis.PreservationMode mode);
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerReferencesDelegate16(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
         private delegate global::Microsoft.CodeAnalysis.Solution WithOptionsDelegate17(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.Options.OptionSet options);
-        private delegate global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate18(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate18(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespaceDelegate19(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? defaultNamespace);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
@@ -166,8 +166,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             => WithOptionsFunc17(_obj, options);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
-            => WithProjectCompilationOutputInfoFunc18(_obj, projectId, in info);
+        public static global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
+            => WithProjectCompilationOutputInfoFunc18(_obj, projectId, ref info);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespace(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? defaultNamespace)

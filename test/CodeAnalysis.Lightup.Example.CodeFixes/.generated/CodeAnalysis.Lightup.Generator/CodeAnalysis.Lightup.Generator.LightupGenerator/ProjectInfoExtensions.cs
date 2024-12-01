@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo? _obj);
 
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.String? defaultNamespace);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
@@ -47,8 +47,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, in global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
-            => WithCompilationOutputInfoFunc1(_obj, in info);
+        public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
+            => WithCompilationOutputInfoFunc1(_obj, ref info);
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace)

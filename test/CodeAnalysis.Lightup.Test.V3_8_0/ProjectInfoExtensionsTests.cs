@@ -16,7 +16,7 @@ public partial class ProjectInfoExtensionsTests
         var obj = CreateInstance();
         var compilationOutputInfo = default(CompilationOutputInfo).WithAssemblyPath("a/b/c.dll");
         var compilationOutputInfoWrapper = CompilationOutputInfoWrapper.As(compilationOutputInfo);
-        var result = obj.WithCompilationOutputInfo(compilationOutputInfoWrapper);
+        var result = obj.WithCompilationOutputInfo(ref compilationOutputInfoWrapper);
         Assert.AreEqual("a/b/c.dll", result.CompilationOutputInfo.AssemblyPath);
     }
 }
