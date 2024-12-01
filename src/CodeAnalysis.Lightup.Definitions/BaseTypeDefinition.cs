@@ -56,12 +56,15 @@ public abstract class BaseTypeDefinition
 
     public string? EnclosingTypeFullName { get; set; }
 
+    // NOTE: Intended to be set in Generator, not in Collector
     [XmlIgnore]
     public string GeneratedName { get; set; } = "";
 
+    // NOTE: Intended to be set in Generator, not in Collector
     [XmlIgnore]
     public bool IsUpdated { get; set; }
 
+    // NOTE: Intended to be set in Generator, not in Collector
     [XmlIgnore]
     public string GeneratedFileName { get; set; } = "";
 }
