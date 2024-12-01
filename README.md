@@ -4,7 +4,7 @@
 
 This source generator package generates code that makes it possible to use features from a later Roslyn version without having an actual
 dependency to the version supporting those features.
-The consuming package would instead compile against an "oldest supported" version and use the generator to take advantage of newer features
+The consuming project would instead compile against an "oldest supported" version and use the generator to take advantage of newer features
 when they are available.
 The generator package has knowledge of features added after Roslyn 3.0.0. When the generated code runs, it uses reflection to detect
 which of those features that are available in the Roslyn version used at runtime. This for example means that an analyzer can run in any
@@ -32,8 +32,8 @@ A short description can for example be found here: https://www.meziantou.net/ros
 - Generic members are not handled.
 - Some types, mostly related to source generators and diagnostic suppressors, are not handled.
 - SeparatedSyntaxListWrapper is incomplete.
-- C# 8.0 is required in the target project(s).
-- Version 3.0.0 of the Microsoft.CodeAnalysis packages is required in the consuming projects.
+- C# 8.0 is required in the consuming project(s).
+- Roslyn versions before 3.0.0 are not supported.
 
 ## Troubleshooting
 
@@ -45,11 +45,13 @@ If you are using Git, enable support for long file paths by running:
 
 ### The generator does not generate any code
 
-TODO
+The configuration file is probably either missing or incorrect. There is an analyzer included in the
+generator NuGet package to inform about problems with the configuration file.
 
 ### The generated code does not compile
 
-TODO
+The generated code needs types from the NuGet package 'CodeAnalysis.Lightup.Runtime'.
+Make sure an appropriate version is available in the consuming projects(s).
 
 ## Credits
 
