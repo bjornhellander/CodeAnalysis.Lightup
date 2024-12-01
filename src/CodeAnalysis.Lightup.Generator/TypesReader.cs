@@ -14,7 +14,7 @@ internal static class TypesReader
 {
     private static readonly XNamespace XsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
 
-    public static List<BaseTypeDefinition> Read()
+    public static List<BaseTypeDefinition> Read(Version baselineVersion)
     {
 #if true
         var assembly = Assembly.GetExecutingAssembly();
@@ -22,7 +22,7 @@ internal static class TypesReader
         var doc = XDocument.Load(stream);
         var rootElement = doc.Root;
         var typeElements = rootElement.Elements()!;
-        var typeDefs = typeElements.Select(x => CreateTypeDefinition(x)).ToList();
+        var typeDefs = typeElements.Select(x => CreateTypeDefinition(x, baselineVersion)).ToList();
         return typeDefs;
 #else
         var assembly = Assembly.GetExecutingAssembly();
@@ -33,23 +33,24 @@ internal static class TypesReader
 #endif
     }
 
-    private static BaseTypeDefinition CreateTypeDefinition(XElement typeElement)
+    private static BaseTypeDefinition CreateTypeDefinition(XElement typeElement, Version baselineVersion)
     {
         var typeAttr = typeElement.Attribute(XsiNamespace + "type")?.Value;
         return typeAttr switch
         {
-            "EnumTypeDefinition" => CreateEnumTypeDefinition(typeElement),
-            "ClassTypeDefinition" => CreateClassTypeDefinition(typeElement),
-            "InterfaceTypeDefinition" => CreateInterfaceTypeDefinition(typeElement),
-            "StructTypeDefinition" => CreateStructTypeDefinition(typeElement),
+            "EnumTypeDefinition" => CreateEnumTypeDefinition(typeElement, baselineVersion),
+            "ClassTypeDefinition" => CreateClassTypeDefinition(typeElement, baselineVersion),
+            "InterfaceTypeDefinition" => CreateInterfaceTypeDefinition(typeElement, baselineVersion),
+            "StructTypeDefinition" => CreateStructTypeDefinition(typeElement, baselineVersion),
             _ => throw new Exception("Unhandled type definition:" + typeAttr),
         };
     }
 
-    private static EnumTypeDefinition CreateEnumTypeDefinition(XElement typeElement)
+    private static EnumTypeDefinition CreateEnumTypeDefinition(XElement typeElement, Version baselineVersion)
     {
         ParseBaseTypeDefinition(
             typeElement,
+            baselineVersion,
             out var assemblyKind,
             out var assemblyVersion,
             out var name,
@@ -68,25 +69,23 @@ internal static class TypesReader
             isFlagsEnum,
             enclosingTypeFullName);
 
-        var values = CreateEnumValueDefinitions(typeElement);
+        var values = CreateEnumValueDefinitions(typeElement, baselineVersion);
         result.Values.AddRange(values);
-
-        UpdatedBaseTypeDefinition(result, typeElement);
 
         return result;
     }
 
-    private static List<EnumValueDefinition> CreateEnumValueDefinitions(XElement parent)
+    private static List<EnumValueDefinition> CreateEnumValueDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Values");
         var elements = GetChildElements(element, "EnumValueDefinition");
-        var result = elements.Select(CreateEnumValueDefinition).ToList();
+        var result = elements.Select(x => CreateEnumValueDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static EnumValueDefinition CreateEnumValueDefinition(XElement element)
+    private static EnumValueDefinition CreateEnumValueDefinition(XElement element, Version baselineVersion)
     {
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         var name = GetChildString(element, "Name");
         var value = GetChildInt(element, "Value");
 
@@ -94,10 +93,11 @@ internal static class TypesReader
         return result;
     }
 
-    private static ClassTypeDefinition CreateClassTypeDefinition(XElement typeElement)
+    private static ClassTypeDefinition CreateClassTypeDefinition(XElement typeElement, Version baselineVersion)
     {
         ParseBaseTypeDefinition(
             typeElement,
+            baselineVersion,
             out var assemblyKind,
             out var assemblyVersion,
             out var name,
@@ -119,16 +119,16 @@ internal static class TypesReader
         var baseClass = CreateOptionalTypeReference(typeElement, "BaseClass");
         result.BaseClass = baseClass;
 
-        UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
+        UpdatedTypeDefinition(result, typeElement, baselineVersion);
 
         return result;
     }
 
-    private static InterfaceTypeDefinition CreateInterfaceTypeDefinition(XElement typeElement)
+    private static InterfaceTypeDefinition CreateInterfaceTypeDefinition(XElement typeElement, Version baselineVersion)
     {
         ParseBaseTypeDefinition(
             typeElement,
+            baselineVersion,
             out var assemblyKind,
             out var assemblyVersion,
             out var name,
@@ -146,16 +146,16 @@ internal static class TypesReader
         var baseInterface = CreateOptionalTypeReference(typeElement, "BaseInterface");
         result.BaseInterface = baseInterface;
 
-        UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
+        UpdatedTypeDefinition(result, typeElement, baselineVersion);
 
         return result;
     }
 
-    private static StructTypeDefinition CreateStructTypeDefinition(XElement typeElement)
+    private static StructTypeDefinition CreateStructTypeDefinition(XElement typeElement, Version baselineVersion)
     {
         ParseBaseTypeDefinition(
             typeElement,
+            baselineVersion,
             out var assemblyKind,
             out var assemblyVersion,
             out var name,
@@ -170,58 +170,44 @@ internal static class TypesReader
             fullName,
             enclosingTypeFullName);
 
-        UpdatedTypeDefinition(result, typeElement);
-        UpdatedBaseTypeDefinition(result, typeElement);
+        UpdatedTypeDefinition(result, typeElement, baselineVersion);
 
         return result;
     }
 
     private static void UpdatedTypeDefinition(
         TypeDefinition typeDef,
-        XElement parent)
+        XElement parent,
+        Version baselineVersion)
     {
-        var constructors = CreateConstructorDefinitions(parent);
+        var constructors = CreateConstructorDefinitions(parent, baselineVersion);
         typeDef.Constructors.AddRange(constructors);
 
-        var fields = CreateFieldDefinitions(parent);
+        var fields = CreateFieldDefinitions(parent, baselineVersion);
         typeDef.Fields.AddRange(fields);
 
-        var events = CreateEventDefinitions(parent);
+        var events = CreateEventDefinitions(parent, baselineVersion);
         typeDef.Events.AddRange(events);
 
-        var properties = CreatePropertyDefinitions(parent);
+        var properties = CreatePropertyDefinitions(parent, baselineVersion);
         typeDef.Properties.AddRange(properties);
 
-        var indexers = CreateIndexerDefinitions(parent);
+        var indexers = CreateIndexerDefinitions(parent, baselineVersion);
         typeDef.Indexers.AddRange(indexers);
 
-        var methods = CreateMethodDefinitions(parent);
+        var methods = CreateMethodDefinitions(parent, baselineVersion);
         typeDef.Methods.AddRange(methods);
     }
 
-    private static void UpdatedBaseTypeDefinition(
-        BaseTypeDefinition typeDef,
-        XElement parent)
-    {
-        var generatedName = GetChildString(parent, "GeneratedName");
-        typeDef.GeneratedName = generatedName;
-
-        var isUpdated = GetChildBool(parent, "IsUpdated");
-        typeDef.IsUpdated = isUpdated;
-
-        var generatedFileName = GetChildString(parent, "GeneratedFileName");
-        typeDef.GeneratedFileName = generatedFileName;
-    }
-
-    private static List<ConstructorDefinition> CreateConstructorDefinitions(XElement parent)
+    private static List<ConstructorDefinition> CreateConstructorDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Constructors");
         var elements = GetChildElements(element, "ConstructorDefinition");
-        var result = elements.Select(CreateConstructorDefinition).ToList();
+        var result = elements.Select(x => CreateConstructorDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static ConstructorDefinition CreateConstructorDefinition(XElement element)
+    private static ConstructorDefinition CreateConstructorDefinition(XElement element, Version baselineVersion)
     {
         var isStatic = GetChildBool(element, "IsStatic");
         var parameters = CreateParameterDefinitions(element);
@@ -230,21 +216,21 @@ internal static class TypesReader
             parameters,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
     }
 
-    private static List<FieldDefinition> CreateFieldDefinitions(XElement parent)
+    private static List<FieldDefinition> CreateFieldDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Fields");
         var elements = GetChildElements(element, "FieldDefinition");
-        var result = elements.Select(CreateFieldDefinition).ToList();
+        var result = elements.Select(x => CreateFieldDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static FieldDefinition CreateFieldDefinition(XElement element)
+    private static FieldDefinition CreateFieldDefinition(XElement element, Version baselineVersion)
     {
         var name = GetChildString(element, "Name");
         var typeRef = CreateTypeReference(element, "Type");
@@ -259,21 +245,21 @@ internal static class TypesReader
             isReadOnly,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
     }
 
-    private static List<EventDefinition> CreateEventDefinitions(XElement parent)
+    private static List<EventDefinition> CreateEventDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Events");
         var elements = GetChildElements(element, "EventDefinition");
-        var result = elements.Select(CreateEventDefinition).ToList();
+        var result = elements.Select(x => CreateEventDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static EventDefinition CreateEventDefinition(XElement element)
+    private static EventDefinition CreateEventDefinition(XElement element, Version baselineVersion)
     {
         var name = GetChildString(element, "Name");
         var typeRef = CreateTypeReference(element, "Type");
@@ -284,21 +270,21 @@ internal static class TypesReader
             typeRef,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
     }
 
-    private static List<PropertyDefinition> CreatePropertyDefinitions(XElement parent)
+    private static List<PropertyDefinition> CreatePropertyDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Properties");
         var elements = GetChildElements(element, "PropertyDefinition");
-        var result = elements.Select(CreatePropertyDefinition).ToList();
+        var result = elements.Select(x => CreatePropertyDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static PropertyDefinition CreatePropertyDefinition(XElement element)
+    private static PropertyDefinition CreatePropertyDefinition(XElement element, Version baselineVersion)
     {
         var name = GetChildString(element, "Name");
         var typeRef = CreateTypeReference(element, "Type");
@@ -313,21 +299,21 @@ internal static class TypesReader
             hasSetter,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
     }
 
-    private static List<IndexerDefinition> CreateIndexerDefinitions(XElement parent)
+    private static List<IndexerDefinition> CreateIndexerDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Indexers");
         var elements = GetChildElements(element, "IndexerDefinition");
-        var result = elements.Select(CreateIndexerDefinition).ToList();
+        var result = elements.Select(x => CreateIndexerDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static IndexerDefinition CreateIndexerDefinition(XElement element)
+    private static IndexerDefinition CreateIndexerDefinition(XElement element, Version baselineVersion)
     {
         var typeRef = CreateTypeReference(element, "Type");
         var isNullable = GetChildBool(element, "IsNullable");
@@ -340,21 +326,21 @@ internal static class TypesReader
             parameters,
             hasSetter);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
     }
 
-    private static List<MethodDefinition> CreateMethodDefinitions(XElement parent)
+    private static List<MethodDefinition> CreateMethodDefinitions(XElement parent, Version baselineVersion)
     {
         var element = GetChildElement(parent, "Methods");
         var elements = GetChildElements(element, "MethodDefinition");
-        var result = elements.Select(CreateMethodDefinition).ToList();
+        var result = elements.Select(x => CreateMethodDefinition(x, baselineVersion)).ToList();
         return result;
     }
 
-    private static MethodDefinition CreateMethodDefinition(XElement element)
+    private static MethodDefinition CreateMethodDefinition(XElement element, Version baselineVersion)
     {
         var name = GetChildString(element, "Name");
         var isStatic = GetChildBool(element, "IsStatic");
@@ -371,7 +357,7 @@ internal static class TypesReader
             isNullable,
             parameters);
 
-        var assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -404,6 +390,7 @@ internal static class TypesReader
 
     private static void ParseBaseTypeDefinition(
         XElement element,
+        Version baselineVersion,
         out AssemblyKind assemblyKind,
         out Version? assemblyVersion,
         out string name,
@@ -412,7 +399,7 @@ internal static class TypesReader
         out string? enclosingTypeFullName)
     {
         assemblyKind = GetChildEnum<AssemblyKind>(element, "AssemblyKind");
-        assemblyVersion = GetOptionalChildAssemblyVesion(element);
+        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         name = GetChildString(element, "Name");
         @namespace = GetChildString(element, "Namespace");
         fullName = GetChildString(element, "FullName");
@@ -548,10 +535,23 @@ internal static class TypesReader
         return result;
     }
 
-    private static Version? GetOptionalChildAssemblyVesion(XElement parent)
+    private static Version? GetOptionalChildAssemblyVersion(XElement parent, Version baselineVersion)
     {
         var strValue = parent.Element("AssemblyVersion")?.Value;
-        var result = strValue != null ? new Version(strValue) : null;
+        Version? result;
+        if (strValue != null)
+        {
+            result = new Version(strValue);
+            if (result <= baselineVersion)
+            {
+                result = null;
+            }
+        }
+        else
+        {
+            result = null;
+        }
+
         return result;
     }
 }
