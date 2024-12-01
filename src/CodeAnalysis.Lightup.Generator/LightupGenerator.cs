@@ -4,6 +4,7 @@
 namespace CodeAnalysis.Lightup.Generator;
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,34 +14,40 @@ using Microsoft.CodeAnalysis;
 [Generator]
 public class LightupGenerator : IIncrementalGenerator
 {
-    private static readonly Lazy<Dictionary<string, BaseTypeDefinition>> Types = new(ReadTypes);
-
-    private static Dictionary<string, BaseTypeDefinition> ReadTypes()
-    {
-        var typeList = TypesReader.Read(new Version(3, 0, 0, 0));
-        var types = typeList.ToDictionary(x => x.FullName, x => x);
-        AnalyzeTypes(types);
-        return types;
-    }
+    private static readonly ConcurrentDictionary<Version, Dictionary<string, BaseTypeDefinition>> TypesPerAssemblyVersion = new();
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        IncrementalValuesProvider<AdditionalText> configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
+        var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
 
-        IncrementalValuesProvider<string> configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
+        var configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
 
         context.RegisterSourceOutput(
             configFileContents,
             (context, value) => Execute(context, value));
     }
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "TODO")]
     private static void Execute(SourceProductionContext context, string configFileContent)
     {
         if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
         {
-            Writer.Write(context, assemblies, typesToInclude, Types.Value);
+            var types = GetOrReadTypes(baselineVersion);
+            Writer.Write(context, assemblies, typesToInclude, types);
         }
+    }
+
+    private static Dictionary<string, BaseTypeDefinition> GetOrReadTypes(Version baselineVersion)
+    {
+        return TypesPerAssemblyVersion.GetOrAdd(baselineVersion, ReadTypes);
+    }
+
+    private static Dictionary<string, BaseTypeDefinition> ReadTypes(Version baselineVersion)
+    {
+        var typeList = TypesReader.Read(baselineVersion);
+        var types = typeList.ToDictionary(x => x.FullName, x => x);
+        AnalyzeTypes(types);
+
+        return types;
     }
 
     private static void AnalyzeTypes(Dictionary<string, BaseTypeDefinition> typeDefs)
