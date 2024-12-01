@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 [Generator]
 public class LightupGenerator : IIncrementalGenerator
@@ -20,15 +21,26 @@ public class LightupGenerator : IIncrementalGenerator
     {
         var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
         var configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
-        context.RegisterSourceOutput(configFileContents, Execute);
+
+        var languageVersion = context.CompilationProvider.Select((compilation, cancellationToken) =>
+        {
+            var languageVersion = (compilation as CSharpCompilation)?.LanguageVersion;
+            return languageVersion;
+        });
+
+        var generatorInput = configFileContents.Combine(languageVersion);
+        context.RegisterSourceOutput(
+            generatorInput,
+            (context, input) => Execute(context, input.Left, input.Right));
     }
 
-    private static void Execute(SourceProductionContext context, string configFileContent)
+    private static void Execute(SourceProductionContext context, string configFileContent, LanguageVersion? languageVersion)
     {
         if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
         {
+            var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
             var types = GetOrReadTypes(baselineVersion);
-            Writer.Write(context, assemblies, typesToInclude, true, types);
+            Writer.Write(context, assemblies, typesToInclude, useNullableAnnotation, types);
         }
     }
 

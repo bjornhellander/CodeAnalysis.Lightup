@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<Assembly>CSharp</Assembly>
+	<Assembly>WorkspacesCommon</Assembly>
+	<Assembly>CSharpWorkspaces</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+</Settings>
