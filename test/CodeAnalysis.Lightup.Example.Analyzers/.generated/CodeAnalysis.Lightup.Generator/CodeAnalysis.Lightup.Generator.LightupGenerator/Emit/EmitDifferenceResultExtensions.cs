@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.TypeDefinitionHandle> ChangedTypes(this global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult _obj)
-            => ChangedTypesGetterFunc(_obj);
+        {
+            return ChangedTypesGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.MethodDefinitionHandle> UpdatedMethods(this global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult _obj)
-            => UpdatedMethodsGetterFunc(_obj);
+        {
+            return UpdatedMethodsGetterFunc(_obj);
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression(this global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax _obj)
-            => ExpressionGetterFunc(_obj);
+        {
+            return ExpressionGetterFunc(_obj);
+        }
     }
 }

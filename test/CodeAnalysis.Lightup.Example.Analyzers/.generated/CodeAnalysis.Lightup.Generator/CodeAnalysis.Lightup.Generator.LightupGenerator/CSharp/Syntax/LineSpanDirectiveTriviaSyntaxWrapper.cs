@@ -91,64 +91,68 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken CharacterOffset
         {
-            get => CharacterOffsetGetterFunc(wrappedObject);
+            get { return CharacterOffsetGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper End
         {
-            get => EndGetterFunc(wrappedObject);
+            get { return EndGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken EndOfDirectiveToken
         {
-            get => EndOfDirectiveTokenGetterFunc(wrappedObject);
+            get { return EndOfDirectiveTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken File
         {
-            get => FileGetterFunc(wrappedObject);
+            get { return FileGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken HashToken
         {
-            get => HashTokenGetterFunc(wrappedObject);
+            get { return HashTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::System.Boolean IsActive
         {
-            get => IsActiveGetterFunc(wrappedObject);
+            get { return IsActiveGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken LineKeyword
         {
-            get => LineKeywordGetterFunc(wrappedObject);
+            get { return LineKeywordGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken MinusToken
         {
-            get => MinusTokenGetterFunc(wrappedObject);
+            get { return MinusTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper Start
         {
-            get => StartGetterFunc(wrappedObject);
+            get { return StartGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax?(LineSpanDirectiveTriviaSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static LineSpanDirectiveTriviaSyntaxWrapper As(global::System.Object? obj)
@@ -159,50 +163,74 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.SyntaxToken minusToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
-            => UpdateFunc1(wrappedObject, hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
+        {
+            return UpdateFunc1(wrappedObject, hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithCharacterOffset(global::Microsoft.CodeAnalysis.SyntaxToken characterOffset)
-            => WithCharacterOffsetFunc2(wrappedObject, characterOffset);
+        {
+            return WithCharacterOffsetFunc2(wrappedObject, characterOffset);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithEnd(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end)
-            => WithEndFunc3(wrappedObject, end);
+        {
+            return WithEndFunc3(wrappedObject, end);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken)
-            => WithEndOfDirectiveTokenFunc4(wrappedObject, endOfDirectiveToken);
+        {
+            return WithEndOfDirectiveTokenFunc4(wrappedObject, endOfDirectiveToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithFile(global::Microsoft.CodeAnalysis.SyntaxToken file)
-            => WithFileFunc5(wrappedObject, file);
+        {
+            return WithFileFunc5(wrappedObject, file);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithHashToken(global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
-            => WithHashTokenFunc6(wrappedObject, hashToken);
+        {
+            return WithHashTokenFunc6(wrappedObject, hashToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithIsActive(global::System.Boolean isActive)
-            => WithIsActiveFunc7(wrappedObject, isActive);
+        {
+            return WithIsActiveFunc7(wrappedObject, isActive);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword)
-            => WithLineKeywordFunc8(wrappedObject, lineKeyword);
+        {
+            return WithLineKeywordFunc8(wrappedObject, lineKeyword);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithMinusToken(global::Microsoft.CodeAnalysis.SyntaxToken minusToken)
-            => WithMinusTokenFunc9(wrappedObject, minusToken);
+        {
+            return WithMinusTokenFunc9(wrappedObject, minusToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper WithStart(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start)
-            => WithStartFunc10(wrappedObject, start);
+        {
+            return WithStartFunc10(wrappedObject, start);
+        }
     }
 }

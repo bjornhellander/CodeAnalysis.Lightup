@@ -34,13 +34,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> Kinds
         {
-            get => KindsGetterFunc(wrappedObject);
-            set => KindsSetterFunc(wrappedObject, value);
+            get { return KindsGetterFunc(wrappedObject); }
+            set { KindsSetterFunc(wrappedObject, value); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static MethodInstrumentationWrapper As(global::System.Object? obj)
@@ -51,6 +53,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

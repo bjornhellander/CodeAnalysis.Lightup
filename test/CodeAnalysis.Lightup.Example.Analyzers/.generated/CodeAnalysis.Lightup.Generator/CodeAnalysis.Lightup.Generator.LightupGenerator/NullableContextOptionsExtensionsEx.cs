@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean AnnotationsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context)
-            => AnnotationsEnabledFunc0(context);
+        {
+            return AnnotationsEnabledFunc0(context);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean WarningsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context)
-            => WarningsEnabledFunc1(context);
+        {
+            return WarningsEnabledFunc1(context);
+        }
     }
 }

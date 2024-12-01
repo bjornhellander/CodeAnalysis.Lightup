@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsExhaustive(this global::Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation _obj)
-            => IsExhaustiveGetterFunc(_obj);
+        {
+            return IsExhaustiveGetterFunc(_obj);
+        }
     }
 }

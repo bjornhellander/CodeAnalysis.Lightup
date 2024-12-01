@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::System.Boolean ContainsDirective(this global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind)
-            => ContainsDirectiveFunc0(node, kind);
+        {
+            return ContainsDirectiveFunc0(node, kind);
+        }
     }
 }

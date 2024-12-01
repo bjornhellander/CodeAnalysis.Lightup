@@ -54,46 +54,68 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Reflection.Metadata.SignatureCallingConvention CallingConvention(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => CallingConventionGetterFunc(_obj);
+        {
+            return CallingConventionGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsConditional(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => IsConditionalGetterFunc(_obj);
+        {
+            return IsConditionalGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsInitOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => IsInitOnlyGetterFunc(_obj);
+        {
+            return IsInitOnlyGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsPartialDefinition(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => IsPartialDefinitionGetterFunc(_obj);
+        {
+            return IsPartialDefinitionGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsReadOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => IsReadOnlyGetterFunc(_obj);
+        {
+            return IsReadOnlyGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Reflection.MethodImplAttributes MethodImplementationFlags(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => MethodImplementationFlagsGetterFunc(_obj);
+        {
+            return MethodImplementationFlagsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => ReceiverNullableAnnotationGetterFunc(_obj);
+        {
+            return ReceiverNullableAnnotationGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => ReturnNullableAnnotationGetterFunc(_obj);
+        {
+            return ReturnNullableAnnotationGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => TypeArgumentNullableAnnotationsGetterFunc(_obj);
+        {
+            return TypeArgumentNullableAnnotationsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypes(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
-            => UnmanagedCallingConventionTypesGetterFunc(_obj);
+        {
+            return UnmanagedCallingConventionTypesGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol Construct(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
-            => ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
+        {
+            return ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
+        }
     }
 }

@@ -42,12 +42,14 @@ public partial struct OperationListWrapper {
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Int32 Count
         {
-            get => CountGetterFunc(wrappedObject);
+            get { return CountGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ReversedWrapper As(global::System.Object? obj)
@@ -58,15 +60,21 @@ public partial struct OperationListWrapper {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
-            => GetEnumeratorFunc0(wrappedObject);
+        {
+            return GetEnumeratorFunc0(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
-            => ToImmutableArrayFunc1(wrappedObject);
+        {
+            return ToImmutableArrayFunc1(wrappedObject);
+        }
     }
 }
 }

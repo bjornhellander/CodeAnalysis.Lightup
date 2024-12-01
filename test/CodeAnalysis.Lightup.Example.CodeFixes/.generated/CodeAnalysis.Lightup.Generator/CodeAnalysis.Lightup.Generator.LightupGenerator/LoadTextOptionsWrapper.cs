@@ -42,17 +42,21 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
         public static LoadTextOptionsWrapper Create(global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm)
-            => ConstructorFunc0(checksumAlgorithm);
+        {
+            return ConstructorFunc0(checksumAlgorithm);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithm
         {
-            get => ChecksumAlgorithmGetterFunc(wrappedObject);
+            get { return ChecksumAlgorithmGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static LoadTextOptionsWrapper As(global::System.Object? obj)
@@ -63,10 +67,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other)
-            => EqualsFunc0(wrappedObject, other);
+        {
+            return EqualsFunc0(wrappedObject, other);
+        }
     }
 }

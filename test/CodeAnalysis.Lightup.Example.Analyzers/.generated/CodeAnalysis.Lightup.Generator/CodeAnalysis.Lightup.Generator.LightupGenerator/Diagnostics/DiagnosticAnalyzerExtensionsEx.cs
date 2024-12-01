@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzers(this global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options)
-            => WithAnalyzersFunc0(compilation, analyzers, options);
+        {
+            return WithAnalyzersFunc0(compilation, analyzers, options);
+        }
     }
 }

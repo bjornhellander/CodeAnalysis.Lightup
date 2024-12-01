@@ -96,106 +96,158 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitBinaryPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node)
-            => VisitBinaryPatternFunc0(_obj, node);
+        {
+            VisitBinaryPatternFunc0(_obj, node);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node)
-            => VisitCollectionExpressionFunc1(_obj, node);
+        {
+            VisitCollectionExpressionFunc1(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitDefaultConstraint(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node)
-            => VisitDefaultConstraintFunc2(_obj, node);
+        {
+            VisitDefaultConstraintFunc2(_obj, node);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitExpressionColon(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node)
-            => VisitExpressionColonFunc3(_obj, node);
+        {
+            VisitExpressionColonFunc3(_obj, node);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitExpressionElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node)
-            => VisitExpressionElementFunc4(_obj, node);
+        {
+            VisitExpressionElementFunc4(_obj, node);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitFileScopedNamespaceDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node)
-            => VisitFileScopedNamespaceDeclarationFunc5(_obj, node);
+        {
+            VisitFileScopedNamespaceDeclarationFunc5(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerCallingConvention(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node)
-            => VisitFunctionPointerCallingConventionFunc6(_obj, node);
+        {
+            VisitFunctionPointerCallingConventionFunc6(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerParameter(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node)
-            => VisitFunctionPointerParameterFunc7(_obj, node);
+        {
+            VisitFunctionPointerParameterFunc7(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerParameterList(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node)
-            => VisitFunctionPointerParameterListFunc8(_obj, node);
+        {
+            VisitFunctionPointerParameterListFunc8(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node)
-            => VisitFunctionPointerTypeFunc9(_obj, node);
+        {
+            VisitFunctionPointerTypeFunc9(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerUnmanagedCallingConvention(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node)
-            => VisitFunctionPointerUnmanagedCallingConventionFunc10(_obj, node);
+        {
+            VisitFunctionPointerUnmanagedCallingConventionFunc10(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitFunctionPointerUnmanagedCallingConventionList(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
-            => VisitFunctionPointerUnmanagedCallingConventionListFunc11(_obj, node);
+        {
+            VisitFunctionPointerUnmanagedCallingConventionListFunc11(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitImplicitObjectCreationExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node)
-            => VisitImplicitObjectCreationExpressionFunc12(_obj, node);
+        {
+            VisitImplicitObjectCreationExpressionFunc12(_obj, node);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitLineDirectivePosition(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node)
-            => VisitLineDirectivePositionFunc13(_obj, node);
+        {
+            VisitLineDirectivePositionFunc13(_obj, node);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static void VisitLineSpanDirectiveTrivia(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node)
-            => VisitLineSpanDirectiveTriviaFunc14(_obj, node);
+        {
+            VisitLineSpanDirectiveTriviaFunc14(_obj, node);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitListPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node)
-            => VisitListPatternFunc15(_obj, node);
+        {
+            VisitListPatternFunc15(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitParenthesizedPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node)
-            => VisitParenthesizedPatternFunc16(_obj, node);
+        {
+            VisitParenthesizedPatternFunc16(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitPrimaryConstructorBaseType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node)
-            => VisitPrimaryConstructorBaseTypeFunc17(_obj, node);
+        {
+            VisitPrimaryConstructorBaseTypeFunc17(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitRecordDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node)
-            => VisitRecordDeclarationFunc18(_obj, node);
+        {
+            VisitRecordDeclarationFunc18(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitRelationalPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node)
-            => VisitRelationalPatternFunc19(_obj, node);
+        {
+            VisitRelationalPatternFunc19(_obj, node);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitScopedType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node)
-            => VisitScopedTypeFunc20(_obj, node);
+        {
+            VisitScopedTypeFunc20(_obj, node);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static void VisitSlicePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node)
-            => VisitSlicePatternFunc21(_obj, node);
+        {
+            VisitSlicePatternFunc21(_obj, node);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static void VisitSpreadElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node)
-            => VisitSpreadElementFunc22(_obj, node);
+        {
+            VisitSpreadElementFunc22(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitTypePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node)
-            => VisitTypePatternFunc23(_obj, node);
+        {
+            VisitTypePatternFunc23(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitUnaryPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node)
-            => VisitUnaryPatternFunc24(_obj, node);
+        {
+            VisitUnaryPatternFunc24(_obj, node);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void VisitWithExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node)
-            => VisitWithExpressionFunc25(_obj, node);
+        {
+            VisitWithExpressionFunc25(_obj, node);
+        }
     }
 }

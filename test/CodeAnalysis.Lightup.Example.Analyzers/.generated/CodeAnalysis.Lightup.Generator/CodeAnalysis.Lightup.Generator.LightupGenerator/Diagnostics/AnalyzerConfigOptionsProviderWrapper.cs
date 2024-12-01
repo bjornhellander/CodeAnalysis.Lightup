@@ -40,12 +40,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptions
         {
-            get => GlobalOptionsGetterFunc(wrappedObject);
+            get { return GlobalOptionsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AnalyzerConfigOptionsProviderWrapper As(global::System.Object? obj)
@@ -56,14 +58,20 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
-            => GetOptionsFunc0(wrappedObject, tree);
+        {
+            return GetOptionsFunc0(wrappedObject, tree);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
-            => GetOptionsFunc1(wrappedObject, textFile);
+        {
+            return GetOptionsFunc1(wrappedObject, textFile);
+        }
     }
 }

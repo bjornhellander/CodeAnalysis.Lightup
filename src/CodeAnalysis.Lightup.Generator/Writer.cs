@@ -177,25 +177,39 @@ namespace Microsoft.CodeAnalysis.Lightup
         }}
 
         public int Count
-            => CountAccessor(wrappedObject);
+        {{
+            get {{ return CountAccessor(wrappedObject); }}
+        }}
 
         public int SeparatorCount
-            => throw new global::System.NotImplementedException();
+        {{
+            get {{ throw new global::System.NotImplementedException(); }}
+        }}
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
-            => throw new global::System.NotImplementedException();
+        {{
+             get {{ throw new global::System.NotImplementedException(); }}
+        }}
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan Span
-            => throw new global::System.NotImplementedException();
+        {{
+             get {{ throw new global::System.NotImplementedException(); }}
+        }}
 
         public TNode this[int index]
-            => throw new global::System.NotImplementedException();
+        {{
+             get {{ throw new global::System.NotImplementedException(); }}
+        }}
 
         public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public static bool Is(object{na} obj)
         {{
@@ -218,79 +232,129 @@ namespace Microsoft.CodeAnalysis.Lightup
         }}
 
         public object{na} Unwrap()
-            => wrappedObject;
+        {{
+             return wrappedObject;
+        }}
 
         public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public override string ToString()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public string ToFullString()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public TNode First()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public TNode FirstOrDefault()
-            => throw new global::System.NotImplementedException();
+        {{
+            throw new global::System.NotImplementedException();
+        }}
 
         public TNode Last()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public TNode LastOrDefault()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public bool Contains(TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public int IndexOf(TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public int IndexOf(global::System.Func<TNode, bool> predicate)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public int LastIndexOf(TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public int LastIndexOf(global::System.Func<TNode, bool> predicate)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public bool Any()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SyntaxNodeOrTokenList GetWithSeparators()
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
-            => AddRangeAccessor(wrappedObject, nodes);
+        {{
+             return AddRangeAccessor(wrappedObject, nodes);
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
 
         public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
-            => throw new global::System.NotImplementedException();
+        {{
+             throw new global::System.NotImplementedException();
+        }}
     }}
 }}
 ";
@@ -760,7 +824,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AppendMemberSummary(sb, field);
             sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
-            sb.AppendLine($"            get => {field.Name}GetterFunc();");
+            sb.AppendLine($"            get {{ return {field.Name}GetterFunc(); }}");
             sb.AppendLine($"        }}");
             Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
         }
@@ -770,7 +834,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
             sb.AppendLine($"        public static {targetName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
-            sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
+            sb.AppendLine($"        }}");
         }
         foreach (var property in staticProperties)
         {
@@ -778,10 +844,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
-            sb.AppendLine($"            get => {property.Name}GetterFunc();");
+            sb.AppendLine($"            get {{ return {property.Name}GetterFunc(); }}");
             if (property.HasSetter)
             {
-                sb.AppendLine($"            set => {property.Name}SetterFunc(value);");
+                sb.AppendLine($"            set {{ {property.Name}SetterFunc(value); }}");
             }
             sb.AppendLine($"        }}");
         }
@@ -791,10 +857,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             AppendMemberSummary(sb, property);
             sb.AppendLine($"        public {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
-            sb.AppendLine($"            get => {property.Name}GetterFunc(wrappedObject);");
+            sb.AppendLine($"            get {{ return {property.Name}GetterFunc(wrappedObject); }}");
             if (property.HasSetter)
             {
-                sb.AppendLine($"            set => {property.Name}SetterFunc(wrappedObject, value);");
+                sb.AppendLine($"            set {{ {property.Name}SetterFunc(wrappedObject, value); }}");
             }
             sb.AppendLine($"        }}");
         }
@@ -803,12 +869,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
             sb.AppendLine($"        public static implicit operator global::{baseTypeNamespace}.{baseTypeName}{na}({targetName} obj)");
-            sb.AppendLine($"            => obj.Unwrap();");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return obj.Unwrap();");
+            sb.AppendLine($"        }}");
         }
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>");
         sb.AppendLine($"        public static bool Is(global::System.Object{na} obj)");
-        sb.AppendLine($"            => global::{fullHelperName}.Is(obj, WrappedType);");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            return global::{fullHelperName}.Is(obj, WrappedType);");
+        sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>");
         sb.AppendLine($"        public static {targetName} As(global::System.Object{na} obj)");
@@ -819,14 +889,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
         sb.AppendLine($"        public global::{baseTypeNamespace}.{baseTypeName}{na} Unwrap()");
-        sb.AppendLine($"            => wrappedObject;");
+        sb.AppendLine($"        {{");
+        sb.AppendLine($"            return wrappedObject;");
+        sb.AppendLine($"        }}");
         foreach (var methodDef in staticMethods)
         {
             var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
+            sb.AppendLine($"        }}");
         }
         foreach (var methodDef in instanceMethods)
         {
@@ -834,7 +908,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
+            sb.AppendLine($"        }}");
         }
         sb.AppendLine($"    }}");
         AppendEnclosingTypesEnd(sb, typeDef.EnclosingTypeFullName, typeDefs);
@@ -1119,7 +1195,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AppendMemberSummary(sb, field);
             sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
-            sb.AppendLine($"            get => {field.Name}GetterFunc();");
+            sb.AppendLine($"            get {{ return {field.Name}GetterFunc(); }}");
             sb.AppendLine($"        }}");
         }
         foreach (var constructor in instanceConstructors)
@@ -1128,20 +1204,26 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
             sb.AppendLine($"        public static global::{baseTypeNamespace}.{baseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
-            sb.AppendLine($"            => ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
+            sb.AppendLine($"        }}");
         }
         foreach (var property in staticProperties)
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}()");
-            sb.AppendLine($"            => {property.Name}GetterFunc();");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return {property.Name}GetterFunc();");
+            sb.AppendLine($"        }}");
             if (property.HasSetter)
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
                 sb.AppendLine($"        public static void Set{property.Name}({GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} _value)");
-                sb.AppendLine($"            => {property.Name}SetterFunc(_value);");
+                sb.AppendLine($"        {{");
+                sb.AppendLine($"            {property.Name}SetterFunc(_value);");
+                sb.AppendLine($"        }}");
             }
         }
         foreach (var property in instanceProperties)
@@ -1149,13 +1231,17 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, property);
             sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj)");
-            sb.AppendLine($"            => {property.Name}GetterFunc(_obj);");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return {property.Name}GetterFunc(_obj);");
+            sb.AppendLine($"        }}");
             if (property.HasSetter)
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
                 sb.AppendLine($"        public static void Set{property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} _value)");
-                sb.AppendLine($"            => {property.Name}SetterFunc(_obj, _value);");
+                sb.AppendLine($"        {{");
+                sb.AppendLine($"            {property.Name}SetterFunc(_obj, _value);");
+                sb.AppendLine($"        }}");
             }
         }
         foreach (var @event in instanceEvents)
@@ -1163,11 +1249,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
             sb.AppendLine($"        public static void Add{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
-            sb.AppendLine($"            => {@event.Name}AdderFunc(_obj, _delegate);");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {@event.Name}AdderFunc(_obj, _delegate);");
+            sb.AppendLine($"        }}");
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
             sb.AppendLine($"        public static void Remove{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
-            sb.AppendLine($"            => {@event.Name}RemoverFunc(_obj, _delegate);");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {@event.Name}RemoverFunc(_obj, _delegate);");
+            sb.AppendLine($"        }}");
         }
         foreach (var methodDef in staticMethods)
         {
@@ -1175,7 +1265,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
+            sb.AppendLine($"        }}");
         }
         foreach (var methodDef in instanceMethods)
         {
@@ -1183,7 +1275,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, true)})");
-            sb.AppendLine($"            => {methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
+            sb.AppendLine($"        }}");
         }
         sb.AppendLine($"    }}");
         sb.AppendLine($"}}");

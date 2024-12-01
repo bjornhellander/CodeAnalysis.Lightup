@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void RegisterAdditionalFileAction(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action)
-            => RegisterAdditionalFileActionFunc0(_obj, action);
+        {
+            RegisterAdditionalFileActionFunc0(_obj, action);
+        }
     }
 }

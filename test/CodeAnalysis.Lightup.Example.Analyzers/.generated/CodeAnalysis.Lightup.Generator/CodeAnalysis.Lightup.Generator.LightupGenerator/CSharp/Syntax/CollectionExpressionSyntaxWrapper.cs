@@ -58,28 +58,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken CloseBracketToken
         {
-            get => CloseBracketTokenGetterFunc(wrappedObject);
+            get { return CloseBracketTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> Elements
         {
-            get => ElementsGetterFunc(wrappedObject);
+            get { return ElementsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken OpenBracketToken
         {
-            get => OpenBracketTokenGetterFunc(wrappedObject);
+            get { return OpenBracketTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax?(CollectionExpressionSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static CollectionExpressionSyntaxWrapper As(global::System.Object? obj)
@@ -90,30 +94,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper AddElements(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper[] items)
-            => AddElementsFunc1(wrappedObject, items);
+        {
+            return AddElementsFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
-            => UpdateFunc2(wrappedObject, openBracketToken, elements, closeBracketToken);
+        {
+            return UpdateFunc2(wrappedObject, openBracketToken, elements, closeBracketToken);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithCloseBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
-            => WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
+        {
+            return WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithElements(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionElementSyntaxWrapper> elements)
-            => WithElementsFunc4(wrappedObject, elements);
+        {
+            return WithElementsFunc4(wrappedObject, elements);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper WithOpenBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
-            => WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
+        {
+            return WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
+        }
     }
 }

@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext Create(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> diagnostics, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken)
-            => ConstructorFunc0(document, span, diagnostics, registerCodeFix, cancellationToken);
+        {
+            return ConstructorFunc0(document, span, diagnostics, registerCodeFix, cancellationToken);
+        }
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext Create(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Diagnostic diagnostic, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken)
-            => ConstructorFunc1(document, diagnostic, registerCodeFix, cancellationToken);
+        {
+            return ConstructorFunc1(document, diagnostic, registerCodeFix, cancellationToken);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.TextDocument TextDocument(this global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext _obj)
-            => TextDocumentGetterFunc(_obj);
+        {
+            return TextDocumentGetterFunc(_obj);
+        }
     }
 }

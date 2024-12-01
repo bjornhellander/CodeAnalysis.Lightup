@@ -40,30 +40,32 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> Aliases
         {
-            get => AliasesGetterFunc(wrappedObject);
+            get { return AliasesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> ExternAliases
         {
-            get => ExternAliasesGetterFunc(wrappedObject);
+            get { return ExternAliasesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedNamespaceOrTypeWrapper> Imports
         {
-            get => ImportsGetterFunc(wrappedObject);
+            get { return ImportsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedXmlNamespaceWrapper> XmlNamespaces
         {
-            get => XmlNamespacesGetterFunc(wrappedObject);
+            get { return XmlNamespacesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IImportScopeWrapper As(global::System.Object? obj)
@@ -74,6 +76,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

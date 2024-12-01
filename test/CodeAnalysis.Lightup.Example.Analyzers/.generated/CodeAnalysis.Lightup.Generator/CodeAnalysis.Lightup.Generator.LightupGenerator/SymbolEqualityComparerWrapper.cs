@@ -43,18 +43,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper Default
         {
-            get => DefaultGetterFunc();
+            get { return DefaultGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullability
         {
-            get => IncludeNullabilityGetterFunc();
+            get { return IncludeNullabilityGetterFunc(); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SymbolEqualityComparerWrapper As(global::System.Object? obj)
@@ -65,14 +67,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y)
-            => EqualsFunc0(wrappedObject, x, y);
+        {
+            return EqualsFunc0(wrappedObject, x, y);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Int32 GetHashCode(global::Microsoft.CodeAnalysis.ISymbol? obj)
-            => GetHashCodeFunc1(wrappedObject, obj);
+        {
+            return GetHashCodeFunc1(wrappedObject, obj);
+        }
     }
 }

@@ -36,22 +36,32 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectInfo _obj)
-            => AnalyzerConfigDocumentsGetterFunc(_obj);
+        {
+            return AnalyzerConfigDocumentsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj)
-            => CompilationOutputInfoGetterFunc(_obj);
+        {
+            return CompilationOutputInfoGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments)
-            => WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
+        {
+            return WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
-            => WithCompilationOutputInfoFunc1(_obj, ref info);
+        {
+            return WithCompilationOutputInfoFunc1(_obj, ref info);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace)
-            => WithDefaultNamespaceFunc2(_obj, defaultNamespace);
+        {
+            return WithDefaultNamespaceFunc2(_obj, defaultNamespace);
+        }
     }
 }

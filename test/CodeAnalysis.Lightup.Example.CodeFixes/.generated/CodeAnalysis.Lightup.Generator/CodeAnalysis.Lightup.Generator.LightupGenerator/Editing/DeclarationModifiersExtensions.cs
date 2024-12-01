@@ -63,54 +63,80 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Extern()
-            => ExternGetterFunc();
+        {
+            return ExternGetterFunc();
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers File()
-            => FileGetterFunc();
+        {
+            return FileGetterFunc();
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Required()
-            => RequiredGetterFunc();
+        {
+            return RequiredGetterFunc();
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Volatile()
-            => VolatileGetterFunc();
+        {
+            return VolatileGetterFunc();
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsExtern(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
-            => IsExternGetterFunc(_obj);
+        {
+            return IsExternGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsFile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
-            => IsFileGetterFunc(_obj);
+        {
+            return IsFileGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
-            => IsRequiredGetterFunc(_obj);
+        {
+            return IsRequiredGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
-            => IsVolatileGetterFunc(_obj);
+        {
+            return IsVolatileGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExtern(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern)
-            => WithIsExternFunc0(_obj, isExtern);
+        {
+            return WithIsExternFunc0(_obj, isExtern);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile)
-            => WithIsFileFunc1(_obj, isFile);
+        {
+            return WithIsFileFunc1(_obj, isFile);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRef(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef)
-            => WithIsRefFunc2(_obj, isRef);
+        {
+            return WithIsRefFunc2(_obj, isRef);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequired(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired)
-            => WithIsRequiredFunc3(_obj, isRequired);
+        {
+            return WithIsRequiredFunc3(_obj, isRequired);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile)
-            => WithIsVolatileFunc4(_obj, isVolatile);
+        {
+            return WithIsVolatileFunc4(_obj, isVolatile);
+        }
     }
 }

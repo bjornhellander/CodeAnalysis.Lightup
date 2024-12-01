@@ -39,22 +39,32 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding)
-            => ConstructorFunc0(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm, defaultSourceFileEncoding, fallbackSourceFileEncoding);
+        {
+            return ConstructorFunc0(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm, defaultSourceFileEncoding, fallbackSourceFileEncoding);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Text.Encoding? DefaultSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
-            => DefaultSourceFileEncodingGetterFunc(_obj);
+        {
+            return DefaultSourceFileEncodingGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Text.Encoding? FallbackSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
-            => FallbackSourceFileEncodingGetterFunc(_obj);
+        {
+            return FallbackSourceFileEncodingGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? defaultSourceFileEncoding)
-            => WithDefaultSourceFileEncodingFunc0(_obj, defaultSourceFileEncoding);
+        {
+            return WithDefaultSourceFileEncodingFunc0(_obj, defaultSourceFileEncoding);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding)
-            => WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
+        {
+            return WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
+        }
     }
 }

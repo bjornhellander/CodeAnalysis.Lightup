@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper ExpressionColon(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj)
-            => ExpressionColonGetterFunc(_obj);
+        {
+            return ExpressionColonGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
-            => UpdateFunc0(_obj, expressionColon, pattern);
+        {
+            return UpdateFunc0(_obj, expressionColon, pattern);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax WithExpressionColon(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper expressionColon)
-            => WithExpressionColonFunc1(_obj, expressionColon);
+        {
+            return WithExpressionColonFunc1(_obj, expressionColon);
+        }
     }
 }

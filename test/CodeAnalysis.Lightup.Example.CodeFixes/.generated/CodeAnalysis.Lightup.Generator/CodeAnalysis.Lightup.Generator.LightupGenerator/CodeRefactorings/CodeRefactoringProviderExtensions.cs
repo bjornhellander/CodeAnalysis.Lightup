@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionRequestPriorityEx RequestPriority(this global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj)
-            => RequestPriorityGetterFunc(_obj);
+        {
+            return RequestPriorityGetterFunc(_obj);
+        }
     }
 }

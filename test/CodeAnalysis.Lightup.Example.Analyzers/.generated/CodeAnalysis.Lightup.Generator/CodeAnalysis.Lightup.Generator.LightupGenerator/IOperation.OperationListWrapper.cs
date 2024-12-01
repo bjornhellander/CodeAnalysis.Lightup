@@ -53,12 +53,14 @@ public partial class IOperationExtensions {
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Int32 Count
         {
-            get => CountGetterFunc(wrappedObject);
+            get { return CountGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static OperationListWrapper As(global::System.Object? obj)
@@ -69,31 +71,45 @@ public partial class IOperationExtensions {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean Any()
-            => AnyFunc0(wrappedObject);
+        {
+            return AnyFunc0(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation First()
-            => FirstFunc1(wrappedObject);
+        {
+            return FirstFunc1(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumerator()
-            => GetEnumeratorFunc2(wrappedObject);
+        {
+            return GetEnumeratorFunc2(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Last()
-            => LastFunc3(wrappedObject);
+        {
+            return LastFunc3(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper Reverse()
-            => ReverseFunc4(wrappedObject);
+        {
+            return ReverseFunc4(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
-            => ToImmutableArrayFunc5(wrappedObject);
+        {
+            return ToImmutableArrayFunc5(wrappedObject);
+        }
     }
 }
 }

@@ -54,25 +54,29 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
         public static DocumentRenameOptionsWrapper Create(global::System.Boolean RenameMatchingTypeInStrings, global::System.Boolean RenameMatchingTypeInComments)
-            => ConstructorFunc0(RenameMatchingTypeInStrings, RenameMatchingTypeInComments);
+        {
+            return ConstructorFunc0(RenameMatchingTypeInStrings, RenameMatchingTypeInComments);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Boolean RenameMatchingTypeInComments
         {
-            get => RenameMatchingTypeInCommentsGetterFunc(wrappedObject);
-            set => RenameMatchingTypeInCommentsSetterFunc(wrappedObject, value);
+            get { return RenameMatchingTypeInCommentsGetterFunc(wrappedObject); }
+            set { RenameMatchingTypeInCommentsSetterFunc(wrappedObject, value); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Boolean RenameMatchingTypeInStrings
         {
-            get => RenameMatchingTypeInStringsGetterFunc(wrappedObject);
-            set => RenameMatchingTypeInStringsSetterFunc(wrappedObject, value);
+            get { return RenameMatchingTypeInStringsGetterFunc(wrappedObject); }
+            set { RenameMatchingTypeInStringsSetterFunc(wrappedObject, value); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static DocumentRenameOptionsWrapper As(global::System.Object? obj)
@@ -83,14 +87,20 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public void Deconstruct(out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments)
-            => DeconstructFunc0(wrappedObject, out RenameMatchingTypeInStrings, out RenameMatchingTypeInComments);
+        {
+            DeconstructFunc0(wrappedObject, out RenameMatchingTypeInStrings, out RenameMatchingTypeInComments);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other)
-            => EqualsFunc1(wrappedObject, other);
+        {
+            return EqualsFunc1(wrappedObject, other);
+        }
     }
 }

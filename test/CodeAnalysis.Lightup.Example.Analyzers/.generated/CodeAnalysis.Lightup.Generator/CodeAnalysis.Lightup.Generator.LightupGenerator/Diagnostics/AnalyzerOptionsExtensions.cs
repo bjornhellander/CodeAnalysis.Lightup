@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Constructor added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Create(global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AdditionalText> additionalFiles, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider)
-            => ConstructorFunc0(additionalFiles, optionsProvider);
+        {
+            return ConstructorFunc0(additionalFiles, optionsProvider);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj)
-            => AnalyzerConfigOptionsProviderGetterFunc(_obj);
+        {
+            return AnalyzerConfigOptionsProviderGetterFunc(_obj);
+        }
     }
 }

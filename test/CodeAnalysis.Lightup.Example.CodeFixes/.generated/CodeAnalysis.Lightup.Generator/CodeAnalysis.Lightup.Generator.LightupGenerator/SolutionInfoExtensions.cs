@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionInfo _obj)
-            => AnalyzerReferencesGetterFunc(_obj);
+        {
+            return AnalyzerReferencesGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SolutionInfo Create(global::Microsoft.CodeAnalysis.SolutionId id, global::Microsoft.CodeAnalysis.VersionStamp version, global::System.String? filePath, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ProjectInfo>? projects, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences)
-            => CreateFunc0(id, version, filePath, projects, analyzerReferences);
+        {
+            return CreateFunc0(id, version, filePath, projects, analyzerReferences);
+        }
     }
 }

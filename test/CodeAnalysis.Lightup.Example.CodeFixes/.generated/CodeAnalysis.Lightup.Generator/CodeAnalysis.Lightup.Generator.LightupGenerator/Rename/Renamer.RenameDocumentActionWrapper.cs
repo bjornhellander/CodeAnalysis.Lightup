@@ -34,7 +34,9 @@ public partial class RenamerEx {
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static RenameDocumentActionWrapper As(global::System.Object? obj)
@@ -45,15 +47,21 @@ public partial class RenamerEx {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
-            => GetDescriptionFunc0(wrappedObject, culture);
+        {
+            return GetDescriptionFunc0(wrappedObject, culture);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
-            => GetErrorsFunc1(wrappedObject, culture);
+        {
+            return GetErrorsFunc1(wrappedObject, culture);
+        }
     }
 }
 }

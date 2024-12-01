@@ -27,14 +27,20 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan(this global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext _obj)
-            => FilterSpanGetterFunc(_obj);
+        {
+            return FilterSpanGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree FilterTree(this global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext _obj)
-            => FilterTreeGetterFunc(_obj);
+        {
+            return FilterTreeGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsGeneratedCode(this global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext _obj)
-            => IsGeneratedCodeGetterFunc(_obj);
+        {
+            return IsGeneratedCodeGetterFunc(_obj);
+        }
     }
 }

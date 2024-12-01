@@ -34,18 +34,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
         {
-            get => DeclaringSyntaxReferenceGetterFunc(wrappedObject);
+            get { return DeclaringSyntaxReferenceGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.String XmlNamespace
         {
-            get => XmlNamespaceGetterFunc(wrappedObject);
+            get { return XmlNamespaceGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ImportedXmlNamespaceWrapper As(global::System.Object? obj)
@@ -56,6 +58,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

@@ -43,18 +43,20 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.StringComparer KeyComparer
         {
-            get => KeyComparerGetterFunc();
+            get { return KeyComparerGetterFunc(); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::System.Collections.Generic.IEnumerable<global::System.String> Keys
         {
-            get => KeysGetterFunc(wrappedObject);
+            get { return KeysGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static AnalyzerConfigOptionsWrapper As(global::System.Object? obj)
@@ -65,10 +67,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean TryGetValue(global::System.String key, out global::System.String? value)
-            => TryGetValueFunc0(wrappedObject, key, out value);
+        {
+            return TryGetValueFunc0(wrappedObject, key, out value);
+        }
     }
 }

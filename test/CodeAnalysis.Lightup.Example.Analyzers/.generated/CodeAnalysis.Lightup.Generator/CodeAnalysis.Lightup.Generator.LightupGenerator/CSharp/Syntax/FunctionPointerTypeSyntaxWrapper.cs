@@ -64,34 +64,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken AsteriskToken
         {
-            get => AsteriskTokenGetterFunc(wrappedObject);
+            get { return AsteriskTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper CallingConvention
         {
-            get => CallingConventionGetterFunc(wrappedObject);
+            get { return CallingConventionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken DelegateKeyword
         {
-            get => DelegateKeywordGetterFunc(wrappedObject);
+            get { return DelegateKeywordGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper ParameterList
         {
-            get => ParameterListGetterFunc(wrappedObject);
+            get { return ParameterListGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax?(FunctionPointerTypeSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static FunctionPointerTypeSyntaxWrapper As(global::System.Object? obj)
@@ -102,34 +106,50 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper AddParameterListParameters(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items)
-            => AddParameterListParametersFunc1(wrappedObject, items);
+        {
+            return AddParameterListParametersFunc1(wrappedObject, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
-            => UpdateFunc2(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
+        {
+            return UpdateFunc2(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithAsteriskToken(global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken)
-            => WithAsteriskTokenFunc3(wrappedObject, asteriskToken);
+        {
+            return WithAsteriskTokenFunc3(wrappedObject, asteriskToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithCallingConvention(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper callingConvention)
-            => WithCallingConventionFunc4(wrappedObject, callingConvention);
+        {
+            return WithCallingConventionFunc4(wrappedObject, callingConvention);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithDelegateKeyword(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword)
-            => WithDelegateKeywordFunc5(wrappedObject, delegateKeyword);
+        {
+            return WithDelegateKeywordFunc5(wrappedObject, delegateKeyword);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithParameterList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
-            => WithParameterListFunc6(wrappedObject, parameterList);
+        {
+            return WithParameterListFunc6(wrappedObject, parameterList);
+        }
     }
 }

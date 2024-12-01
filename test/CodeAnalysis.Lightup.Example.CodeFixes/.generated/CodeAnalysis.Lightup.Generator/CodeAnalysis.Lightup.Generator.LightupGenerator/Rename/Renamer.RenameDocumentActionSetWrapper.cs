@@ -41,12 +41,14 @@ public partial class RenamerEx {
         /// <summary>Property added in version 3.8.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActions
         {
-            get => ApplicableActionsGetterFunc(wrappedObject);
+            get { return ApplicableActionsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static RenameDocumentActionSetWrapper As(global::System.Object? obj)
@@ -57,15 +59,21 @@ public partial class RenamerEx {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken)
-            => UpdateSolutionAsyncFunc0(wrappedObject, solution, cancellationToken);
+        {
+            return UpdateSolutionAsyncFunc0(wrappedObject, solution, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken)
-            => UpdateSolutionAsyncFunc1(wrappedObject, solution, actions, cancellationToken);
+        {
+            return UpdateSolutionAsyncFunc1(wrappedObject, solution, actions, cancellationToken);
+        }
     }
 }
 }

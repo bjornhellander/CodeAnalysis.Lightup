@@ -51,35 +51,39 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Constructor added in version 4.0.0.0.</summary>
         public static LineMappingWrapper Create(global::Microsoft.CodeAnalysis.Text.LinePositionSpan span, global::System.Nullable<global::System.Int32> characterOffset, global::Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan)
-            => ConstructorFunc0(span, characterOffset, mappedSpan);
+        {
+            return ConstructorFunc0(span, characterOffset, mappedSpan);
+        }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::System.Nullable<global::System.Int32> CharacterOffset
         {
-            get => CharacterOffsetGetterFunc(wrappedObject);
+            get { return CharacterOffsetGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::System.Boolean IsHidden
         {
-            get => IsHiddenGetterFunc(wrappedObject);
+            get { return IsHiddenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpan
         {
-            get => MappedSpanGetterFunc(wrappedObject);
+            get { return MappedSpanGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Text.LinePositionSpan Span
         {
-            get => SpanGetterFunc(wrappedObject);
+            get { return SpanGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static LineMappingWrapper As(global::System.Object? obj)
@@ -90,10 +94,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other)
-            => EqualsFunc0(wrappedObject, other);
+        {
+            return EqualsFunc0(wrappedObject, other);
+        }
     }
 }

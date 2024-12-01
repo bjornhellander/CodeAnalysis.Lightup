@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
-            => IsRequiredGetterFunc(_obj);
+        {
+            return IsRequiredGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
-            => NullableAnnotationGetterFunc(_obj);
+        {
+            return NullableAnnotationGetterFunc(_obj);
+        }
     }
 }

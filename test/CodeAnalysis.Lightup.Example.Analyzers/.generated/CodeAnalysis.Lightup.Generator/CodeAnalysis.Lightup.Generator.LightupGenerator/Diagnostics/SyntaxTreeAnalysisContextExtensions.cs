@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan(this global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj)
-            => FilterSpanGetterFunc(_obj);
+        {
+            return FilterSpanGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Boolean IsGeneratedCode(this global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj)
-            => IsGeneratedCodeGetterFunc(_obj);
+        {
+            return IsGeneratedCodeGetterFunc(_obj);
+        }
     }
 }

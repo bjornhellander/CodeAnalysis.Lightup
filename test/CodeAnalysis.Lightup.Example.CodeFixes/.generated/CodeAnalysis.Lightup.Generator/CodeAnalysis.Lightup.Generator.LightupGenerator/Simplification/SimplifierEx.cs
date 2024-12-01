@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Simplification.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxAnnotation AddImportsAnnotation()
-            => AddImportsAnnotationGetterFunc();
+        {
+            return AddImportsAnnotationGetterFunc();
+        }
     }
 }

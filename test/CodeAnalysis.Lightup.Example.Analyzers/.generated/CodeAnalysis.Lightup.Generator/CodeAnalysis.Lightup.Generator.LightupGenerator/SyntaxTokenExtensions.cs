@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Boolean IsIncrementallyIdenticalTo(this global::Microsoft.CodeAnalysis.SyntaxToken _obj, global::Microsoft.CodeAnalysis.SyntaxToken token)
-            => IsIncrementallyIdenticalToFunc0(_obj, token);
+        {
+            return IsIncrementallyIdenticalToFunc0(_obj, token);
+        }
     }
 }

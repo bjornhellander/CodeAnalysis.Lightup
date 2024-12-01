@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj)
-            => CheckedKeywordGetterFunc(_obj);
+        {
+            return CheckedKeywordGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken implicitOrExplicitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters)
-            => UpdateFunc0(_obj, implicitOrExplicitKeyword, operatorKeyword, checkedKeyword, type, parameters);
+        {
+            return UpdateFunc0(_obj, implicitOrExplicitKeyword, operatorKeyword, checkedKeyword, type, parameters);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
-            => WithCheckedKeywordFunc1(_obj, checkedKeyword);
+        {
+            return WithCheckedKeywordFunc1(_obj, checkedKeyword);
+        }
     }
 }

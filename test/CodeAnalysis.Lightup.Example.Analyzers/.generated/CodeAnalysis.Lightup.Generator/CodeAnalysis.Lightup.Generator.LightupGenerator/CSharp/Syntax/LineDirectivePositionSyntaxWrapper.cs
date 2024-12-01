@@ -67,40 +67,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken Character
         {
-            get => CharacterGetterFunc(wrappedObject);
+            get { return CharacterGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken CloseParenToken
         {
-            get => CloseParenTokenGetterFunc(wrappedObject);
+            get { return CloseParenTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken CommaToken
         {
-            get => CommaTokenGetterFunc(wrappedObject);
+            get { return CommaTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken Line
         {
-            get => LineGetterFunc(wrappedObject);
+            get { return LineGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken OpenParenToken
         {
-            get => OpenParenTokenGetterFunc(wrappedObject);
+            get { return OpenParenTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static LineDirectivePositionSyntaxWrapper As(global::System.Object? obj)
@@ -111,34 +115,50 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
-            => UpdateFunc1(wrappedObject, openParenToken, line, commaToken, character, closeParenToken);
+        {
+            return UpdateFunc1(wrappedObject, openParenToken, line, commaToken, character, closeParenToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCharacter(global::Microsoft.CodeAnalysis.SyntaxToken character)
-            => WithCharacterFunc2(wrappedObject, character);
+        {
+            return WithCharacterFunc2(wrappedObject, character);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCloseParenToken(global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
-            => WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
+        {
+            return WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCommaToken(global::Microsoft.CodeAnalysis.SyntaxToken commaToken)
-            => WithCommaTokenFunc4(wrappedObject, commaToken);
+        {
+            return WithCommaTokenFunc4(wrappedObject, commaToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithLine(global::Microsoft.CodeAnalysis.SyntaxToken line)
-            => WithLineFunc5(wrappedObject, line);
+        {
+            return WithLineFunc5(wrappedObject, line);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithOpenParenToken(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken)
-            => WithOpenParenTokenFunc6(wrappedObject, openParenToken);
+        {
+            return WithOpenParenTokenFunc6(wrappedObject, openParenToken);
+        }
     }
 }

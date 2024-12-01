@@ -36,22 +36,32 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx Priority(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
-            => PriorityGetterFunc(_obj);
+        {
+            return PriorityGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable)
-            => CreateFunc0(title, nestedActions, isInlinable);
+        {
+            return CreateFunc0(title, nestedActions, isInlinable);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
-            => CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
+        {
+            return CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
-            => CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
+        {
+            return CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
-            => CreateFunc3(title, nestedActions, isInlinable, priority);
+        {
+            return CreateFunc3(title, nestedActions, isInlinable, priority);
+        }
     }
 }

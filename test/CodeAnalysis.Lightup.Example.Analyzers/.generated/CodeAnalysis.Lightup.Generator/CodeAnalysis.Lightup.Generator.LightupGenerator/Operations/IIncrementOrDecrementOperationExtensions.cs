@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.IIncrementOrDecrementOperation _obj)
-            => ConstrainedToTypeGetterFunc(_obj);
+        {
+            return ConstrainedToTypeGetterFunc(_obj);
+        }
     }
 }

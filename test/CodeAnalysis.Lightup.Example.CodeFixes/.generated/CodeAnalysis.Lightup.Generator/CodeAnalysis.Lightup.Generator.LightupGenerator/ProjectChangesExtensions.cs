@@ -27,14 +27,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
-            => GetAddedAnalyzerConfigDocumentsFunc0(_obj);
+        {
+            return GetAddedAnalyzerConfigDocumentsFunc0(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
-            => GetChangedAnalyzerConfigDocumentsFunc1(_obj);
+        {
+            return GetChangedAnalyzerConfigDocumentsFunc1(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
-            => GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
+        {
+            return GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
+        }
     }
 }

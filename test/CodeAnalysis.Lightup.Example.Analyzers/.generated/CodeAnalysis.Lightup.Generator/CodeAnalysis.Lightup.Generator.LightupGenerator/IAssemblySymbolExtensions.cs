@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypes(this global::Microsoft.CodeAnalysis.IAssemblySymbol _obj)
-            => GetForwardedTypesFunc0(_obj);
+        {
+            return GetForwardedTypesFunc0(_obj);
+        }
     }
 }

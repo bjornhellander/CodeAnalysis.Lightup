@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
-            => AddAttributeListsFunc0(_obj, items);
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
-            => WithAttributeListsFunc1(_obj, attributeLists);
+        {
+            return WithAttributeListsFunc1(_obj, attributeLists);
+        }
     }
 }

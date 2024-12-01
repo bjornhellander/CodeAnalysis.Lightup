@@ -36,7 +36,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ISupportedChangesServiceWrapper As(global::System.Object? obj)
@@ -47,18 +49,26 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.Host.IWorkspaceService? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean CanApplyChange(global::Microsoft.CodeAnalysis.ApplyChangesKind kind)
-            => CanApplyChangeFunc0(wrappedObject, kind);
+        {
+            return CanApplyChangeFunc0(wrappedObject, kind);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean CanApplyCompilationOptionChange(global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
-            => CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
+        {
+            return CanApplyCompilationOptionChangeFunc1(wrappedObject, oldOptions, newOptions, project);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean CanApplyParseOptionChange(global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
-            => CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
+        {
+            return CanApplyParseOptionChangeFunc2(wrappedObject, oldOptions, newOptions, project);
+        }
     }
 }

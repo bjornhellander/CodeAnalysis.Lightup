@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean IsAsynchronous(this global::Microsoft.CodeAnalysis.Operations.IUsingOperation _obj)
-            => IsAsynchronousGetterFunc(_obj);
+        {
+            return IsAsynchronousGetterFunc(_obj);
+        }
     }
 }

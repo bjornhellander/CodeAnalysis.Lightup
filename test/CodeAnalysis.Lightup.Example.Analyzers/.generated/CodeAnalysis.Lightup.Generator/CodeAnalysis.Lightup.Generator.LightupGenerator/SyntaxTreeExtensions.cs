@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptions(this global::Microsoft.CodeAnalysis.SyntaxTree _obj)
-            => DiagnosticOptionsGetterFunc(_obj);
+        {
+            return DiagnosticOptionsGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappings(this global::Microsoft.CodeAnalysis.SyntaxTree _obj, global::System.Threading.CancellationToken cancellationToken)
-            => GetLineMappingsFunc0(_obj, cancellationToken);
+        {
+            return GetLineMappingsFunc0(_obj, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptions(this global::Microsoft.CodeAnalysis.SyntaxTree _obj, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> options)
-            => WithDiagnosticOptionsFunc1(_obj, options);
+        {
+            return WithDiagnosticOptionsFunc1(_obj, options);
+        }
     }
 }

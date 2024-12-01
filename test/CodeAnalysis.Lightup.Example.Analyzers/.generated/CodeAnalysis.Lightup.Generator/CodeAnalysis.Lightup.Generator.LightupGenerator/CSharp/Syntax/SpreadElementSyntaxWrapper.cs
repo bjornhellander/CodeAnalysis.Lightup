@@ -49,22 +49,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Expression
         {
-            get => ExpressionGetterFunc(wrappedObject);
+            get { return ExpressionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken OperatorToken
         {
-            get => OperatorTokenGetterFunc(wrappedObject);
+            get { return OperatorTokenGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(SpreadElementSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SpreadElementSyntaxWrapper As(global::System.Object? obj)
@@ -75,22 +79,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
-            => UpdateFunc1(wrappedObject, operatorToken, expression);
+        {
+            return UpdateFunc1(wrappedObject, operatorToken, expression);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
-            => WithExpressionFunc2(wrappedObject, expression);
+        {
+            return WithExpressionFunc2(wrappedObject, expression);
+        }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
-            => WithOperatorTokenFunc3(wrappedObject, operatorToken);
+        {
+            return WithOperatorTokenFunc3(wrappedObject, operatorToken);
+        }
     }
 }

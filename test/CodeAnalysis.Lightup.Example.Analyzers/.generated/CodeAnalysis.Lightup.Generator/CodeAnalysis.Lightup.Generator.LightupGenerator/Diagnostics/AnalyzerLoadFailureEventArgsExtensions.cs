@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public static global::System.Version? ReferencedCompilerVersion(this global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs _obj)
-            => ReferencedCompilerVersionGetterFunc(_obj);
+        {
+            return ReferencedCompilerVersionGetterFunc(_obj);
+        }
     }
 }

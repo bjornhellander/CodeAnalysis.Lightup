@@ -39,30 +39,44 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlow(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax constructorInitializer)
-            => AnalyzeDataFlowFunc0(semanticModel, constructorInitializer);
+        {
+            return AnalyzeDataFlowFunc0(semanticModel, constructorInitializer);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlow(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType)
-            => AnalyzeDataFlowFunc1(semanticModel, primaryConstructorBaseType);
+        {
+            return AnalyzeDataFlowFunc1(semanticModel, primaryConstructorBaseType);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
-            => GetDeclaredSymbolFunc2(semanticModel, declarationSyntax, cancellationToken);
+        {
+            return GetDeclaredSymbolFunc2(semanticModel, declarationSyntax, cancellationToken);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
-            => GetDeclaredSymbolFunc3(semanticModel, declarationSyntax, cancellationToken);
+        {
+            return GetDeclaredSymbolFunc3(semanticModel, declarationSyntax, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer)
-            => GetSpeculativeSymbolInfoFunc4(semanticModel, position, constructorInitializer);
+        {
+            return GetSpeculativeSymbolInfoFunc4(semanticModel, position, constructorInitializer);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, global::System.Threading.CancellationToken cancellationToken)
-            => GetSymbolInfoFunc5(semanticModel, constructorInitializer, cancellationToken);
+        {
+            return GetSymbolInfoFunc5(semanticModel, constructorInitializer, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean TryGetSpeculativeSemanticModel(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out global::Microsoft.CodeAnalysis.SemanticModel? speculativeModel)
-            => TryGetSpeculativeSemanticModelFunc6(semanticModel, position, constructorInitializer, out speculativeModel);
+        {
+            return TryGetSpeculativeSemanticModelFunc6(semanticModel, position, constructorInitializer, out speculativeModel);
+        }
     }
 }

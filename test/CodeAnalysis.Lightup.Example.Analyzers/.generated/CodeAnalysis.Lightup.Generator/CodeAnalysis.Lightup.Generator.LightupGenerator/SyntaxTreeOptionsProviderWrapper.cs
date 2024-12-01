@@ -36,7 +36,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static SyntaxTreeOptionsProviderWrapper As(global::System.Object? obj)
@@ -47,18 +49,26 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGenerated(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken)
-            => IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
+        {
+            return IsGeneratedFunc0(wrappedObject, tree, cancellationToken);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean TryGetDiagnosticValue(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
-            => TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
+        {
+            return TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean TryGetGlobalDiagnosticValue(global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
-            => TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
+        {
+            return TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
+        }
     }
 }

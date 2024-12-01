@@ -49,22 +49,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken ScopedKeyword
         {
-            get => ScopedKeywordGetterFunc(wrappedObject);
+            get { return ScopedKeywordGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax Type
         {
-            get => TypeGetterFunc(wrappedObject);
+            get { return TypeGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax?(ScopedTypeSyntaxWrapper obj)
-            => obj.Unwrap();
+        {
+            return obj.Unwrap();
+        }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static ScopedTypeSyntaxWrapper As(global::System.Object? obj)
@@ -75,22 +79,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
-            => AcceptFunc0(wrappedObject, visitor);
+        {
+            AcceptFunc0(wrappedObject, visitor);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
-            => UpdateFunc1(wrappedObject, scopedKeyword, type);
+        {
+            return UpdateFunc1(wrappedObject, scopedKeyword, type);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeyword(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword)
-            => WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
+        {
+            return WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
-            => WithTypeFunc3(wrappedObject, type);
+        {
+            return WithTypeFunc3(wrappedObject, type);
+        }
     }
 }

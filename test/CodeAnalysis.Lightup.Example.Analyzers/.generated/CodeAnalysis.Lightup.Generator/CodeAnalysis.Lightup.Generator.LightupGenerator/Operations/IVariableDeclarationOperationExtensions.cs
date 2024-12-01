@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> IgnoredDimensions(this global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation _obj)
-            => IgnoredDimensionsGetterFunc(_obj);
+        {
+            return IgnoredDimensionsGetterFunc(_obj);
+        }
     }
 }

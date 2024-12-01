@@ -43,12 +43,14 @@ public partial struct ReversedWrapper {
         /// <summary>Property added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Current
         {
-            get => CurrentGetterFunc(wrappedObject);
+            get { return CurrentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static EnumeratorWrapper As(global::System.Object? obj)
@@ -59,15 +61,21 @@ public partial struct ReversedWrapper {
 
         /// <summary>Returns the wrapped object.</summary>
         public global::System.Object? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean MoveNext()
-            => MoveNextFunc0(wrappedObject);
+        {
+            return MoveNextFunc0(wrappedObject);
+        }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public void Reset()
-            => ResetFunc1(wrappedObject);
+        {
+            ResetFunc1(wrappedObject);
+        }
     }
 }
 }

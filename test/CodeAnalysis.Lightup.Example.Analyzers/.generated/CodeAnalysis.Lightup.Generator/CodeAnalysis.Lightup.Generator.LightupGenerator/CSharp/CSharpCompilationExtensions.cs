@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken)
-            => GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
+        {
+            return GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
+        }
     }
 }

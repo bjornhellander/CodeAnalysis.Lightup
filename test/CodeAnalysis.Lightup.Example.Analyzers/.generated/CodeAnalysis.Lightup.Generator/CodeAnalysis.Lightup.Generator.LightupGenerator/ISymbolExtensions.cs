@@ -27,10 +27,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 4.0.0.0.</summary>
         public static global::System.Int32 MetadataToken(this global::Microsoft.CodeAnalysis.ISymbol _obj)
-            => MetadataTokenGetterFunc(_obj);
+        {
+            return MetadataTokenGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean Equals(this global::Microsoft.CodeAnalysis.ISymbol _obj, global::Microsoft.CodeAnalysis.ISymbol? other, global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer)
-            => EqualsFunc0(_obj, other, equalityComparer);
+        {
+            return EqualsFunc0(_obj, other, equalityComparer);
+        }
     }
 }

@@ -24,10 +24,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
-            => CreateProjectInfoFunc0(projectName, language, commandLineArgs, projectDirectory, workspace);
+        {
+            return CreateProjectInfoFunc0(projectName, language, commandLineArgs, projectDirectory, workspace);
+        }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.String commandLine, global::System.String baseDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
-            => CreateProjectInfoFunc1(projectName, language, commandLine, baseDirectory, workspace);
+        {
+            return CreateProjectInfoFunc1(projectName, language, commandLine, baseDirectory, workspace);
+        }
     }
 }

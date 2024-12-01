@@ -21,6 +21,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignature(this global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer)
-            => GetFunctionPointerSignatureFunc0(functionPointer);
+        {
+            return GetFunctionPointerSignatureFunc0(functionPointer);
+        }
     }
 }

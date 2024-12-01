@@ -34,18 +34,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Argument
         {
-            get => ArgumentGetterFunc(wrappedObject);
+            get { return ArgumentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Instance
         {
-            get => InstanceGetterFunc(wrappedObject);
+            get { return InstanceGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
         public static bool Is(global::System.Object? obj)
-            => global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        {
+            return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
+        }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
         public static IInlineArrayAccessOperationWrapper As(global::System.Object? obj)
@@ -56,6 +58,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         /// <summary>Returns the wrapped object.</summary>
         public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
-            => wrappedObject;
+        {
+            return wrappedObject;
+        }
     }
 }

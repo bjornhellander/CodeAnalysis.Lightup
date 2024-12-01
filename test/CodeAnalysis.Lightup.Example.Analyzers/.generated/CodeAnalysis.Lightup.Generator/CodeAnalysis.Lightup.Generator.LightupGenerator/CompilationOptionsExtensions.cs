@@ -30,14 +30,20 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
-            => NullableContextOptionsGetterFunc(_obj);
+        {
+            return NullableContextOptionsGetterFunc(_obj);
+        }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
-            => SyntaxTreeOptionsProviderGetterFunc(_obj);
+        {
+            return SyntaxTreeOptionsProviderGetterFunc(_obj);
+        }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider)
-            => WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
+        {
+            return WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
+        }
     }
 }
