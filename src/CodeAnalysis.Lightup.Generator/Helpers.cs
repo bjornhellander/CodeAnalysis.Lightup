@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis;
 
 internal static class Helpers
 {
-    private static readonly Regex SettingsFileNameRegex = new("CodeAnalysis\\.Lightup.*\\.xml");
+    private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.xml$");
 
     public static bool IsConfigurationFile(AdditionalText additionalFile)
     {

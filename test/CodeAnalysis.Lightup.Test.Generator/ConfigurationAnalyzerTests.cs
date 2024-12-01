@@ -17,6 +17,8 @@ public class ConfigurationAnalyzerTests
     [DataRow(null)]
     [DataRow("x.xml")]
     [DataRow("CodeAnalysis.Lightup.txt")]
+    [DataRow("CodeAnalysis.Lightup.xmlz")]
+    [DataRow("Xyz.CodeAnalysis.Lightup.xml")]
     public async Task TestNoConfigurationFile(string? fileName)
     {
         var test = CreateTest(fileName);
