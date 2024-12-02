@@ -28,6 +28,12 @@ There is at least one other way of accomplishing more or less the same thing: It
 analyzer assembly in a NuGet package and the compiler will then use the latest supported one. There are pros and cons to each strategy.
 A short description can for example be found here: https://www.meziantou.net/roslyn-analyzers-how-to.htm#support-multiple-ver
 
+## Analyzers
+
+The following diagnostics are reported as guidance, if no files are being generated:
+* [RoslynLightup001 - Missing configuration file](https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup001.md)
+* [RoslynLightup001 - Incorrect configuration file](https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup002.md)
+
 ## Limitations
 
 - Generic types are not handled.

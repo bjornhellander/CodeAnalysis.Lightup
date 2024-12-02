@@ -9,24 +9,23 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// TODO: Add help urls
 // TODO: Create Roslyn issue for desciptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class ConfigurationAnalyzer : DiagnosticAnalyzer
 {
-    public const string NoFileDiagnosticId = "ROSLYNLIGHTUP001";
-    public const string BadFileDiagnosticId = "ROSLYNLIGHTUP002";
+    public const string NoFileDiagnosticId = "RoslynLightup001";
+    public const string BadFileDiagnosticId = "RoslynLightup002";
 
     private static readonly DiagnosticDescriptor NoFileDescriptor =
         new DiagnosticDescriptor(
             id: NoFileDiagnosticId,
-            title: "Missing configuration file(s)",
+            title: "Missing configuration file",
             messageFormat: "The project needs at least one configuration file to be able to use the source generator",
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
             description: "Add at least one file with name matching 'CodeAnalysis.Lightup*.xml', with build action 'C# analyzer additional file'.",
-            helpLinkUri: "");
+            helpLinkUri: "https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup001.md");
 
     private static readonly DiagnosticDescriptor BadFileDescriptor =
         new DiagnosticDescriptor(
@@ -36,8 +35,8 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
-            description: "The configuration file was incorrect.",
-            helpLinkUri: "");
+            description: "Correct the configuration file.",
+            helpLinkUri: "https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup002.md");
 
     /// <inheritdoc/>
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =
