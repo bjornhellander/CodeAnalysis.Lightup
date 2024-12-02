@@ -25,7 +25,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
-            description: "Add at least one file with name atching 'CodeAnalysis.Lightup*.xml', with build action 'C# analyzer additional file'.",
+            description: "Add at least one file with name matching 'CodeAnalysis.Lightup*.xml', with build action 'C# analyzer additional file'.",
             helpLinkUri: "");
 
     private static readonly DiagnosticDescriptor BadFileDescriptor =
