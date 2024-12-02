@@ -47,12 +47,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V4_8_0", "test\CodeAnalysis.Lightup.Test.V4_8_0\CodeAnalysis.Lightup.Test.V4_8_0.csproj", "{CC5C75D7-F559-4855-AB9F-34FB2F6F5D0F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - src", "2 - src", "{CE401EEE-7B30-47E3-9983-1E266B735B74}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - test", "3 - test", "{BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - ref", "1 - ref", "{8025D67E-DC02-42AB-9D7A-947300E602EA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V3_0_0", "ref\CodeAnalysis.Lightup.Reference.V3_0_0\CodeAnalysis.Lightup.Reference.V3_0_0.csproj", "{AA325A76-394D-4F8A-8F53-93508A72A15F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V3_8_0", "ref\CodeAnalysis.Lightup.Reference.V3_8_0\CodeAnalysis.Lightup.Reference.V3_8_0.csproj", "{2A095C4D-FCAA-4F6B-9E37-EA07BE7A18F2}"
@@ -62,6 +56,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_4_0", "ref\CodeAnalysis.Lightup.Reference.V4_4_0\CodeAnalysis.Lightup.Reference.V4_4_0.csproj", "{ECA4FC3B-6B04-4159-9174-088DC0F80967}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_8_0", "ref\CodeAnalysis.Lightup.Reference.V4_8_0\CodeAnalysis.Lightup.Reference.V4_8_0.csproj", "{1559FB87-8D6D-4F6C-9219-A0D6F1EB80A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - doc", "1 - doc", "{BC2ED45C-25E9-48E1-A788-1A3930DACDC3}"
+	ProjectSection(SolutionItems) = preProject
+		doc\RoslynLightup001.md = doc\RoslynLightup001.md
+		doc\RoslynLightup002.md = doc\RoslynLightup002.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - ref", "2 - ref", "{8025D67E-DC02-42AB-9D7A-947300E602EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - src", "3 - src", "{CE401EEE-7B30-47E3-9983-1E266B735B74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - test", "4 - test", "{BAAC483E-FBEB-4B2D-845D-BAAFDE600BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
