@@ -1,7 +1,7 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
+namespace CodeAnalysis.Lightup.Test.V4_12_0.CSharp;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,12 +11,12 @@ public partial class LightupStatusTests
     [TestMethod]
     public override void TestCodeAnalysisVersion()
     {
-        CheckCodeAnalysisVersion(3, 8, 0, 0);
+        CheckCodeAnalysisVersion(4, 12, 0, 0);
     }
 
     [TestMethod]
     public override void TestLanguageVersion()
     {
-        CheckSupportedLanguageVersions(true, false, false, false, false);
+        CheckSupportedLanguageVersions(true, true, true, true, true);
     }
 }
