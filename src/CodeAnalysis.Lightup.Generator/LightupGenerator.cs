@@ -36,7 +36,13 @@ public class LightupGenerator : IIncrementalGenerator
 
     private static void Execute(SourceProductionContext context, string configFileContent, LanguageVersion? languageVersion)
     {
-        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
+        if (Helpers.TryParseConfiguration(
+            configFileContent,
+            out var assemblies,
+            out var baselineVersion,
+            out var typesToInclude,
+            out var useFoldersInFilePaths,
+            out var _))
         {
             var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
             var types = GetOrReadTypes(baselineVersion);
@@ -45,7 +51,7 @@ public class LightupGenerator : IIncrementalGenerator
                 assemblies,
                 typesToInclude,
                 useNullableAnnotation,
-                Helpers.RoslynSupportsFoldersInGeneratedFilePaths,
+                useFoldersInFilePaths,
                 types);
         }
     }

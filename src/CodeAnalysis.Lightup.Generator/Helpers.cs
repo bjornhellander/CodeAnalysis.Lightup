@@ -29,6 +29,7 @@ internal static class Helpers
         out List<AssemblyKind> assemblies,
         out Version baselineVersion,
         out List<string> typesToInclude,
+        out bool useFoldersInFilePaths,
         out string errorMessage)
     {
         try
@@ -38,10 +39,17 @@ internal static class Helpers
             assemblies = root.Elements("Assembly").Select(x => (AssemblyKind)Enum.Parse(typeof(AssemblyKind), x.Value)).ToList();
             baselineVersion = new Version(root.Element("BaselineVersion")?.Value);
             typesToInclude = root.Elements("IncludeType").Select(x => x.Value).ToList();
+            useFoldersInFilePaths = (root.Element("UseFoldersInFilePaths")?.Value ?? "True") == "True";
 
             if (assemblies.Count == 0)
             {
                 errorMessage = "No assemblies specified";
+                return false;
+            }
+
+            if (useFoldersInFilePaths && !RoslynSupportsFoldersInGeneratedFilePaths)
+            {
+                errorMessage = "The current Roslyn version does not support generating files in folders. Upgrade to at least Roslyn 4.6.0 or configure not to use folders. The latter is done by adding '<UseFoldersInFilePaths>false</UseFoldersInFilePaths>' in the configuration file.";
                 return false;
             }
 
@@ -53,6 +61,7 @@ internal static class Helpers
             assemblies = [];
             baselineVersion = new Version();
             typesToInclude = [];
+            useFoldersInFilePaths = false;
             errorMessage = "Failed to parse file";
             return false;
         }

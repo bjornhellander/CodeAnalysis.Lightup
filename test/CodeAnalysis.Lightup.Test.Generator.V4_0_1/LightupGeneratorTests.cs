@@ -26,6 +26,34 @@ public class LightupGeneratorTests
         [AssemblyKind.WorkspacesCommon] = "Microsoft.CodeAnalysis.WorkspaceChangeKind",
     };
 
+    protected virtual bool SupportsFoldersInFilePaths => false;
+
+    [TestMethod]
+    public async Task TestNoAssemblyKindInConfigurationFile()
+    {
+        var test = CreateTest(null, "3.3.0.0", [""], shouldGeneratedFiles: false);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestNoBaselineVersionInConfigurationFile()
+    {
+        var test = CreateTest(AssemblyKind.Common, null, [""], shouldGeneratedFiles: false);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestUnsupportedFoldersInFilePaths()
+    {
+        if (SupportsFoldersInFilePaths)
+        {
+            return;
+        }
+
+        var test = CreateTest(AssemblyKind.Common, "3.3.0.0", [""], useFoldersInFilePaths: true, shouldGeneratedFiles: false);
+        await test.RunAsync();
+    }
+
     [TestMethod]
     [Ignore] // TODO: Activate later on when generation is stable and this implementation complete
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "MSTEST0015:Test method should not be ignored", Justification = "OK")]
@@ -469,12 +497,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     }
 
     private static CSharpSourceGeneratorTest<LightupGenerator, DefaultVerifier> CreateTest(
-        AssemblyKind assemblyKind,
-        string baselineVersion,
+        AssemblyKind? assemblyKind,
+        string? baselineVersion,
         List<string> typesToInclude,
-        LanguageVersion? languageVersion = null)
+        LanguageVersion? languageVersion = null,
+        bool? useFoldersInFilePaths = null,
+        bool shouldGeneratedFiles = true)
     {
         var na = (languageVersion == null || languageVersion >= LanguageVersion.CSharp8) ? "?" : "";
+        useFoldersInFilePaths ??= Helpers.RoslynSupportsFoldersInGeneratedFilePaths;
 
         var lightupHelperSource = $@"
 namespace CodeAnalysis.Lightup.Runtime
@@ -512,7 +543,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {{
     internal class {assemblyKind}LightupHelper : global::CodeAnalysis.Lightup.Runtime.LightupHelper
     {{
-        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::{ExampleTypeNames[assemblyKind]}).Assembly;
+        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::{ExampleTypeNames[assemblyKind ?? AssemblyKind.Common]}).Assembly;
 
         public static global::System.Type{na} FindType(string wrappedTypeName)
         {{
@@ -527,13 +558,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             TestState =
             {
                 Sources = { lightupHelperSource },
-                GeneratedSources =
-                {
-                    (typeof(LightupGenerator), $"{assemblyKind}LightupHelper.g.cs", SourceText.From(specificLightupHelperSource, Encoding.UTF8)),
-                },
             },
             ReferenceAssemblies = CreateReferenceAssemblies(),
         };
+
+        if (shouldGeneratedFiles)
+        {
+            test.TestState.GeneratedSources.Add((typeof(LightupGenerator), $"{assemblyKind}LightupHelper.g.cs", SourceText.From(specificLightupHelperSource, Encoding.UTF8)));
+        }
 
         test.SolutionTransforms.Add((solution, projectId) =>
         {
@@ -549,9 +581,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         var configFileContent = $@"<?xml version=""1.0"" encoding=""utf-8""?>
 <Settings>
-	<Assembly>{assemblyKind}</Assembly>
-	<BaselineVersion>{baselineVersion}</BaselineVersion>
+	{(assemblyKind != null ? $"<Assembly>{assemblyKind}</Assembly>" : "")}
+	{(baselineVersion != null ? $"<BaselineVersion>{baselineVersion}</BaselineVersion>" : "")}
     {string.Join(Environment.NewLine, typesToInclude.Select(x => $"<IncludeType>{x}</IncludeType>"))}
+    <UseFoldersInFilePaths>{useFoldersInFilePaths}</UseFoldersInFilePaths>
 </Settings>
 ";
         test.TestState.AdditionalFiles.Add(("CodeAnalysis.Lightup.xml", configFileContent));
