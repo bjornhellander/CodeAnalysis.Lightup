@@ -187,7 +187,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.CSharp, "3.0.0.0", [""]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "SeparatedSyntaxListWrapper.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("SeparatedSyntaxListWrapper.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -234,7 +235,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.3.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -272,7 +274,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -310,7 +313,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"], LanguageVersion.CSharp7_3);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/CommonConversionExtensions.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -331,7 +335,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.Operations.BinaryOperatorKind"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "Operations/BinaryOperatorKindEx.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("Operations", "BinaryOperatorKindEx.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -365,7 +370,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.GeneratedKind"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "GeneratedKindEx.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("GeneratedKindEx.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -444,7 +450,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.WorkspacesCommon, "3.0.0.0", ["Microsoft.CodeAnalysis.SourceGeneratedDocument"]);
-        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "SourceGeneratedDocumentWrapper.g.cs", SourceText.From(source, Encoding.UTF8)));
+        var generatedFilePath = GetGeneratedFilePath("SourceGeneratedDocumentWrapper.g.cs");
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
 
@@ -453,6 +460,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         var test = CreateTest(AssemblyKind.WorkspacesCommon, "4.4.0.0", ["Microsoft.CodeAnalysis.SourceGeneratedDocument"]);
         await test.RunAsync();
+    }
+
+    protected virtual string GetGeneratedFilePath(params string[] parts)
+    {
+        var result = $"Microsoft.CodeAnalysis.{string.Join(".", parts)}";
+        return result;
     }
 
     private static CSharpSourceGeneratorTest<LightupGenerator, DefaultVerifier> CreateTest(

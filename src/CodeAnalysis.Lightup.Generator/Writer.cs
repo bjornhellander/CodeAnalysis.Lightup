@@ -90,6 +90,7 @@ internal class Writer
         IReadOnlyList<AssemblyKind> assemblyKinds,
         List<string> typesToInclude,
         bool useNullableContext,
+        bool useFoldersInFilePaths,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var nullableAnnotation = useNullableContext ? "?" : "";
@@ -103,7 +104,7 @@ internal class Writer
                 WriteSeparatedSyntaxListWrapper(context, nullableAnnotation);
             }
 
-            Write(context, assemblyKind, typesToInclude, nullableAnnotation, typeDefs);
+            Write(context, assemblyKind, typesToInclude, nullableAnnotation, useFoldersInFilePaths, typeDefs);
         }
     }
 
@@ -368,6 +369,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         AssemblyKind assemblyKind,
         List<string> typesToInclude,
         string nullableAnnotation,
+        bool useFoldersInFilePaths,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         foreach (var typeDef in typeDefs.Values)
@@ -387,8 +389,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             if (source != null)
             {
-                var targetFolder = GetTargetFolder(typeDef);
-                var targetFilePath = Path.Combine(targetFolder, typeDef.GeneratedFileName);
+                var targetFilePath = GetGeneratedFilePath(typeDef, useFoldersInFilePaths);
 
                 // NOTE: Roslyn versions older than 4.6.0 do not accept folders in the file path, so I have changed referenced version in the generator and in the generator test project
                 // See https://github.com/dotnet/roslyn/pull/66438
@@ -1822,11 +1823,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         return true;
     }
 
-    private static string GetTargetFolder(BaseTypeDefinition typeDef)
+    private static string GetGeneratedFilePath(BaseTypeDefinition typeDef, bool useFoldersInFilePaths)
     {
-        var sourceNamespace = typeDef.Namespace!;
-        var targetFolder = sourceNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
-        return targetFolder;
+        if (useFoldersInFilePaths)
+        {
+            var sourceNamespace = typeDef.Namespace!;
+            var targetFolder = sourceNamespace.Replace("Microsoft.CodeAnalysis", "").TrimStart('.').Replace('.', Path.DirectorySeparatorChar);
+            var targetFilePath = Path.Combine(targetFolder, typeDef.GeneratedFileName);
+            return targetFilePath;
+        }
+        else
+        {
+            var targetFilePath = $"{typeDef.Namespace}.{typeDef.GeneratedFileName}";
+            return targetFilePath;
+        }
     }
 
     private static bool IsNewType(TypeReference typeRef, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)

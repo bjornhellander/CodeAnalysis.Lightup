@@ -40,7 +40,13 @@ public class LightupGenerator : IIncrementalGenerator
         {
             var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
             var types = GetOrReadTypes(baselineVersion);
-            Writer.Write(context, assemblies, typesToInclude, useNullableAnnotation, types);
+            Writer.Write(
+                context,
+                assemblies,
+                typesToInclude,
+                useNullableAnnotation,
+                Helpers.RoslynSupportsFoldersInGeneratedFilePaths,
+                types);
         }
     }
 

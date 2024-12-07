@@ -11,10 +11,13 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 internal static class Helpers
 {
     private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.xml$");
+
+    public static bool RoslynSupportsFoldersInGeneratedFilePaths { get; } = GetRoslynVersion() >= new Version(4, 6, 0, 0);
 
     public static bool IsConfigurationFile(AdditionalText additionalFile)
     {
@@ -53,5 +56,10 @@ internal static class Helpers
             errorMessage = "Failed to parse file";
             return false;
         }
+    }
+
+    private static Version GetRoslynVersion()
+    {
+        return typeof(SyntaxKind).Assembly.GetName().Version;
     }
 }
