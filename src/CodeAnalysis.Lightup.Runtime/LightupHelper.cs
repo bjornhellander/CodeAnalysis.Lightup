@@ -478,6 +478,22 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(IProgress<>))
+            {
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+                var nativeItemType = input.Type.GetGenericArguments()[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var progressWrapperType = typeof(ProgressWrapper<,>).MakeGenericType(wrapperItemType, nativeItemType);
+                var progressWrapperConstructor = progressWrapperType.GetConstructors().Single();
+                var result = Expression.New(progressWrapperConstructor, input, conversionLambda);
+
+                return result;
+            }
             else
             {
                 var wrapMethod = targetType.GetMethod("As");
