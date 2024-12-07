@@ -17,6 +17,6 @@ public partial class LightupStatusTests
     [TestMethod]
     public override void TestLanguageVersion()
     {
-        CheckSupportedLanguageVersions(true, true, false, false, false);
+        CheckSupportedLanguageVersions(true, true);
     }
 }
