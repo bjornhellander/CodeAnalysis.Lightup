@@ -73,12 +73,14 @@ internal class Writer
         "Microsoft.CodeAnalysis.SourceProductionContext",
         "Microsoft.CodeAnalysis.SyntaxContextReceiverCreator",
         "Microsoft.CodeAnalysis.SyntaxReceiverCreator",
+        "Microsoft.CodeAnalysis.GeneratorFilterContext",
 
         // Irrelevant new types related to diagnostic suppressors
         "Microsoft.CodeAnalysis.Diagnostics.DiagnosticSuppressor",
         "Microsoft.CodeAnalysis.Diagnostics.Suppression",
         "Microsoft.CodeAnalysis.Diagnostics.SuppressionAnalysisContext",
         "Microsoft.CodeAnalysis.SuppressionDescriptor",
+        "Microsoft.CodeAnalysis.Diagnostics.SuppressionInfo",
 
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator

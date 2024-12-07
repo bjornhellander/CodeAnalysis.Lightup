@@ -3,10 +3,12 @@
 
 namespace CodeAnalysis.Lightup.Collector;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using CodeAnalysis.Lightup.Definitions;
 
@@ -16,7 +18,7 @@ internal class Program
     {
         var rootFolder = GetRepositoryRoot();
 
-        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x).ToList();
+        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x, new ProjectNameComparer()).ToList();
 
         var types = Reflector.CollectTypes(referenceProjectNames, rootFolder);
 
@@ -49,5 +51,26 @@ internal class Program
         var testFolder = Path.Combine(rootFolder, "ref");
         var referenceProjectNames = Directory.GetDirectories(testFolder).Select(x => Path.GetFileName(x)).ToList();
         return referenceProjectNames;
+    }
+
+    private class ProjectNameComparer : IComparer<string>
+    {
+        private static readonly Regex TestProjectNameRegex = new("V(\\d+)_(\\d+)_(\\d+)$");
+
+        public int Compare(string? x, string? y)
+        {
+            var xVersion = GetVersion(x!);
+            var yVersion = GetVersion(y!);
+            return xVersion.CompareTo(yVersion);
+        }
+
+        private static Version GetVersion(string name)
+        {
+            var match = TestProjectNameRegex.Match(name);
+            var major = int.Parse(match.Groups[1].Value);
+            var minor = int.Parse(match.Groups[2].Value);
+            var patch = int.Parse(match.Groups[3].Value);
+            return new Version(major, minor, patch);
+        }
     }
 }

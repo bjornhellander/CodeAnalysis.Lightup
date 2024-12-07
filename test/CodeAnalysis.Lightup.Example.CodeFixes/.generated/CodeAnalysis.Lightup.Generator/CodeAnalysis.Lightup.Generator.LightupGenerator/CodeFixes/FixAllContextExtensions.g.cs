@@ -10,19 +10,31 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 
         private delegate FixAllContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.Document document, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, global::Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, global::System.String? codeActionEquivalenceKey, global::System.Collections.Generic.IEnumerable<global::System.String> diagnosticIds, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, global::System.Threading.CancellationToken cancellationToken);
 
+        private delegate global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> ProgressGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext? _obj);
+
         private static readonly ConstructorDelegate0 ConstructorFunc0;
+
+        private static readonly ProgressGetterDelegate ProgressGetterFunc;
 
         static FixAllContextExtensions()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "documentDocument", "diagnosticSpanNullable`1", "codeFixProviderCodeFixProvider", "scopeFixAllScope", "codeActionEquivalenceKeyString", "diagnosticIdsIEnumerable`1", "fixAllDiagnosticProviderDiagnosticProvider", "cancellationTokenCancellationToken");
+
+            ProgressGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ProgressGetterDelegate>(wrappedType, nameof(Progress));
         }
 
         /// <summary>Constructor added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext Create(global::Microsoft.CodeAnalysis.Document document, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, global::Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, global::System.String? codeActionEquivalenceKey, global::System.Collections.Generic.IEnumerable<global::System.String> diagnosticIds, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, global::System.Threading.CancellationToken cancellationToken)
         {
             return ConstructorFunc0(document, diagnosticSpan, codeFixProvider, scope, codeActionEquivalenceKey, diagnosticIds, fixAllDiagnosticProvider, cancellationToken);
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> Progress(this global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext _obj)
+        {
+            return ProgressGetterFunc(_obj);
         }
     }
 }

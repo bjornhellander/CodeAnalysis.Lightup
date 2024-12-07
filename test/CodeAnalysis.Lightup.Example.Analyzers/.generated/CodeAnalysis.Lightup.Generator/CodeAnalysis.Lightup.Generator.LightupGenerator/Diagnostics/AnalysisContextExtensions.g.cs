@@ -8,7 +8,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisContext";
 
+        private delegate global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverityGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext? _obj);
+
         private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext? _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
+
+        private static readonly MinimumReportedSeverityGetterDelegate MinimumReportedSeverityGetterFunc;
 
         private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
 
@@ -16,7 +20,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            MinimumReportedSeverityGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MinimumReportedSeverityGetterDelegate>(wrappedType, nameof(MinimumReportedSeverity));
+
             RegisterAdditionalFileActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverity(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj)
+        {
+            return MinimumReportedSeverityGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

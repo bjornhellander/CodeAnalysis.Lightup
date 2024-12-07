@@ -8,10 +8,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
 
+        private delegate global::System.Boolean AllowsRefLikeTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
         private delegate global::System.Boolean HasNotNullConstraintGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
 
+        private static readonly AllowsRefLikeTypeGetterDelegate AllowsRefLikeTypeGetterFunc;
         private static readonly ConstraintNullableAnnotationsGetterDelegate ConstraintNullableAnnotationsGetterFunc;
         private static readonly HasNotNullConstraintGetterDelegate HasNotNullConstraintGetterFunc;
         private static readonly ReferenceTypeConstraintNullableAnnotationGetterDelegate ReferenceTypeConstraintNullableAnnotationGetterFunc;
@@ -20,9 +22,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            AllowsRefLikeTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AllowsRefLikeTypeGetterDelegate>(wrappedType, nameof(AllowsRefLikeType));
             ConstraintNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
             HasNotNullConstraintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
             ReferenceTypeConstraintNullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::System.Boolean AllowsRefLikeType(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
+        {
+            return AllowsRefLikeTypeGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

@@ -12,17 +12,27 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlowDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate2(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbolDelegate3(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfoDelegate4(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer);
-        private delegate global::Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfoDelegate5(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Boolean TryGetSpeculativeSemanticModelDelegate6(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out global::Microsoft.CodeAnalysis.SemanticModel? speculativeModel);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate4(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax node, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Conversion GetElementConversionDelegate5(global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper spread);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper GetInterceptableLocationDelegate6(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetInterceptorMethodDelegate7(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.String GetInterceptsLocationAttributeSyntaxDelegate8(global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper location);
+        private delegate global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfoDelegate9(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer);
+        private delegate global::Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfoDelegate10(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Boolean TryGetSpeculativeSemanticModelDelegate11(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out global::Microsoft.CodeAnalysis.SemanticModel? speculativeModel);
 
         private static readonly AnalyzeDataFlowDelegate0 AnalyzeDataFlowFunc0;
         private static readonly AnalyzeDataFlowDelegate1 AnalyzeDataFlowFunc1;
         private static readonly GetDeclaredSymbolDelegate2 GetDeclaredSymbolFunc2;
         private static readonly GetDeclaredSymbolDelegate3 GetDeclaredSymbolFunc3;
-        private static readonly GetSpeculativeSymbolInfoDelegate4 GetSpeculativeSymbolInfoFunc4;
-        private static readonly GetSymbolInfoDelegate5 GetSymbolInfoFunc5;
-        private static readonly TryGetSpeculativeSemanticModelDelegate6 TryGetSpeculativeSemanticModelFunc6;
+        private static readonly GetDeclaredSymbolDelegate4 GetDeclaredSymbolFunc4;
+        private static readonly GetElementConversionDelegate5 GetElementConversionFunc5;
+        private static readonly GetInterceptableLocationDelegate6 GetInterceptableLocationFunc6;
+        private static readonly GetInterceptorMethodDelegate7 GetInterceptorMethodFunc7;
+        private static readonly GetInterceptsLocationAttributeSyntaxDelegate8 GetInterceptsLocationAttributeSyntaxFunc8;
+        private static readonly GetSpeculativeSymbolInfoDelegate9 GetSpeculativeSymbolInfoFunc9;
+        private static readonly GetSymbolInfoDelegate10 GetSymbolInfoFunc10;
+        private static readonly TryGetSpeculativeSemanticModelDelegate11 TryGetSpeculativeSemanticModelFunc11;
 
         static CSharpExtensionsEx()
         {
@@ -32,9 +42,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             AnalyzeDataFlowFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate1>(wrappedType, "AnalyzeDataFlow", "semanticModelSemanticModel", "primaryConstructorBaseTypePrimaryConstructorBaseTypeSyntax");
             GetDeclaredSymbolFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate2>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxCompilationUnitSyntax", "cancellationTokenCancellationToken");
             GetDeclaredSymbolFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate3>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxFileScopedNamespaceDeclarationSyntax", "cancellationTokenCancellationToken");
-            GetSpeculativeSymbolInfoFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetSpeculativeSymbolInfoDelegate4>(wrappedType, "GetSpeculativeSymbolInfo", "semanticModelSemanticModel", "positionInt32", "constructorInitializerPrimaryConstructorBaseTypeSyntax");
-            GetSymbolInfoFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetSymbolInfoDelegate5>(wrappedType, "GetSymbolInfo", "semanticModelSemanticModel", "constructorInitializerPrimaryConstructorBaseTypeSyntax", "cancellationTokenCancellationToken");
-            TryGetSpeculativeSemanticModelFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryGetSpeculativeSemanticModelDelegate6>(wrappedType, "TryGetSpeculativeSemanticModel", "semanticModelSemanticModel", "positionInt32", "constructorInitializerPrimaryConstructorBaseTypeSyntax", "speculativeModelSemanticModel&");
+            GetDeclaredSymbolFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate4>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "nodeLocalFunctionStatementSyntax", "cancellationTokenCancellationToken");
+            GetElementConversionFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetElementConversionDelegate5>(wrappedType, "GetElementConversion", "spreadISpreadOperation");
+            GetInterceptableLocationFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetInterceptableLocationDelegate6>(wrappedType, "GetInterceptableLocation", "semanticModelSemanticModel", "nodeInvocationExpressionSyntax", "cancellationTokenCancellationToken");
+            GetInterceptorMethodFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetInterceptorMethodDelegate7>(wrappedType, "GetInterceptorMethod", "semanticModelSemanticModel", "nodeInvocationExpressionSyntax", "cancellationTokenCancellationToken");
+            GetInterceptsLocationAttributeSyntaxFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetInterceptsLocationAttributeSyntaxDelegate8>(wrappedType, "GetInterceptsLocationAttributeSyntax", "locationInterceptableLocation");
+            GetSpeculativeSymbolInfoFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetSpeculativeSymbolInfoDelegate9>(wrappedType, "GetSpeculativeSymbolInfo", "semanticModelSemanticModel", "positionInt32", "constructorInitializerPrimaryConstructorBaseTypeSyntax");
+            GetSymbolInfoFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetSymbolInfoDelegate10>(wrappedType, "GetSymbolInfo", "semanticModelSemanticModel", "constructorInitializerPrimaryConstructorBaseTypeSyntax", "cancellationTokenCancellationToken");
+            TryGetSpeculativeSemanticModelFunc11 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryGetSpeculativeSemanticModelDelegate11>(wrappedType, "TryGetSpeculativeSemanticModel", "semanticModelSemanticModel", "positionInt32", "constructorInitializerPrimaryConstructorBaseTypeSyntax", "speculativeModelSemanticModel&");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
@@ -61,22 +76,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetDeclaredSymbolFunc3(semanticModel, declarationSyntax, cancellationToken);
         }
 
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax node, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetDeclaredSymbolFunc4(semanticModel, node, cancellationToken);
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Conversion GetElementConversion(this global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper spread)
+        {
+            return GetElementConversionFunc5(spread);
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper GetInterceptableLocation(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetInterceptableLocationFunc6(semanticModel, node, cancellationToken);
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetInterceptorMethod(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetInterceptorMethodFunc7(semanticModel, node, cancellationToken);
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::System.String GetInterceptsLocationAttributeSyntax(this global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper location)
+        {
+            return GetInterceptsLocationAttributeSyntaxFunc8(location);
+        }
+
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer)
         {
-            return GetSpeculativeSymbolInfoFunc4(semanticModel, position, constructorInitializer);
+            return GetSpeculativeSymbolInfoFunc9(semanticModel, position, constructorInitializer);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetSymbolInfoFunc5(semanticModel, constructorInitializer, cancellationToken);
+            return GetSymbolInfoFunc10(semanticModel, constructorInitializer, cancellationToken);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::System.Boolean TryGetSpeculativeSemanticModel(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out global::Microsoft.CodeAnalysis.SemanticModel? speculativeModel)
         {
-            return TryGetSpeculativeSemanticModelFunc6(semanticModel, position, constructorInitializer, out speculativeModel);
+            return TryGetSpeculativeSemanticModelFunc11(semanticModel, position, constructorInitializer, out speculativeModel);
         }
     }
 }

@@ -8,21 +8,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, global::System.Threading.CancellationToken cancellationToken);
 
-        private static readonly GetUsedAssemblyReferencesDelegate0 GetUsedAssemblyReferencesFunc0;
+        private static readonly GetSemanticModelDelegate0 GetSemanticModelFunc0;
+        private static readonly GetUsedAssemblyReferencesDelegate1 GetUsedAssemblyReferencesFunc1;
 
         static CSharpCompilationExtensions()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
-            GetUsedAssemblyReferencesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            GetSemanticModelFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate0>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
+            GetUsedAssemblyReferencesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate1>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModel(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options)
+        {
+            return GetSemanticModelFunc0(_obj, syntaxTree, options);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
+            return GetUsedAssemblyReferencesFunc1(_obj, cancellationToken);
         }
     }
 }
