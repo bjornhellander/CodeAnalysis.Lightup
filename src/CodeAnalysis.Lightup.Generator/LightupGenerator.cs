@@ -36,11 +36,23 @@ public class LightupGenerator : IIncrementalGenerator
 
     private static void Execute(SourceProductionContext context, string configFileContent, LanguageVersion? languageVersion)
     {
-        if (Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var _))
+        if (Helpers.TryParseConfiguration(
+            configFileContent,
+            out var assemblies,
+            out var baselineVersion,
+            out var typesToInclude,
+            out var useFoldersInFilePaths,
+            out var _))
         {
             var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
             var types = GetOrReadTypes(baselineVersion);
-            Writer.Write(context, assemblies, typesToInclude, useNullableAnnotation, types);
+            Writer.Write(
+                context,
+                assemblies,
+                typesToInclude,
+                useNullableAnnotation,
+                useFoldersInFilePaths,
+                types);
         }
     }
 
