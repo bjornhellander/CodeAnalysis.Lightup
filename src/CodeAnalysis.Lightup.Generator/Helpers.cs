@@ -12,7 +12,6 @@ using System.Xml.Linq;
 using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 internal static class Helpers
 {
@@ -20,6 +19,7 @@ internal static class Helpers
     private static readonly List<AssemblyKind> NoAssemblies = [];
     private static readonly List<string> NoTypes = [];
 
+    // See https://github.com/dotnet/roslyn/pull/66438
     public static bool RoslynSupportsFoldersInGeneratedFilePaths { get; } = GetRoslynVersion() >= new Version(4, 6, 0, 0);
 
     public static bool IsConfigurationFile(AdditionalText additionalFile)

@@ -390,10 +390,6 @@ namespace Microsoft.CodeAnalysis.Lightup
             if (source != null)
             {
                 var targetFilePath = GetGeneratedFilePath(typeDef, useFoldersInFilePaths);
-
-                // NOTE: Roslyn versions older than 4.6.0 do not accept folders in the file path, so I have changed referenced version in the generator and in the generator test project
-                // See https://github.com/dotnet/roslyn/pull/66438
-                // TODO: Handle versions back to 4.0.1 by generating files some other way?
                 context.AddSource(targetFilePath, SourceText.From(source, Encoding.UTF8));
             }
         }
