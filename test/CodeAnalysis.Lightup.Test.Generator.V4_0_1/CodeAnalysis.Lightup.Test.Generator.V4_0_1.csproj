@@ -7,6 +7,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.6.0" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing" Version="1.1.2" />
+		<PackageReference Include="TestInheritanceGenerator.Annotations" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
