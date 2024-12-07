@@ -658,6 +658,32 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return nativeLambda;
             }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(Func<,>))
+            {
+                // Func<X, Y> where X or Y is a wrapper
+                var wrapperArg1Type = wrapperType.GetGenericArguments()[0];
+                var wrapperReturnType = wrapperType.GetGenericArguments()[1];
+                var nativeArg1Type = nativeType.GetGenericArguments()[0];
+                var nativeReturnType = nativeType.GetGenericArguments()[1];
+
+                var wrapperInvokeMethod = wrapperType.GetMethod("Invoke");
+
+                var nativeArg1LambdaParameter = Expression.Parameter(nativeArg1Type);
+                var nativeLambda = Expression.Lambda(
+                    nativeType,
+                    GetNativeValue(
+                        Expression.Call(
+                            input,
+                            wrapperInvokeMethod,
+                            GetPossiblyWrappedValue(
+                                nativeArg1LambdaParameter,
+                                wrapperArg1Type)),
+                        wrapperReturnType,
+                        nativeReturnType),
+                    nativeArg1LambdaParameter);
+
+                return nativeLambda;
+            }
             else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(IProgress<>))
             {
                 // IProgress<X> where X is a wrapper
