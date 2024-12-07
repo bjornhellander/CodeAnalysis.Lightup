@@ -57,7 +57,41 @@ public class ConfigurationAnalyzerTests
 ";
 
         var test = CreateTest("CodeAnalysis.Lightup.xml", content);
-        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "No assemblies specified");
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Missing 'Assembly' element(s).");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestEmptyAssemblyInConfigurationFile()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly></Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+    <UseFoldersInFilePaths>{Helpers.RoslynSupportsFoldersInGeneratedFilePaths}</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'Assembly' element value: ''. Should be one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestIncorrectAssemblyInConfigurationFile()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Xyz</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+    <UseFoldersInFilePaths>{Helpers.RoslynSupportsFoldersInGeneratedFilePaths}</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'Assembly' element value: 'Xyz'. Should be one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -73,7 +107,132 @@ public class ConfigurationAnalyzerTests
 ";
 
         var test = CreateTest("CodeAnalysis.Lightup.xml", content);
-        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Failed to parse file");
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Missing 'BaselineVersion' element.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestEmptyBaselineVersionInConfigurationFile()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion></BaselineVersion>
+    <UseFoldersInFilePaths>{Helpers.RoslynSupportsFoldersInGeneratedFilePaths}</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'BaselineVersion' element value: ''.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestIncorrectBaselineVersionInConfigurationFile()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>Xyz</BaselineVersion>
+    <UseFoldersInFilePaths>{Helpers.RoslynSupportsFoldersInGeneratedFilePaths}</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'BaselineVersion' element value: 'Xyz'.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestMultipleBaselineVersionsInConfigurationFile()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+	<BaselineVersion>3.8.0.0</BaselineVersion>
+    <UseFoldersInFilePaths>{Helpers.RoslynSupportsFoldersInGeneratedFilePaths}</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Multiple 'BaselineVersion' elements.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestNoUseFoldersInFilePaths()
+    {
+        if (SupportsFoldersInFilePaths)
+        {
+            return;
+        }
+
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", UseFoldersInFilePathsMessage);
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestEmptyUseFoldersInFilePaths()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+    <UseFoldersInFilePaths></UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'UseFoldersInFilePaths' element value: ''. Should be one of these: True, False.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestIncorrectUseFoldersInFilePaths()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+    <UseFoldersInFilePaths>Xyz</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Incorrect 'UseFoldersInFilePaths' element value: 'Xyz'. Should be one of these: True, False.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
+    [TestMethod]
+    public async Task TestMultipleUseFoldersInFilePaths()
+    {
+        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Settings>
+	<Assembly>Common</Assembly>
+	<BaselineVersion>3.0.0.0</BaselineVersion>
+    <UseFoldersInFilePaths>True</UseFoldersInFilePaths>
+    <UseFoldersInFilePaths>False</UseFoldersInFilePaths>
+</Settings>
+";
+
+        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
+        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", "Multiple 'UseFoldersInFilePaths' elements.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -91,27 +250,6 @@ public class ConfigurationAnalyzerTests
 	<Assembly>Common</Assembly>
 	<BaselineVersion>3.0.0.0</BaselineVersion>
     <UseFoldersInFilePaths>True</UseFoldersInFilePaths>
-</Settings>
-";
-
-        var test = CreateTest("CodeAnalysis.Lightup.xml", content);
-        var diagnostic = VerifyCS.Diagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.xml", UseFoldersInFilePathsMessage);
-        test.ExpectedDiagnostics.Add(diagnostic);
-        await test.RunAsync();
-    }
-
-    [TestMethod]
-    public async Task TestUseFoldersInFilePathsUnspecified()
-    {
-        if (SupportsFoldersInFilePaths)
-        {
-            return;
-        }
-
-        var content = $@"<?xml version=""1.0"" encoding=""utf-8""?>
-<Settings>
-	<Assembly>Common</Assembly>
-	<BaselineVersion>3.0.0.0</BaselineVersion>
 </Settings>
 ";
 
