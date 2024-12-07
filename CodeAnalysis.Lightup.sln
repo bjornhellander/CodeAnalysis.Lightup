@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Exampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Example.CSharp6", "test\CodeAnalysis.Lightup.Example.CSharp6\CodeAnalysis.Lightup.Example.CSharp6.csproj", "{9643947F-4A65-4D3C-83CE-65BB081492C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Generator", "test\CodeAnalysis.Lightup.Test.Generator\CodeAnalysis.Lightup.Test.Generator.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Generator.V4_0_1", "test\CodeAnalysis.Lightup.Test.Generator.V4_0_1\CodeAnalysis.Lightup.Test.Generator.V4_0_1.csproj", "{32CFC390-DECC-4BDB-8AFD-AEDF9AB2714F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.Internal", "test\CodeAnalysis.Lightup.Test.Internal\CodeAnalysis.Lightup.Test.Internal.csproj", "{E75915B2-B112-42C2-AC13-0A5190C304B9}"
 EndProject

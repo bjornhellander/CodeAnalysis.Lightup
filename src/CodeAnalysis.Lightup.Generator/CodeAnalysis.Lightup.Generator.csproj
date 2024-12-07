@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="CodeAnalysis.Lightup.Test.Generator" />
+		<InternalsVisibleTo Include="CodeAnalysis.Lightup.Test.Generator.V4_0_1" />
 	</ItemGroup>
 
 	<ItemGroup>
