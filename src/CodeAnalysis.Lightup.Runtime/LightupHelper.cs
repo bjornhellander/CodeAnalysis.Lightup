@@ -494,6 +494,31 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(Func<,>))
+            {
+                // Func<X, Y> where X or Y is a wrapper
+                var wrapperArg1Type = targetType.GetGenericArguments()[0];
+                var wrapperReturnType = targetType.GetGenericArguments()[1];
+                var nativeArg1Type = input.Type.GetGenericArguments()[0];
+
+                var nativeInvokeMethod = input.Type.GetMethod("Invoke");
+
+                var wrapperArg1LambdaParameter = Expression.Parameter(wrapperArg1Type);
+                var nativeLambda = Expression.Lambda(
+                    targetType,
+                    GetPossiblyWrappedValue(
+                        Expression.Call(
+                            input,
+                            nativeInvokeMethod,
+                            GetNativeValue(
+                                wrapperArg1LambdaParameter,
+                                wrapperArg1Type,
+                                nativeArg1Type)),
+                        wrapperReturnType),
+                    wrapperArg1LambdaParameter);
+
+                return nativeLambda;
+            }
             else
             {
                 var wrapMethod = targetType.GetMethod("As");
@@ -699,6 +724,28 @@ namespace CodeAnalysis.Lightup.Runtime
                 var progressWrapperConstructor = progressWrapperType.GetConstructors().Single();
                 var result = Expression.New(progressWrapperConstructor, input, conversionLambda);
 
+                return result;
+            }
+            else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                // Nullable<X> where X is a wrapper
+                var wrapperItemType = wrapperType.GetGenericArguments()[0];
+                var nativeItemType = nativeType.GetGenericArguments()[0];
+
+                var result = Expression.Condition(
+                    Expression.IsTrue(
+                        Expression.Property(
+                            input,
+                            "HasValue")),
+                    Expression.Convert(
+                        GetNativeValue(
+                            Expression.Property(
+                                input,
+                                "Value"),
+                            wrapperItemType,
+                            nativeItemType),
+                        nativeType),
+                    Expression.Default(nativeType));
                 return result;
             }
             else if (wrapperType.IsEnum)
