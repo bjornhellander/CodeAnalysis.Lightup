@@ -22,13 +22,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, "Equals", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public static global::System.Int32 Compare(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right)
         {
             return CompareFunc0(left, right);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public static global::System.Boolean Equals(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right)
         {
             return EqualsFunc1(left, right);

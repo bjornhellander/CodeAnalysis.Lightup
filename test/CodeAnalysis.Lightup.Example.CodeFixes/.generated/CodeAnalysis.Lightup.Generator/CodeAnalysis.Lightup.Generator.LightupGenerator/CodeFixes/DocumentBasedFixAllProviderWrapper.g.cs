@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 4.0.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider. Added in version 3.9.0.0.</summary>
     public partial struct DocumentBasedFixAllProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
@@ -56,13 +56,13 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsync(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext)
         {
             return GetFixAsyncFunc0(wrappedObject, fixAllContext);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
         {
             return GetSupportedFixAllScopesFunc1(wrappedObject);

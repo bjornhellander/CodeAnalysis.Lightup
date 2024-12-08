@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsReadOnlyGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.9.0.0.</summary>
         public static global::System.Boolean IsRecord(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
         {
             return IsRecordGetterFunc(_obj);

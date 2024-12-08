@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             CreateFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "fixAllAsyncFunc`4", "supportedFixAllScopesImmutableArray`1");
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider Create(global::System.Func<global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext, global::Microsoft.CodeAnalysis.Document, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> fixAllAsync)
         {
             return CreateFunc0(fixAllAsync);
