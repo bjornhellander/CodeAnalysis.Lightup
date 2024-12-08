@@ -519,6 +519,26 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return nativeLambda;
             }
+            else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                // Nullable<X> where X is a wrapper
+                var wrapperItemType = targetType.GetGenericArguments()[0];
+
+                var result = Expression.Condition(
+                    Expression.IsTrue(
+                        Expression.Property(
+                            input,
+                            "HasValue")),
+                    Expression.Convert(
+                        GetPossiblyWrappedValue(
+                            Expression.Property(
+                                input,
+                                "Value"),
+                            wrapperItemType),
+                        targetType),
+                    Expression.Default(targetType));
+                return result;
+            }
             else
             {
                 var wrapMethod = targetType.GetMethod("As");
