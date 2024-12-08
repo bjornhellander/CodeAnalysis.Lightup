@@ -9,10 +9,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
 
         private delegate global::System.Boolean IsDiscardGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
+        private delegate global::System.Boolean IsParamsArrayGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
+        private delegate global::System.Boolean IsParamsCollectionGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
 
         private static readonly IsDiscardGetterDelegate IsDiscardGetterFunc;
+        private static readonly IsParamsArrayGetterDelegate IsParamsArrayGetterFunc;
+        private static readonly IsParamsCollectionGetterDelegate IsParamsCollectionGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
         private static readonly ScopedKindGetterDelegate ScopedKindGetterFunc;
 
@@ -21,6 +25,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             IsDiscardGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsDiscardGetterDelegate>(wrappedType, nameof(IsDiscard));
+            IsParamsArrayGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsParamsArrayGetterDelegate>(wrappedType, nameof(IsParamsArray));
+            IsParamsCollectionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsParamsCollectionGetterDelegate>(wrappedType, nameof(IsParamsCollection));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             ScopedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
@@ -29,6 +35,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsDiscard(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
         {
             return IsDiscardGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::System.Boolean IsParamsArray(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
+        {
+            return IsParamsArrayGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::System.Boolean IsParamsCollection(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
+        {
+            return IsParamsCollectionGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

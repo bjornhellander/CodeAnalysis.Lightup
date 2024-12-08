@@ -20,6 +20,7 @@ namespace CodeAnalysis.Lightup.Example.Analyzers
             SupportsCSharp10 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp10);
             SupportsCSharp11 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp11);
             SupportsCSharp12 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp12);
+            SupportsCSharp13 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp13);
         }
 
         public static Version CodeAnalysisVersion { get; }
@@ -31,5 +32,7 @@ namespace CodeAnalysis.Lightup.Example.Analyzers
         public static bool SupportsCSharp11 { get; }
 
         public static bool SupportsCSharp12 { get; }
+
+        public static bool SupportsCSharp13 { get; }
     }
 }

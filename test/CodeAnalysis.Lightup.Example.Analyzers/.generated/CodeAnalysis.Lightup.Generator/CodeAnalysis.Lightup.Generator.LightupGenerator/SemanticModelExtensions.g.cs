@@ -8,8 +8,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 
+        private delegate global::System.Boolean NullableAnalysisIsDisabledGetterDelegate(global::Microsoft.CodeAnalysis.SemanticModel? _obj);
+
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopesDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContextDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? _obj, global::System.Int32 position);
+
+        private static readonly NullableAnalysisIsDisabledGetterDelegate NullableAnalysisIsDisabledGetterFunc;
 
         private static readonly GetImportScopesDelegate0 GetImportScopesFunc0;
         private static readonly GetNullableContextDelegate1 GetNullableContextFunc1;
@@ -18,8 +22,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            NullableAnalysisIsDisabledGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnalysisIsDisabledGetterDelegate>(wrappedType, nameof(NullableAnalysisIsDisabled));
+
             GetImportScopesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, "GetImportScopes", "positionInt32", "cancellationTokenCancellationToken");
             GetNullableContextFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
+        }
+
+        /// <summary>Property added in version 4.12.0.0.</summary>
+        public static global::System.Boolean NullableAnalysisIsDisabled(this global::Microsoft.CodeAnalysis.SemanticModel _obj)
+        {
+            return NullableAnalysisIsDisabledGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

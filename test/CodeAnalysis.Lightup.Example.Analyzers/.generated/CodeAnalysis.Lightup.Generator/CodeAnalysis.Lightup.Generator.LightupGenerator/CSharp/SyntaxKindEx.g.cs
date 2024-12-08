@@ -47,6 +47,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8449;
 
+        /// <summary>Added in version 4.12.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
+
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WarningsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8488;
 
@@ -68,6 +71,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8522;
 
+        /// <summary>Added in version 4.12.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
+
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
@@ -80,8 +86,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
 
+        /// <summary>Added in version 4.12.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FieldExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8757;
+
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileScopedNamespaceDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8845;
+
+        /// <summary>Added in version 4.12.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsConstraintClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8879;
+
+        /// <summary>Added in version 4.12.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ParenthesizedPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9028;

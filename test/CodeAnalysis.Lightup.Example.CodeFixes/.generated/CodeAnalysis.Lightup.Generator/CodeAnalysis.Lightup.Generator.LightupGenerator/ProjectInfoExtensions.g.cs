@@ -14,6 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.String? defaultNamespace);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate3(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::Microsoft.CodeAnalysis.ProjectId id);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;
@@ -21,6 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly WithAnalyzerConfigDocumentsDelegate0 WithAnalyzerConfigDocumentsFunc0;
         private static readonly WithCompilationOutputInfoDelegate1 WithCompilationOutputInfoFunc1;
         private static readonly WithDefaultNamespaceDelegate2 WithDefaultNamespaceFunc2;
+        private static readonly WithIdDelegate3 WithIdFunc3;
 
         static ProjectInfoExtensions()
         {
@@ -32,6 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "analyzerConfigDocumentsIEnumerable`1");
             WithCompilationOutputInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
             WithDefaultNamespaceFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
+            WithIdFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIdDelegate3>(wrappedType, "WithId", "idProjectId");
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
@@ -62,6 +65,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace)
         {
             return WithDefaultNamespaceFunc2(_obj, defaultNamespace);
+        }
+
+        /// <summary>Method added in version 4.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ProjectInfo WithId(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id)
+        {
+            return WithIdFunc3(_obj, id);
         }
     }
 }
