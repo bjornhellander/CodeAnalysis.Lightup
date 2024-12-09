@@ -8,33 +8,33 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownDiagnosticTags";
 
-        private delegate global::System.String CustomObsoleteGetterDelegate();
         private delegate global::System.String CompilationEndGetterDelegate();
+        private delegate global::System.String CustomObsoleteGetterDelegate();
         private delegate global::System.String CustomSeverityConfigurableGetterDelegate();
 
-        private static readonly CustomObsoleteGetterDelegate CustomObsoleteGetterFunc;
         private static readonly CompilationEndGetterDelegate CompilationEndGetterFunc;
+        private static readonly CustomObsoleteGetterDelegate CustomObsoleteGetterFunc;
         private static readonly CustomSeverityConfigurableGetterDelegate CustomSeverityConfigurableGetterFunc;
 
         static WellKnownDiagnosticTagsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            CustomObsoleteGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
             CompilationEndGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CompilationEndGetterDelegate>(wrappedType, nameof(CompilationEnd));
+            CustomObsoleteGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CustomObsoleteGetterDelegate>(wrappedType, nameof(CustomObsolete));
             CustomSeverityConfigurableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CustomSeverityConfigurableGetterDelegate>(wrappedType, nameof(CustomSeverityConfigurable));
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String CustomObsolete
-        {
-            get { return CustomObsoleteGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.9.0.0.</summary>
         public static global::System.String CompilationEnd
         {
             get { return CompilationEndGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String CustomObsolete
+        {
+            get { return CustomObsoleteGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.12.0.0.</summary>

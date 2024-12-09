@@ -6,10 +6,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     public enum SarifVersionEx : global::System.Int32
     {
         /// <summary>Added in version 3.8.0.0.</summary>
-        Sarif1 = 1,
+        Default = 1,
 
         /// <summary>Added in version 3.8.0.0.</summary>
-        Default = 1,
+        Sarif1 = 1,
 
         /// <summary>Added in version 3.8.0.0.</summary>
         Sarif2 = 2,

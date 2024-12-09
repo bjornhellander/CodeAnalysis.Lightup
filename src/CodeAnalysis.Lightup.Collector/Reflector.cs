@@ -14,6 +14,16 @@ using CodeAnalysis.Lightup.Definitions;
 
 internal class Reflector
 {
+#pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
+    private static readonly FieldComparer fieldComparer = new FieldComparer();
+    private static readonly EventComparer eventComparer = new EventComparer();
+    private static readonly PropertyComparer propertyComparer = new PropertyComparer();
+    private static readonly IndexerComparer indexerComparer = new IndexerComparer();
+    private static readonly ConstructorComparer constructorComparer = new ConstructorComparer();
+    private static readonly MethodComparer methodComparer = new MethodComparer();
+    private static readonly EnumValueComparer enumValueComparer = new EnumValueComparer();
+#pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
+
     private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
     {
         [AssemblyKind.Common] = "Microsoft.CodeAnalysis",
@@ -286,6 +296,8 @@ internal class Reflector
             var enumValueDef = new EnumValueDefinition(version, name, value);
             enumTypeDef.Values.Add(enumValueDef);
         }
+
+        enumTypeDef.Values.Sort(enumValueComparer);
     }
 
     private static void UpdateStructType(StructTypeDefinition structTypeDef, Type type, Version? assemblyVersion)
@@ -417,22 +429,22 @@ internal class Reflector
             {
                 case FieldInfo field:
                     var fieldDef = CreateFieldDefinition(field);
-                    AddOrUpdate(typeDef.Fields, fieldDef, AreEqual, assemblyVersion);
+                    AddOrUpdate(typeDef.Fields, fieldDef, AreEqual, assemblyVersion, fieldComparer);
                     break;
 
                 case EventInfo @event:
                     var eventDef = CreateEventDefinition(@event);
-                    AddOrUpdate(typeDef.Events, eventDef, AreEqual, assemblyVersion);
+                    AddOrUpdate(typeDef.Events, eventDef, AreEqual, assemblyVersion, eventComparer);
                     break;
 
                 case PropertyInfo property when property.GetIndexParameters().Length == 0:
                     var propertyDef = CreatePropertyDefinition(property);
-                    AddOrUpdate(typeDef.Properties, propertyDef, AreEqual, assemblyVersion);
+                    AddOrUpdate(typeDef.Properties, propertyDef, AreEqual, assemblyVersion, propertyComparer);
                     break;
 
                 case PropertyInfo property:
                     var indexerDef = CreateIndexerDefinition(property);
-                    AddOrUpdate(typeDef.Indexers, indexerDef, AreEqual, assemblyVersion);
+                    AddOrUpdate(typeDef.Indexers, indexerDef, AreEqual, assemblyVersion, indexerComparer);
                     break;
 
                 // TODO: Handle generic methods
@@ -444,7 +456,7 @@ internal class Reflector
                             method.GetBaseDefinition().DeclaringType != typeof(object))
                         {
                             var methodDef = CreateMethodDefinition(method);
-                            AddOrUpdate(typeDef.Methods, methodDef, AreEqual, assemblyVersion);
+                            AddOrUpdate(typeDef.Methods, methodDef, AreEqual, assemblyVersion, methodComparer);
                         }
 
                         break;
@@ -452,7 +464,7 @@ internal class Reflector
 
                 case ConstructorInfo constructor:
                     var constructorDef = CreateConstructorDefinition(constructor);
-                    AddOrUpdate(typeDef.Constructors, constructorDef, AreEqual, assemblyVersion);
+                    AddOrUpdate(typeDef.Constructors, constructorDef, AreEqual, assemblyVersion, constructorComparer);
                     break;
 
                 case Type:
@@ -470,7 +482,8 @@ internal class Reflector
         List<T> memberDefs,
         T memberDef,
         Func<T, T, bool> areEqual,
-        Version? assemblyVersion)
+        Version? assemblyVersion,
+        IComparer<T> comparer)
         where T : MemberDefinition
     {
         var equalDef = memberDefs.SingleOrDefault(x => areEqual(x, memberDef));
@@ -484,6 +497,7 @@ internal class Reflector
         {
             memberDefs.Add(memberDef);
             memberDef.AssemblyVersion = assemblyVersion;
+            memberDefs.Sort(comparer);
         }
     }
 
@@ -888,5 +902,61 @@ internal class Reflector
     private static bool AreEqual(ArrayTypeReference x, ArrayTypeReference y)
     {
         return AreEqual(x.ElementType, y.ElementType);
+    }
+
+    private class FieldComparer : IComparer<FieldDefinition>
+    {
+        public int Compare(FieldDefinition? x, FieldDefinition? y)
+        {
+            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+        }
+    }
+
+    private class EventComparer : IComparer<EventDefinition>
+    {
+        public int Compare(EventDefinition? x, EventDefinition? y)
+        {
+            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+        }
+    }
+
+    private class PropertyComparer : IComparer<PropertyDefinition>
+    {
+        public int Compare(PropertyDefinition? x, PropertyDefinition? y)
+        {
+            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+        }
+    }
+
+    private class IndexerComparer : IComparer<IndexerDefinition>
+    {
+        public int Compare(IndexerDefinition? x, IndexerDefinition? y)
+        {
+            return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
+        }
+    }
+
+    private class ConstructorComparer : IComparer<ConstructorDefinition>
+    {
+        public int Compare(ConstructorDefinition? x, ConstructorDefinition? y)
+        {
+            return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
+        }
+    }
+
+    private class MethodComparer : IComparer<MethodDefinition>
+    {
+        public int Compare(MethodDefinition? x, MethodDefinition? y)
+        {
+            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+        }
+    }
+
+    private class EnumValueComparer : IComparer<EnumValueDefinition>
+    {
+        public int Compare(EnumValueDefinition? x, EnumValueDefinition? y)
+        {
+            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+        }
     }
 }

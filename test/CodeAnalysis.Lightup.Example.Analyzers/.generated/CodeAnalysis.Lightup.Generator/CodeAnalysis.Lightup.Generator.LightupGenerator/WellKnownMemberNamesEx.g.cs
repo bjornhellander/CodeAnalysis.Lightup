@@ -8,12 +8,6 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownMemberNames";
 
-        private delegate global::System.String CountPropertyNameGetterDelegate();
-        private delegate global::System.String LengthPropertyNameGetterDelegate();
-        private delegate global::System.String SliceMethodNameGetterDelegate();
-        private delegate global::System.String TopLevelStatementsEntryPointMethodNameGetterDelegate();
-        private delegate global::System.String TopLevelStatementsEntryPointTypeNameGetterDelegate();
-        private delegate global::System.String PrintMembersMethodNameGetterDelegate();
         private delegate global::System.String CheckedAdditionOperatorNameGetterDelegate();
         private delegate global::System.String CheckedDecrementOperatorNameGetterDelegate();
         private delegate global::System.String CheckedDivisionOperatorNameGetterDelegate();
@@ -22,13 +16,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String CheckedMultiplyOperatorNameGetterDelegate();
         private delegate global::System.String CheckedSubtractionOperatorNameGetterDelegate();
         private delegate global::System.String CheckedUnaryNegationOperatorNameGetterDelegate();
+        private delegate global::System.String CountPropertyNameGetterDelegate();
+        private delegate global::System.String LengthPropertyNameGetterDelegate();
+        private delegate global::System.String PrintMembersMethodNameGetterDelegate();
+        private delegate global::System.String SliceMethodNameGetterDelegate();
+        private delegate global::System.String TopLevelStatementsEntryPointMethodNameGetterDelegate();
+        private delegate global::System.String TopLevelStatementsEntryPointTypeNameGetterDelegate();
 
-        private static readonly CountPropertyNameGetterDelegate CountPropertyNameGetterFunc;
-        private static readonly LengthPropertyNameGetterDelegate LengthPropertyNameGetterFunc;
-        private static readonly SliceMethodNameGetterDelegate SliceMethodNameGetterFunc;
-        private static readonly TopLevelStatementsEntryPointMethodNameGetterDelegate TopLevelStatementsEntryPointMethodNameGetterFunc;
-        private static readonly TopLevelStatementsEntryPointTypeNameGetterDelegate TopLevelStatementsEntryPointTypeNameGetterFunc;
-        private static readonly PrintMembersMethodNameGetterDelegate PrintMembersMethodNameGetterFunc;
         private static readonly CheckedAdditionOperatorNameGetterDelegate CheckedAdditionOperatorNameGetterFunc;
         private static readonly CheckedDecrementOperatorNameGetterDelegate CheckedDecrementOperatorNameGetterFunc;
         private static readonly CheckedDivisionOperatorNameGetterDelegate CheckedDivisionOperatorNameGetterFunc;
@@ -37,17 +31,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CheckedMultiplyOperatorNameGetterDelegate CheckedMultiplyOperatorNameGetterFunc;
         private static readonly CheckedSubtractionOperatorNameGetterDelegate CheckedSubtractionOperatorNameGetterFunc;
         private static readonly CheckedUnaryNegationOperatorNameGetterDelegate CheckedUnaryNegationOperatorNameGetterFunc;
+        private static readonly CountPropertyNameGetterDelegate CountPropertyNameGetterFunc;
+        private static readonly LengthPropertyNameGetterDelegate LengthPropertyNameGetterFunc;
+        private static readonly PrintMembersMethodNameGetterDelegate PrintMembersMethodNameGetterFunc;
+        private static readonly SliceMethodNameGetterDelegate SliceMethodNameGetterFunc;
+        private static readonly TopLevelStatementsEntryPointMethodNameGetterDelegate TopLevelStatementsEntryPointMethodNameGetterFunc;
+        private static readonly TopLevelStatementsEntryPointTypeNameGetterDelegate TopLevelStatementsEntryPointTypeNameGetterFunc;
 
         static WellKnownMemberNamesEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            CountPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CountPropertyNameGetterDelegate>(wrappedType, nameof(CountPropertyName));
-            LengthPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<LengthPropertyNameGetterDelegate>(wrappedType, nameof(LengthPropertyName));
-            SliceMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<SliceMethodNameGetterDelegate>(wrappedType, nameof(SliceMethodName));
-            TopLevelStatementsEntryPointMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointMethodNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointMethodName));
-            TopLevelStatementsEntryPointTypeNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
-            PrintMembersMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<PrintMembersMethodNameGetterDelegate>(wrappedType, nameof(PrintMembersMethodName));
             CheckedAdditionOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedAdditionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedAdditionOperatorName));
             CheckedDecrementOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedDecrementOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDecrementOperatorName));
             CheckedDivisionOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedDivisionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedDivisionOperatorName));
@@ -56,42 +50,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             CheckedMultiplyOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedMultiplyOperatorNameGetterDelegate>(wrappedType, nameof(CheckedMultiplyOperatorName));
             CheckedSubtractionOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedSubtractionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedSubtractionOperatorName));
             CheckedUnaryNegationOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedUnaryNegationOperatorNameGetterDelegate>(wrappedType, nameof(CheckedUnaryNegationOperatorName));
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String CountPropertyName
-        {
-            get { return CountPropertyNameGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String LengthPropertyName
-        {
-            get { return LengthPropertyNameGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String SliceMethodName
-        {
-            get { return SliceMethodNameGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String TopLevelStatementsEntryPointMethodName
-        {
-            get { return TopLevelStatementsEntryPointMethodNameGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 3.8.0.0.</summary>
-        public static global::System.String TopLevelStatementsEntryPointTypeName
-        {
-            get { return TopLevelStatementsEntryPointTypeNameGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 3.10.0.0.</summary>
-        public static global::System.String PrintMembersMethodName
-        {
-            get { return PrintMembersMethodNameGetterFunc(); }
+            CountPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CountPropertyNameGetterDelegate>(wrappedType, nameof(CountPropertyName));
+            LengthPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<LengthPropertyNameGetterDelegate>(wrappedType, nameof(LengthPropertyName));
+            PrintMembersMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<PrintMembersMethodNameGetterDelegate>(wrappedType, nameof(PrintMembersMethodName));
+            SliceMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<SliceMethodNameGetterDelegate>(wrappedType, nameof(SliceMethodName));
+            TopLevelStatementsEntryPointMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointMethodNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointMethodName));
+            TopLevelStatementsEntryPointTypeNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
         }
 
         /// <summary>Field added in version 4.4.0.0.</summary>
@@ -140,6 +104,42 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String CheckedUnaryNegationOperatorName
         {
             get { return CheckedUnaryNegationOperatorNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String CountPropertyName
+        {
+            get { return CountPropertyNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String LengthPropertyName
+        {
+            get { return LengthPropertyNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.10.0.0.</summary>
+        public static global::System.String PrintMembersMethodName
+        {
+            get { return PrintMembersMethodNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String SliceMethodName
+        {
+            get { return SliceMethodNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String TopLevelStatementsEntryPointMethodName
+        {
+            get { return TopLevelStatementsEntryPointMethodNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.8.0.0.</summary>
+        public static global::System.String TopLevelStatementsEntryPointTypeName
+        {
+            get { return TopLevelStatementsEntryPointTypeNameGetterFunc(); }
         }
     }
 }

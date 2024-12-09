@@ -9,8 +9,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxGenerator";
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode ConditionalAccessExpressionDelegate0(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression, global::Microsoft.CodeAnalysis.SyntaxNode whenNotNull);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate1(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate2(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate1(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpressionDelegate2(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpressionDelegate3(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator? _obj, global::Microsoft.CodeAnalysis.SyntaxNode name);
 
         private static readonly ConditionalAccessExpressionDelegate0 ConditionalAccessExpressionFunc0;
@@ -23,8 +23,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             ConditionalAccessExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ConditionalAccessExpressionDelegate0>(wrappedType, "ConditionalAccessExpression", "expressionSyntaxNode", "whenNotNullSyntaxNode");
-            ElementBindingExpressionFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(wrappedType, "ElementBindingExpression", "argumentsIEnumerable`1");
-            ElementBindingExpressionFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(wrappedType, "ElementBindingExpression", "argumentsSyntaxNode[]");
+            ElementBindingExpressionFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate1>(wrappedType, "ElementBindingExpression", "argumentsSyntaxNode[]");
+            ElementBindingExpressionFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ElementBindingExpressionDelegate2>(wrappedType, "ElementBindingExpression", "argumentsIEnumerable`1");
             MemberBindingExpressionFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(wrappedType, "MemberBindingExpression", "nameSyntaxNode");
         }
 
@@ -35,13 +35,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments)
+        public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments)
         {
             return ElementBindingExpressionFunc1(_obj, arguments);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments)
+        public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments)
         {
             return ElementBindingExpressionFunc2(_obj, arguments);
         }
