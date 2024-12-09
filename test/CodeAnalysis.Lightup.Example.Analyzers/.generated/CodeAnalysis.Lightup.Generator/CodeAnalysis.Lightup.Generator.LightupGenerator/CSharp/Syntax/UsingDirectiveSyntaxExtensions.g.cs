@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithUnsafeKeywordFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUnsafeKeywordDelegate4>(wrappedType, "WithUnsafeKeyword", "unsafeKeywordSyntaxToken");
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxToken GlobalKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj)
         {
             return GlobalKeywordGetterFunc(_obj);
@@ -61,7 +61,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UnsafeKeywordGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
             return UpdateFunc0(_obj, globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
@@ -73,7 +73,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc1(_obj, globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax WithGlobalKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword)
         {
             return WithGlobalKeywordFunc2(_obj, globalKeyword);

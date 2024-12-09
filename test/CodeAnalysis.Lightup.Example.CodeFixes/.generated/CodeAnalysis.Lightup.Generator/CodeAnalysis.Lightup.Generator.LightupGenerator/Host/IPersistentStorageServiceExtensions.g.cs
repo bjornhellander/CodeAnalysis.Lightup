@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             GetStorageAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetStorageAsyncDelegate0>(wrappedType, "GetStorageAsync", "solutionSolution", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Host.IPersistentStorage> GetStorageAsync(this global::Microsoft.CodeAnalysis.Host.IPersistentStorageService _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetStorageAsyncFunc0(_obj, solution, cancellationToken);

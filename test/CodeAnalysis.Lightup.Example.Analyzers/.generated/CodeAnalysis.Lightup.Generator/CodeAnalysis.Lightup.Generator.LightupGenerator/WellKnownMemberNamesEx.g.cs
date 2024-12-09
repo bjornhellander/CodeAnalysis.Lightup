@@ -88,7 +88,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return TopLevelStatementsEntryPointTypeNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.0.0.0.</summary>
+        /// <summary>Field added in version 3.10.0.0.</summary>
         public static global::System.String PrintMembersMethodName
         {
             get { return PrintMembersMethodNameGetterFunc(); }

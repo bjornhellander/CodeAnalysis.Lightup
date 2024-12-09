@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
             AllTypeNamesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AllTypeNamesGetterDelegate>(wrappedType, nameof(AllTypeNames));
         }
 
-        /// <summary>Field added in version 4.0.0.0.</summary>
+        /// <summary>Field added in version 3.9.0.0.</summary>
         public static global::System.String RecordClassName
         {
             get { return RecordClassNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.0.0.0.</summary>
+        /// <summary>Field added in version 3.11.0.0.</summary>
         public static global::System.String RecordStructName
         {
             get { return RecordStructNameGetterFunc(); }

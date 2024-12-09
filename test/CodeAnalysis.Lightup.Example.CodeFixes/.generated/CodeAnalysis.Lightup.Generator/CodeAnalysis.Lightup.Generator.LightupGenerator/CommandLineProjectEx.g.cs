@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CommandLineProject. Added in version 4.0.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CommandLineProject. Added in version 3.10.0.0.</summary>
     public static partial class CommandLineProjectEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineProject";
@@ -22,13 +22,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateProjectInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate1>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineString", "baseDirectoryString", "workspaceWorkspace");
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
         {
             return CreateProjectInfoFunc0(projectName, language, commandLineArgs, projectDirectory, workspace);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.String commandLine, global::System.String baseDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
         {
             return CreateProjectInfoFunc1(projectName, language, commandLine, baseDirectory, workspace);

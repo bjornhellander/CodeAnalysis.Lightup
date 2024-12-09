@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate0>(wrappedType, "IsIncrementallyIdenticalTo", "tokenSyntaxToken");
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Boolean IsIncrementallyIdenticalTo(this global::Microsoft.CodeAnalysis.SyntaxToken _obj, global::Microsoft.CodeAnalysis.SyntaxToken token)
         {
             return IsIncrementallyIdenticalToFunc0(_obj, token);

@@ -139,7 +139,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetAnalyzerConfigDocumentFunc6(_obj, documentId);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.9.0.0.</summary>
         public static global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsync(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);

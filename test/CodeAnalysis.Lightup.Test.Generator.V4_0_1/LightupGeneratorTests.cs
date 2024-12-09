@@ -418,7 +418,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 4.0.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SourceGeneratedDocument. Added in version 3.9.0.0.</summary>
     public partial struct SourceGeneratedDocumentWrapper
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.SourceGeneratedDocument"";
@@ -443,7 +443,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.9.0.0.</summary>
         public global::System.String HintName
         {
             get { return HintNameGetterFunc(wrappedObject); }
