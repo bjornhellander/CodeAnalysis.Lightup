@@ -25,7 +25,8 @@ internal class Program
         var typesFilePath = Path.Combine(rootFolder, "src", "CodeAnalysis.Lightup.Generator", "Types.xml");
         using var stream = new FileStream(typesFilePath, FileMode.Create);
         var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
-        serializer.Serialize(stream, types.Values.ToList());
+        var typesList = types.Values.OrderBy(x => x.FullName).ToList();
+        serializer.Serialize(stream, typesList);
     }
 
     private static string GetRepositoryRoot()
