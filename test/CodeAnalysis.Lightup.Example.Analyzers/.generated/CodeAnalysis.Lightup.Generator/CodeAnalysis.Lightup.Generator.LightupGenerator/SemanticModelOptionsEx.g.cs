@@ -2,17 +2,17 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SemanticModelOptions. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SemanticModelOptions. Added in version 4.10.0.0.</summary>
     [System.Flags]
     public enum SemanticModelOptionsEx : global::System.Int32
     {
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.10.0.0.</summary>
         None = 0,
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.10.0.0.</summary>
         IgnoreAccessibility = 1,
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.10.0.0.</summary>
         DisableNullableAnalysis = 2,
     }
 }

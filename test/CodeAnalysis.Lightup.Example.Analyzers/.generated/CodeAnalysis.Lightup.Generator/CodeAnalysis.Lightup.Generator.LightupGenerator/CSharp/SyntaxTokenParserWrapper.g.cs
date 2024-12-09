@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser. Added in version 4.10.0.0.</summary>
     public partial struct SyntaxTokenParserWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser";
@@ -62,7 +62,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public void Dispose()
         {
             DisposeFunc0(wrappedObject);
@@ -74,7 +74,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return ParseLeadingTriviaFunc1(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextToken()
         {
             return ParseNextTokenFunc2(wrappedObject);
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return ParseTrailingTriviaFunc3(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public void ResetTo(global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result)
         {
             ResetToFunc4(wrappedObject, result);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public void SkipForwardTo(global::System.Int32 position)
         {
             SkipForwardToFunc5(wrappedObject, position);

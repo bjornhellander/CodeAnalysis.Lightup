@@ -94,7 +94,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetInterceptableLocationFunc6(semanticModel, node, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetInterceptorMethod(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetInterceptorMethodFunc7(semanticModel, node, cancellationToken);

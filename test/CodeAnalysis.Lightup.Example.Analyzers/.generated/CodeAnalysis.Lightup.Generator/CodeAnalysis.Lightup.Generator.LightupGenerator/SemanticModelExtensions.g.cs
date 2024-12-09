@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetNullableContextFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public static global::System.Boolean NullableAnalysisIsDisabled(this global::Microsoft.CodeAnalysis.SemanticModel _obj)
         {
             return NullableAnalysisIsDisabledGetterFunc(_obj);
