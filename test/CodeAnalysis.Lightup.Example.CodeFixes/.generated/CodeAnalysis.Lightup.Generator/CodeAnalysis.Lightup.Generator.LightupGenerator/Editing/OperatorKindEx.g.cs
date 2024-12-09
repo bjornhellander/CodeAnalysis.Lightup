@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.OperatorKind.</summary>
     public static partial class OperatorKindEx
     {
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.Editing.OperatorKind UnsignedRightShift = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)26;
     }
 }

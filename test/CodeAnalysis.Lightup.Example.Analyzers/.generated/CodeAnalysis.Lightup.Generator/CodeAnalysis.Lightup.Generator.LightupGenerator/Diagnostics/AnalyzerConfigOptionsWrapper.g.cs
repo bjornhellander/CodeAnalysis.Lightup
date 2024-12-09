@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             get { return KeyComparerGetterFunc(); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::System.Collections.Generic.IEnumerable<global::System.String> Keys
         {
             get { return KeysGetterFunc(wrappedObject); }

@@ -193,7 +193,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitUsingDeclarationFunc18(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static void VisitUtf8String(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IUtf8StringOperationWrapper operation)
         {
             VisitUtf8StringFunc19(_obj, operation);

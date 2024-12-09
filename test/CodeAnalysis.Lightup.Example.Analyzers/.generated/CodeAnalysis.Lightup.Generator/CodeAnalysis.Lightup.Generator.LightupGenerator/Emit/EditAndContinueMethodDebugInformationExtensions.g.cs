@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "compressedSlotMapImmutableArray`1", "compressedLambdaMapImmutableArray`1", "compressedStateMachineStateMapImmutableArray`1");
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation Create(global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedSlotMap, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedLambdaMap, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> compressedStateMachineStateMap)
         {
             return CreateFunc0(compressedSlotMap, compressedLambdaMap, compressedStateMachineStateMap);

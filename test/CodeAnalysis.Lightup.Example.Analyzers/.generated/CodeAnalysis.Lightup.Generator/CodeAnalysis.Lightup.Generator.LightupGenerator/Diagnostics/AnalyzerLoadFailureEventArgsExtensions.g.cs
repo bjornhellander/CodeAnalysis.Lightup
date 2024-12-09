@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             ReferencedCompilerVersionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReferencedCompilerVersionGetterDelegate>(wrappedType, nameof(ReferencedCompilerVersion));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Version? ReferencedCompilerVersion(this global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs _obj)
         {
             return ReferencedCompilerVersionGetterFunc(_obj);

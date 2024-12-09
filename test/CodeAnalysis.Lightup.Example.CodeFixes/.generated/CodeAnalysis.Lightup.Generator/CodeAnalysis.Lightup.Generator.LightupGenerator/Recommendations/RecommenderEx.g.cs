@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
             GetRecommendedSymbolsAtPositionAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<GetRecommendedSymbolsAtPositionAsyncDelegate0>(wrappedType, "GetRecommendedSymbolsAtPositionAsync", "documentDocument", "positionInt32", "optionsOptionSet", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsync(global::Microsoft.CodeAnalysis.Document document, global::System.Int32 position, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetRecommendedSymbolsAtPositionAsyncFunc0(document, position, options, cancellationToken);

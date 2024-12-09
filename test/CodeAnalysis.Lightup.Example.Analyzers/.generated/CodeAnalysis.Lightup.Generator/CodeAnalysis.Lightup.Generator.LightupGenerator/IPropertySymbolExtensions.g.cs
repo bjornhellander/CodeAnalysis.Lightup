@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsPartialDefinitionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return IsRequiredGetterFunc(_obj);

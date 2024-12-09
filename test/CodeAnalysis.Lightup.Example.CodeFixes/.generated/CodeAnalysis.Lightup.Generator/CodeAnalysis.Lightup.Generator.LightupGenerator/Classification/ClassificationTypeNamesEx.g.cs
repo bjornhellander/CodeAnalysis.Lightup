@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
             get { return RecordStructNameGetterFunc(); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AllTypeNames()
         {
             return AllTypeNamesGetterFunc();

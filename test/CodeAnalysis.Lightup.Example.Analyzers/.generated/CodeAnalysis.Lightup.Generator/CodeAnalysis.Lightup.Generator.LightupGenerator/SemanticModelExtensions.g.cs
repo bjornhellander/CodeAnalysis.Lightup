@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return NullableAnalysisIsDisabledGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopes(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetImportScopesFunc0(_obj, position, cancellationToken);

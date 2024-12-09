@@ -46,7 +46,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsExplicitlyNamedTupleElementGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
         {
             return IsRequiredGetterFunc(_obj);
@@ -58,13 +58,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return NullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
         {
             return RefCustomModifiersGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
         {
             return RefKindGetterFunc(_obj);

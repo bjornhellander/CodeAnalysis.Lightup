@@ -932,6 +932,7 @@ internal class Reflector
     {
         public int Compare(IndexerDefinition? x, IndexerDefinition? y)
         {
+            // TODO: Order based on more than this
             return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
         }
     }
@@ -940,6 +941,7 @@ internal class Reflector
     {
         public int Compare(ConstructorDefinition? x, ConstructorDefinition? y)
         {
+            // TODO: Order based on more than this
             return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
         }
     }
@@ -948,6 +950,7 @@ internal class Reflector
     {
         public int Compare(MethodDefinition? x, MethodDefinition? y)
         {
+            // TODO: Order based on more than this
             return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
         }
     }

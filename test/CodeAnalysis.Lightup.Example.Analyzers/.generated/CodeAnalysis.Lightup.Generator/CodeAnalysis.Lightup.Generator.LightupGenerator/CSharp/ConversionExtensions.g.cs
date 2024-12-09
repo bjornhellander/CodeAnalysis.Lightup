@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsSwitchExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);

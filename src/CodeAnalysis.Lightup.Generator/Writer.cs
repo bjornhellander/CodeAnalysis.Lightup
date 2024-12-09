@@ -16,7 +16,7 @@ using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
-// TODO: Handle types/members which are no longer present in the latest version. Affects e.g. ParameterSyntax and IParameterSymbol
+// TODO: Handle types/members which are no longer present in the latest version. Affects e.g. ParameterSyntax, IParameterSymbol, RefTypeSyntax
 internal class Writer
 {
     private static readonly Dictionary<AssemblyKind, string> HelperPrefixes = new()

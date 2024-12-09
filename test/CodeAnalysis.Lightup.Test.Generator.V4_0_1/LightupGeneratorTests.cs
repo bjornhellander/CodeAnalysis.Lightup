@@ -247,7 +247,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsNullableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
@@ -292,7 +292,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
@@ -331,7 +331,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
@@ -356,7 +356,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.BinaryOperatorKind.</summary>
     public static partial class BinaryOperatorKindEx
     {
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind UnsignedRightShift = (global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind)25;
     }
 }

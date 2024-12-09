@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExclamationExclamationToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8285;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8287;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnmanagedKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8446;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RequiredKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8447;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8448;
 
         /// <summary>Added in version 4.4.0.0.</summary>
@@ -65,13 +65,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8519;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8520;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8521;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8522;
 
         /// <summary>Added in version 4.12.0.0.</summary>
@@ -80,13 +80,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8692;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftAssignmentExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8726;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
 
         /// <summary>Added in version 4.12.0.0.</summary>

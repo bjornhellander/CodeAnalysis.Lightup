@@ -9,20 +9,29 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
 
         private delegate global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadataDelegate0(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose);
+        private delegate global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadataDelegate1(global::System.IntPtr metadata, global::System.Int32 size, global::System.IDisposable owner, global::System.Boolean disposeOwner);
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
+        private static readonly CreateFromMetadataDelegate1 CreateFromMetadataFunc1;
 
         static ModuleMetadataExtensions()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             CreateFromMetadataFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
+            CreateFromMetadataFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate1>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "ownerIDisposable", "disposeOwnerBoolean");
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadata(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose)
         {
             return CreateFromMetadataFunc0(metadata, size, onDispose);
+        }
+
+        /// <summary>Method added in version 4.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadata(global::System.IntPtr metadata, global::System.Int32 size, global::System.IDisposable owner, global::System.Boolean disposeOwner)
+        {
+            return CreateFromMetadataFunc1(metadata, size, owner, disposeOwner);
         }
     }
 }
