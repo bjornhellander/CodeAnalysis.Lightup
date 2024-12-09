@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             RuntimeRudeEditGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RuntimeRudeEditGetterDelegate>(wrappedType, nameof(RuntimeRudeEdit));
         }
 
-        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        /// <summary>Constructor added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.SemanticEdit Create(global::Microsoft.CodeAnalysis.Emit.SemanticEditKind kind, global::Microsoft.CodeAnalysis.ISymbol? oldSymbol, global::Microsoft.CodeAnalysis.ISymbol? newSymbol, global::System.Func<global::Microsoft.CodeAnalysis.SyntaxNode, global::Microsoft.CodeAnalysis.SyntaxNode>? syntaxMap, global::System.Boolean preserveLocalVariables, global::Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper instrumentation)
         {
             return ConstructorFunc0(kind, oldSymbol, newSymbol, syntaxMap, preserveLocalVariables, instrumentation);
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             return ConstructorFunc1(kind, oldSymbol, newSymbol, syntaxMap, runtimeRudeEdit, instrumentation);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper Instrumentation(this global::Microsoft.CodeAnalysis.Emit.SemanticEdit _obj)
         {
             return InstrumentationGetterFunc(_obj);

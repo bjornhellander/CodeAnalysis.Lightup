@@ -127,7 +127,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetUsedAssemblyReferencesFunc11(_obj, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::System.Boolean SupportsRuntimeCapability(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability)
         {
             return SupportsRuntimeCapabilityFunc12(_obj, capability);

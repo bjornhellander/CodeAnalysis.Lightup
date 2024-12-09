@@ -2,25 +2,25 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.RuntimeCapability. Added in version 4.8.0.0.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.RuntimeCapability. Added in version 4.6.0.0.</summary>
     public enum RuntimeCapabilityEx : global::System.Int32
     {
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         ByRefFields = 1,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         CovariantReturnsOfClasses = 2,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         DefaultImplementationsOfInterfaces = 3,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         NumericIntPtr = 4,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         UnmanagedSignatureCallingConvention = 5,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.6.0.0.</summary>
         VirtualStaticsInInterfaces = 6,
 
         /// <summary>Added in version 4.8.0.0.</summary>
