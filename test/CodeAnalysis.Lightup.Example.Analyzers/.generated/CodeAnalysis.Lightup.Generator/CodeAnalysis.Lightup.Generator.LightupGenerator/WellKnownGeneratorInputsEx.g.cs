@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownGeneratorInputs. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownGeneratorInputs. Added in version 4.1.0.0.</summary>
     public static partial class WellKnownGeneratorInputsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownGeneratorInputs";
@@ -31,31 +31,31 @@ namespace Microsoft.CodeAnalysis.Lightup
             ParseOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<ParseOptionsGetterDelegate>(wrappedType, nameof(ParseOptions));
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String AdditionalTexts
         {
             get { return AdditionalTextsGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String AnalyzerConfigOptions
         {
             get { return AnalyzerConfigOptionsGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String Compilation
         {
             get { return CompilationGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String MetadataReferences
         {
             get { return MetadataReferencesGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String ParseOptions
         {
             get { return ParseOptionsGetterFunc(); }

@@ -2,16 +2,16 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.InterpolatedStringArgumentPlaceholderKind. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.InterpolatedStringArgumentPlaceholderKind. Added in version 4.1.0.0.</summary>
     public enum InterpolatedStringArgumentPlaceholderKindEx : global::System.Int32
     {
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         CallsiteArgument = 0,
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         CallsiteReceiver = 1,
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         TrailingValidityArgument = 2,
     }
 }

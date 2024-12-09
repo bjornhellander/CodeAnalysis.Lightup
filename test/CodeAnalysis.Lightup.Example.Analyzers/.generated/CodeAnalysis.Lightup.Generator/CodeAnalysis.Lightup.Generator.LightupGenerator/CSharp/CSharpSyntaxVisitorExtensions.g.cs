@@ -205,7 +205,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitLineSpanDirectiveTriviaFunc16(_obj, node);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitListPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node)
         {
             VisitListPatternFunc17(_obj, node);
@@ -247,7 +247,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitScopedTypeFunc23(_obj, node);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitSlicePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node)
         {
             VisitSlicePatternFunc24(_obj, node);

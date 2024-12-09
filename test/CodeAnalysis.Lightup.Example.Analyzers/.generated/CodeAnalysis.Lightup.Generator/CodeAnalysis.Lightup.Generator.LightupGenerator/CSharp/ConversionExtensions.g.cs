@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsInterpolatedStringHandlerGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public static global::System.Boolean IsObjectCreation(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsObjectCreationGetterFunc(_obj);

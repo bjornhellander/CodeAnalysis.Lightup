@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation. Added in version 4.1.0.0.</summary>
     public partial struct IImplicitIndexerReferenceOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation";
@@ -37,25 +37,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Argument
         {
             get { return ArgumentGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ISymbol IndexerSymbol
         {
             get { return IndexerSymbolGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Instance
         {
             get { return InstanceGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ISymbol LengthSymbol
         {
             get { return LengthSymbolGetterFunc(wrappedObject); }

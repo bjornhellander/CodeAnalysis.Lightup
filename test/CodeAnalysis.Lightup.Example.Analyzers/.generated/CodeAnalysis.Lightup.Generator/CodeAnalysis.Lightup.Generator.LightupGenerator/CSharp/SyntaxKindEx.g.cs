@@ -5,6 +5,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public static partial class SyntaxKindEx
     {
+        /// <summary>Added in version 4.1.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExclamationExclamationToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8285;
+
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
@@ -116,10 +119,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NotPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9033;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SlicePattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9034;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
 
         /// <summary>Added in version 3.8.0.0.</summary>

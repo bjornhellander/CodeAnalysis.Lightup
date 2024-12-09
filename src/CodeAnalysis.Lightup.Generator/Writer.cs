@@ -16,6 +16,7 @@ using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
+// TODO: Handle types/members which are no longer present in the latest version. Affects e.g. ParameterSyntax and IParameterSymbol
 internal class Writer
 {
     private static readonly Dictionary<AssemblyKind, string> HelperPrefixes = new()
@@ -1701,6 +1702,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         else if (name == "finally")
         {
             return "@finally";
+        }
+        else if (name == "default")
+        {
+            return "@default";
         }
         else
         {
