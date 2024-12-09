@@ -79,7 +79,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitWithFunc20 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate20>(wrappedType, "VisitWith", "operationIWithOperation");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static void VisitAttribute(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper operation)
         {
             VisitAttributeFunc0(_obj, operation);

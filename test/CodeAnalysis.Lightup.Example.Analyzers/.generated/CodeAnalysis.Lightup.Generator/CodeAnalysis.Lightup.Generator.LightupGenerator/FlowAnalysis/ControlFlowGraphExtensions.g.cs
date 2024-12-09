@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "attributeIAttributeOperation", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph Create(global::Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper attribute, global::System.Threading.CancellationToken cancellationToken)
         {
             return CreateFunc0(attribute, cancellationToken);
