@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             get { return CompilationGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan
         {
             get { return FilterSpanGetterFunc(wrappedObject); }

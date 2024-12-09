@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 4.6.0.0.</summary>
         VirtualStaticsInInterfaces = 6,
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         InlineArrayTypes = 7,
 
         /// <summary>Added in version 4.12.0.0.</summary>

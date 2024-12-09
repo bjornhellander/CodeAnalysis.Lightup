@@ -115,7 +115,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return VisitBinaryPatternFunc1(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node)
         {
             return VisitCollectionExpressionFunc2(_obj, node);
@@ -133,7 +133,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return VisitExpressionColonFunc4(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node)
         {
             return VisitExpressionElementFunc5(_obj, node);
@@ -253,7 +253,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return VisitSlicePatternFunc24(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSpreadElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node)
         {
             return VisitSpreadElementFunc25(_obj, node);

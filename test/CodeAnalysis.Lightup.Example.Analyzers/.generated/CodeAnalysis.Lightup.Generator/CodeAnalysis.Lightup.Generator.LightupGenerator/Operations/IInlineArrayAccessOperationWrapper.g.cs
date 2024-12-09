@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation. Added in version 4.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation. Added in version 4.7.0.0.</summary>
     public partial struct IInlineArrayAccessOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInlineArrayAccessOperation";
@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Argument
         {
             get { return ArgumentGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Instance
         {
             get { return InstanceGetterFunc(wrappedObject); }

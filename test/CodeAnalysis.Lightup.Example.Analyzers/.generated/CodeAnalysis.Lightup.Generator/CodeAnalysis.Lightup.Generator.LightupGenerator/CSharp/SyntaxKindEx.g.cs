@@ -185,13 +185,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9075;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind CollectionExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9076;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExpressionElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9077;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SpreadElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9078;
     }
 }

@@ -109,7 +109,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitImplicitIndexerReferenceFunc4(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static void VisitInlineArrayAccess(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInlineArrayAccessOperationWrapper operation)
         {
             VisitInlineArrayAccessFunc5(_obj, operation);

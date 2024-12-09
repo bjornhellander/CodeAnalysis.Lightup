@@ -62,7 +62,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 4.5.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Attribute = (global::Microsoft.CodeAnalysis.OperationKind)125;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (global::Microsoft.CodeAnalysis.OperationKind)126;
 
         /// <summary>Added in version 4.12.0.0.</summary>

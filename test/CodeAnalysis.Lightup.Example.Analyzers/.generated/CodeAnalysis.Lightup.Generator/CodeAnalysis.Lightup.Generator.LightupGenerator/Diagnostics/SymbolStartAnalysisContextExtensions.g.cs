@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             IsGeneratedCodeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpan(this global::Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext _obj)
         {
             return FilterSpanGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree? FilterTree(this global::Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext _obj)
         {
             return FilterTreeGetterFunc(_obj);

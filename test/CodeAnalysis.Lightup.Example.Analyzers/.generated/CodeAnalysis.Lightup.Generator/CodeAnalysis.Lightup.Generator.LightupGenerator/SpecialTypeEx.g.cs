@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_PreserveBaseOverridesAttribute = (global::Microsoft.CodeAnalysis.SpecialType)45;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.SpecialType System_Runtime_CompilerServices_InlineArrayAttribute = (global::Microsoft.CodeAnalysis.SpecialType)46;
     }
 }
