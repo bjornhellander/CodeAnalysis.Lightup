@@ -88,7 +88,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetElementConversionFunc5(spread);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper GetInterceptableLocation(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetInterceptableLocationFunc6(semanticModel, node, cancellationToken);
@@ -100,7 +100,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetInterceptorMethodFunc7(semanticModel, node, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::System.String GetInterceptsLocationAttributeSyntax(this global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper location)
         {
             return GetInterceptsLocationAttributeSyntaxFunc8(location);

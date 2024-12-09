@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 4.7.0.0.</summary>
         InlineArrayTypes = 7,
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         ByRefLikeGenerics = 8,
     }
 }

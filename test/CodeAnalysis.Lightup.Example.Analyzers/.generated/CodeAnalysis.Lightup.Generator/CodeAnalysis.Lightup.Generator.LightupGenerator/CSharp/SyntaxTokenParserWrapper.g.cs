@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             DisposeFunc0(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTrivia()
         {
             return ParseLeadingTriviaFunc1(wrappedObject);
@@ -80,7 +80,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return ParseNextTokenFunc2(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTrivia()
         {
             return ParseTrailingTriviaFunc3(wrappedObject);

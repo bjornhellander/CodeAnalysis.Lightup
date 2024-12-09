@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.RefStructConstraintSyntax. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.RefStructConstraintSyntax. Added in version 4.11.0.0.</summary>
     public partial struct RefStructConstraintSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RefStructConstraintSyntax";
@@ -46,13 +46,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken RefKeyword
         {
             get { return RefKeywordGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken StructKeyword
         {
             get { return StructKeywordGetterFunc(wrappedObject); }
@@ -83,25 +83,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
         {
             AcceptFunc0(wrappedObject, visitor);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword)
         {
             return UpdateFunc1(wrappedObject, refKeyword, structKeyword);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithRefKeyword(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword)
         {
             return WithRefKeywordFunc2(wrappedObject, refKeyword);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithStructKeyword(global::Microsoft.CodeAnalysis.SyntaxToken structKeyword)
         {
             return WithStructKeywordFunc3(wrappedObject, structKeyword);

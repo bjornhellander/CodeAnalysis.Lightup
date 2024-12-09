@@ -103,7 +103,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitWithExpressionFunc28 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate28>(wrappedType, "VisitWithExpression", "nodeWithExpressionSyntax");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitAllowsConstraintClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper node)
         {
             return VisitAllowsConstraintClauseFunc0(_obj, node);
@@ -229,7 +229,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return VisitRecordDeclarationFunc20(_obj, node);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefStructConstraint(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper node)
         {
             return VisitRefStructConstraintFunc21(_obj, node);

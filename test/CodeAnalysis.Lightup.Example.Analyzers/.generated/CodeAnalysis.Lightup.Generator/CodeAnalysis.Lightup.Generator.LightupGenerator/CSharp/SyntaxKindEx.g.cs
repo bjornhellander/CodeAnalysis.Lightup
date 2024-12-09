@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8449;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -74,7 +74,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8522;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -95,10 +95,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileScopedNamespaceDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8845;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsConstraintClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8879;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
 
         /// <summary>Added in version 3.8.0.0.</summary>
