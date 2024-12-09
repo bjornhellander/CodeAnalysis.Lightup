@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetSemanticModelFunc0(_obj, syntaxTree, options);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetUsedAssemblyReferencesFunc1(_obj, cancellationToken);

@@ -70,7 +70,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsInitOnlyGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.10.0.0.</summary>
         public static global::System.Boolean IsPartialDefinition(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsPartialDefinitionGetterFunc(_obj);
@@ -82,7 +82,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsReadOnlyGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.10.0.0.</summary>
         public static global::System.Reflection.MethodImplAttributes MethodImplementationFlags(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return MethodImplementationFlagsGetterFunc(_obj);

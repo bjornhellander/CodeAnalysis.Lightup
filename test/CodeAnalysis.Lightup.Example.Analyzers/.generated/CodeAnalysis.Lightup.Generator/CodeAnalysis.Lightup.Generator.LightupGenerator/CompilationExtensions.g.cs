@@ -121,7 +121,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetTypesByMetadataNameFunc10(_obj, fullyQualifiedMetadataName);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetUsedAssemblyReferencesFunc11(_obj, cancellationToken);

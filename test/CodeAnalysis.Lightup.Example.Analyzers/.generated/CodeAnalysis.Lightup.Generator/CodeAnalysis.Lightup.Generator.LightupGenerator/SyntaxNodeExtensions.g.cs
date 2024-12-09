@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ContainsDirectiveFunc0(_obj, rawKind);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Boolean IsIncrementallyIdenticalTo(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other)
         {
             return IsIncrementallyIdenticalToFunc1(_obj, other);
