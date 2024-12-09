@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             ChildOperationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ChildOperationsGetterDelegate>(wrappedType, nameof(ChildOperations));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper ChildOperations(this global::Microsoft.CodeAnalysis.IOperation _obj)
         {
             return ChildOperationsGetterFunc(_obj);

@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             return RenameDocumentAsyncFunc0(document, newDocumentName, newDocumentFolders, optionSet, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsync(global::Microsoft.CodeAnalysis.Document document, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper options, global::System.String? newDocumentName, global::System.Collections.Generic.IReadOnlyList<global::System.String>? newDocumentFolders, global::System.Threading.CancellationToken cancellationToken)
         {
             return RenameDocumentAsyncFunc1(document, options, newDocumentName, newDocumentFolders, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> RenameSymbolAsync(global::Microsoft.CodeAnalysis.Solution solution, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper options, global::System.String newName, global::System.Threading.CancellationToken cancellationToken)
         {
             return RenameSymbolAsyncFunc2(solution, symbol, options, newName, cancellationToken);

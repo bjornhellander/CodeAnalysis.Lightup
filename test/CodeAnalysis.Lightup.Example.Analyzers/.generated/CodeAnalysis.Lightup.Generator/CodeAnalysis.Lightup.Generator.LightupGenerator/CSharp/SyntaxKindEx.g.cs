@@ -59,10 +59,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8518;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8519;
 
         /// <summary>Added in version 4.4.0.0.</summary>
@@ -173,13 +173,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind LineSpanDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9071;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedSingleLineRawStringStartToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9072;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedMultiLineRawStringStartToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9073;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedRawStringEndToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9074;
 
         /// <summary>Added in version 4.4.0.0.</summary>

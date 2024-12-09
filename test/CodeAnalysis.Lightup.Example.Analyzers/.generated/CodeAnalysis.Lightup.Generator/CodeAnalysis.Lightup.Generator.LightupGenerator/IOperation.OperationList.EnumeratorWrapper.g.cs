@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
 public partial class IOperationExtensions {
 public partial struct OperationListWrapper {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator. Added in version 4.2.0.0.</summary>
     public partial struct EnumeratorWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator";
@@ -39,7 +39,7 @@ public partial struct OperationListWrapper {
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Current
         {
             get { return CurrentGetterFunc(wrappedObject); }
@@ -64,13 +64,13 @@ public partial struct OperationListWrapper {
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Boolean MoveNext()
         {
             return MoveNextFunc0(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public void Reset()
         {
             ResetFunc1(wrappedObject);

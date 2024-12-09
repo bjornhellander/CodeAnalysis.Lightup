@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "rootSyntaxNode", "servicesSolutionServices");
         }
 
-        /// <summary>Constructor added in version 4.4.0.0.</summary>
+        /// <summary>Constructor added in version 4.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.SyntaxEditor Create(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices services)
         {
             return ConstructorFunc0(root, services);
