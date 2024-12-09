@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeAnalysisProgress. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CodeAnalysisProgress. Added in version 4.9.0.0.</summary>
     public partial struct CodeAnalysisProgressWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeAnalysisProgress";
@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Constructor added in version 4.12.0.0.</summary>
+        /// <summary>Constructor added in version 4.9.0.0.</summary>
         public static CodeAnalysisProgressWrapper Create()
         {
             return ConstructorFunc0();
@@ -65,19 +65,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddCompleteItems(global::System.Int32 count, global::System.String? description)
         {
             return AddCompleteItemsFunc0(count, description);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddIncompleteItems(global::System.Int32 count, global::System.String? description)
         {
             return AddIncompleteItemsFunc1(count, description);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper Description(global::System.String description)
         {
             return DescriptionFunc2(description);

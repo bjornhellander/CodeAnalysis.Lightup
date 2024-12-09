@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return AnalyzeDataFlowFunc1(semanticModel, constructorInitializer);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax node, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc2(semanticModel, node, cancellationToken);
@@ -82,7 +82,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetDeclaredSymbolFunc4(semanticModel, declarationSyntax, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Conversion GetElementConversion(this global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper spread)
         {
             return GetElementConversionFunc5(spread);

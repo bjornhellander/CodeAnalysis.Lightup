@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return CustomObsoleteGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.12.0.0.</summary>
+        /// <summary>Field added in version 4.9.0.0.</summary>
         public static global::System.String CustomSeverityConfigurable
         {
             get { return CustomSeverityConfigurableGetterFunc(); }

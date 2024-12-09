@@ -91,7 +91,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitBinaryPatternFunc1(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static void VisitCollectionExpression(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionOperationWrapper operation)
         {
             VisitCollectionExpressionFunc2(_obj, operation);
@@ -175,7 +175,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitSlicePatternFunc15(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static void VisitSpread(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper operation)
         {
             VisitSpreadFunc16(_obj, operation);

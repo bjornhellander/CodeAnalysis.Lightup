@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation. Added in version 4.9.0.0.</summary>
     public partial struct ICollectionExpressionOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation";
@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IMethodSymbol? ConstructMethod
         {
             get { return ConstructMethodGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> Elements
         {
             get { return ElementsGetterFunc(wrappedObject); }

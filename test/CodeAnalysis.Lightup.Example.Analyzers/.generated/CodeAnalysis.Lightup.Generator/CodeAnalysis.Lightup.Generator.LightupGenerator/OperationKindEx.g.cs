@@ -65,10 +65,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (global::Microsoft.CodeAnalysis.OperationKind)126;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind CollectionExpression = (global::Microsoft.CodeAnalysis.OperationKind)127;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Spread = (global::Microsoft.CodeAnalysis.OperationKind)128;
     }
 }

@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             RegisterAdditionalFileActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverity(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj)
         {
             return MinimumReportedSeverityGetterFunc(_obj);

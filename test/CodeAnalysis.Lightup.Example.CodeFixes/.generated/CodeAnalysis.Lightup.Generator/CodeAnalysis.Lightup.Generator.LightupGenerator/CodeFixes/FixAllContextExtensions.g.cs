@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             return ConstructorFunc0(document, diagnosticSpan, codeFixProvider, scope, codeActionEquivalenceKey, diagnosticIds, fixAllDiagnosticProvider, cancellationToken);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public static global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> Progress(this global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext _obj)
         {
             return ProgressGetterFunc(_obj);

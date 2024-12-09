@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
             GetContentHashFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetContentHashDelegate0>(wrappedType, "GetContentHash");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHash(this global::Microsoft.CodeAnalysis.Text.SourceText _obj)
         {
             return GetContentHashFunc0(_obj);
