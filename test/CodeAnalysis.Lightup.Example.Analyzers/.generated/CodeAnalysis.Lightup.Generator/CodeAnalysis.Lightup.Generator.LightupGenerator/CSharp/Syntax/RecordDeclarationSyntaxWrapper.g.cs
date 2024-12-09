@@ -148,7 +148,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return BaseListGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken ClassOrStructKeyword
         {
             get { return ClassOrStructKeywordGetterFunc(wrappedObject); }
@@ -293,7 +293,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc8(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
             return UpdateFunc9(wrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
@@ -311,7 +311,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return WithBaseListFunc11(wrappedObject, baseList);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithClassOrStructKeyword(global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword)
         {
             return WithClassOrStructKeywordFunc12(wrappedObject, classOrStructKeyword);

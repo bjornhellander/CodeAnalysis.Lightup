@@ -158,7 +158,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerUnmanagedCallingConvention = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9067;
 
-        /// <summary>Added in version 4.0.0.0.</summary>
+        /// <summary>Added in version 3.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordStructDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9068;
 
         /// <summary>Added in version 4.0.0.0.</summary>

@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj)
         {
             return AttributeListsGetterFunc(_obj);
@@ -88,7 +88,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return ModifiersGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddAttributeListsFunc0(_obj, items);
@@ -124,13 +124,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc5(_obj, asyncKeyword, parameter, arrowToken, block, expressionBody);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
             return UpdateFunc6(_obj, attributeLists, modifiers, parameter, arrowToken, block, expressionBody);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc7(_obj, attributeLists);

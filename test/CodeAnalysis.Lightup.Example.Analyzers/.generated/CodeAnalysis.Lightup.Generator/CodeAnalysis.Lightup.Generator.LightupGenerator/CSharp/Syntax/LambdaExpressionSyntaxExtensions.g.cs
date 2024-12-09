@@ -46,13 +46,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate7>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
-        /// <summary>Property added in version 4.0.0.0.</summary>
+        /// <summary>Property added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj)
         {
             return AttributeListsGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddAttributeListsFunc0(_obj, items);
@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return AddModifiersFunc3(_obj, items);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
+        /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc4(_obj, attributeLists);

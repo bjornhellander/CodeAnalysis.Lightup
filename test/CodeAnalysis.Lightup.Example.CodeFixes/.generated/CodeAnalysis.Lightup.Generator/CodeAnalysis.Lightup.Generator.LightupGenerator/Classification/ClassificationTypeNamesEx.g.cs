@@ -34,7 +34,7 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
             get { return RecordClassNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.0.0.0.</summary>
+        /// <summary>Field added in version 3.11.0.0.</summary>
         public static global::System.String RecordStructName
         {
             get { return RecordStructNameGetterFunc(); }
