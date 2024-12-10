@@ -63,6 +63,8 @@ internal class Reflector
         var assemblyLoadContext = new AssemblyLoadContext(referenceProjectName);
         assemblyLoadContext.Resolving += ResolveAssembly;
 
+        MarkMembersAsRemoved(typeDefs.Values);
+
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
         {
             CollectTypes(assemblyLoadContext, typeDefs, isBaselineVersion, assemblyKind);
@@ -73,6 +75,59 @@ internal class Reflector
             var assemblyPath = Path.Combine(referenceProjectBinFolder, assemblyName.Name + ".dll");
             var assembly = context.LoadFromAssemblyPath(assemblyPath);
             return assembly;
+        }
+    }
+
+    private static void MarkMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
+    {
+        foreach (var typeDef in typeDefs)
+        {
+            switch (typeDef)
+            {
+                case TypeDefinition x:
+                    MarkMembersAsRemoved(x);
+                    break;
+
+                case EnumTypeDefinition:
+                    break;
+
+                default:
+                    Assert.Fail($"Unexpected type {typeDef.GetType()}");
+                    break;
+            }
+        }
+    }
+
+    private static void MarkMembersAsRemoved(TypeDefinition typeDef)
+    {
+        foreach (var fieldDef in typeDef.Fields)
+        {
+            fieldDef.IsRemoved = true;
+        }
+
+        foreach (var eventDef in typeDef.Events)
+        {
+            eventDef.IsRemoved = true;
+        }
+
+        foreach (var propertyDef in typeDef.Properties)
+        {
+            propertyDef.IsRemoved = true;
+        }
+
+        foreach (var indexerDef in typeDef.Indexers)
+        {
+            indexerDef.IsRemoved = true;
+        }
+
+        foreach (var constructorDef in typeDef.Constructors)
+        {
+            constructorDef.IsRemoved = true;
+        }
+
+        foreach (var methodDef in typeDef.Methods)
+        {
+            methodDef.IsRemoved = true;
         }
     }
 

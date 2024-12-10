@@ -10,7 +10,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
         private delegate global::System.Boolean IsCollectionExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsCollectionLiteralGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
         private delegate global::System.Boolean IsConditionalExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
         private delegate global::System.Boolean IsDefaultLiteralGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
         private delegate global::System.Boolean IsInlineArrayGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
@@ -20,7 +19,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsCollectionExpressionGetterDelegate IsCollectionExpressionGetterFunc;
-        private static readonly IsCollectionLiteralGetterDelegate IsCollectionLiteralGetterFunc;
         private static readonly IsConditionalExpressionGetterDelegate IsConditionalExpressionGetterFunc;
         private static readonly IsDefaultLiteralGetterDelegate IsDefaultLiteralGetterFunc;
         private static readonly IsInlineArrayGetterDelegate IsInlineArrayGetterFunc;
@@ -34,7 +32,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
             IsCollectionExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsCollectionExpressionGetterDelegate>(wrappedType, nameof(IsCollectionExpression));
-            IsCollectionLiteralGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsCollectionLiteralGetterDelegate>(wrappedType, nameof(IsCollectionLiteral));
             IsConditionalExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsConditionalExpressionGetterDelegate>(wrappedType, nameof(IsConditionalExpression));
             IsDefaultLiteralGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsDefaultLiteralGetterDelegate>(wrappedType, nameof(IsDefaultLiteral));
             IsInlineArrayGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
@@ -53,12 +50,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Boolean IsCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsCollectionExpressionGetterFunc(_obj);
-        }
-
-        /// <summary>Property added in version 4.7.0.0.</summary>
-        public static global::System.Boolean IsCollectionLiteral(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
-        {
-            return IsCollectionLiteralGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

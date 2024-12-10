@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Xml.Linq;
 using CodeAnalysis.Lightup.Definitions;
 
+// TODO: Add configuration for including removed members
 internal static class TypesReader
 {
     private static readonly XNamespace XsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";
@@ -85,7 +86,7 @@ internal static class TypesReader
 
     private static EnumValueDefinition CreateEnumValueDefinition(XElement element, Version baselineVersion)
     {
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, false);
         var name = GetChildString(element, "Name");
         var value = GetChildInt(element, "Value");
 
@@ -216,7 +217,7 @@ internal static class TypesReader
             parameters,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -245,7 +246,7 @@ internal static class TypesReader
             isReadOnly,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -270,7 +271,7 @@ internal static class TypesReader
             typeRef,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -299,7 +300,7 @@ internal static class TypesReader
             hasSetter,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -326,7 +327,7 @@ internal static class TypesReader
             parameters,
             hasSetter);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -357,7 +358,7 @@ internal static class TypesReader
             isNullable,
             parameters);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -399,7 +400,7 @@ internal static class TypesReader
         out string? enclosingTypeFullName)
     {
         assemblyKind = GetChildEnum<AssemblyKind>(element, "AssemblyKind");
-        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
+        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, false);
         name = GetChildString(element, "Name");
         @namespace = GetChildString(element, "Namespace");
         fullName = GetChildString(element, "FullName");
@@ -535,7 +536,7 @@ internal static class TypesReader
         return result;
     }
 
-    private static Version? GetOptionalChildAssemblyVersion(XElement parent, Version baselineVersion)
+    private static Version? GetOptionalChildAssemblyVersion(XElement parent, Version baselineVersion, bool skipRemoved)
     {
         var strValue = parent.Element("AssemblyVersion")?.Value;
         Version? result;
@@ -550,6 +551,15 @@ internal static class TypesReader
         else
         {
             result = null;
+        }
+
+        if (skipRemoved)
+        {
+            var isRemoved = GetChildBool(parent, "IsRemoved");
+            if (isRemoved)
+            {
+                result = null;
+            }
         }
 
         return result;
