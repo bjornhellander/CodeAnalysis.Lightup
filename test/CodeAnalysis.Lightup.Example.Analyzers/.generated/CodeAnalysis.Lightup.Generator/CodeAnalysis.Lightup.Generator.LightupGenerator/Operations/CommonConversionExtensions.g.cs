@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsNullableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);

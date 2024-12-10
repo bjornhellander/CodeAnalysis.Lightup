@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "filePathString", "textSpanTextSpan", "lineSpanLinePositionSpan", "mappedFilePathString", "mappedLineSpanLinePositionSpan");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Location Create(global::System.String filePath, global::Microsoft.CodeAnalysis.Text.TextSpan textSpan, global::Microsoft.CodeAnalysis.Text.LinePositionSpan lineSpan, global::System.String mappedFilePath, global::Microsoft.CodeAnalysis.Text.LinePositionSpan mappedLineSpan)
         {
             return CreateFunc0(filePath, textSpan, lineSpan, mappedFilePath, mappedLineSpan);

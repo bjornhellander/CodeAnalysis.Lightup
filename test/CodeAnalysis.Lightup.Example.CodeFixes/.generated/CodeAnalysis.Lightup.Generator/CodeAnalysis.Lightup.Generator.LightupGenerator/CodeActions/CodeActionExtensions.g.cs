@@ -52,13 +52,13 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             GetOperationsAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetOperationsAsyncDelegate0>(wrappedType, "GetOperationsAsync", "originalSolutionSolution", "progressIProgress`1", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public static global::System.Boolean IsInlinable(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
         {
             return IsInlinableGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> NestedActions(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
         {
             return NestedActionsGetterFunc(_obj);
@@ -94,19 +94,19 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             return CreateFunc3(title, nestedActions, isInlinable, priority);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
         {
             return CreateFunc4(title, createChangedDocument, equivalenceKey, priority);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
         {
             return CreateFunc5(title, createChangedSolution, equivalenceKey, priority);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeActionOperation>> GetOperationsAsync(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj, global::Microsoft.CodeAnalysis.Solution originalSolution, global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> progress, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetOperationsAsyncFunc0(_obj, originalSolution, progress, cancellationToken);

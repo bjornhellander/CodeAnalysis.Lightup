@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
 public partial class IOperationExtensions {
 public partial struct OperationListWrapper {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed. Added in version 4.2.0.0.</summary>
     public partial struct ReversedWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Reversed";
@@ -39,7 +39,7 @@ public partial struct OperationListWrapper {
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.2.0.0.</summary>
         public global::System.Int32 Count
         {
             get { return CountGetterFunc(wrappedObject); }
@@ -64,13 +64,13 @@ public partial struct OperationListWrapper {
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
         {
             return GetEnumeratorFunc0(wrappedObject);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
         {
             return ToImmutableArrayFunc1(wrappedObject);

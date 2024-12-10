@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation. Added in version 4.1.0.0.</summary>
     public partial struct IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IInterpolatedStringHandlerArgumentPlaceholderOperation";
@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::System.Int32 ArgumentIndex
         {
             get { return ArgumentIndexGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Operations.Lightup.InterpolatedStringArgumentPlaceholderKindEx PlaceholderKind
         {
             get { return PlaceholderKindGetterFunc(wrappedObject); }

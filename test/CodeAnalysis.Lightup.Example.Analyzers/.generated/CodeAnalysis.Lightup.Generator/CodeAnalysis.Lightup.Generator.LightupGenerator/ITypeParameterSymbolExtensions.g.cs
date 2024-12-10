@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             ReferenceTypeConstraintNullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public static global::System.Boolean AllowsRefLikeType(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return AllowsRefLikeTypeGetterFunc(_obj);

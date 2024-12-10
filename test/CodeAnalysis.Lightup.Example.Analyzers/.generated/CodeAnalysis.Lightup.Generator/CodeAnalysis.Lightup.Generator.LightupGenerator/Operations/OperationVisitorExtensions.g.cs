@@ -79,7 +79,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitWithFunc20 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitWithDelegate20>(wrappedType, "VisitWith", "operationIWithOperation");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static void VisitAttribute(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper operation)
         {
             VisitAttributeFunc0(_obj, operation);
@@ -91,55 +91,55 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitBinaryPatternFunc1(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static void VisitCollectionExpression(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionOperationWrapper operation)
         {
             VisitCollectionExpressionFunc2(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitFunctionPointerInvocation(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper operation)
         {
             VisitFunctionPointerInvocationFunc3(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitImplicitIndexerReference(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IImplicitIndexerReferenceOperationWrapper operation)
         {
             VisitImplicitIndexerReferenceFunc4(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static void VisitInlineArrayAccess(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInlineArrayAccessOperationWrapper operation)
         {
             VisitInlineArrayAccessFunc5(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitInterpolatedStringAddition(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAdditionOperationWrapper operation)
         {
             VisitInterpolatedStringAdditionFunc6(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitInterpolatedStringAppend(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringAppendOperationWrapper operation)
         {
             VisitInterpolatedStringAppendFunc7(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitInterpolatedStringHandlerArgumentPlaceholder(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper operation)
         {
             VisitInterpolatedStringHandlerArgumentPlaceholderFunc8(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitInterpolatedStringHandlerCreation(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerCreationOperationWrapper operation)
         {
             VisitInterpolatedStringHandlerCreationFunc9(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitListPattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IListPatternOperationWrapper operation)
         {
             VisitListPatternFunc10(_obj, operation);
@@ -169,13 +169,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitRelationalPatternFunc14(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitSlicePattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ISlicePatternOperationWrapper operation)
         {
             VisitSlicePatternFunc15(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static void VisitSpread(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper operation)
         {
             VisitSpreadFunc16(_obj, operation);
@@ -193,7 +193,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitUsingDeclarationFunc18(_obj, operation);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static void VisitUtf8String(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IUtf8StringOperationWrapper operation)
         {
             VisitUtf8StringFunc19(_obj, operation);

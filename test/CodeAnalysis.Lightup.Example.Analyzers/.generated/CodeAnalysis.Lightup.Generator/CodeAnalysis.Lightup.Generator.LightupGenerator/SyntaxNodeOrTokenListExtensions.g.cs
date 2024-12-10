@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "nodesAndTokensReadOnlySpan`1");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNodeOrTokenList Create(global::System.ReadOnlySpan<global::Microsoft.CodeAnalysis.SyntaxNodeOrToken> nodesAndTokens)
         {
             return CreateFunc0(nodesAndTokens);

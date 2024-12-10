@@ -67,7 +67,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GeneratedFilesOutputDirectoryGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public static global::System.Boolean ReportInternalsVisibleToAttributes(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return ReportInternalsVisibleToAttributesGetterFunc(_obj);

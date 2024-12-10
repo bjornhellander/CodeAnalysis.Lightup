@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.InterceptableLocation. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.InterceptableLocation. Added in version 4.11.0.0.</summary>
     public partial struct InterceptableLocationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.InterceptableLocation";
@@ -37,13 +37,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public global::System.String Data
         {
             get { return DataGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public global::System.Int32 Version
         {
             get { return VersionGetterFunc(wrappedObject); }
@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public global::System.String GetDisplayLocation()
         {
             return GetDisplayLocationFunc0(wrappedObject);

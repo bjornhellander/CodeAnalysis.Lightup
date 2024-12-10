@@ -73,7 +73,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return FileGetterFunc();
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Required()
         {
             return RequiredGetterFunc();
@@ -97,7 +97,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return IsFileGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsRequiredGetterFunc(_obj);
@@ -127,7 +127,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return WithIsRefFunc2(_obj, isRef);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequired(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired)
         {
             return WithIsRequiredFunc3(_obj, isRequired);

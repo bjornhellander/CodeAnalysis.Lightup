@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             PartialImplementationPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialImplementationPartGetterDelegate>(wrappedType, nameof(PartialImplementationPart));
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public static global::System.Boolean IsPartialDefinition(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return IsPartialDefinitionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsRequired(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return IsRequiredGetterFunc(_obj);
@@ -49,13 +49,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return NullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IPropertySymbol? PartialDefinitionPart(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return PartialDefinitionPartGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPart(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return PartialImplementationPartGetterFunc(_obj);

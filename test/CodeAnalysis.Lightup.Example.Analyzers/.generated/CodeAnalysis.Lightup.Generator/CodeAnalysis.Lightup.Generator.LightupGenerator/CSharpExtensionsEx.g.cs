@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             ContainsDirectiveFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "nodeSyntaxNode", "kindSyntaxKind");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static global::System.Boolean ContainsDirective(this global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind)
         {
             return ContainsDirectiveFunc0(node, kind);

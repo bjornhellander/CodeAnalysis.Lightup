@@ -5,10 +5,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public static partial class SyntaxKindEx
     {
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExclamationExclamationToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8285;
+
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8287;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -38,16 +41,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnmanagedKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8446;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RequiredKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8447;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8448;
 
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8449;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -56,34 +59,34 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8518;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8519;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8520;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8521;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8MultiLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8522;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8692;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftAssignmentExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8726;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
 
         /// <summary>Added in version 4.12.0.0.</summary>
@@ -92,10 +95,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileScopedNamespaceDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8845;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsConstraintClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8879;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -116,10 +119,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NotPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9033;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SlicePattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9034;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -170,25 +173,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind LineSpanDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9071;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedSingleLineRawStringStartToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9072;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedMultiLineRawStringStartToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9073;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InterpolatedRawStringEndToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9074;
 
         /// <summary>Added in version 4.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ScopedType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9075;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind CollectionExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9076;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExpressionElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9077;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SpreadElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9078;
     }
 }

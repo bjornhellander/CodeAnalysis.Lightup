@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             LoadTextAndVersionAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<LoadTextAndVersionAsyncDelegate0>(wrappedType, "LoadTextAndVersionAsync", "optionsLoadTextOptions", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.TextAndVersion> LoadTextAndVersionAsync(this global::Microsoft.CodeAnalysis.TextLoader _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper options, global::System.Threading.CancellationToken cancellationToken)
         {
             return LoadTextAndVersionAsyncFunc0(_obj, options, cancellationToken);

@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ISpreadOperation. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ISpreadOperation. Added in version 4.9.0.0.</summary>
     public partial struct ISpreadOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISpreadOperation";
@@ -34,19 +34,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Operations.CommonConversion ElementConversion
         {
             get { return ElementConversionGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ITypeSymbol? ElementType
         {
             get { return ElementTypeGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Operand
         {
             get { return OperandGetterFunc(wrappedObject); }

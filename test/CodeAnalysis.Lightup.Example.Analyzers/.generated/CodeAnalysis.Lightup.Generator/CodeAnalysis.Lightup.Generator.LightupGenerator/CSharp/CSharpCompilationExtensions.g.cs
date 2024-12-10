@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             GetUsedAssemblyReferencesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate1>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModel(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options)
         {
             return GetSemanticModelFunc0(_obj, syntaxTree, options);

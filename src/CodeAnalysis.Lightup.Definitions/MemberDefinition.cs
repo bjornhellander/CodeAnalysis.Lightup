@@ -17,4 +17,6 @@ public abstract class MemberDefinition
         get => AssemblyVersion?.ToString();
         set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
     }
+
+    public bool IsRemoved { get; set; }
 }

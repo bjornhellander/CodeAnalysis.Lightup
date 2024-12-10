@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownGeneratorOutputs. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.WellKnownGeneratorOutputs. Added in version 4.1.0.0.</summary>
     public static partial class WellKnownGeneratorOutputsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownGeneratorOutputs";
@@ -22,13 +22,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             SourceOutputGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<SourceOutputGetterDelegate>(wrappedType, nameof(SourceOutput));
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String ImplementationSourceOutput
         {
             get { return ImplementationSourceOutputGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.1.0.0.</summary>
         public static global::System.String SourceOutput
         {
             get { return SourceOutputGetterFunc(); }

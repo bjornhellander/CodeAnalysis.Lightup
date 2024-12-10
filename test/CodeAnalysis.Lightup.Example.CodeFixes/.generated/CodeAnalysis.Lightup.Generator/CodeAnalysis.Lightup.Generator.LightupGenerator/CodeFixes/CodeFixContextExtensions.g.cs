@@ -28,19 +28,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             TextDocumentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<TextDocumentGetterDelegate>(wrappedType, nameof(TextDocument));
         }
 
-        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        /// <summary>Constructor added in version 4.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext Create(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Diagnostic diagnostic, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken)
         {
             return ConstructorFunc0(document, diagnostic, registerCodeFix, cancellationToken);
         }
 
-        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        /// <summary>Constructor added in version 4.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext Create(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> diagnostics, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken)
         {
             return ConstructorFunc1(document, span, diagnostics, registerCodeFix, cancellationToken);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.TextDocument TextDocument(this global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext _obj)
         {
             return TextDocumentGetterFunc(_obj);

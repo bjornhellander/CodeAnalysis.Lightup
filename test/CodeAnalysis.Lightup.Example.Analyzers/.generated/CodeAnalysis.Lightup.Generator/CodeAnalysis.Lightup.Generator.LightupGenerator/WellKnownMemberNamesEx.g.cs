@@ -58,49 +58,49 @@ namespace Microsoft.CodeAnalysis.Lightup
             TopLevelStatementsEntryPointTypeNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedAdditionOperatorName
         {
             get { return CheckedAdditionOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedDecrementOperatorName
         {
             get { return CheckedDecrementOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedDivisionOperatorName
         {
             get { return CheckedDivisionOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedExplicitConversionName
         {
             get { return CheckedExplicitConversionNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedIncrementOperatorName
         {
             get { return CheckedIncrementOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedMultiplyOperatorName
         {
             get { return CheckedMultiplyOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedSubtractionOperatorName
         {
             get { return CheckedSubtractionOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 4.4.0.0.</summary>
+        /// <summary>Field added in version 4.3.0.0.</summary>
         public static global::System.String CheckedUnaryNegationOperatorName
         {
             get { return CheckedUnaryNegationOperatorNameGetterFunc(); }

@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsCheckedOperatorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsCheckedOperatorDelegate0>(wrappedType, "IsCheckedOperator", "operatorMetadataNameString");
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsCheckedOperator(global::System.String operatorMetadataName)
         {
             return IsCheckedOperatorFunc0(operatorMetadataName);

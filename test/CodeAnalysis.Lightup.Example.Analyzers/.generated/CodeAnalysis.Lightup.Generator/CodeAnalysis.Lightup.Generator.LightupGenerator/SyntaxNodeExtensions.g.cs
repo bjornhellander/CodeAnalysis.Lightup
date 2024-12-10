@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsIncrementallyIdenticalToFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public static global::System.Boolean ContainsDirective(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 rawKind)
         {
             return ContainsDirectiveFunc0(_obj, rawKind);

@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LoadTextOptions. Added in version 4.8.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.LoadTextOptions. Added in version 4.5.0.0.</summary>
     public partial struct LoadTextOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
@@ -40,13 +40,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Constructor added in version 4.8.0.0.</summary>
+        /// <summary>Constructor added in version 4.5.0.0.</summary>
         public static LoadTextOptionsWrapper Create(global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm)
         {
             return ConstructorFunc0(checksumAlgorithm);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.5.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithm
         {
             get { return ChecksumAlgorithmGetterFunc(wrappedObject); }
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.5.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other)
         {
             return EqualsFunc0(wrappedObject, other);

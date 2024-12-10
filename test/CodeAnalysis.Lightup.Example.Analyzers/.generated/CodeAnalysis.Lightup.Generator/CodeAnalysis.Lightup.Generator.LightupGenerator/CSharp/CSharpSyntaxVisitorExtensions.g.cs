@@ -103,7 +103,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitWithExpressionFunc28 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate28>(wrappedType, "VisitWithExpression", "nodeWithExpressionSyntax");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static void VisitAllowsConstraintClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper node)
         {
             VisitAllowsConstraintClauseFunc0(_obj, node);
@@ -115,7 +115,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitBinaryPatternFunc1(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static void VisitCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node)
         {
             VisitCollectionExpressionFunc2(_obj, node);
@@ -133,7 +133,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitExpressionColonFunc4(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static void VisitExpressionElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node)
         {
             VisitExpressionElementFunc5(_obj, node);
@@ -205,7 +205,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitLineSpanDirectiveTriviaFunc16(_obj, node);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitListPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node)
         {
             VisitListPatternFunc17(_obj, node);
@@ -229,7 +229,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitRecordDeclarationFunc20(_obj, node);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.11.0.0.</summary>
         public static void VisitRefStructConstraint(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper node)
         {
             VisitRefStructConstraintFunc21(_obj, node);
@@ -247,13 +247,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitScopedTypeFunc23(_obj, node);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static void VisitSlicePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node)
         {
             VisitSlicePatternFunc24(_obj, node);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.7.0.0.</summary>
         public static void VisitSpreadElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node)
         {
             VisitSpreadElementFunc25(_obj, node);

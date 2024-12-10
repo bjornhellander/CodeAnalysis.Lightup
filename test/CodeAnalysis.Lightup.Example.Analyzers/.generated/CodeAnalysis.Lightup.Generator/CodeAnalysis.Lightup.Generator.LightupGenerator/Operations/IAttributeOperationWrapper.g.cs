@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IAttributeOperation. Added in version 4.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IAttributeOperation. Added in version 4.5.0.0.</summary>
     public partial struct IAttributeOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IAttributeOperation";
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.5.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Operation
         {
             get { return OperationGetterFunc(wrappedObject); }

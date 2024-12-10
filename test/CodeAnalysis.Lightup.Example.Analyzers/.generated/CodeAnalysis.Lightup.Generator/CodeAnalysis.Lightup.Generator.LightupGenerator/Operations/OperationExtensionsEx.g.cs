@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             GetFunctionPointerSignatureFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, "GetFunctionPointerSignature", "functionPointerIFunctionPointerInvocationOperation");
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignature(this global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer)
         {
             return GetFunctionPointerSignatureFunc0(functionPointer);

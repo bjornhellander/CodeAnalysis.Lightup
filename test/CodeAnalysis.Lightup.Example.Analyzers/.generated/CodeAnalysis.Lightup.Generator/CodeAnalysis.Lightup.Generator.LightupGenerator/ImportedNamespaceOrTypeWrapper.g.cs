@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ImportedNamespaceOrType. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.ImportedNamespaceOrType. Added in version 4.3.0.0.</summary>
     public partial struct ImportedNamespaceOrTypeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReference
         {
             get { return DeclaringSyntaxReferenceGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrType
         {
             get { return NamespaceOrTypeGetterFunc(wrappedObject); }

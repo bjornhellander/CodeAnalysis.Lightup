@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.ArgumentKind.</summary>
     public static partial class ArgumentKindEx
     {
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.10.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.Operations.ArgumentKind ParamCollection = (global::Microsoft.CodeAnalysis.Operations.ArgumentKind)4;
     }
 }

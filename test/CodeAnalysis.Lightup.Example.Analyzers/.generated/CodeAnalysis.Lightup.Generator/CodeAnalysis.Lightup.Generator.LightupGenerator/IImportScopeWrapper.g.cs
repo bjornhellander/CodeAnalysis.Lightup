@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IImportScope. Added in version 4.4.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IImportScope. Added in version 4.3.0.0.</summary>
     public partial struct IImportScopeWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IImportScope";
@@ -37,25 +37,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> Aliases
         {
             get { return AliasesGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IAliasSymbol> ExternAliases
         {
             get { return ExternAliasesGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedNamespaceOrTypeWrapper> Imports
         {
             get { return ImportsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.ImportedXmlNamespaceWrapper> XmlNamespaces
         {
             get { return XmlNamespacesGetterFunc(wrappedObject); }

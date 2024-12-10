@@ -1702,6 +1702,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             return "@finally";
         }
+        else if (name == "default")
+        {
+            return "@default";
+        }
         else
         {
             return name;

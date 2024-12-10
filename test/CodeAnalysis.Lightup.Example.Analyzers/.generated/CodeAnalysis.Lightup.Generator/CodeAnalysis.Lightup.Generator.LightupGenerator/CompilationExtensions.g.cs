@@ -14,8 +14,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol CreateBuiltinOperatorDelegate3(global::Microsoft.CodeAnalysis.Compilation? _obj, global::System.String name, global::Microsoft.CodeAnalysis.ITypeSymbol returnType, global::Microsoft.CodeAnalysis.ITypeSymbol leftType, global::Microsoft.CodeAnalysis.ITypeSymbol rightType);
         private delegate global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbolDelegate4(global::Microsoft.CodeAnalysis.Compilation? _obj, global::Microsoft.CodeAnalysis.ITypeSymbol returnType, global::Microsoft.CodeAnalysis.RefKind returnRefKind, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> parameterTypes, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.RefKind> parameterRefKinds, global::System.Reflection.Metadata.SignatureCallingConvention callingConvention, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> callingConventionTypes);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbolDelegate5(global::Microsoft.CodeAnalysis.Compilation? _obj, global::System.Boolean signed);
-        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate6(global::Microsoft.CodeAnalysis.Compilation? _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
-        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate7(global::Microsoft.CodeAnalysis.Compilation? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate6(global::Microsoft.CodeAnalysis.Compilation? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate7(global::Microsoft.CodeAnalysis.Compilation? _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
         private delegate global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifferenceDelegate8(global::Microsoft.CodeAnalysis.Compilation? _obj, global::Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, global::System.Func<global::Microsoft.CodeAnalysis.ISymbol, global::System.Boolean> isAddedSymbol, global::System.IO.Stream metadataStream, global::System.IO.Stream ilStream, global::System.IO.Stream pdbStream, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate9(global::Microsoft.CodeAnalysis.Compilation? _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataNameDelegate10(global::Microsoft.CodeAnalysis.Compilation? _obj, global::System.String fullyQualifiedMetadataName);
@@ -46,8 +46,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateBuiltinOperatorFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateBuiltinOperatorDelegate3>(wrappedType, "CreateBuiltinOperator", "nameString", "returnTypeITypeSymbol", "leftTypeITypeSymbol", "rightTypeITypeSymbol");
             CreateFunctionPointerTypeSymbolFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateFunctionPointerTypeSymbolDelegate4>(wrappedType, "CreateFunctionPointerTypeSymbol", "returnTypeITypeSymbol", "returnRefKindRefKind", "parameterTypesImmutableArray`1", "parameterRefKindsImmutableArray`1", "callingConventionSignatureCallingConvention", "callingConventionTypesImmutableArray`1");
             CreateNativeIntegerTypeSymbolFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateNativeIntegerTypeSymbolDelegate5>(wrappedType, "CreateNativeIntegerTypeSymbol", "signedBoolean");
-            CreateTupleTypeSymbolFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate6>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
-            CreateTupleTypeSymbolFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate7>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
+            CreateTupleTypeSymbolFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate6>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
+            CreateTupleTypeSymbolFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate7>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
             EmitDifferenceFunc8 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDifferenceDelegate8>(wrappedType, "EmitDifference", "baselineEmitBaseline", "editsIEnumerable`1", "isAddedSymbolFunc`2", "metadataStreamStream", "ilStreamStream", "pdbStreamStream", "cancellationTokenCancellationToken");
             GetSemanticModelFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate9>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
             GetTypesByMetadataNameFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate10>(wrappedType, "GetTypesByMetadataName", "fullyQualifiedMetadataNameString");
@@ -92,15 +92,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
+        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
         {
-            return CreateTupleTypeSymbolFunc6(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
+            return CreateTupleTypeSymbolFunc6(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
+        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
         {
-            return CreateTupleTypeSymbolFunc7(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
+            return CreateTupleTypeSymbolFunc7(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
@@ -109,13 +109,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return EmitDifferenceFunc8(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModel(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options)
         {
             return GetSemanticModelFunc9(_obj, syntaxTree, options);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.2.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataName(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String fullyQualifiedMetadataName)
         {
             return GetTypesByMetadataNameFunc10(_obj, fullyQualifiedMetadataName);
@@ -127,7 +127,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetUsedAssemblyReferencesFunc11(_obj, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::System.Boolean SupportsRuntimeCapability(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability)
         {
             return SupportsRuntimeCapabilityFunc12(_obj, capability);

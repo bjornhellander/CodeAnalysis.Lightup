@@ -28,13 +28,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetNullableContextFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public static global::System.Boolean NullableAnalysisIsDisabled(this global::Microsoft.CodeAnalysis.SemanticModel _obj)
         {
             return NullableAnalysisIsDisabledGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.4.0.0.</summary>
+        /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopes(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetImportScopesFunc0(_obj, position, cancellationToken);

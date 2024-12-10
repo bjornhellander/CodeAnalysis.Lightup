@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             IsInitializationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsInitializationGetterDelegate>(wrappedType, nameof(IsInitialization));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public static global::System.Boolean IsInitialization(this global::Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation _obj)
         {
             return IsInitializationGetterFunc(_obj);

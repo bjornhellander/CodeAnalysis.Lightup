@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             CreateInitialBaselineFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateInitialBaselineDelegate0>(wrappedType, "CreateInitialBaseline", "compilationCompilation", "moduleModuleMetadata", "debugInformationProviderFunc`2", "localSignatureProviderFunc`2", "hasPortableDebugInformationBoolean");
         }
 
-        /// <summary>Method added in version 4.12.0.0.</summary>
+        /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitBaseline CreateInitialBaseline(global::Microsoft.CodeAnalysis.Compilation compilation, global::Microsoft.CodeAnalysis.ModuleMetadata module, global::System.Func<global::System.Reflection.Metadata.MethodDefinitionHandle, global::Microsoft.CodeAnalysis.Emit.EditAndContinueMethodDebugInformation> debugInformationProvider, global::System.Func<global::System.Reflection.Metadata.MethodDefinitionHandle, global::System.Reflection.Metadata.StandaloneSignatureHandle> localSignatureProvider, global::System.Boolean hasPortableDebugInformation)
         {
             return CreateInitialBaselineFunc0(compilation, module, debugInformationProvider, localSignatureProvider, hasPortableDebugInformation);

@@ -37,13 +37,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsDiscardGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public static global::System.Boolean IsParamsArray(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
         {
             return IsParamsArrayGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public static global::System.Boolean IsParamsCollection(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
         {
             return IsParamsCollectionGetterFunc(_obj);

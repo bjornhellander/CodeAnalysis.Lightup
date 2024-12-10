@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.RuntimeRudeEdit. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Emit.RuntimeRudeEdit. Added in version 4.9.0.0.</summary>
     public partial struct RuntimeRudeEditWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.RuntimeRudeEdit";
@@ -34,13 +34,13 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Constructor added in version 4.12.0.0.</summary>
+        /// <summary>Constructor added in version 4.9.0.0.</summary>
         public static RuntimeRudeEditWrapper Create(global::System.String message)
         {
             return ConstructorFunc0(message);
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.9.0.0.</summary>
         public global::System.String Message
         {
             get { return MessageGetterFunc(wrappedObject); }

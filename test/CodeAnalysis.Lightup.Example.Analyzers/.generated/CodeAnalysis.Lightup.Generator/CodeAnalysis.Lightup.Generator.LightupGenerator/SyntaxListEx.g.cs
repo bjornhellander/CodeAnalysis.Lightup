@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxList. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SyntaxList. Added in version 4.10.0.0.</summary>
     public static partial class SyntaxListEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxList";

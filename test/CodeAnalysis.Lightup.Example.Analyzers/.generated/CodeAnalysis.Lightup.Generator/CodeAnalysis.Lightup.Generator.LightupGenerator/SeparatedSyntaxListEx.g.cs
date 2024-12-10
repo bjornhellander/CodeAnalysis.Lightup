@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SeparatedSyntaxList. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SeparatedSyntaxList. Added in version 4.10.0.0.</summary>
     public static partial class SeparatedSyntaxListEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SeparatedSyntaxList";

@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsSwitchExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsDefaultLiteralGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.7.0.0.</summary>
         public static global::System.Boolean IsInlineArray(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsInlineArrayGetterFunc(_obj);
@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsInterpolatedStringHandlerGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 4.4.0.0.</summary>
+        /// <summary>Property added in version 4.1.0.0.</summary>
         public static global::System.Boolean IsObjectCreation(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsObjectCreationGetterFunc(_obj);

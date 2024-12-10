@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.CSharp.Lightup
 {
 public partial struct SyntaxTokenParserWrapper {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser+Result. Added in version 4.12.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser+Result. Added in version 4.10.0.0.</summary>
     public partial struct ResultWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser+Result";
@@ -32,13 +32,13 @@ public partial struct SyntaxTokenParserWrapper {
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ContextualKind
         {
             get { return ContextualKindGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 4.12.0.0.</summary>
+        /// <summary>Property added in version 4.10.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken Token
         {
             get { return TokenGetterFunc(wrappedObject); }

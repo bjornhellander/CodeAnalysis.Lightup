@@ -26,49 +26,49 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind With = (global::Microsoft.CodeAnalysis.OperationKind)113;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerCreation = (global::Microsoft.CodeAnalysis.OperationKind)114;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAddition = (global::Microsoft.CodeAnalysis.OperationKind)115;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendLiteral = (global::Microsoft.CodeAnalysis.OperationKind)116;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendFormatted = (global::Microsoft.CodeAnalysis.OperationKind)117;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendInvalid = (global::Microsoft.CodeAnalysis.OperationKind)118;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerArgumentPlaceholder = (global::Microsoft.CodeAnalysis.OperationKind)119;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind FunctionPointerInvocation = (global::Microsoft.CodeAnalysis.OperationKind)120;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind ListPattern = (global::Microsoft.CodeAnalysis.OperationKind)121;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind SlicePattern = (global::Microsoft.CodeAnalysis.OperationKind)122;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind ImplicitIndexerReference = (global::Microsoft.CodeAnalysis.OperationKind)123;
 
-        /// <summary>Added in version 4.4.0.0.</summary>
+        /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Utf8String = (global::Microsoft.CodeAnalysis.OperationKind)124;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.5.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Attribute = (global::Microsoft.CodeAnalysis.OperationKind)125;
 
-        /// <summary>Added in version 4.8.0.0.</summary>
+        /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (global::Microsoft.CodeAnalysis.OperationKind)126;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind CollectionExpression = (global::Microsoft.CodeAnalysis.OperationKind)127;
 
-        /// <summary>Added in version 4.12.0.0.</summary>
+        /// <summary>Added in version 4.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Spread = (global::Microsoft.CodeAnalysis.OperationKind)128;
     }
 }

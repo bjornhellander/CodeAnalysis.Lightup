@@ -28,19 +28,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithParameterListFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
         }
 
-        /// <summary>Property added in version 4.8.0.0.</summary>
+        /// <summary>Property added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj)
         {
             return ParameterListGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
         {
             return AddParameterListParametersFunc0(_obj, items);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
+        /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
         {
             return WithParameterListFunc1(_obj, parameterList);
