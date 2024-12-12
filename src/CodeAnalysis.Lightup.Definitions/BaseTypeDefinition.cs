@@ -48,6 +48,8 @@ public abstract class BaseTypeDefinition
         set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
     }
 
+    public bool IsRemoved { get; set; }
+
     public string Name { get; set; }
 
     public string Namespace { get; set; }

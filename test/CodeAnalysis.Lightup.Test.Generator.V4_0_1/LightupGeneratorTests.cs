@@ -564,6 +564,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         await test.RunAsync();
     }
 
+    // TODO: Add a test that includes removed types
+    // NOTE: The type was added in 3.1.0.0 but later on removed again
+    [TestMethod]
+    public async Task TestBaseExpressionTypeClauseSyntax_V3_0_0_0()
+    {
+        var test = CreateTest(AssemblyKind.CSharp, "3.0.0.0", ["Microsoft.CodeAnalysis.CSharp.Syntax.BaseExpressionTypeClauseSyntax"]);
+        test.TestState.GeneratedSources.Add((typeof(LightupGenerator), "SeparatedSyntaxListWrapper.g.cs", SourceText.From(SeparatedSyntaxListWrapperSource, Encoding.UTF8)));
+        await test.RunAsync();
+    }
+
     // TODO: Add a test that includes removed members
     // NOTE: A method was added in 4.3.0.0 but later on removed again
     [TestMethod]

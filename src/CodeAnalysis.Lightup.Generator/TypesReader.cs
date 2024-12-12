@@ -400,7 +400,7 @@ internal static class TypesReader
         out string? enclosingTypeFullName)
     {
         assemblyKind = GetChildEnum<AssemblyKind>(element, "AssemblyKind");
-        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, false);
+        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
         name = GetChildString(element, "Name");
         @namespace = GetChildString(element, "Namespace");
         fullName = GetChildString(element, "FullName");

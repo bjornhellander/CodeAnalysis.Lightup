@@ -63,7 +63,7 @@ internal class Reflector
         var assemblyLoadContext = new AssemblyLoadContext(referenceProjectName);
         assemblyLoadContext.Resolving += ResolveAssembly;
 
-        MarkMembersAsRemoved(typeDefs.Values);
+        MarkTypesMembersAsRemoved(typeDefs.Values);
 
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
         {
@@ -78,10 +78,12 @@ internal class Reflector
         }
     }
 
-    private static void MarkMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
+    private static void MarkTypesMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
     {
         foreach (var typeDef in typeDefs)
         {
+            typeDef.IsRemoved = true;
+
             switch (typeDef)
             {
                 case TypeDefinition x:
@@ -145,7 +147,7 @@ internal class Reflector
 
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
-        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
+        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, UpdateTypeDefinitions);
     }
 
     private static void VisitTypes(
@@ -294,7 +296,7 @@ internal class Reflector
             enclosingTypeDef?.FullName);
     }
 
-    private static void AddTypeMemberDefinitions(
+    private static void UpdateTypeDefinitions(
         Type type,
         string name,
         Dictionary<string, BaseTypeDefinition> typeDefs,
@@ -309,6 +311,8 @@ internal class Reflector
         {
             Assert.Fail("Could not find type");
         }
+
+        typeDef.IsRemoved = false;
 
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {

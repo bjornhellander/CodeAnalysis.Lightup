@@ -21,7 +21,7 @@ public class TypesReaderTests
     {
         var types = TypesReader.Read(new Version(3, 0, 0, 0));
         Assert.AreEqual(896, types.Count);
-        Assert.AreEqual(156, types.Count(x => x.AssemblyVersion != null));
+        Assert.AreEqual(153, types.Count(x => x.AssemblyVersion != null));
 
         var type1 = (TypeDefinition)types.Single(x => x.FullName == "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult");
         Assert.AreEqual(new Version(3, 1, 0, 0), type1.AssemblyVersion);
