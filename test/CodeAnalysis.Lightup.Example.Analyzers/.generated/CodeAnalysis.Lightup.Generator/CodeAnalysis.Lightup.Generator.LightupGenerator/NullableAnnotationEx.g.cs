@@ -8,12 +8,6 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         None = 0,
 
-        /// <summary>Added in version 3.1.0.0.</summary>
-        NotApplicable = 0,
-
-        /// <summary>Added in version 3.1.0.0.</summary>
-        Disabled = 1,
-
         /// <summary>Added in version 3.8.0.0.</summary>
         NotAnnotated = 1,
 

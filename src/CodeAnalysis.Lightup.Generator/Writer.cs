@@ -494,7 +494,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
-        var newValues = typeDef.Values.OrderBy(x => x.Value).ToList();
+        var newValues = typeDef.Values.Where(x => x.AssemblyVersion != null).OrderBy(x => x.Value).ToList();
         var targetName = typeDef.GeneratedName;
 
         var sb = new StringBuilder();

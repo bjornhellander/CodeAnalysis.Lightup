@@ -5,9 +5,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public static partial class SyntaxKindEx
     {
-        /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExclamationExclamationToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8285;
-
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
@@ -22,9 +19,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NotKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8440;
-
-        /// <summary>Added in version 3.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DataKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8441;
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WithKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8442;
@@ -76,9 +70,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
-
-        /// <summary>Added in version 3.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind BaseExpressionTypeClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;

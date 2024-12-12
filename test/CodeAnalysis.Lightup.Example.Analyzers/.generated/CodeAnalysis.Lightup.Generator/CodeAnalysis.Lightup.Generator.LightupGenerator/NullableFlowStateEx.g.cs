@@ -9,9 +9,6 @@ namespace Microsoft.CodeAnalysis.Lightup
         None = 0,
 
         /// <summary>Added in version 3.1.0.0.</summary>
-        NotApplicable = 0,
-
-        /// <summary>Added in version 3.1.0.0.</summary>
         NotNull = 1,
 
         /// <summary>Added in version 3.1.0.0.</summary>

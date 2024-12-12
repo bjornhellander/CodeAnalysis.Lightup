@@ -90,13 +90,22 @@ internal class Reflector
                     MarkMembersAsRemoved(x);
                     break;
 
-                case EnumTypeDefinition:
+                case EnumTypeDefinition x:
+                    MarkValuesAsRemoved(x);
                     break;
 
                 default:
                     Assert.Fail($"Unexpected type {typeDef.GetType()}");
                     break;
             }
+        }
+    }
+
+    private static void MarkValuesAsRemoved(EnumTypeDefinition enumTypeDef)
+    {
+        foreach (var enumValueDef in enumTypeDef.Values)
+        {
+            enumValueDef.IsRemoved = true;
         }
     }
 
@@ -347,17 +356,19 @@ internal class Reflector
             var duplicateValueDef = enumTypeDef.Values.SingleOrDefault(x => x.Name == name);
             if (duplicateValueDef != null)
             {
+                duplicateValueDef.IsRemoved = false;
+
                 if (duplicateValueDef.Value != value)
                 {
                     duplicateValueDef.Value = value;
                     duplicateValueDef.AssemblyVersion = version;
                 }
-
-                continue;
             }
-
-            var enumValueDef = new EnumValueDefinition(version, name, value);
-            enumTypeDef.Values.Add(enumValueDef);
+            else
+            {
+                var enumValueDef = new EnumValueDefinition(version, name, value);
+                enumTypeDef.Values.Add(enumValueDef);
+            }
         }
 
         enumTypeDef.Values.Sort(enumValueComparer);
