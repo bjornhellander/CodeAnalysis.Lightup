@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult. Added in version 3.1.0.0.</summary>
     public partial struct AnalyzerConfigOptionsResultWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult";
@@ -34,19 +34,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptions
         {
             get { return AnalyzerOptionsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> Diagnostics
         {
             get { return DiagnosticsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptions
         {
             get { return TreeOptionsGetterFunc(wrappedObject); }

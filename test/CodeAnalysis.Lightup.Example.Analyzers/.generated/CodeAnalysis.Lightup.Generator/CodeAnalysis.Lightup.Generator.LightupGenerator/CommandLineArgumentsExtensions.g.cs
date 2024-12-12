@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetPdbFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPaths(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return AnalyzerConfigPathsGetterFunc(_obj);

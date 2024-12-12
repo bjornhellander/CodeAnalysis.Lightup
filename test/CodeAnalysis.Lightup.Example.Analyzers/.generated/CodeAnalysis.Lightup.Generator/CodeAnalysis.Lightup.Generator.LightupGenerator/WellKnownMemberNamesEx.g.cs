@@ -106,13 +106,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return CheckedUnaryNegationOperatorNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.1.0.0.</summary>
         public static global::System.String CountPropertyName
         {
             get { return CountPropertyNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.1.0.0.</summary>
         public static global::System.String LengthPropertyName
         {
             get { return LengthPropertyNameGetterFunc(); }
@@ -124,7 +124,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return PrintMembersMethodNameGetterFunc(); }
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.1.0.0.</summary>
         public static global::System.String SliceMethodName
         {
             get { return SliceMethodNameGetterFunc(); }

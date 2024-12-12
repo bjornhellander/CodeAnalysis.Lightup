@@ -24,8 +24,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocumentsDelegate10(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
         private delegate global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerReferenceDelegate11(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference);
         private delegate global::Microsoft.CodeAnalysis.Solution RemoveDocumentsDelegate12(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
-        private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate13(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode);
-        private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate14(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.PreservationMode mode);
+        private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate13(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.PreservationMode mode);
+        private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextDelegate14(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode);
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoaderDelegate15(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextLoader loader, global::Microsoft.CodeAnalysis.PreservationMode mode);
         private delegate global::Microsoft.CodeAnalysis.Solution WithAnalyzerReferencesDelegate16(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
         private delegate global::Microsoft.CodeAnalysis.Solution WithOptionsDelegate17(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.Options.OptionSet options);
@@ -76,8 +76,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             RemoveAnalyzerConfigDocumentsFunc10 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerConfigDocumentsDelegate10>(wrappedType, "RemoveAnalyzerConfigDocuments", "documentIdsImmutableArray`1");
             RemoveAnalyzerReferenceFunc11 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveAnalyzerReferenceDelegate11>(wrappedType, "RemoveAnalyzerReference", "analyzerReferenceAnalyzerReference");
             RemoveDocumentsFunc12 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveDocumentsDelegate12>(wrappedType, "RemoveDocuments", "documentIdsImmutableArray`1");
-            WithAnalyzerConfigDocumentTextFunc13 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate13>(wrappedType, "WithAnalyzerConfigDocumentText", "documentIdDocumentId", "textAndVersionTextAndVersion", "modePreservationMode");
-            WithAnalyzerConfigDocumentTextFunc14 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate14>(wrappedType, "WithAnalyzerConfigDocumentText", "documentIdDocumentId", "textSourceText", "modePreservationMode");
+            WithAnalyzerConfigDocumentTextFunc13 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate13>(wrappedType, "WithAnalyzerConfigDocumentText", "documentIdDocumentId", "textSourceText", "modePreservationMode");
+            WithAnalyzerConfigDocumentTextFunc14 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextDelegate14>(wrappedType, "WithAnalyzerConfigDocumentText", "documentIdDocumentId", "textAndVersionTextAndVersion", "modePreservationMode");
             WithAnalyzerConfigDocumentTextLoaderFunc15 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentTextLoaderDelegate15>(wrappedType, "WithAnalyzerConfigDocumentTextLoader", "documentIdDocumentId", "loaderTextLoader", "modePreservationMode");
             WithAnalyzerReferencesFunc16 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerReferencesDelegate16>(wrappedType, "WithAnalyzerReferences", "analyzerReferencesIEnumerable`1");
             WithOptionsFunc17 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithOptionsDelegate17>(wrappedType, "WithOptions", "optionsOptionSet");
@@ -109,7 +109,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
         {
             return AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
@@ -127,7 +127,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.Boolean ContainsAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
         {
             return ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
@@ -151,7 +151,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveAdditionalDocumentsFunc8(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
             return RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
@@ -176,18 +176,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode)
-        {
-            return WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, textAndVersion, mode);
-        }
-
-        /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.PreservationMode mode)
         {
-            return WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, text, mode);
+            return WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode)
+        {
+            return WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);
+        }
+
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentTextLoader(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextLoader loader, global::Microsoft.CodeAnalysis.PreservationMode mode)
         {
             return WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);

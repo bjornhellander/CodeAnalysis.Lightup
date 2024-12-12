@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsPartialDefinitionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Boolean IsReadOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsReadOnlyGetterFunc(_obj);
@@ -88,13 +88,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return MethodImplementationFlagsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return ReceiverNullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return ReturnNullableAnnotationGetterFunc(_obj);

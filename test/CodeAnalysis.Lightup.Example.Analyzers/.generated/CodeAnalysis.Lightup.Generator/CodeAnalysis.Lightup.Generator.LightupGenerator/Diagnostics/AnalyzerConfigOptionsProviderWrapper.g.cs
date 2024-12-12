@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider. Added in version 3.1.0.0.</summary>
     public partial struct AnalyzerConfigOptionsProviderWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptionsProvider";
@@ -62,13 +62,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
         {
             return GetOptionsFunc0(wrappedObject, tree);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
         {
             return GetOptionsFunc1(wrappedObject, textFile);

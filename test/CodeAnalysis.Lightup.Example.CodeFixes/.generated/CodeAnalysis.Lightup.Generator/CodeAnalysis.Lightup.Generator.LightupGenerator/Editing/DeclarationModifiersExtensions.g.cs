@@ -121,7 +121,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return WithIsFileFunc1(_obj, isFile);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRef(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef)
         {
             return WithIsRefFunc2(_obj, isRef);

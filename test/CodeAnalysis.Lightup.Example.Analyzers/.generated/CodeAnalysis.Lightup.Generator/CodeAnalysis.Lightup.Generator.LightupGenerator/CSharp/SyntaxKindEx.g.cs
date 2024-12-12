@@ -77,6 +77,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
+        /// <summary>Added in version 3.1.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind BaseExpressionTypeClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
+
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 

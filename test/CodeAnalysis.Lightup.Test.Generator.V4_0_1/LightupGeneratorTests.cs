@@ -565,7 +565,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     }
 
     // TODO: Add a test that includes removed members
-    // NOTE: A method was in 4.3.0.0 but later on removed again
+    // NOTE: A method was added in 4.3.0.0 but later on removed again
     [TestMethod]
     public async Task TestModuleMetadata_V3_0_0_0()
     {

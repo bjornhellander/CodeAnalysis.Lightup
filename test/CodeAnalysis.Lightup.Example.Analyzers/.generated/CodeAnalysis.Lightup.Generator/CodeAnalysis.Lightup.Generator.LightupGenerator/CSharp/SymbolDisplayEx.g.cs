@@ -40,49 +40,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             ToMinimalDisplayStringFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ToMinimalDisplayStringDelegate7>(wrappedType, "ToMinimalDisplayString", "symbolITypeSymbol", "nullableAnnotationNullableAnnotation", "semanticModelSemanticModel", "positionInt32", "formatSymbolDisplayFormat");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToDisplayPartsFunc0(symbol, nullableFlowState, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayParts(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToDisplayPartsFunc1(symbol, nullableAnnotation, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.String ToDisplayString(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToDisplayStringFunc2(symbol, nullableFlowState, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.String ToDisplayString(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToDisplayStringFunc3(symbol, nullableAnnotation, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToMinimalDisplayPartsFunc4(symbol, nullableFlowState, semanticModel, position, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayParts(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToMinimalDisplayPartsFunc5(symbol, nullableAnnotation, semanticModel, position, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.String ToMinimalDisplayString(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx nullableFlowState, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToMinimalDisplayStringFunc6(symbol, nullableFlowState, semanticModel, position, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::System.String ToMinimalDisplayString(global::Microsoft.CodeAnalysis.ITypeSymbol symbol, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format)
         {
             return ToMinimalDisplayStringFunc7(symbol, nullableAnnotation, semanticModel, position, format);

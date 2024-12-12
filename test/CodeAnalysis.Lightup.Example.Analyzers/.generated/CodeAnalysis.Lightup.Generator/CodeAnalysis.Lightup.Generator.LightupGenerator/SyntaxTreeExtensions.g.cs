@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDiagnosticOptionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithDiagnosticOptionsDelegate1>(wrappedType, "WithDiagnosticOptions", "optionsImmutableDictionary`2");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptions(this global::Microsoft.CodeAnalysis.SyntaxTree _obj)
         {
             return DiagnosticOptionsGetterFunc(_obj);
@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetLineMappingsFunc0(_obj, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptions(this global::Microsoft.CodeAnalysis.SyntaxTree _obj, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> options)
         {
             return WithDiagnosticOptionsFunc1(_obj, options);

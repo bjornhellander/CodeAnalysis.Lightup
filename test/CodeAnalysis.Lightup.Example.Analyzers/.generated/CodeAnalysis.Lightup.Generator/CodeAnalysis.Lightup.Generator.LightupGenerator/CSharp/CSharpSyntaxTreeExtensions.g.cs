@@ -11,8 +11,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree CreateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String? path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions);
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree CreateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String? path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode);
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate2(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate3(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate4(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate3(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate4(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate5(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
 
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree? _obj, global::System.Threading.CancellationToken cancellationToken);
@@ -33,14 +33,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2");
             CreateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "rootCSharpSyntaxNode", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1");
             ParseTextFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate2>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
-            ParseTextFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
-            ParseTextFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(wrappedType, "ParseText", "textString", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseTextFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate3>(wrappedType, "ParseText", "textString", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseTextFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate4>(wrappedType, "ParseText", "textSourceText", "optionsCSharpParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
             ParseTextFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTextDelegate5>(wrappedType, "ParseText", "textString", "optionsCSharpParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
 
             GetLineMappingsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetLineMappingsDelegate0>(wrappedType, "GetLineMappings", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree Create(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode root, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String? path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions)
         {
             return CreateFunc0(root, options, path, encoding, diagnosticOptions);
@@ -52,22 +52,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return CreateFunc1(root, options, path, encoding, diagnosticOptions, isGeneratedCode);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree ParseText(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken)
         {
             return ParseTextFunc2(text, options, path, diagnosticOptions, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.SyntaxTree ParseText(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken)
+        /// <summary>Method added in version 3.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxTree ParseText(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseTextFunc3(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
+            return ParseTextFunc3(text, options, path, encoding, diagnosticOptions, cancellationToken);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.SyntaxTree ParseText(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.SyntaxTree ParseText(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseTextFunc4(text, options, path, encoding, diagnosticOptions, cancellationToken);
+            return ParseTextFunc4(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>

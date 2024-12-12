@@ -343,8 +343,12 @@ internal class Reflector
             var duplicateValueDef = enumTypeDef.Values.SingleOrDefault(x => x.Name == name);
             if (duplicateValueDef != null)
             {
-                // NOTE: Some enums have a value called Count, containing the number of defined values
-                Assert.IsTrue(duplicateValueDef.Value == value || name == "Count", "Unexpected enum value");
+                if (duplicateValueDef.Value != value)
+                {
+                    duplicateValueDef.Value = value;
+                    duplicateValueDef.AssemblyVersion = version;
+                }
+
                 continue;
             }
 
