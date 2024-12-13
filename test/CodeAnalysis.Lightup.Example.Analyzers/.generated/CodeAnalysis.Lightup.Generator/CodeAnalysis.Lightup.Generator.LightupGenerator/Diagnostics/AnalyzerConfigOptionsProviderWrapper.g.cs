@@ -12,8 +12,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(global::System.Object? _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree);
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.AdditionalText textFile);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.AdditionalText textFile);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree);
 
         private static readonly GlobalOptionsGetterDelegate GlobalOptionsGetterFunc;
 
@@ -28,8 +28,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
             GlobalOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<GlobalOptionsGetterDelegate>(WrappedType, nameof(GlobalOptions));
 
-            GetOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, "GetOptions", "treeSyntaxTree");
-            GetOptionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "textFileAdditionalText");
+            GetOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate0>(WrappedType, "GetOptions", "textFileAdditionalText");
+            GetOptionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "treeSyntaxTree");
         }
 
         private AnalyzerConfigOptionsProviderWrapper(global::System.Object? obj)
@@ -63,15 +63,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Method added in version 3.1.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
+        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
         {
-            return GetOptionsFunc0(wrappedObject, tree);
+            return GetOptionsFunc0(wrappedObject, textFile);
         }
 
         /// <summary>Method added in version 3.1.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.AdditionalText textFile)
+        public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptions(global::Microsoft.CodeAnalysis.SyntaxTree tree)
         {
-            return GetOptionsFunc1(wrappedObject, textFile);
+            return GetOptionsFunc1(wrappedObject, tree);
         }
     }
 }

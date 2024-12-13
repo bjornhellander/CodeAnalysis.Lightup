@@ -14,10 +14,10 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate0(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable);
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate1(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate2(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate3(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate4(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate5(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate2(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate3(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate4(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate5(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
 
         private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeActionOperation>> GetOperationsAsyncDelegate0(global::Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj, global::Microsoft.CodeAnalysis.Solution originalSolution, global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> progress, global::System.Threading.CancellationToken cancellationToken);
 
@@ -44,10 +44,10 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
 
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean");
             CreateFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
-            CreateFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
-            CreateFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean", "priorityCodeActionPriority");
-            CreateFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate4>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`3", "equivalenceKeyString", "priorityCodeActionPriority");
-            CreateFunc5 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate5>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`3", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate2>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`3", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate3>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate4>(wrappedType, "Create", "titleString", "createChangedSolutionFunc`3", "equivalenceKeyString", "priorityCodeActionPriority");
+            CreateFunc5 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate5>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean", "priorityCodeActionPriority");
 
             GetOperationsAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetOperationsAsyncDelegate0>(wrappedType, "GetOperationsAsync", "originalSolutionSolution", "progressIProgress`1", "cancellationTokenCancellationToken");
         }
@@ -82,28 +82,28 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             return CreateFunc1(title, createChangedDocument, equivalenceKey, priority);
         }
 
-        /// <summary>Method added in version 4.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
-        {
-            return CreateFunc2(title, createChangedSolution, equivalenceKey, priority);
-        }
-
-        /// <summary>Method added in version 4.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
-        {
-            return CreateFunc3(title, nestedActions, isInlinable, priority);
-        }
-
         /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
         {
-            return CreateFunc4(title, createChangedDocument, equivalenceKey, priority);
+            return CreateFunc2(title, createChangedDocument, equivalenceKey, priority);
+        }
+
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
+        {
+            return CreateFunc3(title, createChangedSolution, equivalenceKey, priority);
         }
 
         /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
         {
-            return CreateFunc5(title, createChangedSolution, equivalenceKey, priority);
+            return CreateFunc4(title, createChangedSolution, equivalenceKey, priority);
+        }
+
+        /// <summary>Method added in version 4.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority)
+        {
+            return CreateFunc5(title, nestedActions, isInlinable, priority);
         }
 
         /// <summary>Method added in version 4.9.0.0.</summary>
