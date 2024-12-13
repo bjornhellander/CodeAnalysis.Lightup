@@ -70,7 +70,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             return PriorityGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.CodeAction Create(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable)
         {
             return CreateFunc0(title, nestedActions, isInlinable);

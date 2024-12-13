@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.NullableContextOptionsExtensions. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.NullableContextOptionsExtensions. Added in version 3.3.0.0.</summary>
     public static partial class NullableContextOptionsExtensionsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullableContextOptionsExtensions";
@@ -22,13 +22,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             WarningsEnabledFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, "WarningsEnabled", "contextNullableContextOptions");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean AnnotationsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context)
         {
             return AnnotationsEnabledFunc0(context);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean WarningsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context)
         {
             return WarningsEnabledFunc1(context);

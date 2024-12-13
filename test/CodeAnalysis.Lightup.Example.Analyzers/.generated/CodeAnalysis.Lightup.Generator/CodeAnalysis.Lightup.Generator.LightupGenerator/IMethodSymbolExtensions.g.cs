@@ -100,7 +100,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ReturnNullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return TypeArgumentNullableAnnotationsGetterFunc(_obj);
@@ -112,7 +112,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return UnmanagedCallingConventionTypesGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol Construct(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
         {
             return ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);

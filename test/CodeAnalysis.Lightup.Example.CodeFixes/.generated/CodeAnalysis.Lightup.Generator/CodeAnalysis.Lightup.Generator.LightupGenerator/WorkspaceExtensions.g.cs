@@ -73,7 +73,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CanApplyCompilationOptionChangeFunc0(_obj, oldOptions, newOptions, project);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean CanApplyParseOptionChange(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
         {
             return CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);

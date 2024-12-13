@@ -82,7 +82,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsObjectCreationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.Boolean IsSwitchExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsSwitchExpressionGetterFunc(_obj);

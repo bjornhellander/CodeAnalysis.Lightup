@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.NullableFlowState. Added in version 3.1.0.0.</summary>
     public enum NullableFlowStateEx : global::System.Byte
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.3.0.0.</summary>
         None = 0,
 
         /// <summary>Added in version 3.1.0.0.</summary>

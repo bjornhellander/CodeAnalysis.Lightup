@@ -61,7 +61,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return WithCompilationOutputInfoFunc1(_obj, ref info);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace)
         {
             return WithDefaultNamespaceFunc2(_obj, defaultNamespace);

@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CompilationOutputInfoGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.String? DefaultNamespace(this global::Microsoft.CodeAnalysis.Project _obj)
         {
             return DefaultNamespaceGetterFunc(_obj);
@@ -148,7 +148,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveDocumentsFunc8(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project WithDefaultNamespace(this global::Microsoft.CodeAnalysis.Project _obj, global::System.String defaultNamespace)
         {
             return WithDefaultNamespaceFunc9(_obj, defaultNamespace);
