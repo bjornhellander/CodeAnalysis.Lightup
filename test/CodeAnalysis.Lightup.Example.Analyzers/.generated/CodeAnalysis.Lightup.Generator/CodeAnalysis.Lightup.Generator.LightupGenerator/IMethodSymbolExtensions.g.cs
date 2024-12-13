@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CallingConventionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Boolean IsConditional(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsConditionalGetterFunc(_obj);

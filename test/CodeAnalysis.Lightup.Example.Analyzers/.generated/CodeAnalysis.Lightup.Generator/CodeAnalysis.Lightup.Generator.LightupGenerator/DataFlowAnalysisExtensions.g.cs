@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             UsedLocalFunctionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<UsedLocalFunctionsGetterDelegate>(wrappedType, nameof(UsedLocalFunctions));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntry(this global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
         {
             return DefinitelyAssignedOnEntryGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExit(this global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj)
         {
             return DefinitelyAssignedOnExitGetterFunc(_obj);

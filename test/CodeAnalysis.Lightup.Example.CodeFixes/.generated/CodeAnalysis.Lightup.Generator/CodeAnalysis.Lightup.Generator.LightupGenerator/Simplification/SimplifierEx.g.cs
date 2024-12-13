@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Simplification.Lightup
             AddImportsAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AddImportsAnnotationGetterDelegate>(wrappedType, nameof(AddImportsAnnotation));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxAnnotation AddImportsAnnotation()
         {
             return AddImportsAnnotationGetterFunc();

@@ -151,13 +151,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitNegatedPatternFunc11(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.4.0.0.</summary>
         public static void VisitPropertySubpattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper operation)
         {
             VisitPropertySubpatternFunc12(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.4.0.0.</summary>
         public static void VisitRecursivePattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOperationWrapper operation)
         {
             VisitRecursivePatternFunc13(_obj, operation);
@@ -187,7 +187,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitTypePatternFunc17(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.4.0.0.</summary>
         public static void VisitUsingDeclaration(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IUsingDeclarationOperationWrapper operation)
         {
             VisitUsingDeclarationFunc18(_obj, operation);

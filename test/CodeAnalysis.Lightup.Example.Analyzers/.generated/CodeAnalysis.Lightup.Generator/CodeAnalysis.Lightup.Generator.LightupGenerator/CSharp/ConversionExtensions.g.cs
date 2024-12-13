@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsConditionalExpressionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Boolean IsDefaultLiteral(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsDefaultLiteralGetterFunc(_obj);
