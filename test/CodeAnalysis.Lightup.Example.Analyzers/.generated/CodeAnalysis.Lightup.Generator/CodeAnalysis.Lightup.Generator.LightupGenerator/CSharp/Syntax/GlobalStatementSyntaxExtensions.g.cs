@@ -40,43 +40,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithModifiersFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj)
         {
             return AttributeListsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj)
         {
             return ModifiersGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddAttributeListsFunc0(_obj, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
             return AddModifiersFunc1(_obj, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
             return UpdateFunc2(_obj, attributeLists, modifiers, statement);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc3(_obj, attributeLists);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
             return WithModifiersFunc4(_obj, modifiers);

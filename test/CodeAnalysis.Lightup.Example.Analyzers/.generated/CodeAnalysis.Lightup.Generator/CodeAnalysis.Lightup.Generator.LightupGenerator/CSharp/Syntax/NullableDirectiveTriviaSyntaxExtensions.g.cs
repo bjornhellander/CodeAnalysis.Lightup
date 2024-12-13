@@ -28,19 +28,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTargetTokenFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate1>(wrappedType, "WithTargetToken", "targetTokenSyntaxToken");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxToken TargetToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj)
         {
             return TargetTokenGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
         {
             return UpdateFunc0(_obj, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax WithTargetToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken targetToken)
         {
             return WithTargetTokenFunc1(_obj, targetToken);

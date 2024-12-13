@@ -47,10 +47,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WarningsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8488;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
 
         /// <summary>Added in version 4.2.0.0.</summary>

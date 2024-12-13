@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return AnalyzerConfigPathsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Boolean EmitPdbFile(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return EmitPdbFileGetterFunc(_obj);
@@ -79,13 +79,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return SkipAnalyzersGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.String GetOutputFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
         {
             return GetOutputFilePathFunc0(_obj, outputFileName);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.String GetPdbFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
         {
             return GetPdbFilePathFunc1(_obj, outputFileName);

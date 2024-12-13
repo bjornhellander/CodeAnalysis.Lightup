@@ -79,13 +79,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static void CloseAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
             CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate)
         {
             OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);

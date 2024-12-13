@@ -97,13 +97,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ServicesGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAdditionalDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentInfo> documentInfos)
         {
             return AddAdditionalDocumentsFunc0(_obj, documentInfos);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath)
         {
             return AddAnalyzerConfigDocumentFunc1(_obj, documentId, name, text, folders, filePath);
@@ -133,7 +133,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ContainsAnalyzerConfigDocumentFunc5(_obj, documentId);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
         {
             return GetAnalyzerConfigDocumentFunc6(_obj, documentId);
@@ -175,13 +175,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveDocumentsFunc12(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.PreservationMode mode)
         {
             return WithAnalyzerConfigDocumentTextFunc13(_obj, documentId, text, mode);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerConfigDocumentText(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::Microsoft.CodeAnalysis.TextAndVersion textAndVersion, global::Microsoft.CodeAnalysis.PreservationMode mode)
         {
             return WithAnalyzerConfigDocumentTextFunc14(_obj, documentId, textAndVersion, mode);

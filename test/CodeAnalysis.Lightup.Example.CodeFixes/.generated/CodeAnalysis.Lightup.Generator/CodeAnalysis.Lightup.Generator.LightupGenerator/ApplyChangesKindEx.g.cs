@@ -5,13 +5,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.ApplyChangesKind.</summary>
     public static partial class ApplyChangesKindEx
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind AddAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)17;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind RemoveAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)18;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind ChangeAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)19;
 
         /// <summary>Added in version 3.8.0.0.</summary>

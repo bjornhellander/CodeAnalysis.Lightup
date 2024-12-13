@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return IsNintGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Boolean IsNotNull(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
         {
             return IsNotNullGetterFunc(_obj);

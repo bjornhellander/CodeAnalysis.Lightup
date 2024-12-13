@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ConstraintNullableAnnotationsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Boolean HasNotNullConstraint(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return HasNotNullConstraintGetterFunc(_obj);

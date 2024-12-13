@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithIdFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIdDelegate3>(wrappedType, "WithId", "idProjectId");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectInfo _obj)
         {
             return AnalyzerConfigDocumentsGetterFunc(_obj);
@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CompilationOutputInfoGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments)
         {
             return WithAnalyzerConfigDocumentsFunc0(_obj, analyzerConfigDocuments);
