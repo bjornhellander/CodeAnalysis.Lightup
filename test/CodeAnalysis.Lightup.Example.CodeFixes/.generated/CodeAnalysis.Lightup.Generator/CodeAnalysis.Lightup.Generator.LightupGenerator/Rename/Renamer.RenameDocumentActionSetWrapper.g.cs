@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
 public partial class RenamerEx {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet. Added in version 3.7.0.0.</summary>
     public partial struct RenameDocumentActionSetWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet";
@@ -38,7 +38,7 @@ public partial class RenamerEx {
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActions
         {
             get { return ApplicableActionsGetterFunc(wrappedObject); }
@@ -63,13 +63,13 @@ public partial class RenamerEx {
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken)
         {
             return UpdateSolutionAsyncFunc0(wrappedObject, solution, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken)
         {
             return UpdateSolutionAsyncFunc1(wrappedObject, solution, actions, cancellationToken);

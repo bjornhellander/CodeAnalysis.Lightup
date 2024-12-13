@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             VisitFunctionPointerTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitFunctionPointerType(this global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol)
         {
             VisitFunctionPointerTypeFunc0(_obj, symbol);

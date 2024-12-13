@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetForwardedTypesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, "GetForwardedTypes");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypes(this global::Microsoft.CodeAnalysis.IAssemblySymbol _obj)
         {
             return GetForwardedTypesFunc0(_obj);

@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptions
         {
             get { return GlobalOptionsGetterFunc(wrappedObject); }

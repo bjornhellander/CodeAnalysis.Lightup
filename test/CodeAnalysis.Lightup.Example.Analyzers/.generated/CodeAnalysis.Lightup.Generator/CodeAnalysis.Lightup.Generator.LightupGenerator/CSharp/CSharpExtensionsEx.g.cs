@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return AnalyzeDataFlowFunc1(semanticModel, primaryConstructorBaseType);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc2(semanticModel, declarationSyntax, cancellationToken);
@@ -106,19 +106,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetInterceptsLocationAttributeSyntaxFunc8(location);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer)
         {
             return GetSpeculativeSymbolInfoFunc9(semanticModel, position, constructorInitializer);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SymbolInfo GetSymbolInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetSymbolInfoFunc10(semanticModel, constructorInitializer, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Boolean TryGetSpeculativeSemanticModel(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer, out global::Microsoft.CodeAnalysis.SemanticModel? speculativeModel)
         {
             return TryGetSpeculativeSemanticModelFunc11(semanticModel, position, constructorInitializer, out speculativeModel);

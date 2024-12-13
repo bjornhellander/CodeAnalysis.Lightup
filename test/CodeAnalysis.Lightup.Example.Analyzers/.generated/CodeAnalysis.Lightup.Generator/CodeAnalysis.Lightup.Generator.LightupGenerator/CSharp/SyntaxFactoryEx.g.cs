@@ -121,8 +121,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax ParseTypeNameDelegate110(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate111(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate112(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate113(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate114(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate113(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate114(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate115(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate116(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate117(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
@@ -455,8 +455,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             ParseTypeNameFunc110 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTypeNameDelegate110>(wrappedType, "ParseTypeName", "textString", "offsetInt32", "optionsParseOptions", "consumeFullTextBoolean");
             PrimaryConstructorBaseTypeFunc111 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate111>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax");
             PrimaryConstructorBaseTypeFunc112 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate112>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax", "argumentListArgumentListSyntax");
-            RecordDeclarationFunc113 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate113>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierSyntaxToken");
-            RecordDeclarationFunc114 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate114>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierString");
+            RecordDeclarationFunc113 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate113>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierString");
+            RecordDeclarationFunc114 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate114>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierSyntaxToken");
             RecordDeclarationFunc115 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate115>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierString");
             RecordDeclarationFunc116 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate116>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierSyntaxToken");
             RecordDeclarationFunc117 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate117>(wrappedType, "RecordDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
@@ -532,13 +532,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return AnonymousMethodExpressionFunc3(modifiers, delegateKeyword, parameterList, block, expressionBody);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper BinaryPattern(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
         {
             return BinaryPatternFunc4(kind, left, right);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper BinaryPattern(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right)
         {
             return BinaryPatternFunc5(kind, left, operatorToken, right);
@@ -910,19 +910,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IfStatementFunc66(attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression()
         {
             return ImplicitObjectCreationExpressionFunc67();
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
             return ImplicitObjectCreationExpressionFunc68(argumentList, initializer);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression(global::Microsoft.CodeAnalysis.SyntaxToken newKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
             return ImplicitObjectCreationExpressionFunc69(newKeyword, argumentList, initializer);
@@ -1132,13 +1132,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return ParenthesizedLambdaExpressionFunc103(attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
         {
             return ParenthesizedPatternFunc104(pattern);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPattern(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
             return ParenthesizedPatternFunc105(openParenToken, pattern, closeParenToken);
@@ -1168,32 +1168,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return ParseSyntaxTreeFunc109(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax ParseTypeName(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText)
         {
             return ParseTypeNameFunc110(text, offset, options, consumeFullText);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
             return PrimaryConstructorBaseTypeFunc111(type);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
         {
             return PrimaryConstructorBaseTypeFunc112(type, argumentList);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
+        /// <summary>Method added in version 3.7.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier)
         {
             return RecordDeclarationFunc113(keyword, identifier);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier)
+        /// <summary>Method added in version 3.7.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
             return RecordDeclarationFunc114(keyword, identifier);
         }
@@ -1210,7 +1210,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return RecordDeclarationFunc116(kind, keyword, identifier);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
             return RecordDeclarationFunc117(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
@@ -1222,7 +1222,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return RecordDeclarationFunc118(kind, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
             return RecordDeclarationFunc119(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
@@ -1246,7 +1246,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return RefStructConstraintFunc122(refKeyword, structKeyword);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper RelationalPattern(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
             return RelationalPatternFunc123(operatorToken, expression);
@@ -1390,19 +1390,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return TryStatementFunc146(attributeLists, tryKeyword, block, catches, @finally);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper TypePattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
             return TypePatternFunc147(type);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
         {
             return UnaryPatternFunc148(pattern);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPattern(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern)
         {
             return UnaryPatternFunc149(operatorToken, pattern);
@@ -1468,13 +1468,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return WhileStatementFunc159(attributeLists, whileKeyword, openParenToken, condition, closeParenToken, statement);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
             return WithExpressionFunc160(expression, initializer);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken withKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
             return WithExpressionFunc161(expression, withKeyword, initializer);

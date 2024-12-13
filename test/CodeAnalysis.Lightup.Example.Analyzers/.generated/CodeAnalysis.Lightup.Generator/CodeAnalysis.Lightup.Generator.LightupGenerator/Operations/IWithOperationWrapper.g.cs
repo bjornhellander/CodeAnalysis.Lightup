@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IWithOperation. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IWithOperation. Added in version 3.7.0.0.</summary>
     public partial struct IWithOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IWithOperation";
@@ -34,19 +34,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IMethodSymbol? CloneMethod
         {
             get { return CloneMethodGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation Initializer
         {
             get { return InitializerGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Operand
         {
             get { return OperandGetterFunc(wrappedObject); }

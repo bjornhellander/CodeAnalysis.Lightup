@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax. Added in version 3.7.0.0.</summary>
     public partial struct RecordDeclarationSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RecordDeclarationSyntax";
@@ -136,13 +136,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists
         {
             get { return AttributeListsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? BaseList
         {
             get { return BaseListGetterFunc(wrappedObject); }
@@ -154,61 +154,61 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return ClassOrStructKeywordGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken CloseBraceToken
         {
             get { return CloseBraceTokenGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> ConstraintClauses
         {
             get { return ConstraintClausesGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken Identifier
         {
             get { return IdentifierGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken Keyword
         {
             get { return KeywordGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> Members
         {
             get { return MembersGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxTokenList Modifiers
         {
             get { return ModifiersGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken OpenBraceToken
         {
             get { return OpenBraceTokenGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterList
         {
             get { return ParameterListGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken SemicolonToken
         {
             get { return SemicolonTokenGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? TypeParameterList
         {
             get { return TypeParameterListGetterFunc(wrappedObject); }
@@ -239,55 +239,55 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
         {
             AcceptFunc0(wrappedObject, visitor);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddAttributeLists(params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddAttributeListsFunc1(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddBaseListTypes(params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items)
         {
             return AddBaseListTypesFunc2(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddConstraintClauses(params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax[] items)
         {
             return AddConstraintClausesFunc3(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddMembers(params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items)
         {
             return AddMembersFunc4(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddModifiers(params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
             return AddModifiersFunc5(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddParameterListParameters(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
         {
             return AddParameterListParametersFunc6(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper AddTypeParameterListParameters(params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax[] items)
         {
             return AddTypeParameterListParametersFunc7(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
             return UpdateFunc8(wrappedObject, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
@@ -299,13 +299,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc9(wrappedObject, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc10(wrappedObject, attributeLists);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithBaseList(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList)
         {
             return WithBaseListFunc11(wrappedObject, baseList);
@@ -317,61 +317,61 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return WithClassOrStructKeywordFunc12(wrappedObject, classOrStructKeyword);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithCloseBraceToken(global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
         {
             return WithCloseBraceTokenFunc13(wrappedObject, closeBraceToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithConstraintClauses(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses)
         {
             return WithConstraintClausesFunc14(wrappedObject, constraintClauses);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithIdentifier(global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
             return WithIdentifierFunc15(wrappedObject, identifier);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithKeyword(global::Microsoft.CodeAnalysis.SyntaxToken keyword)
         {
             return WithKeywordFunc16(wrappedObject, keyword);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithMembers(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
             return WithMembersFunc17(wrappedObject, members);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithModifiers(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
             return WithModifiersFunc18(wrappedObject, modifiers);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithOpenBraceToken(global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken)
         {
             return WithOpenBraceTokenFunc19(wrappedObject, openBraceToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithParameterList(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
         {
             return WithParameterListFunc20(wrappedObject, parameterList);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithSemicolonToken(global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
             return WithSemicolonTokenFunc21(wrappedObject, semicolonToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper WithTypeParameterList(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList)
         {
             return WithTypeParameterListFunc22(wrappedObject, typeParameterList);

@@ -14,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind ChangeAnalyzerConfigDocument = (global::Microsoft.CodeAnalysis.ApplyChangesKind)19;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind AddSolutionAnalyzerReference = (global::Microsoft.CodeAnalysis.ApplyChangesKind)20;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.ApplyChangesKind RemoveSolutionAnalyzerReference = (global::Microsoft.CodeAnalysis.ApplyChangesKind)21;
     }
 }

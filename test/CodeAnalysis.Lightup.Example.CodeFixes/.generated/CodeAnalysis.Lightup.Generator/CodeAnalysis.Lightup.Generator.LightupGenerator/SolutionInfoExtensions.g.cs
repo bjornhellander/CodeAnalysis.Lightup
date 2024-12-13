@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "idSolutionId", "versionVersionStamp", "filePathString", "projectsIEnumerable`1", "analyzerReferencesIEnumerable`1");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionInfo _obj)
         {
             return AnalyzerReferencesGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SolutionInfo Create(global::Microsoft.CodeAnalysis.SolutionId id, global::Microsoft.CodeAnalysis.VersionStamp version, global::System.String? filePath, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ProjectInfo>? projects, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences)
         {
             return CreateFunc0(id, version, filePath, projects, analyzerReferences);

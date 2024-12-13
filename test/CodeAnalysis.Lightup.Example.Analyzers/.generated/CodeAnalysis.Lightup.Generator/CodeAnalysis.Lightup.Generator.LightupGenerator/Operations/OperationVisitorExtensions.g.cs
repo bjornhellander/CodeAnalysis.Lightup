@@ -85,7 +85,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitAttributeFunc0(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitBinaryPattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IBinaryPatternOperationWrapper operation)
         {
             VisitBinaryPatternFunc1(_obj, operation);
@@ -145,7 +145,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitListPatternFunc10(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitNegatedPattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.INegatedPatternOperationWrapper operation)
         {
             VisitNegatedPatternFunc11(_obj, operation);
@@ -163,7 +163,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitRecursivePatternFunc13(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitRelationalPattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IRelationalPatternOperationWrapper operation)
         {
             VisitRelationalPatternFunc14(_obj, operation);
@@ -181,7 +181,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitSpreadFunc16(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitTypePattern(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ITypePatternOperationWrapper operation)
         {
             VisitTypePatternFunc17(_obj, operation);
@@ -199,7 +199,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitUtf8StringFunc19(_obj, operation);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitWith(this global::Microsoft.CodeAnalysis.Operations.OperationVisitor _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IWithOperationWrapper operation)
         {
             VisitWithFunc20(_obj, operation);

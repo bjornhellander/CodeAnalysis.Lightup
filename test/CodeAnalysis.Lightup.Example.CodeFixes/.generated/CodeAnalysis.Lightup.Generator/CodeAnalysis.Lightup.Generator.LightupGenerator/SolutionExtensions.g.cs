@@ -85,7 +85,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithProjectDefaultNamespaceFunc19 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithProjectDefaultNamespaceDelegate19>(wrappedType, "WithProjectDefaultNamespace", "projectIdProjectId", "defaultNamespaceString");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj)
         {
             return AnalyzerReferencesGetterFunc(_obj);
@@ -115,13 +115,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return AddAnalyzerConfigDocumentsFunc2(_obj, documentInfos);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerReference(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
         {
             return AddAnalyzerReferenceFunc3(_obj, analyzerReference);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution AddAnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
         {
             return AddAnalyzerReferencesFunc4(_obj, analyzerReferences);
@@ -163,7 +163,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerReference(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference)
         {
             return RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
@@ -193,7 +193,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return WithAnalyzerConfigDocumentTextLoaderFunc15(_obj, documentId, loader, mode);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithAnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences)
         {
             return WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
@@ -205,7 +205,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return WithOptionsFunc17(_obj, options);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfo(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
         {
             return WithProjectCompilationOutputInfoFunc18(_obj, projectId, ref info);

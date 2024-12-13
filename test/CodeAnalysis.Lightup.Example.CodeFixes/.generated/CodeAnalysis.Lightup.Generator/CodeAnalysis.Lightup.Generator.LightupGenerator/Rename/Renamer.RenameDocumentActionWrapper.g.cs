@@ -4,7 +4,7 @@
 namespace Microsoft.CodeAnalysis.Rename.Lightup
 {
 public partial class RenamerEx {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction. Added in version 3.7.0.0.</summary>
     public partial struct RenameDocumentActionWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction";
@@ -51,13 +51,13 @@ public partial class RenamerEx {
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.String GetDescription(global::System.Globalization.CultureInfo? culture)
         {
             return GetDescriptionFunc0(wrappedObject, culture);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
         {
             return GetErrorsFunc1(wrappedObject, culture);

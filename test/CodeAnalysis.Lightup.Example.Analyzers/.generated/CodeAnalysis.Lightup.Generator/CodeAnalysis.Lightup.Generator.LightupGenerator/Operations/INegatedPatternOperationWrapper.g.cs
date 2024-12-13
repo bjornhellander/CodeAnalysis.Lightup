@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.INegatedPatternOperation. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.INegatedPatternOperation. Added in version 3.7.0.0.</summary>
     public partial struct INegatedPatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.INegatedPatternOperation";
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Pattern
         {
             get { return PatternGetterFunc(wrappedObject); }

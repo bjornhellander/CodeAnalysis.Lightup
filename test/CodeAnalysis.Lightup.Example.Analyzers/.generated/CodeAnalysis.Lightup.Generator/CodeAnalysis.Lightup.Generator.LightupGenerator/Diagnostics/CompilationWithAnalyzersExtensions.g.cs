@@ -70,7 +70,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return GetAnalysisResultAsyncFunc0(_obj, file, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetAnalysisResultAsyncFunc1(_obj, tree, cancellationToken);
@@ -88,13 +88,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return GetAnalysisResultAsyncFunc3(_obj, file, filterSpan, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SemanticModel model, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetAnalysisResultAsyncFunc4(_obj, model, filterSpan, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetAnalysisResultAsyncFunc5(_obj, tree, analyzers, cancellationToken);
@@ -112,7 +112,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return GetAnalysisResultAsyncFunc7(_obj, file, filterSpan, analyzers, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SemanticModel model, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetAnalysisResultAsyncFunc8(_obj, model, filterSpan, analyzers, cancellationToken);

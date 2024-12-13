@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax. Added in version 3.7.0.0.</summary>
     public partial struct BaseObjectCreationExpressionSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseObjectCreationExpressionSyntax";
@@ -49,19 +49,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? ArgumentList
         {
             get { return ArgumentListGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? Initializer
         {
             get { return InitializerGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken NewKeyword
         {
             get { return NewKeywordGetterFunc(wrappedObject); }
@@ -92,25 +92,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArguments(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items)
         {
             return AddArgumentListArgumentsFunc0(wrappedObject, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithArgumentList(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? argumentList)
         {
             return WithArgumentListFunc1(wrappedObject, argumentList);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithInitializer(global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
             return WithInitializerFunc2(wrappedObject, initializer);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithNewKeyword(global::Microsoft.CodeAnalysis.SyntaxToken newKeyword)
         {
             return WithNewKeywordFunc3(wrappedObject, newKeyword);

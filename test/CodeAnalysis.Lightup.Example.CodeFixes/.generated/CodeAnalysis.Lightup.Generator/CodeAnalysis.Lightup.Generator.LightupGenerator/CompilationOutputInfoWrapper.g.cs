@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CompilationOutputInfo. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.CompilationOutputInfo. Added in version 3.7.0.0.</summary>
     public partial struct CompilationOutputInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::System.String? AssemblyPath
         {
             get { return AssemblyPathGetterFunc(wrappedObject); }
@@ -62,13 +62,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other)
         {
             return EqualsFunc0(wrappedObject, other);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
         {
             return WithAssemblyPathFunc1(wrappedObject, path);

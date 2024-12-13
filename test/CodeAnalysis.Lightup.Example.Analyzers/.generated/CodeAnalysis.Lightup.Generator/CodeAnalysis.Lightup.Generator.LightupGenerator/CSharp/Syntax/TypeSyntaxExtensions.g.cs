@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             IsNuintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Boolean IsNint(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
         {
             return IsNintGetterFunc(_obj);
@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return IsNotNullGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Boolean IsNuint(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
         {
             return IsNuintGetterFunc(_obj);

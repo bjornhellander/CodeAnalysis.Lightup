@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ITypePatternOperation. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.ITypePatternOperation. Added in version 3.7.0.0.</summary>
     public partial struct ITypePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITypePatternOperation";
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
         {
             get { return MatchedTypeGetterFunc(wrappedObject); }

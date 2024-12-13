@@ -85,7 +85,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CreateFunctionPointerTypeSymbolFunc4(_obj, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Boolean signed)
         {
             return CreateNativeIntegerTypeSymbolFunc5(_obj, signed);

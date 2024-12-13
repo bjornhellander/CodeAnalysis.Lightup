@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsFileLocalGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingType(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
         {
             return NativeIntegerUnderlyingTypeGetterFunc(_obj);
