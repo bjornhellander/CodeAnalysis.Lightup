@@ -63,7 +63,7 @@ internal class Reflector
         var assemblyLoadContext = new AssemblyLoadContext(referenceProjectName);
         assemblyLoadContext.Resolving += ResolveAssembly;
 
-        MarkMembersAsRemoved(typeDefs.Values);
+        MarkTypesMembersAsRemoved(typeDefs.Values);
 
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
         {
@@ -78,23 +78,34 @@ internal class Reflector
         }
     }
 
-    private static void MarkMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
+    private static void MarkTypesMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
     {
         foreach (var typeDef in typeDefs)
         {
+            typeDef.IsRemoved = true;
+
             switch (typeDef)
             {
                 case TypeDefinition x:
                     MarkMembersAsRemoved(x);
                     break;
 
-                case EnumTypeDefinition:
+                case EnumTypeDefinition x:
+                    MarkValuesAsRemoved(x);
                     break;
 
                 default:
                     Assert.Fail($"Unexpected type {typeDef.GetType()}");
                     break;
             }
+        }
+    }
+
+    private static void MarkValuesAsRemoved(EnumTypeDefinition enumTypeDef)
+    {
+        foreach (var enumValueDef in enumTypeDef.Values)
+        {
+            enumValueDef.IsRemoved = true;
         }
     }
 
@@ -145,7 +156,7 @@ internal class Reflector
 
         var types = assembly.GetTypes().Where(x => x.IsPublic).ToList();
         VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, CreateEmptyTypeDefinition);
-        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, AddTypeMemberDefinitions);
+        VisitTypes(null, types, typeDefs, assemblyVersion, isBaselineVersion, assemblyKind, UpdateTypeDefinitions);
     }
 
     private static void VisitTypes(
@@ -294,7 +305,7 @@ internal class Reflector
             enclosingTypeDef?.FullName);
     }
 
-    private static void AddTypeMemberDefinitions(
+    private static void UpdateTypeDefinitions(
         Type type,
         string name,
         Dictionary<string, BaseTypeDefinition> typeDefs,
@@ -309,6 +320,8 @@ internal class Reflector
         {
             Assert.Fail("Could not find type");
         }
+
+        typeDef.IsRemoved = false;
 
         if (typeDef is EnumTypeDefinition enumTypeDef)
         {
@@ -343,13 +356,19 @@ internal class Reflector
             var duplicateValueDef = enumTypeDef.Values.SingleOrDefault(x => x.Name == name);
             if (duplicateValueDef != null)
             {
-                // NOTE: Some enums have a value called Count, containing the number of defined values
-                Assert.IsTrue(duplicateValueDef.Value == value || name == "Count", "Unexpected enum value");
-                continue;
-            }
+                duplicateValueDef.IsRemoved = false;
 
-            var enumValueDef = new EnumValueDefinition(version, name, value);
-            enumTypeDef.Values.Add(enumValueDef);
+                if (duplicateValueDef.Value != value)
+                {
+                    duplicateValueDef.Value = value;
+                    duplicateValueDef.AssemblyVersion = version;
+                }
+            }
+            else
+            {
+                var enumValueDef = new EnumValueDefinition(version, name, value);
+                enumTypeDef.Values.Add(enumValueDef);
+            }
         }
 
         enumTypeDef.Values.Sort(enumValueComparer);
@@ -963,7 +982,12 @@ internal class Reflector
     {
         public int Compare(FieldDefinition? x, FieldDefinition? y)
         {
-            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            return x.Name.CompareTo(y.Name);
         }
     }
 
@@ -971,7 +995,12 @@ internal class Reflector
     {
         public int Compare(EventDefinition? x, EventDefinition? y)
         {
-            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            return x.Name.CompareTo(y.Name);
         }
     }
 
@@ -979,7 +1008,12 @@ internal class Reflector
     {
         public int Compare(PropertyDefinition? x, PropertyDefinition? y)
         {
-            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            return x.Name.CompareTo(y.Name);
         }
     }
 
@@ -987,8 +1021,27 @@ internal class Reflector
     {
         public int Compare(IndexerDefinition? x, IndexerDefinition? y)
         {
-            // TODO: Order based on more than this
-            return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            var cmp = x.Parameters.Count.CompareTo(y.Parameters.Count);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            for (var i = 0; i < x.Parameters.Count; i++)
+            {
+                cmp = x.Parameters[i].Name.CompareTo(y.Parameters[i].Name);
+                if (cmp != 0)
+                {
+                    return cmp;
+                }
+            }
+
+            return 0;
         }
     }
 
@@ -996,8 +1049,27 @@ internal class Reflector
     {
         public int Compare(ConstructorDefinition? x, ConstructorDefinition? y)
         {
-            // TODO: Order based on more than this
-            return x?.Parameters.Count.CompareTo(y?.Parameters.Count ?? 0) ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            var cmp = x.Parameters.Count.CompareTo(y.Parameters.Count);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            for (var i = 0; i < x.Parameters.Count; i++)
+            {
+                cmp = x.Parameters[i].Name.CompareTo(y.Parameters[i].Name);
+                if (cmp != 0)
+                {
+                    return cmp;
+                }
+            }
+
+            return 0;
         }
     }
 
@@ -1005,8 +1077,33 @@ internal class Reflector
     {
         public int Compare(MethodDefinition? x, MethodDefinition? y)
         {
-            // TODO: Order based on more than this
-            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            var cmp = x.Name.CompareTo(y.Name);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = x.Parameters.Count.CompareTo(y.Parameters.Count);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            for (var i = 0; i < x.Parameters.Count; i++)
+            {
+                cmp = x.Parameters[i].Name.CompareTo(y.Parameters[i].Name);
+                if (cmp != 0)
+                {
+                    return cmp;
+                }
+            }
+
+            return 0;
         }
     }
 
@@ -1014,7 +1111,12 @@ internal class Reflector
     {
         public int Compare(EnumValueDefinition? x, EnumValueDefinition? y)
         {
-            return x?.Name.CompareTo(y?.Name ?? "") ?? 0;
+            if (x == null || y == null)
+            {
+                throw new NotSupportedException();
+            }
+
+            return x.Name.CompareTo(y.Name);
         }
     }
 }

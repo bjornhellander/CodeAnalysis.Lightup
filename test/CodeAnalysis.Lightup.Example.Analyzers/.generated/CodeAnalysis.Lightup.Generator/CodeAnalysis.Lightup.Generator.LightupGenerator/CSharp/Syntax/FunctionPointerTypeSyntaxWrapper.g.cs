@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax. Added in version 3.7.0.0.</summary>
     public partial struct FunctionPointerTypeSyntaxWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FunctionPointerTypeSyntax";
@@ -61,7 +61,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken AsteriskToken
         {
             get { return AsteriskTokenGetterFunc(wrappedObject); }
@@ -73,7 +73,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return CallingConventionGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.SyntaxToken DelegateKeyword
         {
             get { return DelegateKeywordGetterFunc(wrappedObject); }
@@ -110,7 +110,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public void Accept(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor)
         {
             AcceptFunc0(wrappedObject, visitor);
@@ -128,7 +128,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc2(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithAsteriskToken(global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken)
         {
             return WithAsteriskTokenFunc3(wrappedObject, asteriskToken);
@@ -140,7 +140,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return WithCallingConventionFunc4(wrappedObject, callingConvention);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithDelegateKeyword(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword)
         {
             return WithDelegateKeywordFunc5(wrappedObject, delegateKeyword);

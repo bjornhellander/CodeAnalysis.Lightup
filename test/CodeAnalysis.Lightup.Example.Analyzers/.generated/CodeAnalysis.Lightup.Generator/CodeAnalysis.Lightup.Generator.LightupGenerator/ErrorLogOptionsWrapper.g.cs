@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ErrorLogOptions. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ErrorLogOptions. Added in version 3.4.0.0.</summary>
     public partial struct ErrorLogOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
@@ -37,19 +37,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        /// <summary>Constructor added in version 3.4.0.0.</summary>
         public static ErrorLogOptionsWrapper Create(global::System.String path, global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion)
         {
             return ConstructorFunc0(path, sarifVersion);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public global::System.String Path
         {
             get { return PathGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersion
         {
             get { return SarifVersionGetterFunc(wrappedObject); }

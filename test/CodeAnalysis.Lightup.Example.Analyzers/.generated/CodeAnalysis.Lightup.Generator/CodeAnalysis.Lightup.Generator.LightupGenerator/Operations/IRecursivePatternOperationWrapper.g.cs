@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation. Added in version 3.3.0.0.</summary>
     public partial struct IRecursivePatternOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IRecursivePatternOperation";
@@ -40,31 +40,31 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbol
         {
             get { return DeclaredSymbolGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatterns
         {
             get { return DeconstructionSubpatternsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbol
         {
             get { return DeconstructSymbolGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public global::Microsoft.CodeAnalysis.ITypeSymbol MatchedType
         {
             get { return MatchedTypeGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatterns
         {
             get { return PropertySubpatternsGetterFunc(wrappedObject); }

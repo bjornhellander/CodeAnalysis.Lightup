@@ -58,13 +58,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CallingConventionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Boolean IsConditional(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsConditionalGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Boolean IsInitOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsInitOnlyGetterFunc(_obj);
@@ -76,7 +76,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsPartialDefinitionGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Boolean IsReadOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsReadOnlyGetterFunc(_obj);
@@ -88,19 +88,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return MethodImplementationFlagsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return ReceiverNullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return ReturnNullableAnnotationGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return TypeArgumentNullableAnnotationsGetterFunc(_obj);
@@ -112,7 +112,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return UnmanagedCallingConventionTypesGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol Construct(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
         {
             return ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);

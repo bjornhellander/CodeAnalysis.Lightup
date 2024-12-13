@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             RenameSymbolAsyncFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<RenameSymbolAsyncDelegate2>(wrappedType, "RenameSymbolAsync", "solutionSolution", "symbolISymbol", "optionsSymbolRenameOptions", "newNameString", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionSetWrapper> RenameDocumentAsync(global::Microsoft.CodeAnalysis.Document document, global::System.String? newDocumentName, global::System.Collections.Generic.IReadOnlyList<global::System.String>? newDocumentFolders, global::Microsoft.CodeAnalysis.Options.OptionSet? optionSet, global::System.Threading.CancellationToken cancellationToken)
         {
             return RenameDocumentAsyncFunc0(document, newDocumentName, newDocumentFolders, optionSet, cancellationToken);

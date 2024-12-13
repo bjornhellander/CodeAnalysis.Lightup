@@ -86,7 +86,7 @@ internal static class TypesReader
 
     private static EnumValueDefinition CreateEnumValueDefinition(XElement element, Version baselineVersion)
     {
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, false);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         var name = GetChildString(element, "Name");
         var value = GetChildInt(element, "Value");
 
@@ -217,7 +217,7 @@ internal static class TypesReader
             parameters,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -246,7 +246,7 @@ internal static class TypesReader
             isReadOnly,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -271,7 +271,7 @@ internal static class TypesReader
             typeRef,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -300,7 +300,7 @@ internal static class TypesReader
             hasSetter,
             isStatic);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -327,7 +327,7 @@ internal static class TypesReader
             parameters,
             hasSetter);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -358,7 +358,7 @@ internal static class TypesReader
             isNullable,
             parameters);
 
-        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, true);
+        var assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         result.AssemblyVersion = assemblyVersion;
 
         return result;
@@ -400,7 +400,7 @@ internal static class TypesReader
         out string? enclosingTypeFullName)
     {
         assemblyKind = GetChildEnum<AssemblyKind>(element, "AssemblyKind");
-        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion, false);
+        assemblyVersion = GetOptionalChildAssemblyVersion(element, baselineVersion);
         name = GetChildString(element, "Name");
         @namespace = GetChildString(element, "Namespace");
         fullName = GetChildString(element, "FullName");
@@ -536,7 +536,7 @@ internal static class TypesReader
         return result;
     }
 
-    private static Version? GetOptionalChildAssemblyVersion(XElement parent, Version baselineVersion, bool skipRemoved)
+    private static Version? GetOptionalChildAssemblyVersion(XElement parent, Version baselineVersion)
     {
         var strValue = parent.Element("AssemblyVersion")?.Value;
         Version? result;
@@ -553,13 +553,10 @@ internal static class TypesReader
             result = null;
         }
 
-        if (skipRemoved)
+        var isRemoved = GetChildBool(parent, "IsRemoved");
+        if (isRemoved)
         {
-            var isRemoved = GetChildBool(parent, "IsRemoved");
-            if (isRemoved)
-            {
-                result = null;
-            }
+            result = null;
         }
 
         return result;

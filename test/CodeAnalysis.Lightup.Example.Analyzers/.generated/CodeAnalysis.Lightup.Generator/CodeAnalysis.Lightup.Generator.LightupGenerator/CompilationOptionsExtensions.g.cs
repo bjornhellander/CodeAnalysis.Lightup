@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithSyntaxTreeOptionsProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
         {
             return NullableContextOptionsGetterFunc(_obj);

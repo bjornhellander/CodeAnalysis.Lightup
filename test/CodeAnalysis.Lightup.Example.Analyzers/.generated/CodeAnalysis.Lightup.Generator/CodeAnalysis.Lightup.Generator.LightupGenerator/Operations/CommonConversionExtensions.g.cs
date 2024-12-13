@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return ConstrainedToTypeGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::System.Boolean IsNullable(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return IsNullableGetterFunc(_obj);

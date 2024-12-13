@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineProject";
 
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate0(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate1(global::System.String projectName, global::System.String language, global::System.String commandLine, global::System.String baseDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate0(global::System.String projectName, global::System.String language, global::System.String commandLine, global::System.String baseDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfoDelegate1(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace);
 
         private static readonly CreateProjectInfoDelegate0 CreateProjectInfoFunc0;
         private static readonly CreateProjectInfoDelegate1 CreateProjectInfoFunc1;
@@ -18,20 +18,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            CreateProjectInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate0>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineArgsIEnumerable`1", "projectDirectoryString", "workspaceWorkspace");
-            CreateProjectInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate1>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineString", "baseDirectoryString", "workspaceWorkspace");
-        }
-
-        /// <summary>Method added in version 3.10.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
-        {
-            return CreateProjectInfoFunc0(projectName, language, commandLineArgs, projectDirectory, workspace);
+            CreateProjectInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate0>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineString", "baseDirectoryString", "workspaceWorkspace");
+            CreateProjectInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateProjectInfoDelegate1>(wrappedType, "CreateProjectInfo", "projectNameString", "languageString", "commandLineArgsIEnumerable`1", "projectDirectoryString", "workspaceWorkspace");
         }
 
         /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.String commandLine, global::System.String baseDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
         {
-            return CreateProjectInfoFunc1(projectName, language, commandLine, baseDirectory, workspace);
+            return CreateProjectInfoFunc0(projectName, language, commandLine, baseDirectory, workspace);
+        }
+
+        /// <summary>Method added in version 3.10.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ProjectInfo CreateProjectInfo(global::System.String projectName, global::System.String language, global::System.Collections.Generic.IEnumerable<global::System.String> commandLineArgs, global::System.String projectDirectory, global::Microsoft.CodeAnalysis.Workspace? workspace)
+        {
+            return CreateProjectInfoFunc1(projectName, language, commandLineArgs, projectDirectory, workspace);
         }
     }
 }

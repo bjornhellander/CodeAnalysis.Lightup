@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.NullabilityInfo. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.NullabilityInfo. Added in version 3.1.0.0.</summary>
     public partial struct NullabilityInfoWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullabilityInfo";
@@ -37,13 +37,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx Annotation
         {
             get { return AnnotationGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx FlowState
         {
             get { return FlowStateGetterFunc(wrappedObject); }
@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper other)
         {
             return EqualsFunc0(wrappedObject, other);

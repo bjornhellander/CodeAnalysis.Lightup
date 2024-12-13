@@ -64,19 +64,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithDefaultNamespaceFunc9 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate9>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper> AnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Project _obj)
         {
             return AnalyzerConfigDocumentsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfo(this global::Microsoft.CodeAnalysis.Project _obj)
         {
             return CompilationOutputInfoGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.String? DefaultNamespace(this global::Microsoft.CodeAnalysis.Project _obj)
         {
             return DefaultNamespaceGetterFunc(_obj);
@@ -94,19 +94,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ServicesGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Project _obj, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath)
         {
             return AddAnalyzerConfigDocumentFunc0(_obj, name, text, folders, filePath);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Boolean ContainsAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
             return ContainsAnalyzerConfigDocumentFunc1(_obj, documentId);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
             return GetAnalyzerConfigDocumentFunc2(_obj, documentId);
@@ -124,31 +124,31 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetSourceGeneratedDocumentsAsyncFunc4(_obj, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project RemoveAdditionalDocuments(this global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveAdditionalDocumentsFunc5(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
             return RemoveAnalyzerConfigDocumentFunc6(_obj, documentId);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project RemoveDocuments(this global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveDocumentsFunc8(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project WithDefaultNamespace(this global::Microsoft.CodeAnalysis.Project _obj, global::System.String defaultNamespace)
         {
             return WithDefaultNamespaceFunc9(_obj, defaultNamespace);

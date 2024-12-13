@@ -34,19 +34,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return AllowsRefLikeTypeGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotations(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return ConstraintNullableAnnotationsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Boolean HasNotNullConstraint(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return HasNotNullConstraintGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return ReferenceTypeConstraintNullableAnnotationGetterFunc(_obj);

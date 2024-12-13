@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.MethodKind.</summary>
     public static partial class MethodKindEx
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.MethodKind FunctionPointerSignature = (global::Microsoft.CodeAnalysis.MethodKind)18;
     }
 }

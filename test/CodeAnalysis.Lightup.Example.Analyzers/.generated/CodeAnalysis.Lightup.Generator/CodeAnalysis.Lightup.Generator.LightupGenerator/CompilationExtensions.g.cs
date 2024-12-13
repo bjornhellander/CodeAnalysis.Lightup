@@ -55,13 +55,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             SupportsRuntimeCapabilityFunc12 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate12>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateAnonymousTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> memberTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> memberNames, global::System.Collections.Immutable.ImmutableArray<global::System.Boolean> memberIsReadOnly, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> memberLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> memberNullableAnnotations)
         {
             return CreateAnonymousTypeSymbolFunc0(_obj, memberTypes, memberNames, memberIsReadOnly, memberLocations, memberNullableAnnotations);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IArrayTypeSymbol CreateArrayTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol elementType, global::System.Int32 rank, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx elementNullableAnnotation)
         {
             return CreateArrayTypeSymbolFunc1(_obj, elementType, rank, elementNullableAnnotation);
@@ -85,19 +85,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CreateFunctionPointerTypeSymbolFunc4(_obj, returnType, returnRefKind, parameterTypes, parameterRefKinds, callingConvention, callingConventionTypes);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Boolean signed)
         {
             return CreateNativeIntegerTypeSymbolFunc5(_obj, signed);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
         {
             return CreateTupleTypeSymbolFunc6(_obj, elementTypes, elementNames, elementLocations, elementNullableAnnotations);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations)
         {
             return CreateTupleTypeSymbolFunc7(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);

@@ -27,8 +27,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build -c ${{matrix.configuration}} --no-restore
-    - name: Remove generated files
-      run: rm -rf test/CodeAnalysis.Lightup.Example.*/.generated
     - name: Collect type info
       run: dotnet run -c ${{matrix.configuration}} --no-build --project src/CodeAnalysis.Lightup.Collector
     - name: Build again

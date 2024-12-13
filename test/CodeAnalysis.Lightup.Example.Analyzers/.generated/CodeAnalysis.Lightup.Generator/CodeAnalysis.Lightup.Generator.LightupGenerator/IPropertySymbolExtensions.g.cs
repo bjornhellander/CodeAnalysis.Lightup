@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsRequiredGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);

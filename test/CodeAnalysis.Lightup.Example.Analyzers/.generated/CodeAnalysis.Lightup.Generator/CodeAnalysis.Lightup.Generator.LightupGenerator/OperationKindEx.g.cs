@@ -5,25 +5,25 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.OperationKind.</summary>
     public static partial class OperationKindEx
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (global::Microsoft.CodeAnalysis.OperationKind)107;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.4.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind UsingDeclaration = (global::Microsoft.CodeAnalysis.OperationKind)108;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind NegatedPattern = (global::Microsoft.CodeAnalysis.OperationKind)109;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind BinaryPattern = (global::Microsoft.CodeAnalysis.OperationKind)110;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind TypePattern = (global::Microsoft.CodeAnalysis.OperationKind)111;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind RelationalPattern = (global::Microsoft.CodeAnalysis.OperationKind)112;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind With = (global::Microsoft.CodeAnalysis.OperationKind)113;
 
         /// <summary>Added in version 4.1.0.0.</summary>

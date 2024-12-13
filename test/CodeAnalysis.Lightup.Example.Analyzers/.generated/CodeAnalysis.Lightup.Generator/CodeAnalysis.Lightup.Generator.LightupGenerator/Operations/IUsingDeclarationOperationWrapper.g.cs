@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation. Added in version 3.4.0.0.</summary>
     public partial struct IUsingDeclarationOperationWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUsingDeclarationOperation";
@@ -31,13 +31,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroup
         {
             get { return DeclarationGroupGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public global::System.Boolean IsAsynchronous
         {
             get { return IsAsynchronousGetterFunc(wrappedObject); }

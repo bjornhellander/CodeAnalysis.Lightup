@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AdditionalDocument. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AdditionalDocument. Added in version 3.2.0.0.</summary>
     public partial struct AdditionalDocumentWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdditionalDocument";

@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SarifVersionFacts. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SarifVersionFacts. Added in version 3.4.0.0.</summary>
     public static partial class SarifVersionFactsEx
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SarifVersionFacts";
@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             TryParseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<TryParseDelegate0>(wrappedType, "TryParse", "versionString", "resultSarifVersion&");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::System.Boolean TryParse(global::System.String version, out global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx result)
         {
             return TryParseFunc0(version, out result);

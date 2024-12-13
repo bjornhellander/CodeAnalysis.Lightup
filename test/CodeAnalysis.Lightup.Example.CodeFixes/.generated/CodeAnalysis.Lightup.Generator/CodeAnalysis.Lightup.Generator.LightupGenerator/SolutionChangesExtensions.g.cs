@@ -22,13 +22,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerReferencesFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerReferencesDelegate1>(wrappedType, "GetRemovedAnalyzerReferences");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionChanges _obj)
         {
             return GetAddedAnalyzerReferencesFunc0(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferences(this global::Microsoft.CodeAnalysis.SolutionChanges _obj)
         {
             return GetRemovedAnalyzerReferencesFunc1(_obj);

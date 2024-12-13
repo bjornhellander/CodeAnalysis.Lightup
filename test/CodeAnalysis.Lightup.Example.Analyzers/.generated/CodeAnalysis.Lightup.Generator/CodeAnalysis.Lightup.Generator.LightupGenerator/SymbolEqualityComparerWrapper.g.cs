@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolEqualityComparer. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.SymbolEqualityComparer. Added in version 3.3.0.0.</summary>
     public partial struct SymbolEqualityComparerWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolEqualityComparer";
@@ -40,13 +40,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper Default
         {
             get { return DefaultGetterFunc(); }
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullability
         {
             get { return IncludeNullabilityGetterFunc(); }
@@ -71,13 +71,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y)
         {
             return EqualsFunc0(wrappedObject, x, y);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public global::System.Int32 GetHashCode(global::Microsoft.CodeAnalysis.ISymbol? obj)
         {
             return GetHashCodeFunc1(wrappedObject, obj);

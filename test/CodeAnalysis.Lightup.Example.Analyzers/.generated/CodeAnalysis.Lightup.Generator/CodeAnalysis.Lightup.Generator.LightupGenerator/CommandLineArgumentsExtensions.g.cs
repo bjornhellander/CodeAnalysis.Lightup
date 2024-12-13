@@ -43,19 +43,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetPdbFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPaths(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return AnalyzerConfigPathsGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.2.0.0.</summary>
         public static global::System.Boolean EmitPdbFile(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return EmitPdbFileGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return ErrorLogOptionsGetterFunc(_obj);
@@ -79,13 +79,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return SkipAnalyzersGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.String GetOutputFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
         {
             return GetOutputFilePathFunc0(_obj, outputFileName);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.String GetPdbFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
         {
             return GetPdbFilePathFunc1(_obj, outputFileName);

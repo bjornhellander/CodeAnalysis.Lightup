@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfig. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.AnalyzerConfig. Added in version 3.1.0.0.</summary>
     public partial struct AnalyzerConfigWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
@@ -50,13 +50,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(global::System.String text, global::System.String? pathToFile)
         {
             return ParseFunc0(text, pathToFile);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper Parse(global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.String? pathToFile)
         {
             return ParseFunc1(text, pathToFile);

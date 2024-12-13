@@ -17,16 +17,9 @@ internal class Program
     private static void Main()
     {
         var rootFolder = GetRepositoryRoot();
-
-        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x, new ProjectNameComparer()).ToList();
-
-        var types = Reflector.CollectTypes(referenceProjectNames, rootFolder);
-
-        var typesFilePath = Path.Combine(rootFolder, "src", "CodeAnalysis.Lightup.Generator", "Types.xml");
-        using var stream = new FileStream(typesFilePath, FileMode.Create);
-        var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
-        var typesList = types.Values.OrderBy(x => x.FullName).ToList();
-        serializer.Serialize(stream, typesList);
+        var types = CollectTypes(rootFolder);
+        WriteTypesFile(rootFolder, types);
+        RemoveGeneratedFolders(rootFolder);
     }
 
     private static string GetRepositoryRoot()
@@ -47,11 +40,44 @@ internal class Program
         return null;
     }
 
+    private static Dictionary<string, BaseTypeDefinition> CollectTypes(string rootFolder)
+    {
+        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x, new ProjectNameComparer()).ToList();
+        var types = Reflector.CollectTypes(referenceProjectNames, rootFolder);
+        return types;
+    }
+
+    private static FileStream WriteTypesFile(string rootFolder, Dictionary<string, BaseTypeDefinition> types)
+    {
+        var typesFilePath = Path.Combine(rootFolder, "src", "CodeAnalysis.Lightup.Generator", "Types.xml");
+        using var stream = new FileStream(typesFilePath, FileMode.Create);
+        var serializer = new XmlSerializer(typeof(List<BaseTypeDefinition>));
+        var typesList = types.Values.OrderBy(x => x.FullName).ToList();
+        serializer.Serialize(stream, typesList);
+        return stream;
+    }
+
     private static List<string> GetReferenceProjectNames(string rootFolder)
     {
         var testFolder = Path.Combine(rootFolder, "ref");
         var referenceProjectNames = Directory.GetDirectories(testFolder).Select(x => Path.GetFileName(x)).ToList();
         return referenceProjectNames;
+    }
+
+    private static void RemoveGeneratedFolders(string rootFolder)
+    {
+        var generatedFolderPaths = new List<string>()
+        {
+            Path.Combine(rootFolder, "test", "CodeAnalysis.Lightup.Example.Analyzers", ".generated"),
+            Path.Combine(rootFolder, "test", "CodeAnalysis.Lightup.Example.CodeFixes", ".generated"),
+        };
+        foreach (var generatedFoldPath in generatedFolderPaths)
+        {
+            if (Directory.Exists(generatedFoldPath))
+            {
+                Directory.Delete(generatedFoldPath, true);
+            }
+        }
     }
 
     private class ProjectNameComparer : IComparer<string>

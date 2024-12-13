@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IgnoredDimensionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IgnoredDimensionsGetterDelegate>(wrappedType, nameof(IgnoredDimensions));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> IgnoredDimensions(this global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation _obj)
         {
             return IgnoredDimensionsGetterFunc(_obj);

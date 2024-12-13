@@ -40,13 +40,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
             AdditionalFileActionsCountSetterFunc(_obj, _value);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.Int32 SuppressionActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
         {
             return SuppressionActionsCountGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static void SetSuppressionActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value)
         {
             SuppressionActionsCountSetterFunc(_obj, _value);

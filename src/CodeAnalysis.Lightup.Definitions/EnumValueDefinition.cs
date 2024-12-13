@@ -32,6 +32,8 @@ public class EnumValueDefinition
         set => AssemblyVersion = string.IsNullOrEmpty(value) ? null : new Version(value);
     }
 
+    public bool IsRemoved { get; set; }
+
     public string Name { get; set; }
 
     public int Value { get; set; }

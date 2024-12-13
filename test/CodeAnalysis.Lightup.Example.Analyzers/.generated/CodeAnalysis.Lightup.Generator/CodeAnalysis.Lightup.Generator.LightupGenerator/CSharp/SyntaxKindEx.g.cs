@@ -5,34 +5,28 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public static partial class SyntaxKindEx
     {
-        /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExclamationExclamationToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8285;
-
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanEqualsToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8287;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind OrKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8438;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AndKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8439;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NotKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8440;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DataKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8441;
-
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WithKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8442;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InitKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8443;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8444;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -53,10 +47,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WarningsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8488;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
 
         /// <summary>Added in version 4.2.0.0.</summary>
@@ -77,7 +71,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
         /// <summary>Added in version 4.3.0.0.</summary>
@@ -101,22 +95,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ParenthesizedPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9028;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RelationalPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9029;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind TypePattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9030;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind OrPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9031;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AndPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9032;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NotPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9033;
 
         /// <summary>Added in version 4.1.0.0.</summary>
@@ -125,7 +119,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9056;
 
         /// <summary>Added in version 3.8.0.0.</summary>
@@ -137,22 +131,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerCallingConvention = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9059;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind InitAccessorDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9060;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WithExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9061;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WithInitializerExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9062;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RecordDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9063;
 
         /// <summary>Added in version 3.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DefaultConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9064;
 
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind PrimaryConstructorBaseType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9065;
 
         /// <summary>Added in version 3.8.0.0.</summary>

@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsAsynchronousGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsAsynchronousGetterDelegate>(wrappedType, nameof(IsAsynchronous));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.4.0.0.</summary>
         public static global::System.Boolean IsAsynchronous(this global::Microsoft.CodeAnalysis.Operations.IUsingOperation _obj)
         {
             return IsAsynchronousGetterFunc(_obj);

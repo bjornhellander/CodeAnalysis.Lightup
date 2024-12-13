@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.Formatting.Lightup
             OrganizeImportsAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<OrganizeImportsAsyncDelegate0>(wrappedType, "OrganizeImportsAsync", "documentDocument", "cancellationTokenCancellationToken");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document> OrganizeImportsAsync(global::Microsoft.CodeAnalysis.Document document, global::System.Threading.CancellationToken cancellationToken)
         {
             return OrganizeImportsAsyncFunc0(document, cancellationToken);

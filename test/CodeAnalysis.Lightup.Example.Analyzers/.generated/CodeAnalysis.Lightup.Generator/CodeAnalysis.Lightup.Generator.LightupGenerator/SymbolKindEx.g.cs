@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolKind.</summary>
     public static partial class SymbolKindEx
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.SymbolKind FunctionPointerType = (global::Microsoft.CodeAnalysis.SymbolKind)20;
     }
 }

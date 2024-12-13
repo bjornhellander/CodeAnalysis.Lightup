@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.UnaryOperatorKind.</summary>
     public static partial class UnaryOperatorKindEx
     {
-        /// <summary>Added in version 3.8.0.0.</summary>
+        /// <summary>Added in version 3.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind Hat = (global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind)7;
     }
 }

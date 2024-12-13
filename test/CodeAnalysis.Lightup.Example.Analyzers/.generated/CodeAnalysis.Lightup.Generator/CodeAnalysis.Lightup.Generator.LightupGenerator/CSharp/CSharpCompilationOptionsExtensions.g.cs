@@ -34,19 +34,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             WithSyntaxTreeOptionsProviderFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
-        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        /// <summary>Constructor added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions Create(global::Microsoft.CodeAnalysis.OutputKind outputKind, global::System.Boolean reportSuppressedDiagnostics, global::System.String? moduleName, global::System.String? mainTypeName, global::System.String? scriptClassName, global::System.Collections.Generic.IEnumerable<global::System.String>? usings, global::Microsoft.CodeAnalysis.OptimizationLevel optimizationLevel, global::System.Boolean checkOverflow, global::System.Boolean allowUnsafe, global::System.String? cryptoKeyContainer, global::System.String? cryptoKeyFile, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> cryptoPublicKey, global::System.Nullable<global::System.Boolean> delaySign, global::Microsoft.CodeAnalysis.Platform platform, global::Microsoft.CodeAnalysis.ReportDiagnostic generalDiagnosticOption, global::System.Int32 warningLevel, global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>>? specificDiagnosticOptions, global::System.Boolean concurrentBuild, global::System.Boolean deterministic, global::Microsoft.CodeAnalysis.XmlReferenceResolver? xmlReferenceResolver, global::Microsoft.CodeAnalysis.SourceReferenceResolver? sourceReferenceResolver, global::Microsoft.CodeAnalysis.MetadataReferenceResolver? metadataReferenceResolver, global::Microsoft.CodeAnalysis.AssemblyIdentityComparer? assemblyIdentityComparer, global::Microsoft.CodeAnalysis.StrongNameProvider? strongNameProvider, global::System.Boolean publicSign, global::Microsoft.CodeAnalysis.MetadataImportOptions metadataImportOptions, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx nullableContextOptions)
         {
             return ConstructorFunc0(outputKind, reportSuppressedDiagnostics, moduleName, mainTypeName, scriptClassName, usings, optimizationLevel, checkOverflow, allowUnsafe, cryptoKeyContainer, cryptoKeyFile, cryptoPublicKey, delaySign, platform, generalDiagnosticOption, warningLevel, specificDiagnosticOptions, concurrentBuild, deterministic, xmlReferenceResolver, sourceReferenceResolver, metadataReferenceResolver, assemblyIdentityComparer, strongNameProvider, publicSign, metadataImportOptions, nullableContextOptions);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj)
         {
             return NullableContextOptionsGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptions(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options)
         {
             return WithNullableContextOptionsFunc0(_obj, options);

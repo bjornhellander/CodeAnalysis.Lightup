@@ -25,19 +25,19 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetRemovedAnalyzerConfigDocumentsFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
             return GetAddedAnalyzerConfigDocumentsFunc0(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
             return GetChangedAnalyzerConfigDocumentsFunc1(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
             return GetRemovedAnalyzerConfigDocumentsFunc2(_obj);

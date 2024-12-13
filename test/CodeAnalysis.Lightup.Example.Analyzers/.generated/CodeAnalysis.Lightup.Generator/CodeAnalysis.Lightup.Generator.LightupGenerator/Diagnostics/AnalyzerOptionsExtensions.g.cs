@@ -25,13 +25,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             AnalyzerConfigOptionsProviderGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigOptionsProviderGetterDelegate>(wrappedType, nameof(AnalyzerConfigOptionsProvider));
         }
 
-        /// <summary>Constructor added in version 3.8.0.0.</summary>
+        /// <summary>Constructor added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions Create(global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AdditionalText> additionalFiles, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider)
         {
             return ConstructorFunc0(additionalFiles, optionsProvider);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProvider(this global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj)
         {
             return AnalyzerConfigOptionsProviderGetterFunc(_obj);

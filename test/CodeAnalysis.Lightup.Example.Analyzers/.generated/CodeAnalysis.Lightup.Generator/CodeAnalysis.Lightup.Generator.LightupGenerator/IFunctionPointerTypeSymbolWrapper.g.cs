@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for interface Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol. Added in version 3.7.0.0.</summary>
     public partial struct IFunctionPointerTypeSymbolWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFunctionPointerTypeSymbol";
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IMethodSymbol Signature
         {
             get { return SignatureGetterFunc(wrappedObject); }

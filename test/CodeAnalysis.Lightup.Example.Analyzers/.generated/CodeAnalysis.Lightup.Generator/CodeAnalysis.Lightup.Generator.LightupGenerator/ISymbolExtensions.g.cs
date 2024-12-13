@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return MetadataTokenGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean Equals(this global::Microsoft.CodeAnalysis.ISymbol _obj, global::Microsoft.CodeAnalysis.ISymbol? other, global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer)
         {
             return EqualsFunc0(_obj, other, equalityComparer);

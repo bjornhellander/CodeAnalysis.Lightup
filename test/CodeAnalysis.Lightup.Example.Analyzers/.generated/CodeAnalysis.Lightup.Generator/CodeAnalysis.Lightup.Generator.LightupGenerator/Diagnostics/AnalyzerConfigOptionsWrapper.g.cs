@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 {
-    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions. Added in version 3.8.0.0.</summary>
+    /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions. Added in version 3.1.0.0.</summary>
     public partial struct AnalyzerConfigOptionsWrapper
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerConfigOptions";
@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             wrappedObject = obj;
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::System.StringComparer KeyComparer
         {
             get { return KeyComparerGetterFunc(); }
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return wrappedObject;
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.1.0.0.</summary>
         public global::System.Boolean TryGetValue(global::System.String key, out global::System.String? value)
         {
             return TryGetValueFunc0(wrappedObject, key, out value);

@@ -40,7 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetImportScopesFunc0(_obj, position, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContext(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position)
         {
             return GetNullableContextFunc1(_obj, position);

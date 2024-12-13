@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return CompilationEndGetterFunc(); }
         }
 
-        /// <summary>Field added in version 3.8.0.0.</summary>
+        /// <summary>Field added in version 3.6.0.0.</summary>
         public static global::System.String CustomObsolete
         {
             get { return CustomObsoleteGetterFunc(); }
