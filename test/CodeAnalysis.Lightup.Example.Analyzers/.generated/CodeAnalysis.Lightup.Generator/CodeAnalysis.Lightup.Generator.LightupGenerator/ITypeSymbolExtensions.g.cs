@@ -64,7 +64,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return IsRecordGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);
@@ -94,7 +94,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ToMinimalDisplayStringFunc3(_obj, semanticModel, topLevelNullability, position, format);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation)
         {
             return WithNullableAnnotationFunc4(_obj, nullableAnnotation);

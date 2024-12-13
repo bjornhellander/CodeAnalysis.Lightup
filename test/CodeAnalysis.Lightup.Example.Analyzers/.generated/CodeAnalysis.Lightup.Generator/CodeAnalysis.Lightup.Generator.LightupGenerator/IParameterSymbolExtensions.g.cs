@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             ScopedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.5.0.0.</summary>
         public static global::System.Boolean IsDiscard(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
         {
             return IsDiscardGetterFunc(_obj);

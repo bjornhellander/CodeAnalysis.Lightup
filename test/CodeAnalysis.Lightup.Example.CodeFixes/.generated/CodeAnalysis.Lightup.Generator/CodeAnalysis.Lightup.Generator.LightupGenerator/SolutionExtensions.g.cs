@@ -199,7 +199,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return WithAnalyzerReferencesFunc16(_obj, analyzerReferences);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution WithOptions(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.Options.OptionSet options)
         {
             return WithOptionsFunc17(_obj, options);
