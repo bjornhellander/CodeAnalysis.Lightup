@@ -1,9 +1,12 @@
 # Create and publish nuget package
 
 Make sure that package version is updated
-git clean -fdx
-dotnet build -c Release
-dotnet nuget push <file> --api-key <api key>
+
+	git clean -fdx
+	dotnet build -c Release
+	dotnet nuget push FILE --api-key APIKEY
+	git tag TAG
+	git push --tags
 
 # Troubleshooting
 
