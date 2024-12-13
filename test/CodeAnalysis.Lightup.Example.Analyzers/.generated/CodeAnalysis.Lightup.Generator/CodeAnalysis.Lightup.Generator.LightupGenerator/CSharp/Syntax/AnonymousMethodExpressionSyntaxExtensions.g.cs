@@ -55,7 +55,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return ModifiersGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousMethodExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddBlockAttributeListsFunc0(_obj, items);

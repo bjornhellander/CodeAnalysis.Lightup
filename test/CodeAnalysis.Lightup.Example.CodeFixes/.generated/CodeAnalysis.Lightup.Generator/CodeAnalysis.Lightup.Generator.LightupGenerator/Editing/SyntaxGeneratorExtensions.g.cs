@@ -28,25 +28,25 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             MemberBindingExpressionFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate3>(wrappedType, "MemberBindingExpression", "nameSyntaxNode");
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ConditionalAccessExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression, global::Microsoft.CodeAnalysis.SyntaxNode whenNotNull)
         {
             return ConditionalAccessExpressionFunc0(_obj, expression, whenNotNull);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] arguments)
         {
             return ElementBindingExpressionFunc1(_obj, arguments);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ElementBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments)
         {
             return ElementBindingExpressionFunc2(_obj, arguments);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode name)
         {
             return MemberBindingExpressionFunc3(_obj, name);

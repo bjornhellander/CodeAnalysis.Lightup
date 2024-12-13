@@ -52,7 +52,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return ExplicitInterfaceSpecifierGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorDeclarationSyntax AddBodyAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddBodyAttributeListsFunc0(_obj, items);

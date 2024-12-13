@@ -142,7 +142,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveAnalyzerConfigDocumentsFunc7(_obj, documentIds);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Project RemoveDocuments(this global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveDocumentsFunc8(_obj, documentIds);

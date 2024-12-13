@@ -20,7 +20,7 @@ public class TypesReaderTests
     public void TestRead_V3_0_0_0()
     {
         var types = TypesReader.Read(new Version(3, 0, 0, 0));
-        Assert.AreEqual(896, types.Count);
+        Assert.AreEqual(899, types.Count);
         Assert.AreEqual(153, types.Count(x => x.AssemblyVersion != null));
 
         var type1 = (TypeDefinition)types.Single(x => x.FullName == "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult");
@@ -35,7 +35,7 @@ public class TypesReaderTests
         var version = new Version(3, 8, 0, 0);
 
         var types = TypesReader.Read(version);
-        Assert.AreEqual(896, types.Count);
+        Assert.AreEqual(899, types.Count);
         Assert.AreEqual(85, types.Count(x => x.AssemblyVersion != null));
 
         var type1 = (TypeDefinition)types.Single(x => x.FullName == "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult");

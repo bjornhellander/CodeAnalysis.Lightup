@@ -61,7 +61,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             WithIsVolatileFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Extern()
         {
             return ExternGetterFunc();
@@ -79,13 +79,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return RequiredGetterFunc();
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Volatile()
         {
             return VolatileGetterFunc();
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::System.Boolean IsExtern(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsExternGetterFunc(_obj);
@@ -103,13 +103,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return IsRequiredGetterFunc(_obj);
         }
 
-        /// <summary>Property added in version 3.8.0.0.</summary>
+        /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::System.Boolean IsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsVolatileGetterFunc(_obj);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExtern(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern)
         {
             return WithIsExternFunc0(_obj, isExtern);
@@ -133,7 +133,7 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return WithIsRequiredFunc3(_obj, isRequired);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile)
         {
             return WithIsVolatileFunc4(_obj, isVolatile);

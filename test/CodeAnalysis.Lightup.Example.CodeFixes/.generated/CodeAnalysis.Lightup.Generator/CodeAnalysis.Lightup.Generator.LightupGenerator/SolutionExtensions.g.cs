@@ -145,7 +145,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetSourceGeneratedDocumentAsyncFunc7(_obj, documentId, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAdditionalDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveAdditionalDocumentsFunc8(_obj, documentIds);
@@ -157,7 +157,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveAnalyzerConfigDocumentFunc9(_obj, documentId);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveAnalyzerConfigDocumentsFunc10(_obj, documentIds);
@@ -169,7 +169,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RemoveAnalyzerReferenceFunc11(_obj, analyzerReference);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Solution RemoveDocuments(this global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return RemoveDocumentsFunc12(_obj, documentIds);

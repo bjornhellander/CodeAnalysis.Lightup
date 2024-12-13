@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return AddAttributeListsFunc0(_obj, items);
         }
 
-        /// <summary>Method added in version 3.8.0.0.</summary>
+        /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddBlockAttributeListsFunc1(_obj, items);
