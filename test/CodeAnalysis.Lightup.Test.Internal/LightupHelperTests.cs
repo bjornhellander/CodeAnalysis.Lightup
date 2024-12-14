@@ -29,7 +29,7 @@ public class LightupHelperTests
             var nativeValue = wrapperValue.Value.Unwrap();
             Assert.IsNotNull(nativeValue);
             Assert.IsNotNull(native.Property1);
-            Assert.AreEqual(native.Property1.Value, nativeValue); // TODO: AreSame with value types does not work
+            Assert.AreEqual(native.Property1.Value, nativeValue);
         }
         else
         {
