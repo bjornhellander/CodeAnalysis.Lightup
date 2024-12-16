@@ -6,6 +6,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="NuGet.Protocol" Version="6.12.1" />
+	  <PackageReference Include="NuGet.Resolver" Version="6.3.4" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\CodeAnalysis.Lightup.Definitions\CodeAnalysis.Lightup.Definitions.csproj" />
 	</ItemGroup>
 

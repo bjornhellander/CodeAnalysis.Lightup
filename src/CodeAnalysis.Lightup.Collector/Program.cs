@@ -9,14 +9,16 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 using CodeAnalysis.Lightup.Definitions;
 
 internal class Program
 {
-    private static void Main()
+    private static async Task Main()
     {
         var rootFolder = GetRepositoryRoot();
+        await DownloadNugetsAsync();
         var types = CollectTypes(rootFolder);
         WriteTypesFile(rootFolder, types);
         RemoveGeneratedFolders(rootFolder);
@@ -38,6 +40,11 @@ internal class Program
 
         Assert.Fail("Can't find repository root");
         return null;
+    }
+
+    private static async Task DownloadNugetsAsync()
+    {
+        await NuGetHelper.DownloadAsync();
     }
 
     private static Dictionary<string, BaseTypeDefinition> CollectTypes(string rootFolder)
