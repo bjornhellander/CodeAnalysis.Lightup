@@ -12,6 +12,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
         private delegate global::System.String? DefaultNamespaceGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
         private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions HostAnalyzerOptionsGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
+        private delegate global::System.String? OutputRefFilePathGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
         private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper ServicesGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
 
         private delegate global::Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Project _obj, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath);
@@ -29,6 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;
         private static readonly DefaultNamespaceGetterDelegate DefaultNamespaceGetterFunc;
         private static readonly HostAnalyzerOptionsGetterDelegate HostAnalyzerOptionsGetterFunc;
+        private static readonly OutputRefFilePathGetterDelegate OutputRefFilePathGetterFunc;
         private static readonly ServicesGetterDelegate ServicesGetterFunc;
 
         private static readonly AddAnalyzerConfigDocumentDelegate0 AddAnalyzerConfigDocumentFunc0;
@@ -50,6 +52,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CompilationOutputInfoGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<CompilationOutputInfoGetterDelegate>(wrappedType, nameof(CompilationOutputInfo));
             DefaultNamespaceGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DefaultNamespaceGetterDelegate>(wrappedType, nameof(DefaultNamespace));
             HostAnalyzerOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<HostAnalyzerOptionsGetterDelegate>(wrappedType, nameof(HostAnalyzerOptions));
+            OutputRefFilePathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<OutputRefFilePathGetterDelegate>(wrappedType, nameof(OutputRefFilePath));
             ServicesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
 
             AddAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<AddAnalyzerConfigDocumentDelegate0>(wrappedType, "AddAnalyzerConfigDocument", "nameString", "textSourceText", "foldersIEnumerable`1", "filePathString");
@@ -86,6 +89,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions HostAnalyzerOptions(this global::Microsoft.CodeAnalysis.Project _obj)
         {
             return HostAnalyzerOptionsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.8.0.0.</summary>
+        public static global::System.String? OutputRefFilePath(this global::Microsoft.CodeAnalysis.Project _obj)
+        {
+            return OutputRefFilePathGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

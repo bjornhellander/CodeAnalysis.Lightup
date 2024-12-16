@@ -9,12 +9,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
         private delegate global::System.Boolean IsFileLocalGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::System.Boolean IsSerializableGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
 
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
         private static readonly IsFileLocalGetterDelegate IsFileLocalGetterFunc;
+        private static readonly IsSerializableGetterDelegate IsSerializableGetterFunc;
         private static readonly NativeIntegerUnderlyingTypeGetterDelegate NativeIntegerUnderlyingTypeGetterFunc;
         private static readonly TypeArgumentNullableAnnotationsGetterDelegate TypeArgumentNullableAnnotationsGetterFunc;
 
@@ -25,6 +27,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             IsFileLocalGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
+            IsSerializableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsSerializableGetterDelegate>(wrappedType, nameof(IsSerializable));
             NativeIntegerUnderlyingTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
             TypeArgumentNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
@@ -35,6 +38,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsFileLocal(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
         {
             return IsFileLocalGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.8.0.0.</summary>
+        public static global::System.Boolean IsSerializable(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return IsSerializableGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>

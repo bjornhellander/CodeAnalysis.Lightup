@@ -14,11 +14,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind TupleBinary = (global::Microsoft.CodeAnalysis.OperationKind)87;
 
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind TupleBinaryOperator = (global::Microsoft.CodeAnalysis.OperationKind)87;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind MethodBody = (global::Microsoft.CodeAnalysis.OperationKind)88;
 
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind MethodBodyOperation = (global::Microsoft.CodeAnalysis.OperationKind)88;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBody = (global::Microsoft.CodeAnalysis.OperationKind)89;
+
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBodyOperation = (global::Microsoft.CodeAnalysis.OperationKind)89;
+
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind Discard = (global::Microsoft.CodeAnalysis.OperationKind)90;
 
         /// <summary>Added in version 2.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind FlowCapture = (global::Microsoft.CodeAnalysis.OperationKind)91;

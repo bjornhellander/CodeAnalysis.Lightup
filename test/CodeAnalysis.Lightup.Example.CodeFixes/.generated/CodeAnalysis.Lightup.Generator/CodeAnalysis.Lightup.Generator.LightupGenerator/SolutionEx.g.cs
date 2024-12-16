@@ -33,6 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectCompilationOutputInfoDelegate19(global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectDefaultNamespaceDelegate20(global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? defaultNamespace);
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectDocumentsOrderDelegate21(global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.Collections.Immutable.ImmutableList<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate global::Microsoft.CodeAnalysis.Solution WithProjectOutputRefFilePathDelegate22(global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? outputRefFilePath);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
         private static readonly ServicesGetterDelegate ServicesGetterFunc;
@@ -59,6 +60,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly WithProjectCompilationOutputInfoDelegate19 WithProjectCompilationOutputInfoFunc19;
         private static readonly WithProjectDefaultNamespaceDelegate20 WithProjectDefaultNamespaceFunc20;
         private static readonly WithProjectDocumentsOrderDelegate21 WithProjectDocumentsOrderFunc21;
+        private static readonly WithProjectOutputRefFilePathDelegate22 WithProjectOutputRefFilePathFunc22;
 
         static SolutionEx()
         {
@@ -89,6 +91,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithProjectCompilationOutputInfoFunc19 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithProjectCompilationOutputInfoDelegate19>(wrappedType, "WithProjectCompilationOutputInfo", "projectIdProjectId", "infoCompilationOutputInfo&");
             WithProjectDefaultNamespaceFunc20 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithProjectDefaultNamespaceDelegate20>(wrappedType, "WithProjectDefaultNamespace", "projectIdProjectId", "defaultNamespaceString");
             WithProjectDocumentsOrderFunc21 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithProjectDocumentsOrderDelegate21>(wrappedType, "WithProjectDocumentsOrder", "projectIdProjectId", "documentIdsImmutableList`1");
+            WithProjectOutputRefFilePathFunc22 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithProjectOutputRefFilePathDelegate22>(wrappedType, "WithProjectOutputRefFilePath", "projectIdProjectId", "outputRefFilePathString");
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
@@ -233,6 +236,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Solution WithProjectDocumentsOrder(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.Collections.Immutable.ImmutableList<global::Microsoft.CodeAnalysis.DocumentId> documentIds)
         {
             return WithProjectDocumentsOrderFunc21(_obj, projectId, documentIds);
+        }
+
+        /// <summary>Method added in version 2.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Solution WithProjectOutputRefFilePath(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? outputRefFilePath)
+        {
+            return WithProjectOutputRefFilePathFunc22(_obj, projectId, outputRefFilePath);
         }
     }
 }

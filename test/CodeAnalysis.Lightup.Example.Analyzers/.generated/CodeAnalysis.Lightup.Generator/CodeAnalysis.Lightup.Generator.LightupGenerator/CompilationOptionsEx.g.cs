@@ -8,24 +8,36 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
+        private delegate global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx MetadataImportOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptionsDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate1(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
+        private static readonly MetadataImportOptionsGetterDelegate MetadataImportOptionsGetterFunc;
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;
 
-        private static readonly WithSyntaxTreeOptionsProviderDelegate0 WithSyntaxTreeOptionsProviderFunc0;
+        private static readonly WithMetadataImportOptionsDelegate0 WithMetadataImportOptionsFunc0;
+        private static readonly WithSyntaxTreeOptionsProviderDelegate1 WithSyntaxTreeOptionsProviderFunc1;
 
         static CompilationOptionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            MetadataImportOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MetadataImportOptionsGetterDelegate>(wrappedType, nameof(MetadataImportOptions));
             NullableContextOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
             SyntaxTreeOptionsProviderGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
-            WithSyntaxTreeOptionsProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithMetadataImportOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate0>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
+            WithSyntaxTreeOptionsProviderFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate1>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+        }
+
+        /// <summary>Property added in version 2.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx MetadataImportOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
+        {
+            return MetadataImportOptionsGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.3.0.0.</summary>
@@ -40,10 +52,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             return SyntaxTreeOptionsProviderGetterFunc(_obj);
         }
 
+        /// <summary>Method added in version 2.8.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value)
+        {
+            return WithMetadataImportOptionsFunc0(_obj, value);
+        }
+
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
-            return WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
+            return WithSyntaxTreeOptionsProviderFunc1(_obj, provider);
         }
     }
 }
