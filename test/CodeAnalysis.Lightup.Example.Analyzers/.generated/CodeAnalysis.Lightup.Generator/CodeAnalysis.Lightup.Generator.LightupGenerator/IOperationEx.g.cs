@@ -9,20 +9,29 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation";
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper ChildOperationsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.SemanticModel? SemanticModelGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ChildOperationsGetterDelegate ChildOperationsGetterFunc;
+        private static readonly SemanticModelGetterDelegate SemanticModelGetterFunc;
 
         static IOperationEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ChildOperationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ChildOperationsGetterDelegate>(wrappedType, nameof(ChildOperations));
+            SemanticModelGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SemanticModelGetterDelegate>(wrappedType, nameof(SemanticModel));
         }
 
         /// <summary>Property added in version 4.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper ChildOperations(this global::Microsoft.CodeAnalysis.IOperation _obj)
         {
             return ChildOperationsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SemanticModel? SemanticModel(this global::Microsoft.CodeAnalysis.IOperation _obj)
+        {
+            return SemanticModelGetterFunc(_obj);
         }
     }
 }

@@ -10,11 +10,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedDocumentsDelegate2(global::Microsoft.CodeAnalysis.ProjectChanges _obj, global::System.Boolean onlyGetDocumentsWithTextChanges);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate3(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
 
         private static readonly GetAddedAnalyzerConfigDocumentsDelegate0 GetAddedAnalyzerConfigDocumentsFunc0;
         private static readonly GetChangedAnalyzerConfigDocumentsDelegate1 GetChangedAnalyzerConfigDocumentsFunc1;
-        private static readonly GetRemovedAnalyzerConfigDocumentsDelegate2 GetRemovedAnalyzerConfigDocumentsFunc2;
+        private static readonly GetChangedDocumentsDelegate2 GetChangedDocumentsFunc2;
+        private static readonly GetRemovedAnalyzerConfigDocumentsDelegate3 GetRemovedAnalyzerConfigDocumentsFunc3;
 
         static ProjectChangesEx()
         {
@@ -22,7 +24,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             GetAddedAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetAddedAnalyzerConfigDocuments");
             GetChangedAnalyzerConfigDocumentsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, "GetChangedAnalyzerConfigDocuments");
-            GetRemovedAnalyzerConfigDocumentsFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate2>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
+            GetChangedDocumentsFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedDocumentsDelegate2>(wrappedType, "GetChangedDocuments", "onlyGetDocumentsWithTextChangesBoolean");
+            GetRemovedAnalyzerConfigDocumentsFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate3>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
@@ -37,10 +40,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetChangedAnalyzerConfigDocumentsFunc1(_obj);
         }
 
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj, global::System.Boolean onlyGetDocumentsWithTextChanges)
+        {
+            return GetChangedDocumentsFunc2(_obj, onlyGetDocumentsWithTextChanges);
+        }
+
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
-            return GetRemovedAnalyzerConfigDocumentsFunc2(_obj);
+            return GetRemovedAnalyzerConfigDocumentsFunc3(_obj);
         }
     }
 }

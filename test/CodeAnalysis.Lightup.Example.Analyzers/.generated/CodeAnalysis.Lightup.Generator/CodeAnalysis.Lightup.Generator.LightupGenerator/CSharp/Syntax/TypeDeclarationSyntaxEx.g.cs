@@ -10,13 +10,47 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterListDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddBaseListTypesDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddConstraintClausesDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddMembersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddModifiersDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParametersDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddTypeParameterListParametersDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithAttributeListsDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithBaseListDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithCloseBraceTokenDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithConstraintClausesDelegate10(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithIdentifierDelegate11(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithKeywordDelegate12(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithMembersDelegate13(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithModifiersDelegate14(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithOpenBraceTokenDelegate15(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterListDelegate16(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithSemicolonTokenDelegate17(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithTypeParameterListDelegate18(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList);
 
         private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
 
-        private static readonly AddParameterListParametersDelegate0 AddParameterListParametersFunc0;
-        private static readonly WithParameterListDelegate1 WithParameterListFunc1;
+        private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
+        private static readonly AddBaseListTypesDelegate1 AddBaseListTypesFunc1;
+        private static readonly AddConstraintClausesDelegate2 AddConstraintClausesFunc2;
+        private static readonly AddMembersDelegate3 AddMembersFunc3;
+        private static readonly AddModifiersDelegate4 AddModifiersFunc4;
+        private static readonly AddParameterListParametersDelegate5 AddParameterListParametersFunc5;
+        private static readonly AddTypeParameterListParametersDelegate6 AddTypeParameterListParametersFunc6;
+        private static readonly WithAttributeListsDelegate7 WithAttributeListsFunc7;
+        private static readonly WithBaseListDelegate8 WithBaseListFunc8;
+        private static readonly WithCloseBraceTokenDelegate9 WithCloseBraceTokenFunc9;
+        private static readonly WithConstraintClausesDelegate10 WithConstraintClausesFunc10;
+        private static readonly WithIdentifierDelegate11 WithIdentifierFunc11;
+        private static readonly WithKeywordDelegate12 WithKeywordFunc12;
+        private static readonly WithMembersDelegate13 WithMembersFunc13;
+        private static readonly WithModifiersDelegate14 WithModifiersFunc14;
+        private static readonly WithOpenBraceTokenDelegate15 WithOpenBraceTokenFunc15;
+        private static readonly WithParameterListDelegate16 WithParameterListFunc16;
+        private static readonly WithSemicolonTokenDelegate17 WithSemicolonTokenFunc17;
+        private static readonly WithTypeParameterListDelegate18 WithTypeParameterListFunc18;
 
         static TypeDeclarationSyntaxEx()
         {
@@ -24,8 +58,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
             ParameterListGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(wrappedType, nameof(ParameterList));
 
-            AddParameterListParametersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
-            WithParameterListFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate1>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddBaseListTypesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate1>(wrappedType, "AddBaseListTypes", "itemsBaseTypeSyntax[]");
+            AddConstraintClausesFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddConstraintClausesDelegate2>(wrappedType, "AddConstraintClauses", "itemsTypeParameterConstraintClauseSyntax[]");
+            AddMembersFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddMembersDelegate3>(wrappedType, "AddMembers", "itemsMemberDeclarationSyntax[]");
+            AddModifiersFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate4>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddParameterListParametersFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate5>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            AddTypeParameterListParametersFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddTypeParameterListParametersDelegate6>(wrappedType, "AddTypeParameterListParameters", "itemsTypeParameterSyntax[]");
+            WithAttributeListsFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate7>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBaseListFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate8>(wrappedType, "WithBaseList", "baseListBaseListSyntax");
+            WithCloseBraceTokenFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate9>(wrappedType, "WithCloseBraceToken", "closeBraceTokenSyntaxToken");
+            WithConstraintClausesFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConstraintClausesDelegate10>(wrappedType, "WithConstraintClauses", "constraintClausesSyntaxList`1");
+            WithIdentifierFunc11 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate11>(wrappedType, "WithIdentifier", "identifierSyntaxToken");
+            WithKeywordFunc12 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate12>(wrappedType, "WithKeyword", "keywordSyntaxToken");
+            WithMembersFunc13 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithMembersDelegate13>(wrappedType, "WithMembers", "membersSyntaxList`1");
+            WithModifiersFunc14 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate14>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithOpenBraceTokenFunc15 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate15>(wrappedType, "WithOpenBraceToken", "openBraceTokenSyntaxToken");
+            WithParameterListFunc16 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate16>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            WithSemicolonTokenFunc17 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate17>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            WithTypeParameterListFunc18 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate18>(wrappedType, "WithTypeParameterList", "typeParameterListTypeParameterListSyntax");
         }
 
         /// <summary>Property added in version 4.6.0.0.</summary>
@@ -34,16 +85,118 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return ParameterListGetterFunc(_obj);
         }
 
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
+        {
+            return AddAttributeListsFunc0(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddBaseListTypes(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items)
+        {
+            return AddBaseListTypesFunc1(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddConstraintClauses(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax[] items)
+        {
+            return AddConstraintClausesFunc2(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddMembers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items)
+        {
+            return AddMembersFunc3(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
+        {
+            return AddModifiersFunc4(_obj, items);
+        }
+
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
         {
-            return AddParameterListParametersFunc0(_obj, items);
+            return AddParameterListParametersFunc5(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddTypeParameterListParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax[] items)
+        {
+            return AddTypeParameterListParametersFunc6(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
+        {
+            return WithAttributeListsFunc7(_obj, attributeLists);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithBaseList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList)
+        {
+            return WithBaseListFunc8(_obj, baseList);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithCloseBraceToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
+        {
+            return WithCloseBraceTokenFunc9(_obj, closeBraceToken);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithConstraintClauses(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses)
+        {
+            return WithConstraintClausesFunc10(_obj, constraintClauses);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithIdentifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
+        {
+            return WithIdentifierFunc11(_obj, identifier);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword)
+        {
+            return WithKeywordFunc12(_obj, keyword);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithMembers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
+        {
+            return WithMembersFunc13(_obj, members);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
+        {
+            return WithModifiersFunc14(_obj, modifiers);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithOpenBraceToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken)
+        {
+            return WithOpenBraceTokenFunc15(_obj, openBraceToken);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList)
         {
-            return WithParameterListFunc1(_obj, parameterList);
+            return WithParameterListFunc16(_obj, parameterList);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithSemicolonToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
+        {
+            return WithSemicolonTokenFunc17(_obj, semicolonToken);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithTypeParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList)
+        {
+            return WithTypeParameterListFunc18(_obj, typeParameterList);
         }
     }
 }

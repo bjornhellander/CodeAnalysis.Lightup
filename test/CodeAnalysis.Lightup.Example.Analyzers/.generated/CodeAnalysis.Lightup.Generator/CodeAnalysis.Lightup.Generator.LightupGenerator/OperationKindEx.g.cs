@@ -20,6 +20,24 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBody = (global::Microsoft.CodeAnalysis.OperationKind)89;
 
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowCapture = (global::Microsoft.CodeAnalysis.OperationKind)91;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowCaptureReference = (global::Microsoft.CodeAnalysis.OperationKind)92;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind IsNull = (global::Microsoft.CodeAnalysis.OperationKind)93;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind CaughtException = (global::Microsoft.CodeAnalysis.OperationKind)94;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind StaticLocalInitializationSemaphore = (global::Microsoft.CodeAnalysis.OperationKind)95;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowAnonymousFunction = (global::Microsoft.CodeAnalysis.OperationKind)96;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind CoalesceAssignment = (global::Microsoft.CodeAnalysis.OperationKind)97;
 
