@@ -8,24 +8,96 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Classification.ClassificationTypeNames";
 
+        private delegate global::System.String ControlKeywordGetterDelegate();
+        private delegate global::System.String LabelNameGetterDelegate();
+        private delegate global::System.String NamespaceNameGetterDelegate();
+        private delegate global::System.String OperatorOverloadedGetterDelegate();
         private delegate global::System.String RecordClassNameGetterDelegate();
         private delegate global::System.String RecordStructNameGetterDelegate();
+        private delegate global::System.String RegexAlternationGetterDelegate();
+        private delegate global::System.String RegexAnchorGetterDelegate();
+        private delegate global::System.String RegexCharacterClassGetterDelegate();
+        private delegate global::System.String RegexCommentGetterDelegate();
+        private delegate global::System.String RegexGroupingGetterDelegate();
+        private delegate global::System.String RegexOtherEscapeGetterDelegate();
+        private delegate global::System.String RegexQuantifierGetterDelegate();
+        private delegate global::System.String RegexSelfEscapedCharacterGetterDelegate();
+        private delegate global::System.String RegexTextGetterDelegate();
+        private delegate global::System.String StaticSymbolGetterDelegate();
+        private delegate global::System.String StringEscapeCharacterGetterDelegate();
 
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AdditiveTypeNamesGetterDelegate();
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AllTypeNamesGetterDelegate();
 
+        private static readonly ControlKeywordGetterDelegate ControlKeywordGetterFunc;
+        private static readonly LabelNameGetterDelegate LabelNameGetterFunc;
+        private static readonly NamespaceNameGetterDelegate NamespaceNameGetterFunc;
+        private static readonly OperatorOverloadedGetterDelegate OperatorOverloadedGetterFunc;
         private static readonly RecordClassNameGetterDelegate RecordClassNameGetterFunc;
         private static readonly RecordStructNameGetterDelegate RecordStructNameGetterFunc;
+        private static readonly RegexAlternationGetterDelegate RegexAlternationGetterFunc;
+        private static readonly RegexAnchorGetterDelegate RegexAnchorGetterFunc;
+        private static readonly RegexCharacterClassGetterDelegate RegexCharacterClassGetterFunc;
+        private static readonly RegexCommentGetterDelegate RegexCommentGetterFunc;
+        private static readonly RegexGroupingGetterDelegate RegexGroupingGetterFunc;
+        private static readonly RegexOtherEscapeGetterDelegate RegexOtherEscapeGetterFunc;
+        private static readonly RegexQuantifierGetterDelegate RegexQuantifierGetterFunc;
+        private static readonly RegexSelfEscapedCharacterGetterDelegate RegexSelfEscapedCharacterGetterFunc;
+        private static readonly RegexTextGetterDelegate RegexTextGetterFunc;
+        private static readonly StaticSymbolGetterDelegate StaticSymbolGetterFunc;
+        private static readonly StringEscapeCharacterGetterDelegate StringEscapeCharacterGetterFunc;
 
+        private static readonly AdditiveTypeNamesGetterDelegate AdditiveTypeNamesGetterFunc;
         private static readonly AllTypeNamesGetterDelegate AllTypeNamesGetterFunc;
 
         static ClassificationTypeNamesEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
+            ControlKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<ControlKeywordGetterDelegate>(wrappedType, nameof(ControlKeyword));
+            LabelNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<LabelNameGetterDelegate>(wrappedType, nameof(LabelName));
+            NamespaceNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<NamespaceNameGetterDelegate>(wrappedType, nameof(NamespaceName));
+            OperatorOverloadedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<OperatorOverloadedGetterDelegate>(wrappedType, nameof(OperatorOverloaded));
             RecordClassNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RecordClassNameGetterDelegate>(wrappedType, nameof(RecordClassName));
             RecordStructNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RecordStructNameGetterDelegate>(wrappedType, nameof(RecordStructName));
+            RegexAlternationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexAlternationGetterDelegate>(wrappedType, nameof(RegexAlternation));
+            RegexAnchorGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexAnchorGetterDelegate>(wrappedType, nameof(RegexAnchor));
+            RegexCharacterClassGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexCharacterClassGetterDelegate>(wrappedType, nameof(RegexCharacterClass));
+            RegexCommentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexCommentGetterDelegate>(wrappedType, nameof(RegexComment));
+            RegexGroupingGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexGroupingGetterDelegate>(wrappedType, nameof(RegexGrouping));
+            RegexOtherEscapeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexOtherEscapeGetterDelegate>(wrappedType, nameof(RegexOtherEscape));
+            RegexQuantifierGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexQuantifierGetterDelegate>(wrappedType, nameof(RegexQuantifier));
+            RegexSelfEscapedCharacterGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexSelfEscapedCharacterGetterDelegate>(wrappedType, nameof(RegexSelfEscapedCharacter));
+            RegexTextGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<RegexTextGetterDelegate>(wrappedType, nameof(RegexText));
+            StaticSymbolGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<StaticSymbolGetterDelegate>(wrappedType, nameof(StaticSymbol));
+            StringEscapeCharacterGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<StringEscapeCharacterGetterDelegate>(wrappedType, nameof(StringEscapeCharacter));
 
+            AdditiveTypeNamesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AdditiveTypeNamesGetterDelegate>(wrappedType, nameof(AdditiveTypeNames));
             AllTypeNamesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<AllTypeNamesGetterDelegate>(wrappedType, nameof(AllTypeNames));
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String ControlKeyword
+        {
+            get { return ControlKeywordGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String LabelName
+        {
+            get { return LabelNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String NamespaceName
+        {
+            get { return NamespaceNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String OperatorOverloaded
+        {
+            get { return OperatorOverloadedGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.9.0.0.</summary>
@@ -38,6 +110,78 @@ namespace Microsoft.CodeAnalysis.Classification.Lightup
         public static global::System.String RecordStructName
         {
             get { return RecordStructNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexAlternation
+        {
+            get { return RegexAlternationGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexAnchor
+        {
+            get { return RegexAnchorGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexCharacterClass
+        {
+            get { return RegexCharacterClassGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexComment
+        {
+            get { return RegexCommentGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexGrouping
+        {
+            get { return RegexGroupingGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexOtherEscape
+        {
+            get { return RegexOtherEscapeGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexQuantifier
+        {
+            get { return RegexQuantifierGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexSelfEscapedCharacter
+        {
+            get { return RegexSelfEscapedCharacterGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String RegexText
+        {
+            get { return RegexTextGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String StaticSymbol
+        {
+            get { return StaticSymbolGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 3.0.0.0.</summary>
+        public static global::System.String StringEscapeCharacter
+        {
+            get { return StringEscapeCharacterGetterFunc(); }
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AdditiveTypeNames()
+        {
+            return AdditiveTypeNamesGetterFunc();
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
