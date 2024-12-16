@@ -5,6 +5,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.LanguageVersion.</summary>
     public static partial class LanguageVersionEx
     {
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp7_3 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)703;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp8 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)800;
 

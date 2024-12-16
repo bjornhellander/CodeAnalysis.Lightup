@@ -167,6 +167,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
 
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitStackAllocArrayCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9053;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SuppressNullableWarningExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9054;
 
