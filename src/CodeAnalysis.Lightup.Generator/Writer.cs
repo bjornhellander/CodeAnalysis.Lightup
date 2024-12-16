@@ -38,7 +38,7 @@ internal class Writer
     private static readonly Dictionary<ParameterMode, string> ParameterModeText = new()
     {
         [ParameterMode.None] = "",
-        [ParameterMode.In] = "ref ", // NOTE: Using ref to make it the code compatible with c# 6
+        [ParameterMode.In] = "ref ", // NOTE: Using ref to make the code compatible with c# 6
         [ParameterMode.Out] = "out ",
     };
 

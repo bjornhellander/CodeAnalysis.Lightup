@@ -6,6 +6,7 @@ namespace CodeAnalysis.Lightup.Definitions;
 public enum ParameterMode
 {
     None,
+    Ref,
     In,
     Out,
 }
