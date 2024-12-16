@@ -5,6 +5,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions.</summary>
     public static partial class SymbolDisplayMiscellaneousOptionsEx
     {
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions IncludeNullableReferenceTypeModifier = (global::Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)64;
+
         /// <summary>Added in version 3.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions AllowDefaultLiteral = (global::Microsoft.CodeAnalysis.SymbolDisplayMiscellaneousOptions)128;
 

@@ -20,7 +20,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate9(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataNameDelegate10(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String fullyQualifiedMetadataName);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate11(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Boolean SupportsRuntimeCapabilityDelegate12(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability);
+        private delegate global::System.Boolean IsSymbolAccessibleWithinDelegate12(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.ISymbol within, global::Microsoft.CodeAnalysis.ITypeSymbol? throughType);
+        private delegate global::System.Boolean SupportsRuntimeCapabilityDelegate13(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability);
 
         private static readonly CreateAnonymousTypeSymbolDelegate0 CreateAnonymousTypeSymbolFunc0;
         private static readonly CreateArrayTypeSymbolDelegate1 CreateArrayTypeSymbolFunc1;
@@ -34,7 +35,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly GetSemanticModelDelegate9 GetSemanticModelFunc9;
         private static readonly GetTypesByMetadataNameDelegate10 GetTypesByMetadataNameFunc10;
         private static readonly GetUsedAssemblyReferencesDelegate11 GetUsedAssemblyReferencesFunc11;
-        private static readonly SupportsRuntimeCapabilityDelegate12 SupportsRuntimeCapabilityFunc12;
+        private static readonly IsSymbolAccessibleWithinDelegate12 IsSymbolAccessibleWithinFunc12;
+        private static readonly SupportsRuntimeCapabilityDelegate13 SupportsRuntimeCapabilityFunc13;
 
         static CompilationEx()
         {
@@ -52,7 +54,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetSemanticModelFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate9>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
             GetTypesByMetadataNameFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate10>(wrappedType, "GetTypesByMetadataName", "fullyQualifiedMetadataNameString");
             GetUsedAssemblyReferencesFunc11 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate11>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
-            SupportsRuntimeCapabilityFunc12 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate12>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
+            IsSymbolAccessibleWithinFunc12 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsSymbolAccessibleWithinDelegate12>(wrappedType, "IsSymbolAccessibleWithin", "symbolISymbol", "withinISymbol", "throughTypeITypeSymbol");
+            SupportsRuntimeCapabilityFunc13 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate13>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
@@ -127,10 +130,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GetUsedAssemblyReferencesFunc11(_obj, cancellationToken);
         }
 
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::System.Boolean IsSymbolAccessibleWithin(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.ISymbol within, global::Microsoft.CodeAnalysis.ITypeSymbol? throughType)
+        {
+            return IsSymbolAccessibleWithinFunc12(_obj, symbol, within, throughType);
+        }
+
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::System.Boolean SupportsRuntimeCapability(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability)
         {
-            return SupportsRuntimeCapabilityFunc12(_obj, capability);
+            return SupportsRuntimeCapabilityFunc13(_obj, capability);
         }
     }
 }

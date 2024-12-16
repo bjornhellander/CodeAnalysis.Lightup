@@ -8,18 +8,33 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
 
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken AwaitKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj);
+
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAwaitKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword);
+
+        private static readonly AwaitKeywordGetterDelegate AwaitKeywordGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly WithAttributeListsDelegate1 WithAttributeListsFunc1;
+        private static readonly WithAwaitKeywordDelegate2 WithAwaitKeywordFunc2;
 
         static CommonForEachStatementSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
+            AwaitKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AwaitKeywordGetterDelegate>(wrappedType, nameof(AwaitKeyword));
+
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
             WithAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithAwaitKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAwaitKeywordDelegate2>(wrappedType, "WithAwaitKeyword", "awaitKeywordSyntaxToken");
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken AwaitKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj)
+        {
+            return AwaitKeywordGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
@@ -32,6 +47,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc1(_obj, attributeLists);
+        }
+
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAwaitKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword)
+        {
+            return WithAwaitKeywordFunc2(_obj, awaitKeyword);
         }
     }
 }

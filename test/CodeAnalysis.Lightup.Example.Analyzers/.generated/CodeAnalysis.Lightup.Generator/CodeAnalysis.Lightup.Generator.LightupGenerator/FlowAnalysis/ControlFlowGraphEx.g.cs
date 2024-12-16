@@ -8,7 +8,11 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph";
 
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph? ParentGetterDelegate(global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph _obj);
+
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph CreateDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper attribute, global::System.Threading.CancellationToken cancellationToken);
+
+        private static readonly ParentGetterDelegate ParentGetterFunc;
 
         private static readonly CreateDelegate0 CreateFunc0;
 
@@ -16,7 +20,15 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ParentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ParentGetterDelegate>(wrappedType, nameof(Parent));
+
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "attributeIAttributeOperation", "cancellationTokenCancellationToken");
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph? Parent(this global::Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraph _obj)
+        {
+            return ParentGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 4.5.0.0.</summary>

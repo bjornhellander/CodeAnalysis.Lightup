@@ -8,21 +8,30 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
+        private delegate global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperationDelegate0(global::Microsoft.CodeAnalysis.Operations.IBranchOperation operation);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate1(global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
 
-        private static readonly GetFunctionPointerSignatureDelegate0 GetFunctionPointerSignatureFunc0;
+        private static readonly GetCorrespondingOperationDelegate0 GetCorrespondingOperationFunc0;
+        private static readonly GetFunctionPointerSignatureDelegate1 GetFunctionPointerSignatureFunc1;
 
         static OperationExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            GetFunctionPointerSignatureFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, "GetFunctionPointerSignature", "functionPointerIFunctionPointerInvocationOperation");
+            GetCorrespondingOperationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetCorrespondingOperationDelegate0>(wrappedType, "GetCorrespondingOperation", "operationIBranchOperation");
+            GetFunctionPointerSignatureFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate1>(wrappedType, "GetFunctionPointerSignature", "functionPointerIFunctionPointerInvocationOperation");
+        }
+
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperation(this global::Microsoft.CodeAnalysis.Operations.IBranchOperation operation)
+        {
+            return GetCorrespondingOperationFunc0(operation);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignature(this global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer)
         {
-            return GetFunctionPointerSignatureFunc0(functionPointer);
+            return GetFunctionPointerSignatureFunc1(functionPointer);
         }
     }
 }

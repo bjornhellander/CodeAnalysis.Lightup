@@ -8,15 +8,24 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IPatternOperation";
 
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol InputTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol NarrowedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
+        private static readonly InputTypeGetterDelegate InputTypeGetterFunc;
         private static readonly NarrowedTypeGetterDelegate NarrowedTypeGetterFunc;
 
         static IPatternOperationEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            InputTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<InputTypeGetterDelegate>(wrappedType, nameof(InputType));
             NarrowedTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NarrowedTypeGetterDelegate>(wrappedType, nameof(NarrowedType));
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ITypeSymbol InputType(this global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj)
+        {
+            return InputTypeGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

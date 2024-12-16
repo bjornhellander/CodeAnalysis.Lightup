@@ -9,26 +9,41 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken AwaitKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken UsingKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithAwaitKeywordDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithUsingKeywordDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
+        private static readonly AwaitKeywordGetterDelegate AwaitKeywordGetterFunc;
+        private static readonly UsingKeywordGetterDelegate UsingKeywordGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithAttributeListsDelegate2 WithAttributeListsFunc2;
+        private static readonly UpdateDelegate2 UpdateFunc2;
+        private static readonly WithAttributeListsDelegate3 WithAttributeListsFunc3;
+        private static readonly WithAwaitKeywordDelegate4 WithAwaitKeywordFunc4;
+        private static readonly WithUsingKeywordDelegate5 WithUsingKeywordFunc5;
 
         static LocalDeclarationStatementSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AttributeListsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
+            AwaitKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AwaitKeywordGetterDelegate>(wrappedType, nameof(AwaitKeyword));
+            UsingKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<UsingKeywordGetterDelegate>(wrappedType, nameof(UsingKeyword));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
-            WithAttributeListsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
+            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
+            WithAttributeListsFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithAwaitKeywordFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAwaitKeywordDelegate4>(wrappedType, "WithAwaitKeyword", "awaitKeywordSyntaxToken");
+            WithUsingKeywordFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUsingKeywordDelegate5>(wrappedType, "WithUsingKeyword", "usingKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
@@ -37,22 +52,52 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return AttributeListsGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken AwaitKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj)
+        {
+            return AwaitKeywordGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken UsingKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj)
+        {
+            return UsingKeywordGetterFunc(_obj);
+        }
+
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddAttributeListsFunc0(_obj, items);
         }
 
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
+        {
+            return UpdateFunc1(_obj, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
+        }
+
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return UpdateFunc1(_obj, attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
+            return UpdateFunc2(_obj, attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc2(_obj, attributeLists);
+            return WithAttributeListsFunc3(_obj, attributeLists);
+        }
+
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithAwaitKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword)
+        {
+            return WithAwaitKeywordFunc4(_obj, awaitKeyword);
+        }
+
+        /// <summary>Method added in version 3.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax WithUsingKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword)
+        {
+            return WithUsingKeywordFunc5(_obj, usingKeyword);
         }
     }
 }

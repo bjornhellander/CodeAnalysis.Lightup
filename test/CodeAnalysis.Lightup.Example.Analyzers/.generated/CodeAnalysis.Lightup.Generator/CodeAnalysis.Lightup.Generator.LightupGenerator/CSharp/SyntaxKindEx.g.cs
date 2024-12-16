@@ -5,6 +5,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.SyntaxKind.</summary>
     public static partial class SyntaxKindEx
     {
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DotDotToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8222;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind QuestionQuestionEqualsToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8284;
+
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind GreaterThanGreaterThanGreaterThanToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8286;
 
@@ -47,11 +53,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NullableKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8486;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind EnableKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8487;
+
         /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WarningsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8488;
 
         /// <summary>Added in version 3.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AnnotationsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8489;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind VarKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8490;
 
         /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8518;
@@ -71,14 +86,23 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RangeExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8658;
+
         /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitObjectCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8659;
 
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8692;
 
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind CoalesceAssignmentExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8725;
+
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsignedRightShiftAssignmentExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8726;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IndexExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8741;
 
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
@@ -94,6 +118,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RecursivePattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9020;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind PropertyPatternClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9021;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Subpattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9022;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind PositionalPatternClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9023;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DiscardPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9024;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SwitchExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9025;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SwitchExpressionArm = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9026;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind VarPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9027;
 
         /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ParenthesizedPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9028;
@@ -118,6 +166,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SuppressNullableWarningExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9054;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NullableDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9055;
 
         /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FunctionPointerType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9056;
