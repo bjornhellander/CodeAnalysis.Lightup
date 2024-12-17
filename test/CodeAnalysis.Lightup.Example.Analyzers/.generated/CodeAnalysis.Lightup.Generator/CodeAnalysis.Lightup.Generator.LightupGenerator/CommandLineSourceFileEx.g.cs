@@ -8,11 +8,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 
-        private delegate Microsoft.CodeAnalysis.CommandLineSourceFile ConstructorDelegate0(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected);
+        private delegate Microsoft.CodeAnalysis.CommandLineSourceFile ConstructorDelegate0(global::System.String path, global::System.Boolean isScript);
+        private delegate Microsoft.CodeAnalysis.CommandLineSourceFile ConstructorDelegate1(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected);
 
         private delegate global::System.Boolean IsInputRedirectedGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineSourceFile _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
+        private static readonly ConstructorDelegate1 ConstructorFunc1;
 
         private static readonly IsInputRedirectedGetterDelegate IsInputRedirectedGetterFunc;
 
@@ -20,15 +22,22 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "pathString", "isScriptBoolean", "isInputRedirectedBoolean");
+            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "pathString", "isScriptBoolean");
+            ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "pathString", "isScriptBoolean", "isInputRedirectedBoolean");
 
             IsInputRedirectedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsInputRedirectedGetterDelegate>(wrappedType, nameof(IsInputRedirected));
+        }
+
+        /// <summary>Constructor added in version 2.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CommandLineSourceFile Create(global::System.String path, global::System.Boolean isScript)
+        {
+            return ConstructorFunc0(path, isScript);
         }
 
         /// <summary>Constructor added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CommandLineSourceFile Create(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected)
         {
-            return ConstructorFunc0(path, isScript, isInputRedirected);
+            return ConstructorFunc1(path, isScript, isInputRedirected);
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
