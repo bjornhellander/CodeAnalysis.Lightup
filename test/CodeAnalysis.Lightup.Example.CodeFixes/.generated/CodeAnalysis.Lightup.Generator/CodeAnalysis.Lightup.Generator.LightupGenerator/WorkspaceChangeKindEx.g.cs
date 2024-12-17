@@ -5,6 +5,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.WorkspaceChangeKind.</summary>
     public static partial class WorkspaceChangeKindEx
     {
+        /// <summary>Added in version 2.3.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind DocumentInfoChanged = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)17;
+
         /// <summary>Added in version 3.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.WorkspaceChangeKind AnalyzerConfigDocumentAdded = (global::Microsoft.CodeAnalysis.WorkspaceChangeKind)18;
 

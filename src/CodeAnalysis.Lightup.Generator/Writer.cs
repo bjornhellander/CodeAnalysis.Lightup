@@ -1710,6 +1710,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             return "@foreach";
         }
+        else if (name == "event")
+        {
+            return "@event";
+        }
         else
         {
             return name;

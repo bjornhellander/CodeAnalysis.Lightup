@@ -86,6 +86,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RazorContentToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8523;
 
+        /// <summary>Added in version 2.3.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ConflictMarkerTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8564;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RangeExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8658;
 
@@ -103,6 +106,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IndexExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8741;
+
+        /// <summary>Added in version 2.3.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DefaultLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8755;
 
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind Utf8StringLiteralExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8756;
