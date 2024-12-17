@@ -2,10 +2,22 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.ArgumentKind.</summary>
-    public static partial class ArgumentKindEx
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.ArgumentKind. Added in version 2.6.0.0.</summary>
+    public enum ArgumentKindEx : global::System.Int32
     {
+        /// <summary>Added in version 2.6.0.0.</summary>
+        None = 0,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Explicit = 1,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ParamArray = 2,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DefaultValue = 3,
+
         /// <summary>Added in version 4.10.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.Operations.ArgumentKind ParamCollection = (global::Microsoft.CodeAnalysis.Operations.ArgumentKind)4;
+        ParamCollection = 4,
     }
 }
