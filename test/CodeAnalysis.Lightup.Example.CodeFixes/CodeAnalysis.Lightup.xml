@@ -2,5 +2,5 @@
 <Settings>
 	<Assembly>WorkspacesCommon</Assembly>
 	<Assembly>CSharpWorkspaces</Assembly>
-	<BaselineVersion>3.0.0.0</BaselineVersion>
+	<BaselineVersion>0.0.0.0</BaselineVersion>
 </Settings>

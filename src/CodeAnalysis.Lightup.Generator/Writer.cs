@@ -38,7 +38,7 @@ internal class Writer
     private static readonly Dictionary<ParameterMode, string> ParameterModeText = new()
     {
         [ParameterMode.None] = "",
-        [ParameterMode.In] = "ref ", // NOTE: Using ref to make it the code compatible with c# 6
+        [ParameterMode.In] = "ref ", // NOTE: Using ref to make the code compatible with c# 6
         [ParameterMode.Out] = "out ",
     };
 
@@ -1705,6 +1705,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         else if (name == "default")
         {
             return "@default";
+        }
+        else if (name == "foreach")
+        {
+            return "@foreach";
+        }
+        else if (name == "event")
+        {
+            return "@event";
         }
         else
         {

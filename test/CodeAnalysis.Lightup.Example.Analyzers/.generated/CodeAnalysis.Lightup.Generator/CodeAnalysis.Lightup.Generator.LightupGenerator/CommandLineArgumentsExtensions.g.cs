@@ -9,20 +9,26 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate global::System.Boolean DisplayLangVersionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate global::System.String? OutputRefFilePathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate global::System.String? RuleSetPathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
 
         private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj, global::System.String outputFileName);
         private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj, global::System.String outputFileName);
 
         private static readonly AnalyzerConfigPathsGetterDelegate AnalyzerConfigPathsGetterFunc;
+        private static readonly DisplayLangVersionsGetterDelegate DisplayLangVersionsGetterFunc;
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;
         private static readonly ErrorLogOptionsGetterDelegate ErrorLogOptionsGetterFunc;
         private static readonly GeneratedFilesOutputDirectoryGetterDelegate GeneratedFilesOutputDirectoryGetterFunc;
+        private static readonly OutputRefFilePathGetterDelegate OutputRefFilePathGetterFunc;
         private static readonly ReportInternalsVisibleToAttributesGetterDelegate ReportInternalsVisibleToAttributesGetterFunc;
+        private static readonly RuleSetPathGetterDelegate RuleSetPathGetterFunc;
         private static readonly SkipAnalyzersGetterDelegate SkipAnalyzersGetterFunc;
 
         private static readonly GetOutputFilePathDelegate0 GetOutputFilePathFunc0;
@@ -33,10 +39,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             AnalyzerConfigPathsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(wrappedType, nameof(AnalyzerConfigPaths));
+            DisplayLangVersionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<DisplayLangVersionsGetterDelegate>(wrappedType, nameof(DisplayLangVersions));
             EmitPdbFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
             ErrorLogOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
             GeneratedFilesOutputDirectoryGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
+            OutputRefFilePathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OutputRefFilePathGetterDelegate>(wrappedType, nameof(OutputRefFilePath));
             ReportInternalsVisibleToAttributesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
+            RuleSetPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RuleSetPathGetterDelegate>(wrappedType, nameof(RuleSetPath));
             SkipAnalyzersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
 
             GetOutputFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, "GetOutputFilePath", "outputFileNameString");
@@ -47,6 +56,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPaths(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return AnalyzerConfigPathsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::System.Boolean DisplayLangVersions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return DisplayLangVersionsGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.2.0.0.</summary>
@@ -67,10 +82,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GeneratedFilesOutputDirectoryGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 2.3.0.0.</summary>
+        public static global::System.String? OutputRefFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return OutputRefFilePathGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 4.7.0.0.</summary>
         public static global::System.Boolean ReportInternalsVisibleToAttributes(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return ReportInternalsVisibleToAttributesGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.3.0.0.</summary>
+        public static global::System.String? RuleSetPath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return RuleSetPathGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

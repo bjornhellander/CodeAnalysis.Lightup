@@ -8,24 +8,36 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
 
+        private delegate global::System.Boolean IsFixedGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
         private delegate global::System.Boolean IsForEachGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
         private delegate global::System.Boolean IsUsingGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
+        private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
 
+        private static readonly IsFixedGetterDelegate IsFixedGetterFunc;
         private static readonly IsForEachGetterDelegate IsForEachGetterFunc;
         private static readonly IsUsingGetterDelegate IsUsingGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
+        private static readonly RefKindGetterDelegate RefKindGetterFunc;
         private static readonly ScopedKindGetterDelegate ScopedKindGetterFunc;
 
         static ILocalSymbolExtensions()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            IsFixedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFixedGetterDelegate>(wrappedType, nameof(IsFixed));
             IsForEachGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
             IsUsingGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
             ScopedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
+        }
+
+        /// <summary>Property added in version 2.9.0.0.</summary>
+        public static global::System.Boolean IsFixed(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
+        {
+            return IsFixedGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
@@ -44,6 +56,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
+        {
+            return RefKindGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

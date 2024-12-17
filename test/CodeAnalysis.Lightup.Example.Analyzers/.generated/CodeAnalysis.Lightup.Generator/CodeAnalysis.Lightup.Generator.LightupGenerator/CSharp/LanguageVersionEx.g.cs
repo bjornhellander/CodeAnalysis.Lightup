@@ -5,6 +5,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.CSharp.LanguageVersion.</summary>
     public static partial class LanguageVersionEx
     {
+        /// <summary>Added in version 2.3.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp7_1 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)701;
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp7_2 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)702;
+
+        /// <summary>Added in version 2.8.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp7_3 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)703;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp8 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)800;
+
         /// <summary>Added in version 3.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp9 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)900;
 
@@ -19,5 +31,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.12.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp13 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1300;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion LatestMajor = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)2147483645;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion Preview = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)2147483646;
     }
 }

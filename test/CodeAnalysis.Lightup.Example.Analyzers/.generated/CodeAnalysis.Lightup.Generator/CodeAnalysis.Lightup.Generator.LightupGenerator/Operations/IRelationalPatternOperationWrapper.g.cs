@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.BinaryOperatorKindEx OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
         private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.BinaryOperatorKindEx OperatorKind
         {
             get { return OperatorKindGetterFunc(wrappedObject); }
         }

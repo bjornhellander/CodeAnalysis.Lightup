@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation? PatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
         private delegate global::Microsoft.CodeAnalysis.ISymbol? SliceSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
 
         private static readonly PatternGetterDelegate PatternGetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.1.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Pattern
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper Pattern
         {
             get { return PatternGetterFunc(wrappedObject); }
         }

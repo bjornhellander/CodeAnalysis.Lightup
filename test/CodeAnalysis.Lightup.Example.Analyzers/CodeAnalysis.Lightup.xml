@@ -2,5 +2,5 @@
 <Settings>
 	<Assembly>Common</Assembly>
 	<Assembly>CSharp</Assembly>
-	<BaselineVersion>3.0.0.0</BaselineVersion>
+	<BaselineVersion>0.0.0.0</BaselineVersion>
 </Settings>

@@ -823,6 +823,10 @@ internal class Reflector
                 parameterType = parameter.ParameterType;
                 return;
 
+            case (true, false, false, false):
+                parameterMode = ParameterMode.Ref;
+                break;
+
             case (true, true, false, false):
                 parameterMode = ParameterMode.In;
                 break;
