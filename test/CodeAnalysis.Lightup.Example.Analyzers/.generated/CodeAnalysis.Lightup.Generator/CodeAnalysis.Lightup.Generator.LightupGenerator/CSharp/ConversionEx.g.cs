@@ -15,7 +15,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.Boolean IsInlineArrayGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsInterpolatedStringHandlerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsObjectCreationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsStackAllocGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsSwitchExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ToCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsCollectionExpressionGetterDelegate IsCollectionExpressionGetterFunc;
@@ -24,7 +27,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly IsInlineArrayGetterDelegate IsInlineArrayGetterFunc;
         private static readonly IsInterpolatedStringHandlerGetterDelegate IsInterpolatedStringHandlerGetterFunc;
         private static readonly IsObjectCreationGetterDelegate IsObjectCreationGetterFunc;
+        private static readonly IsStackAllocGetterDelegate IsStackAllocGetterFunc;
         private static readonly IsSwitchExpressionGetterDelegate IsSwitchExpressionGetterFunc;
+
+        private static readonly ToCommonConversionDelegate0 ToCommonConversionFunc0;
 
         static ConversionEx()
         {
@@ -37,7 +43,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsInlineArrayGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
             IsInterpolatedStringHandlerGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
             IsObjectCreationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
+            IsStackAllocGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsStackAllocGetterDelegate>(wrappedType, nameof(IsStackAlloc));
             IsSwitchExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
+
+            ToCommonConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToCommonConversionDelegate0>(wrappedType, "ToCommonConversion");
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
@@ -82,10 +91,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return IsObjectCreationGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::System.Boolean IsStackAlloc(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsStackAllocGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::System.Boolean IsSwitchExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsSwitchExpressionGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ToCommonConversion(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return ToCommonConversionFunc0(_obj);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? BlockBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? BlockBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly BlockBodyGetterDelegate BlockBodyGetterFunc;
         private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;
@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IBlockOperation? BlockBody
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? BlockBody
         {
             get { return BlockBodyGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IBlockOperation? ExpressionBody
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? ExpressionBody
         {
             get { return ExpressionBodyGetterFunc(wrappedObject); }
         }

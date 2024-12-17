@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.BinaryOperatorKindEx OperatorKindGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::System.Object _obj);
 
         private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IRelationalPatternOperationWrapper()
         {
@@ -26,13 +26,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ValueGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
-        private IRelationalPatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
+        private IRelationalPatternOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKind
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.BinaryOperatorKindEx OperatorKind
         {
             get { return OperatorKindGetterFunc(wrappedObject); }
         }
@@ -44,20 +44,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IRelationalPatternOperationWrapper Wrap(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
+        public static IRelationalPatternOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IRelationalPatternOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }
