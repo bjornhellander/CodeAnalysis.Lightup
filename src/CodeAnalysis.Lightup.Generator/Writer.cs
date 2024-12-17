@@ -1706,6 +1706,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             return "@default";
         }
+        else if (name == "foreach")
+        {
+            return "@foreach";
+        }
         else
         {
             return name;
