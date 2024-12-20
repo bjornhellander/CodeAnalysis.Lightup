@@ -14,7 +14,7 @@ and code refactorings, or whatever the generator is used in.
 ## Usage
 
 Add a reference to this nuget package in the project(s) you want to generate lightup code in. A configuration file with a name matching
-'CodeAnalysis.Lightup*.xml' is needed to guide the generator, for example to let it know for which  Microsoft.CodeAnalysis.* packages
+'CodeAnalysis.Lightup*.json' is needed to guide the generator, for example to let it know for which  Microsoft.CodeAnalysis.* packages
 it should generate lightup code.
 
 The generated code needs some support code to compile. That code is available in a separate NuGet package called CodeAnalysis.Lightup.Runtime.

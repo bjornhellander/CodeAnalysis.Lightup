@@ -9,6 +9,7 @@
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<DevelopmentDependency>true</DevelopmentDependency>
+		<PackageLightJsonIncludeSource>true</PackageLightJsonIncludeSource>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -53,6 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="MarcosLopezC.LightJson" Version="0.5.3" IncludeAssets="Build" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.0" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.0" />
 		<PackageReference Include="Nullable" Version="1.3.1">

@@ -12,12 +12,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- The .generated file is excluded by default, but we want to show the items in Solution Explorer so we included it as None -->
+		<!-- The .generated folder is excluded by default, but we want to show the items in Solution Explorer so we included it as None -->
 		<None Include=".generated\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<AdditionalFiles Include="CodeAnalysis.Lightup.xml" />
+		<AdditionalFiles Include="CodeAnalysis.Lightup.json" />
 	</ItemGroup>
 
 	<ItemGroup>

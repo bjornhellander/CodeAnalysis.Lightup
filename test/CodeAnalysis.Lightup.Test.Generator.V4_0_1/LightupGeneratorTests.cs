@@ -3,7 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -738,15 +737,13 @@ namespace Microsoft.CodeAnalysis.Lightup
             return solution;
         });
 
-        var configFileContent = $@"<?xml version=""1.0"" encoding=""utf-8""?>
-<Settings>
-	{(assemblyKind != null ? $"<Assembly>{assemblyKind}</Assembly>" : "")}
-	{(baselineVersion != null ? $"<BaselineVersion>{baselineVersion}</BaselineVersion>" : "")}
-    {string.Join(Environment.NewLine, typesToInclude.Select(x => $"<IncludeType>{x}</IncludeType>"))}
-    <UseFoldersInFilePaths>{useFoldersInFilePaths}</UseFoldersInFilePaths>
-</Settings>
-";
-        test.TestState.AdditionalFiles.Add(("CodeAnalysis.Lightup.xml", configFileContent));
+        var configFileContent = $@"{{
+	{(assemblyKind != null ? $@"""assemblies"": [ ""{assemblyKind}"" ]," : "")}
+	{(baselineVersion != null ? $@"""baselineVersion"": ""{baselineVersion}""," : "")}
+    ""includeTypes"": [ {string.Join(", ", typesToInclude.Select(x => $@"""{x}"""))} ],
+    ""useFoldersInFilePaths"": {(useFoldersInFilePaths.Value ? "true" : "false")}
+}}";
+        test.TestState.AdditionalFiles.Add(("CodeAnalysis.Lightup.json", configFileContent));
 
         return test;
     }

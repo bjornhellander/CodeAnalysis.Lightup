@@ -6,4 +6,4 @@ The project needs at least one configuration file to be able to use the source g
 
 ## How to fix violations
 
-To fix a violation of this rule, add at least one file with name matching 'CodeAnalysis.Lightup*.xml', with build action 'C# analyzer additional file'.
+To fix a violation of this rule, add at least one file with name matching 'CodeAnalysis.Lightup*.json', with build action 'C# analyzer additional file'.

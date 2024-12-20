@@ -8,14 +8,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using CodeAnalysis.Lightup.Definitions;
+using LightJson;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
 internal static class Helpers
 {
-    private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.xml$");
+    private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.json$");
     private static readonly List<AssemblyKind> NoAssemblies = [];
     private static readonly List<string> NoTypes = [];
 
@@ -42,8 +42,12 @@ internal static class Helpers
 
         try
         {
-            var doc = XDocument.Parse(configFileContent);
-            var root = doc.Root;
+            var root = JsonValue.Parse(configFileContent);
+            if (!root.IsJsonObject)
+            {
+                errorMessage = "Failed to parse file";
+                return false;
+            }
 
             assemblies = GetAssemblies(root);
             baselineVersion = GetBaselineVersion(root);
@@ -65,21 +69,30 @@ internal static class Helpers
         }
     }
 
-    private static List<AssemblyKind> GetAssemblies(XElement root)
+    private static List<AssemblyKind> GetAssemblies(JsonObject root)
     {
-        var assemblyStrings = root.Elements("Assembly").Select(x => x.Value).ToList();
-
-        if (assemblyStrings.Count == 0)
+        if (!root.ContainsKey("assemblies", out var assembliesToken))
         {
-            throw new ConfigurationException("Missing 'Assembly' element(s).");
+            throw new ConfigurationException("Missing 'assemblies' attribute.");
         }
 
-        var assemblies = new List<AssemblyKind>(assemblyStrings.Count);
-        foreach (var assemblyString in assemblyStrings)
+        if (!assembliesToken.IsJsonArray)
         {
-            if (!Enum.TryParse<AssemblyKind>(assemblyString, out var assembly))
+            throw new ConfigurationException("Incorrect 'assemblies' attribute. Expected an array.");
+        }
+
+        var assembliesArray = (JsonArray)assembliesToken;
+        if (assembliesArray.Count == 0)
+        {
+            throw new ConfigurationException("Empty 'assemblies' attribute.");
+        }
+
+        var assemblies = new List<AssemblyKind>(assembliesArray.Count);
+        foreach (var assemblyToken in assembliesArray)
+        {
+            if (assemblyToken.Type != JsonValueType.String || !Enum.TryParse<AssemblyKind>((string)assemblyToken, out var assembly))
             {
-                throw new ConfigurationException($"Incorrect 'Assembly' element value: '{assemblyString}'. Should be one of these: {string.Join(", ", Enum.GetNames(typeof(AssemblyKind)))}.");
+                throw new ConfigurationException($"Incorrect 'assemblies' attribute value: '{(string)assemblyToken}'. Expected one of these: {string.Join(", ", Enum.GetNames(typeof(AssemblyKind)))}.");
             }
 
             assemblies.Add(assembly);
@@ -88,56 +101,60 @@ internal static class Helpers
         return assemblies;
     }
 
-    private static Version GetBaselineVersion(XElement root)
+    private static Version GetBaselineVersion(JsonObject root)
     {
-        var baselineVersionStrings = root.Elements("BaselineVersion").ToList();
-        if (baselineVersionStrings.Count == 0)
+        if (!root.ContainsKey("baselineVersion", out var baselineVersionToken))
         {
-            throw new ConfigurationException("Missing 'BaselineVersion' element.");
-        }
-        else if (baselineVersionStrings.Count > 1)
-        {
-            throw new ConfigurationException("Multiple 'BaselineVersion' elements.");
+            throw new ConfigurationException("Missing 'baselineVersion' attribute.");
         }
 
-        var baselineVersionString = baselineVersionStrings[0].Value;
-        if (!Version.TryParse(baselineVersionString, out var baselineVersion))
+        if (baselineVersionToken.Type != JsonValueType.String || !Version.TryParse((string)baselineVersionToken, out var baselineVersion))
         {
-            throw new ConfigurationException($"Incorrect 'BaselineVersion' element value: '{baselineVersionString}'.");
+            throw new ConfigurationException($"Incorrect 'baselineVersion' attribute value: '{(string)baselineVersionToken}'.");
         }
 
         return baselineVersion;
     }
 
-    private static List<string> GetTypesToInclude(XElement root)
+    private static List<string> GetTypesToInclude(JsonObject root)
     {
-        return root.Elements("IncludeType").Select(x => x.Value).ToList();
+        if (!root.ContainsKey("includeTypes", out var includeTypesToken))
+        {
+            return [];
+        }
+
+        var includeTypesArray = (JsonArray)includeTypesToken;
+        if (includeTypesArray == null || includeTypesArray.Any(x => x.Type != JsonValueType.String))
+        {
+            throw new ConfigurationException($"Incorrect 'includeTypes' attribute value. Expected an array of strings.");
+        }
+
+        var includeTypes = includeTypesArray.Select(x => (string)x!).ToList();
+        return includeTypes;
     }
 
-    private static bool GetUseFoldersInFilePaths(XElement root)
+    private static bool GetUseFoldersInFilePaths(JsonObject root)
     {
-        var useFoldersInFilePathsStrings = root.Elements("UseFoldersInFilePaths").ToList();
         bool useFoldersInFilePaths;
-        if (useFoldersInFilePathsStrings.Count == 0)
+        if (root.ContainsKey("useFoldersInFilePaths", out var useFoldersInFilePathsToken))
         {
-            useFoldersInFilePaths = true;
-        }
-        else if (useFoldersInFilePathsStrings.Count > 1)
-        {
-            throw new ConfigurationException("Multiple 'UseFoldersInFilePaths' elements.");
+            if (useFoldersInFilePathsToken.Type == JsonValueType.Boolean)
+            {
+                useFoldersInFilePaths = (bool)useFoldersInFilePathsToken;
+            }
+            else
+            {
+                throw new ConfigurationException($"Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
+            }
         }
         else
         {
-            var useFoldersInFilePathsString = useFoldersInFilePathsStrings[0].Value;
-            if (!bool.TryParse(useFoldersInFilePathsString, out useFoldersInFilePaths))
-            {
-                throw new ConfigurationException($"Incorrect 'UseFoldersInFilePaths' element value: '{useFoldersInFilePathsString}'. Should be one of these: True, False.");
-            }
+            useFoldersInFilePaths = true;
         }
 
         if (useFoldersInFilePaths && !RoslynSupportsFoldersInGeneratedFilePaths)
         {
-            throw new ConfigurationException("The current Roslyn version does not support generating files in folders. Upgrade to at least Roslyn 4.6.0 or configure not to use folders. The latter is done by adding '<UseFoldersInFilePaths>false</UseFoldersInFilePaths>' in the configuration file.");
+            throw new ConfigurationException("The current Roslyn version does not support generating files in folders. Upgrade to at least Roslyn 4.6.0 or configure not to use folders. The latter is done by adding '\"useFoldersInFilePaths\": false' in the configuration file.");
         }
 
         return useFoldersInFilePaths;
