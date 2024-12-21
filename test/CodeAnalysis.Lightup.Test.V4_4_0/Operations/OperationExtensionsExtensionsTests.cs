@@ -19,7 +19,7 @@ public partial class OperationExtensionsExtensionsTests
     public override void TestGetFunctionPointerSignatureGivenNullObject()
     {
         IFunctionPointerInvocationOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.GetFunctionPointerSignature());
         Assert.ThrowsException<NullReferenceException>(() => obj!.GetFunctionPointerSignature());
     }
@@ -28,7 +28,7 @@ public partial class OperationExtensionsExtensionsTests
     public void TestGetFunctionPointerSignatureGivenCompatibleObject()
     {
         IOperation obj = CreateFunctionPointerInvocationOperation();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         _ = wrapper.GetFunctionPointerSignature();
     }
 

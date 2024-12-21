@@ -99,7 +99,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return obj != null;
         }
 
-        public static SeparatedSyntaxListWrapper<TNode> As(object? obj)
+        public static SeparatedSyntaxListWrapper<TNode> Wrap(object? obj)
         {
             if (obj != null && obj.GetType() != WrappedType)
             {
@@ -525,9 +525,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SourceGeneratedDocumentWrapper As(global::System.Object? obj)
+        public static SourceGeneratedDocumentWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::Microsoft.CodeAnalysis.Document>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 
@@ -675,7 +675,7 @@ namespace CodeAnalysis.Lightup.Runtime
         public static bool Is(object{na} obj, Type{na} wrappedType)
             => throw new Exception();
         
-        public static TObject{na} As<TObject>(object{na} obj, Type{na} wrappedType)
+        public static TObject{na} Wrap<TObject>(object{na} obj, Type{na} wrappedType)
             where TObject : class
             => throw new Exception();        
         

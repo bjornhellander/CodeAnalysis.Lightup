@@ -24,7 +24,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     public void TestAsGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -32,7 +32,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     public virtual void TestSignatureGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.Signature);
     }
 
@@ -47,7 +47,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     public void TestAsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

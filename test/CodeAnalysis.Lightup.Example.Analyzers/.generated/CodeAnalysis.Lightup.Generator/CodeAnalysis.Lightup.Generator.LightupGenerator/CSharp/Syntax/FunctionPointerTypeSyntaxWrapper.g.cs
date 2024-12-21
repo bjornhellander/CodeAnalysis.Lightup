@@ -98,9 +98,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static FunctionPointerTypeSyntaxWrapper As(global::System.Object? obj)
+        public static FunctionPointerTypeSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax>(obj, WrappedType);
             return new FunctionPointerTypeSyntaxWrapper(obj2);
         }
 

@@ -18,7 +18,7 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
     public override void TestPlaceholderKindGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.PlaceholderKind);
     }
 
@@ -32,7 +32,7 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
         mock.Setup(x => x.PlaceholderKind).Returns(kind);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(kind, (InterpolatedStringArgumentPlaceholderKind)wrapper.PlaceholderKind);
     }
 
@@ -51,7 +51,7 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
         var mock = new Mock<IInterpolatedStringHandlerArgumentPlaceholderOperation>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(obj, wrapper.Unwrap());
     }
 }

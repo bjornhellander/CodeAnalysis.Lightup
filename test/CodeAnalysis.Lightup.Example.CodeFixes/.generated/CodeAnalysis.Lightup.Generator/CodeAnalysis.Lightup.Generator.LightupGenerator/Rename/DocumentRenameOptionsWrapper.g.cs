@@ -79,9 +79,9 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static DocumentRenameOptionsWrapper As(global::System.Object? obj)
+        public static DocumentRenameOptionsWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new DocumentRenameOptionsWrapper(obj2);
         }
 

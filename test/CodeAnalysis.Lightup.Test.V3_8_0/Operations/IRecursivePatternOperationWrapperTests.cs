@@ -18,7 +18,7 @@ public partial class IRecursivePatternOperationWrapperTests
     public override void TestPropertySubpatternsGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.PropertySubpatterns);
     }
 
@@ -30,7 +30,7 @@ public partial class IRecursivePatternOperationWrapperTests
         mock.Setup(x => x.PropertySubpatterns).Returns([propertySubpatternOperationMock.Object]);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var propertySubpatterns = wrapper.PropertySubpatterns;
     }
 
@@ -49,7 +49,7 @@ public partial class IRecursivePatternOperationWrapperTests
         var mock = new Mock<IRecursivePatternOperation>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 }

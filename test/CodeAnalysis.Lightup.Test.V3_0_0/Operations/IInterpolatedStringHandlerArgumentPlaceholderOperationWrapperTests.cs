@@ -24,7 +24,7 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     public void TestAsGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -32,7 +32,7 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     public virtual void TestPlaceholderKindGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.PlaceholderKind);
     }
 
@@ -47,7 +47,7 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     public void TestAsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

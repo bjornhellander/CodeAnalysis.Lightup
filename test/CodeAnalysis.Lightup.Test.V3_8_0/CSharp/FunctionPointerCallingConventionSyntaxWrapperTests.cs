@@ -10,6 +10,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper;
+
 [TestClass]
 public partial class FunctionPointerCallingConventionSyntaxWrapperTests
 {
@@ -17,7 +19,7 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     public override void TestUnmanagedCallingConventionListGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.UnmanagedCallingConventionList);
     }
 
@@ -25,8 +27,8 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     public override void TestWithUnmanagedCallingConventionListGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
-        var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.As(null);
+        var wrapper = Wrapper.Wrap(obj);
+        var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.Wrap(null);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.WithUnmanagedCallingConventionList(unmanagedCallingConventionListWrapper));
     }
 
@@ -34,7 +36,7 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     public void TestAsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 
@@ -42,14 +44,14 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     public void TestIsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        Assert.IsTrue(FunctionPointerCallingConventionSyntaxWrapper.Is(obj));
+        Assert.IsTrue(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestUnmanagedCallingConventionListGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
         Assert.IsNull(wrapper.UnmanagedCallingConventionList.Unwrap());
     }
@@ -58,10 +60,10 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     public void TestWithUnmanagedCallingConventionListGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = FunctionPointerCallingConventionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.UnmanagedCallingConventionList.Unwrap());
         var nativeUnmanagedCallingConventionListWrapper = SyntaxFactory.FunctionPointerUnmanagedCallingConventionList();
-        var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.As(nativeUnmanagedCallingConventionListWrapper);
+        var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.Wrap(nativeUnmanagedCallingConventionListWrapper);
         Assert.IsNotNull(wrapper.Unwrap());
         wrapper = wrapper.WithUnmanagedCallingConventionList(unmanagedCallingConventionListWrapper);
         Assert.IsNotNull(wrapper.UnmanagedCallingConventionList.Unwrap());

@@ -224,7 +224,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return obj != null;
         }}
 
-        public static SeparatedSyntaxListWrapper<TNode> As(object{na} obj)
+        public static SeparatedSyntaxListWrapper<TNode> Wrap(object{na} obj)
         {{
             if (obj != null && obj.GetType() != WrappedType)
             {{
@@ -874,9 +874,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>");
-        sb.AppendLine($"        public static {targetName} As(global::System.Object{na} obj)");
+        sb.AppendLine($"        public static {targetName} Wrap(global::System.Object{na} obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = global::{fullHelperName}.As<global::{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = global::{fullHelperName}.Wrap<global::{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();

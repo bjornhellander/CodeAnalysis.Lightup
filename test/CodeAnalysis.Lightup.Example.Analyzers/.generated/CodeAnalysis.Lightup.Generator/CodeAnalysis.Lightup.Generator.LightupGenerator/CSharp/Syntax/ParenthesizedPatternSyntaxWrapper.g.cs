@@ -83,9 +83,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ParenthesizedPatternSyntaxWrapper As(global::System.Object? obj)
+        public static ParenthesizedPatternSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new ParenthesizedPatternSyntaxWrapper(obj2);
         }
 

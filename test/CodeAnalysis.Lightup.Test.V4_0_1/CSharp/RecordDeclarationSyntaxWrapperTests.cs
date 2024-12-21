@@ -6,8 +6,9 @@ namespace CodeAnalysis.Lightup.Test.V4_0_1.CSharp;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper;
 
 [TestClass]
 public partial class RecordDeclarationSyntaxWrapperTests
@@ -16,12 +17,12 @@ public partial class RecordDeclarationSyntaxWrapperTests
     public override void TestClassOrStructKeywordGivenCompatibleObject()
     {
         var obj = base.CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var keyword = wrapper.ClassOrStructKeyword;
         Assert.AreEqual(SyntaxKind.None, keyword.Kind());
 
         obj = CreateInstance();
-        wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        wrapper = Wrapper.Wrap(obj);
         keyword = wrapper.ClassOrStructKeyword;
         Assert.AreEqual(SyntaxKind.ClassKeyword, keyword.Kind());
     }

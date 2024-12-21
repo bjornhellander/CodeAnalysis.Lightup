@@ -56,9 +56,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static NullabilityInfoWrapper As(global::System.Object? obj)
+        public static NullabilityInfoWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new NullabilityInfoWrapper(obj2);
         }
 

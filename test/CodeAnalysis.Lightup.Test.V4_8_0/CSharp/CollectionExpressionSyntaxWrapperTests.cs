@@ -10,6 +10,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper;
+
 [TestClass]
 public partial class CollectionExpressionSyntaxWrapperTests
 {
@@ -17,7 +19,7 @@ public partial class CollectionExpressionSyntaxWrapperTests
     public override void TestAddElementsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements());
     }
 
@@ -25,14 +27,14 @@ public partial class CollectionExpressionSyntaxWrapperTests
     public void TestAddElementsGivenCompatibleObject()
     {
         var obj = SyntaxFactory.CollectionExpression();
-        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, obj.Elements.Count);
 
         var newItem = SyntaxFactory.ExpressionElement(
             SyntaxFactory.LiteralExpression(
                 SyntaxKind.NumericLiteralExpression,
                 SyntaxFactory.Literal(13)));
-        var newWrappedItem = CollectionElementSyntaxWrapper.As(newItem);
+        var newWrappedItem = CollectionElementSyntaxWrapper.Wrap(newItem);
         Assert.IsNotNull(newWrappedItem.Unwrap());
         wrapper = wrapper.AddElements(newWrappedItem);
         obj = (CollectionExpressionSyntax?)wrapper.Unwrap();

@@ -6,8 +6,9 @@ namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper;
 
 [TestClass]
 public class RecordDeclarationSyntaxWrapperTests
@@ -16,14 +17,14 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestIsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        Assert.IsFalse(RecordDeclarationSyntaxWrapper.Is(obj));
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestAsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -31,7 +32,7 @@ public class RecordDeclarationSyntaxWrapperTests
     public virtual void TestIdentifierGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.Identifier);
     }
 
@@ -39,7 +40,7 @@ public class RecordDeclarationSyntaxWrapperTests
     public virtual void TestWithIdentifierGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
     }
 
@@ -47,7 +48,7 @@ public class RecordDeclarationSyntaxWrapperTests
     public virtual void TestParameterListGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.ParameterList);
     }
 
@@ -55,7 +56,7 @@ public class RecordDeclarationSyntaxWrapperTests
     public virtual void TestUpdateGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var visitor = new TestVisitor();
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.Accept(visitor));
     }
@@ -64,14 +65,14 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestIsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        Assert.IsFalse(RecordDeclarationSyntaxWrapper.Is(obj));
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestAsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

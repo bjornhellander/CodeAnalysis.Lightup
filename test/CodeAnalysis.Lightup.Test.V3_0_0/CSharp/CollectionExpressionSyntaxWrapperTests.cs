@@ -6,8 +6,9 @@ namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper;
 
 [TestClass]
 public class CollectionExpressionSyntaxWrapperTests
@@ -16,14 +17,14 @@ public class CollectionExpressionSyntaxWrapperTests
     public void TestIsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        Assert.IsFalse(CollectionExpressionSyntaxWrapper.Is(obj));
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestAsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -31,7 +32,7 @@ public class CollectionExpressionSyntaxWrapperTests
     public virtual void TestAddElementsGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.AddElements());
     }
 
@@ -39,14 +40,14 @@ public class CollectionExpressionSyntaxWrapperTests
     public void TestIsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        Assert.IsFalse(CollectionExpressionSyntaxWrapper.Is(obj));
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestAsGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = CollectionExpressionSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

@@ -74,9 +74,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static PrimaryConstructorBaseTypeSyntaxWrapper As(global::System.Object? obj)
+        public static PrimaryConstructorBaseTypeSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 

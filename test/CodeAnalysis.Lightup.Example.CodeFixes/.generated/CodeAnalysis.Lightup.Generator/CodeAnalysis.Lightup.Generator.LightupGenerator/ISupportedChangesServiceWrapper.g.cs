@@ -41,9 +41,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ISupportedChangesServiceWrapper As(global::System.Object? obj)
+        public static ISupportedChangesServiceWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 

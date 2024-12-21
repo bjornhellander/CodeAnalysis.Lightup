@@ -59,9 +59,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static TextDocumentEventArgsWrapper As(global::System.Object? obj)
+        public static TextDocumentEventArgsWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.EventArgs>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.EventArgs>(obj, WrappedType);
             return new TextDocumentEventArgsWrapper(obj2);
         }
 

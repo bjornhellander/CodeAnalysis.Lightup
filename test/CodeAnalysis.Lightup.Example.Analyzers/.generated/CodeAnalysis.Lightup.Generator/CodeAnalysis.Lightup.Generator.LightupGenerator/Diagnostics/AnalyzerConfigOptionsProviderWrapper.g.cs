@@ -50,9 +50,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AnalyzerConfigOptionsProviderWrapper As(global::System.Object? obj)
+        public static AnalyzerConfigOptionsProviderWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsProviderWrapper(obj2);
         }
 

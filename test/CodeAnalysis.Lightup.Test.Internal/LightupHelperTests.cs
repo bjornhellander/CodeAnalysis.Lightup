@@ -18,7 +18,7 @@ public class LightupHelperTests
     public void TestPropertyWithNullableOfWrapper(bool setValue)
     {
         var native = new TestClass1 { Property1 = setValue ? default(TestStruct1) : null };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperValue = wrapper.Property1;
@@ -43,7 +43,7 @@ public class LightupHelperTests
     public void TestPropertyWithFuncReturningWrapper(int value)
     {
         var native = new TestClass1 { Property2 = NativeFunc };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperFunc = wrapper.Property2;
@@ -65,13 +65,13 @@ public class LightupHelperTests
     {
         var nativeProgress = new TestProgress();
         var native = new TestClass1 { Property3 = nativeProgress };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperProgress = wrapper.Property3;
 
         var nativeValue = new TestStruct1 { Value = value };
-        var wrapperValue = TestStruct1Wrapper.As(nativeValue);
+        var wrapperValue = TestStruct1Wrapper.Wrap(nativeValue);
         wrapperProgress.Report(wrapperValue);
         Assert.AreEqual(value, nativeProgress.Value);
     }
@@ -82,11 +82,11 @@ public class LightupHelperTests
     public void TestMethodWithParameterNullableOfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var nativeValue = new TestStruct1?(new TestStruct1 { Value = value });
-        var wrapperValue = TestStruct1Wrapper.As(nativeValue);
+        var wrapperValue = TestStruct1Wrapper.Wrap(nativeValue);
         wrapper.Method1(wrapperValue);
 
         Assert.IsNotNull(native.Value1);
@@ -99,7 +99,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterIProgressOfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperProgress = new TestWrapperProgress();
@@ -114,7 +114,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterFunc2OfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var returnValue = wrapper.Method3(value, WrapperFunc);
@@ -133,7 +133,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterFunc3OfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var returnValue = wrapper.Method4(value, WrapperFunc);
@@ -273,9 +273,9 @@ public struct TestClass1Wrapper
     public IProgress<TestStruct1Wrapper> Property3
         => Property3GetterFunc(wrappedObject);
 
-    public static TestClass1Wrapper As(object? obj)
+    public static TestClass1Wrapper Wrap(object? obj)
     {
-        var obj2 = TestLightupHelper.As<object>(obj, WrappedType);
+        var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestClass1Wrapper(obj2);
     }
 
@@ -315,9 +315,9 @@ public struct TestStruct1Wrapper
         wrappedObject = obj;
     }
 
-    public static TestStruct1Wrapper As(object? obj)
+    public static TestStruct1Wrapper Wrap(object? obj)
     {
-        var obj2 = TestLightupHelper.As<object>(obj, WrappedType);
+        var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestStruct1Wrapper(obj2);
     }
 

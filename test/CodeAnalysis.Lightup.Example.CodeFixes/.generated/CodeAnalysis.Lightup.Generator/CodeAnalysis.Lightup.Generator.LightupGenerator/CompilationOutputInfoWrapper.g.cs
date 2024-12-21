@@ -50,9 +50,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static CompilationOutputInfoWrapper As(global::System.Object? obj)
+        public static CompilationOutputInfoWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new CompilationOutputInfoWrapper(obj2);
         }
 

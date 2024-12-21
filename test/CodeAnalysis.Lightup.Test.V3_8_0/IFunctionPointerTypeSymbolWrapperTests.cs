@@ -17,7 +17,7 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
     public override void TestSignatureGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.Signature);
     }
 
@@ -29,7 +29,7 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
         mock.Setup(x => x.Signature).Returns(signatureObj);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(signatureObj, wrapper.Signature);
     }
 
@@ -48,7 +48,7 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
         var mock = new Mock<IFunctionPointerTypeSymbol>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(obj, wrapper.Unwrap());
     }
 }
