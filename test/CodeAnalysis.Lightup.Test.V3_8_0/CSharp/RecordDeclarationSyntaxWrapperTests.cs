@@ -64,6 +64,13 @@ public partial class RecordDeclarationSyntaxWrapperTests
     }
 
     [TestMethod]
+    public void TestCastGivenCompatibleObject()
+    {
+        var obj = CreateInstance();
+        _ = (Wrapper)obj;
+    }
+
+    [TestMethod]
     public void TestIdentifierDefinition()
     {
         CheckPropertyType<RecordDeclarationSyntax, Wrapper>("Identifier");
@@ -73,8 +80,12 @@ public partial class RecordDeclarationSyntaxWrapperTests
     public void TestIdentifierGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(obj.Identifier, wrapper.Identifier);
+
+        var wrapper1 = Wrapper.Wrap(obj);
+        Assert.AreEqual(obj.Identifier, wrapper1.Identifier);
+
+        var wrapper2 = (Wrapper)obj;
+        Assert.AreEqual(obj.Identifier, wrapper2.Identifier);
     }
 
     [TestMethod]

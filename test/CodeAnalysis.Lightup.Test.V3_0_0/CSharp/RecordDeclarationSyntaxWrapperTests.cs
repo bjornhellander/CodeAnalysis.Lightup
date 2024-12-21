@@ -6,6 +6,7 @@ namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper;
@@ -25,6 +26,14 @@ public class RecordDeclarationSyntaxWrapperTests
     {
         SyntaxNode? obj = null;
         var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(obj, wrapper.Unwrap());
+    }
+
+    [TestMethod]
+    public void TestCastGivenNullObject()
+    {
+        TypeDeclarationSyntax? obj = null;
+        var wrapper = (Wrapper)obj;
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
