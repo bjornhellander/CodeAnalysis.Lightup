@@ -58,6 +58,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return OperatorTokenGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator SpreadElementSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(SpreadElementSyntaxWrapper obj)
         {

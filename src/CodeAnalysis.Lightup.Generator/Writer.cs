@@ -860,6 +860,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (hasBaseType)
         {
             sb.AppendLine();
+            sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>");
+            sb.AppendLine($"        public static explicit operator {targetName}(global::{baseTypeNamespace}.{baseTypeName}{na} obj)");
+            sb.AppendLine($"        {{");
+            sb.AppendLine($"            return Wrap(obj);");
+            sb.AppendLine($"        }}");
+            sb.AppendLine();
             sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
             sb.AppendLine($"        public static implicit operator global::{baseTypeNamespace}.{baseTypeName}{na}({targetName} obj)");
             sb.AppendLine($"        {{");

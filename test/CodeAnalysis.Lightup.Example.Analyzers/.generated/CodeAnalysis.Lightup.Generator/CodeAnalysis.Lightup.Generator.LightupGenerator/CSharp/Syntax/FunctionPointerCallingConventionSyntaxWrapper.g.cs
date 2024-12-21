@@ -61,6 +61,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return UnmanagedCallingConventionListGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator FunctionPointerCallingConventionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(FunctionPointerCallingConventionSyntaxWrapper obj)
         {

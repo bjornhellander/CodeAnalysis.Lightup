@@ -22,6 +22,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator AnalyzerConfigDocumentWrapper(global::Microsoft.CodeAnalysis.TextDocument? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.TextDocument?(AnalyzerConfigDocumentWrapper obj)
         {
