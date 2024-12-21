@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly AddIncompleteItemsDelegate1 AddIncompleteItemsFunc1;
         private static readonly DescriptionDelegate2 DescriptionFunc2;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static CodeAnalysisProgressWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             DescriptionFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<DescriptionDelegate2>(WrappedType, "Description", "descriptionString");
         }
 
-        private CodeAnalysisProgressWrapper(global::System.Object? obj)
+        private CodeAnalysisProgressWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -52,15 +52,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static CodeAnalysisProgressWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static CodeAnalysisProgressWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new CodeAnalysisProgressWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private static readonly GetOptionsDelegate0 GetOptionsFunc0;
         private static readonly GetOptionsDelegate1 GetOptionsFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static AnalyzerConfigOptionsProviderWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             GetOptionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsDelegate1>(WrappedType, "GetOptions", "treeSyntaxTree");
         }
 
-        private AnalyzerConfigOptionsProviderWrapper(global::System.Object? obj)
+        private AnalyzerConfigOptionsProviderWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AnalyzerConfigOptionsProviderWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static AnalyzerConfigOptionsProviderWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsProviderWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

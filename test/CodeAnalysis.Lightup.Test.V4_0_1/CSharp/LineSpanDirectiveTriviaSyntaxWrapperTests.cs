@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_0_1.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
@@ -17,14 +15,6 @@ using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTr
 [TestClass]
 public partial class LineSpanDirectiveTriviaSyntaxWrapperTests
 {
-    [TestMethod]
-    public override void TestEndGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.End);
-    }
-
     [TestMethod]
     public void TestIsGivenCompatibleObject()
     {

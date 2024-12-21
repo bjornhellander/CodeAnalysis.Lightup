@@ -22,7 +22,7 @@ public partial struct OperationListWrapper {
         private static readonly MoveNextDelegate0 MoveNextFunc0;
         private static readonly ResetDelegate1 ResetFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static EnumeratorWrapper()
         {
@@ -34,7 +34,7 @@ public partial struct OperationListWrapper {
             ResetFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ResetDelegate1>(WrappedType, "Reset");
         }
 
-        private EnumeratorWrapper(global::System.Object? obj)
+        private EnumeratorWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -51,15 +51,15 @@ public partial struct OperationListWrapper {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static EnumeratorWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static EnumeratorWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new EnumeratorWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

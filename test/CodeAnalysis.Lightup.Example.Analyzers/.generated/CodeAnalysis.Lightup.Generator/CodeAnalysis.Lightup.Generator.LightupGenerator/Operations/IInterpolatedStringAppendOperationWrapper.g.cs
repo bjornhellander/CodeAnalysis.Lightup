@@ -14,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly AppendCallGetterDelegate AppendCallGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation wrappedObject;
 
         static IInterpolatedStringAppendOperationWrapper()
         {
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             AppendCallGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AppendCallGetterDelegate>(WrappedType, nameof(AppendCall));
         }
 
-        private IInterpolatedStringAppendOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? obj)
+        private IInterpolatedStringAppendOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation obj)
         {
             wrappedObject = obj;
         }
@@ -40,15 +40,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IInterpolatedStringAppendOperationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IInterpolatedStringAppendOperationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation>(obj, WrappedType);
             return new IInterpolatedStringAppendOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.Operations.IInterpolatedStringContentOperation Unwrap()
         {
             return wrappedObject;
         }

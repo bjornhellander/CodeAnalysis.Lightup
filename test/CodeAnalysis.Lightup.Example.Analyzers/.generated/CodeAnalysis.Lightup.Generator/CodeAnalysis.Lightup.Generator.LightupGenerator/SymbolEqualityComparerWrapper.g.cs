@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly GetHashCodeDelegate1 GetHashCodeFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static SymbolEqualityComparerWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetHashCodeFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "objISymbol");
         }
 
-        private SymbolEqualityComparerWrapper(global::System.Object? obj)
+        private SymbolEqualityComparerWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -58,15 +58,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SymbolEqualityComparerWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SymbolEqualityComparerWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new SymbolEqualityComparerWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

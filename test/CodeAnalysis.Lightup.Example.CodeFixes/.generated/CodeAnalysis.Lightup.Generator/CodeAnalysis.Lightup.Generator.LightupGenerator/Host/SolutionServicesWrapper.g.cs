@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         private static readonly GetLanguageServicesDelegate0 GetLanguageServicesFunc0;
         private static readonly IsSupportedDelegate1 IsSupportedFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static SolutionServicesWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             IsSupportedFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "languageNameString");
         }
 
-        private SolutionServicesWrapper(global::System.Object? obj)
+        private SolutionServicesWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SolutionServicesWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SolutionServicesWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new SolutionServicesWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

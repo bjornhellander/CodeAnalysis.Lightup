@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CanApplyCompilationOptionChangeDelegate1 CanApplyCompilationOptionChangeFunc1;
         private static readonly CanApplyParseOptionChangeDelegate2 CanApplyParseOptionChangeFunc2;
 
-        private readonly global::Microsoft.CodeAnalysis.Host.IWorkspaceService? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Host.IWorkspaceService wrappedObject;
 
         static ISupportedChangesServiceWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CanApplyParseOptionChangeFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
         }
 
-        private ISupportedChangesServiceWrapper(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? obj)
+        private ISupportedChangesServiceWrapper(global::Microsoft.CodeAnalysis.Host.IWorkspaceService obj)
         {
             wrappedObject = obj;
         }
@@ -40,15 +40,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ISupportedChangesServiceWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static ISupportedChangesServiceWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Host.IWorkspaceService? Unwrap()
+        public global::Microsoft.CodeAnalysis.Host.IWorkspaceService Unwrap()
         {
             return wrappedObject;
         }

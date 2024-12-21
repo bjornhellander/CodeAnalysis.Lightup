@@ -16,7 +16,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         private static readonly GetFixAsyncDelegate0 GetFixAsyncFunc0;
         private static readonly GetSupportedFixAllScopesDelegate1 GetSupportedFixAllScopesFunc1;
 
-        private readonly global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider wrappedObject;
 
         static DocumentBasedFixAllProviderWrapper()
         {
@@ -26,19 +26,19 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             GetSupportedFixAllScopesFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
         }
 
-        private DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? obj)
+        private DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider obj)
         {
             wrappedObject = obj;
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider?(DocumentBasedFixAllProviderWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider(DocumentBasedFixAllProviderWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static DocumentBasedFixAllProviderWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static DocumentBasedFixAllProviderWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
             return new DocumentBasedFixAllProviderWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? Unwrap()
+        public global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider Unwrap()
         {
             return wrappedObject;
         }

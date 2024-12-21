@@ -48,7 +48,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithNamespaceKeywordDelegate10 WithNamespaceKeywordFunc10;
         private static readonly WithUsingsDelegate11 WithUsingsFunc11;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax wrappedObject;
 
         static BaseNamespaceDeclarationSyntaxWrapper()
         {
@@ -74,7 +74,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithUsingsFunc11 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
         }
 
-        private BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? obj)
+        private BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -109,14 +109,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return UsingsGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax?(BaseNamespaceDeclarationSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax(BaseNamespaceDeclarationSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -127,15 +127,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static BaseNamespaceDeclarationSyntaxWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static BaseNamespaceDeclarationSyntaxWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax>(obj, WrappedType);
             return new BaseNamespaceDeclarationSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax Unwrap()
         {
             return wrappedObject;
         }

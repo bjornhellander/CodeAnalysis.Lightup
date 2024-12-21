@@ -24,16 +24,7 @@ public class MethodInstrumentationWrapperTests
     public void TestWrapGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(obj, wrapper.Unwrap());
-    }
-
-    [TestMethod]
-    public virtual void TestKindsGivenNullObject()
-    {
-        ITypeSymbol? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Kinds);
+        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -47,7 +38,6 @@ public class MethodInstrumentationWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.IsNull(wrapper.Unwrap());
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

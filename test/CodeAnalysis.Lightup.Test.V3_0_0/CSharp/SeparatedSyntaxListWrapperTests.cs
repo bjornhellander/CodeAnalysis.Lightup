@@ -24,24 +24,7 @@ public class SeparatedSyntaxListWrapperTests
     public void TestWrapGivenNullObject()
     {
         object? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(obj, wrapper.Unwrap());
-    }
-
-    [TestMethod]
-    public virtual void TestCountGivenNullObject()
-    {
-        object? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Count);
-    }
-
-    [TestMethod]
-    public virtual void TestAddRangeGivenNullObject()
-    {
-        object? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.AddRange([]));
+        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -55,7 +38,6 @@ public class SeparatedSyntaxListWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.IsNull(wrapper.Unwrap());
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

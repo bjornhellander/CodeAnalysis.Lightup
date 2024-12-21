@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
 
-        private readonly object? wrappedObject;
+        private readonly object wrappedObject;
 
         static SeparatedSyntaxListWrapper()
         {
@@ -49,7 +49,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
         }
 
-        private SeparatedSyntaxListWrapper(object? obj)
+        private SeparatedSyntaxListWrapper(object obj)
         {
             wrappedObject = obj;
         }
@@ -91,25 +91,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static bool Is(object? obj)
         {
-            if (obj != null && obj.GetType() != WrappedType)
-            {
-                obj = null;
-            }
-
-            return obj != null;
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        public static SeparatedSyntaxListWrapper<TNode> Wrap(object? obj)
+        public static SeparatedSyntaxListWrapper<TNode> Wrap(object obj)
         {
-            if (obj != null && obj.GetType() != WrappedType)
-            {
-                obj = null;
-            }
-
-            return new SeparatedSyntaxListWrapper<TNode>(obj);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<object>(obj, WrappedType);
+            return new SeparatedSyntaxListWrapper<TNode>(obj2);
         }
 
-        public object? Unwrap()
+        public object Unwrap()
         {
              return wrappedObject;
         }
@@ -492,7 +483,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly HintNameGetterDelegate HintNameGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Document? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Document wrappedObject;
 
         static SourceGeneratedDocumentWrapper()
         {
@@ -501,7 +492,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             HintNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
         }
 
-        private SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document? obj)
+        private SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document obj)
         {
             wrappedObject = obj;
         }
@@ -512,14 +503,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return HintNameGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.Document(SourceGeneratedDocumentWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -530,15 +521,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SourceGeneratedDocumentWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SourceGeneratedDocumentWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Document? Unwrap()
+        public global::Microsoft.CodeAnalysis.Document Unwrap()
         {
             return wrappedObject;
         }

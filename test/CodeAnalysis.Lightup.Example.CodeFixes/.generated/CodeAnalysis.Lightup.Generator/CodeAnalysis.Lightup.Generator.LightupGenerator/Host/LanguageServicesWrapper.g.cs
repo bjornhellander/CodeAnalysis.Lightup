@@ -16,7 +16,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SolutionServicesGetterDelegate SolutionServicesGetterFunc;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static LanguageServicesWrapper()
         {
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             SolutionServicesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<SolutionServicesGetterDelegate>(WrappedType, nameof(SolutionServices));
         }
 
-        private LanguageServicesWrapper(global::System.Object? obj)
+        private LanguageServicesWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static LanguageServicesWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static LanguageServicesWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new LanguageServicesWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

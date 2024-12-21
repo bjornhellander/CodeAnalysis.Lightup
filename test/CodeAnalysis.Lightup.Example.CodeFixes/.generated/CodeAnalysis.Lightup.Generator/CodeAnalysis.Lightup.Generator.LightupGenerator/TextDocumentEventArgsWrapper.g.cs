@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly DocumentGetterDelegate DocumentGetterFunc;
 
-        private readonly global::System.EventArgs? wrappedObject;
+        private readonly global::System.EventArgs wrappedObject;
 
         static TextDocumentEventArgsWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             DocumentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<DocumentGetterDelegate>(WrappedType, nameof(Document));
         }
 
-        private TextDocumentEventArgsWrapper(global::System.EventArgs? obj)
+        private TextDocumentEventArgsWrapper(global::System.EventArgs obj)
         {
             wrappedObject = obj;
         }
@@ -46,14 +46,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return DocumentGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator TextDocumentEventArgsWrapper(global::System.EventArgs? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator TextDocumentEventArgsWrapper(global::System.EventArgs obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::System.EventArgs?(TextDocumentEventArgsWrapper obj)
+        public static implicit operator global::System.EventArgs(TextDocumentEventArgsWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -64,15 +64,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static TextDocumentEventArgsWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static TextDocumentEventArgsWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.EventArgs>(obj, WrappedType);
             return new TextDocumentEventArgsWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.EventArgs? Unwrap()
+        public global::System.EventArgs Unwrap()
         {
             return wrappedObject;
         }

@@ -16,7 +16,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly LeftGetterDelegate LeftGetterFunc;
         private static readonly RightGetterDelegate RightGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static IInterpolatedStringAdditionOperationWrapper()
         {
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             RightGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RightGetterDelegate>(WrappedType, nameof(Right));
         }
 
-        private IInterpolatedStringAdditionOperationWrapper(global::Microsoft.CodeAnalysis.IOperation? obj)
+        private IInterpolatedStringAdditionOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IInterpolatedStringAdditionOperationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IInterpolatedStringAdditionOperationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringAdditionOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }

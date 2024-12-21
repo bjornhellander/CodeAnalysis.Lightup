@@ -14,7 +14,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly SignatureGetterDelegate SignatureGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.ITypeSymbol? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.ITypeSymbol wrappedObject;
 
         static IFunctionPointerTypeSymbolWrapper()
         {
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             SignatureGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SignatureGetterDelegate>(WrappedType, nameof(Signature));
         }
 
-        private IFunctionPointerTypeSymbolWrapper(global::Microsoft.CodeAnalysis.ITypeSymbol? obj)
+        private IFunctionPointerTypeSymbolWrapper(global::Microsoft.CodeAnalysis.ITypeSymbol obj)
         {
             wrappedObject = obj;
         }
@@ -40,15 +40,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IFunctionPointerTypeSymbolWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IFunctionPointerTypeSymbolWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.ITypeSymbol>(obj, WrappedType);
             return new IFunctionPointerTypeSymbolWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.ITypeSymbol? Unwrap()
+        public global::Microsoft.CodeAnalysis.ITypeSymbol Unwrap()
         {
             return wrappedObject;
         }

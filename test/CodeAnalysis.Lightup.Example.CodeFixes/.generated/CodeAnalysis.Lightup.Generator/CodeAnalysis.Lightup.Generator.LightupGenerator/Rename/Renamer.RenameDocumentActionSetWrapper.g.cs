@@ -21,7 +21,7 @@ public partial class RenamerEx {
         private static readonly UpdateSolutionAsyncDelegate0 UpdateSolutionAsyncFunc0;
         private static readonly UpdateSolutionAsyncDelegate1 UpdateSolutionAsyncFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static RenameDocumentActionSetWrapper()
         {
@@ -33,7 +33,7 @@ public partial class RenamerEx {
             UpdateSolutionAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate1>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "actionsImmutableArray`1", "cancellationTokenCancellationToken");
         }
 
-        private RenameDocumentActionSetWrapper(global::System.Object? obj)
+        private RenameDocumentActionSetWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -50,15 +50,15 @@ public partial class RenamerEx {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static RenameDocumentActionSetWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static RenameDocumentActionSetWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new RenameDocumentActionSetWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

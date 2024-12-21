@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly GetDisplayLocationDelegate0 GetDisplayLocationFunc0;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static InterceptableLocationWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             GetDisplayLocationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetDisplayLocationDelegate0>(WrappedType, "GetDisplayLocation");
         }
 
-        private InterceptableLocationWrapper(global::System.Object? obj)
+        private InterceptableLocationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -55,15 +55,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static InterceptableLocationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static InterceptableLocationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new InterceptableLocationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

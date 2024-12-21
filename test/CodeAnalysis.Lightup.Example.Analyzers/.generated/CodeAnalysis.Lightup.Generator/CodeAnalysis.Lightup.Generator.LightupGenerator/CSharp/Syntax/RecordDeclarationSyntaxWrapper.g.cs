@@ -86,7 +86,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithSemicolonTokenDelegate21 WithSemicolonTokenFunc21;
         private static readonly WithTypeParameterListDelegate22 WithTypeParameterListFunc22;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax wrappedObject;
 
         static RecordDeclarationSyntaxWrapper()
         {
@@ -131,7 +131,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeParameterListFunc22 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeParameterListDelegate22>(WrappedType, "WithTypeParameterList", "typeParameterListTypeParameterListSyntax");
         }
 
-        private RecordDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? obj)
+        private RecordDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -214,14 +214,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return TypeParameterListGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator RecordDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator RecordDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax?(RecordDeclarationSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax(RecordDeclarationSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -232,15 +232,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static RecordDeclarationSyntaxWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static RecordDeclarationSyntaxWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax>(obj, WrappedType);
             return new RecordDeclarationSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax Unwrap()
         {
             return wrappedObject;
         }

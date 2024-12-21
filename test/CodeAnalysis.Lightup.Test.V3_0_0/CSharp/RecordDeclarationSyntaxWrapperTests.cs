@@ -25,49 +25,14 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestWrapGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(obj, wrapper.Unwrap());
+        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
     public void TestCastGivenNullObject()
     {
         TypeDeclarationSyntax? obj = null;
-        var wrapper = (Wrapper)obj;
-        Assert.AreEqual(obj, wrapper.Unwrap());
-    }
-
-    [TestMethod]
-    public virtual void TestIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Identifier);
-    }
-
-    [TestMethod]
-    public virtual void TestWithIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
-    }
-
-    [TestMethod]
-    public virtual void TestParameterListGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.ParameterList);
-    }
-
-    [TestMethod]
-    public virtual void TestUpdateGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        var visitor = new TestVisitor();
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.Accept(visitor));
+        Assert.ThrowsException<ArgumentNullException>(() => (Wrapper)obj!);
     }
 
     [TestMethod]
@@ -81,7 +46,6 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.IsNull(wrapper.Unwrap());
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

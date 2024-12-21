@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly LengthSymbolGetterDelegate LengthSymbolGetterFunc;
         private static readonly PatternsGetterDelegate PatternsGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation wrappedObject;
 
         static IListPatternOperationWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PatternsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PatternsGetterDelegate>(WrappedType, nameof(Patterns));
         }
 
-        private IListPatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
+        private IListPatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
         {
             wrappedObject = obj;
         }
@@ -67,15 +67,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IListPatternOperationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IListPatternOperationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IListPatternOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Unwrap()
         {
             return wrappedObject;
         }

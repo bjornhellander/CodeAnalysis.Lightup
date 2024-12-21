@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly GetOptionsForSourcePathDelegate0 GetOptionsForSourcePathFunc0;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static AnalyzerConfigSetWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetOptionsForSourcePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsForSourcePathDelegate0>(WrappedType, "GetOptionsForSourcePath", "sourcePathString");
         }
 
-        private AnalyzerConfigSetWrapper(global::System.Object? obj)
+        private AnalyzerConfigSetWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -46,15 +46,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AnalyzerConfigSetWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static AnalyzerConfigSetWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new AnalyzerConfigSetWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

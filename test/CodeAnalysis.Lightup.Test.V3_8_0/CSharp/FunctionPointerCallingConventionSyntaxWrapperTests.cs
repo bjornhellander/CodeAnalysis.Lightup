@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
@@ -15,23 +13,6 @@ using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCall
 [TestClass]
 public partial class FunctionPointerCallingConventionSyntaxWrapperTests
 {
-    [TestMethod]
-    public override void TestUnmanagedCallingConventionListGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.UnmanagedCallingConventionList);
-    }
-
-    [TestMethod]
-    public override void TestWithUnmanagedCallingConventionListGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.Wrap(null);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithUnmanagedCallingConventionList(unmanagedCallingConventionListWrapper));
-    }
-
     [TestMethod]
     public void TestWrapGivenCompatibleObject()
     {

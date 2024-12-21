@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.Operations;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,14 +12,6 @@ using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOpera
 [TestClass]
 public partial class IRecursivePatternOperationWrapperTests
 {
-    [TestMethod]
-    public override void TestPropertySubpatternsGivenNullObject()
-    {
-        IOperation? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.PropertySubpatterns);
-    }
-
     [TestMethod]
     public void TestPropertySubpatternsGivenCompatibleObject()
     {

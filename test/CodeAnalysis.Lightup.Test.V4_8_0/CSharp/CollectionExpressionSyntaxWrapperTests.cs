@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_8_0.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
@@ -15,14 +13,6 @@ using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressio
 [TestClass]
 public partial class CollectionExpressionSyntaxWrapperTests
 {
-    [TestMethod]
-    public override void TestAddElementsGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddElements());
-    }
-
     [TestMethod]
     public void TestAddElementsGivenCompatibleObject()
     {

@@ -24,22 +24,13 @@ public class AnalyzerConfigOptionsWrapperTests
     public void TestWrapGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(obj, wrapper.Unwrap());
+        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
     public virtual void TestKeyComparer()
     {
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.KeyComparer);
-    }
-
-    [TestMethod]
-    public virtual void TestTryGetValueGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.TryGetValue("key", out var value));
     }
 
     [TestMethod]
@@ -53,7 +44,6 @@ public class AnalyzerConfigOptionsWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.IsNull(wrapper.Unwrap());
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

@@ -37,17 +37,22 @@ namespace CodeAnalysis.Lightup.Runtime
             return true;
         }
 
-        public static TObject? Wrap<TObject>(object? obj, Type? wrappedType)
+        public static TObject Wrap<TObject>(object obj, Type? wrappedType)
             where TObject : class
         {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
             // TODO: Check if this should be optimized
-            if (!(obj is null) && wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
+            if (wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
             {
                 return (TObject)obj;
             }
             else
             {
-                return null;
+                throw new InvalidOperationException();
             }
         }
 

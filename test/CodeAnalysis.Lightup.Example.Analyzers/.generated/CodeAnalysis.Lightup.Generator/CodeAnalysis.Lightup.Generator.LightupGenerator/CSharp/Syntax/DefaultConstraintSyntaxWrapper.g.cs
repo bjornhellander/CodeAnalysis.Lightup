@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly UpdateDelegate1 UpdateFunc1;
         private static readonly WithDefaultKeywordDelegate2 WithDefaultKeywordFunc2;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax wrappedObject;
 
         static DefaultConstraintSyntaxWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithDefaultKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
         }
 
-        private DefaultConstraintSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? obj)
+        private DefaultConstraintSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -46,14 +46,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return DefaultKeywordGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator DefaultConstraintSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator DefaultConstraintSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax?(DefaultConstraintSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax(DefaultConstraintSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -64,15 +64,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static DefaultConstraintSyntaxWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static DefaultConstraintSyntaxWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax>(obj, WrappedType);
             return new DefaultConstraintSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax Unwrap()
         {
             return wrappedObject;
         }

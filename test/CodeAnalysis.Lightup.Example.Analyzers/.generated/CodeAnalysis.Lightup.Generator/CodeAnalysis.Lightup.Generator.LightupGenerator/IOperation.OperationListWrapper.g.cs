@@ -29,7 +29,7 @@ public partial class IOperationExtensions {
         private static readonly ReverseDelegate4 ReverseFunc4;
         private static readonly ToImmutableArrayDelegate5 ToImmutableArrayFunc5;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static OperationListWrapper()
         {
@@ -45,7 +45,7 @@ public partial class IOperationExtensions {
             ToImmutableArrayFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate5>(WrappedType, "ToImmutableArray");
         }
 
-        private OperationListWrapper(global::System.Object? obj)
+        private OperationListWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -62,15 +62,15 @@ public partial class IOperationExtensions {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static OperationListWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static OperationListWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new OperationListWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

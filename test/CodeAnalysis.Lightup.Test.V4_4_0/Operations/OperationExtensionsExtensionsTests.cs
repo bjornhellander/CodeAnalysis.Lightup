@@ -3,7 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0.Operations;
 
-using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.CodeAnalysis.Operations.Lightup;
@@ -15,15 +14,6 @@ using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvoca
 [TestClass]
 public partial class OperationExtensionsExtensionsTests
 {
-    [TestMethod]
-    public override void TestGetFunctionPointerSignatureGivenNullObject()
-    {
-        IFunctionPointerInvocationOperation? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.GetFunctionPointerSignature());
-        Assert.ThrowsException<NullReferenceException>(() => obj!.GetFunctionPointerSignature());
-    }
-
     [TestMethod]
     public void TestGetFunctionPointerSignatureGivenCompatibleObject()
     {

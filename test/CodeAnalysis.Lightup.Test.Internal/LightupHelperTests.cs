@@ -228,13 +228,13 @@ public struct TestClass1Wrapper
 
     private static readonly Type? WrappedType; // NOTE: Used via reflection
 
-    private delegate Nullable<TestStruct1Wrapper> Property1GetterDelegate(object? obj);
-    private delegate Func<int, TestStruct1Wrapper> Property2GetterDelegate(object? obj);
-    private delegate IProgress<TestStruct1Wrapper> Property3GetterDelegate(object? obj);
-    private delegate void Method1Delegate(object? obj, Nullable<TestStruct1Wrapper> arg);
-    private delegate void Method2Delegate(object? obj, int arg1, IProgress<TestStruct1Wrapper> arg2);
-    private delegate int Method3Delegate(object? obj, int arg1, Func<TestStruct1Wrapper, int> arg2);
-    private delegate int Method4Delegate(object? obj, int arg1, Func<TestStruct1Wrapper, int, int> arg2);
+    private delegate Nullable<TestStruct1Wrapper> Property1GetterDelegate(object obj);
+    private delegate Func<int, TestStruct1Wrapper> Property2GetterDelegate(object obj);
+    private delegate IProgress<TestStruct1Wrapper> Property3GetterDelegate(object obj);
+    private delegate void Method1Delegate(object obj, Nullable<TestStruct1Wrapper> arg);
+    private delegate void Method2Delegate(object obj, int arg1, IProgress<TestStruct1Wrapper> arg2);
+    private delegate int Method3Delegate(object obj, int arg1, Func<TestStruct1Wrapper, int> arg2);
+    private delegate int Method4Delegate(object obj, int arg1, Func<TestStruct1Wrapper, int, int> arg2);
 
     private static readonly Property1GetterDelegate Property1GetterFunc;
     private static readonly Property2GetterDelegate Property2GetterFunc;
@@ -244,7 +244,7 @@ public struct TestClass1Wrapper
     private static readonly Method3Delegate Methods3Func;
     private static readonly Method4Delegate Methods4Func;
 
-    private readonly object? wrappedObject;
+    private readonly object wrappedObject;
 
     static TestClass1Wrapper()
     {
@@ -259,7 +259,7 @@ public struct TestClass1Wrapper
         Methods4Func = TestLightupHelper.CreateInstanceMethodAccessor<Method4Delegate>(WrappedType, "Method4", "arg1Int32", "arg2Func`3");
     }
 
-    private TestClass1Wrapper(object? obj)
+    private TestClass1Wrapper(object obj)
     {
         wrappedObject = obj;
     }
@@ -273,13 +273,13 @@ public struct TestClass1Wrapper
     public IProgress<TestStruct1Wrapper> Property3
         => Property3GetterFunc(wrappedObject);
 
-    public static TestClass1Wrapper Wrap(object? obj)
+    public static TestClass1Wrapper Wrap(object obj)
     {
         var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestClass1Wrapper(obj2);
     }
 
-    public object? Unwrap()
+    public object Unwrap()
     {
         return wrappedObject;
     }
@@ -303,25 +303,25 @@ public struct TestStruct1Wrapper
 
     private static readonly Type? WrappedType; // NOTE: Used via reflection
 
-    private readonly object? wrappedObject;
+    private readonly object wrappedObject;
 
     static TestStruct1Wrapper()
     {
         WrappedType = TestLightupHelper.FindType(WrappedTypeName);
     }
 
-    private TestStruct1Wrapper(object? obj)
+    private TestStruct1Wrapper(object obj)
     {
         wrappedObject = obj;
     }
 
-    public static TestStruct1Wrapper Wrap(object? obj)
+    public static TestStruct1Wrapper Wrap(object obj)
     {
         var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestStruct1Wrapper(obj2);
     }
 
-    public object? Unwrap()
+    public object Unwrap()
     {
         return wrappedObject;
     }

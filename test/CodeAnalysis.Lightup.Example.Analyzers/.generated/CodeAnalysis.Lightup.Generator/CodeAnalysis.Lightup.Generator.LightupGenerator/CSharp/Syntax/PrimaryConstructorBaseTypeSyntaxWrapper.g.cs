@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithArgumentListDelegate3 WithArgumentListFunc3;
         private static readonly WithTypeDelegate4 WithTypeFunc4;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax wrappedObject;
 
         static PrimaryConstructorBaseTypeSyntaxWrapper()
         {
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? obj)
+        private PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -61,14 +61,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return TypeGetterFunc(wrappedObject); }
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static explicit operator PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax(PrimaryConstructorBaseTypeSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
@@ -79,15 +79,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static PrimaryConstructorBaseTypeSyntaxWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static PrimaryConstructorBaseTypeSyntaxWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax Unwrap()
         {
             return wrappedObject;
         }

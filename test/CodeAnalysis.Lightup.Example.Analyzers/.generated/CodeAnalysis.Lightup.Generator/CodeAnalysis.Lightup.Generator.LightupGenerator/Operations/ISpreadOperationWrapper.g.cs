@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly ElementTypeGetterDelegate ElementTypeGetterFunc;
         private static readonly OperandGetterDelegate OperandGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static ISpreadOperationWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             OperandGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
-        private ISpreadOperationWrapper(global::Microsoft.CodeAnalysis.IOperation? obj)
+        private ISpreadOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -58,15 +58,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ISpreadOperationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static ISpreadOperationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new ISpreadOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }

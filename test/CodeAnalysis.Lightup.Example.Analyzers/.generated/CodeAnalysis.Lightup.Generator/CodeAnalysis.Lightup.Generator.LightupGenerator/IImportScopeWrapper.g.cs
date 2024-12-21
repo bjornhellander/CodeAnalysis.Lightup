@@ -20,7 +20,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly ImportsGetterDelegate ImportsGetterFunc;
         private static readonly XmlNamespacesGetterDelegate XmlNamespacesGetterFunc;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IImportScopeWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             XmlNamespacesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<XmlNamespacesGetterDelegate>(WrappedType, nameof(XmlNamespaces));
         }
 
-        private IImportScopeWrapper(global::System.Object? obj)
+        private IImportScopeWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -67,15 +67,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IImportScopeWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IImportScopeWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IImportScopeWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

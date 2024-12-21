@@ -16,7 +16,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly ArgumentIndexGetterDelegate ArgumentIndexGetterFunc;
         private static readonly PlaceholderKindGetterDelegate PlaceholderKindGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper()
         {
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PlaceholderKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PlaceholderKindGetterDelegate>(WrappedType, nameof(PlaceholderKind));
         }
 
-        private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(global::Microsoft.CodeAnalysis.IOperation? obj)
+        private IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper Wrap(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper Wrap(global::System.Object obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }

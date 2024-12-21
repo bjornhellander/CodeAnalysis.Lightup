@@ -17,39 +17,6 @@ using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSy
 public partial class RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
-    public override void TestIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Identifier);
-    }
-
-    [TestMethod]
-    public override void TestWithIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
-    }
-
-    [TestMethod]
-    public override void TestParameterListGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.ParameterList);
-    }
-
-    [TestMethod]
-    public override void TestUpdateGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.Wrap(obj);
-        var visitor = new TestVisitor();
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Accept(visitor));
-    }
-
-    [TestMethod]
     public void TestIsGivenCompatibleObject()
     {
         var obj = CreateInstance();
