@@ -85,6 +85,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return PatternsGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator ListPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax?(ListPatternSyntaxWrapper obj)
         {
@@ -98,9 +104,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ListPatternSyntaxWrapper As(global::System.Object? obj)
+        public static ListPatternSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
             return new ListPatternSyntaxWrapper(obj2);
         }
 

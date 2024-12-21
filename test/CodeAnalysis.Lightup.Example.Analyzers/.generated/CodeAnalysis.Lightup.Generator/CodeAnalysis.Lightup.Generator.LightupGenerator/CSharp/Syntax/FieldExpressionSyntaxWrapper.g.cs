@@ -46,6 +46,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return TokenGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator FieldExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax?(FieldExpressionSyntaxWrapper obj)
         {
@@ -59,9 +65,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static FieldExpressionSyntaxWrapper As(global::System.Object? obj)
+        public static FieldExpressionSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new FieldExpressionSyntaxWrapper(obj2);
         }
 

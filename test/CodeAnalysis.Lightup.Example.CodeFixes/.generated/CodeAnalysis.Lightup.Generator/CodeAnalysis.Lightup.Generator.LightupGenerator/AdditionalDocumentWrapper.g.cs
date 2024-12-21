@@ -22,6 +22,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator AdditionalDocumentWrapper(global::Microsoft.CodeAnalysis.TextDocument? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.TextDocument?(AdditionalDocumentWrapper obj)
         {
@@ -35,9 +41,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AdditionalDocumentWrapper As(global::System.Object? obj)
+        public static AdditionalDocumentWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
             return new AdditionalDocumentWrapper(obj2);
         }
 

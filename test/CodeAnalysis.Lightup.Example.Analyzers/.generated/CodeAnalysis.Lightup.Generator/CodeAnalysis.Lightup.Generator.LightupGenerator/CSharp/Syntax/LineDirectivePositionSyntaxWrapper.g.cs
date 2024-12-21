@@ -94,6 +94,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return OpenParenTokenGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator LineDirectivePositionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode?(LineDirectivePositionSyntaxWrapper obj)
         {
@@ -107,9 +113,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static LineDirectivePositionSyntaxWrapper As(global::System.Object? obj)
+        public static LineDirectivePositionSyntaxWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new LineDirectivePositionSyntaxWrapper(obj2);
         }
 

@@ -37,9 +37,10 @@ namespace CodeAnalysis.Lightup.Runtime
             return true;
         }
 
-        public static TObject? As<TObject>(object? obj, Type? wrappedType)
+        public static TObject? Wrap<TObject>(object? obj, Type? wrappedType)
             where TObject : class
         {
+            // TODO: Check if this should be optimized
             if (!(obj is null) && wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
             {
                 return (TObject)obj;
@@ -541,16 +542,16 @@ namespace CodeAnalysis.Lightup.Runtime
             }
             else
             {
-                var wrapMethod = targetType.GetMethod("As");
+                var wrapMethod = targetType.GetMethod("Wrap");
                 if (wrapMethod == null)
                 {
-                    throw new InvalidOperationException("Could not find method 'As' in wrapper");
+                    throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
                 }
 
                 var parameters = wrapMethod.GetParameters();
                 if (parameters.Length != 1)
                 {
-                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'Wrap' method");
                 }
 
                 if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)

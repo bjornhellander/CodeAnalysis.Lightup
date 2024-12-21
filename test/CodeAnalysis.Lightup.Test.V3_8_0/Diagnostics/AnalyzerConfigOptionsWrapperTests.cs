@@ -18,7 +18,7 @@ public partial class AnalyzerConfigOptionsWrapperTests
     public override void TestTryGetValueGivenNullObject()
     {
         SyntaxNode? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.TryGetValue("key", out var value));
     }
 
@@ -34,7 +34,7 @@ public partial class AnalyzerConfigOptionsWrapperTests
     public void TestTryGetValueGivenCompatibleObject(string key, bool expectedResult, string? expectedValue)
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
 
         var result = wrapper.TryGetValue(key, out var value);
         Assert.AreEqual(expectedResult, result);
@@ -49,10 +49,10 @@ public partial class AnalyzerConfigOptionsWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 

@@ -20,10 +20,10 @@ public class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenNullObject()
+    public void TestWrapGivenNullObject()
     {
         object? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -31,7 +31,7 @@ public class IImportScopeWrapperTests
     public virtual void TestImportsGivenNullObject()
     {
         object? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.Imports);
     }
 
@@ -43,10 +43,10 @@ public class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenIncompatibleObject()
+    public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

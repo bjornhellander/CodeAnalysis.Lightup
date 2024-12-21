@@ -17,7 +17,7 @@ public class OperationExtensionsExtensionsTests
     public virtual void TestGetFunctionPointerSignatureGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.GetFunctionPointerSignature());
     }
 }

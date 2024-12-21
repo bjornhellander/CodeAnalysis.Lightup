@@ -79,7 +79,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             return obj != null;
         }
 
-        public static SeparatedSyntaxListWrapper<TNode> As(object? obj)
+        public static SeparatedSyntaxListWrapper<TNode> Wrap(object? obj)
         {
             if (obj != null && obj.GetType() != WrappedType)
             {

@@ -50,9 +50,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SyntaxTokenParserWrapper As(global::System.Object? obj)
+        public static SyntaxTokenParserWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new SyntaxTokenParserWrapper(obj2);
         }
 

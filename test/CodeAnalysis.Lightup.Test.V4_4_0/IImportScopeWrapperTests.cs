@@ -17,7 +17,7 @@ public partial class IImportScopeWrapperTests
     public override void TestImportsGivenNullObject()
     {
         object? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.Imports);
     }
 
@@ -25,7 +25,7 @@ public partial class IImportScopeWrapperTests
     public void TestImportsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var imports = wrapper.Imports;
         Assert.AreEqual(1, imports.Length);
     }
@@ -38,10 +38,10 @@ public partial class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 

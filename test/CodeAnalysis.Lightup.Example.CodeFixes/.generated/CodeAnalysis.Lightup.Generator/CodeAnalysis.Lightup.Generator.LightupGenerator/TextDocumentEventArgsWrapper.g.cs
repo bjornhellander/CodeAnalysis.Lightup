@@ -46,6 +46,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return DocumentGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator TextDocumentEventArgsWrapper(global::System.EventArgs? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::System.EventArgs?(TextDocumentEventArgsWrapper obj)
         {
@@ -59,9 +65,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static TextDocumentEventArgsWrapper As(global::System.Object? obj)
+        public static TextDocumentEventArgsWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.EventArgs>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.EventArgs>(obj, WrappedType);
             return new TextDocumentEventArgsWrapper(obj2);
         }
 

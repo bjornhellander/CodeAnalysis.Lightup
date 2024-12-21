@@ -77,9 +77,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static IRecursivePatternOperationWrapper As(global::System.Object? obj)
+        public static IRecursivePatternOperationWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IRecursivePatternOperationWrapper(obj2);
         }
 

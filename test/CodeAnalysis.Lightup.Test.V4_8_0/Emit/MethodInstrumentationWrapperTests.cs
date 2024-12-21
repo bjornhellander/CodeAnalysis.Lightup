@@ -17,7 +17,7 @@ public partial class MethodInstrumentationWrapperTests
     public override void TestKindsGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<NullReferenceException>(() => wrapper.Kinds);
     }
 
@@ -27,7 +27,7 @@ public partial class MethodInstrumentationWrapperTests
     public void TestKindsGivenCompatibleObject(InstrumentationKind kind)
     {
         var obj = CreateInstance(kind);
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(1, wrapper.Kinds.Length);
         Assert.AreEqual(kind, wrapper.Kinds[0]);
     }
@@ -40,10 +40,10 @@ public partial class MethodInstrumentationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 

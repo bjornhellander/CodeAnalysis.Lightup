@@ -21,10 +21,10 @@ public class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenNullObject()
+    public void TestWrapGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj, wrapper.Unwrap());
     }
 
@@ -32,7 +32,7 @@ public class IRecursivePatternOperationWrapperTests
     public virtual void TestPropertySubpatternsGivenNullObject()
     {
         IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.PropertySubpatterns);
     }
 
@@ -44,10 +44,10 @@ public class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenIncompatibleObject()
+    public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNull(wrapper.Unwrap());
     }
 }

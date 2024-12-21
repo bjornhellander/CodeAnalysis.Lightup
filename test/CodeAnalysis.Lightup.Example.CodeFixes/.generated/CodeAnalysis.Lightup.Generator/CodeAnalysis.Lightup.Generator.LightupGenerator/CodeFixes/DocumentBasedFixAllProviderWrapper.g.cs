@@ -31,6 +31,12 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             wrappedObject = obj;
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
+        public static explicit operator DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider? obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
         public static implicit operator global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider?(DocumentBasedFixAllProviderWrapper obj)
         {
@@ -44,9 +50,9 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static DocumentBasedFixAllProviderWrapper As(global::System.Object? obj)
+        public static DocumentBasedFixAllProviderWrapper Wrap(global::System.Object? obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
             return new DocumentBasedFixAllProviderWrapper(obj2);
         }
 
