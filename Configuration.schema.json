@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "CodeAnalysis.Lightup.Generator Configuration",
+  "description": "Configuration file for CodeAnalysis.Lightup.Generator",
+  "type": "object",
+  "properties": {
+    "baselineVersion": {
+      "description": "The Roslyn version that the generator should use as baseline. Lightup code will only be generated for types and members added after this version.",
+      "type": "string",
+      "pattern": "^[0-9]+.[0-9]+.[0-9]+.[0-9]+$"
+    },
+    "assemblies": {
+      "description": "The Roslyn assemblies that lightup code should be generated for.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Common",
+          "CSharp",
+          "WorkspacesCommon",
+          "CSharpWorkspaces"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "includeTypes": {
+      "description": "The types to genererate lightup code for. Will generate for all if not specified.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "useFoldersInFilePaths": {
+      "description": "If generated files should be added in a folder structure or not. Necessary to set to false when generating using Roslyn versions before 4.6.0.0.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "baselineVersion",
+    "assemblies"
+  ]
+}

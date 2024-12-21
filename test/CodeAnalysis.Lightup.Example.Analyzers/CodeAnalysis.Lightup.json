@@ -1,5 +1,5 @@
 ﻿{
-	"$schema": "https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/src/CodeAnalysis.Lightup.Generator/Configuration.schema.json",
+	"$schema": "https://raw.githubusercontent.com/bjornhellander/CodeAnalysis.Lightup/master/Configuration.schema.json",
 	"baselineVersion": "3.0.0.0",
 	"assemblies": [ "Common", "CSharp" ]
 }
