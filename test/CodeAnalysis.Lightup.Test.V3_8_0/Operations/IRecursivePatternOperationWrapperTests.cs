@@ -44,7 +44,7 @@ public partial class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IRecursivePatternOperation>();
         var obj = mock.Object;

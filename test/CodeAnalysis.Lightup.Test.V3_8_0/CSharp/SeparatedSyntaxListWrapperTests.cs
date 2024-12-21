@@ -40,7 +40,7 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);

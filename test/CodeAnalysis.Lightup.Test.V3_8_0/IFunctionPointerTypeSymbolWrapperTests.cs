@@ -43,7 +43,7 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IFunctionPointerTypeSymbol>();
         var obj = mock.Object;

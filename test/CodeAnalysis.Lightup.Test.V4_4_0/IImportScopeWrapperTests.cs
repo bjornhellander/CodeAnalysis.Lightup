@@ -38,7 +38,7 @@ public partial class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);

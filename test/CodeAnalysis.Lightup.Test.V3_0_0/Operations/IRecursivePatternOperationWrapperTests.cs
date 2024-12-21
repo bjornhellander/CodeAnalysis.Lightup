@@ -21,7 +21,7 @@ public class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenNullObject()
+    public void TestWrapGivenNullObject()
     {
         IOperation? obj = null;
         var wrapper = Wrapper.Wrap(obj);
@@ -44,7 +44,7 @@ public class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenIncompatibleObject()
+    public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
         var wrapper = Wrapper.Wrap(obj);

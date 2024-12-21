@@ -49,7 +49,7 @@ public partial class AnalyzerConfigOptionsWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);

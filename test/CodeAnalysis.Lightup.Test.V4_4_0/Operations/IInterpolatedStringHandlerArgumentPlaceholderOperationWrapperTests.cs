@@ -46,7 +46,7 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IInterpolatedStringHandlerArgumentPlaceholderOperation>();
         var obj = mock.Object;

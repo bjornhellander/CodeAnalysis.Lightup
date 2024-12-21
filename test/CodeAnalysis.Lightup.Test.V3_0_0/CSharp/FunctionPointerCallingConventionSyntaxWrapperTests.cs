@@ -22,7 +22,7 @@ public class FunctionPointerCallingConventionSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenNullObject()
+    public void TestWrapGivenNullObject()
     {
         SyntaxNode? obj = null;
         var wrapper = Wrapper.Wrap(obj);
@@ -54,7 +54,7 @@ public class FunctionPointerCallingConventionSyntaxWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenIncompatibleObject()
+    public void TestWrapGivenIncompatibleObject()
     {
         var obj = SyntaxFactory.ParameterList();
         var wrapper = Wrapper.Wrap(obj);
