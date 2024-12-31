@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static DocumentBasedFixAllProviderWrapper Wrap(global::System.Object obj)
+        public static DocumentBasedFixAllProviderWrapper Wrap(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider>(obj, WrappedType);
             return new DocumentBasedFixAllProviderWrapper(obj2);

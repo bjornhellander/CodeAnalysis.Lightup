@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static AnalyzerConfigDocumentWrapper Wrap(global::System.Object obj)
+        public static AnalyzerConfigDocumentWrapper Wrap(global::Microsoft.CodeAnalysis.TextDocument obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.TextDocument>(obj, WrappedType);
             return new AnalyzerConfigDocumentWrapper(obj2);

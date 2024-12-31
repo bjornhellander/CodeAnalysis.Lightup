@@ -7,6 +7,7 @@ using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 using Wrapper = Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper;
 
@@ -37,7 +38,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     [TestMethod]
     public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = Mock.Of<ITypeSymbol>();
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

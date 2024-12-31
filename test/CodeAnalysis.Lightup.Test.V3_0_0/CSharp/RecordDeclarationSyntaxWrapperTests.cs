@@ -24,7 +24,7 @@ public class RecordDeclarationSyntaxWrapperTests
     [TestMethod]
     public void TestWrapGivenNullObject()
     {
-        SyntaxNode? obj = null;
+        TypeDeclarationSyntax? obj = null;
         Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
@@ -45,7 +45,7 @@ public class RecordDeclarationSyntaxWrapperTests
     [TestMethod]
     public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = SyntaxFactory.ClassDeclaration(SyntaxFactory.Token(SyntaxKind.IdentifierToken));
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

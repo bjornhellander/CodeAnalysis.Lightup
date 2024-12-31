@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IFunctionPointerTypeSymbolWrapper Wrap(global::System.Object obj)
+        public static IFunctionPointerTypeSymbolWrapper Wrap(global::Microsoft.CodeAnalysis.ITypeSymbol obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.ITypeSymbol>(obj, WrappedType);
             return new IFunctionPointerTypeSymbolWrapper(obj2);

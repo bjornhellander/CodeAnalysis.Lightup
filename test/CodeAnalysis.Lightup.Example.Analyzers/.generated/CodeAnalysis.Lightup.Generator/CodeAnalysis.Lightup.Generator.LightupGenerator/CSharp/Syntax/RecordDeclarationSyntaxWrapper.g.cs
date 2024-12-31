@@ -233,7 +233,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static RecordDeclarationSyntaxWrapper Wrap(global::System.Object obj)
+        public static RecordDeclarationSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax>(obj, WrappedType);
             return new RecordDeclarationSyntaxWrapper(obj2);

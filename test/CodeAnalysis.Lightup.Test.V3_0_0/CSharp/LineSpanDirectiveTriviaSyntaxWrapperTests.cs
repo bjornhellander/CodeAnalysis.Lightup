@@ -6,6 +6,7 @@ namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper;
@@ -23,7 +24,7 @@ public class LineSpanDirectiveTriviaSyntaxWrapperTests
     [TestMethod]
     public void TestWrapGivenNullObject()
     {
-        SyntaxNode? obj = null;
+        DirectiveTriviaSyntax? obj = null;
         Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
@@ -37,7 +38,12 @@ public class LineSpanDirectiveTriviaSyntaxWrapperTests
     [TestMethod]
     public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = SyntaxFactory.DefineDirectiveTrivia(
+            SyntaxFactory.Token(SyntaxKind.HashToken),
+            SyntaxFactory.Token(SyntaxKind.DefineKeyword),
+            SyntaxFactory.Token(SyntaxKind.IdentifierToken),
+            SyntaxFactory.Token(SyntaxKind.EndOfDirectiveToken),
+            true);
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

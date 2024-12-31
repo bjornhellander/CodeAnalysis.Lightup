@@ -7,6 +7,7 @@ using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper;
 
@@ -37,7 +38,7 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     [TestMethod]
     public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = Mock.Of<IOperation>();
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

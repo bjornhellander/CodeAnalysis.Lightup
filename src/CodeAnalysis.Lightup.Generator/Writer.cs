@@ -871,8 +871,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>");
-        // TODO: Use base type instead of object
-        sb.AppendLine($"        public static {targetName} Wrap(global::System.Object obj)");
+        sb.AppendLine($"        public static {targetName} Wrap(global::{baseTypeNamespace}.{baseTypeName} obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            var obj2 = global::{fullHelperName}.Wrap<global::{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");

@@ -161,7 +161,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static LineSpanDirectiveTriviaSyntaxWrapper Wrap(global::System.Object obj)
+        public static LineSpanDirectiveTriviaSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax obj)
         {
             var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax>(obj, WrappedType);
             return new LineSpanDirectiveTriviaSyntaxWrapper(obj2);

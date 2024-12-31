@@ -23,7 +23,7 @@ public class FunctionPointerCallingConventionSyntaxWrapperTests
     [TestMethod]
     public void TestWrapGivenNullObject()
     {
-        SyntaxNode? obj = null;
+        CSharpSyntaxNode? obj = null;
         Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
