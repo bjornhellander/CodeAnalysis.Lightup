@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate CommandLineSourceFile ConstructorDelegate0(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected);
 
-        private delegate global::System.Boolean IsInputRedirectedGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineSourceFile? _obj);
+        private delegate global::System.Boolean IsInputRedirectedGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineSourceFile _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

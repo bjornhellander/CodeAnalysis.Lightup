@@ -12,9 +12,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate LoadTextOptionsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
 
-        private delegate global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

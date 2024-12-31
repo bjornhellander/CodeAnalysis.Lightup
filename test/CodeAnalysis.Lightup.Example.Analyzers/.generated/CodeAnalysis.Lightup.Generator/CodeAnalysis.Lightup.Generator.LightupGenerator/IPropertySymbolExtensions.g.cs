@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IPropertySymbol";
 
-        private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol? _obj);
-        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialDefinitionPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol? _obj);
+        private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialDefinitionPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
 
         private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;

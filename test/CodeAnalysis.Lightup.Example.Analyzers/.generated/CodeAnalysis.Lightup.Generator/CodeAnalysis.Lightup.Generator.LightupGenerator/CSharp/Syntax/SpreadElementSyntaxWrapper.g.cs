@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithExpressionDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithOperatorTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithExpressionDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper WithOperatorTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
         private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;

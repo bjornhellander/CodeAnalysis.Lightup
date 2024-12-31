@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
 
         private static readonly AddBlockAttributeListsDelegate0 AddBlockAttributeListsFunc0;
 

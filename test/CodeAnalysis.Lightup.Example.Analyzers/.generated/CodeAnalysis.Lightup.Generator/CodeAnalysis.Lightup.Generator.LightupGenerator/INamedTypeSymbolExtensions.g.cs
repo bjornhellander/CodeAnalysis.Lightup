@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
-        private delegate global::System.Boolean IsFileLocalGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol? _obj);
+        private delegate global::System.Boolean IsFileLocalGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
         private static readonly IsFileLocalGetterDelegate IsFileLocalGetterFunc;
         private static readonly NativeIntegerUnderlyingTypeGetterDelegate NativeIntegerUnderlyingTypeGetterFunc;

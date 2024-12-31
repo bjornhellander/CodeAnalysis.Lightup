@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax WithCheckedKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax WithCheckedKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
 

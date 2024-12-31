@@ -11,8 +11,8 @@ public partial struct SyntaxTokenParserWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ContextualKindGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ContextualKindGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::System.Object _obj);
 
         private static readonly ContextualKindGetterDelegate ContextualKindGetterFunc;
         private static readonly TokenGetterDelegate TokenGetterFunc;

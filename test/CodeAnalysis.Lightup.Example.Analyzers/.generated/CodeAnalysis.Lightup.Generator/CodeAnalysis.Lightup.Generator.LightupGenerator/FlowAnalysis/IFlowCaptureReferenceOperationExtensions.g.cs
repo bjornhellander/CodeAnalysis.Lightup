@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation";
 
-        private delegate global::System.Boolean IsInitializationGetterDelegate(global::Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation? _obj);
+        private delegate global::System.Boolean IsInitializationGetterDelegate(global::Microsoft.CodeAnalysis.FlowAnalysis.IFlowCaptureReferenceOperation _obj);
 
         private static readonly IsInitializationGetterDelegate IsInitializationGetterFunc;
 

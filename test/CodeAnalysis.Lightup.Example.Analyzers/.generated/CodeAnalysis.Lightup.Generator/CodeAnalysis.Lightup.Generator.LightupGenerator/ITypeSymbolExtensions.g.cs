@@ -8,16 +8,16 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeSymbol";
 
-        private delegate global::System.Boolean IsNativeIntegerTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj);
-        private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj);
-        private delegate global::System.Boolean IsRecordGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj);
+        private delegate global::System.Boolean IsNativeIntegerTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::System.Boolean IsRecordGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
-        private delegate global::System.String ToDisplayStringDelegate1(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayPartsDelegate2(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
-        private delegate global::System.String ToMinimalDisplayStringDelegate3(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotationDelegate4(global::Microsoft.CodeAnalysis.ITypeSymbol? _obj, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate global::System.String ToDisplayStringDelegate1(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToMinimalDisplayPartsDelegate2(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate global::System.String ToMinimalDisplayStringDelegate3(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotationDelegate4(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation);
 
         private static readonly IsNativeIntegerTypeGetterDelegate IsNativeIntegerTypeGetterFunc;
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;

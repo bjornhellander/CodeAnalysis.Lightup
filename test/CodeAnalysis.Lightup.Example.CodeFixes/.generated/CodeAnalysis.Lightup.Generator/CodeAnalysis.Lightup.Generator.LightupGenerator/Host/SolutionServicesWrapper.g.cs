@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguagesGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguagesGetterDelegate(global::System.Object _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServicesDelegate0(global::System.Object? _obj, global::System.String languageName);
-        private delegate global::System.Boolean IsSupportedDelegate1(global::System.Object? _obj, global::System.String languageName);
+        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServicesDelegate0(global::System.Object _obj, global::System.String languageName);
+        private delegate global::System.Boolean IsSupportedDelegate1(global::System.Object _obj, global::System.String languageName);
 
         private static readonly SupportedLanguagesGetterDelegate SupportedLanguagesGetterFunc;
 

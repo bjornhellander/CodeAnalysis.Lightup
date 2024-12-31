@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.String XmlNamespaceGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(global::System.Object _obj);
+        private delegate global::System.String XmlNamespaceGetterDelegate(global::System.Object _obj);
 
         private static readonly DeclaringSyntaxReferenceGetterDelegate DeclaringSyntaxReferenceGetterFunc;
         private static readonly XmlNamespaceGetterDelegate XmlNamespaceGetterFunc;

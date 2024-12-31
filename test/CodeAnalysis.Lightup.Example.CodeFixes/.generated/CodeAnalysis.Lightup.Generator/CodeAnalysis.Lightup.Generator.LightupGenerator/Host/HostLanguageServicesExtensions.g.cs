@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostLanguageServices";
 
-        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper LanguageServicesGetterDelegate(global::Microsoft.CodeAnalysis.Host.HostLanguageServices? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper LanguageServicesGetterDelegate(global::Microsoft.CodeAnalysis.Host.HostLanguageServices _obj);
 
-        private delegate void DisposeDelegate0(global::Microsoft.CodeAnalysis.Host.HostLanguageServices? _obj);
+        private delegate void DisposeDelegate0(global::Microsoft.CodeAnalysis.Host.HostLanguageServices _obj);
 
         private static readonly LanguageServicesGetterDelegate LanguageServicesGetterFunc;
 

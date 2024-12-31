@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OpenParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OpenParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithCloseParenTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithOpenParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithCloseParenTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithOpenParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper WithPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
 
         private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;
         private static readonly OpenParenTokenGetterDelegate OpenParenTokenGetterFunc;

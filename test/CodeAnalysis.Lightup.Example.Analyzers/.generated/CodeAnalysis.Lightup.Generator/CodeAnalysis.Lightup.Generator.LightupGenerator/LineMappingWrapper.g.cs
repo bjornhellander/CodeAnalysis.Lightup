@@ -12,12 +12,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate LineMappingWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.LinePositionSpan span, global::System.Nullable<global::System.Int32> characterOffset, global::Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan);
 
-        private delegate global::System.Nullable<global::System.Int32> CharacterOffsetGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Boolean IsHiddenGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpanGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Text.LinePositionSpan SpanGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Nullable<global::System.Int32> CharacterOffsetGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsHiddenGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpanGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.LinePositionSpan SpanGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

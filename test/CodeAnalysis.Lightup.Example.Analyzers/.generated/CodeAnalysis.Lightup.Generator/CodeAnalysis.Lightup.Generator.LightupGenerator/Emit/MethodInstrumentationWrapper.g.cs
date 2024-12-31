@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> KindsGetterDelegate(global::System.Object? _obj);
-        private delegate void KindsSetterDelegate(System.Object? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> _value);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> KindsGetterDelegate(global::System.Object _obj);
+        private delegate void KindsSetterDelegate(System.Object _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> _value);
 
         private static readonly KindsGetterDelegate KindsGetterFunc;
         private static readonly KindsSetterDelegate KindsSetterFunc;

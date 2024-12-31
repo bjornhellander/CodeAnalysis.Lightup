@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Text.SourceText";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHashDelegate0(global::Microsoft.CodeAnalysis.Text.SourceText? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHashDelegate0(global::Microsoft.CodeAnalysis.Text.SourceText _obj);
 
         private static readonly GetContentHashDelegate0 GetContentHashFunc0;
 

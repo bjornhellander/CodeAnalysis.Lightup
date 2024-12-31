@@ -13,10 +13,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate void TextDocumentOpenedAdderDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
         private delegate void TextDocumentOpenedRemoverDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
 
-        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate0(global::Microsoft.CodeAnalysis.Workspace? _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Workspace? _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate void CloseAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Workspace? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate3(global::Microsoft.CodeAnalysis.Workspace? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
+        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate void CloseAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate void OpenAnalyzerConfigDocumentDelegate3(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
 
         private static readonly TextDocumentClosedAdderDelegate TextDocumentClosedAdderFunc;
         private static readonly TextDocumentClosedRemoverDelegate TextDocumentClosedRemoverFunc;

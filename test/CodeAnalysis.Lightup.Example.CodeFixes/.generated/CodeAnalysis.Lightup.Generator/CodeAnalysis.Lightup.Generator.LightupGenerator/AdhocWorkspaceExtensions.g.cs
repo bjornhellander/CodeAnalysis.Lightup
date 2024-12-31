@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
 
-        private delegate void CloseAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.AdhocWorkspace? _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate1(global::Microsoft.CodeAnalysis.AdhocWorkspace? _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate);
+        private delegate void CloseAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
+        private delegate void OpenAnalyzerConfigDocumentDelegate1(global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate);
 
         private static readonly CloseAnalyzerConfigDocumentDelegate0 CloseAnalyzerConfigDocumentFunc0;
         private static readonly OpenAnalyzerConfigDocumentDelegate1 OpenAnalyzerConfigDocumentFunc1;

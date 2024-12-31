@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TypeInfo";
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper ConvertedNullabilityGetterDelegate(global::Microsoft.CodeAnalysis.TypeInfo? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper NullabilityGetterDelegate(global::Microsoft.CodeAnalysis.TypeInfo? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper ConvertedNullabilityGetterDelegate(global::Microsoft.CodeAnalysis.TypeInfo _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullabilityInfoWrapper NullabilityGetterDelegate(global::Microsoft.CodeAnalysis.TypeInfo _obj);
 
         private static readonly ConvertedNullabilityGetterDelegate ConvertedNullabilityGetterFunc;
         private static readonly NullabilityGetterDelegate NullabilityGetterFunc;

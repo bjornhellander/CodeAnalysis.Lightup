@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate1(global::System.Object? _obj, global::System.String? path);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate1(global::System.Object _obj, global::System.String? path);
 
         private static readonly AssemblyPathGetterDelegate AssemblyPathGetterFunc;
 

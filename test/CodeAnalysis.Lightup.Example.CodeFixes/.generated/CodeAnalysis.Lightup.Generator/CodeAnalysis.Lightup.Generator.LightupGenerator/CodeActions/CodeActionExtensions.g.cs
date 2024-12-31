@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeActions.CodeAction";
 
-        private delegate global::System.Boolean IsInlinableGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> NestedActionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx PriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj);
+        private delegate global::System.Boolean IsInlinableGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> NestedActionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx PriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate0(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable);
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate1(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
@@ -19,7 +19,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate4(global::System.String title, global::System.Func<global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper>, global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution>> createChangedSolution, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate5(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
 
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeActionOperation>> GetOperationsAsyncDelegate0(global::Microsoft.CodeAnalysis.CodeActions.CodeAction? _obj, global::Microsoft.CodeAnalysis.Solution originalSolution, global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> progress, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeActionOperation>> GetOperationsAsyncDelegate0(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj, global::Microsoft.CodeAnalysis.Solution originalSolution, global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> progress, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly IsInlinableGetterDelegate IsInlinableGetterFunc;
         private static readonly NestedActionsGetterDelegate NestedActionsGetterFunc;

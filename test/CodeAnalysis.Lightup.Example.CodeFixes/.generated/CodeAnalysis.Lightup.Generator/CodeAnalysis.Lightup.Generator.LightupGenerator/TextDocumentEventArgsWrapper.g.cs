@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate TextDocumentEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.TextDocument document);
 
-        private delegate global::Microsoft.CodeAnalysis.TextDocument DocumentGetterDelegate(global::System.EventArgs? _obj);
+        private delegate global::Microsoft.CodeAnalysis.TextDocument DocumentGetterDelegate(global::System.EventArgs _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

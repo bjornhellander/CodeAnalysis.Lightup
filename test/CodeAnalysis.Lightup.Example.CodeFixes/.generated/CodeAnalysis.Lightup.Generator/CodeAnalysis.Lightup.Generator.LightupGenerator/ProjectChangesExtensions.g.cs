@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges? _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(global::Microsoft.CodeAnalysis.ProjectChanges? _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(global::Microsoft.CodeAnalysis.ProjectChanges? _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate2(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
 
         private static readonly GetAddedAnalyzerConfigDocumentsDelegate0 GetAddedAnalyzerConfigDocumentsFunc0;
         private static readonly GetChangedAnalyzerConfigDocumentsDelegate1 GetChangedAnalyzerConfigDocumentsFunc1;

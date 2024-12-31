@@ -155,8 +155,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {{
         private static readonly global::System.Type{na} WrappedType; // NOTE: Possibly used via reflection
 
-        private delegate int CountDelegate(object{na} obj);
-        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object{na} obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate int CountDelegate(object obj);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
@@ -572,7 +572,6 @@ namespace Microsoft.CodeAnalysis.Lightup
         return sb.ToString();
     }
 
-    // TODO: Make this/obj parameter not nullable in all delegates
     private static string GenerateWrapper(
         TypeDefinition typeDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
@@ -1523,16 +1522,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         string nullableAnnotation,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        var na = nullableAnnotation;
-
         sb.Append($"        private delegate ");
         sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs));
-        sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{baseTypeNamespace}.{baseTypeName}{na} _obj);");
+        sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj);");
 
         if (propertyDef.HasSetter)
         {
             sb.Append($"        private delegate void ");
-            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeNamespace}.{baseTypeName}{na} _obj, ");
+            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeNamespace}.{baseTypeName} _obj, ");
             sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs)} _value);");
         }
     }
@@ -1596,11 +1593,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         string nullableAnnotation,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        var na = nullableAnnotation;
-
         sb.Append($"        private delegate ");
         sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs));
-        sb.Append($" {methodDef.Name}Delegate{index}(global::{baseTypeNamespace}.{baseTypeName}{na} _obj");
+        sb.Append($" {methodDef.Name}Delegate{index}(global::{baseTypeNamespace}.{baseTypeName} _obj");
         sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, addLeadingComma: true));
         sb.AppendLine(");");
     }

@@ -8,13 +8,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax WithModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;

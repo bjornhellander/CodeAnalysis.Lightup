@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo";
 
-        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo? _obj);
+        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo _obj);
 
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 

@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
 
-        private delegate global::System.Boolean ContainsDirectiveDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode? _obj, global::System.Int32 rawKind);
-        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other);
+        private delegate global::System.Boolean ContainsDirectiveDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 rawKind);
+        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other);
 
         private static readonly ContainsDirectiveDelegate0 ContainsDirectiveFunc0;
         private static readonly IsIncrementallyIdenticalToDelegate1 IsIncrementallyIdenticalToFunc1;

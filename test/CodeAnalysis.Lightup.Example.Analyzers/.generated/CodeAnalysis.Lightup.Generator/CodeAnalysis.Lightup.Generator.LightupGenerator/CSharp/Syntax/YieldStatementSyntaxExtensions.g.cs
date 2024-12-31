@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken yieldKeyword, global::Microsoft.CodeAnalysis.SyntaxToken returnOrBreakKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken yieldKeyword, global::Microsoft.CodeAnalysis.SyntaxToken returnOrBreakKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 

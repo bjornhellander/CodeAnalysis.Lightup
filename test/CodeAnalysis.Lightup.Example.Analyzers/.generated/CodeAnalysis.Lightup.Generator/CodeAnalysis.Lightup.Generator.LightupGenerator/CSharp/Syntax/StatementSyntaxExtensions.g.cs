@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 

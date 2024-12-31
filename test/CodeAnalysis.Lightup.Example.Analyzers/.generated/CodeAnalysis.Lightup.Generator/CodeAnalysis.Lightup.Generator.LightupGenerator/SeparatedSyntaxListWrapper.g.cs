@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
-        private delegate int CountDelegate(object? obj);
-        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate int CountDelegate(object obj);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;

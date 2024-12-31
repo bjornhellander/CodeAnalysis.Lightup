@@ -8,13 +8,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectInfo";
 
-        private delegate global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo? _obj);
+        private delegate global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.DocumentInfo> AnalyzerConfigDocumentsGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::System.String? defaultNamespace);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate3(global::Microsoft.CodeAnalysis.ProjectInfo? _obj, global::Microsoft.CodeAnalysis.ProjectId id);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate3(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;

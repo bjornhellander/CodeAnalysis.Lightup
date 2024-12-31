@@ -8,14 +8,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiersDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiersDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;

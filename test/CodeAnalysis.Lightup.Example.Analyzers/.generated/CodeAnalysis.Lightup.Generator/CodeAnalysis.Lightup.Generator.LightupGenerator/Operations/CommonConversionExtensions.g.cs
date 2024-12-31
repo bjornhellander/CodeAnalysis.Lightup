@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
-        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;

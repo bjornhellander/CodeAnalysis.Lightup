@@ -8,18 +8,18 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
 
-        private delegate global::System.Reflection.Metadata.SignatureCallingConvention CallingConventionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Boolean IsConditionalGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Boolean IsInitOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Reflection.MethodImplAttributes MethodImplementationFlagsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj);
+        private delegate global::System.Reflection.Metadata.SignatureCallingConvention CallingConventionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean IsConditionalGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean IsInitOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Reflection.MethodImplAttributes MethodImplementationFlagsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.IMethodSymbol? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
         private static readonly CallingConventionGetterDelegate CallingConventionGetterFunc;
         private static readonly IsConditionalGetterDelegate IsConditionalGetterFunc;

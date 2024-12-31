@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private delegate RuntimeRudeEditWrapper ConstructorDelegate0(global::System.String message);
 
-        private delegate global::System.String MessageGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.String MessageGetterDelegate(global::System.Object _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

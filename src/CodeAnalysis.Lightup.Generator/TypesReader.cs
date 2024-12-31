@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Xml.Linq;
 using CodeAnalysis.Lightup.Definitions;
 
-// TODO: Add configuration for including removed members
+// TODO: Add configuration for including removed members?
 internal static class TypesReader
 {
     private static readonly XNamespace XsiNamespace = "http://www.w3.org/2001/XMLSchema-instance";

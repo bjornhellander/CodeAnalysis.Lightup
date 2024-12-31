@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String LanguageGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServicesGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.String LanguageGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServicesGetterDelegate(global::System.Object _obj);
 
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SolutionServicesGetterDelegate SolutionServicesGetterFunc;

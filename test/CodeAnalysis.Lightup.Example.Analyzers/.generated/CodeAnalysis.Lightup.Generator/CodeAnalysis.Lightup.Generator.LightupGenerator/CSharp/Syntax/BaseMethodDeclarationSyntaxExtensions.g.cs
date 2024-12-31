@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
 
         private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
 

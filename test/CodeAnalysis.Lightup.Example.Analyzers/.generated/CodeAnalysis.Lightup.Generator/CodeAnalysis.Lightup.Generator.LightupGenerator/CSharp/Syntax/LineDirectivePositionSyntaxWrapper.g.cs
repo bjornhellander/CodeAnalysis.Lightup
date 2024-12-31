@@ -10,19 +10,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CharacterGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CommaTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken LineGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OpenParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CharacterGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CommaTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken LineGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OpenParenTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCharacterDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken character);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCloseParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCommaTokenDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken commaToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithLineDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken line);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithOpenParenTokenDelegate6(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCharacterDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken character);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCloseParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithCommaTokenDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken commaToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithLineDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken line);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper WithOpenParenTokenDelegate6(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
 
         private static readonly CharacterGetterDelegate CharacterGetterFunc;
         private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;

@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken gotoKeyword, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken gotoKeyword, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 

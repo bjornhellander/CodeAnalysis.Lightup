@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxTree";
 
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptionsGetterDelegate(global::Microsoft.CodeAnalysis.SyntaxTree? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> DiagnosticOptionsGetterDelegate(global::Microsoft.CodeAnalysis.SyntaxTree _obj);
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(global::Microsoft.CodeAnalysis.SyntaxTree? _obj, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptionsDelegate1(global::Microsoft.CodeAnalysis.SyntaxTree? _obj, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> options);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(global::Microsoft.CodeAnalysis.SyntaxTree _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree WithDiagnosticOptionsDelegate1(global::Microsoft.CodeAnalysis.SyntaxTree _obj, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> options);
 
         private static readonly DiagnosticOptionsGetterDelegate DiagnosticOptionsGetterFunc;
 

@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax LeftGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax RightGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax LeftGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax RightGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithLeftDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithOperatorTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithRightDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithLeftDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax left);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithOperatorTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper WithRightDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax right);
 
         private static readonly LeftGetterDelegate LeftGetterFunc;
         private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;

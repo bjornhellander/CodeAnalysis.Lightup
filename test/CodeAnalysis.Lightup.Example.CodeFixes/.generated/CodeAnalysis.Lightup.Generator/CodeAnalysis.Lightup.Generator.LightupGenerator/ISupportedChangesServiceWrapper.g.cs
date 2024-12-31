@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Boolean CanApplyChangeDelegate0(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, global::Microsoft.CodeAnalysis.ApplyChangesKind kind);
-        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate2(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate global::System.Boolean CanApplyChangeDelegate0(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.ApplyChangesKind kind);
+        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate2(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
 
         private static readonly CanApplyChangeDelegate0 CanApplyChangeFunc0;
         private static readonly CanApplyCompilationOptionChangeDelegate1 CanApplyCompilationOptionChangeFunc1;

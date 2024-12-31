@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrToken";
 
-        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate0(global::Microsoft.CodeAnalysis.SyntaxNodeOrToken? _obj, global::Microsoft.CodeAnalysis.SyntaxNodeOrToken other);
+        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate0(global::Microsoft.CodeAnalysis.SyntaxNodeOrToken _obj, global::Microsoft.CodeAnalysis.SyntaxNodeOrToken other);
 
         private static readonly IsIncrementallyIdenticalToDelegate0 IsIncrementallyIdenticalToFunc0;
 

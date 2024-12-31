@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithTypeDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseParameterSyntaxWrapper WithTypeDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;

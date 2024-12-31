@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;

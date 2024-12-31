@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GlobalOptionsGetterDelegate(global::System.Object _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.AdditionalText textFile);
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.AdditionalText textFile);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper GetOptionsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree);
 
         private static readonly GlobalOptionsGetterDelegate GlobalOptionsGetterFunc;
 

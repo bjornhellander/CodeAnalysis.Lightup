@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation ContentGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::System.Boolean HandlerAppendCallsReturnBoolGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation HandlerCreationGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::System.Boolean HandlerCreationHasSuccessParameterGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation ContentGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Boolean HandlerAppendCallsReturnBoolGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation HandlerCreationGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Boolean HandlerCreationHasSuccessParameterGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ContentGetterDelegate ContentGetterFunc;
         private static readonly HandlerAppendCallsReturnBoolGetterDelegate HandlerAppendCallsReturnBoolGetterFunc;

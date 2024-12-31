@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? IndexerSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? LengthSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> PatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? IndexerSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? LengthSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> PatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly DeclaredSymbolGetterDelegate DeclaredSymbolGetterFunc;
         private static readonly IndexerSymbolGetterDelegate IndexerSymbolGetterFunc;

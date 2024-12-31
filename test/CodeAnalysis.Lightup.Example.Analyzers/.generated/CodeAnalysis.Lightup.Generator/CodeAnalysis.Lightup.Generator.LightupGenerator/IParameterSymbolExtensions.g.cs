@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IParameterSymbol";
 
-        private delegate global::System.Boolean IsDiscardGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
-        private delegate global::System.Boolean IsParamsArrayGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
-        private delegate global::System.Boolean IsParamsCollectionGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol? _obj);
+        private delegate global::System.Boolean IsDiscardGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
+        private delegate global::System.Boolean IsParamsArrayGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
+        private delegate global::System.Boolean IsParamsCollectionGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
 
         private static readonly IsDiscardGetterDelegate IsDiscardGetterFunc;
         private static readonly IsParamsArrayGetterDelegate IsParamsArrayGetterFunc;

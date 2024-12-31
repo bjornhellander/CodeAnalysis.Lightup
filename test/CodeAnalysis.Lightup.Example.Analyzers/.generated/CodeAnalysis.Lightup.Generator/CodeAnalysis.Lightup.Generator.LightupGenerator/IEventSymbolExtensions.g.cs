@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol _obj);
 
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
 

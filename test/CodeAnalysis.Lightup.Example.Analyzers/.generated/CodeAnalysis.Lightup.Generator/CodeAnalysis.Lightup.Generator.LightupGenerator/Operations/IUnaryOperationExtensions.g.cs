@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IUnaryOperation";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IUnaryOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IUnaryOperation _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 

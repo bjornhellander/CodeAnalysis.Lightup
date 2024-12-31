@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation";
 
-        private delegate global::System.Boolean IsExhaustiveGetterDelegate(global::Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation? _obj);
+        private delegate global::System.Boolean IsExhaustiveGetterDelegate(global::Microsoft.CodeAnalysis.Operations.ISwitchExpressionOperation _obj);
 
         private static readonly IsExhaustiveGetterDelegate IsExhaustiveGetterFunc;
 

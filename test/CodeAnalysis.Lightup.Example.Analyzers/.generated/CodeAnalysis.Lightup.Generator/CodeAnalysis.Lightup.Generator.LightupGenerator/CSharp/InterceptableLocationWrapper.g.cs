@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String DataGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Int32 VersionGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.String DataGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Int32 VersionGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.String GetDisplayLocationDelegate0(global::System.Object? _obj);
+        private delegate global::System.String GetDisplayLocationDelegate0(global::System.Object _obj);
 
         private static readonly DataGetterDelegate DataGetterFunc;
         private static readonly VersionGetterDelegate VersionGetterFunc;

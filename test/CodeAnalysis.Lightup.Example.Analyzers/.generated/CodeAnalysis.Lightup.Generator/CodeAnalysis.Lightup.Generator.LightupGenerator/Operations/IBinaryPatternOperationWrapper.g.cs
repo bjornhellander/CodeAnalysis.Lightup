@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation LeftPatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation RightPatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation LeftPatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation RightPatternGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly LeftPatternGetterDelegate LeftPatternGetterFunc;
         private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;

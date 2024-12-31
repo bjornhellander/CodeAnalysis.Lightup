@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionInfo";
 
-        private delegate global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferencesGetterDelegate(global::Microsoft.CodeAnalysis.SolutionInfo? _obj);
+        private delegate global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferencesGetterDelegate(global::Microsoft.CodeAnalysis.SolutionInfo _obj);
 
         private delegate global::Microsoft.CodeAnalysis.SolutionInfo CreateDelegate0(global::Microsoft.CodeAnalysis.SolutionId id, global::Microsoft.CodeAnalysis.VersionStamp version, global::System.String? filePath, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ProjectInfo>? projects, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences);
 

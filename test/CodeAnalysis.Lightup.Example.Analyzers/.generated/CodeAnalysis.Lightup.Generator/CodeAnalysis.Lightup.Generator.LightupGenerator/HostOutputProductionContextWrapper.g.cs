@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object _obj);
 
-        private delegate void AddOutputDelegate0(global::System.Object? _obj, global::System.String name, global::System.Object value);
+        private delegate void AddOutputDelegate0(global::System.Object _obj, global::System.String name, global::System.Object value);
 
         private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;
 

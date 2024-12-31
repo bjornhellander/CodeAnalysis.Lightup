@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation TargetGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation TargetGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ArgumentsGetterDelegate ArgumentsGetterFunc;
         private static readonly TargetGetterDelegate TargetGetterFunc;

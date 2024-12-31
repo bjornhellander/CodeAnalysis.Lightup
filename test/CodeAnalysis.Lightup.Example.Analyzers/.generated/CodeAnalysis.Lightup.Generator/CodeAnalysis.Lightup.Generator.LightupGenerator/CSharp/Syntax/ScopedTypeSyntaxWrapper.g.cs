@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ScopedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ScopedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithTypeDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithTypeDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ScopedKeywordGetterDelegate ScopedKeywordGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;

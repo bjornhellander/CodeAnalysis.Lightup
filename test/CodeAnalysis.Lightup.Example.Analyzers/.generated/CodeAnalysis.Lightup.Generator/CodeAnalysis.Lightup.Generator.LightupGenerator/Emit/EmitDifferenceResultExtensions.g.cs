@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitDifferenceResult";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.TypeDefinitionHandle> ChangedTypesGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.MethodDefinitionHandle> UpdatedMethodsGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.TypeDefinitionHandle> ChangedTypesGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Reflection.Metadata.MethodDefinitionHandle> UpdatedMethodsGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult _obj);
 
         private static readonly ChangedTypesGetterDelegate ChangedTypesGetterFunc;
         private static readonly UpdatedMethodsGetterDelegate UpdatedMethodsGetterFunc;

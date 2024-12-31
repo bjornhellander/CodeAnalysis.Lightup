@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.CommonConversion ElementConversionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ElementTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.CommonConversion ElementConversionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ElementTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ElementConversionGetterDelegate ElementConversionGetterFunc;
         private static readonly ElementTypeGetterDelegate ElementTypeGetterFunc;

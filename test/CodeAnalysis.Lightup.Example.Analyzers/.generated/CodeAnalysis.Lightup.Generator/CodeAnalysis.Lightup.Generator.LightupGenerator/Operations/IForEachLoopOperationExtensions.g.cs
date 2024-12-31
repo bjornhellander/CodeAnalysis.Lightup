@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IForEachLoopOperation";
 
-        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IForEachLoopOperation? _obj);
+        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IForEachLoopOperation _obj);
 
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
 

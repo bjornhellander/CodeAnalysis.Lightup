@@ -8,22 +8,22 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Project";
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper> AnalyzerConfigDocumentsGetterDelegate(global::Microsoft.CodeAnalysis.Project? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.Project? _obj);
-        private delegate global::System.String? DefaultNamespaceGetterDelegate(global::Microsoft.CodeAnalysis.Project? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions HostAnalyzerOptionsGetterDelegate(global::Microsoft.CodeAnalysis.Project? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper ServicesGetterDelegate(global::Microsoft.CodeAnalysis.Project? _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper> AnalyzerConfigDocumentsGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
+        private delegate global::System.String? DefaultNamespaceGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions HostAnalyzerOptionsGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
+        private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper ServicesGetterDelegate(global::Microsoft.CodeAnalysis.Project _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Project? _obj, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath);
-        private delegate global::System.Boolean ContainsAnalyzerConfigDocumentDelegate1(global::Microsoft.CodeAnalysis.Project? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper? GetAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Project? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
-        private delegate global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate3(global::Microsoft.CodeAnalysis.Project? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.ValueTask<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsyncDelegate4(global::Microsoft.CodeAnalysis.Project? _obj, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.Project RemoveAdditionalDocumentsDelegate5(global::Microsoft.CodeAnalysis.Project? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
-        private delegate global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentDelegate6(global::Microsoft.CodeAnalysis.Project? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
-        private delegate global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentsDelegate7(global::Microsoft.CodeAnalysis.Project? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
-        private delegate global::Microsoft.CodeAnalysis.Project RemoveDocumentsDelegate8(global::Microsoft.CodeAnalysis.Project? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
-        private delegate global::Microsoft.CodeAnalysis.Project WithDefaultNamespaceDelegate9(global::Microsoft.CodeAnalysis.Project? _obj, global::System.String defaultNamespace);
+        private delegate global::Microsoft.CodeAnalysis.TextDocument AddAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Project _obj, global::System.String name, global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.Collections.Generic.IEnumerable<global::System.String>? folders, global::System.String? filePath);
+        private delegate global::System.Boolean ContainsAnalyzerConfigDocumentDelegate1(global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper? GetAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate3(global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.ValueTask<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper>> GetSourceGeneratedDocumentsAsyncDelegate4(global::Microsoft.CodeAnalysis.Project _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Project RemoveAdditionalDocumentsDelegate5(global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentDelegate6(global::Microsoft.CodeAnalysis.Project _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate global::Microsoft.CodeAnalysis.Project RemoveAnalyzerConfigDocumentsDelegate7(global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate global::Microsoft.CodeAnalysis.Project RemoveDocumentsDelegate8(global::Microsoft.CodeAnalysis.Project _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
+        private delegate global::Microsoft.CodeAnalysis.Project WithDefaultNamespaceDelegate9(global::Microsoft.CodeAnalysis.Project _obj, global::System.String defaultNamespace);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;

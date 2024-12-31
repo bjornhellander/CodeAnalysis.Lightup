@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
 
         private static readonly ReadOnlyKeywordGetterDelegate ReadOnlyKeywordGetterFunc;
 

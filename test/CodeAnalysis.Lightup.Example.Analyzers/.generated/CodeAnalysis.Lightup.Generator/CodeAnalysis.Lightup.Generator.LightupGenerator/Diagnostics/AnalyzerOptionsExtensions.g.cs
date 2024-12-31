@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private delegate AnalyzerOptions ConstructorDelegate0(global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AdditionalText> additionalFiles, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider);
 
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

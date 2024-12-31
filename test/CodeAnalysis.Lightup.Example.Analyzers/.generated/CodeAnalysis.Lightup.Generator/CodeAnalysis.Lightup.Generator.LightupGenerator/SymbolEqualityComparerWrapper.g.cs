@@ -13,8 +13,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper DefaultGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullabilityGetterDelegate();
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y);
-        private delegate global::System.Int32 GetHashCodeDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.ISymbol? obj);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y);
+        private delegate global::System.Int32 GetHashCodeDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.ISymbol? obj);
 
         private static readonly DefaultGetterDelegate DefaultGetterFunc;
         private static readonly IncludeNullabilityGetterDelegate IncludeNullabilityGetterFunc;

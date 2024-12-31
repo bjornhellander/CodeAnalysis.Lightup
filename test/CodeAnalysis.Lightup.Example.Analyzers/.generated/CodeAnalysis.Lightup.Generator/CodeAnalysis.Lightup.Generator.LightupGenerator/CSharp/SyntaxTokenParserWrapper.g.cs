@@ -10,12 +10,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate void DisposeDelegate0(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate1(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate2(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate3(global::System.Object? _obj);
-        private delegate void ResetToDelegate4(global::System.Object? _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
-        private delegate void SkipForwardToDelegate5(global::System.Object? _obj, global::System.Int32 position);
+        private delegate void DisposeDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate1(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate2(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate3(global::System.Object _obj);
+        private delegate void ResetToDelegate4(global::System.Object _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
+        private delegate void SkipForwardToDelegate5(global::System.Object _obj, global::System.Int32 position);
 
         private static readonly DisposeDelegate0 DisposeFunc0;
         private static readonly ParseLeadingTriviaDelegate1 ParseLeadingTriviaFunc1;

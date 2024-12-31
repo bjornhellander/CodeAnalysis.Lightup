@@ -8,16 +8,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? BlockGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? BlockGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatementsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithBlockDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithExpressionBodyDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithModifiersDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatementsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithBlockDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithExpressionBodyDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax WithModifiersDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly BlockGetterDelegate BlockGetterFunc;
         private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax _obj);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider";
 
-        private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionRequestPriorityEx RequestPriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionRequestPriorityEx RequestPriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj);
 
         private static readonly RequestPriorityGetterDelegate RequestPriorityGetterFunc;
 

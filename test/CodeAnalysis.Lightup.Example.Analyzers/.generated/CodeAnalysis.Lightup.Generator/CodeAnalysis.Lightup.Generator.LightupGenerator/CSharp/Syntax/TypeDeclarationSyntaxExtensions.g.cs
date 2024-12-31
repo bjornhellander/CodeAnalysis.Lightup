@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? ParameterListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterListDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax AddParameterListParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax WithParameterListDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList);
 
         private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
 

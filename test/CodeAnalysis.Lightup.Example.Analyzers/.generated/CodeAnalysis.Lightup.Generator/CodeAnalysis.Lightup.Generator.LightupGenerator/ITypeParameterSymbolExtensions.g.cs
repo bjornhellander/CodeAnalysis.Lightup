@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeParameterSymbol";
 
-        private delegate global::System.Boolean AllowsRefLikeTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
-        private delegate global::System.Boolean HasNotNullConstraintGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol? _obj);
+        private delegate global::System.Boolean AllowsRefLikeTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
+        private delegate global::System.Boolean HasNotNullConstraintGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
 
         private static readonly AllowsRefLikeTypeGetterDelegate AllowsRefLikeTypeGetterFunc;
         private static readonly ConstraintNullableAnnotationsGetterDelegate ConstraintNullableAnnotationsGetterFunc;

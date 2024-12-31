@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? ExpressionColonGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? ExpressionColonGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax WithExpressionColonDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax WithExpressionColonDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.SubpatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon);
 
         private static readonly ExpressionColonGetterDelegate ExpressionColonGetterFunc;
 

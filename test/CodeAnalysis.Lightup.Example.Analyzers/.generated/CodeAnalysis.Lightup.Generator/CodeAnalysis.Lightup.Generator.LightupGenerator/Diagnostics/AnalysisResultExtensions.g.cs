@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisResult";
 
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.AdditionalText, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> AdditionalFileDiagnosticsGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.AdditionalText, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> AdditionalFileDiagnosticsGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult _obj);
 
         private static readonly AdditionalFileDiagnosticsGetterDelegate AdditionalFileDiagnosticsGetterFunc;
 

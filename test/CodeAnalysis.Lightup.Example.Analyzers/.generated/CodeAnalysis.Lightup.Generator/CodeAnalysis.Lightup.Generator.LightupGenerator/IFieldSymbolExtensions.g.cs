@@ -8,12 +8,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
 
-        private delegate global::System.Int32 FixedSizeGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
-        private delegate global::System.Boolean IsExplicitlyNamedTupleElementGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
-        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol? _obj);
+        private delegate global::System.Int32 FixedSizeGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::System.Boolean IsExplicitlyNamedTupleElementGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
 
         private static readonly FixedSizeGetterDelegate FixedSizeGetterFunc;
         private static readonly IsExplicitlyNamedTupleElementGetterDelegate IsExplicitlyNamedTupleElementGetterFunc;

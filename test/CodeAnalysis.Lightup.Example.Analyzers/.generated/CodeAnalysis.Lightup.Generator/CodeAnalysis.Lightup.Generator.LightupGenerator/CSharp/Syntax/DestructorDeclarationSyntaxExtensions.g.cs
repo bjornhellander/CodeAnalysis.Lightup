@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DestructorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
 
         private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
 

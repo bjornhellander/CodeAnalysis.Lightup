@@ -10,14 +10,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? ArgumentListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? InitializerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken NewKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? ArgumentListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? InitializerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken NewKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArgumentsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithArgumentListDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithInitializerDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithNewKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken newKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper AddArgumentListArgumentsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithArgumentListDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithInitializerDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseObjectCreationExpressionSyntaxWrapper WithNewKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken newKeyword);
 
         private static readonly ArgumentListGetterDelegate ArgumentListGetterFunc;
         private static readonly InitializerGetterDelegate InitializerGetterFunc;

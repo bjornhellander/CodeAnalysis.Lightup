@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.AdditionalText AdditionalFileGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions OptionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.AdditionalText AdditionalFileGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions OptionsGetterDelegate(global::System.Object _obj);
 
-        private delegate void ReportDiagnosticDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
+        private delegate void ReportDiagnosticDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
 
         private static readonly AdditionalFileGetterDelegate AdditionalFileGetterFunc;
         private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;

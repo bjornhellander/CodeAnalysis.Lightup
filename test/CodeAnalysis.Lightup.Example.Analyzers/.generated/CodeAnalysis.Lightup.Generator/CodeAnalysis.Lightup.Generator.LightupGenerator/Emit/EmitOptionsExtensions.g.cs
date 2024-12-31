@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private delegate EmitOptions ConstructorDelegate0(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding);
 
-        private delegate global::System.Text.Encoding? DefaultSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
-        private delegate global::System.Text.Encoding? FallbackSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions? _obj);
+        private delegate global::System.Text.Encoding? DefaultSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
+        private delegate global::System.Text.Encoding? FallbackSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, global::System.Text.Encoding? defaultSourceFileEncoding);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(global::Microsoft.CodeAnalysis.Emit.EmitOptions? _obj, global::System.Text.Encoding? fallbackSourceFileEncoding);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? defaultSourceFileEncoding);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         private delegate CodeFixContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Diagnostic diagnostic, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken);
         private delegate CodeFixContext ConstructorDelegate1(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> diagnostics, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> registerCodeFix, global::System.Threading.CancellationToken cancellationToken);
 
-        private delegate global::Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext? _obj);
+        private delegate global::Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.CodeFixContext _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;

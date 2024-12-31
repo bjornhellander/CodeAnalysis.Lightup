@@ -30,8 +30,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
-        private delegate int CountDelegate(object? obj);
-        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate int CountDelegate(object obj);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
@@ -287,8 +287,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
-        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
@@ -335,7 +335,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
@@ -479,7 +479,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document? _obj);
+        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
         private static readonly HintNameGetterDelegate HintNameGetterFunc;
 

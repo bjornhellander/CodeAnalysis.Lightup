@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FileTextLoader";
 
-        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.TextAndVersion> LoadTextAndVersionAsyncDelegate0(global::Microsoft.CodeAnalysis.FileTextLoader? _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper options, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.TextAndVersion> LoadTextAndVersionAsyncDelegate0(global::Microsoft.CodeAnalysis.FileTextLoader _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper options, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly LoadTextAndVersionAsyncDelegate0 LoadTextAndVersionAsyncFunc0;
 

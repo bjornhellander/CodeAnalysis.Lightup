@@ -12,10 +12,10 @@ public partial struct OperationListWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean MoveNextDelegate0(global::System.Object? _obj);
-        private delegate void ResetDelegate1(global::System.Object? _obj);
+        private delegate global::System.Boolean MoveNextDelegate0(global::System.Object _obj);
+        private delegate void ResetDelegate1(global::System.Object _obj);
 
         private static readonly CurrentGetterDelegate CurrentGetterFunc;
 

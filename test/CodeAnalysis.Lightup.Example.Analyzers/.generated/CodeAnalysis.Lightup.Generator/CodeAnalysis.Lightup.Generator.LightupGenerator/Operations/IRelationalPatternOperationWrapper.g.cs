@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.BinaryOperatorKind OperatorKindGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly OperatorKindGetterDelegate OperatorKindGetterFunc;
         private static readonly ValueGetterDelegate ValueGetterFunc;

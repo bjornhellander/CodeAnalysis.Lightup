@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext";
 
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree FilterTreeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
-        private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext? _obj);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree FilterTreeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
+        private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
 
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly FilterTreeGetterDelegate FilterTreeGetterFunc;

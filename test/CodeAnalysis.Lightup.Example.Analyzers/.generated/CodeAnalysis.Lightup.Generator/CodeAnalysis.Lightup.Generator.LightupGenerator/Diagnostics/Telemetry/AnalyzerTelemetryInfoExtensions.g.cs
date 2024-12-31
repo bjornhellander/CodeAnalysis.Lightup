@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 
-        private delegate global::System.Int32 AdditionalFileActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj);
-        private delegate void AdditionalFileActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj, global::System.Int32 _value);
-        private delegate global::System.Int32 SuppressionActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj);
-        private delegate void SuppressionActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo? _obj, global::System.Int32 _value);
+        private delegate global::System.Int32 AdditionalFileActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void AdditionalFileActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
+        private delegate global::System.Int32 SuppressionActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void SuppressionActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
 
         private static readonly AdditionalFileActionsCountGetterDelegate AdditionalFileActionsCountGetterFunc;
         private static readonly AdditionalFileActionsCountSetterDelegate AdditionalFileActionsCountSetterFunc;

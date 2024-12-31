@@ -12,17 +12,17 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameOverloads, global::System.Boolean RenameInStrings, global::System.Boolean RenameInComments, global::System.Boolean RenameFile);
 
-        private delegate global::System.Boolean RenameFileGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameFileSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameInCommentsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameInCommentsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameInStringsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameInStringsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameOverloadsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameOverloadsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameFileGetterDelegate(global::System.Object _obj);
+        private delegate void RenameFileSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameInCommentsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameInCommentsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameInStringsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameInStringsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameOverloadsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameOverloadsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
-        private delegate void DeconstructDelegate0(global::System.Object? _obj, out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
+        private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile);
+        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

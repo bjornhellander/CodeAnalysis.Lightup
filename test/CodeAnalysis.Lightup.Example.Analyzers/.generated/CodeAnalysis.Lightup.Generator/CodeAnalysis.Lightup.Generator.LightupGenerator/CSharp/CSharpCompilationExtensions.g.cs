@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetSemanticModelDelegate0 GetSemanticModelFunc0;
         private static readonly GetUsedAssemblyReferencesDelegate1 GetUsedAssemblyReferencesFunc1;

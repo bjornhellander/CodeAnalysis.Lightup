@@ -8,15 +8,15 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineArguments";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
 
-        private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj, global::System.String outputFileName);
-        private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj, global::System.String outputFileName);
+        private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
+        private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
 
         private static readonly AnalyzerConfigPathsGetterDelegate AnalyzerConfigPathsGetterFunc;
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;

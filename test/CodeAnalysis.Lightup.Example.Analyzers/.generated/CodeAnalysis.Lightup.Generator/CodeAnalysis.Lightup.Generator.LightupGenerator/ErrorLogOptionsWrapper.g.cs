@@ -12,8 +12,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate ErrorLogOptionsWrapper ConstructorDelegate0(global::System.String path, global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion);
 
-        private delegate global::System.String PathGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersionGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.String PathGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx SarifVersionGetterDelegate(global::System.Object _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

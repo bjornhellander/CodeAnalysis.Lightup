@@ -11,14 +11,14 @@ public partial class IOperationExtensions {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Int32 CountGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean AnyDelegate0(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate1(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate3(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(global::System.Object? _obj);
+        private delegate global::System.Boolean AnyDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate1(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate3(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 

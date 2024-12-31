@@ -8,12 +8,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax AddBlockAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax AddBlockAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 

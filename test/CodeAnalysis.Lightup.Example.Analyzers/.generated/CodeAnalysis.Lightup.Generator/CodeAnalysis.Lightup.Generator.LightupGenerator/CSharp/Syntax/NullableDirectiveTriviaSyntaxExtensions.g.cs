@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TargetTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TargetTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax WithTargetTokenDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken targetToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax WithTargetTokenDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.NullableDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken targetToken);
 
         private static readonly TargetTokenGetterDelegate TargetTokenGetterFunc;
 

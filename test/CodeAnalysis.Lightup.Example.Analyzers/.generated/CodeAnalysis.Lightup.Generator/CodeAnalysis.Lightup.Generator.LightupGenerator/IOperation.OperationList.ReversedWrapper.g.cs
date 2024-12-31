@@ -12,10 +12,10 @@ public partial struct OperationListWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Int32 CountGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 

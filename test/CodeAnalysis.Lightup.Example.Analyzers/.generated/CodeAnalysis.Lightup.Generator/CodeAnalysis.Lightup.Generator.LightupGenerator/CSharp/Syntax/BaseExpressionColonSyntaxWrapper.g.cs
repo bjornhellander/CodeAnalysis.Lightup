@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ColonTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ColonTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpressionDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpressionDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
 
         private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;

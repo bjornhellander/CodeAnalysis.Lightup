@@ -12,9 +12,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private delegate global::System.StringComparer KeyComparerGetterDelegate();
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::System.String> KeysGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::System.String> KeysGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean TryGetValueDelegate0(global::System.Object? _obj, global::System.String key, out global::System.String? value);
+        private delegate global::System.Boolean TryGetValueDelegate0(global::System.Object _obj, global::System.String key, out global::System.String? value);
 
         private static readonly KeyComparerGetterDelegate KeyComparerGetterFunc;
 

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.HostWorkspaceServices";
 
-        private delegate void DisposeDelegate0(global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices? _obj);
+        private delegate void DisposeDelegate0(global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices _obj);
 
         private static readonly DisposeDelegate0 DisposeFunc0;
 

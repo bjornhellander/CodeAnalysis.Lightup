@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken OperatorTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPatternDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithOperatorTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper WithPatternDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax pattern);
 
         private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;

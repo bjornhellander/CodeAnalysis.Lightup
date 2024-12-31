@@ -12,13 +12,13 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate DocumentRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameMatchingTypeInStrings, global::System.Boolean RenameMatchingTypeInComments);
 
-        private delegate global::System.Boolean RenameMatchingTypeInCommentsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameMatchingTypeInCommentsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameMatchingTypeInStringsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameMatchingTypeInStringsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameMatchingTypeInCommentsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameMatchingTypeInCommentsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameMatchingTypeInStringsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameMatchingTypeInStringsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
-        private delegate void DeconstructDelegate0(global::System.Object? _obj, out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
+        private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments);
+        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 

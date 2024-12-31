@@ -13,16 +13,16 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers RequiredGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers VolatileGetterDelegate();
 
-        private delegate global::System.Boolean IsExternGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
-        private delegate global::System.Boolean IsFileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
-        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
-        private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj);
+        private delegate global::System.Boolean IsExternGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
+        private delegate global::System.Boolean IsFileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
+        private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
+        private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, global::System.Boolean isExtern);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate1(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, global::System.Boolean isFile);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate2(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, global::System.Boolean isRef);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate3(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, global::System.Boolean isRequired);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate4(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers? _obj, global::System.Boolean isVolatile);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate1(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate2(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate3(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate4(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile);
 
         private static readonly ExternGetterDelegate ExternGetterFunc;
         private static readonly FileGetterDelegate FileGetterFunc;

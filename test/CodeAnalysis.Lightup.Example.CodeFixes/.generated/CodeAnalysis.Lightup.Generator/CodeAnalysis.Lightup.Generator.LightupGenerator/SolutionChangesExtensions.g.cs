@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SolutionChanges";
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferencesDelegate0(global::Microsoft.CodeAnalysis.SolutionChanges? _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferencesDelegate1(global::Microsoft.CodeAnalysis.SolutionChanges? _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetAddedAnalyzerReferencesDelegate0(global::Microsoft.CodeAnalysis.SolutionChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> GetRemovedAnalyzerReferencesDelegate1(global::Microsoft.CodeAnalysis.SolutionChanges _obj);
 
         private static readonly GetAddedAnalyzerReferencesDelegate0 GetAddedAnalyzerReferencesFunc0;
         private static readonly GetRemovedAnalyzerReferencesDelegate1 GetRemovedAnalyzerReferencesFunc1;

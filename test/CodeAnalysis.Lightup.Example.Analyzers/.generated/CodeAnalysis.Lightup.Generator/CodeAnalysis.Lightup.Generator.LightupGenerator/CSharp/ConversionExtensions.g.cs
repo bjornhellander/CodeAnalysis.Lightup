@@ -8,14 +8,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Conversion";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsCollectionExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsConditionalExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsDefaultLiteralGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsInlineArrayGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsInterpolatedStringHandlerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsObjectCreationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
-        private delegate global::System.Boolean IsSwitchExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsCollectionExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsConditionalExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsDefaultLiteralGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsInlineArrayGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsInterpolatedStringHandlerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsObjectCreationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsSwitchExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsCollectionExpressionGetterDelegate IsCollectionExpressionGetterFunc;

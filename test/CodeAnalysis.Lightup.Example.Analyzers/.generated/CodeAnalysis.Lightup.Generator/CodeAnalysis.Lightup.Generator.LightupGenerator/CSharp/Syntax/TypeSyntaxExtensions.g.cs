@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax";
 
-        private delegate global::System.Boolean IsNintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
-        private delegate global::System.Boolean IsNotNullGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
-        private delegate global::System.Boolean IsNuintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? _obj);
+        private delegate global::System.Boolean IsNintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
+        private delegate global::System.Boolean IsNotNullGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
+        private delegate global::System.Boolean IsNuintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
         private static readonly IsNintGetterDelegate IsNintGetterFunc;
         private static readonly IsNotNullGetterDelegate IsNotNullGetterFunc;

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext";
 
-        private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext? _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
+        private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
 
         private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
 

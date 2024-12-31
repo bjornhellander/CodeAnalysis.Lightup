@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypesDelegate0(global::Microsoft.CodeAnalysis.IAssemblySymbol? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypesDelegate0(global::Microsoft.CodeAnalysis.IAssemblySymbol _obj);
 
         private static readonly GetForwardedTypesDelegate0 GetForwardedTypesFunc0;
 

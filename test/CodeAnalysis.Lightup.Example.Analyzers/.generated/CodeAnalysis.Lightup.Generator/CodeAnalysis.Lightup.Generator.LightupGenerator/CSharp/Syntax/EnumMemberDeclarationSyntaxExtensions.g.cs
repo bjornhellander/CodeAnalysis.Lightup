@@ -8,11 +8,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax WithModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax WithModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
 

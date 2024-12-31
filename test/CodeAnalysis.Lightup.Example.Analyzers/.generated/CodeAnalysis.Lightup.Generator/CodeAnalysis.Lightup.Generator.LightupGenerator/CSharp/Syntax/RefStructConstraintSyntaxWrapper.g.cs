@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken RefKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken StructKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken RefKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken StructKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithRefKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithStructKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithRefKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper WithStructKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
 
         private static readonly RefKeywordGetterDelegate RefKeywordGetterFunc;
         private static readonly StructKeywordGetterDelegate StructKeywordGetterFunc;

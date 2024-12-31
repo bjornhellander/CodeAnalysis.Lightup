@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> IgnoredDimensionsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> IgnoredDimensionsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationOperation _obj);
 
         private static readonly IgnoredDimensionsGetterDelegate IgnoredDimensionsGetterFunc;
 

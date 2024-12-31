@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
 
-        private delegate global::System.Int32 MetadataTokenGetterDelegate(global::Microsoft.CodeAnalysis.ISymbol? _obj);
+        private delegate global::System.Int32 MetadataTokenGetterDelegate(global::Microsoft.CodeAnalysis.ISymbol _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::Microsoft.CodeAnalysis.ISymbol? _obj, global::Microsoft.CodeAnalysis.ISymbol? other, global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer);
+        private delegate global::System.Boolean EqualsDelegate0(global::Microsoft.CodeAnalysis.ISymbol _obj, global::Microsoft.CodeAnalysis.ISymbol? other, global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer);
 
         private static readonly MetadataTokenGetterDelegate MetadataTokenGetterFunc;
 

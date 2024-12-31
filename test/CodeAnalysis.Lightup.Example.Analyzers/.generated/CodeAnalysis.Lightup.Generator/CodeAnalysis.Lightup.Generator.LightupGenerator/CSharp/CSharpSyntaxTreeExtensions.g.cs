@@ -15,7 +15,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate4(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseTextDelegate5(global::System.String text, global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree? _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper> GetLineMappingsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree _obj, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly CreateDelegate0 CreateFunc0;
         private static readonly CreateDelegate1 CreateFunc1;

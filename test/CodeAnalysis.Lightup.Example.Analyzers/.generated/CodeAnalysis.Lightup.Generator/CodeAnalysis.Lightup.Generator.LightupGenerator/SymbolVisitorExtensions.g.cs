@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
 
-        private delegate void VisitFunctionPointerTypeDelegate0(global::Microsoft.CodeAnalysis.SymbolVisitor? _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol);
+        private delegate void VisitFunctionPointerTypeDelegate0(global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol);
 
         private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
 

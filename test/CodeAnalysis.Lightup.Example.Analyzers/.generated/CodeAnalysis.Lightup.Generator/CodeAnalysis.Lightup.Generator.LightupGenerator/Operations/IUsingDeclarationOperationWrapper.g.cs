@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly DeclarationGroupGetterDelegate DeclarationGroupGetterFunc;
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;

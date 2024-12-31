@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? CloneMethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation InitializerGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? CloneMethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IObjectOrCollectionInitializerOperation InitializerGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly CloneMethodGetterDelegate CloneMethodGetterFunc;
         private static readonly InitializerGetterDelegate InitializerGetterFunc;

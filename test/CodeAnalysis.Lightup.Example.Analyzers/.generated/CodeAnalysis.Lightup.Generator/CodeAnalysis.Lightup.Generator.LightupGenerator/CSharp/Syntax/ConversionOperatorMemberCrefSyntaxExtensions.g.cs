@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken implicitOrExplicitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken implicitOrExplicitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
 

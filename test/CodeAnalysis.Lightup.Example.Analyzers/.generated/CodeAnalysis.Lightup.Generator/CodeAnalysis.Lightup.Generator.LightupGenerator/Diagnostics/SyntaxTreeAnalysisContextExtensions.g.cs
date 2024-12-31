@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext";
 
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext? _obj);
-        private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext? _obj);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj);
+        private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxTreeAnalysisContext _obj);
 
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly IsGeneratedCodeGetterDelegate IsGeneratedCodeGetterFunc;

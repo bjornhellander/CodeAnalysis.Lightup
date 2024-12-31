@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken DefaultKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken DefaultKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
 
         private static readonly DefaultKeywordGetterDelegate DefaultKeywordGetterFunc;
 

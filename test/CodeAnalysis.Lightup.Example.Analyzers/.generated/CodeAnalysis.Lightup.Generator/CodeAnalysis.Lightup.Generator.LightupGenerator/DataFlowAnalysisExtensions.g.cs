@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DataFlowAnalysis";
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntryGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExitGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IMethodSymbol> UsedLocalFunctionsGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnEntryGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol> DefinitelyAssignedOnExitGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IMethodSymbol> UsedLocalFunctionsGetterDelegate(global::Microsoft.CodeAnalysis.DataFlowAnalysis _obj);
 
         private static readonly DefinitelyAssignedOnEntryGetterDelegate DefinitelyAssignedOnEntryGetterFunc;
         private static readonly DefinitelyAssignedOnExitGetterDelegate DefinitelyAssignedOnExitGetterFunc;

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IArrayTypeSymbol";
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ElementNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IArrayTypeSymbol? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ElementNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IArrayTypeSymbol _obj);
 
         private static readonly ElementNullableAnnotationGetterDelegate ElementNullableAnnotationGetterFunc;
 

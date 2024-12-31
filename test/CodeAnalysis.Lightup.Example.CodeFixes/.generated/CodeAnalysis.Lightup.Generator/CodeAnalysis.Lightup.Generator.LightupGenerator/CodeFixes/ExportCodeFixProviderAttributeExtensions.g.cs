@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute";
 
-        private delegate global::System.String[]? DocumentExtensionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj);
-        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj, global::System.String[]? _value);
-        private delegate global::System.String[] DocumentKindsGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj);
-        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute? _obj, global::System.String[] _value);
+        private delegate global::System.String[]? DocumentExtensionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj);
+        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, global::System.String[]? _value);
+        private delegate global::System.String[] DocumentKindsGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj);
+        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeFixes.ExportCodeFixProviderAttribute _obj, global::System.String[] _value);
 
         private static readonly DocumentExtensionsGetterDelegate DocumentExtensionsGetterFunc;
         private static readonly DocumentExtensionsSetterDelegate DocumentExtensionsSetterFunc;

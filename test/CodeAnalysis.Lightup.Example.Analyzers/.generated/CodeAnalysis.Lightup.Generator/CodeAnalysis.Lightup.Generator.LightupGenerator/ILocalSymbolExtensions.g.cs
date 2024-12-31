@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ILocalSymbol";
 
-        private delegate global::System.Boolean IsForEachGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
-        private delegate global::System.Boolean IsUsingGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol? _obj);
+        private delegate global::System.Boolean IsForEachGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
+        private delegate global::System.Boolean IsUsingGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
 
         private static readonly IsForEachGetterDelegate IsForEachGetterFunc;
         private static readonly IsUsingGetterDelegate IsUsingGetterFunc;

@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptionsGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> DiagnosticsGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptionsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> DiagnosticsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptionsGetterDelegate(global::System.Object _obj);
 
         private static readonly AnalyzerOptionsGetterDelegate AnalyzerOptionsGetterFunc;
         private static readonly DiagnosticsGetterDelegate DiagnosticsGetterFunc;

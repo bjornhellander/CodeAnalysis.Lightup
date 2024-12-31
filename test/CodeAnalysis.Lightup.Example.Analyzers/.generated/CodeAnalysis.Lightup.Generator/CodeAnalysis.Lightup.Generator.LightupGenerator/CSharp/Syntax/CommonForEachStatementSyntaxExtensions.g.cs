@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax";
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CommonForEachStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly WithAttributeListsDelegate1 WithAttributeListsFunc1;

@@ -8,9 +8,9 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalysisContext";
 
-        private delegate global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverityGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext? _obj);
+        private delegate global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverityGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj);
 
-        private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext? _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
+        private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
 
         private static readonly MinimumReportedSeverityGetterDelegate MinimumReportedSeverityGetterFunc;
 

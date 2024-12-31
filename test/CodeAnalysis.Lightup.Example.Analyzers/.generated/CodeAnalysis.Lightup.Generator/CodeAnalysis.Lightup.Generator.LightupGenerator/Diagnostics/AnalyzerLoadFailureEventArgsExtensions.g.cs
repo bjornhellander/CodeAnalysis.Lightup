@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs";
 
-        private delegate global::System.Version? ReferencedCompilerVersionGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs? _obj);
+        private delegate global::System.Version? ReferencedCompilerVersionGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerLoadFailureEventArgs _obj);
 
         private static readonly ReferencedCompilerVersionGetterDelegate ReferencedCompilerVersionGetterFunc;
 

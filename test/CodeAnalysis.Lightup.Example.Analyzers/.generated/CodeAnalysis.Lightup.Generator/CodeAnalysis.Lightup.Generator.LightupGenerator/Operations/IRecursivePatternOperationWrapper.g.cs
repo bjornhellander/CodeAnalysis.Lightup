@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly DeclaredSymbolGetterDelegate DeclaredSymbolGetterFunc;
         private static readonly DeconstructionSubpatternsGetterDelegate DeconstructionSubpatternsGetterFunc;

@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
 
         private static readonly TokenGetterDelegate TokenGetterFunc;
 

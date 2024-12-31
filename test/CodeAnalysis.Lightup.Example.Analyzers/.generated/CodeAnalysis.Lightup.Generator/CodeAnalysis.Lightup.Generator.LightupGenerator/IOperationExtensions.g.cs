@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation";
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper ChildOperationsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper ChildOperationsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ChildOperationsGetterDelegate ChildOperationsGetterFunc;
 

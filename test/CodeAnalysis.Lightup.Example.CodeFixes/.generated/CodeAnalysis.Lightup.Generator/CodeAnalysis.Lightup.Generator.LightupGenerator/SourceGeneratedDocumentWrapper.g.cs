@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document? _obj);
+        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
         private static readonly HintNameGetterDelegate HintNameGetterFunc;
 

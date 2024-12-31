@@ -11,10 +11,10 @@ public partial class RenamerEx {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly ApplicableActionsGetterDelegate ApplicableActionsGetterFunc;
 

@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SemanticModel";
 
-        private delegate global::System.Boolean NullableAnalysisIsDisabledGetterDelegate(global::Microsoft.CodeAnalysis.SemanticModel? _obj);
+        private delegate global::System.Boolean NullableAnalysisIsDisabledGetterDelegate(global::Microsoft.CodeAnalysis.SemanticModel _obj);
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopesDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContextDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? _obj, global::System.Int32 position);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopesDelegate0(global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContextDelegate1(global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position);
 
         private static readonly NullableAnalysisIsDisabledGetterDelegate NullableAnalysisIsDisabledGetterFunc;
 

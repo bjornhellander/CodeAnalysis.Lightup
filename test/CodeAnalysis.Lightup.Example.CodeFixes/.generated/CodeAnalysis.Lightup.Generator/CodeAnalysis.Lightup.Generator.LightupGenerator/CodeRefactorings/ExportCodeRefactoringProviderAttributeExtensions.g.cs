@@ -8,10 +8,10 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute";
 
-        private delegate global::System.String[]? DocumentExtensionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj);
-        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj, global::System.String[]? _value);
-        private delegate global::System.String[] DocumentKindsGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj);
-        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute? _obj, global::System.String[] _value);
+        private delegate global::System.String[]? DocumentExtensionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj);
+        private delegate void DocumentExtensionsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj, global::System.String[]? _value);
+        private delegate global::System.String[] DocumentKindsGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj);
+        private delegate void DocumentKindsSetterDelegate(Microsoft.CodeAnalysis.CodeRefactorings.ExportCodeRefactoringProviderAttribute _obj, global::System.String[] _value);
 
         private static readonly DocumentExtensionsGetterDelegate DocumentExtensionsGetterFunc;
         private static readonly DocumentExtensionsSetterDelegate DocumentExtensionsSetterFunc;
