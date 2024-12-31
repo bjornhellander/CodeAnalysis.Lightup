@@ -14,7 +14,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbolDelegate3(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate4(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax node, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Conversion GetElementConversionDelegate5(global::Microsoft.CodeAnalysis.Operations.Lightup.ISpreadOperationWrapper spread);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper GetInterceptableLocationDelegate6(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper? GetInterceptableLocationDelegate6(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetInterceptorMethodDelegate7(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.String GetInterceptsLocationAttributeSyntaxDelegate8(global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper location);
         private delegate global::Microsoft.CodeAnalysis.SymbolInfo GetSpeculativeSymbolInfoDelegate9(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper constructorInitializer);
@@ -89,7 +89,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper GetInterceptableLocation(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper? GetInterceptableLocation(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.InvocationExpressionSyntax node, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetInterceptableLocationFunc6(semanticModel, node, cancellationToken);
         }

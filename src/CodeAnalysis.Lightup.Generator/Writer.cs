@@ -1478,7 +1478,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, fieldDef.Type, typeDefs);
-        sb.Append(fieldDef.IsNullable && !IsNewType(fieldDef.Type, typeDefs) ? nullableAnnotation : "");
+        AppendNullableAnnotation(sb, fieldDef.Type, fieldDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
     }
@@ -1544,7 +1544,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
-        sb.Append(propertyDef.IsNullable && !IsNewType(propertyDef.Type, typeDefs) ? nullableAnnotation : "");
+        AppendNullableAnnotation(sb, propertyDef.Type, propertyDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
     }
@@ -1614,7 +1614,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (methodDef.ReturnType != null)
         {
             AppendTypeDeclText(sb, methodDef.ReturnType, typeDefs);
-            sb.Append(methodDef.IsNullable && !IsNewType(methodDef.ReturnType, typeDefs) ? nullableAnnotation : "");
+            AppendNullableAnnotation(sb, methodDef.ReturnType, methodDef.IsNullable, nullableAnnotation, typeDefs);
         }
         else
         {
@@ -1657,7 +1657,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         var sb = new StringBuilder();
         AppendTypeDeclText(sb, parameterDef.Type, typeDefs);
-        sb.Append(parameterDef.IsNullable && !IsNewType(parameterDef.Type, typeDefs) ? nullableAnnotation : "");
+        AppendNullableAnnotation(sb, parameterDef.Type, parameterDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
     }
@@ -1780,6 +1780,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             sb.Append(".");
             sb.Append(isNew ? enclosingType.GeneratedName : enclosingType.Name);
+        }
+    }
+
+    private static void AppendNullableAnnotation(StringBuilder sb, TypeReference typeRef, bool isNullable, string nullableAnnotation, IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+    {
+        if (isNullable)
+        {
+            // NOTE: A new type is generated as a struct, so always add "?" (i.e. System.Nullable<>)
+            sb.Append(IsNewType(typeRef, typeDefs) ? "?" : nullableAnnotation);
         }
     }
 

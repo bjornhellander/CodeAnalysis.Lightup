@@ -11,13 +11,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken ManagedOrUnmanagedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? UnmanagedCallingConventionListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper AddUnmanagedCallingConventionListCallingConventionsDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithManagedOrUnmanagedKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionListDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionListDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList);
 
         private static readonly ManagedOrUnmanagedKeywordGetterDelegate ManagedOrUnmanagedKeywordGetterFunc;
         private static readonly UnmanagedCallingConventionListGetterDelegate UnmanagedCallingConventionListGetterFunc;
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper UnmanagedCallingConventionList
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? UnmanagedCallingConventionList
         {
             get { return UnmanagedCallingConventionListGetterFunc(wrappedObject); }
         }
@@ -105,7 +105,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList)
         {
             return UpdateFunc2(wrappedObject, managedOrUnmanagedKeyword, unmanagedCallingConventionList);
         }
@@ -117,7 +117,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper unmanagedCallingConventionList)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper WithUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList)
         {
             return WithUnmanagedCallingConventionListFunc4(wrappedObject, unmanagedCallingConventionList);
         }

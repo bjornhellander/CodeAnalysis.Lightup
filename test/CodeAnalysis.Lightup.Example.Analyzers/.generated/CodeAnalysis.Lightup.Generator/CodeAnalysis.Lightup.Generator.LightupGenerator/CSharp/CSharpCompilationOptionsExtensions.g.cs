@@ -13,7 +13,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProviderDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProviderDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -53,7 +53,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider)
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
             return WithSyntaxTreeOptionsProviderFunc1(_obj, provider);
         }

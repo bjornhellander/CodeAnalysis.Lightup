@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution AddAnalyzerReferenceDelegate3(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference analyzerReference);
         private delegate global::Microsoft.CodeAnalysis.Solution AddAnalyzerReferencesDelegate4(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> analyzerReferences);
         private delegate global::System.Boolean ContainsAnalyzerConfigDocumentDelegate5(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocumentDelegate6(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper? GetAnalyzerConfigDocumentDelegate6(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
         private delegate global::System.Threading.Tasks.ValueTask<global::Microsoft.CodeAnalysis.Lightup.SourceGeneratedDocumentWrapper> GetSourceGeneratedDocumentAsyncDelegate7(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.Solution RemoveAdditionalDocumentsDelegate8(global::Microsoft.CodeAnalysis.Solution? _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentId> documentIds);
         private delegate global::Microsoft.CodeAnalysis.Solution RemoveAnalyzerConfigDocumentDelegate9(global::Microsoft.CodeAnalysis.Solution? _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
@@ -134,7 +134,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper GetAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
+        public static global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigDocumentWrapper? GetAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId)
         {
             return GetAnalyzerConfigDocumentFunc6(_obj, documentId);
         }

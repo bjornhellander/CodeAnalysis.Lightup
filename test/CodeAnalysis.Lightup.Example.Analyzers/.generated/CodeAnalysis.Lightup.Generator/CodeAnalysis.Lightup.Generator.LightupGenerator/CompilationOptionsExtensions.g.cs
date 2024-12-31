@@ -9,9 +9,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOptions";
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions? _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions? _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;
@@ -35,13 +35,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper SyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
+        public static global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
         {
             return SyntaxTreeOptionsProviderGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper provider)
+        public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
             return WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
         }

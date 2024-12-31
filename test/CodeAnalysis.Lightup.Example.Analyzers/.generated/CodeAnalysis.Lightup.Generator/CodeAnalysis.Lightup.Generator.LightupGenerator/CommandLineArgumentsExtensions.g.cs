@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
         private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments? _obj);
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Property added in version 3.4.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper ErrorLogOptions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        public static global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return ErrorLogOptionsGetterFunc(_obj);
         }
