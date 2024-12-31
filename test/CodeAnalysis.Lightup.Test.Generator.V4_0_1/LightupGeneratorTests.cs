@@ -25,7 +25,6 @@ public class LightupGeneratorTests
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    // TODO: Implement remaining members
     public struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
