@@ -34,8 +34,7 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
-        Assert.IsNotNull(wrapper.UnmanagedCallingConventionList);
-        Assert.IsNull(wrapper.UnmanagedCallingConventionList.Value.Unwrap());
+        Assert.IsNull(wrapper.UnmanagedCallingConventionList);
     }
 
     [TestMethod]
@@ -43,8 +42,7 @@ public partial class FunctionPointerCallingConventionSyntaxWrapperTests
     {
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);
-        Assert.IsNotNull(wrapper.UnmanagedCallingConventionList);
-        Assert.IsNull(wrapper.UnmanagedCallingConventionList.Value.Unwrap());
+        Assert.IsNull(wrapper.UnmanagedCallingConventionList);
         var nativeUnmanagedCallingConventionListWrapper = SyntaxFactory.FunctionPointerUnmanagedCallingConventionList();
         var unmanagedCallingConventionListWrapper = FunctionPointerUnmanagedCallingConventionListSyntaxWrapper.Wrap(nativeUnmanagedCallingConventionListWrapper);
         Assert.IsNotNull(wrapper.Unwrap());
