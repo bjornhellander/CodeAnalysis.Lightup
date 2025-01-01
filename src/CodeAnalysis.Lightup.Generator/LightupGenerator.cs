@@ -122,14 +122,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(classTypeDef))
             {
-                if (classTypeDef.IsStatic)
-                {
-                    return ($"{typeDef.Name}Ex", true);
-                }
-                else
-                {
-                    return ($"{typeDef.Name}Ex", true);
-                }
+                return ($"{typeDef.Name}Ex", true);
             }
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
