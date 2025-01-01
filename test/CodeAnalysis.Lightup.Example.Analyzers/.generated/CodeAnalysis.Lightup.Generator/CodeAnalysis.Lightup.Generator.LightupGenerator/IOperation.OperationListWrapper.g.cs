@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationExtensions {
+public partial class IOperationEx {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList. Added in version 4.2.0.0.</summary>
     public partial struct OperationListWrapper
     {
@@ -15,9 +15,9 @@ public partial class IOperationExtensions {
 
         private delegate global::System.Boolean AnyDelegate0(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate1(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate3(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
@@ -88,7 +88,7 @@ public partial class IOperationExtensions {
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumerator()
         {
             return GetEnumeratorFunc2(wrappedObject);
         }
@@ -100,7 +100,7 @@ public partial class IOperationExtensions {
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper Reverse()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper Reverse()
         {
             return ReverseFunc4(wrappedObject);
         }

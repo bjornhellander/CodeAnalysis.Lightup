@@ -104,8 +104,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(structTypeDef))
             {
-                // TODO: Use just "Ex" here as well? Not all members will be extension methods.
-                return ($"{typeDef.Name}Extensions", true);
+                return ($"{typeDef.Name}Ex", true);
             }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
@@ -129,7 +128,7 @@ public class LightupGenerator : IIncrementalGenerator
                 }
                 else
                 {
-                    return ($"{typeDef.Name}Extensions", true);
+                    return ($"{typeDef.Name}Ex", true);
                 }
             }
         }
@@ -141,7 +140,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(interfaceTypeDef))
             {
-                return ($"{typeDef.Name}Extensions", true);
+                return ($"{typeDef.Name}Ex", true);
             }
         }
 

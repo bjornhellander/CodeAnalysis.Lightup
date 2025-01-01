@@ -19,7 +19,7 @@ public class CommandLineSourceFileExtensionsTests
 
     protected static CommandLineSourceFile CallConstructor()
     {
-        return CommandLineSourceFileExtensions.Create(
+        return CommandLineSourceFileEx.Create(
             "a/b.c",
             false,
             true);

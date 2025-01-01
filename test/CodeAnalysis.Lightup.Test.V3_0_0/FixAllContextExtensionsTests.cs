@@ -34,7 +34,7 @@ public class FixAllContextExtensionsTests
             var sourceText = SourceText.From("class Program { static void Main() { } }");
             var document = workspace.AddDocument(project.Id, "Program.cs", sourceText);
 
-            var context = FixAllContextExtensions.Create(
+            var context = FixAllContextEx.Create(
                 document: document,
                 diagnosticSpan: null,
                 codeFixProvider: new MyCodeFixProvider(),

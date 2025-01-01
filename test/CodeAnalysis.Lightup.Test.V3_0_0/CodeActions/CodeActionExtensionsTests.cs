@@ -19,7 +19,7 @@ public class CodeActionExtensionsTests
     [DataRow(CodeActionPriorityEx.Default)]
     public virtual void TestCreateWithPriorityGivenCompatibleObject(CodeActionPriorityEx priority)
     {
-        Assert.ThrowsException<InvalidOperationException>(() => CodeActionExtensions.Create("title", CreateDocumentAsync, null, priority));
+        Assert.ThrowsException<InvalidOperationException>(() => CodeActionEx.Create("title", CreateDocumentAsync, null, priority));
     }
 
     protected static Task<Document> CreateDocumentAsync(CancellationToken ct)

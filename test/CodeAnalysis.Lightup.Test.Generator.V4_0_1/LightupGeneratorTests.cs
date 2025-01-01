@@ -282,7 +282,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
@@ -292,7 +292,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -316,7 +316,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.3.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -330,7 +330,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
@@ -338,7 +338,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -355,7 +355,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -369,7 +369,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
@@ -377,7 +377,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -394,7 +394,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"], LanguageVersion.CSharp7_3);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -580,7 +580,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ModuleMetadata.</summary>
-    public static partial class ModuleMetadataExtensions
+    public static partial class ModuleMetadataEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.ModuleMetadata"";
 
@@ -588,7 +588,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
 
-        static ModuleMetadataExtensions()
+        static ModuleMetadataEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -605,7 +605,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.ModuleMetadata"]);
-        var generatedFilePath = GetGeneratedFilePath("ModuleMetadataExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("ModuleMetadataEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }

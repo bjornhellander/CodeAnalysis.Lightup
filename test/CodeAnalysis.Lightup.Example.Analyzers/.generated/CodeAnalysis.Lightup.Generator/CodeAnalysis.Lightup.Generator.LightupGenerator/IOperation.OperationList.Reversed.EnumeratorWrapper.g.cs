@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationExtensions {
+public partial class IOperationEx {
 public partial struct OperationListWrapper {
 public partial struct ReversedWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator. Added in version 4.2.0.0.</summary>
