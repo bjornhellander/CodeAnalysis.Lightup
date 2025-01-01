@@ -600,10 +600,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         var fullHelperName = $"Microsoft.CodeAnalysis.Lightup.{helperPrefix}LightupHelper";
 
-        var (baseTypeName, baseTypeNamespace) = GetBaseTypeName(typeDef);
-        var hasBaseType = baseTypeName != null && typeDef is not InterfaceTypeDefinition;
-        baseTypeName ??= "Object";
-        baseTypeNamespace ??= "System";
+        var fullBaseTypeName = GetFullBaseTypeName(typeDef);
+        var hasBaseType = fullBaseTypeName != null && typeDef is not InterfaceTypeDefinition;
+        fullBaseTypeName ??= "System.Object";
 
         var sb = new StringBuilder();
 
@@ -649,7 +648,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, baseTypeNamespace, nullableAnnotation, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -667,7 +666,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, baseTypeNamespace, index, nullableAnnotation, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -731,7 +730,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
         }
         sb.AppendLine();
-        sb.AppendLine($"        private readonly global::{baseTypeNamespace}.{baseTypeName} wrappedObject;");
+        sb.AppendLine($"        private readonly global::{fullBaseTypeName} wrappedObject;");
         sb.AppendLine();
         sb.AppendLine($"        static {targetName}()");
         sb.AppendLine($"        {{");
@@ -798,7 +797,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
         sb.AppendLine($"        }}");
         sb.AppendLine();
-        sb.AppendLine($"        private {targetName}(global::{baseTypeNamespace}.{baseTypeName} obj)");
+        sb.AppendLine($"        private {targetName}(global::{fullBaseTypeName} obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            wrappedObject = obj;");
         sb.AppendLine($"        }}");
@@ -852,33 +851,33 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>");
-            sb.AppendLine($"        public static explicit operator {targetName}(global::{baseTypeNamespace}.{baseTypeName} obj)");
+            sb.AppendLine($"        public static explicit operator {targetName}(global::{fullBaseTypeName} obj)");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return Wrap(obj);");
             sb.AppendLine($"        }}");
             sb.AppendLine();
             sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
-            sb.AppendLine($"        public static implicit operator global::{baseTypeNamespace}.{baseTypeName}({targetName} obj)");
+            sb.AppendLine($"        public static implicit operator global::{fullBaseTypeName}({targetName} obj)");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return obj.Unwrap();");
             sb.AppendLine($"        }}");
         }
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>");
-        sb.AppendLine($"        public static bool Is(global::{baseTypeNamespace}.{baseTypeName}{na} obj)");
+        sb.AppendLine($"        public static bool Is(global::{fullBaseTypeName}{na} obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            return global::{fullHelperName}.Is(obj, WrappedType);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>");
-        sb.AppendLine($"        public static {targetName} Wrap(global::{baseTypeNamespace}.{baseTypeName} obj)");
+        sb.AppendLine($"        public static {targetName} Wrap(global::{fullBaseTypeName} obj)");
         sb.AppendLine($"        {{");
-        sb.AppendLine($"            var obj2 = global::{fullHelperName}.Wrap<global::{baseTypeNamespace}.{baseTypeName}>(obj, WrappedType);");
+        sb.AppendLine($"            var obj2 = global::{fullHelperName}.Wrap<global::{fullBaseTypeName}>(obj, WrappedType);");
         sb.AppendLine($"            return new {targetName}(obj2);");
         sb.AppendLine($"        }}");
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns the wrapped object.</summary>");
-        sb.AppendLine($"        public global::{baseTypeNamespace}.{baseTypeName} Unwrap()");
+        sb.AppendLine($"        public global::{fullBaseTypeName} Unwrap()");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            return wrappedObject;");
         sb.AppendLine($"        }}");
@@ -962,8 +961,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         var fullHelperName = $"Microsoft.CodeAnalysis.Lightup.{helperPrefix}LightupHelper";
 
-        var baseTypeName = typeDef.Name;
-        var baseTypeNamespace = typeDef.Namespace;
+        var fullBaseTypeName = $"{typeDef.Namespace}.{typeDef.Name}";
 
         var sb = new StringBuilder();
 
@@ -990,7 +988,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var constructor in instanceConstructors)
             {
                 var index = instanceConstructors.IndexOf(constructor);
-                AppendInstanceConstructorDelegateDeclarations(sb, baseTypeName, constructor, index, nullableAnnotation, typeDefs);
+                // TODO: Use full name here?
+                AppendInstanceConstructorDelegateDeclarations(sb, typeDef.Name, constructor, index, nullableAnnotation, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -1006,7 +1005,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, baseTypeName, baseTypeNamespace, nullableAnnotation, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, typeDefs);
             }
         }
         if (instanceEvents.Count != 0)
@@ -1014,7 +1013,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var @event in instanceEvents)
             {
-                AppendInstanceEventDelegateDeclarations(sb, @event, baseTypeName, baseTypeNamespace, typeDefs);
+                AppendInstanceEventDelegateDeclarations(sb, @event, fullBaseTypeName, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -1032,7 +1031,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var method in instanceMethods)
             {
                 var index = instanceMethods.IndexOf(method);
-                AppendInstanceMethodDelegateDeclaration(sb, method, baseTypeName, baseTypeNamespace, index, nullableAnnotation, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -1193,7 +1192,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var index = instanceConstructors.IndexOf(constructor);
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
-            sb.AppendLine($"        public static global::{baseTypeNamespace}.{baseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
+            sb.AppendLine($"        public static global::{fullBaseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
             sb.AppendLine($"        }}");
@@ -1276,51 +1275,51 @@ namespace Microsoft.CodeAnalysis.Lightup
         return source;
     }
 
-    private static (string? Name, string? Namespace) GetBaseTypeName(TypeDefinition typeDef)
+    private static string? GetFullBaseTypeName(TypeDefinition typeDef)
     {
         return typeDef switch
         {
-            ClassTypeDefinition x => GetBaseTypeName(x),
-            InterfaceTypeDefinition x => GetBaseTypeName(x),
-            StructTypeDefinition => (null, null),
+            ClassTypeDefinition x => GetFullBaseTypeName(x),
+            InterfaceTypeDefinition x => GetFullBaseTypeName(x),
+            StructTypeDefinition => null,
             _ => throw new NotImplementedException(),
         };
     }
 
-    private static (string? Name, string? Namespace) GetBaseTypeName(
+    private static string? GetFullBaseTypeName(
         ClassTypeDefinition typeDef)
     {
         var baseTypeRef = typeDef.BaseClass;
         if (baseTypeRef == null)
         {
-            return (null, null);
+            return null;
         }
 
         if (baseTypeRef is NamedTypeReference x)
         {
-            return (x.Name, x.Namespace);
+            return $"{x.Namespace}.{x.Name}";
         }
 
         Assert.Fail("Could not get base type");
-        return (null, null);
+        return null;
     }
 
-    private static (string? Name, string? Namespace) GetBaseTypeName(
+    private static string? GetFullBaseTypeName(
         InterfaceTypeDefinition typeDef)
     {
         var baseTypeRef = typeDef.BaseInterface;
         if (baseTypeRef == null)
         {
-            return (null, null);
+            return null;
         }
 
         if (baseTypeRef is NamedTypeReference x)
         {
-            return (x.Name, x.Namespace);
+            return $"{x.Namespace}.{x.Name}";
         }
 
         Assert.Fail("Could not get base type");
-        return (null, null);
+        return null;
     }
 
     private static List<ConstructorDefinition> GetInstanceConstructors(TypeDefinition typeDef)
@@ -1516,19 +1515,18 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static void AppendInstancePropertyDelegateDeclarations(
         StringBuilder sb,
         PropertyDefinition propertyDef,
-        string baseTypeName,
-        string baseTypeNamespace,
+        string fullBaseTypeName,
         string nullableAnnotation,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
         sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs));
-        sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj);");
+        sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{fullBaseTypeName} _obj);");
 
         if (propertyDef.HasSetter)
         {
             sb.Append($"        private delegate void ");
-            sb.Append($"{propertyDef.Name}SetterDelegate({baseTypeNamespace}.{baseTypeName} _obj, ");
+            sb.Append($"{propertyDef.Name}SetterDelegate({fullBaseTypeName} _obj, ");
             sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs)} _value);");
         }
     }
@@ -1548,15 +1546,14 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static void AppendInstanceEventDelegateDeclarations(
         StringBuilder sb,
         EventDefinition propertyDef,
-        string baseTypeName,
-        string baseTypeNamespace,
+        string fullBaseTypeName,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}AdderDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}AdderDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
 
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}RemoverDelegate(global::{baseTypeNamespace}.{baseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}RemoverDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
     }
 
     private static string GetEventTypeDeclText(
@@ -1586,15 +1583,14 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static void AppendInstanceMethodDelegateDeclaration(
         StringBuilder sb,
         MethodDefinition methodDef,
-        string baseTypeName,
-        string baseTypeNamespace,
+        string fullBaseTypeName,
         int index,
         string nullableAnnotation,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
         sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs));
-        sb.Append($" {methodDef.Name}Delegate{index}(global::{baseTypeNamespace}.{baseTypeName} _obj");
+        sb.Append($" {methodDef.Name}Delegate{index}(global::{fullBaseTypeName} _obj");
         sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, addLeadingComma: true));
         sb.AppendLine(");");
     }
