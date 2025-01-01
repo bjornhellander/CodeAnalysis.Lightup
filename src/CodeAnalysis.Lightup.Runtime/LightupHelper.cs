@@ -323,25 +323,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
             if (wrapperType.IsByRef)
             {
-                if (nativeParam.IsIn)
-                {
-                    var wrapperElementType = wrapperType.GetElementType();
-                    var nativeElementType = nativeType.GetElementType();
-
-                    var tempNativeVar = Expression.Variable(nativeElementType);
-                    variables.Add(tempNativeVar);
-
-                    preCallExpressions.Add(
-                        Expression.Assign(
-                            tempNativeVar,
-                            GetNativeValue(
-                                input,
-                                wrapperElementType,
-                                nativeElementType)));
-
-                    return tempNativeVar;
-                }
-                else if (nativeParam.IsOut)
+                if (nativeParam.IsOut)
                 {
                     var wrapperElementType = wrapperType.GetElementType();
                     var nativeElementType = nativeType.GetElementType();
@@ -367,8 +349,28 @@ namespace CodeAnalysis.Lightup.Runtime
             }
             else
             {
-                var result = GetNativeValue(input, wrapperType, nativeType);
-                return result;
+                if (nativeParam.IsIn)
+                {
+                    var nativeElementType = nativeType.GetElementType();
+
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
+
+                    preCallExpressions.Add(
+                        Expression.Assign(
+                            tempNativeVar,
+                            GetNativeValue(
+                                input,
+                                wrapperType,
+                                nativeElementType)));
+
+                    return tempNativeVar;
+                }
+                else
+                {
+                    var result = GetNativeValue(input, wrapperType, nativeType);
+                    return result;
+                }
             }
         }
 

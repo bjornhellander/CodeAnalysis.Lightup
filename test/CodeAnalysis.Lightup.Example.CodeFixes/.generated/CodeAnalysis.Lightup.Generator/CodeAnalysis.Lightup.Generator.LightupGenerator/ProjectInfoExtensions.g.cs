@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper CompilationOutputInfoGetterDelegate(global::Microsoft.CodeAnalysis.ProjectInfo _obj);
 
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace);
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate3(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id);
 
@@ -56,9 +56,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, ref global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
+        public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
         {
-            return WithCompilationOutputInfoFunc1(_obj, ref info);
+            return WithCompilationOutputInfoFunc1(_obj, info);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>

@@ -34,11 +34,10 @@ internal class Writer
         [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions",
     };
 
-    // TODO: Change so that 'in' parameters are passed by value?
     private static readonly Dictionary<ParameterMode, string> ParameterModeText = new()
     {
         [ParameterMode.None] = "",
-        [ParameterMode.In] = "ref ", // NOTE: Using ref to make it the code compatible with c# 6
+        [ParameterMode.In] = "", // NOTE: Avoidig 'in' to make the code compatible with c# 6
         [ParameterMode.Out] = "out ",
     };
 
