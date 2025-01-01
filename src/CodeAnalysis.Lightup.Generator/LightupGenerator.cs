@@ -104,6 +104,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(structTypeDef))
             {
+                // TODO: Use just "Ex" here as well? Not all members will be extension methods.
                 return ($"{typeDef.Name}Extensions", true);
             }
         }
