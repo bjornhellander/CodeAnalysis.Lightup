@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
 
         private static readonly TokenGetterDelegate TokenGetterFunc;
 
@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly UpdateDelegate1 UpdateFunc1;
         private static readonly WithTokenDelegate2 WithTokenFunc2;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax wrappedObject;
 
         static FieldExpressionSyntaxWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTokenDelegate2>(WrappedType, "WithToken", "tokenSyntaxToken");
         }
 
-        private FieldExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
+        private FieldExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -46,27 +46,33 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return TokenGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator FieldExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax?(FieldExpressionSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax(FieldExpressionSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static FieldExpressionSyntaxWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static FieldExpressionSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax>(obj, WrappedType);
             return new FieldExpressionSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax Unwrap()
         {
             return wrappedObject;
         }

@@ -12,13 +12,13 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate DocumentRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameMatchingTypeInStrings, global::System.Boolean RenameMatchingTypeInComments);
 
-        private delegate global::System.Boolean RenameMatchingTypeInCommentsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameMatchingTypeInCommentsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameMatchingTypeInStringsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameMatchingTypeInStringsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameMatchingTypeInCommentsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameMatchingTypeInCommentsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameMatchingTypeInStringsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameMatchingTypeInStringsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
-        private delegate void DeconstructDelegate0(global::System.Object? _obj, out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
+        private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments);
+        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -30,7 +30,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private static readonly DeconstructDelegate0 DeconstructFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static DocumentRenameOptionsWrapper()
         {
@@ -47,7 +47,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherDocumentRenameOptions");
         }
 
-        private DocumentRenameOptionsWrapper(global::System.Object? obj)
+        private DocumentRenameOptionsWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -78,15 +78,15 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static DocumentRenameOptionsWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static DocumentRenameOptionsWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new DocumentRenameOptionsWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

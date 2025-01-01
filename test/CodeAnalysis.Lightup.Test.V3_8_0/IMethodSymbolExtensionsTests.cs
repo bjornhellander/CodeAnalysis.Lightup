@@ -19,7 +19,7 @@ public partial class IMethodSymbolExtensionsTests
     public override void TestTypeArgumentNullableAnnotationsGivenCompatibleObject(NullableAnnotationEx nullableAnnotation)
     {
         var obj = CreateInstance(nullableAnnotation);
-        var result = IMethodSymbolExtensions.TypeArgumentNullableAnnotations(obj);
+        var result = IMethodSymbolEx.TypeArgumentNullableAnnotations(obj);
         Assert.AreEqual(1, result.Length);
         Assert.AreEqual(nullableAnnotation, result[0]);
     }
@@ -31,7 +31,7 @@ public partial class IMethodSymbolExtensionsTests
     public override void TestConstructGivenCompatibleObject(NullableAnnotationEx nullableAnnotation)
     {
         var obj = CreateInstance(nullableAnnotation);
-        var x = IMethodSymbolExtensions.Construct(obj, [], [nullableAnnotation]);
+        var x = IMethodSymbolEx.Construct(obj, [], [nullableAnnotation]);
         Assert.IsNotNull(x);
     }
 

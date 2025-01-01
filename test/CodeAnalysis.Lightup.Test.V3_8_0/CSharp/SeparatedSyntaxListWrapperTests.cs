@@ -3,7 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
-using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,22 +16,6 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
 public partial class SeparatedSyntaxListWrapperTests
 {
     [TestMethod]
-    public override void TestCountGivenNullObject()
-    {
-        object? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Count);
-    }
-
-    [TestMethod]
-    public override void TestAddRangeGivenNullObject()
-    {
-        object? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.AddRange([]));
-    }
-
-    [TestMethod]
     public void TestIsGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
@@ -40,10 +23,10 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var obj2 = wrapper.Unwrap();
         Assert.IsNotNull(obj2);
         _ = (SeparatedSyntaxList<RecordDeclarationSyntax>)obj2;
@@ -53,13 +36,13 @@ public partial class SeparatedSyntaxListWrapperTests
     public void TestCountGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.Count);
 
         obj = obj.Add(SyntaxFactory.RecordDeclaration(
             SyntaxFactory.Token(SyntaxKind.RecordKeyword),
             "abc"));
-        wrapper = Wrapper.As(obj);
+        wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(1, wrapper.Count);
     }
 
@@ -67,13 +50,13 @@ public partial class SeparatedSyntaxListWrapperTests
     public void TestAddRangeGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.Count);
 
         var newNativeItem = SyntaxFactory.RecordDeclaration(
             SyntaxFactory.Token(SyntaxKind.RecordKeyword),
             "abc");
-        var newWrappedItem = RecordDeclarationSyntaxWrapper.As(newNativeItem);
+        var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
 
         wrapper = wrapper.AddRange([newWrappedItem]);
         Assert.AreEqual(1, wrapper.Count);

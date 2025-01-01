@@ -12,9 +12,9 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate LoadTextOptionsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
 
-        private delegate global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm ChecksumAlgorithmGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.LoadTextOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static LoadTextOptionsWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLoadTextOptions");
         }
 
-        private LoadTextOptionsWrapper(global::System.Object? obj)
+        private LoadTextOptionsWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -58,15 +58,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static LoadTextOptionsWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static LoadTextOptionsWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new LoadTextOptionsWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

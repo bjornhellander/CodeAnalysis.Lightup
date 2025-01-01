@@ -7,6 +7,8 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using Wrapper = Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper;
+
 [TestClass]
 public partial class ProjectInfoExtensionsTests
 {
@@ -15,8 +17,8 @@ public partial class ProjectInfoExtensionsTests
     {
         var obj = CreateInstance();
         var compilationOutputInfo = default(CompilationOutputInfo).WithAssemblyPath("a/b/c.dll");
-        var compilationOutputInfoWrapper = CompilationOutputInfoWrapper.As(compilationOutputInfo);
-        var result = obj.WithCompilationOutputInfo(ref compilationOutputInfoWrapper);
+        var compilationOutputInfoWrapper = Wrapper.Wrap(compilationOutputInfo);
+        var result = obj.WithCompilationOutputInfo(compilationOutputInfoWrapper);
         Assert.AreEqual("a/b/c.dll", result.CompilationOutputInfo.AssemblyPath);
     }
 }

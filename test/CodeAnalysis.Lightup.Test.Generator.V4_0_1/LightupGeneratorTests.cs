@@ -25,18 +25,17 @@ public class LightupGeneratorTests
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    // TODO: Implement remaining members
     public struct SeparatedSyntaxListWrapper<TNode>
     {
         private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
 
-        private delegate int CountDelegate(object? obj);
-        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object? obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate int CountDelegate(object obj);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
 
-        private readonly object? wrappedObject;
+        private readonly object wrappedObject;
 
         static SeparatedSyntaxListWrapper()
         {
@@ -49,7 +48,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
         }
 
-        private SeparatedSyntaxListWrapper(object? obj)
+        private SeparatedSyntaxListWrapper(object obj)
         {
             wrappedObject = obj;
         }
@@ -91,25 +90,16 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public static bool Is(object? obj)
         {
-            if (obj != null && obj.GetType() != WrappedType)
-            {
-                obj = null;
-            }
-
-            return obj != null;
+            return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        public static SeparatedSyntaxListWrapper<TNode> As(object? obj)
+        public static SeparatedSyntaxListWrapper<TNode> Wrap(object obj)
         {
-            if (obj != null && obj.GetType() != WrappedType)
-            {
-                obj = null;
-            }
-
-            return new SeparatedSyntaxListWrapper<TNode>(obj);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<object>(obj, WrappedType);
+            return new SeparatedSyntaxListWrapper<TNode>(obj2);
         }
 
-        public object? Unwrap()
+        public object Unwrap()
         {
              return wrappedObject;
         }
@@ -292,17 +282,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
-        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -326,7 +316,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.3.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -340,15 +330,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -365,7 +355,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"]);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -379,7 +369,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.Operations.CommonConversion.</summary>
-    public static partial class CommonConversionExtensions
+    public static partial class CommonConversionEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
@@ -387,7 +377,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
 
-        static CommonConversionExtensions()
+        static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -404,7 +394,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.8.0.0", ["Microsoft.CodeAnalysis.Operations.CommonConversion"], LanguageVersion.CSharp7_3);
-        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("Operations", "CommonConversionEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -488,11 +478,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document? _obj);
+        private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
         private static readonly HintNameGetterDelegate HintNameGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Document? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Document wrappedObject;
 
         static SourceGeneratedDocumentWrapper()
         {
@@ -501,7 +491,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             HintNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<HintNameGetterDelegate>(WrappedType, nameof(HintName));
         }
 
-        private SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document? obj)
+        private SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document obj)
         {
             wrappedObject = obj;
         }
@@ -512,27 +502,33 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return HintNameGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator SourceGeneratedDocumentWrapper(global::Microsoft.CodeAnalysis.Document obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.Document?(SourceGeneratedDocumentWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.Document(SourceGeneratedDocumentWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.Document? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SourceGeneratedDocumentWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SourceGeneratedDocumentWrapper Wrap(global::Microsoft.CodeAnalysis.Document obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::Microsoft.CodeAnalysis.Document>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Document>(obj, WrappedType);
             return new SourceGeneratedDocumentWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Document? Unwrap()
+        public global::Microsoft.CodeAnalysis.Document Unwrap()
         {
             return wrappedObject;
         }
@@ -584,7 +580,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 namespace Microsoft.CodeAnalysis.Lightup
 {
     /// <summary>Provides lightup support for class Microsoft.CodeAnalysis.ModuleMetadata.</summary>
-    public static partial class ModuleMetadataExtensions
+    public static partial class ModuleMetadataEx
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.ModuleMetadata"";
 
@@ -592,7 +588,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
 
-        static ModuleMetadataExtensions()
+        static ModuleMetadataEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
@@ -609,7 +605,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 ";
 
         var test = CreateTest(AssemblyKind.Common, "3.0.0.0", ["Microsoft.CodeAnalysis.ModuleMetadata"]);
-        var generatedFilePath = GetGeneratedFilePath("ModuleMetadataExtensions.g.cs");
+        var generatedFilePath = GetGeneratedFilePath("ModuleMetadataEx.g.cs");
         test.TestState.GeneratedSources.Add((typeof(LightupGenerator), generatedFilePath, SourceText.From(source, Encoding.UTF8)));
         await test.RunAsync();
     }
@@ -675,7 +671,7 @@ namespace CodeAnalysis.Lightup.Runtime
         public static bool Is(object{na} obj, Type{na} wrappedType)
             => throw new Exception();
         
-        public static TObject{na} As<TObject>(object{na} obj, Type{na} wrappedType)
+        public static TObject{na} Wrap<TObject>(object{na} obj, Type{na} wrappedType)
             where TObject : class
             => throw new Exception();        
         

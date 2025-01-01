@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.Operations;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -15,14 +13,6 @@ using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOpera
 public partial class IRecursivePatternOperationWrapperTests
 {
     [TestMethod]
-    public override void TestPropertySubpatternsGivenNullObject()
-    {
-        IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.PropertySubpatterns);
-    }
-
-    [TestMethod]
     public void TestPropertySubpatternsGivenCompatibleObject()
     {
         var mock = new Mock<IRecursivePatternOperation>();
@@ -30,7 +20,7 @@ public partial class IRecursivePatternOperationWrapperTests
         mock.Setup(x => x.PropertySubpatterns).Returns([propertySubpatternOperationMock.Object]);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var propertySubpatterns = wrapper.PropertySubpatterns;
     }
 
@@ -44,12 +34,12 @@ public partial class IRecursivePatternOperationWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IRecursivePatternOperation>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 }

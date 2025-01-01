@@ -13,6 +13,6 @@ public partial class IAssemblySymbolExtensionsTests
     public override void TestGetForwardedTypesGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        _ = IAssemblySymbolExtensions.GetForwardedTypes(obj);
+        _ = IAssemblySymbolEx.GetForwardedTypes(obj);
     }
 }

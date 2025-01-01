@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptionsGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> DiagnosticsGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String> AnalyzerOptionsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> DiagnosticsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic> TreeOptionsGetterDelegate(global::System.Object _obj);
 
         private static readonly AnalyzerOptionsGetterDelegate AnalyzerOptionsGetterFunc;
         private static readonly DiagnosticsGetterDelegate DiagnosticsGetterFunc;
         private static readonly TreeOptionsGetterDelegate TreeOptionsGetterFunc;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static AnalyzerConfigOptionsResultWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             TreeOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TreeOptionsGetterDelegate>(WrappedType, nameof(TreeOptions));
         }
 
-        private AnalyzerConfigOptionsResultWrapper(global::System.Object? obj)
+        private AnalyzerConfigOptionsResultWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -58,15 +58,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AnalyzerConfigOptionsResultWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static AnalyzerConfigOptionsResultWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new AnalyzerConfigOptionsResultWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

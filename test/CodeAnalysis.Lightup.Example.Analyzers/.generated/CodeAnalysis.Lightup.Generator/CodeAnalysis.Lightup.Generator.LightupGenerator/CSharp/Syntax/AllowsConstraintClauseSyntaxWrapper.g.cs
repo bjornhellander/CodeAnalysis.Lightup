@@ -10,14 +10,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken AllowsKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> ConstraintsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken AllowsKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> ConstraintsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper AddConstraintsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithAllowsKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithConstraintsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper AddConstraintsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithAllowsKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithConstraintsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
 
         private static readonly AllowsKeywordGetterDelegate AllowsKeywordGetterFunc;
         private static readonly ConstraintsGetterDelegate ConstraintsGetterFunc;
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithAllowsKeywordDelegate3 WithAllowsKeywordFunc3;
         private static readonly WithConstraintsDelegate4 WithConstraintsFunc4;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax wrappedObject;
 
         static AllowsConstraintClauseSyntaxWrapper()
         {
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithConstraintsFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConstraintsDelegate4>(WrappedType, "WithConstraints", "constraintsSeparatedSyntaxList`1");
         }
 
-        private AllowsConstraintClauseSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? obj)
+        private AllowsConstraintClauseSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -61,27 +61,33 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return ConstraintsGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator AllowsConstraintClauseSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax?(AllowsConstraintClauseSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax(AllowsConstraintClauseSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AllowsConstraintClauseSyntaxWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static AllowsConstraintClauseSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax>(obj, WrappedType);
             return new AllowsConstraintClauseSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax Unwrap()
         {
             return wrappedObject;
         }

@@ -16,7 +16,7 @@ public class ProjectInfoExtensionsTests
     {
         var obj = CreateInstance();
         var compilationOutputInfo = default(CompilationOutputInfoWrapper);
-        Assert.ThrowsException<InvalidOperationException>(() => obj.WithCompilationOutputInfo(ref compilationOutputInfo));
+        Assert.ThrowsException<InvalidOperationException>(() => obj.WithCompilationOutputInfo(compilationOutputInfo));
     }
 
     protected static ProjectInfo CreateInstance()

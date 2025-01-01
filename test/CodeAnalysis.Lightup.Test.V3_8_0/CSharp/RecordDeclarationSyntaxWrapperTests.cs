@@ -9,78 +9,57 @@ using CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper;
 
 [TestClass]
 public partial class RecordDeclarationSyntaxWrapperTests
 {
     [TestMethod]
-    public override void TestIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Identifier);
-    }
-
-    [TestMethod]
-    public override void TestWithIdentifierGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.WithIdentifier(SyntaxFactory.Token(SyntaxKind.IdentifierToken)));
-    }
-
-    [TestMethod]
-    public override void TestParameterListGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.ParameterList);
-    }
-
-    [TestMethod]
-    public override void TestUpdateGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        var visitor = new TestVisitor();
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Accept(visitor));
-    }
-
-    [TestMethod]
     public void TestIsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        Assert.IsTrue(RecordDeclarationSyntaxWrapper.Is(obj));
+        Assert.IsTrue(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        _ = RecordDeclarationSyntaxWrapper.As(obj);
+        _ = Wrapper.Wrap(obj);
+    }
+
+    [TestMethod]
+    public void TestCastGivenCompatibleObject()
+    {
+        var obj = CreateInstance();
+        _ = (Wrapper)obj;
     }
 
     [TestMethod]
     public void TestIdentifierDefinition()
     {
-        CheckPropertyType<RecordDeclarationSyntax, RecordDeclarationSyntaxWrapper>("Identifier");
+        CheckPropertyType<RecordDeclarationSyntax, Wrapper>("Identifier");
     }
 
     [TestMethod]
     public void TestIdentifierGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
-        Assert.AreEqual(obj.Identifier, wrapper.Identifier);
+
+        var wrapper1 = Wrapper.Wrap(obj);
+        Assert.AreEqual(obj.Identifier, wrapper1.Identifier);
+
+        var wrapper2 = (Wrapper)obj;
+        Assert.AreEqual(obj.Identifier, wrapper2.Identifier);
     }
 
     [TestMethod]
     public void TestWithIdentifierGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var newValue = SyntaxFactory.Identifier("abc");
         var wrapper2 = wrapper.WithIdentifier(newValue);
         Assert.AreEqual(newValue.Text, wrapper2.Identifier.Text);
@@ -92,14 +71,14 @@ public partial class RecordDeclarationSyntaxWrapperTests
     [TestMethod]
     public void TestParameterListDefinition()
     {
-        CheckPropertyType<RecordDeclarationSyntax, RecordDeclarationSyntaxWrapper>("ParameterList");
+        CheckPropertyType<RecordDeclarationSyntax, Wrapper>("ParameterList");
     }
 
     [TestMethod]
     public void TestParameterListGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(obj.ParameterList, wrapper.ParameterList);
     }
 
@@ -107,7 +86,7 @@ public partial class RecordDeclarationSyntaxWrapperTests
     public virtual void TestClassOrStructKeywordGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.ThrowsException<InvalidOperationException>(() => wrapper.ClassOrStructKeyword);
     }
 
@@ -115,7 +94,7 @@ public partial class RecordDeclarationSyntaxWrapperTests
     public void TestUpdateGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = RecordDeclarationSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var visitor = new TestVisitor();
         wrapper.Accept(visitor);
         Assert.AreEqual(1, visitor.VisitCount);

@@ -3,12 +3,12 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_0_1.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper;
 
 // NOTE: The main reason for adding these tests is that this wrapper refers to other newly created syntax nodes,
 // thereby requiring that the wrapper's properties etc are defined using another wrapper.
@@ -16,32 +16,24 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public partial class LineSpanDirectiveTriviaSyntaxWrapperTests
 {
     [TestMethod]
-    public override void TestEndGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.End);
-    }
-
-    [TestMethod]
     public void TestIsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        Assert.IsTrue(LineSpanDirectiveTriviaSyntaxWrapper.Is(obj));
+        Assert.IsTrue(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        _ = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
+        _ = Wrapper.Wrap(obj);
     }
 
     [TestMethod]
     public void TestStartGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var startWrapper = wrapper.Start;
         Assert.AreSame(obj.Start, startWrapper.Unwrap());
     }
@@ -50,12 +42,12 @@ public partial class LineSpanDirectiveTriviaSyntaxWrapperTests
     public void TestWithStartGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
 
         var newValue = SyntaxFactory.LineDirectivePosition(
             line: SyntaxFactory.Literal(123),
             character: SyntaxFactory.Literal(456));
-        var wrapper2 = wrapper.WithStart(LineDirectivePositionSyntaxWrapper.As(newValue));
+        var wrapper2 = wrapper.WithStart(LineDirectivePositionSyntaxWrapper.Wrap(newValue));
         Assert.AreEqual("123", wrapper2.Start.Line.Text);
     }
 

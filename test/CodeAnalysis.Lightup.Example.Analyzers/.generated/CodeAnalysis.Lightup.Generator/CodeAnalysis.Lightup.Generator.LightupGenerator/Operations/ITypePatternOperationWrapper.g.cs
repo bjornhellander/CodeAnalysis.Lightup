@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly MatchedTypeGetterDelegate MatchedTypeGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation wrappedObject;
 
         static ITypePatternOperationWrapper()
         {
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             MatchedTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MatchedTypeGetterDelegate>(WrappedType, nameof(MatchedType));
         }
 
-        private ITypePatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
+        private ITypePatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
         {
             wrappedObject = obj;
         }
@@ -35,20 +35,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ITypePatternOperationWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static ITypePatternOperationWrapper Wrap(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new ITypePatternOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation? Unwrap()
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Unwrap()
         {
             return wrappedObject;
         }

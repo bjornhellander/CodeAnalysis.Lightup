@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationExtensions {
+public partial class IOperationEx {
 public partial struct OperationListWrapper {
 public partial struct ReversedWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator. Added in version 4.2.0.0.</summary>
@@ -13,17 +13,17 @@ public partial struct ReversedWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean MoveNextDelegate0(global::System.Object? _obj);
-        private delegate void ResetDelegate1(global::System.Object? _obj);
+        private delegate global::System.Boolean MoveNextDelegate0(global::System.Object _obj);
+        private delegate void ResetDelegate1(global::System.Object _obj);
 
         private static readonly CurrentGetterDelegate CurrentGetterFunc;
 
         private static readonly MoveNextDelegate0 MoveNextFunc0;
         private static readonly ResetDelegate1 ResetFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static EnumeratorWrapper()
         {
@@ -35,7 +35,7 @@ public partial struct ReversedWrapper {
             ResetFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ResetDelegate1>(WrappedType, "Reset");
         }
 
-        private EnumeratorWrapper(global::System.Object? obj)
+        private EnumeratorWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -52,15 +52,15 @@ public partial struct ReversedWrapper {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static EnumeratorWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static EnumeratorWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new EnumeratorWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

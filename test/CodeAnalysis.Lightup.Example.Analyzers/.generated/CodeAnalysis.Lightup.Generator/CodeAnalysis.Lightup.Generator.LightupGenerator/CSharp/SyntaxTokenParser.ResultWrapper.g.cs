@@ -11,13 +11,13 @@ public partial struct SyntaxTokenParserWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ContextualKindGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ContextualKindGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::System.Object _obj);
 
         private static readonly ContextualKindGetterDelegate ContextualKindGetterFunc;
         private static readonly TokenGetterDelegate TokenGetterFunc;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ResultWrapper()
         {
@@ -27,7 +27,7 @@ public partial struct SyntaxTokenParserWrapper {
             TokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TokenGetterDelegate>(WrappedType, nameof(Token));
         }
 
-        private ResultWrapper(global::System.Object? obj)
+        private ResultWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -50,15 +50,15 @@ public partial struct SyntaxTokenParserWrapper {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ResultWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static ResultWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ResultWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

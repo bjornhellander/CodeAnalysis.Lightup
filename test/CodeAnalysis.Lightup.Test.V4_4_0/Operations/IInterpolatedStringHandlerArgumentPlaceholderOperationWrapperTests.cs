@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0.Operations;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -15,14 +13,6 @@ using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHan
 public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
 {
     [TestMethod]
-    public override void TestPlaceholderKindGivenNullObject()
-    {
-        IOperation? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.PlaceholderKind);
-    }
-
-    [TestMethod]
     [DataRow(InterpolatedStringArgumentPlaceholderKind.CallsiteArgument)]
     [DataRow(InterpolatedStringArgumentPlaceholderKind.CallsiteReceiver)]
     [DataRow(InterpolatedStringArgumentPlaceholderKind.TrailingValidityArgument)]
@@ -32,7 +22,7 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
         mock.Setup(x => x.PlaceholderKind).Returns(kind);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(kind, (InterpolatedStringArgumentPlaceholderKind)wrapper.PlaceholderKind);
     }
 
@@ -46,12 +36,12 @@ public partial class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapp
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IInterpolatedStringHandlerArgumentPlaceholderOperation>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(obj, wrapper.Unwrap());
     }
 }

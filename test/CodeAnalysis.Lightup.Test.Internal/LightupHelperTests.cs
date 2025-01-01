@@ -18,7 +18,7 @@ public class LightupHelperTests
     public void TestPropertyWithNullableOfWrapper(bool setValue)
     {
         var native = new TestClass1 { Property1 = setValue ? default(TestStruct1) : null };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperValue = wrapper.Property1;
@@ -43,7 +43,7 @@ public class LightupHelperTests
     public void TestPropertyWithFuncReturningWrapper(int value)
     {
         var native = new TestClass1 { Property2 = NativeFunc };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperFunc = wrapper.Property2;
@@ -65,13 +65,13 @@ public class LightupHelperTests
     {
         var nativeProgress = new TestProgress();
         var native = new TestClass1 { Property3 = nativeProgress };
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperProgress = wrapper.Property3;
 
         var nativeValue = new TestStruct1 { Value = value };
-        var wrapperValue = TestStruct1Wrapper.As(nativeValue);
+        var wrapperValue = TestStruct1Wrapper.Wrap(nativeValue);
         wrapperProgress.Report(wrapperValue);
         Assert.AreEqual(value, nativeProgress.Value);
     }
@@ -82,11 +82,11 @@ public class LightupHelperTests
     public void TestMethodWithParameterNullableOfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var nativeValue = new TestStruct1?(new TestStruct1 { Value = value });
-        var wrapperValue = TestStruct1Wrapper.As(nativeValue);
+        var wrapperValue = TestStruct1Wrapper.Wrap(nativeValue);
         wrapper.Method1(wrapperValue);
 
         Assert.IsNotNull(native.Value1);
@@ -99,7 +99,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterIProgressOfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var wrapperProgress = new TestWrapperProgress();
@@ -114,7 +114,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterFunc2OfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var returnValue = wrapper.Method3(value, WrapperFunc);
@@ -133,7 +133,7 @@ public class LightupHelperTests
     public void TestMethodWithParameterFunc3OfWrapper(int value)
     {
         var native = new TestClass1();
-        var wrapper = TestClass1Wrapper.As(native);
+        var wrapper = TestClass1Wrapper.Wrap(native);
         Assert.IsNotNull(wrapper.Unwrap());
 
         var returnValue = wrapper.Method4(value, WrapperFunc);
@@ -228,13 +228,13 @@ public struct TestClass1Wrapper
 
     private static readonly Type? WrappedType; // NOTE: Used via reflection
 
-    private delegate Nullable<TestStruct1Wrapper> Property1GetterDelegate(object? obj);
-    private delegate Func<int, TestStruct1Wrapper> Property2GetterDelegate(object? obj);
-    private delegate IProgress<TestStruct1Wrapper> Property3GetterDelegate(object? obj);
-    private delegate void Method1Delegate(object? obj, Nullable<TestStruct1Wrapper> arg);
-    private delegate void Method2Delegate(object? obj, int arg1, IProgress<TestStruct1Wrapper> arg2);
-    private delegate int Method3Delegate(object? obj, int arg1, Func<TestStruct1Wrapper, int> arg2);
-    private delegate int Method4Delegate(object? obj, int arg1, Func<TestStruct1Wrapper, int, int> arg2);
+    private delegate Nullable<TestStruct1Wrapper> Property1GetterDelegate(object obj);
+    private delegate Func<int, TestStruct1Wrapper> Property2GetterDelegate(object obj);
+    private delegate IProgress<TestStruct1Wrapper> Property3GetterDelegate(object obj);
+    private delegate void Method1Delegate(object obj, Nullable<TestStruct1Wrapper> arg);
+    private delegate void Method2Delegate(object obj, int arg1, IProgress<TestStruct1Wrapper> arg2);
+    private delegate int Method3Delegate(object obj, int arg1, Func<TestStruct1Wrapper, int> arg2);
+    private delegate int Method4Delegate(object obj, int arg1, Func<TestStruct1Wrapper, int, int> arg2);
 
     private static readonly Property1GetterDelegate Property1GetterFunc;
     private static readonly Property2GetterDelegate Property2GetterFunc;
@@ -244,7 +244,7 @@ public struct TestClass1Wrapper
     private static readonly Method3Delegate Methods3Func;
     private static readonly Method4Delegate Methods4Func;
 
-    private readonly object? wrappedObject;
+    private readonly object wrappedObject;
 
     static TestClass1Wrapper()
     {
@@ -259,7 +259,7 @@ public struct TestClass1Wrapper
         Methods4Func = TestLightupHelper.CreateInstanceMethodAccessor<Method4Delegate>(WrappedType, "Method4", "arg1Int32", "arg2Func`3");
     }
 
-    private TestClass1Wrapper(object? obj)
+    private TestClass1Wrapper(object obj)
     {
         wrappedObject = obj;
     }
@@ -273,13 +273,13 @@ public struct TestClass1Wrapper
     public IProgress<TestStruct1Wrapper> Property3
         => Property3GetterFunc(wrappedObject);
 
-    public static TestClass1Wrapper As(object? obj)
+    public static TestClass1Wrapper Wrap(object obj)
     {
-        var obj2 = TestLightupHelper.As<object>(obj, WrappedType);
+        var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestClass1Wrapper(obj2);
     }
 
-    public object? Unwrap()
+    public object Unwrap()
     {
         return wrappedObject;
     }
@@ -303,25 +303,25 @@ public struct TestStruct1Wrapper
 
     private static readonly Type? WrappedType; // NOTE: Used via reflection
 
-    private readonly object? wrappedObject;
+    private readonly object wrappedObject;
 
     static TestStruct1Wrapper()
     {
         WrappedType = TestLightupHelper.FindType(WrappedTypeName);
     }
 
-    private TestStruct1Wrapper(object? obj)
+    private TestStruct1Wrapper(object obj)
     {
         wrappedObject = obj;
     }
 
-    public static TestStruct1Wrapper As(object? obj)
+    public static TestStruct1Wrapper Wrap(object obj)
     {
-        var obj2 = TestLightupHelper.As<object>(obj, WrappedType);
+        var obj2 = TestLightupHelper.Wrap<object>(obj, WrappedType);
         return new TestStruct1Wrapper(obj2);
     }
 
-    public object? Unwrap()
+    public object Unwrap()
     {
         return wrappedObject;
     }

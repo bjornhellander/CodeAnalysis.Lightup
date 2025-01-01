@@ -10,12 +10,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate void DisposeDelegate0(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate1(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate2(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate3(global::System.Object? _obj);
-        private delegate void ResetToDelegate4(global::System.Object? _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
-        private delegate void SkipForwardToDelegate5(global::System.Object? _obj, global::System.Int32 position);
+        private delegate void DisposeDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate1(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate2(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate3(global::System.Object _obj);
+        private delegate void ResetToDelegate4(global::System.Object _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
+        private delegate void SkipForwardToDelegate5(global::System.Object _obj, global::System.Int32 position);
 
         private static readonly DisposeDelegate0 DisposeFunc0;
         private static readonly ParseLeadingTriviaDelegate1 ParseLeadingTriviaFunc1;
@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly ResetToDelegate4 ResetToFunc4;
         private static readonly SkipForwardToDelegate5 SkipForwardToFunc5;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static SyntaxTokenParserWrapper()
         {
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             SkipForwardToFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<SkipForwardToDelegate5>(WrappedType, "SkipForwardTo", "positionInt32");
         }
 
-        private SyntaxTokenParserWrapper(global::System.Object? obj)
+        private SyntaxTokenParserWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -49,15 +49,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SyntaxTokenParserWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SyntaxTokenParserWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new SyntaxTokenParserWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

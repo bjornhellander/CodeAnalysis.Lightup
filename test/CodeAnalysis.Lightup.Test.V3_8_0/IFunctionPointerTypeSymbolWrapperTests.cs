@@ -3,7 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0;
 
-using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,14 +13,6 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper
 public partial class IFunctionPointerTypeSymbolWrapperTests
 {
     [TestMethod]
-    public override void TestSignatureGivenNullObject()
-    {
-        ITypeSymbol? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Signature);
-    }
-
-    [TestMethod]
     public void TestSignatureGivenCompatibleObject()
     {
         var signatureObj = Mock.Of<IMethodSymbol>();
@@ -29,7 +20,7 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
         mock.Setup(x => x.Signature).Returns(signatureObj);
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(signatureObj, wrapper.Signature);
     }
 
@@ -43,12 +34,12 @@ public partial class IFunctionPointerTypeSymbolWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var mock = new Mock<IFunctionPointerTypeSymbol>();
         var obj = mock.Object;
 
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.AreSame(obj, wrapper.Unwrap());
     }
 }

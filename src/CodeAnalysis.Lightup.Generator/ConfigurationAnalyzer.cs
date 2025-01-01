@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-// TODO: Create Roslyn issue for desciptions not being shown. Diagnostics without location?
+// TODO: Create Roslyn issue for descriptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class ConfigurationAnalyzer : DiagnosticAnalyzer
 {

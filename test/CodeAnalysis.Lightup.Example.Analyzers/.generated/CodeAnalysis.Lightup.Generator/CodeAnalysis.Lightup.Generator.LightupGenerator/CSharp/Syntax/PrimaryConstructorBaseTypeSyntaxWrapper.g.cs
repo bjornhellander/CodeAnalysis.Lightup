@@ -10,14 +10,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax ArgumentListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ArgumentListGetterDelegate ArgumentListGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithArgumentListDelegate3 WithArgumentListFunc3;
         private static readonly WithTypeDelegate4 WithTypeFunc4;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax wrappedObject;
 
         static PrimaryConstructorBaseTypeSyntaxWrapper()
         {
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithTypeFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
-        private PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? obj)
+        private PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -61,27 +61,33 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return TypeGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax?(PrimaryConstructorBaseTypeSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax(PrimaryConstructorBaseTypeSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static PrimaryConstructorBaseTypeSyntaxWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static PrimaryConstructorBaseTypeSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax>(obj, WrappedType);
             return new PrimaryConstructorBaseTypeSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax Unwrap()
         {
             return wrappedObject;
         }

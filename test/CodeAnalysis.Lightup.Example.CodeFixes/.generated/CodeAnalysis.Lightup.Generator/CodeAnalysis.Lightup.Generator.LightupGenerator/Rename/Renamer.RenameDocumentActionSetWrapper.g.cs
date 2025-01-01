@@ -11,17 +11,17 @@ public partial class RenamerEx {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Solution> UpdateSolutionAsyncDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> actions, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly ApplicableActionsGetterDelegate ApplicableActionsGetterFunc;
 
         private static readonly UpdateSolutionAsyncDelegate0 UpdateSolutionAsyncFunc0;
         private static readonly UpdateSolutionAsyncDelegate1 UpdateSolutionAsyncFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static RenameDocumentActionSetWrapper()
         {
@@ -33,7 +33,7 @@ public partial class RenamerEx {
             UpdateSolutionAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<UpdateSolutionAsyncDelegate1>(WrappedType, "UpdateSolutionAsync", "solutionSolution", "actionsImmutableArray`1", "cancellationTokenCancellationToken");
         }
 
-        private RenameDocumentActionSetWrapper(global::System.Object? obj)
+        private RenameDocumentActionSetWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -50,15 +50,15 @@ public partial class RenamerEx {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static RenameDocumentActionSetWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static RenameDocumentActionSetWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new RenameDocumentActionSetWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

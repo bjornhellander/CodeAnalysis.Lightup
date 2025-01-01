@@ -19,7 +19,7 @@ public class SolutionInfoExtensionsTests
 
     protected static SolutionInfo CallCreate()
     {
-        return SolutionInfoExtensions.Create(
+        return SolutionInfoEx.Create(
             SolutionId.CreateNewId(),
             default,
             default,

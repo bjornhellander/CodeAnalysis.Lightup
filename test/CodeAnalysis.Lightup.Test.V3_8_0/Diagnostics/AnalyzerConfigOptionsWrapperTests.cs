@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.Diagnostics;
 
-using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,14 +12,6 @@ using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptions
 [TestClass]
 public partial class AnalyzerConfigOptionsWrapperTests
 {
-    [TestMethod]
-    public override void TestTryGetValueGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.TryGetValue("key", out var value));
-    }
-
     [TestMethod]
     public override void TestKeyComparer()
     {
@@ -34,7 +24,7 @@ public partial class AnalyzerConfigOptionsWrapperTests
     public void TestTryGetValueGivenCompatibleObject(string key, bool expectedResult, string? expectedValue)
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
 
         var result = wrapper.TryGetValue(key, out var value);
         Assert.AreEqual(expectedResult, result);
@@ -49,10 +39,10 @@ public partial class AnalyzerConfigOptionsWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 

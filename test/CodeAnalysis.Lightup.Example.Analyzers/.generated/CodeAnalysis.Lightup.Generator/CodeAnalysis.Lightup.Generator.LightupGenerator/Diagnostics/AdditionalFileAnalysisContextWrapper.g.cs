@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.AdditionalText AdditionalFileGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions OptionsGetterDelegate(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.AdditionalText AdditionalFileGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions OptionsGetterDelegate(global::System.Object _obj);
 
-        private delegate void ReportDiagnosticDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
+        private delegate void ReportDiagnosticDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
 
         private static readonly AdditionalFileGetterDelegate AdditionalFileGetterFunc;
         private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private static readonly ReportDiagnosticDelegate0 ReportDiagnosticFunc0;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static AdditionalFileAnalysisContextWrapper()
         {
@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             ReportDiagnosticFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ReportDiagnosticDelegate0>(WrappedType, "ReportDiagnostic", "diagnosticDiagnostic");
         }
 
-        private AdditionalFileAnalysisContextWrapper(global::System.Object? obj)
+        private AdditionalFileAnalysisContextWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -82,15 +82,15 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static AdditionalFileAnalysisContextWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static AdditionalFileAnalysisContextWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new AdditionalFileAnalysisContextWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

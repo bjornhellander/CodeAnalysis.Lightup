@@ -104,7 +104,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(structTypeDef))
             {
-                return ($"{typeDef.Name}Extensions", true);
+                return ($"{typeDef.Name}Ex", true);
             }
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
@@ -122,14 +122,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(classTypeDef))
             {
-                if (classTypeDef.IsStatic)
-                {
-                    return ($"{typeDef.Name}Ex", true);
-                }
-                else
-                {
-                    return ($"{typeDef.Name}Extensions", true);
-                }
+                return ($"{typeDef.Name}Ex", true);
             }
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
@@ -140,7 +133,7 @@ public class LightupGenerator : IIncrementalGenerator
             }
             else if (HasNewMembers(interfaceTypeDef))
             {
-                return ($"{typeDef.Name}Extensions", true);
+                return ($"{typeDef.Name}Ex", true);
             }
         }
 

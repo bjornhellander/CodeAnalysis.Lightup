@@ -17,7 +17,7 @@ public partial class CodeActionExtensionsTests
     [DataRow(CodeActionPriorityEx.Default)]
     public override void TestCreateWithPriorityGivenCompatibleObject(CodeActionPriorityEx priority)
     {
-        var obj = CodeActionExtensions.Create("title", CreateDocumentAsync, null, priority);
+        var obj = CodeActionEx.Create("title", CreateDocumentAsync, null, priority);
         Assert.AreEqual((CodeActionPriority)priority, obj.Priority);
     }
 }

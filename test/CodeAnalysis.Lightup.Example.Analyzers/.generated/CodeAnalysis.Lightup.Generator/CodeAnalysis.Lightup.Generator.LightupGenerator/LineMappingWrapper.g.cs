@@ -12,12 +12,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate LineMappingWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.LinePositionSpan span, global::System.Nullable<global::System.Int32> characterOffset, global::Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan);
 
-        private delegate global::System.Nullable<global::System.Int32> CharacterOffsetGetterDelegate(global::System.Object? _obj);
-        private delegate global::System.Boolean IsHiddenGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpanGetterDelegate(global::System.Object? _obj);
-        private delegate global::Microsoft.CodeAnalysis.Text.LinePositionSpan SpanGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Nullable<global::System.Int32> CharacterOffsetGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsHiddenGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.FileLinePositionSpan MappedSpanGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.LinePositionSpan SpanGetterDelegate(global::System.Object _obj);
 
-        private delegate global::System.Boolean EqualsDelegate0(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.LineMappingWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static LineMappingWrapper()
         {
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherLineMapping");
         }
 
-        private LineMappingWrapper(global::System.Object? obj)
+        private LineMappingWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -85,15 +85,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static LineMappingWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static LineMappingWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new LineMappingWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

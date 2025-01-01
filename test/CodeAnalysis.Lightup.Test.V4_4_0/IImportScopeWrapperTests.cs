@@ -3,7 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0;
 
-using System;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,18 +13,10 @@ using Wrapper = Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper;
 public partial class IImportScopeWrapperTests
 {
     [TestMethod]
-    public override void TestImportsGivenNullObject()
-    {
-        object? obj = null;
-        var wrapper = Wrapper.As(obj);
-        Assert.ThrowsException<NullReferenceException>(() => wrapper.Imports);
-    }
-
-    [TestMethod]
     public void TestImportsGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         var imports = wrapper.Imports;
         Assert.AreEqual(1, imports.Length);
     }
@@ -38,10 +29,10 @@ public partial class IImportScopeWrapperTests
     }
 
     [TestMethod]
-    public void TestAsGivenCompatibleObject()
+    public void TestWrapGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        var wrapper = Wrapper.As(obj);
+        var wrapper = Wrapper.Wrap(obj);
         Assert.IsNotNull(wrapper.Unwrap());
     }
 

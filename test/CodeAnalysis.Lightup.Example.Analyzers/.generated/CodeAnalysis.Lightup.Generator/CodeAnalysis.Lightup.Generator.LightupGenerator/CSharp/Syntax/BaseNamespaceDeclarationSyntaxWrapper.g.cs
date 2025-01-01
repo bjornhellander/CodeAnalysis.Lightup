@@ -10,24 +10,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> ExternsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> MembersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax NameGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken NamespaceKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> UsingsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> ExternsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> MembersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax NameGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken NamespaceKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> UsingsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddMembersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddUsingsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithAttributeListsDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithExternsDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithMembersDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithModifiersDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithNameDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeywordDelegate10(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithUsingsDelegate11(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddExternsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddMembersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper AddUsingsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithAttributeListsDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithExternsDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithMembersDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithModifiersDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithNameDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithNamespaceKeywordDelegate10(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseNamespaceDeclarationSyntaxWrapper WithUsingsDelegate11(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings);
 
         private static readonly ExternsGetterDelegate ExternsGetterFunc;
         private static readonly MembersGetterDelegate MembersGetterFunc;
@@ -48,7 +48,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithNamespaceKeywordDelegate10 WithNamespaceKeywordFunc10;
         private static readonly WithUsingsDelegate11 WithUsingsFunc11;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax wrappedObject;
 
         static BaseNamespaceDeclarationSyntaxWrapper()
         {
@@ -74,7 +74,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithUsingsFunc11 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUsingsDelegate11>(WrappedType, "WithUsings", "usingsSyntaxList`1");
         }
 
-        private BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? obj)
+        private BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax obj)
         {
             wrappedObject = obj;
         }
@@ -109,27 +109,33 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             get { return UsingsGetterFunc(wrappedObject); }
         }
 
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static explicit operator BaseNamespaceDeclarationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax obj)
+        {
+            return Wrap(obj);
+        }
+
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax?(BaseNamespaceDeclarationSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax(BaseNamespaceDeclarationSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static BaseNamespaceDeclarationSyntaxWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static BaseNamespaceDeclarationSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.As<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax>(obj, WrappedType);
             return new BaseNamespaceDeclarationSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax Unwrap()
         {
             return wrappedObject;
         }

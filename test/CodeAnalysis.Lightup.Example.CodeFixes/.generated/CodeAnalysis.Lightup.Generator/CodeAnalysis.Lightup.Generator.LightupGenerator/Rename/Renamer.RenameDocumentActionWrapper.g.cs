@@ -11,13 +11,13 @@ public partial class RenamerEx {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String GetDescriptionDelegate0(global::System.Object? _obj, global::System.Globalization.CultureInfo? culture);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrorsDelegate1(global::System.Object? _obj, global::System.Globalization.CultureInfo? culture);
+        private delegate global::System.String GetDescriptionDelegate0(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrorsDelegate1(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
 
         private static readonly GetDescriptionDelegate0 GetDescriptionFunc0;
         private static readonly GetErrorsDelegate1 GetErrorsFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static RenameDocumentActionWrapper()
         {
@@ -27,7 +27,7 @@ public partial class RenamerEx {
             GetErrorsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetErrorsDelegate1>(WrappedType, "GetErrors", "cultureCultureInfo");
         }
 
-        private RenameDocumentActionWrapper(global::System.Object? obj)
+        private RenameDocumentActionWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -38,15 +38,15 @@ public partial class RenamerEx {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static RenameDocumentActionWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static RenameDocumentActionWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new RenameDocumentActionWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

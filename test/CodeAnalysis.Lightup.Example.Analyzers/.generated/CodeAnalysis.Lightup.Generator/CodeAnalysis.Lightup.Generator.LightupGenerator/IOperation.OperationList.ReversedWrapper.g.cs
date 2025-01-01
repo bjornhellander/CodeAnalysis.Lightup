@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationExtensions {
+public partial class IOperationEx {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed. Added in version 4.2.0.0.</summary>
     public partial struct ReversedWrapper
@@ -12,17 +12,17 @@ public partial struct OperationListWrapper {
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Int32 CountGetterDelegate(global::System.Object? _obj);
+        private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object? _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object? _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 
         private static readonly GetEnumeratorDelegate0 GetEnumeratorFunc0;
         private static readonly ToImmutableArrayDelegate1 ToImmutableArrayFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ReversedWrapper()
         {
@@ -34,7 +34,7 @@ public partial struct OperationListWrapper {
             ToImmutableArrayFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate1>(WrappedType, "ToImmutableArray");
         }
 
-        private ReversedWrapper(global::System.Object? obj)
+        private ReversedWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -51,21 +51,21 @@ public partial struct OperationListWrapper {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static ReversedWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static ReversedWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ReversedWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationExtensions.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
         {
             return GetEnumeratorFunc0(wrappedObject);
         }

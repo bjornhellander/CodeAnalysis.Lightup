@@ -12,17 +12,17 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
 
         private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameOverloads, global::System.Boolean RenameInStrings, global::System.Boolean RenameInComments, global::System.Boolean RenameFile);
 
-        private delegate global::System.Boolean RenameFileGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameFileSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameInCommentsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameInCommentsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameInStringsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameInStringsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
-        private delegate global::System.Boolean RenameOverloadsGetterDelegate(global::System.Object? _obj);
-        private delegate void RenameOverloadsSetterDelegate(System.Object? _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameFileGetterDelegate(global::System.Object _obj);
+        private delegate void RenameFileSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameInCommentsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameInCommentsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameInStringsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameInStringsSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean RenameOverloadsGetterDelegate(global::System.Object _obj);
+        private delegate void RenameOverloadsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
-        private delegate void DeconstructDelegate0(global::System.Object? _obj, out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object? _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
+        private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile);
+        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private static readonly DeconstructDelegate0 DeconstructFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
 
-        private readonly global::System.Object? wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static SymbolRenameOptionsWrapper()
         {
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
         }
 
-        private SymbolRenameOptionsWrapper(global::System.Object? obj)
+        private SymbolRenameOptionsWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -104,15 +104,15 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
-        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, null will be stored in the wrapper instead.</summary>
-        public static SymbolRenameOptionsWrapper As(global::System.Object? obj)
+        /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
+        public static SymbolRenameOptionsWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.As<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new SymbolRenameOptionsWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object? Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

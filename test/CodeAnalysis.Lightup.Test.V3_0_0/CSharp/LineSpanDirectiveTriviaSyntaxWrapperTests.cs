@@ -4,10 +4,11 @@
 namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper;
 
 [TestClass]
 public class LineSpanDirectiveTriviaSyntaxWrapperTests
@@ -15,38 +16,38 @@ public class LineSpanDirectiveTriviaSyntaxWrapperTests
     [TestMethod]
     public void TestIsGivenNullObject()
     {
-        SyntaxNode? obj = null;
-        Assert.IsFalse(LineSpanDirectiveTriviaSyntaxWrapper.Is(obj));
+        DirectiveTriviaSyntax? obj = null;
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
-    public void TestAsGivenNullObject()
+    public void TestWrapGivenNullObject()
     {
-        SyntaxNode? obj = null;
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
-        Assert.AreEqual(obj, wrapper.Unwrap());
-    }
-
-    [TestMethod]
-    public virtual void TestEndGivenNullObject()
-    {
-        SyntaxNode? obj = null;
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.End);
+        DirectiveTriviaSyntax? obj = null;
+        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
-        Assert.IsFalse(LineSpanDirectiveTriviaSyntaxWrapper.Is(obj));
+        var obj = CreateIncompatibleInstance();
+        Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
-    public void TestAsGivenIncompatibleObject()
+    public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
-        var wrapper = LineSpanDirectiveTriviaSyntaxWrapper.As(obj);
-        Assert.IsNull(wrapper.Unwrap());
+        var obj = CreateIncompatibleInstance();
+        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+    }
+
+    private static DefineDirectiveTriviaSyntax CreateIncompatibleInstance()
+    {
+        return SyntaxFactory.DefineDirectiveTrivia(
+                    SyntaxFactory.Token(SyntaxKind.HashToken),
+                    SyntaxFactory.Token(SyntaxKind.DefineKeyword),
+                    SyntaxFactory.Token(SyntaxKind.IdentifierToken),
+                    SyntaxFactory.Token(SyntaxKind.EndOfDirectiveToken),
+                    true);
     }
 }

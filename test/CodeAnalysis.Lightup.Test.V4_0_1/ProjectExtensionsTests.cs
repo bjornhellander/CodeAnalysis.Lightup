@@ -17,7 +17,7 @@ public partial class ProjectExtensionsTests
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);
-        var result = await ProjectExtensions.GetSourceGeneratedDocumentsAsync(project, default);
+        var result = await ProjectEx.GetSourceGeneratedDocumentsAsync(project, default);
         Assert.AreEqual(0, result.Count());
     }
 }

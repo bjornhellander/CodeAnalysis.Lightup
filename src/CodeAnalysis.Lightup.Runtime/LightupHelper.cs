@@ -37,16 +37,22 @@ namespace CodeAnalysis.Lightup.Runtime
             return true;
         }
 
-        public static TObject? As<TObject>(object? obj, Type? wrappedType)
+        public static TObject Wrap<TObject>(object obj, Type? wrappedType)
             where TObject : class
         {
-            if (!(obj is null) && wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
+            if (obj is null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            // TODO: Check if this should be optimized
+            if (wrappedType != null && wrappedType.IsAssignableFrom(obj.GetType()))
             {
                 return (TObject)obj;
             }
             else
             {
-                return null;
+                throw new InvalidOperationException();
             }
         }
 
@@ -317,7 +323,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
             if (wrapperType.IsByRef)
             {
-                if (nativeParam.IsIn)
+                if (nativeParam.IsOut)
                 {
                     var wrapperElementType = wrapperType.GetElementType();
                     var nativeElementType = nativeType.GetElementType();
@@ -325,29 +331,10 @@ namespace CodeAnalysis.Lightup.Runtime
                     var tempNativeVar = Expression.Variable(nativeElementType);
                     variables.Add(tempNativeVar);
 
-                    preCallExpressions.Add(
-                        Expression.Assign(
-                            tempNativeVar,
-                            GetNativeValue(
-                                input,
-                                wrapperElementType,
-                                nativeElementType)));
-
-                    return tempNativeVar;
-                }
-                else if (nativeParam.IsOut)
-                {
-                    var wrapperElementType = wrapperType.GetElementType();
-                    var nativeElementType = nativeType.GetElementType();
-
-                    var tempNativeVar = Expression.Variable(nativeElementType);
-                    variables.Add(tempNativeVar);
-
-                    // TODO: If needed, use GetNativeValue instead of Convert
                     postCallExpressions.Add(
                         Expression.Assign(
                             input,
-                            Expression.Convert(
+                            GetPossiblyWrappedValue(
                                 tempNativeVar,
                                 wrapperElementType)));
 
@@ -361,8 +348,28 @@ namespace CodeAnalysis.Lightup.Runtime
             }
             else
             {
-                var result = GetNativeValue(input, wrapperType, nativeType);
-                return result;
+                if (nativeParam.IsIn)
+                {
+                    var nativeElementType = nativeType.GetElementType();
+
+                    var tempNativeVar = Expression.Variable(nativeElementType);
+                    variables.Add(tempNativeVar);
+
+                    preCallExpressions.Add(
+                        Expression.Assign(
+                            tempNativeVar,
+                            GetNativeValue(
+                                input,
+                                wrapperType,
+                                nativeElementType)));
+
+                    return tempNativeVar;
+                }
+                else
+                {
+                    var result = GetNativeValue(input, wrapperType, nativeType);
+                    return result;
+                }
             }
         }
 
@@ -522,35 +529,59 @@ namespace CodeAnalysis.Lightup.Runtime
             else if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
                 // Nullable<X> where X is a wrapper
-                var wrapperItemType = targetType.GetGenericArguments()[0];
+                if (input.Type.IsGenericType)
+                {
+                    var wrapperItemType = targetType.GetGenericArguments()[0];
 
-                var result = Expression.Condition(
-                    Expression.IsTrue(
-                        Expression.Property(
-                            input,
-                            "HasValue")),
-                    Expression.Convert(
-                        GetPossiblyWrappedValue(
+                    var result = Expression.Condition(
+                        Expression.IsTrue(
                             Expression.Property(
                                 input,
-                                "Value"),
-                            wrapperItemType),
-                        targetType),
-                    Expression.Default(targetType));
-                return result;
+                                "HasValue")),
+                        Expression.Convert(
+                            GetPossiblyWrappedValue(
+                                Expression.Property(
+                                    input,
+                                    "Value"),
+                                wrapperItemType),
+                            targetType),
+                        Expression.Default(targetType));
+                    return result;
+                }
+                else
+                {
+                    var wrapperItemType = targetType.GetGenericArguments()[0];
+
+                    var wrapMethod = wrapperItemType.GetMethod("Wrap");
+                    if (wrapMethod == null)
+                    {
+                        throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
+                    }
+
+                    var result = Expression.Condition(
+                        Expression.IsTrue(
+                            Expression.Equal(
+                                input,
+                                Expression.Default(input.Type))),
+                        Expression.Default(targetType),
+                        Expression.Convert(
+                            Expression.Call(null, wrapMethod, input),
+                            targetType));
+                    return result;
+                }
             }
             else
             {
-                var wrapMethod = targetType.GetMethod("As");
+                var wrapMethod = targetType.GetMethod("Wrap");
                 if (wrapMethod == null)
                 {
-                    throw new InvalidOperationException("Could not find method 'As' in wrapper");
+                    throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
                 }
 
                 var parameters = wrapMethod.GetParameters();
                 if (parameters.Length != 1)
                 {
-                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'As' method");
+                    throw new InvalidOperationException("Unexpected parameters in wrapper's 'Wrap' method");
                 }
 
                 if (parameters[0].ParameterType == typeof(object) && input.Type.IsValueType)
@@ -749,24 +780,52 @@ namespace CodeAnalysis.Lightup.Runtime
             else if (wrapperType.IsGenericType && wrapperType.GetGenericTypeDefinition() == typeof(Nullable<>))
             {
                 // Nullable<X> where X is a wrapper
-                var wrapperItemType = wrapperType.GetGenericArguments()[0];
-                var nativeItemType = nativeType.GetGenericArguments()[0];
+                if (nativeType.IsGenericType)
+                {
+                    var wrapperItemType = wrapperType.GetGenericArguments()[0];
+                    var nativeItemType = nativeType.GetGenericArguments()[0];
 
-                var result = Expression.Condition(
-                    Expression.IsTrue(
-                        Expression.Property(
-                            input,
-                            "HasValue")),
-                    Expression.Convert(
-                        GetNativeValue(
+                    var result = Expression.Condition(
+                        Expression.IsTrue(
                             Expression.Property(
                                 input,
-                                "Value"),
-                            wrapperItemType,
-                            nativeItemType),
-                        nativeType),
-                    Expression.Default(nativeType));
-                return result;
+                                "HasValue")),
+                        Expression.Convert(
+                            GetNativeValue(
+                                Expression.Property(
+                                    input,
+                                    "Value"),
+                                wrapperItemType,
+                                nativeItemType),
+                            nativeType),
+                        Expression.Default(nativeType));
+                    return result;
+                }
+                else
+                {
+                    var wrapperItemType = wrapperType.GetGenericArguments()[0];
+
+                    var unwrapMethod = wrapperItemType.GetMethod("Unwrap");
+                    if (unwrapMethod == null)
+                    {
+                        throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
+                    }
+
+                    var result = Expression.Condition(
+                        Expression.IsTrue(
+                            Expression.Property(
+                                input,
+                                "HasValue")),
+                        Expression.Convert(
+                            Expression.Call(
+                                Expression.Property(
+                                    input,
+                                    "Value"),
+                                unwrapMethod),
+                            nativeType),
+                        Expression.Default(nativeType));
+                    return result;
+                }
             }
             else if (wrapperType.IsEnum)
             {
