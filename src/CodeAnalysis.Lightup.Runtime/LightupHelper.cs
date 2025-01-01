@@ -331,11 +331,10 @@ namespace CodeAnalysis.Lightup.Runtime
                     var tempNativeVar = Expression.Variable(nativeElementType);
                     variables.Add(tempNativeVar);
 
-                    // TODO: If needed, use GetNativeValue instead of Convert
                     postCallExpressions.Add(
                         Expression.Assign(
                             input,
-                            Expression.Convert(
+                            GetPossiblyWrappedValue(
                                 tempNativeVar,
                                 wrapperElementType)));
 
