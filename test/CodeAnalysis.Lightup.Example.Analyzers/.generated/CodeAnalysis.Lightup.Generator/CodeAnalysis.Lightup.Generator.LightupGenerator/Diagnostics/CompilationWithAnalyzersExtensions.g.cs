@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers";
 
-        private delegate CompilationWithAnalyzers ConstructorDelegate0(global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers ConstructorDelegate0(global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options);
 
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.AdditionalText file, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate1(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken);

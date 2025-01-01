@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions";
 
-        private delegate AnalyzerOptions ConstructorDelegate0(global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AdditionalText> additionalFiles, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider);
+        private delegate Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions ConstructorDelegate0(global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AdditionalText> additionalFiles, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper optionsProvider);
 
         private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsProviderWrapper AnalyzerConfigOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions _obj);
 

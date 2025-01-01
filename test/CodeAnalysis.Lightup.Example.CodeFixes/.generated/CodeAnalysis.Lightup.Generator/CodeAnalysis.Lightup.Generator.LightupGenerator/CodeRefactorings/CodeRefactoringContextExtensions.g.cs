@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext";
 
-        private delegate CodeRefactoringContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> registerRefactoring, global::System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.TextDocument document, global::Microsoft.CodeAnalysis.Text.TextSpan span, global::System.Action<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> registerRefactoring, global::System.Threading.CancellationToken cancellationToken);
 
         private delegate global::Microsoft.CodeAnalysis.TextDocument TextDocumentGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringContext _obj);
 

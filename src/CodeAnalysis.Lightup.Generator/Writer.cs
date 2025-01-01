@@ -988,8 +988,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             foreach (var constructor in instanceConstructors)
             {
                 var index = instanceConstructors.IndexOf(constructor);
-                // TODO: Use full name here?
-                AppendInstanceConstructorDelegateDeclarations(sb, typeDef.Name, constructor, index, nullableAnnotation, typeDefs);
+                AppendInstanceConstructorDelegateDeclarations(sb, typeDef.FullName, constructor, index, nullableAnnotation, typeDefs);
             }
         }
         if (staticProperties.Count != 0)

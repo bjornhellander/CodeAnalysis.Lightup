@@ -8,8 +8,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.SyntaxEditor";
 
-        private delegate SyntaxEditor ConstructorDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices services);
-        private delegate SyntaxEditor ConstructorDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services);
+        private delegate Microsoft.CodeAnalysis.Editing.SyntaxEditor ConstructorDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices services);
+        private delegate Microsoft.CodeAnalysis.Editing.SyntaxEditor ConstructorDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;

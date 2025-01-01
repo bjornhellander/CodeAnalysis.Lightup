@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CommandLineSourceFile";
 
-        private delegate CommandLineSourceFile ConstructorDelegate0(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected);
+        private delegate Microsoft.CodeAnalysis.CommandLineSourceFile ConstructorDelegate0(global::System.String path, global::System.Boolean isScript, global::System.Boolean isInputRedirected);
 
         private delegate global::System.Boolean IsInputRedirectedGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineSourceFile _obj);
 

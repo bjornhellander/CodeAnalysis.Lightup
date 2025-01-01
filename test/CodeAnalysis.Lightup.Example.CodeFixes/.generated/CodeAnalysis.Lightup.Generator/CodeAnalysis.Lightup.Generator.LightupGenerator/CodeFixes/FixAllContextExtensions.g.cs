@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.FixAllContext";
 
-        private delegate FixAllContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.Document document, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, global::Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, global::System.String? codeActionEquivalenceKey, global::System.Collections.Generic.IEnumerable<global::System.String> diagnosticIds, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, global::System.Threading.CancellationToken cancellationToken);
+        private delegate Microsoft.CodeAnalysis.CodeFixes.FixAllContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.Document document, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> diagnosticSpan, global::Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider codeFixProvider, global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope scope, global::System.String? codeActionEquivalenceKey, global::System.Collections.Generic.IEnumerable<global::System.String> diagnosticIds, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext.DiagnosticProvider fixAllDiagnosticProvider, global::System.Threading.CancellationToken cancellationToken);
 
         private delegate global::System.IProgress<global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper> ProgressGetterDelegate(global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext _obj);
 
