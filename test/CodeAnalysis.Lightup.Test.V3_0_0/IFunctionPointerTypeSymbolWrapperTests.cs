@@ -5,7 +5,6 @@ namespace CodeAnalysis.Lightup.Test.V3_0_0;
 
 using System;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -31,7 +30,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = Mock.Of<ITypeSymbol>();
         Assert.IsFalse(Wrapper.Is(obj));
     }
 

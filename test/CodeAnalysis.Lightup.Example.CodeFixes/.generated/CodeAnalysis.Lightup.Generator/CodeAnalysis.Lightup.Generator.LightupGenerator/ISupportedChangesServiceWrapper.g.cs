@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }

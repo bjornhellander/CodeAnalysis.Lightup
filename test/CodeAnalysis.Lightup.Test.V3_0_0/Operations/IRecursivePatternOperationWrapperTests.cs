@@ -4,8 +4,6 @@
 namespace CodeAnalysis.Lightup.Test.V3_0_0.Operations;
 
 using System;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -18,7 +16,7 @@ public class IRecursivePatternOperationWrapperTests
     [TestMethod]
     public void TestIsGivenNullObject()
     {
-        IOperation? obj = null;
+        IPatternOperation? obj = null;
         Assert.IsFalse(Wrapper.Is(obj));
     }
 
@@ -32,7 +30,7 @@ public class IRecursivePatternOperationWrapperTests
     [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = Mock.Of<IPatternOperation>();
         Assert.IsFalse(Wrapper.Is(obj));
     }
 

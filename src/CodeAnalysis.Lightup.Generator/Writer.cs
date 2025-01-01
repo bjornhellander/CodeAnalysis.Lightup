@@ -865,7 +865,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>");
-        sb.AppendLine($"        public static bool Is(global::System.Object{na} obj)");
+        sb.AppendLine($"        public static bool Is(global::{baseTypeNamespace}.{baseTypeName}{na} obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            return global::{fullHelperName}.Is(obj, WrappedType);");
         sb.AppendLine($"        }}");

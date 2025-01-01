@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }

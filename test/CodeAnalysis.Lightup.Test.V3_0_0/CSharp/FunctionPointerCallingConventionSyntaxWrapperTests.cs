@@ -4,7 +4,6 @@
 namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,7 +15,7 @@ public class FunctionPointerCallingConventionSyntaxWrapperTests
     [TestMethod]
     public void TestIsGivenNullObject()
     {
-        SyntaxNode? obj = null;
+        CSharpSyntaxNode? obj = null;
         Assert.IsFalse(Wrapper.Is(obj));
     }
 

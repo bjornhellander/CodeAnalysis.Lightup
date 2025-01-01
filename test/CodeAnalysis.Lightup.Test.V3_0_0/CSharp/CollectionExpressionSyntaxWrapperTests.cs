@@ -4,7 +4,6 @@
 namespace CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
 
 using System;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,7 +16,7 @@ public class CollectionExpressionSyntaxWrapperTests
     [TestMethod]
     public void TestIsGivenNullObject()
     {
-        SyntaxNode? obj = null;
+        ExpressionSyntax? obj = null;
         Assert.IsFalse(Wrapper.Is(obj));
     }
 
@@ -31,14 +30,19 @@ public class CollectionExpressionSyntaxWrapperTests
     [TestMethod]
     public void TestIsGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.ParameterList();
+        var obj = CreateIncompatibleInstance();
         Assert.IsFalse(Wrapper.Is(obj));
     }
 
     [TestMethod]
     public void TestWrapGivenIncompatibleObject()
     {
-        var obj = SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression);
+        var obj = CreateIncompatibleInstance();
         Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+    }
+
+    private static LiteralExpressionSyntax CreateIncompatibleInstance()
+    {
+        return SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression);
     }
 }
