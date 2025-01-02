@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol SignatureGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol SignatureGetterDelegate(global::System.Object _obj);
 
         private static readonly SignatureGetterDelegate SignatureGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.ITypeSymbol wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IFunctionPointerTypeSymbolWrapper()
         {
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             SignatureGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SignatureGetterDelegate>(WrappedType, nameof(Signature));
         }
 
-        private IFunctionPointerTypeSymbolWrapper(global::Microsoft.CodeAnalysis.ITypeSymbol obj)
+        private IFunctionPointerTypeSymbolWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -35,20 +35,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.ITypeSymbol? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IFunctionPointerTypeSymbolWrapper Wrap(global::Microsoft.CodeAnalysis.ITypeSymbol obj)
+        public static IFunctionPointerTypeSymbolWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.ITypeSymbol>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IFunctionPointerTypeSymbolWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.ITypeSymbol Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Boolean CanApplyChangeDelegate0(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.ApplyChangesKind kind);
-        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate2(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate global::System.Boolean CanApplyChangeDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.ApplyChangesKind kind);
+        private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate2(global::System.Object _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
 
         private static readonly CanApplyChangeDelegate0 CanApplyChangeFunc0;
         private static readonly CanApplyCompilationOptionChangeDelegate1 CanApplyCompilationOptionChangeFunc1;
         private static readonly CanApplyParseOptionChangeDelegate2 CanApplyParseOptionChangeFunc2;
 
-        private readonly global::Microsoft.CodeAnalysis.Host.IWorkspaceService wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ISupportedChangesServiceWrapper()
         {
@@ -29,26 +29,26 @@ namespace Microsoft.CodeAnalysis.Lightup
             CanApplyParseOptionChangeFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate2>(WrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
         }
 
-        private ISupportedChangesServiceWrapper(global::Microsoft.CodeAnalysis.Host.IWorkspaceService obj)
+        private ISupportedChangesServiceWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.Host.IWorkspaceService? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ISupportedChangesServiceWrapper Wrap(global::Microsoft.CodeAnalysis.Host.IWorkspaceService obj)
+        public static ISupportedChangesServiceWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Host.IWorkspaceService>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ISupportedChangesServiceWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.Host.IWorkspaceService Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

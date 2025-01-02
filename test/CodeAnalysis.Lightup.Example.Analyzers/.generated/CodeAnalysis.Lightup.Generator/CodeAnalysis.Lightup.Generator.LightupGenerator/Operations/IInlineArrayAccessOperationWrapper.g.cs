@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation ArgumentGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation InstanceGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation ArgumentGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation InstanceGetterDelegate(global::System.Object _obj);
 
         private static readonly ArgumentGetterDelegate ArgumentGetterFunc;
         private static readonly InstanceGetterDelegate InstanceGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IInlineArrayAccessOperationWrapper()
         {
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             InstanceGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<InstanceGetterDelegate>(WrappedType, nameof(Instance));
         }
 
-        private IInlineArrayAccessOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private IInlineArrayAccessOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -44,20 +44,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IInlineArrayAccessOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static IInlineArrayAccessOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IInlineArrayAccessOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.String ValueGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.String ValueGetterDelegate(global::System.Object _obj);
 
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IUtf8StringOperationWrapper()
         {
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ValueGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
-        private IUtf8StringOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private IUtf8StringOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -35,20 +35,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IUtf8StringOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static IUtf8StringOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IUtf8StringOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

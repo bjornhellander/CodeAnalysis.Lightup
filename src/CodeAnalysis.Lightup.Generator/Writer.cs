@@ -1314,6 +1314,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             return null;
         }
 
+        // TODO: Improve handling of base type to handle cases where the base type is not available in the baseline version? Add more info in reflector?
+        if (typeDef.AssemblyVersion != null)
+        {
+            return null;
+        }
+
         if (baseTypeRef is NamedTypeReference x)
         {
             return $"{x.Namespace}.{x.Name}";
