@@ -10,17 +10,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Boolean IsLiftedGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? LeftOperandGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? MethodGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? RightOperandGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsLiftedGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation? LeftOperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? MethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation? RightOperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly IsLiftedGetterDelegate IsLiftedGetterFunc;
         private static readonly LeftOperandGetterDelegate LeftOperandGetterFunc;
         private static readonly MethodGetterDelegate MethodGetterFunc;
         private static readonly RightOperandGetterDelegate RightOperandGetterFunc;
 
-        private readonly global::System.Object wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static IRangeOperationWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             RightOperandGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RightOperandGetterDelegate>(WrappedType, nameof(RightOperand));
         }
 
-        private IRangeOperationWrapper(global::System.Object obj)
+        private IRangeOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -62,20 +62,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IRangeOperationWrapper Wrap(global::System.Object obj)
+        public static IRangeOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IRangeOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }

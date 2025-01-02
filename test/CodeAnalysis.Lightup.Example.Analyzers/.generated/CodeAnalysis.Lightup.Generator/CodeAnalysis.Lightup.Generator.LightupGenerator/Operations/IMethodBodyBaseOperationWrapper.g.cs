@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? BlockBodyGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? ExpressionBodyGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? BlockBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.IBlockOperation? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly BlockBodyGetterDelegate BlockBodyGetterFunc;
         private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;
 
-        private readonly global::System.Object wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static IMethodBodyBaseOperationWrapper()
         {
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ExpressionBodyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(WrappedType, nameof(ExpressionBody));
         }
 
-        private IMethodBodyBaseOperationWrapper(global::System.Object obj)
+        private IMethodBodyBaseOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -44,20 +44,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IMethodBodyBaseOperationWrapper Wrap(global::System.Object obj)
+        public static IMethodBodyBaseOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IMethodBodyBaseOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }

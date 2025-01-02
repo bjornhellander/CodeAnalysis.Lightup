@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatternsGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbolGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatternsGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IPatternOperation> DeconstructionSubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? DeconstructSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol MatchedTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IPropertySubpatternOperationWrapper> PropertySubpatternsGetterDelegate(global::Microsoft.CodeAnalysis.Operations.IPatternOperation _obj);
 
         private static readonly DeclaredSymbolGetterDelegate DeclaredSymbolGetterFunc;
         private static readonly DeconstructionSubpatternsGetterDelegate DeconstructionSubpatternsGetterFunc;
@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly MatchedTypeGetterDelegate MatchedTypeGetterFunc;
         private static readonly PropertySubpatternsGetterDelegate PropertySubpatternsGetterFunc;
 
-        private readonly global::System.Object wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.Operations.IPatternOperation wrappedObject;
 
         static IRecursivePatternOperationWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PropertySubpatternsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PropertySubpatternsGetterDelegate>(WrappedType, nameof(PropertySubpatterns));
         }
 
-        private IRecursivePatternOperationWrapper(global::System.Object obj)
+        private IRecursivePatternOperationWrapper(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
         {
             wrappedObject = obj;
         }
@@ -71,20 +71,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.Operations.IPatternOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IRecursivePatternOperationWrapper Wrap(global::System.Object obj)
+        public static IRecursivePatternOperationWrapper Wrap(global::Microsoft.CodeAnalysis.Operations.IPatternOperation obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.Operations.IPatternOperation>(obj, WrappedType);
             return new IRecursivePatternOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object Unwrap()
+        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Unwrap()
         {
             return wrappedObject;
         }

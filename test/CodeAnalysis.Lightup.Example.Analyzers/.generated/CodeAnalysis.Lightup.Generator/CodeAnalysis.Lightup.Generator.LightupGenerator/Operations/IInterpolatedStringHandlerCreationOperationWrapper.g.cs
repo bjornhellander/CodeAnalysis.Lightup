@@ -10,17 +10,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation ContentGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Boolean HandlerAppendCallsReturnBoolGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation HandlerCreationGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Boolean HandlerCreationHasSuccessParameterGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation ContentGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Boolean HandlerAppendCallsReturnBoolGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation HandlerCreationGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Boolean HandlerCreationHasSuccessParameterGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ContentGetterDelegate ContentGetterFunc;
         private static readonly HandlerAppendCallsReturnBoolGetterDelegate HandlerAppendCallsReturnBoolGetterFunc;
         private static readonly HandlerCreationGetterDelegate HandlerCreationGetterFunc;
         private static readonly HandlerCreationHasSuccessParameterGetterDelegate HandlerCreationHasSuccessParameterGetterFunc;
 
-        private readonly global::System.Object wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
 
         static IInterpolatedStringHandlerCreationOperationWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             HandlerCreationHasSuccessParameterGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<HandlerCreationHasSuccessParameterGetterDelegate>(WrappedType, nameof(HandlerCreationHasSuccessParameter));
         }
 
-        private IInterpolatedStringHandlerCreationOperationWrapper(global::System.Object obj)
+        private IInterpolatedStringHandlerCreationOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
         }
@@ -62,20 +62,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IInterpolatedStringHandlerCreationOperationWrapper Wrap(global::System.Object obj)
+        public static IInterpolatedStringHandlerCreationOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
             return new IInterpolatedStringHandlerCreationOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::System.Object Unwrap()
+        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
         {
             return wrappedObject;
         }
