@@ -10,6 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Int32 FixedSizeGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Boolean IsExplicitlyNamedTupleElementGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
+        private delegate global::System.Boolean IsFixedSizeBufferGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
@@ -17,6 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly FixedSizeGetterDelegate FixedSizeGetterFunc;
         private static readonly IsExplicitlyNamedTupleElementGetterDelegate IsExplicitlyNamedTupleElementGetterFunc;
+        private static readonly IsFixedSizeBufferGetterDelegate IsFixedSizeBufferGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
         private static readonly RefCustomModifiersGetterDelegate RefCustomModifiersGetterFunc;
@@ -28,6 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             FixedSizeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FixedSizeGetterDelegate>(wrappedType, nameof(FixedSize));
             IsExplicitlyNamedTupleElementGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(wrappedType, nameof(IsExplicitlyNamedTupleElement));
+            IsFixedSizeBufferGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFixedSizeBufferGetterDelegate>(wrappedType, nameof(IsFixedSizeBuffer));
             IsRequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             RefCustomModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
@@ -44,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsExplicitlyNamedTupleElement(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
         {
             return IsExplicitlyNamedTupleElementGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 3.0.0.0.</summary>
+        public static global::System.Boolean IsFixedSizeBuffer(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
+        {
+            return IsFixedSizeBufferGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>

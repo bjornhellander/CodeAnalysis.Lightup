@@ -5,6 +5,63 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.OperationKind.</summary>
     public static partial class OperationKindEx
     {
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind Unary = (global::Microsoft.CodeAnalysis.OperationKind)31;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind Binary = (global::Microsoft.CodeAnalysis.OperationKind)32;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind TupleBinary = (global::Microsoft.CodeAnalysis.OperationKind)87;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind MethodBody = (global::Microsoft.CodeAnalysis.OperationKind)88;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBody = (global::Microsoft.CodeAnalysis.OperationKind)89;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowCapture = (global::Microsoft.CodeAnalysis.OperationKind)91;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowCaptureReference = (global::Microsoft.CodeAnalysis.OperationKind)92;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind IsNull = (global::Microsoft.CodeAnalysis.OperationKind)93;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind CaughtException = (global::Microsoft.CodeAnalysis.OperationKind)94;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind StaticLocalInitializationSemaphore = (global::Microsoft.CodeAnalysis.OperationKind)95;
+
+        /// <summary>Added in version 2.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind FlowAnonymousFunction = (global::Microsoft.CodeAnalysis.OperationKind)96;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind CoalesceAssignment = (global::Microsoft.CodeAnalysis.OperationKind)97;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind Range = (global::Microsoft.CodeAnalysis.OperationKind)99;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind ReDim = (global::Microsoft.CodeAnalysis.OperationKind)101;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind ReDimClause = (global::Microsoft.CodeAnalysis.OperationKind)102;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind RecursivePattern = (global::Microsoft.CodeAnalysis.OperationKind)103;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind DiscardPattern = (global::Microsoft.CodeAnalysis.OperationKind)104;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind SwitchExpression = (global::Microsoft.CodeAnalysis.OperationKind)105;
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind SwitchExpressionArm = (global::Microsoft.CodeAnalysis.OperationKind)106;
+
         /// <summary>Added in version 3.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (global::Microsoft.CodeAnalysis.OperationKind)107;
 

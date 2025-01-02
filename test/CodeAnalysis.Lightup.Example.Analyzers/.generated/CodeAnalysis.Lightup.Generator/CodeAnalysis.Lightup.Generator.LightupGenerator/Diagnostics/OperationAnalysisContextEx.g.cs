@@ -12,9 +12,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree FilterTreeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext _obj);
         private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetControlFlowGraphDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext _obj);
+
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly FilterTreeGetterDelegate FilterTreeGetterFunc;
         private static readonly IsGeneratedCodeGetterDelegate IsGeneratedCodeGetterFunc;
+
+        private static readonly GetControlFlowGraphDelegate0 GetControlFlowGraphFunc0;
 
         static OperationAnalysisContextEx()
         {
@@ -23,6 +27,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             FilterSpanGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
             FilterTreeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
             IsGeneratedCodeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
+
+            GetControlFlowGraphFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetControlFlowGraphDelegate0>(wrappedType, "GetControlFlowGraph");
         }
 
         /// <summary>Property added in version 4.7.0.0.</summary>
@@ -41,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         public static global::System.Boolean IsGeneratedCode(this global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext _obj)
         {
             return IsGeneratedCodeGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 2.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetControlFlowGraph(this global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext _obj)
+        {
+            return GetControlFlowGraphFunc0(_obj);
         }
     }
 }

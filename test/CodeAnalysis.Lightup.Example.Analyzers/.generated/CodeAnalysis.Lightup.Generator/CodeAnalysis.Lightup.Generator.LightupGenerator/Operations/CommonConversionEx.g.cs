@@ -9,9 +9,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.CommonConversion";
 
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsImplicitGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
         private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
+        private static readonly IsImplicitGetterDelegate IsImplicitGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
 
         static CommonConversionEx()
@@ -19,6 +21,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsImplicitGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsImplicitGetterDelegate>(wrappedType, nameof(IsImplicit));
             IsNullableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
         }
 
@@ -26,6 +29,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.9.0.0.</summary>
+        public static global::System.Boolean IsImplicit(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
+        {
+            return IsImplicitGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
