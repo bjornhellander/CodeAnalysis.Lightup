@@ -5,7 +5,7 @@ namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
 using System;
 using System.Reflection;
-using CodeAnalysis.Lightup.Test.V3_0_0.CSharp;
+using CodeAnalysis.Lightup.Test.V2_8_2.CSharp;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
