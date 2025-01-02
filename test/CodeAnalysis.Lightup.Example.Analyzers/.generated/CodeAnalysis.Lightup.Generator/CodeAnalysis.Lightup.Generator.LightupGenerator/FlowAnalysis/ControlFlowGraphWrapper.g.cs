@@ -18,11 +18,11 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IAttributeOperationWrapper attribute, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate1(global::Microsoft.CodeAnalysis.Operations.IBlockOperation body, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate2(global::Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation constructorBody, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate2(global::Microsoft.CodeAnalysis.Operations.Lightup.IConstructorBodyOperationWrapper constructorBody, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate3(global::Microsoft.CodeAnalysis.Operations.IFieldInitializerOperation initializer, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate4(global::Microsoft.CodeAnalysis.Operations.IPropertyInitializerOperation initializer, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate5(global::Microsoft.CodeAnalysis.Operations.IParameterInitializerOperation initializer, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate6(global::Microsoft.CodeAnalysis.Operations.IMethodBodyOperation methodBody, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper CreateDelegate6(global::Microsoft.CodeAnalysis.Operations.Lightup.IMethodBodyOperationWrapper methodBody, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper? CreateDelegate7(global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Threading.CancellationToken cancellationToken);
 
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetAnonymousFunctionControlFlowGraphDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.IFlowAnonymousFunctionOperationWrapper anonymousFunction, global::System.Threading.CancellationToken cancellationToken);
@@ -138,7 +138,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper Create(global::Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation constructorBody, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper Create(global::Microsoft.CodeAnalysis.Operations.Lightup.IConstructorBodyOperationWrapper constructorBody, global::System.Threading.CancellationToken cancellationToken)
         {
             return CreateFunc2(constructorBody, cancellationToken);
         }
@@ -162,7 +162,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper Create(global::Microsoft.CodeAnalysis.Operations.IMethodBodyOperation methodBody, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper Create(global::Microsoft.CodeAnalysis.Operations.Lightup.IMethodBodyOperationWrapper methodBody, global::System.Threading.CancellationToken cancellationToken)
         {
             return CreateFunc6(methodBody, cancellationToken);
         }

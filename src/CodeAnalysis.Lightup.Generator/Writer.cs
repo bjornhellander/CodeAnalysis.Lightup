@@ -602,7 +602,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         var fullHelperName = $"Microsoft.CodeAnalysis.Lightup.{helperPrefix}LightupHelper";
 
-        var fullBaseTypeName = GetFullBaseTypeName(typeDef);
+        var fullBaseTypeName = GetFullBaseTypeName(typeDef, typeDefs);
         var hasBaseType = fullBaseTypeName != null && typeDef is not InterfaceTypeDefinition;
         fullBaseTypeName ??= "System.Object";
 
@@ -1276,12 +1276,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         return source;
     }
 
-    private static string? GetFullBaseTypeName(TypeDefinition typeDef)
+    private static string? GetFullBaseTypeName(
+        TypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         return typeDef switch
         {
             ClassTypeDefinition x => GetFullBaseTypeName(x),
-            InterfaceTypeDefinition x => GetFullBaseTypeName(x),
+            InterfaceTypeDefinition x => GetFullBaseTypeName(x, typeDefs),
             StructTypeDefinition => null,
             _ => throw new NotImplementedException(),
         };
@@ -1306,10 +1308,17 @@ namespace Microsoft.CodeAnalysis.Lightup
     }
 
     private static string? GetFullBaseTypeName(
-        InterfaceTypeDefinition typeDef)
+        InterfaceTypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var baseTypeRef = typeDef.BaseInterface;
         if (baseTypeRef == null)
+        {
+            return null;
+        }
+
+        // TODO: Improve handling of base type to handle cases where the base type is not available in the baseline version? Add more info in reflector?
+        if (IsNewType(baseTypeRef, typeDefs))
         {
             return null;
         }
@@ -1695,6 +1704,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         else if (name == "default")
         {
             return "@default";
+        }
+        else if (name == "foreach")
+        {
+            return "@foreach";
         }
         else
         {

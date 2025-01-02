@@ -11,11 +11,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean AllowsRefLikeTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> ConstraintNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
         private delegate global::System.Boolean HasNotNullConstraintGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
+        private delegate global::System.Boolean HasUnmanagedTypeConstraintGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReferenceTypeConstraintNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj);
 
         private static readonly AllowsRefLikeTypeGetterDelegate AllowsRefLikeTypeGetterFunc;
         private static readonly ConstraintNullableAnnotationsGetterDelegate ConstraintNullableAnnotationsGetterFunc;
         private static readonly HasNotNullConstraintGetterDelegate HasNotNullConstraintGetterFunc;
+        private static readonly HasUnmanagedTypeConstraintGetterDelegate HasUnmanagedTypeConstraintGetterFunc;
         private static readonly ReferenceTypeConstraintNullableAnnotationGetterDelegate ReferenceTypeConstraintNullableAnnotationGetterFunc;
 
         static ITypeParameterSymbolEx()
@@ -25,6 +27,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AllowsRefLikeTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AllowsRefLikeTypeGetterDelegate>(wrappedType, nameof(AllowsRefLikeType));
             ConstraintNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstraintNullableAnnotationsGetterDelegate>(wrappedType, nameof(ConstraintNullableAnnotations));
             HasNotNullConstraintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<HasNotNullConstraintGetterDelegate>(wrappedType, nameof(HasNotNullConstraint));
+            HasUnmanagedTypeConstraintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<HasUnmanagedTypeConstraintGetterDelegate>(wrappedType, nameof(HasUnmanagedTypeConstraint));
             ReferenceTypeConstraintNullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReferenceTypeConstraintNullableAnnotationGetterDelegate>(wrappedType, nameof(ReferenceTypeConstraintNullableAnnotation));
         }
 
@@ -44,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean HasNotNullConstraint(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
         {
             return HasNotNullConstraintGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.8.0.0.</summary>
+        public static global::System.Boolean HasUnmanagedTypeConstraint(this global::Microsoft.CodeAnalysis.ITypeParameterSymbol _obj)
+        {
+            return HasUnmanagedTypeConstraintGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.1.0.0.</summary>

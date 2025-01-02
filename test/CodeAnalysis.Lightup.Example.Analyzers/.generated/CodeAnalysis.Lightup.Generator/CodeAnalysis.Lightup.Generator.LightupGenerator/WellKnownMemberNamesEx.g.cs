@@ -17,6 +17,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String CheckedSubtractionOperatorNameGetterDelegate();
         private delegate global::System.String CheckedUnaryNegationOperatorNameGetterDelegate();
         private delegate global::System.String CountPropertyNameGetterDelegate();
+        private delegate global::System.String DeconstructMethodNameGetterDelegate();
         private delegate global::System.String DisposeAsyncMethodNameGetterDelegate();
         private delegate global::System.String DisposeMethodNameGetterDelegate();
         private delegate global::System.String GetAsyncEnumeratorMethodNameGetterDelegate();
@@ -36,6 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CheckedSubtractionOperatorNameGetterDelegate CheckedSubtractionOperatorNameGetterFunc;
         private static readonly CheckedUnaryNegationOperatorNameGetterDelegate CheckedUnaryNegationOperatorNameGetterFunc;
         private static readonly CountPropertyNameGetterDelegate CountPropertyNameGetterFunc;
+        private static readonly DeconstructMethodNameGetterDelegate DeconstructMethodNameGetterFunc;
         private static readonly DisposeAsyncMethodNameGetterDelegate DisposeAsyncMethodNameGetterFunc;
         private static readonly DisposeMethodNameGetterDelegate DisposeMethodNameGetterFunc;
         private static readonly GetAsyncEnumeratorMethodNameGetterDelegate GetAsyncEnumeratorMethodNameGetterFunc;
@@ -59,6 +61,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CheckedSubtractionOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedSubtractionOperatorNameGetterDelegate>(wrappedType, nameof(CheckedSubtractionOperatorName));
             CheckedUnaryNegationOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CheckedUnaryNegationOperatorNameGetterDelegate>(wrappedType, nameof(CheckedUnaryNegationOperatorName));
             CountPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<CountPropertyNameGetterDelegate>(wrappedType, nameof(CountPropertyName));
+            DeconstructMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<DeconstructMethodNameGetterDelegate>(wrappedType, nameof(DeconstructMethodName));
             DisposeAsyncMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<DisposeAsyncMethodNameGetterDelegate>(wrappedType, nameof(DisposeAsyncMethodName));
             DisposeMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<DisposeMethodNameGetterDelegate>(wrappedType, nameof(DisposeMethodName));
             GetAsyncEnumeratorMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<GetAsyncEnumeratorMethodNameGetterDelegate>(wrappedType, nameof(GetAsyncEnumeratorMethodName));
@@ -122,6 +125,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String CountPropertyName
         {
             get { return CountPropertyNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 2.7.0.0.</summary>
+        public static global::System.String DeconstructMethodName
+        {
+            get { return DeconstructMethodNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 3.0.0.0.</summary>

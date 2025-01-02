@@ -5,15 +5,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.8.2" />
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.8.2" />
-		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="2.8.2" />
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="2.8.2" />
+		<PackageReference Include="TestInheritanceGenerator" Version="1.1.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Example.Analyzers\CodeAnalysis.Lightup.Example.Analyzers.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Example.CodeFixes\CodeAnalysis.Lightup.Example.CodeFixes.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.Support\CodeAnalysis.Lightup.Test.Support.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V2_6_1\CodeAnalysis.Lightup.Test.V2_6_1.csproj" />
 	</ItemGroup>
 
 </Project>

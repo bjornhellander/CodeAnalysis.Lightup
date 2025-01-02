@@ -11,10 +11,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::System.Boolean IsNintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
         private delegate global::System.Boolean IsNotNullGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
         private delegate global::System.Boolean IsNuintGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
+        private delegate global::System.Boolean IsUnmanagedGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
         private static readonly IsNintGetterDelegate IsNintGetterFunc;
         private static readonly IsNotNullGetterDelegate IsNotNullGetterFunc;
         private static readonly IsNuintGetterDelegate IsNuintGetterFunc;
+        private static readonly IsUnmanagedGetterDelegate IsUnmanagedGetterFunc;
 
         static TypeSyntaxEx()
         {
@@ -23,6 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             IsNintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsNintGetterDelegate>(wrappedType, nameof(IsNint));
             IsNotNullGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsNotNullGetterDelegate>(wrappedType, nameof(IsNotNull));
             IsNuintGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsNuintGetterDelegate>(wrappedType, nameof(IsNuint));
+            IsUnmanagedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsUnmanagedGetterDelegate>(wrappedType, nameof(IsUnmanaged));
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
@@ -41,6 +44,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public static global::System.Boolean IsNuint(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
         {
             return IsNuintGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.8.0.0.</summary>
+        public static global::System.Boolean IsUnmanaged(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj)
+        {
+            return IsUnmanagedGetterFunc(_obj);
         }
     }
 }
