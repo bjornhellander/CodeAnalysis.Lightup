@@ -70,7 +70,11 @@ namespace CodeAnalysis.Lightup.Example.CodeFixes
             }
             else
             {
-                newSolution = orgSolution;
+                var text = await orgDocument.GetTextAsync(cancellationToken);
+                var newFilePath = Path.Combine(Path.GetDirectoryName(orgDocument.FilePath), newName);
+                newSolution = orgSolution
+                    .RemoveDocument(orgDocument.Id)
+                    .AddDocument(orgDocument.Id, newName, text, orgDocument.Folders, newFilePath);
             }
 
             return newSolution;
