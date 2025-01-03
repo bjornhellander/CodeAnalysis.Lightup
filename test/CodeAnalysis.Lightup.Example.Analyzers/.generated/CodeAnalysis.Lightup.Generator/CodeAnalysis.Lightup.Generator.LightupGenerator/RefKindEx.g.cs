@@ -5,6 +5,12 @@ namespace Microsoft.CodeAnalysis.Lightup
     /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.RefKind.</summary>
     public static partial class RefKindEx
     {
+        /// <summary>Added in version 2.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.RefKind In = (global::Microsoft.CodeAnalysis.RefKind)3;
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.RefKind RefReadOnly = (global::Microsoft.CodeAnalysis.RefKind)3;
+
         /// <summary>Added in version 4.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.RefKind RefReadOnlyParameter = (global::Microsoft.CodeAnalysis.RefKind)4;
     }

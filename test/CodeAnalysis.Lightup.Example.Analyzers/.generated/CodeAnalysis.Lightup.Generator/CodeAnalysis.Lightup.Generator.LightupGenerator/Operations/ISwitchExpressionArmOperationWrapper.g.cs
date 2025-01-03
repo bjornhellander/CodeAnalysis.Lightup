@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.IOperation? GuardGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.IPatternOperation PatternGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly GuardGetterDelegate GuardGetterFunc;
@@ -50,7 +50,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IPatternOperation Pattern
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper Pattern
         {
             get { return PatternGetterFunc(wrappedObject); }
         }

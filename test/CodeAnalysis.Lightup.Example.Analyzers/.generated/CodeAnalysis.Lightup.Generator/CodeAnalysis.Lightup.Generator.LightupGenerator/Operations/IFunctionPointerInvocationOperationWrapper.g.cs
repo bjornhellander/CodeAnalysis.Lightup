@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IArgumentOperationWrapper> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.IOperation TargetGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly ArgumentsGetterDelegate ArgumentsGetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.1.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.IArgumentOperation> Arguments
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IArgumentOperationWrapper> Arguments
         {
             get { return ArgumentsGetterFunc(wrappedObject); }
         }

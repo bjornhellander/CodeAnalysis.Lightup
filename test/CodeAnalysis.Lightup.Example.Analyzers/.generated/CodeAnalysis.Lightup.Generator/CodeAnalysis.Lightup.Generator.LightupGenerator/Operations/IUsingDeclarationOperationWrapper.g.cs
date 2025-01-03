@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroupGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper DeclarationGroupGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly DeclarationGroupGetterDelegate DeclarationGroupGetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.4.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Operations.IVariableDeclarationGroupOperation DeclarationGroup
+        public global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper DeclarationGroup
         {
             get { return DeclarationGroupGetterFunc(wrappedObject); }
         }

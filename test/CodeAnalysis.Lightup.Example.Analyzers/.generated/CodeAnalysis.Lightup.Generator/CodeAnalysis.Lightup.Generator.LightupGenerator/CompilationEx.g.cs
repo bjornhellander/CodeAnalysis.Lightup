@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Compilation";
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.CommonConversion ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
         private delegate global::System.Boolean ContainsSymbolsWithNameDelegate1(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateAnonymousTypeSymbolDelegate2(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> memberTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> memberNames, global::System.Collections.Immutable.ImmutableArray<global::System.Boolean> memberIsReadOnly, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> memberLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> memberNullableAnnotations);
         private delegate global::Microsoft.CodeAnalysis.IArrayTypeSymbol CreateArrayTypeSymbolDelegate3(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol elementType, global::System.Int32 rank, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx elementNullableAnnotation);
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Operations.CommonConversion ClassifyCommonConversion(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination)
+        public static global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversion(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination)
         {
             return ClassifyCommonConversionFunc0(_obj, source, destination);
         }

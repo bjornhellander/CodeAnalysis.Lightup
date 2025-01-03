@@ -2,10 +2,31 @@
 
 namespace Microsoft.CodeAnalysis.Operations.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.UnaryOperatorKind.</summary>
-    public static partial class UnaryOperatorKindEx
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Operations.UnaryOperatorKind. Added in version 2.6.0.0.</summary>
+    public enum UnaryOperatorKindEx : global::System.Int32
     {
+        /// <summary>Added in version 2.6.0.0.</summary>
+        None = 0,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        BitwiseNegation = 1,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Not = 2,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Plus = 3,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Minus = 4,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        True = 5,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        False = 6,
+
         /// <summary>Added in version 3.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind Hat = (global::Microsoft.CodeAnalysis.Operations.UnaryOperatorKind)7;
+        Hat = 7,
     }
 }

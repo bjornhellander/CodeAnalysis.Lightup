@@ -13,12 +13,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialDefinitionPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::System.Boolean ReturnsByRefReadonlyGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
 
         private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
         private static readonly PartialDefinitionPartGetterDelegate PartialDefinitionPartGetterFunc;
         private static readonly PartialImplementationPartGetterDelegate PartialImplementationPartGetterFunc;
+        private static readonly RefKindGetterDelegate RefKindGetterFunc;
+        private static readonly ReturnsByRefReadonlyGetterDelegate ReturnsByRefReadonlyGetterFunc;
 
         static IPropertySymbolEx()
         {
@@ -29,6 +33,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             PartialDefinitionPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialDefinitionPartGetterDelegate>(wrappedType, nameof(PartialDefinitionPart));
             PartialImplementationPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialImplementationPartGetterDelegate>(wrappedType, nameof(PartialImplementationPart));
+            RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
+            ReturnsByRefReadonlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefReadonlyGetterDelegate>(wrappedType, nameof(ReturnsByRefReadonly));
         }
 
         /// <summary>Property added in version 4.11.0.0.</summary>
@@ -59,6 +65,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPart(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return PartialImplementationPartGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
+        {
+            return RefKindGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::System.Boolean ReturnsByRefReadonly(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
+        {
+            return ReturnsByRefReadonlyGetterFunc(_obj);
         }
     }
 }

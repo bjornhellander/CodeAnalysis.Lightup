@@ -8,7 +8,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNodeOrTokenList";
 
+        private delegate Microsoft.CodeAnalysis.SyntaxNodeOrTokenList ConstructorDelegate0(global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNodeOrToken> nodesAndTokens);
+        private delegate Microsoft.CodeAnalysis.SyntaxNodeOrTokenList ConstructorDelegate1(params global::Microsoft.CodeAnalysis.SyntaxNodeOrToken[] nodesAndTokens);
+
         private delegate global::Microsoft.CodeAnalysis.SyntaxNodeOrTokenList CreateDelegate0(global::System.ReadOnlySpan<global::Microsoft.CodeAnalysis.SyntaxNodeOrToken> nodesAndTokens);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
+        private static readonly ConstructorDelegate1 ConstructorFunc1;
 
         private static readonly CreateDelegate0 CreateFunc0;
 
@@ -16,7 +22,22 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "nodesAndTokensIEnumerable`1");
+            ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "nodesAndTokensSyntaxNodeOrToken[]");
+
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "nodesAndTokensReadOnlySpan`1");
+        }
+
+        /// <summary>Constructor added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxNodeOrTokenList Create(global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNodeOrToken> nodesAndTokens)
+        {
+            return ConstructorFunc0(nodesAndTokens);
+        }
+
+        /// <summary>Constructor added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxNodeOrTokenList Create(params global::Microsoft.CodeAnalysis.SyntaxNodeOrToken[] nodesAndTokens)
+        {
+            return ConstructorFunc1(nodesAndTokens);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
