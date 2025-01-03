@@ -84,9 +84,6 @@ internal class Writer
         // TODO: Investigate if these updated types should be generated
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerFileReference", // References ISourceGenerator
         "Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference", // References ISourceGenerator
-
-        // TODO: Enable generation of IEventAssignmentOperation (property EventReference changed type in version 2.9.0)
-        "Microsoft.CodeAnalysis.Operations.IEventAssignmentOperation"
     ];
 
     internal static void Write(
@@ -1396,6 +1393,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         var result = typeDef.Properties
             .Where(x => !x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
+            // TODO: Enable generation of IEventAssignmentOperation (property EventReference changed type in version 2.9.0)
+            .Where(x => typeDef.FullName != "Microsoft.CodeAnalysis.Operations.IEventAssignmentOperation" || x.Name != "EventReference")
             .OrderBy(x => x.Name)
             .ToList();
         return result;
