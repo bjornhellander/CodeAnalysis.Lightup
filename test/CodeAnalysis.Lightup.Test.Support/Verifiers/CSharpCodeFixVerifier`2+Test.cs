@@ -23,6 +23,7 @@ public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
             switch (roslynVersion)
             {
                 case { Major: 2, Minor: 3 }:
+                case { Major: 2, Minor: 0 }:
                     TestBehaviors = TestBehaviors.SkipGeneratedCodeCheck;
                     break;
             }

@@ -14,6 +14,7 @@ namespace CodeAnalysis.Lightup.Example.CodeFixes
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CodeActions;
     using Microsoft.CodeAnalysis.CodeFixes;
+    using Microsoft.CodeAnalysis.Lightup;
     using Microsoft.CodeAnalysis.Rename.Lightup;
 
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(SourceFileNameCodeFixProvider))]
@@ -60,12 +61,16 @@ namespace CodeAnalysis.Lightup.Example.CodeFixes
                 var actionSet = await RenamerEx.RenameDocumentAsync(orgDocument, options, newName, Array.Empty<string>(), cancellationToken).ConfigureAwait(false);
                 newSolution = await actionSet.UpdateSolutionAsync(orgSolution, cancellationToken).ConfigureAwait(false);
             }
-            else
+            else if (LightupStatus.CodeAnalysisVersion >= new Version(2, 3, 0, 0))
             {
                 var newFilePath = Path.Combine(Path.GetDirectoryName(orgDocument.FilePath), newName);
                 newSolution = orgSolution
                     .WithDocumentName(orgDocument.Id, newName)
                     .WithDocumentFilePath(orgDocument.Id, newFilePath);
+            }
+            else
+            {
+                newSolution = orgSolution;
             }
 
             return newSolution;
