@@ -4,6 +4,7 @@
 namespace CodeAnalysis.Lightup.Test.V2_3_2;
 
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpCodeFixVerifier<
@@ -26,8 +27,8 @@ public class SourceFileNameAnalyzerTests
             {
                 Sources = { ("Test.cs", " ") },
             },
-            TestBehaviors = Microsoft.CodeAnalysis.Testing.TestBehaviors.SkipSuppressionCheck,
         };
+        test.TestBehaviors |= TestBehaviors.SkipSuppressionCheck;
 
         await test.RunAsync().ConfigureAwait(false);
     }
