@@ -6,12 +6,14 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="2.3.2" />
+		<PackageReference Include="TestInheritanceGenerator" Version="1.1.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Example.Analyzers\CodeAnalysis.Lightup.Example.Analyzers.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Example.CodeFixes\CodeAnalysis.Lightup.Example.CodeFixes.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.Support\CodeAnalysis.Lightup.Test.Support.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V2_0_0\CodeAnalysis.Lightup.Test.V2_0_0.csproj" />
 	</ItemGroup>
 
 </Project>

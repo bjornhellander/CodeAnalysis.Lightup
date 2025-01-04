@@ -16,6 +16,7 @@ namespace CodeAnalysis.Lightup.Example.Analyzers
             CodeAnalysisVersion = typeof(OperationKind).Assembly.GetName().Version;
 
             var supportedLanguageVersions = Enum.GetValues(typeof(LanguageVersion)).Cast<LanguageVersion>().ToList();
+            SupportsCSharp7_1 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp7_1);
             SupportsCSharp7_2 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp7_2);
             SupportsCSharp7_3 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp7_3);
             SupportsCSharp8 = supportedLanguageVersions.Contains(LanguageVersionEx.CSharp8);
@@ -27,6 +28,8 @@ namespace CodeAnalysis.Lightup.Example.Analyzers
         }
 
         public static Version CodeAnalysisVersion { get; }
+
+        public static bool SupportsCSharp7_1 { get; }
 
         public static bool SupportsCSharp7_2 { get; }
 

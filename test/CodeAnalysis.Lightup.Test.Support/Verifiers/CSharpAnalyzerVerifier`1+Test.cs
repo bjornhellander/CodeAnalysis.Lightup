@@ -21,6 +21,7 @@ public static partial class CSharpAnalyzerVerifier<TAnalyzer>
             switch (roslynVersion)
             {
                 case { Major: 2, Minor: 3 }:
+                case { Major: 2, Minor: 0 }:
                     TestBehaviors = TestBehaviors.SkipGeneratedCodeCheck;
                     break;
             }

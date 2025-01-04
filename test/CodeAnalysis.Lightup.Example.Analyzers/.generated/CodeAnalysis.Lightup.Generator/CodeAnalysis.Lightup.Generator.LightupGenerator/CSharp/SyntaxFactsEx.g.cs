@@ -9,20 +9,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxFacts";
 
         private delegate global::System.Boolean IsCheckedOperatorDelegate0(global::System.String operatorMetadataName);
+        private delegate global::System.Boolean IsReservedTupleElementNameDelegate1(global::System.String elementName);
+        private delegate global::System.String? TryGetInferredMemberNameDelegate2(global::Microsoft.CodeAnalysis.SyntaxNode syntax);
 
         private static readonly IsCheckedOperatorDelegate0 IsCheckedOperatorFunc0;
+        private static readonly IsReservedTupleElementNameDelegate1 IsReservedTupleElementNameFunc1;
+        private static readonly TryGetInferredMemberNameDelegate2 TryGetInferredMemberNameFunc2;
 
         static SyntaxFactsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             IsCheckedOperatorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsCheckedOperatorDelegate0>(wrappedType, "IsCheckedOperator", "operatorMetadataNameString");
+            IsReservedTupleElementNameFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsReservedTupleElementNameDelegate1>(wrappedType, "IsReservedTupleElementName", "elementNameString");
+            TryGetInferredMemberNameFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryGetInferredMemberNameDelegate2>(wrappedType, "TryGetInferredMemberName", "syntaxSyntaxNode");
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Boolean IsCheckedOperator(global::System.String operatorMetadataName)
         {
             return IsCheckedOperatorFunc0(operatorMetadataName);
+        }
+
+        /// <summary>Method added in version 2.3.0.0.</summary>
+        public static global::System.Boolean IsReservedTupleElementName(global::System.String elementName)
+        {
+            return IsReservedTupleElementNameFunc1(elementName);
+        }
+
+        /// <summary>Method added in version 2.3.0.0.</summary>
+        public static global::System.String? TryGetInferredMemberName(this global::Microsoft.CodeAnalysis.SyntaxNode syntax)
+        {
+            return TryGetInferredMemberNameFunc2(syntax);
         }
     }
 }
