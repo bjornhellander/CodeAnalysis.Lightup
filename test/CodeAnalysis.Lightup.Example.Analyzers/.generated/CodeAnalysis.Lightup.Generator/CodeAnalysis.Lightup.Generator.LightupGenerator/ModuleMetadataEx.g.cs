@@ -8,7 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ModuleMetadata";
 
+        private delegate global::System.Boolean IsDisposedGetterDelegate(global::Microsoft.CodeAnalysis.ModuleMetadata _obj);
+
         private delegate global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadataDelegate0(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose);
+
+        private static readonly IsDisposedGetterDelegate IsDisposedGetterFunc;
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
 
@@ -16,7 +20,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            IsDisposedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsDisposedGetterDelegate>(wrappedType, nameof(IsDisposed));
+
             CreateFromMetadataFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::System.Boolean IsDisposed(this global::Microsoft.CodeAnalysis.ModuleMetadata _obj)
+        {
+            return IsDisposedGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>

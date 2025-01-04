@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.CommonConversion ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
         private delegate global::System.Boolean ContainsSymbolsWithNameDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Operations.CommonConversion ClassifyCommonConversion(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination)
+        public static global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversion(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination)
         {
             return ClassifyCommonConversionFunc0(_obj, source, destination);
         }

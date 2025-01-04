@@ -10,11 +10,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers ExternGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers FileGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers RefGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers RequiredGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers VolatileGetterDelegate();
 
         private delegate global::System.Boolean IsExternGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsFileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
+        private delegate global::System.Boolean IsRefGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
 
@@ -26,11 +28,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
         private static readonly ExternGetterDelegate ExternGetterFunc;
         private static readonly FileGetterDelegate FileGetterFunc;
+        private static readonly RefGetterDelegate RefGetterFunc;
         private static readonly RequiredGetterDelegate RequiredGetterFunc;
         private static readonly VolatileGetterDelegate VolatileGetterFunc;
 
         private static readonly IsExternGetterDelegate IsExternGetterFunc;
         private static readonly IsFileGetterDelegate IsFileGetterFunc;
+        private static readonly IsRefGetterDelegate IsRefGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly IsVolatileGetterDelegate IsVolatileGetterFunc;
 
@@ -46,11 +50,13 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
             ExternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
             FileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
+            RefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<RefGetterDelegate>(wrappedType, nameof(Ref));
             RequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
             VolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
 
             IsExternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
             IsFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
+            IsRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRefGetterDelegate>(wrappedType, nameof(IsRef));
             IsRequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
             IsVolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
@@ -71,6 +77,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers File()
         {
             return FileGetterFunc();
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Ref()
+        {
+            return RefGetterFunc();
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
@@ -95,6 +107,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         public static global::System.Boolean IsFile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsFileGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.6.0.0.</summary>
+        public static global::System.Boolean IsRef(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
+        {
+            return IsRefGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
