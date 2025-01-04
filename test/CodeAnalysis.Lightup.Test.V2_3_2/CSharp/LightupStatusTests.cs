@@ -19,7 +19,7 @@ public class LightupStatusTests
     [TestMethod]
     public virtual void TestLanguageVersion()
     {
-        CheckSupportedLanguageVersions();
+        CheckSupportedLanguageVersions(7.1M);
     }
 
     protected static void CheckCodeAnalysisVersion(int major, int minor, int build, int revision)
@@ -28,23 +28,15 @@ public class LightupStatusTests
         Assert.AreEqual(expectedVersion, LightupStatus.CodeAnalysisVersion);
     }
 
-    protected static void CheckSupportedLanguageVersions(
-        bool csharp7_2 = false,
-        bool csharp7_3 = false,
-        bool csharp8 = false,
-        bool csharp9 = false,
-        bool csharp10 = false,
-        bool csharp11 = false,
-        bool csharp12 = false,
-        bool csharp13 = false)
+    protected static void CheckSupportedLanguageVersions(decimal version)
     {
-        Assert.AreEqual(csharp7_2, LightupStatus.SupportsCSharp7_2);
-        Assert.AreEqual(csharp7_3, LightupStatus.SupportsCSharp7_3);
-        Assert.AreEqual(csharp8, LightupStatus.SupportsCSharp8);
-        Assert.AreEqual(csharp9, LightupStatus.SupportsCSharp9);
-        Assert.AreEqual(csharp10, LightupStatus.SupportsCSharp10);
-        Assert.AreEqual(csharp11, LightupStatus.SupportsCSharp11);
-        Assert.AreEqual(csharp12, LightupStatus.SupportsCSharp12);
-        Assert.AreEqual(csharp13, LightupStatus.SupportsCSharp13);
+        Assert.AreEqual(version >= 7.2M, LightupStatus.SupportsCSharp7_2);
+        Assert.AreEqual(version >= 7.3M, LightupStatus.SupportsCSharp7_3);
+        Assert.AreEqual(version >= 8, LightupStatus.SupportsCSharp8);
+        Assert.AreEqual(version >= 9, LightupStatus.SupportsCSharp9);
+        Assert.AreEqual(version >= 10, LightupStatus.SupportsCSharp10);
+        Assert.AreEqual(version >= 11, LightupStatus.SupportsCSharp11);
+        Assert.AreEqual(version >= 12, LightupStatus.SupportsCSharp12);
+        Assert.AreEqual(version >= 13, LightupStatus.SupportsCSharp13);
     }
 }
