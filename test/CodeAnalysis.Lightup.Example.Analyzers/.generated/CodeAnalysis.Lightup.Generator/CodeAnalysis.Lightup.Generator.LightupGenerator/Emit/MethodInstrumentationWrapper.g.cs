@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> KindsGetterDelegate(global::System.Object _obj);
-        private delegate void KindsSetterDelegate(System.Object _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> _value);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> KindsGetterDelegate(global::System.Object _obj);
+        private delegate void KindsSetterDelegate(System.Object _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> _value);
 
         private static readonly KindsGetterDelegate KindsGetterFunc;
         private static readonly KindsSetterDelegate KindsSetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         }
 
         /// <summary>Property added in version 4.6.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> Kinds
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> Kinds
         {
             get { return KindsGetterFunc(wrappedObject); }
             set { KindsSetterFunc(wrappedObject, value); }

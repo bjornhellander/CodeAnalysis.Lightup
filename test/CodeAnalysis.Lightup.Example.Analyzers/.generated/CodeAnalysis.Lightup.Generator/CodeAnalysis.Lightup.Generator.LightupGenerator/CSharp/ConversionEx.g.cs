@@ -17,6 +17,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.Boolean IsObjectCreationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsStackAllocGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsSwitchExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsThrowGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsTupleConversionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsTupleLiteralConversionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ToCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
@@ -29,6 +32,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly IsObjectCreationGetterDelegate IsObjectCreationGetterFunc;
         private static readonly IsStackAllocGetterDelegate IsStackAllocGetterFunc;
         private static readonly IsSwitchExpressionGetterDelegate IsSwitchExpressionGetterFunc;
+        private static readonly IsThrowGetterDelegate IsThrowGetterFunc;
+        private static readonly IsTupleConversionGetterDelegate IsTupleConversionGetterFunc;
+        private static readonly IsTupleLiteralConversionGetterDelegate IsTupleLiteralConversionGetterFunc;
 
         private static readonly ToCommonConversionDelegate0 ToCommonConversionFunc0;
 
@@ -45,6 +51,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsObjectCreationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
             IsStackAllocGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsStackAllocGetterDelegate>(wrappedType, nameof(IsStackAlloc));
             IsSwitchExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
+            IsThrowGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsThrowGetterDelegate>(wrappedType, nameof(IsThrow));
+            IsTupleConversionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsTupleConversionGetterDelegate>(wrappedType, nameof(IsTupleConversion));
+            IsTupleLiteralConversionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsTupleLiteralConversionGetterDelegate>(wrappedType, nameof(IsTupleLiteralConversion));
 
             ToCommonConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToCommonConversionDelegate0>(wrappedType, "ToCommonConversion");
         }
@@ -101,6 +110,24 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Boolean IsSwitchExpression(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsSwitchExpressionGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean IsThrow(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsThrowGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean IsTupleConversion(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsTupleConversionGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean IsTupleLiteralConversion(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsTupleLiteralConversionGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>

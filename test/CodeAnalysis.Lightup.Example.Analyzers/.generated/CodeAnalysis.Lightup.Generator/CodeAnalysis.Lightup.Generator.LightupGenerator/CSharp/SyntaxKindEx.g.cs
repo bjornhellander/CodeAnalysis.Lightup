@@ -68,6 +68,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind VarKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8490;
 
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnderscoreToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8491;
+
         /// <summary>Added in version 4.2.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleLineRawStringLiteralToken = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8518;
 
@@ -88,6 +91,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 2.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ConflictMarkerTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8564;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IsPatternExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8657;
 
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RangeExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8658;
@@ -116,6 +122,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.12.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FieldExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8757;
 
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind LocalFunctionStatement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8830;
+
         /// <summary>Added in version 4.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FileScopedNamespaceDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8845;
 
@@ -124,6 +133,39 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefStructConstraint = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8880;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind TupleType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8924;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind TupleElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8925;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind TupleExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8926;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SingleVariableDesignation = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8927;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ParenthesizedVariableDesignation = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8928;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ForEachVariableStatement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8929;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DeclarationPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9000;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ConstantPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9002;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind CasePatternSwitchLabel = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9009;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WhenClause = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9013;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DiscardDesignation = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9014;
 
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RecursivePattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9020;
@@ -172,6 +214,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.1.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ListPattern = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9035;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind DeclarationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9040;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9050;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind RefType = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9051;
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ThrowExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9052;
 
         /// <summary>Added in version 2.8.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ImplicitStackAllocArrayCreationExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9053;

@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.IDiscardSymbol DiscardSymbolGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IDiscardSymbolWrapper DiscardSymbolGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
         private static readonly DiscardSymbolGetterDelegate DiscardSymbolGetterFunc;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IDiscardSymbol DiscardSymbol
+        public global::Microsoft.CodeAnalysis.Lightup.IDiscardSymbolWrapper DiscardSymbol
         {
             get { return DiscardSymbolGetterFunc(wrappedObject); }
         }

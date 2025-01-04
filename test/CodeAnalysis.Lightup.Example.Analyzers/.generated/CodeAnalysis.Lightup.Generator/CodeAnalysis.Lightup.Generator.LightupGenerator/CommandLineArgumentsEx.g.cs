@@ -10,6 +10,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> AnalyzerConfigPathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean DisplayLangVersionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Boolean DisplayVersionGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CommandLineSourceFile> EmbeddedFilesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
@@ -17,12 +19,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? RuleSetPathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.String? SourceLinkGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
 
         private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
         private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
 
         private static readonly AnalyzerConfigPathsGetterDelegate AnalyzerConfigPathsGetterFunc;
         private static readonly DisplayLangVersionsGetterDelegate DisplayLangVersionsGetterFunc;
+        private static readonly DisplayVersionGetterDelegate DisplayVersionGetterFunc;
+        private static readonly EmbeddedFilesGetterDelegate EmbeddedFilesGetterFunc;
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;
         private static readonly ErrorLogOptionsGetterDelegate ErrorLogOptionsGetterFunc;
         private static readonly GeneratedFilesOutputDirectoryGetterDelegate GeneratedFilesOutputDirectoryGetterFunc;
@@ -30,6 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly ReportInternalsVisibleToAttributesGetterDelegate ReportInternalsVisibleToAttributesGetterFunc;
         private static readonly RuleSetPathGetterDelegate RuleSetPathGetterFunc;
         private static readonly SkipAnalyzersGetterDelegate SkipAnalyzersGetterFunc;
+        private static readonly SourceLinkGetterDelegate SourceLinkGetterFunc;
 
         private static readonly GetOutputFilePathDelegate0 GetOutputFilePathFunc0;
         private static readonly GetPdbFilePathDelegate1 GetPdbFilePathFunc1;
@@ -40,6 +46,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             AnalyzerConfigPathsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AnalyzerConfigPathsGetterDelegate>(wrappedType, nameof(AnalyzerConfigPaths));
             DisplayLangVersionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<DisplayLangVersionsGetterDelegate>(wrappedType, nameof(DisplayLangVersions));
+            DisplayVersionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<DisplayVersionGetterDelegate>(wrappedType, nameof(DisplayVersion));
+            EmbeddedFilesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmbeddedFilesGetterDelegate>(wrappedType, nameof(EmbeddedFiles));
             EmitPdbFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
             ErrorLogOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
             GeneratedFilesOutputDirectoryGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
@@ -47,6 +55,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             ReportInternalsVisibleToAttributesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
             RuleSetPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RuleSetPathGetterDelegate>(wrappedType, nameof(RuleSetPath));
             SkipAnalyzersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
+            SourceLinkGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SourceLinkGetterDelegate>(wrappedType, nameof(SourceLink));
 
             GetOutputFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, "GetOutputFilePath", "outputFileNameString");
             GetPdbFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
@@ -62,6 +71,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean DisplayLangVersions(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return DisplayLangVersionsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean DisplayVersion(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return DisplayVersionGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CommandLineSourceFile> EmbeddedFiles(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return EmbeddedFilesGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.2.0.0.</summary>
@@ -104,6 +125,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean SkipAnalyzers(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return SkipAnalyzersGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.String? SourceLink(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return SourceLinkGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>

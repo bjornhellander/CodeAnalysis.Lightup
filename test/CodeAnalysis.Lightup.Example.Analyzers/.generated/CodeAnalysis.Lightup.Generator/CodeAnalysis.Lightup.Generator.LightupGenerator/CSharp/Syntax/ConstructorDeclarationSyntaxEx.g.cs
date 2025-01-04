@@ -8,21 +8,51 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax";
 
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj);
+
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax? initializer, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax WithExpressionBodyDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
+
+        private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;
 
         private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
+        private static readonly WithExpressionBodyDelegate2 WithExpressionBodyFunc2;
 
         static ConstructorDeclarationSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
+            ExpressionBodyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
+
             AddBodyAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "parameterListParameterListSyntax", "initializerConstructorInitializerSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            WithExpressionBodyFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate2>(wrappedType, "WithExpressionBody", "expressionBodyArrowExpressionClauseSyntax");
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? ExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj)
+        {
+            return ExpressionBodyGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax AddBodyAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
             return AddBodyAttributeListsFunc0(_obj, items);
+        }
+
+        /// <summary>Method added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax? initializer, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
+        {
+            return UpdateFunc1(_obj, attributeLists, modifiers, identifier, parameterList, initializer, body, expressionBody, semicolonToken);
+        }
+
+        /// <summary>Method added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax WithExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody)
+        {
+            return WithExpressionBodyFunc2(_obj, expressionBody);
         }
     }
 }

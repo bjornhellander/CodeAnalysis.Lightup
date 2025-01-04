@@ -12,6 +12,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsRecordGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsRefLikeTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::System.Boolean IsTupleTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsUnmanagedTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
 
@@ -25,6 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;
         private static readonly IsRecordGetterDelegate IsRecordGetterFunc;
         private static readonly IsRefLikeTypeGetterDelegate IsRefLikeTypeGetterFunc;
+        private static readonly IsTupleTypeGetterDelegate IsTupleTypeGetterFunc;
         private static readonly IsUnmanagedTypeGetterDelegate IsUnmanagedTypeGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
 
@@ -42,6 +44,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsReadOnlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
             IsRecordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
             IsRefLikeTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsRefLikeTypeGetterDelegate>(wrappedType, nameof(IsRefLikeType));
+            IsTupleTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsTupleTypeGetterDelegate>(wrappedType, nameof(IsTupleType));
             IsUnmanagedTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnmanagedTypeGetterDelegate>(wrappedType, nameof(IsUnmanagedType));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
 
@@ -74,6 +77,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsRefLikeType(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
         {
             return IsRefLikeTypeGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean IsTupleType(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
+        {
+            return IsTupleTypeGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>

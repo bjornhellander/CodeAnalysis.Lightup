@@ -8,6 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Workspace";
 
+        private delegate void DocumentActiveContextChangedAdderDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> _delegate);
+        private delegate void DocumentActiveContextChangedRemoverDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> _delegate);
         private delegate void TextDocumentClosedAdderDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
         private delegate void TextDocumentClosedRemoverDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
         private delegate void TextDocumentOpenedAdderDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
@@ -18,6 +20,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate void CloseAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate3(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
 
+        private static readonly DocumentActiveContextChangedAdderDelegate DocumentActiveContextChangedAdderFunc;
+        private static readonly DocumentActiveContextChangedRemoverDelegate DocumentActiveContextChangedRemoverFunc;
         private static readonly TextDocumentClosedAdderDelegate TextDocumentClosedAdderFunc;
         private static readonly TextDocumentClosedRemoverDelegate TextDocumentClosedRemoverFunc;
         private static readonly TextDocumentOpenedAdderDelegate TextDocumentOpenedAdderFunc;
@@ -32,6 +36,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
+            DocumentActiveContextChangedAdderFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceAddAccessor<DocumentActiveContextChangedAdderDelegate>(wrappedType, "DocumentActiveContextChanged");
+            DocumentActiveContextChangedRemoverFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceRemoveAccessor<DocumentActiveContextChangedRemoverDelegate>(wrappedType, "DocumentActiveContextChanged");
             TextDocumentClosedAdderFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceAddAccessor<TextDocumentClosedAdderDelegate>(wrappedType, "TextDocumentClosed");
             TextDocumentClosedRemoverFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceRemoveAccessor<TextDocumentClosedRemoverDelegate>(wrappedType, "TextDocumentClosed");
             TextDocumentOpenedAdderFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceAddAccessor<TextDocumentOpenedAdderDelegate>(wrappedType, "TextDocumentOpened");
@@ -41,6 +47,18 @@ namespace Microsoft.CodeAnalysis.Lightup
             CanApplyParseOptionChangeFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
             CloseAnalyzerConfigDocumentFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
             OpenAnalyzerConfigDocumentFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
+        }
+
+        /// <summary>Event added in version 2.0.0.0.</summary>
+        public static void AddDocumentActiveContextChanged(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> _delegate)
+        {
+            DocumentActiveContextChangedAdderFunc(_obj, _delegate);
+        }
+
+        /// <summary>Event added in version 2.0.0.0.</summary>
+        public static void RemoveDocumentActiveContextChanged(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> _delegate)
+        {
+            DocumentActiveContextChangedRemoverFunc(_obj, _delegate);
         }
 
         /// <summary>Event added in version 4.4.0.0.</summary>

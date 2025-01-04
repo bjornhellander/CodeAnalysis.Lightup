@@ -9,9 +9,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ParseOptions";
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> ErrorsGetterDelegate(global::Microsoft.CodeAnalysis.ParseOptions _obj);
+        private delegate global::System.String LanguageGetterDelegate(global::Microsoft.CodeAnalysis.ParseOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.SourceCodeKind SpecifiedKindGetterDelegate(global::Microsoft.CodeAnalysis.ParseOptions _obj);
 
         private static readonly ErrorsGetterDelegate ErrorsGetterFunc;
+        private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SpecifiedKindGetterDelegate SpecifiedKindGetterFunc;
 
         static ParseOptionsEx()
@@ -19,6 +21,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ErrorsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorsGetterDelegate>(wrappedType, nameof(Errors));
+            LanguageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(wrappedType, nameof(Language));
             SpecifiedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SpecifiedKindGetterDelegate>(wrappedType, nameof(SpecifiedKind));
         }
 
@@ -26,6 +29,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic> Errors(this global::Microsoft.CodeAnalysis.ParseOptions _obj)
         {
             return ErrorsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.String Language(this global::Microsoft.CodeAnalysis.ParseOptions _obj)
+        {
+            return LanguageGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.3.0.0.</summary>

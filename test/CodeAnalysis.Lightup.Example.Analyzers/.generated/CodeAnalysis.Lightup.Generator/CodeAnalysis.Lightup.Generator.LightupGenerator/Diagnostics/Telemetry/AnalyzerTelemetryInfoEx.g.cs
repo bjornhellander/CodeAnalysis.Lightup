@@ -8,6 +8,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo";
 
+        private delegate Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo ConstructorDelegate0();
+
         private delegate global::System.Int32 AdditionalFileActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
         private delegate void AdditionalFileActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
         private delegate global::System.Boolean ConcurrentGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
@@ -18,6 +20,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         private delegate void SymbolEndActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
         private delegate global::System.Int32 SymbolStartActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
         private delegate void SymbolStartActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
+
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly AdditionalFileActionsCountGetterDelegate AdditionalFileActionsCountGetterFunc;
         private static readonly AdditionalFileActionsCountSetterDelegate AdditionalFileActionsCountSetterFunc;
@@ -34,6 +38,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType);
+
             AdditionalFileActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AdditionalFileActionsCountGetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
             AdditionalFileActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
             ConcurrentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConcurrentGetterDelegate>(wrappedType, nameof(Concurrent));
@@ -44,6 +50,12 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
             SymbolEndActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<SymbolEndActionsCountSetterDelegate>(wrappedType, nameof(SymbolEndActionsCount));
             SymbolStartActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SymbolStartActionsCountGetterDelegate>(wrappedType, nameof(SymbolStartActionsCount));
             SymbolStartActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<SymbolStartActionsCountSetterDelegate>(wrappedType, nameof(SymbolStartActionsCount));
+        }
+
+        /// <summary>Constructor added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo Create()
+        {
+            return ConstructorFunc0();
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>

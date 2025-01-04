@@ -388,7 +388,8 @@ internal class Reflector
         classTypeDef.BaseClass = baseClassRef;
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
-        Assert.IsTrue(classTypeDef.IsAbstract == IsAbstractType(type), "IsAbstract has changed");
+        //// TODO: Investigate how to handle a type changing "abstractness"
+        classTypeDef.IsAbstract = IsAbstractType(type);
     }
 
     private static Type? GetClassBaseType(

@@ -15,8 +15,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Reflection.MethodImplAttributes MethodImplementationFlagsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReceiverNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean ReturnsByRefGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Boolean ReturnsByRefReadonlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
@@ -30,8 +32,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;
         private static readonly MethodImplementationFlagsGetterDelegate MethodImplementationFlagsGetterFunc;
         private static readonly ReceiverNullableAnnotationGetterDelegate ReceiverNullableAnnotationGetterFunc;
+        private static readonly RefCustomModifiersGetterDelegate RefCustomModifiersGetterFunc;
         private static readonly RefKindGetterDelegate RefKindGetterFunc;
         private static readonly ReturnNullableAnnotationGetterDelegate ReturnNullableAnnotationGetterFunc;
+        private static readonly ReturnsByRefGetterDelegate ReturnsByRefGetterFunc;
         private static readonly ReturnsByRefReadonlyGetterDelegate ReturnsByRefReadonlyGetterFunc;
         private static readonly TypeArgumentNullableAnnotationsGetterDelegate TypeArgumentNullableAnnotationsGetterFunc;
         private static readonly UnmanagedCallingConventionTypesGetterDelegate UnmanagedCallingConventionTypesGetterFunc;
@@ -49,8 +53,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsReadOnlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
             MethodImplementationFlagsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
             ReceiverNullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReceiverNullableAnnotationGetterDelegate>(wrappedType, nameof(ReceiverNullableAnnotation));
+            RefCustomModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
             RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
             ReturnNullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnNullableAnnotationGetterDelegate>(wrappedType, nameof(ReturnNullableAnnotation));
+            ReturnsByRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefGetterDelegate>(wrappedType, nameof(ReturnsByRef));
             ReturnsByRefReadonlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefReadonlyGetterDelegate>(wrappedType, nameof(ReturnsByRefReadonly));
             TypeArgumentNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
             UnmanagedCallingConventionTypesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
@@ -100,6 +106,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ReceiverNullableAnnotationGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
+        {
+            return RefCustomModifiersGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
@@ -110,6 +122,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx ReturnNullableAnnotation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return ReturnNullableAnnotationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean ReturnsByRef(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
+        {
+            return ReturnsByRefGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
