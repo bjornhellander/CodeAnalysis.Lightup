@@ -10,21 +10,7 @@ namespace Microsoft.CodeAnalysis.CodeStyle.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyEventAccessGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyFieldAccessGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyMethodAccessGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyPropertyAccessGetterDelegate();
-
         private delegate CodeStyleOptionsWrapper ConstructorDelegate0();
-
-        private static readonly PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterDelegate PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterFunc;
-        private static readonly PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterDelegate PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterFunc;
-        private static readonly QualifyEventAccessGetterDelegate QualifyEventAccessGetterFunc;
-        private static readonly QualifyFieldAccessGetterDelegate QualifyFieldAccessGetterFunc;
-        private static readonly QualifyMethodAccessGetterDelegate QualifyMethodAccessGetterFunc;
-        private static readonly QualifyPropertyAccessGetterDelegate QualifyPropertyAccessGetterFunc;
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -34,55 +20,12 @@ namespace Microsoft.CodeAnalysis.CodeStyle.Lightup
         {
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterDelegate>(WrappedType, nameof(PreferIntrinsicPredefinedTypeKeywordInDeclaration));
-            PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterDelegate>(WrappedType, nameof(PreferIntrinsicPredefinedTypeKeywordInMemberAccess));
-            QualifyEventAccessGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<QualifyEventAccessGetterDelegate>(WrappedType, nameof(QualifyEventAccess));
-            QualifyFieldAccessGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<QualifyFieldAccessGetterDelegate>(WrappedType, nameof(QualifyFieldAccess));
-            QualifyMethodAccessGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<QualifyMethodAccessGetterDelegate>(WrappedType, nameof(QualifyMethodAccess));
-            QualifyPropertyAccessGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticReadAccessor<QualifyPropertyAccessGetterDelegate>(WrappedType, nameof(QualifyPropertyAccess));
-
             ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType);
         }
 
         private CodeStyleOptionsWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> PreferIntrinsicPredefinedTypeKeywordInDeclaration
-        {
-            get { return PreferIntrinsicPredefinedTypeKeywordInDeclarationGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> PreferIntrinsicPredefinedTypeKeywordInMemberAccess
-        {
-            get { return PreferIntrinsicPredefinedTypeKeywordInMemberAccessGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyEventAccess
-        {
-            get { return QualifyEventAccessGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyFieldAccess
-        {
-            get { return QualifyFieldAccessGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyMethodAccess
-        {
-            get { return QualifyMethodAccessGetterFunc(); }
-        }
-
-        /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Options.PerLanguageOption<global::Microsoft.CodeAnalysis.CodeStyle.CodeStyleOption<global::System.Boolean>> QualifyPropertyAccess
-        {
-            get { return QualifyPropertyAccessGetterFunc(); }
         }
 
         /// <summary>Constructor added in version 2.0.0.0.</summary>

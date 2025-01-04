@@ -1347,6 +1347,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         var result = typeDef.Fields
             .Where(x => x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
+            // TODO: Enable generation of CodeStyleOptions (some members reference CodeStyleOption<> which was added in 2.0.0)
+            .Where(x => typeDef.FullName != "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions")
             .ToList();
         return result;
     }
