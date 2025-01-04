@@ -19,6 +19,7 @@ public class TestAssemblyTests
     {
         var types = new[]
         {
+            typeof(V1_3_2.CSharp.LightupStatusTests),
             typeof(V2_0_0.CSharp.LightupStatusTests),
             typeof(V2_3_2.CSharp.LightupStatusTests),
             typeof(V2_6_1.CSharp.LightupStatusTests),
