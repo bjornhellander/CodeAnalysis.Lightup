@@ -65,7 +65,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
 
         foreach (var configFile in configFiles)
         {
-            var configFileContent = configFile.GetText()!.ToString();
+            var configFileContent = Helpers.GetConfigurationFileContent(configFile, context.CancellationToken);
             if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var useFoldersInFilePaths, out var errorMessage))
             {
                 var location = Location.Create(configFile.Path, new TextSpan(0, 0), new LinePositionSpan(new LinePosition(0, 0), new LinePosition(0, 0)));

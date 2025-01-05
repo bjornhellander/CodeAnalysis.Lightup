@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using CodeAnalysis.Lightup.Definitions;
 using LightJson;
 using Microsoft.CodeAnalysis;
@@ -27,8 +28,14 @@ internal static class Helpers
         return SettingsFileNameRegex.IsMatch(Path.GetFileName(additionalFile.Path));
     }
 
+    public static string? GetConfigurationFileContent(AdditionalText additionalFile, CancellationToken cancellationToken)
+    {
+        var text = additionalFile.GetText(cancellationToken);
+        return text?.ToString();
+    }
+
     public static bool TryParseConfiguration(
-        string configFileContent,
+        string? configFileContent,
         out List<AssemblyKind> assemblies,
         out Version baselineVersion,
         out List<string> typesToInclude,
@@ -42,6 +49,12 @@ internal static class Helpers
 
         try
         {
+            if (configFileContent == null)
+            {
+                errorMessage = "Failed to retrieve configuration file content";
+                return false;
+            }
+
             var root = JsonValue.Parse(configFileContent);
             if (!root.IsJsonObject)
             {
