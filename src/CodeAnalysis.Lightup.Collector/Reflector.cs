@@ -333,7 +333,7 @@ internal class Reflector
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            UpdateClassType(classTypeDef, type, assemblyVersion, typeDefs);
+            UpdateClassType(classTypeDef, type, assemblyVersion);
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
         {
@@ -379,11 +379,11 @@ internal class Reflector
         UpdateType(structTypeDef, type, assemblyVersion);
     }
 
-    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion, Dictionary<string, BaseTypeDefinition> typeDefs)
+    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion)
     {
         UpdateType(classTypeDef, type, assemblyVersion);
 
-        var baseType = GetClassBaseType(type, typeDefs);
+        var baseType = GetClassBaseType(type);
         var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
         classTypeDef.BaseClass = baseClassRef;
 
@@ -392,36 +392,26 @@ internal class Reflector
         classTypeDef.IsAbstract = IsAbstractType(type);
     }
 
-    private static Type? GetClassBaseType(
-        Type type,
-        Dictionary<string, BaseTypeDefinition> typeDefs)
+    private static Type? GetClassBaseType(Type type)
     {
-        var currType = type;
-        while (true)
+        var baseType = type.BaseType;
+        if (baseType == null)
         {
-            var baseType = currType.BaseType;
-            if (baseType == null)
-            {
-                Assert.Fail("Could not get base type");
-                return null;
-            }
-            else if (baseType.FullName == null)
-            {
-                Assert.Fail("Could not get base type");
-                return null;
-            }
-            else if (baseType.FullName == "System.Object")
-            {
-                return null;
-            }
-            else if (!typeDefs.TryGetValue(baseType.FullName, out var typeDef) || typeDef.AssemblyVersion == null)
-            {
-                return baseType;
-            }
-            else
-            {
-                currType = baseType;
-            }
+            Assert.Fail("Could not get base type");
+            return null;
+        }
+        else if (baseType.FullName == null)
+        {
+            Assert.Fail("Could not get base type name");
+            return null;
+        }
+        else if (baseType.FullName == "System.Object")
+        {
+            return null;
+        }
+        else
+        {
+            return baseType;
         }
     }
 
