@@ -15,13 +15,13 @@ using CodeAnalysis.Lightup.Definitions;
 internal class Reflector
 {
 #pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
-    private static readonly FieldComparer fieldComparer = new FieldComparer();
-    private static readonly EventComparer eventComparer = new EventComparer();
-    private static readonly PropertyComparer propertyComparer = new PropertyComparer();
-    private static readonly IndexerComparer indexerComparer = new IndexerComparer();
-    private static readonly ConstructorComparer constructorComparer = new ConstructorComparer();
-    private static readonly MethodComparer methodComparer = new MethodComparer();
-    private static readonly EnumValueComparer enumValueComparer = new EnumValueComparer();
+    private static readonly FieldComparer fieldComparer = new();
+    private static readonly EventComparer eventComparer = new();
+    private static readonly PropertyComparer propertyComparer = new();
+    private static readonly IndexerComparer indexerComparer = new();
+    private static readonly ConstructorComparer constructorComparer = new();
+    private static readonly MethodComparer methodComparer = new();
+    private static readonly EnumValueComparer enumValueComparer = new();
 #pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
 
     private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
