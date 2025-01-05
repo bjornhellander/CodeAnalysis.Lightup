@@ -12,9 +12,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadataDelegate0(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose);
 
+        private delegate global::System.Reflection.Metadata.MetadataReader GetMetadataReaderDelegate0(global::Microsoft.CodeAnalysis.ModuleMetadata _obj);
+
         private static readonly IsDisposedGetterDelegate IsDisposedGetterFunc;
 
         private static readonly CreateFromMetadataDelegate0 CreateFromMetadataFunc0;
+
+        private static readonly GetMetadataReaderDelegate0 GetMetadataReaderFunc0;
 
         static ModuleMetadataEx()
         {
@@ -23,6 +27,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsDisposedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsDisposedGetterDelegate>(wrappedType, nameof(IsDisposed));
 
             CreateFromMetadataFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateFromMetadataDelegate0>(wrappedType, "CreateFromMetadata", "metadataIntPtr", "sizeInt32", "onDisposeAction");
+
+            GetMetadataReaderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetMetadataReaderDelegate0>(wrappedType, "GetMetadataReader");
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
@@ -35,6 +41,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.ModuleMetadata CreateFromMetadata(global::System.IntPtr metadata, global::System.Int32 size, global::System.Action onDispose)
         {
             return CreateFromMetadataFunc0(metadata, size, onDispose);
+        }
+
+        /// <summary>Method added in version 1.3.0.0.</summary>
+        public static global::System.Reflection.Metadata.MetadataReader GetMetadataReader(this global::Microsoft.CodeAnalysis.ModuleMetadata _obj)
+        {
+            return GetMetadataReaderFunc0(_obj);
         }
     }
 }

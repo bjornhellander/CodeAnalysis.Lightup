@@ -21,18 +21,19 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode LockStatementDelegate10(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> statements);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode MemberBindingExpressionDelegate11(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode name);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode NameExpressionDelegate12(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.INamespaceOrTypeSymbol namespaceOrTypeSymbol);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode RemoveEventHandlerDelegate13(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode @event, global::Microsoft.CodeAnalysis.SyntaxNode handler);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode SetAccessorDeclarationDelegate14(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.Accessibility accessibility, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode>? statements);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ThrowExpressionDelegate15(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpressionDelegate16(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode type, global::System.String? name);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpressionDelegate17(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol type, global::System.String? name);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleExpressionDelegate18(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate19(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] elements);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate20(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> elements);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate21(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Generic.IEnumerable<global::System.String>? elementNames);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TypeExpressionDelegate22(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol typeSymbol, global::System.Boolean addImport);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarationsDelegate23(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> accessorDeclarations);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarationsDelegate24(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, params global::Microsoft.CodeAnalysis.SyntaxNode[] accessorDeclarations);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode NameOfExpressionDelegate13(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode RemoveEventHandlerDelegate14(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode @event, global::Microsoft.CodeAnalysis.SyntaxNode handler);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode SetAccessorDeclarationDelegate15(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.Accessibility accessibility, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode>? statements);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode ThrowExpressionDelegate16(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpressionDelegate17(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode type, global::System.String? name);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpressionDelegate18(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol type, global::System.String? name);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleExpressionDelegate19(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate20(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] elements);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate21(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> elements);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpressionDelegate22(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Generic.IEnumerable<global::System.String>? elementNames);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode TypeExpressionDelegate23(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol typeSymbol, global::System.Boolean addImport);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarationsDelegate24(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> accessorDeclarations);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarationsDelegate25(global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, params global::Microsoft.CodeAnalysis.SyntaxNode[] accessorDeclarations);
 
         private static readonly AddEventHandlerDelegate0 AddEventHandlerFunc0;
         private static readonly AddSwitchSectionsDelegate1 AddSwitchSectionsFunc1;
@@ -47,18 +48,19 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private static readonly LockStatementDelegate10 LockStatementFunc10;
         private static readonly MemberBindingExpressionDelegate11 MemberBindingExpressionFunc11;
         private static readonly NameExpressionDelegate12 NameExpressionFunc12;
-        private static readonly RemoveEventHandlerDelegate13 RemoveEventHandlerFunc13;
-        private static readonly SetAccessorDeclarationDelegate14 SetAccessorDeclarationFunc14;
-        private static readonly ThrowExpressionDelegate15 ThrowExpressionFunc15;
-        private static readonly TupleElementExpressionDelegate16 TupleElementExpressionFunc16;
+        private static readonly NameOfExpressionDelegate13 NameOfExpressionFunc13;
+        private static readonly RemoveEventHandlerDelegate14 RemoveEventHandlerFunc14;
+        private static readonly SetAccessorDeclarationDelegate15 SetAccessorDeclarationFunc15;
+        private static readonly ThrowExpressionDelegate16 ThrowExpressionFunc16;
         private static readonly TupleElementExpressionDelegate17 TupleElementExpressionFunc17;
-        private static readonly TupleExpressionDelegate18 TupleExpressionFunc18;
-        private static readonly TupleTypeExpressionDelegate19 TupleTypeExpressionFunc19;
+        private static readonly TupleElementExpressionDelegate18 TupleElementExpressionFunc18;
+        private static readonly TupleExpressionDelegate19 TupleExpressionFunc19;
         private static readonly TupleTypeExpressionDelegate20 TupleTypeExpressionFunc20;
         private static readonly TupleTypeExpressionDelegate21 TupleTypeExpressionFunc21;
-        private static readonly TypeExpressionDelegate22 TypeExpressionFunc22;
-        private static readonly WithAccessorDeclarationsDelegate23 WithAccessorDeclarationsFunc23;
+        private static readonly TupleTypeExpressionDelegate22 TupleTypeExpressionFunc22;
+        private static readonly TypeExpressionDelegate23 TypeExpressionFunc23;
         private static readonly WithAccessorDeclarationsDelegate24 WithAccessorDeclarationsFunc24;
+        private static readonly WithAccessorDeclarationsDelegate25 WithAccessorDeclarationsFunc25;
 
         static SyntaxGeneratorEx()
         {
@@ -77,18 +79,19 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             LockStatementFunc10 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<LockStatementDelegate10>(wrappedType, "LockStatement", "expressionSyntaxNode", "statementsIEnumerable`1");
             MemberBindingExpressionFunc11 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<MemberBindingExpressionDelegate11>(wrappedType, "MemberBindingExpression", "nameSyntaxNode");
             NameExpressionFunc12 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<NameExpressionDelegate12>(wrappedType, "NameExpression", "namespaceOrTypeSymbolINamespaceOrTypeSymbol");
-            RemoveEventHandlerFunc13 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveEventHandlerDelegate13>(wrappedType, "RemoveEventHandler", "eventSyntaxNode", "handlerSyntaxNode");
-            SetAccessorDeclarationFunc14 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<SetAccessorDeclarationDelegate14>(wrappedType, "SetAccessorDeclaration", "accessibilityAccessibility", "statementsIEnumerable`1");
-            ThrowExpressionFunc15 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ThrowExpressionDelegate15>(wrappedType, "ThrowExpression", "expressionSyntaxNode");
-            TupleElementExpressionFunc16 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleElementExpressionDelegate16>(wrappedType, "TupleElementExpression", "typeSyntaxNode", "nameString");
-            TupleElementExpressionFunc17 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleElementExpressionDelegate17>(wrappedType, "TupleElementExpression", "typeITypeSymbol", "nameString");
-            TupleExpressionFunc18 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleExpressionDelegate18>(wrappedType, "TupleExpression", "argumentsIEnumerable`1");
-            TupleTypeExpressionFunc19 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate19>(wrappedType, "TupleTypeExpression", "elementsSyntaxNode[]");
-            TupleTypeExpressionFunc20 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate20>(wrappedType, "TupleTypeExpression", "elementsIEnumerable`1");
-            TupleTypeExpressionFunc21 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate21>(wrappedType, "TupleTypeExpression", "elementTypesIEnumerable`1", "elementNamesIEnumerable`1");
-            TypeExpressionFunc22 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TypeExpressionDelegate22>(wrappedType, "TypeExpression", "typeSymbolITypeSymbol", "addImportBoolean");
-            WithAccessorDeclarationsFunc23 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAccessorDeclarationsDelegate23>(wrappedType, "WithAccessorDeclarations", "declarationSyntaxNode", "accessorDeclarationsIEnumerable`1");
-            WithAccessorDeclarationsFunc24 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAccessorDeclarationsDelegate24>(wrappedType, "WithAccessorDeclarations", "declarationSyntaxNode", "accessorDeclarationsSyntaxNode[]");
+            NameOfExpressionFunc13 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<NameOfExpressionDelegate13>(wrappedType, "NameOfExpression", "expressionSyntaxNode");
+            RemoveEventHandlerFunc14 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveEventHandlerDelegate14>(wrappedType, "RemoveEventHandler", "eventSyntaxNode", "handlerSyntaxNode");
+            SetAccessorDeclarationFunc15 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<SetAccessorDeclarationDelegate15>(wrappedType, "SetAccessorDeclaration", "accessibilityAccessibility", "statementsIEnumerable`1");
+            ThrowExpressionFunc16 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<ThrowExpressionDelegate16>(wrappedType, "ThrowExpression", "expressionSyntaxNode");
+            TupleElementExpressionFunc17 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleElementExpressionDelegate17>(wrappedType, "TupleElementExpression", "typeSyntaxNode", "nameString");
+            TupleElementExpressionFunc18 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleElementExpressionDelegate18>(wrappedType, "TupleElementExpression", "typeITypeSymbol", "nameString");
+            TupleExpressionFunc19 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleExpressionDelegate19>(wrappedType, "TupleExpression", "argumentsIEnumerable`1");
+            TupleTypeExpressionFunc20 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate20>(wrappedType, "TupleTypeExpression", "elementsSyntaxNode[]");
+            TupleTypeExpressionFunc21 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate21>(wrappedType, "TupleTypeExpression", "elementsIEnumerable`1");
+            TupleTypeExpressionFunc22 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TupleTypeExpressionDelegate22>(wrappedType, "TupleTypeExpression", "elementTypesIEnumerable`1", "elementNamesIEnumerable`1");
+            TypeExpressionFunc23 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<TypeExpressionDelegate23>(wrappedType, "TypeExpression", "typeSymbolITypeSymbol", "addImportBoolean");
+            WithAccessorDeclarationsFunc24 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAccessorDeclarationsDelegate24>(wrappedType, "WithAccessorDeclarations", "declarationSyntaxNode", "accessorDeclarationsIEnumerable`1");
+            WithAccessorDeclarationsFunc25 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAccessorDeclarationsDelegate25>(wrappedType, "WithAccessorDeclarations", "declarationSyntaxNode", "accessorDeclarationsSyntaxNode[]");
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
@@ -169,76 +172,82 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return NameExpressionFunc12(_obj, namespaceOrTypeSymbol);
         }
 
+        /// <summary>Method added in version 1.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxNode NameOfExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression)
+        {
+            return NameOfExpressionFunc13(_obj, expression);
+        }
+
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode RemoveEventHandler(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode @event, global::Microsoft.CodeAnalysis.SyntaxNode handler)
         {
-            return RemoveEventHandlerFunc13(_obj, @event, handler);
+            return RemoveEventHandlerFunc14(_obj, @event, handler);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode SetAccessorDeclaration(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.Accessibility accessibility, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode>? statements)
         {
-            return SetAccessorDeclarationFunc14(_obj, accessibility, statements);
+            return SetAccessorDeclarationFunc15(_obj, accessibility, statements);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode ThrowExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode expression)
         {
-            return ThrowExpressionFunc15(_obj, expression);
+            return ThrowExpressionFunc16(_obj, expression);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode type, global::System.String? name)
         {
-            return TupleElementExpressionFunc16(_obj, type, name);
+            return TupleElementExpressionFunc17(_obj, type, name);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleElementExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol type, global::System.String? name)
         {
-            return TupleElementExpressionFunc17(_obj, type, name);
+            return TupleElementExpressionFunc18(_obj, type, name);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> arguments)
         {
-            return TupleExpressionFunc18(_obj, arguments);
+            return TupleExpressionFunc19(_obj, arguments);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, params global::Microsoft.CodeAnalysis.SyntaxNode[] elements)
         {
-            return TupleTypeExpressionFunc19(_obj, elements);
+            return TupleTypeExpressionFunc20(_obj, elements);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> elements)
         {
-            return TupleTypeExpressionFunc20(_obj, elements);
+            return TupleTypeExpressionFunc21(_obj, elements);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TupleTypeExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Generic.IEnumerable<global::System.String>? elementNames)
         {
-            return TupleTypeExpressionFunc21(_obj, elementTypes, elementNames);
+            return TupleTypeExpressionFunc22(_obj, elementTypes, elementNames);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode TypeExpression(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.ITypeSymbol typeSymbol, global::System.Boolean addImport)
         {
-            return TypeExpressionFunc22(_obj, typeSymbol, addImport);
+            return TypeExpressionFunc23(_obj, typeSymbol, addImport);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarations(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxNode> accessorDeclarations)
         {
-            return WithAccessorDeclarationsFunc23(_obj, declaration, accessorDeclarations);
+            return WithAccessorDeclarationsFunc24(_obj, declaration, accessorDeclarations);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode WithAccessorDeclarations(this global::Microsoft.CodeAnalysis.Editing.SyntaxGenerator _obj, global::Microsoft.CodeAnalysis.SyntaxNode declaration, params global::Microsoft.CodeAnalysis.SyntaxNode[] accessorDeclarations)
         {
-            return WithAccessorDeclarationsFunc24(_obj, declaration, accessorDeclarations);
+            return WithAccessorDeclarationsFunc25(_obj, declaration, accessorDeclarations);
         }
     }
 }

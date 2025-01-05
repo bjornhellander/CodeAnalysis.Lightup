@@ -8,21 +8,30 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.PortableExecutableReference";
 
-        private delegate global::Microsoft.CodeAnalysis.MetadataId GetMetadataIdDelegate0(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
+        private delegate global::Microsoft.CodeAnalysis.Metadata GetMetadataDelegate0(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
+        private delegate global::Microsoft.CodeAnalysis.MetadataId GetMetadataIdDelegate1(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
 
-        private static readonly GetMetadataIdDelegate0 GetMetadataIdFunc0;
+        private static readonly GetMetadataDelegate0 GetMetadataFunc0;
+        private static readonly GetMetadataIdDelegate1 GetMetadataIdFunc1;
 
         static PortableExecutableReferenceEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            GetMetadataIdFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetMetadataIdDelegate0>(wrappedType, "GetMetadataId");
+            GetMetadataFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetMetadataDelegate0>(wrappedType, "GetMetadata");
+            GetMetadataIdFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetMetadataIdDelegate1>(wrappedType, "GetMetadataId");
+        }
+
+        /// <summary>Method added in version 1.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Metadata GetMetadata(this global::Microsoft.CodeAnalysis.PortableExecutableReference _obj)
+        {
+            return GetMetadataFunc0(_obj);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.MetadataId GetMetadataId(this global::Microsoft.CodeAnalysis.PortableExecutableReference _obj)
         {
-            return GetMetadataIdFunc0(_obj);
+            return GetMetadataIdFunc1(_obj);
         }
     }
 }

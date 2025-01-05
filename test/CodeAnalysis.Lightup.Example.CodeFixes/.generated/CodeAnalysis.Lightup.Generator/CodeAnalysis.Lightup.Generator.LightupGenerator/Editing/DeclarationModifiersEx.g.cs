@@ -20,6 +20,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
 
+        private delegate global::System.Boolean TryParseDelegate0(global::System.String? value, out global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers modifiers);
+
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate1(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate2(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef);
@@ -37,6 +39,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private static readonly IsRefGetterDelegate IsRefGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly IsVolatileGetterDelegate IsVolatileGetterFunc;
+
+        private static readonly TryParseDelegate0 TryParseFunc0;
 
         private static readonly WithIsExternDelegate0 WithIsExternFunc0;
         private static readonly WithIsFileDelegate1 WithIsFileFunc1;
@@ -59,6 +63,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             IsRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRefGetterDelegate>(wrappedType, nameof(IsRef));
             IsRequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
             IsVolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
+
+            TryParseFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<TryParseDelegate0>(wrappedType, "TryParse", "valueString", "modifiersDeclarationModifiers&");
 
             WithIsExternFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "isExternBoolean");
             WithIsFileFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, "WithIsFile", "isFileBoolean");
@@ -125,6 +131,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         public static global::System.Boolean IsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsVolatileGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 1.3.0.0.</summary>
+        public static global::System.Boolean TryParse(global::System.String? value, out global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers modifiers)
+        {
+            return TryParseFunc0(value, out modifiers);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
