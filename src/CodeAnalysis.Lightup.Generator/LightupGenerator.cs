@@ -20,7 +20,7 @@ public class LightupGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
-        var configFileContents = configFiles.Select((text, cancellationToken) => text.GetText(cancellationToken)!.ToString());
+        var configFileContents = configFiles.Select(Helpers.GetConfigurationFileContent);
 
         var languageVersion = context.CompilationProvider.Select((compilation, cancellationToken) =>
         {
@@ -34,7 +34,7 @@ public class LightupGenerator : IIncrementalGenerator
             (context, input) => Execute(context, input.Left, input.Right));
     }
 
-    private static void Execute(SourceProductionContext context, string configFileContent, LanguageVersion? languageVersion)
+    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion)
     {
         if (Helpers.TryParseConfiguration(
             configFileContent,

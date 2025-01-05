@@ -4,10 +4,10 @@
 namespace CodeAnalysis.Lightup.Generator;
 
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.Text;
 
 // TODO: Create Roslyn issue for descriptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -31,7 +31,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
         new DiagnosticDescriptor(
             id: BadFileDiagnosticId,
             title: "Incorrect configuration file",
-            messageFormat: "Incorrect configuration file {0}: {1}",
+            messageFormat: "Incorrect configuration file: {0}",
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
@@ -59,24 +59,25 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
 
         if (configFiles.Length == 0)
         {
-            ReportDiagnostic(context, NoFileDescriptor);
+            ReportDiagnostic(context, NoFileDescriptor, null);
             return;
         }
 
         foreach (var configFile in configFiles)
         {
-            var configFileContent = configFile.GetText()!.ToString();
+            var configFileContent = Helpers.GetConfigurationFileContent(configFile, context.CancellationToken);
             if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var useFoldersInFilePaths, out var errorMessage))
             {
-                ReportDiagnostic(context, BadFileDescriptor, Path.GetFileName(configFile.Path), errorMessage);
+                var location = Location.Create(configFile.Path, new TextSpan(0, 0), new LinePositionSpan(new LinePosition(0, 0), new LinePosition(0, 0)));
+                ReportDiagnostic(context, BadFileDescriptor, location, errorMessage);
                 return;
             }
         }
     }
 
-    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, params string[] parameters)
+    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, Location? location, params string[] parameters)
     {
-        var diagnostic = Diagnostic.Create(descriptor, null, parameters);
+        var diagnostic = Diagnostic.Create(descriptor, location, parameters);
         context.ReportDiagnostic(diagnostic);
     }
 }
