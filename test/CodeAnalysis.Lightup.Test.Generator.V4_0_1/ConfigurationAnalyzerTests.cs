@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using CodeAnalysis.Lightup.Generator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<
-    CodeAnalysis.Lightup.Generator.ConfigurationAnalyzer>;
+using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpCodeFixVerifier<
+    CodeAnalysis.Lightup.Generator.ConfigurationAnalyzer,
+    CodeAnalysis.Lightup.Generator.ConfigurationCodeFixProvider>;
 
 [TestClass]
 public class ConfigurationAnalyzerTests
@@ -25,8 +26,16 @@ public class ConfigurationAnalyzerTests
     [DataRow("Xyz.CodeAnalysis.Lightup.json")]
     public async Task TestNoConfigurationFile(string? fileName)
     {
+        var configurationFileContent = @"{
+  ""$schema"": ""https://raw.githubusercontent.com/bjornhellander/CodeAnalysis.Lightup/master/Configuration.schema.json"",
+  ""baselineVersion"": ""1.3.2.0"",
+  ""assemblies"": [ ""Common"", ""CSharp"" ]
+}
+";
+
         var test = CreateTest(fileName);
         test.ExpectedDiagnostics.Add(VerifyCS.Diagnostic(ConfigurationAnalyzer.NoFileDiagnosticId));
+        test.FixedState.AdditionalFiles.Add(("CodeAnalysis.Lightup.json", configurationFileContent));
         await test.RunAsync();
     }
 
@@ -326,6 +335,7 @@ public class ConfigurationAnalyzerTests
     {
         var test = new VerifyCS.Test();
         test.TestCode = "";
+        test.FixedCode = "";
 
         if (fileName != null)
         {
@@ -337,6 +347,7 @@ public class ConfigurationAnalyzerTests
     ""includeTypes"": [ ""abc"" ]
 }}";
             test.TestState.AdditionalFiles.Add((fileName, configFileContent));
+            test.FixedState.AdditionalFiles.Add((fileName, configFileContent));
         }
 
         return test;
