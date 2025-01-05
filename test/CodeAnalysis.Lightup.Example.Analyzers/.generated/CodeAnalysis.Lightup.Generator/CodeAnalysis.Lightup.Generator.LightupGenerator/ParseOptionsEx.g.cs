@@ -12,9 +12,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String LanguageGetterDelegate(global::Microsoft.CodeAnalysis.ParseOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.SourceCodeKind SpecifiedKindGetterDelegate(global::Microsoft.CodeAnalysis.ParseOptions _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.ParseOptions CommonWithKindDelegate0(global::Microsoft.CodeAnalysis.ParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind);
+        private delegate global::Microsoft.CodeAnalysis.ParseOptions WithKindDelegate1(global::Microsoft.CodeAnalysis.ParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind);
+
         private static readonly ErrorsGetterDelegate ErrorsGetterFunc;
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SpecifiedKindGetterDelegate SpecifiedKindGetterFunc;
+
+        private static readonly CommonWithKindDelegate0 CommonWithKindFunc0;
+        private static readonly WithKindDelegate1 WithKindFunc1;
 
         static ParseOptionsEx()
         {
@@ -23,6 +29,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             ErrorsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorsGetterDelegate>(wrappedType, nameof(Errors));
             LanguageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(wrappedType, nameof(Language));
             SpecifiedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SpecifiedKindGetterDelegate>(wrappedType, nameof(SpecifiedKind));
+
+            CommonWithKindFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CommonWithKindDelegate0>(wrappedType, "CommonWithKind", "kindSourceCodeKind");
+            WithKindFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithKindDelegate1>(wrappedType, "WithKind", "kindSourceCodeKind");
         }
 
         /// <summary>Property added in version 2.3.0.0.</summary>
@@ -41,6 +50,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.SourceCodeKind SpecifiedKind(this global::Microsoft.CodeAnalysis.ParseOptions _obj)
         {
             return SpecifiedKindGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ParseOptions CommonWithKind(this global::Microsoft.CodeAnalysis.ParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind)
+        {
+            return CommonWithKindFunc0(_obj, kind);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ParseOptions WithKind(this global::Microsoft.CodeAnalysis.ParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind)
+        {
+            return WithKindFunc1(_obj, kind);
         }
     }
 }

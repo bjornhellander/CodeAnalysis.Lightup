@@ -8,27 +8,54 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.CSharpScriptCompilationInfoWrapper? ScriptCompilationInfoGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj);
+
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation CreateScriptCompilationDelegate0(global::System.String assemblyName, global::Microsoft.CodeAnalysis.SyntaxTree? syntaxTree, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.MetadataReference>? references, global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? options, global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? previousScriptCompilation, global::System.Type? returnType, global::System.Type? globalsType);
+
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
         private delegate global::System.Boolean ContainsSymbolsWithNameDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation WithScriptCompilationInfoDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.CSharpScriptCompilationInfoWrapper? info);
+
+        private static readonly ScriptCompilationInfoGetterDelegate ScriptCompilationInfoGetterFunc;
+
+        private static readonly CreateScriptCompilationDelegate0 CreateScriptCompilationFunc0;
 
         private static readonly ClassifyCommonConversionDelegate0 ClassifyCommonConversionFunc0;
         private static readonly ContainsSymbolsWithNameDelegate1 ContainsSymbolsWithNameFunc1;
         private static readonly GetSemanticModelDelegate2 GetSemanticModelFunc2;
         private static readonly GetSymbolsWithNameDelegate3 GetSymbolsWithNameFunc3;
         private static readonly GetUsedAssemblyReferencesDelegate4 GetUsedAssemblyReferencesFunc4;
+        private static readonly WithScriptCompilationInfoDelegate5 WithScriptCompilationInfoFunc5;
 
         static CSharpCompilationEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
+
+            ScriptCompilationInfoGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ScriptCompilationInfoGetterDelegate>(wrappedType, nameof(ScriptCompilationInfo));
+
+            CreateScriptCompilationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<CreateScriptCompilationDelegate0>(wrappedType, "CreateScriptCompilation", "assemblyNameString", "syntaxTreeSyntaxTree", "referencesIEnumerable`1", "optionsCSharpCompilationOptions", "previousScriptCompilationCSharpCompilation", "returnTypeType", "globalsTypeType");
 
             ClassifyCommonConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ClassifyCommonConversionDelegate0>(wrappedType, "ClassifyCommonConversion", "sourceITypeSymbol", "destinationITypeSymbol");
             ContainsSymbolsWithNameFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsSymbolsWithNameDelegate1>(wrappedType, "ContainsSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
             GetSemanticModelFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate2>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
             GetSymbolsWithNameFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSymbolsWithNameDelegate3>(wrappedType, "GetSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
             GetUsedAssemblyReferencesFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate4>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            WithScriptCompilationInfoFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithScriptCompilationInfoDelegate5>(wrappedType, "WithScriptCompilationInfo", "infoCSharpScriptCompilationInfo");
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Lightup.CSharpScriptCompilationInfoWrapper? ScriptCompilationInfo(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj)
+        {
+            return ScriptCompilationInfoGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation CreateScriptCompilation(global::System.String assemblyName, global::Microsoft.CodeAnalysis.SyntaxTree? syntaxTree, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.MetadataReference>? references, global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions? options, global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation? previousScriptCompilation, global::System.Type? returnType, global::System.Type? globalsType)
+        {
+            return CreateScriptCompilationFunc0(assemblyName, syntaxTree, references, options, previousScriptCompilation, returnType, globalsType);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -59,6 +86,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetUsedAssemblyReferencesFunc4(_obj, cancellationToken);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation WithScriptCompilationInfo(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.CSharpScriptCompilationInfoWrapper? info)
+        {
+            return WithScriptCompilationInfoFunc5(_obj, info);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.AdditionalText, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> AdditionalFileDiagnosticsGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> AnalyzersGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo> AnalyzerTelemetryInfoGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup.AnalyzerTelemetryInfoWrapper> AnalyzerTelemetryInfoGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> CompilationDiagnosticsGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.SyntaxTree, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> SemanticDiagnosticsGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.SyntaxTree, global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>>> SyntaxDiagnosticsGetterDelegate(global::System.Object _obj);
@@ -65,7 +65,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         }
 
         /// <summary>Property added in version 1.3.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo> AnalyzerTelemetryInfo
+        public global::System.Collections.Immutable.ImmutableDictionary<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer, global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup.AnalyzerTelemetryInfoWrapper> AnalyzerTelemetryInfo
         {
             get { return AnalyzerTelemetryInfoGetterFunc(wrappedObject); }
         }

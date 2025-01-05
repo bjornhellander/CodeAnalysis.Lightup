@@ -11,8 +11,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.String LanguageGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.CSharp.LanguageVersion SpecifiedLanguageVersionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.ParseOptions CommonWithKindDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions WithKindDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind);
+
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly SpecifiedLanguageVersionGetterDelegate SpecifiedLanguageVersionGetterFunc;
+
+        private static readonly CommonWithKindDelegate0 CommonWithKindFunc0;
+        private static readonly WithKindDelegate1 WithKindFunc1;
 
         static CSharpParseOptionsEx()
         {
@@ -20,6 +26,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
             LanguageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(wrappedType, nameof(Language));
             SpecifiedLanguageVersionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SpecifiedLanguageVersionGetterDelegate>(wrappedType, nameof(SpecifiedLanguageVersion));
+
+            CommonWithKindFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<CommonWithKindDelegate0>(wrappedType, "CommonWithKind", "kindSourceCodeKind");
+            WithKindFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKindDelegate1>(wrappedType, "WithKind", "kindSourceCodeKind");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -32,6 +41,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::Microsoft.CodeAnalysis.CSharp.LanguageVersion SpecifiedLanguageVersion(this global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj)
         {
             return SpecifiedLanguageVersionGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ParseOptions CommonWithKind(this global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind)
+        {
+            return CommonWithKindFunc0(_obj, kind);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions WithKind(this global::Microsoft.CodeAnalysis.CSharp.CSharpParseOptions _obj, global::Microsoft.CodeAnalysis.SourceCodeKind kind)
+        {
+            return WithKindFunc1(_obj, kind);
         }
     }
 }

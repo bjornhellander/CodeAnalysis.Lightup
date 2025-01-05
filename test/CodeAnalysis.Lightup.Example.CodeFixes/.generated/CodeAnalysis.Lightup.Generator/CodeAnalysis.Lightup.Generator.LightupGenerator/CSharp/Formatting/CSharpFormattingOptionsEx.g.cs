@@ -9,20 +9,38 @@ namespace Microsoft.CodeAnalysis.CSharp.Formatting.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions";
 
         private delegate global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> IndentSwitchCaseSectionWhenBlockGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> NewLinesForBracesInAccessorsGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> NewLinesForBracesInPropertiesGetterDelegate();
 
         private static readonly IndentSwitchCaseSectionWhenBlockGetterDelegate IndentSwitchCaseSectionWhenBlockGetterFunc;
+        private static readonly NewLinesForBracesInAccessorsGetterDelegate NewLinesForBracesInAccessorsGetterFunc;
+        private static readonly NewLinesForBracesInPropertiesGetterDelegate NewLinesForBracesInPropertiesGetterFunc;
 
         static CSharpFormattingOptionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpWorkspacesLightupHelper.FindType(WrappedTypeName);
 
             IndentSwitchCaseSectionWhenBlockGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpWorkspacesLightupHelper.CreateStaticGetAccessor<IndentSwitchCaseSectionWhenBlockGetterDelegate>(wrappedType, nameof(IndentSwitchCaseSectionWhenBlock));
+            NewLinesForBracesInAccessorsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpWorkspacesLightupHelper.CreateStaticGetAccessor<NewLinesForBracesInAccessorsGetterDelegate>(wrappedType, nameof(NewLinesForBracesInAccessors));
+            NewLinesForBracesInPropertiesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpWorkspacesLightupHelper.CreateStaticGetAccessor<NewLinesForBracesInPropertiesGetterDelegate>(wrappedType, nameof(NewLinesForBracesInProperties));
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> IndentSwitchCaseSectionWhenBlock()
         {
             return IndentSwitchCaseSectionWhenBlockGetterFunc();
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> NewLinesForBracesInAccessors()
+        {
+            return NewLinesForBracesInAccessorsGetterFunc();
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Options.Option<global::System.Boolean> NewLinesForBracesInProperties()
+        {
+            return NewLinesForBracesInPropertiesGetterFunc();
         }
     }
 }

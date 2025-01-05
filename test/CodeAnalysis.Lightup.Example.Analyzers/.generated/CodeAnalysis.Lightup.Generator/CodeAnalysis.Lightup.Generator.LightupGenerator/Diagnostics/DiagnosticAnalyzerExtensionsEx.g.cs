@@ -8,21 +8,30 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzerExtensions";
 
-        private delegate global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzersDelegate0(global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzersDelegate0(global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.CompilationWithAnalyzersOptionsWrapper analysisOptions);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzersDelegate1(global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options);
 
         private static readonly WithAnalyzersDelegate0 WithAnalyzersFunc0;
+        private static readonly WithAnalyzersDelegate1 WithAnalyzersFunc1;
 
         static DiagnosticAnalyzerExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            WithAnalyzersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WithAnalyzersDelegate0>(wrappedType, "WithAnalyzers", "compilationCompilation", "analyzersImmutableArray`1", "optionsAnalyzerOptions");
+            WithAnalyzersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WithAnalyzersDelegate0>(wrappedType, "WithAnalyzers", "compilationCompilation", "analyzersImmutableArray`1", "analysisOptionsCompilationWithAnalyzersOptions");
+            WithAnalyzersFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WithAnalyzersDelegate1>(wrappedType, "WithAnalyzers", "compilationCompilation", "analyzersImmutableArray`1", "optionsAnalyzerOptions");
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzers(this global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.CompilationWithAnalyzersOptionsWrapper analysisOptions)
+        {
+            return WithAnalyzersFunc0(compilation, analyzers, analysisOptions);
         }
 
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers WithAnalyzers(this global::Microsoft.CodeAnalysis.Compilation compilation, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions? options)
         {
-            return WithAnalyzersFunc0(compilation, analyzers, options);
+            return WithAnalyzersFunc1(compilation, analyzers, options);
         }
     }
 }

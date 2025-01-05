@@ -11,8 +11,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate Microsoft.CodeAnalysis.Editing.SyntaxEditor ConstructorDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.HostWorkspaceServices services);
         private delegate Microsoft.CodeAnalysis.Editing.SyntaxEditor ConstructorDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services);
 
+        private delegate void RemoveNodeDelegate0(global::Microsoft.CodeAnalysis.Editing.SyntaxEditor _obj, global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.SyntaxRemoveOptions options);
+
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;
+
+        private static readonly RemoveNodeDelegate0 RemoveNodeFunc0;
 
         static SyntaxEditorEx()
         {
@@ -20,6 +24,8 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
 
             ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "rootSyntaxNode", "servicesHostWorkspaceServices");
             ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "rootSyntaxNode", "servicesSolutionServices");
+
+            RemoveNodeFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RemoveNodeDelegate0>(wrappedType, "RemoveNode", "nodeSyntaxNode", "optionsSyntaxRemoveOptions");
         }
 
         /// <summary>Constructor added in version 4.2.0.0.</summary>
@@ -32,6 +38,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         public static global::Microsoft.CodeAnalysis.Editing.SyntaxEditor Create(global::Microsoft.CodeAnalysis.SyntaxNode root, global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper services)
         {
             return ConstructorFunc1(root, services);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static void RemoveNode(this global::Microsoft.CodeAnalysis.Editing.SyntaxEditor _obj, global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.SyntaxRemoveOptions options)
+        {
+            RemoveNodeFunc0(_obj, node, options);
         }
     }
 }

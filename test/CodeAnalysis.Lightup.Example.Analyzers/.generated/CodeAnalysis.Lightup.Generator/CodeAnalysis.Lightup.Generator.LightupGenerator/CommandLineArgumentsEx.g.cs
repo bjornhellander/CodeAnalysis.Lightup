@@ -15,11 +15,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Boolean InteractiveModeGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? OutputRefFilePathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.String>> PathMapGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? RuleSetPathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> ScriptArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean SkipAnalyzersGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? SourceLinkGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> SourcePathsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
 
         private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
         private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
@@ -31,11 +35,15 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;
         private static readonly ErrorLogOptionsGetterDelegate ErrorLogOptionsGetterFunc;
         private static readonly GeneratedFilesOutputDirectoryGetterDelegate GeneratedFilesOutputDirectoryGetterFunc;
+        private static readonly InteractiveModeGetterDelegate InteractiveModeGetterFunc;
         private static readonly OutputRefFilePathGetterDelegate OutputRefFilePathGetterFunc;
+        private static readonly PathMapGetterDelegate PathMapGetterFunc;
         private static readonly ReportInternalsVisibleToAttributesGetterDelegate ReportInternalsVisibleToAttributesGetterFunc;
         private static readonly RuleSetPathGetterDelegate RuleSetPathGetterFunc;
+        private static readonly ScriptArgumentsGetterDelegate ScriptArgumentsGetterFunc;
         private static readonly SkipAnalyzersGetterDelegate SkipAnalyzersGetterFunc;
         private static readonly SourceLinkGetterDelegate SourceLinkGetterFunc;
+        private static readonly SourcePathsGetterDelegate SourcePathsGetterFunc;
 
         private static readonly GetOutputFilePathDelegate0 GetOutputFilePathFunc0;
         private static readonly GetPdbFilePathDelegate1 GetPdbFilePathFunc1;
@@ -51,11 +59,15 @@ namespace Microsoft.CodeAnalysis.Lightup
             EmitPdbFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
             ErrorLogOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
             GeneratedFilesOutputDirectoryGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
+            InteractiveModeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<InteractiveModeGetterDelegate>(wrappedType, nameof(InteractiveMode));
             OutputRefFilePathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OutputRefFilePathGetterDelegate>(wrappedType, nameof(OutputRefFilePath));
+            PathMapGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PathMapGetterDelegate>(wrappedType, nameof(PathMap));
             ReportInternalsVisibleToAttributesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
             RuleSetPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RuleSetPathGetterDelegate>(wrappedType, nameof(RuleSetPath));
+            ScriptArgumentsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScriptArgumentsGetterDelegate>(wrappedType, nameof(ScriptArguments));
             SkipAnalyzersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SkipAnalyzersGetterDelegate>(wrappedType, nameof(SkipAnalyzers));
             SourceLinkGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SourceLinkGetterDelegate>(wrappedType, nameof(SourceLink));
+            SourcePathsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SourcePathsGetterDelegate>(wrappedType, nameof(SourcePaths));
 
             GetOutputFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, "GetOutputFilePath", "outputFileNameString");
             GetPdbFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
@@ -103,10 +115,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             return GeneratedFilesOutputDirectoryGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::System.Boolean InteractiveMode(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return InteractiveModeGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 2.3.0.0.</summary>
         public static global::System.String? OutputRefFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return OutputRefFilePathGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.String>> PathMap(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return PathMapGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.7.0.0.</summary>
@@ -121,6 +145,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             return RuleSetPathGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::System.String> ScriptArguments(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return ScriptArgumentsGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 3.8.0.0.</summary>
         public static global::System.Boolean SkipAnalyzers(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
@@ -131,6 +161,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String? SourceLink(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return SourceLinkGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::System.String> SourcePaths(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return SourcePathsGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>

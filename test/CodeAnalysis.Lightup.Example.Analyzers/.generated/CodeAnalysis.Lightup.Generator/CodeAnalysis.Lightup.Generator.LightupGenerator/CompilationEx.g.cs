@@ -8,6 +8,9 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Compilation";
 
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? ScriptClassGetterDelegate(global::Microsoft.CodeAnalysis.Compilation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.ScriptCompilationInfoWrapper? ScriptCompilationInfoGetterDelegate(global::Microsoft.CodeAnalysis.Compilation _obj);
+
         private delegate global::System.String? GetRequiredLanguageVersionDelegate0(global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
@@ -24,17 +27,22 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate11(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate12(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate13(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitResult EmitDelegate14(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitResult EmitDelegate15(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions? options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.IO.Stream? metadataPEStream, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifferenceDelegate16(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, global::System.Func<global::Microsoft.CodeAnalysis.ISymbol, global::System.Boolean> isAddedSymbol, global::System.IO.Stream metadataStream, global::System.IO.Stream ilStream, global::System.IO.Stream pdbStream, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate17(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate18(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataNameDelegate19(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String fullyQualifiedMetadataName);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AssemblyIdentity> GetUnreferencedAssemblyIdentitiesDelegate20(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate21(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Boolean HasImplicitConversionDelegate22(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol? fromType, global::Microsoft.CodeAnalysis.ITypeSymbol? toType);
-        private delegate global::System.Boolean IsSymbolAccessibleWithinDelegate23(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.ISymbol within, global::Microsoft.CodeAnalysis.ITypeSymbol? throughType);
-        private delegate global::System.Boolean SupportsRuntimeCapabilityDelegate24(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitResult EmitDelegate14(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream pdbStream, global::System.IO.Stream xmlDocumentationStream, global::System.IO.Stream win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription> manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions options, global::Microsoft.CodeAnalysis.IMethodSymbol debugEntryPoint, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitResult EmitDelegate15(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitResult EmitDelegate16(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions? options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.IO.Stream? metadataPEStream, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifferenceDelegate17(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, global::System.Func<global::Microsoft.CodeAnalysis.ISymbol, global::System.Boolean> isAddedSymbol, global::System.IO.Stream metadataStream, global::System.IO.Stream ilStream, global::System.IO.Stream pdbStream, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate18(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate19(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataNameDelegate20(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String fullyQualifiedMetadataName);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AssemblyIdentity> GetUnreferencedAssemblyIdentitiesDelegate21(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate22(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Boolean HasImplicitConversionDelegate23(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol? fromType, global::Microsoft.CodeAnalysis.ITypeSymbol? toType);
+        private delegate global::System.Boolean IsSymbolAccessibleWithinDelegate24(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.ISymbol within, global::Microsoft.CodeAnalysis.ITypeSymbol? throughType);
+        private delegate global::System.Boolean SupportsRuntimeCapabilityDelegate25(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability);
+        private delegate global::Microsoft.CodeAnalysis.Compilation WithScriptCompilationInfoDelegate26(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.ScriptCompilationInfoWrapper? info);
+
+        private static readonly ScriptClassGetterDelegate ScriptClassGetterFunc;
+        private static readonly ScriptCompilationInfoGetterDelegate ScriptCompilationInfoGetterFunc;
 
         private static readonly GetRequiredLanguageVersionDelegate0 GetRequiredLanguageVersionFunc0;
 
@@ -54,19 +62,24 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CreateTupleTypeSymbolDelegate13 CreateTupleTypeSymbolFunc13;
         private static readonly EmitDelegate14 EmitFunc14;
         private static readonly EmitDelegate15 EmitFunc15;
-        private static readonly EmitDifferenceDelegate16 EmitDifferenceFunc16;
-        private static readonly GetSemanticModelDelegate17 GetSemanticModelFunc17;
-        private static readonly GetSymbolsWithNameDelegate18 GetSymbolsWithNameFunc18;
-        private static readonly GetTypesByMetadataNameDelegate19 GetTypesByMetadataNameFunc19;
-        private static readonly GetUnreferencedAssemblyIdentitiesDelegate20 GetUnreferencedAssemblyIdentitiesFunc20;
-        private static readonly GetUsedAssemblyReferencesDelegate21 GetUsedAssemblyReferencesFunc21;
-        private static readonly HasImplicitConversionDelegate22 HasImplicitConversionFunc22;
-        private static readonly IsSymbolAccessibleWithinDelegate23 IsSymbolAccessibleWithinFunc23;
-        private static readonly SupportsRuntimeCapabilityDelegate24 SupportsRuntimeCapabilityFunc24;
+        private static readonly EmitDelegate16 EmitFunc16;
+        private static readonly EmitDifferenceDelegate17 EmitDifferenceFunc17;
+        private static readonly GetSemanticModelDelegate18 GetSemanticModelFunc18;
+        private static readonly GetSymbolsWithNameDelegate19 GetSymbolsWithNameFunc19;
+        private static readonly GetTypesByMetadataNameDelegate20 GetTypesByMetadataNameFunc20;
+        private static readonly GetUnreferencedAssemblyIdentitiesDelegate21 GetUnreferencedAssemblyIdentitiesFunc21;
+        private static readonly GetUsedAssemblyReferencesDelegate22 GetUsedAssemblyReferencesFunc22;
+        private static readonly HasImplicitConversionDelegate23 HasImplicitConversionFunc23;
+        private static readonly IsSymbolAccessibleWithinDelegate24 IsSymbolAccessibleWithinFunc24;
+        private static readonly SupportsRuntimeCapabilityDelegate25 SupportsRuntimeCapabilityFunc25;
+        private static readonly WithScriptCompilationInfoDelegate26 WithScriptCompilationInfoFunc26;
 
         static CompilationEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
+
+            ScriptClassGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScriptClassGetterDelegate>(wrappedType, nameof(ScriptClass));
+            ScriptCompilationInfoGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScriptCompilationInfoGetterDelegate>(wrappedType, nameof(ScriptCompilationInfo));
 
             GetRequiredLanguageVersionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetRequiredLanguageVersionDelegate0>(wrappedType, "GetRequiredLanguageVersion", "diagnosticDiagnostic");
 
@@ -84,17 +97,31 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateTupleTypeSymbolFunc11 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate11>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1");
             CreateTupleTypeSymbolFunc12 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate12>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
             CreateTupleTypeSymbolFunc13 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate13>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
-            EmitFunc14 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDelegate14>(wrappedType, "Emit", "peStreamStream", "pdbStreamStream", "xmlDocumentationStreamStream", "win32ResourcesStream", "manifestResourcesIEnumerable`1", "optionsEmitOptions", "debugEntryPointIMethodSymbol", "sourceLinkStreamStream", "embeddedTextsIEnumerable`1", "cancellationTokenCancellationToken");
-            EmitFunc15 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDelegate15>(wrappedType, "Emit", "peStreamStream", "pdbStreamStream", "xmlDocumentationStreamStream", "win32ResourcesStream", "manifestResourcesIEnumerable`1", "optionsEmitOptions", "debugEntryPointIMethodSymbol", "sourceLinkStreamStream", "embeddedTextsIEnumerable`1", "metadataPEStreamStream", "cancellationTokenCancellationToken");
-            EmitDifferenceFunc16 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDifferenceDelegate16>(wrappedType, "EmitDifference", "baselineEmitBaseline", "editsIEnumerable`1", "isAddedSymbolFunc`2", "metadataStreamStream", "ilStreamStream", "pdbStreamStream", "cancellationTokenCancellationToken");
-            GetSemanticModelFunc17 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate17>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
-            GetSymbolsWithNameFunc18 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSymbolsWithNameDelegate18>(wrappedType, "GetSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
-            GetTypesByMetadataNameFunc19 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate19>(wrappedType, "GetTypesByMetadataName", "fullyQualifiedMetadataNameString");
-            GetUnreferencedAssemblyIdentitiesFunc20 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetUnreferencedAssemblyIdentitiesDelegate20>(wrappedType, "GetUnreferencedAssemblyIdentities", "diagnosticDiagnostic");
-            GetUsedAssemblyReferencesFunc21 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate21>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
-            HasImplicitConversionFunc22 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<HasImplicitConversionDelegate22>(wrappedType, "HasImplicitConversion", "fromTypeITypeSymbol", "toTypeITypeSymbol");
-            IsSymbolAccessibleWithinFunc23 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsSymbolAccessibleWithinDelegate23>(wrappedType, "IsSymbolAccessibleWithin", "symbolISymbol", "withinISymbol", "throughTypeITypeSymbol");
-            SupportsRuntimeCapabilityFunc24 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate24>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
+            EmitFunc14 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDelegate14>(wrappedType, "Emit", "peStreamStream", "pdbStreamStream", "xmlDocumentationStreamStream", "win32ResourcesStream", "manifestResourcesIEnumerable`1", "optionsEmitOptions", "debugEntryPointIMethodSymbol", "cancellationTokenCancellationToken");
+            EmitFunc15 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDelegate15>(wrappedType, "Emit", "peStreamStream", "pdbStreamStream", "xmlDocumentationStreamStream", "win32ResourcesStream", "manifestResourcesIEnumerable`1", "optionsEmitOptions", "debugEntryPointIMethodSymbol", "sourceLinkStreamStream", "embeddedTextsIEnumerable`1", "cancellationTokenCancellationToken");
+            EmitFunc16 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDelegate16>(wrappedType, "Emit", "peStreamStream", "pdbStreamStream", "xmlDocumentationStreamStream", "win32ResourcesStream", "manifestResourcesIEnumerable`1", "optionsEmitOptions", "debugEntryPointIMethodSymbol", "sourceLinkStreamStream", "embeddedTextsIEnumerable`1", "metadataPEStreamStream", "cancellationTokenCancellationToken");
+            EmitDifferenceFunc17 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EmitDifferenceDelegate17>(wrappedType, "EmitDifference", "baselineEmitBaseline", "editsIEnumerable`1", "isAddedSymbolFunc`2", "metadataStreamStream", "ilStreamStream", "pdbStreamStream", "cancellationTokenCancellationToken");
+            GetSemanticModelFunc18 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate18>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
+            GetSymbolsWithNameFunc19 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSymbolsWithNameDelegate19>(wrappedType, "GetSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            GetTypesByMetadataNameFunc20 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypesByMetadataNameDelegate20>(wrappedType, "GetTypesByMetadataName", "fullyQualifiedMetadataNameString");
+            GetUnreferencedAssemblyIdentitiesFunc21 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetUnreferencedAssemblyIdentitiesDelegate21>(wrappedType, "GetUnreferencedAssemblyIdentities", "diagnosticDiagnostic");
+            GetUsedAssemblyReferencesFunc22 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate22>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            HasImplicitConversionFunc23 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<HasImplicitConversionDelegate23>(wrappedType, "HasImplicitConversion", "fromTypeITypeSymbol", "toTypeITypeSymbol");
+            IsSymbolAccessibleWithinFunc24 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsSymbolAccessibleWithinDelegate24>(wrappedType, "IsSymbolAccessibleWithin", "symbolISymbol", "withinISymbol", "throughTypeITypeSymbol");
+            SupportsRuntimeCapabilityFunc25 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<SupportsRuntimeCapabilityDelegate25>(wrappedType, "SupportsRuntimeCapability", "capabilityRuntimeCapability");
+            WithScriptCompilationInfoFunc26 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithScriptCompilationInfoDelegate26>(wrappedType, "WithScriptCompilationInfo", "infoScriptCompilationInfo");
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol? ScriptClass(this global::Microsoft.CodeAnalysis.Compilation _obj)
+        {
+            return ScriptClassGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.ScriptCompilationInfoWrapper? ScriptCompilationInfo(this global::Microsoft.CodeAnalysis.Compilation _obj)
+        {
+            return ScriptCompilationInfoGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
@@ -187,70 +214,82 @@ namespace Microsoft.CodeAnalysis.Lightup
             return CreateTupleTypeSymbolFunc13(_obj, underlyingType, elementNames, elementLocations, elementNullableAnnotations);
         }
 
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Emit.EmitResult Emit(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream pdbStream, global::System.IO.Stream xmlDocumentationStream, global::System.IO.Stream win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription> manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions options, global::Microsoft.CodeAnalysis.IMethodSymbol debugEntryPoint, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return EmitFunc14(_obj, peStream, pdbStream, xmlDocumentationStream, win32Resources, manifestResources, options, debugEntryPoint, cancellationToken);
+        }
+
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitResult Emit(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.Threading.CancellationToken cancellationToken)
         {
-            return EmitFunc14(_obj, peStream, pdbStream, xmlDocumentationStream, win32Resources, manifestResources, options, debugEntryPoint, sourceLinkStream, embeddedTexts, cancellationToken);
+            return EmitFunc15(_obj, peStream, pdbStream, xmlDocumentationStream, win32Resources, manifestResources, options, debugEntryPoint, sourceLinkStream, embeddedTexts, cancellationToken);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitResult Emit(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.IO.Stream peStream, global::System.IO.Stream? pdbStream, global::System.IO.Stream? xmlDocumentationStream, global::System.IO.Stream? win32Resources, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ResourceDescription>? manifestResources, global::Microsoft.CodeAnalysis.Emit.EmitOptions? options, global::Microsoft.CodeAnalysis.IMethodSymbol? debugEntryPoint, global::System.IO.Stream? sourceLinkStream, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper>? embeddedTexts, global::System.IO.Stream? metadataPEStream, global::System.Threading.CancellationToken cancellationToken)
         {
-            return EmitFunc15(_obj, peStream, pdbStream, xmlDocumentationStream, win32Resources, manifestResources, options, debugEntryPoint, sourceLinkStream, embeddedTexts, metadataPEStream, cancellationToken);
+            return EmitFunc16(_obj, peStream, pdbStream, xmlDocumentationStream, win32Resources, manifestResources, options, debugEntryPoint, sourceLinkStream, embeddedTexts, metadataPEStream, cancellationToken);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitDifferenceResult EmitDifference(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Emit.EmitBaseline baseline, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Emit.SemanticEdit> edits, global::System.Func<global::Microsoft.CodeAnalysis.ISymbol, global::System.Boolean> isAddedSymbol, global::System.IO.Stream metadataStream, global::System.IO.Stream ilStream, global::System.IO.Stream pdbStream, global::System.Threading.CancellationToken cancellationToken)
         {
-            return EmitDifferenceFunc16(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
+            return EmitDifferenceFunc17(_obj, baseline, edits, isAddedSymbol, metadataStream, ilStream, pdbStream, cancellationToken);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModel(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options)
         {
-            return GetSemanticModelFunc17(_obj, syntaxTree, options);
+            return GetSemanticModelFunc18(_obj, syntaxTree, options);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithName(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetSymbolsWithNameFunc18(_obj, name, filter, cancellationToken);
+            return GetSymbolsWithNameFunc19(_obj, name, filter, cancellationToken);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetTypesByMetadataName(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String fullyQualifiedMetadataName)
         {
-            return GetTypesByMetadataNameFunc19(_obj, fullyQualifiedMetadataName);
+            return GetTypesByMetadataNameFunc20(_obj, fullyQualifiedMetadataName);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.AssemblyIdentity> GetUnreferencedAssemblyIdentities(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Diagnostic diagnostic)
         {
-            return GetUnreferencedAssemblyIdentitiesFunc20(_obj, diagnostic);
+            return GetUnreferencedAssemblyIdentitiesFunc21(_obj, diagnostic);
         }
 
         /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetUsedAssemblyReferencesFunc21(_obj, cancellationToken);
+            return GetUsedAssemblyReferencesFunc22(_obj, cancellationToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Boolean HasImplicitConversion(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol? fromType, global::Microsoft.CodeAnalysis.ITypeSymbol? toType)
         {
-            return HasImplicitConversionFunc22(_obj, fromType, toType);
+            return HasImplicitConversionFunc23(_obj, fromType, toType);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::System.Boolean IsSymbolAccessibleWithin(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ISymbol symbol, global::Microsoft.CodeAnalysis.ISymbol within, global::Microsoft.CodeAnalysis.ITypeSymbol? throughType)
         {
-            return IsSymbolAccessibleWithinFunc23(_obj, symbol, within, throughType);
+            return IsSymbolAccessibleWithinFunc24(_obj, symbol, within, throughType);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::System.Boolean SupportsRuntimeCapability(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.RuntimeCapabilityEx capability)
         {
-            return SupportsRuntimeCapabilityFunc24(_obj, capability);
+            return SupportsRuntimeCapabilityFunc25(_obj, capability);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Compilation WithScriptCompilationInfo(this global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.Lightup.ScriptCompilationInfoWrapper? info)
+        {
+            return WithScriptCompilationInfoFunc26(_obj, info);
         }
     }
 }

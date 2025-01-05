@@ -8,21 +8,54 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostic";
 
+        private delegate global::System.Boolean IsSuppressedGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostic _obj);
+
         private delegate global::Microsoft.CodeAnalysis.Diagnostic CreateDelegate0(global::Microsoft.CodeAnalysis.DiagnosticDescriptor descriptor, global::Microsoft.CodeAnalysis.Location? location, global::Microsoft.CodeAnalysis.DiagnosticSeverity effectiveSeverity, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Location>? additionalLocations, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String>? properties, params global::System.Object[]? messageArgs);
+        private delegate global::Microsoft.CodeAnalysis.Diagnostic CreateDelegate1(global::System.String id, global::System.String category, global::Microsoft.CodeAnalysis.LocalizableString message, global::Microsoft.CodeAnalysis.DiagnosticSeverity severity, global::Microsoft.CodeAnalysis.DiagnosticSeverity defaultSeverity, global::System.Boolean isEnabledByDefault, global::System.Int32 warningLevel, global::System.Boolean isSuppressed, global::Microsoft.CodeAnalysis.LocalizableString? title, global::Microsoft.CodeAnalysis.LocalizableString? description, global::System.String? helpLink, global::Microsoft.CodeAnalysis.Location? location, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Location>? additionalLocations, global::System.Collections.Generic.IEnumerable<global::System.String>? customTags, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String>? properties);
+
+        private delegate global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SuppressionInfoWrapper? GetSuppressionInfoDelegate0(global::Microsoft.CodeAnalysis.Diagnostic _obj, global::Microsoft.CodeAnalysis.Compilation compilation);
+
+        private static readonly IsSuppressedGetterDelegate IsSuppressedGetterFunc;
 
         private static readonly CreateDelegate0 CreateFunc0;
+        private static readonly CreateDelegate1 CreateFunc1;
+
+        private static readonly GetSuppressionInfoDelegate0 GetSuppressionInfoFunc0;
 
         static DiagnosticEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            IsSuppressedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsSuppressedGetterDelegate>(wrappedType, nameof(IsSuppressed));
+
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "descriptorDiagnosticDescriptor", "locationLocation", "effectiveSeverityDiagnosticSeverity", "additionalLocationsIEnumerable`1", "propertiesImmutableDictionary`2", "messageArgsObject[]");
+            CreateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "idString", "categoryString", "messageLocalizableString", "severityDiagnosticSeverity", "defaultSeverityDiagnosticSeverity", "isEnabledByDefaultBoolean", "warningLevelInt32", "isSuppressedBoolean", "titleLocalizableString", "descriptionLocalizableString", "helpLinkString", "locationLocation", "additionalLocationsIEnumerable`1", "customTagsIEnumerable`1", "propertiesImmutableDictionary`2");
+
+            GetSuppressionInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetSuppressionInfoDelegate0>(wrappedType, "GetSuppressionInfo", "compilationCompilation");
+        }
+
+        /// <summary>Property added in version 1.1.0.0.</summary>
+        public static global::System.Boolean IsSuppressed(this global::Microsoft.CodeAnalysis.Diagnostic _obj)
+        {
+            return IsSuppressedGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 2.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Diagnostic Create(global::Microsoft.CodeAnalysis.DiagnosticDescriptor descriptor, global::Microsoft.CodeAnalysis.Location? location, global::Microsoft.CodeAnalysis.DiagnosticSeverity effectiveSeverity, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Location>? additionalLocations, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String>? properties, params global::System.Object[]? messageArgs)
         {
             return CreateFunc0(descriptor, location, effectiveSeverity, additionalLocations, properties, messageArgs);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Diagnostic Create(global::System.String id, global::System.String category, global::Microsoft.CodeAnalysis.LocalizableString message, global::Microsoft.CodeAnalysis.DiagnosticSeverity severity, global::Microsoft.CodeAnalysis.DiagnosticSeverity defaultSeverity, global::System.Boolean isEnabledByDefault, global::System.Int32 warningLevel, global::System.Boolean isSuppressed, global::Microsoft.CodeAnalysis.LocalizableString? title, global::Microsoft.CodeAnalysis.LocalizableString? description, global::System.String? helpLink, global::Microsoft.CodeAnalysis.Location? location, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Location>? additionalLocations, global::System.Collections.Generic.IEnumerable<global::System.String>? customTags, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::System.String>? properties)
+        {
+            return CreateFunc1(id, category, message, severity, defaultSeverity, isEnabledByDefault, warningLevel, isSuppressed, title, description, helpLink, location, additionalLocations, customTags, properties);
+        }
+
+        /// <summary>Method added in version 1.1.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SuppressionInfoWrapper? GetSuppressionInfo(this global::Microsoft.CodeAnalysis.Diagnostic _obj, global::Microsoft.CodeAnalysis.Compilation compilation)
+        {
+            return GetSuppressionInfoFunc0(_obj, compilation);
         }
     }
 }
