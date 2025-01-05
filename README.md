@@ -13,8 +13,8 @@ and code refactorings, or whatever the generator is used in.
 
 ## Usage
 
-Add a reference to this nuget package in the project(s) you want to generate lightup code in. A configuration file with a name matching
-'CodeAnalysis.Lightup*.json' is needed to guide the generator, for example to let it know for which  Microsoft.CodeAnalysis.* packages
+Add a reference to the CodeAnalysis.Lightup.Generator nuget package in the project(s) you want to generate lightup code in. A configuration file with a name matching
+'CodeAnalysis.Lightup*.json' is needed to guide the generator, for example to let it know for which Microsoft.CodeAnalysis.* packages/assemblies
 it should generate lightup code.
 
 The generated code needs some support code to compile. That code is available in a separate NuGet package called CodeAnalysis.Lightup.Runtime.
@@ -66,7 +66,7 @@ The following diagnostics are reported as guidance, if no files are being genera
 - Generic types are not handled.
 - Generic members are not handled.
 - Some types, mostly related to source generators and diagnostic suppressors, are not handled.
-- SeparatedSyntaxListWrapper is incomplete.
+- SeparatedSyntaxListWrapper is very incomplete.
 - C# 6.0 is required in the consuming project(s).
 - Roslyn versions before 1.3.2 are not supported.
 
