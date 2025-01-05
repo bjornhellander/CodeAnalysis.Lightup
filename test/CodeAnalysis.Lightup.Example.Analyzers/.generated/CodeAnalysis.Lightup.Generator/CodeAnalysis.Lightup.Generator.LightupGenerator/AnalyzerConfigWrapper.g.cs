@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AnalyzerConfig";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper ParseDelegate0(global::System.String text, global::System.String? pathToFile);
         private delegate global::Microsoft.CodeAnalysis.Lightup.AnalyzerConfigWrapper ParseDelegate1(global::Microsoft.CodeAnalysis.Text.SourceText text, global::System.String? pathToFile);

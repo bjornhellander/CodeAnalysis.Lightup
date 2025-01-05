@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.InterceptableLocation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String DataGetterDelegate(global::System.Object _obj);
         private delegate global::System.Int32 VersionGetterDelegate(global::System.Object _obj);

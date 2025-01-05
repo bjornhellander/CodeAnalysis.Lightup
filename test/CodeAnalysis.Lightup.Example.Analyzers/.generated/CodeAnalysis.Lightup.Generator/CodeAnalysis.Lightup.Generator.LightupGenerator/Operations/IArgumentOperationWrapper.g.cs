@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IArgumentOperation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.ArgumentKindEx ArgumentKindGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper InConversionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);

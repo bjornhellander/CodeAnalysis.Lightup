@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IListPatternOperation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.ISymbol? DeclaredSymbolGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.ISymbol? IndexerSymbolGetterDelegate(global::System.Object _obj);

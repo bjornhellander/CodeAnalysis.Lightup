@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IEventReferenceOperation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IEventSymbol EventGetterDelegate(global::System.Object _obj);
 

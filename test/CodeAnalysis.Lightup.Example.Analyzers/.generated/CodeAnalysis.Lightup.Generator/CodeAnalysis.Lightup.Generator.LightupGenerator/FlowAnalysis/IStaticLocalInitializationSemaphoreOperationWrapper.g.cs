@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.IStaticLocalInitializationSemaphoreOperation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.ILocalSymbol LocalGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 

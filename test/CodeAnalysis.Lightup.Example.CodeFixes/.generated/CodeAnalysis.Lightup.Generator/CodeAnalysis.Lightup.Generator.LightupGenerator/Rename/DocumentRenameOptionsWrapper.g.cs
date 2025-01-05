@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.DocumentRenameOptions";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate DocumentRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameMatchingTypeInStrings, global::System.Boolean RenameMatchingTypeInComments);
 

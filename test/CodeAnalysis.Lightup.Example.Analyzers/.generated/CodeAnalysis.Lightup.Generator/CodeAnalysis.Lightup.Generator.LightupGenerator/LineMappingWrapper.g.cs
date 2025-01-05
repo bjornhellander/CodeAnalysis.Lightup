@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LineMapping";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate LineMappingWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.LinePositionSpan span, global::System.Nullable<global::System.Int32> characterOffset, global::Microsoft.CodeAnalysis.FileLinePositionSpan mappedSpan);
 

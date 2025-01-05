@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ITryOperation";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper BodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.ICatchClauseOperationWrapper> CatchesGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);

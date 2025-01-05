@@ -152,7 +152,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {{
     public struct SeparatedSyntaxListWrapper<TNode>
     {{
-        private static readonly global::System.Type{na} WrappedType; // NOTE: Possibly used via reflection
+        private static readonly global::System.Type{na} WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
@@ -616,7 +616,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly global::System.Type{na} WrappedType; // NOTE: Used via reflection");
+        sb.AppendLine($"        private static readonly global::System.Type{na} WrappedType;");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();

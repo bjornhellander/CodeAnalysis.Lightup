@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullabilityInfo";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx AnnotationGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx FlowStateGetterDelegate(global::System.Object _obj);

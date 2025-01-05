@@ -15,10 +15,10 @@
       "items": {
         "type": "string",
         "enum": [
-          "Common",
-          "CSharp",
-          "WorkspacesCommon",
-          "CSharpWorkspaces"
+          "Microsoft.CodeAnalysis.Common",
+          "Microsoft.CodeAnalysis.CSharp",
+          "Microsoft.CodeAnalysis.Workspaces.Common",
+          "Microsoft.CodeAnalysis.CSharp.Workspaces"
         ]
       },
       "minItems": 1,

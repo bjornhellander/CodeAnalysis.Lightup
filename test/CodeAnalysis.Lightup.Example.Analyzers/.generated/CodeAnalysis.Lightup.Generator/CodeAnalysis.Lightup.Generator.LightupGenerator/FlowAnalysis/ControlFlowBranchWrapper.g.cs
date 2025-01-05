@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowBranch";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.BasicBlockWrapper? DestinationGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowRegionWrapper> EnteringRegionsGetterDelegate(global::System.Object _obj);

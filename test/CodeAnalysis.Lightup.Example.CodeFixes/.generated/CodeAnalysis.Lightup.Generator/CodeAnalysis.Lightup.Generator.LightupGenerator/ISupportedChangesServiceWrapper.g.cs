@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISupportedChangesService";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Boolean CanApplyChangeDelegate0(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.ApplyChangesKind kind);
         private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Host.IWorkspaceService _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);

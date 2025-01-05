@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CodeStyle.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate CodeStyleOptionsWrapper ConstructorDelegate0();
 

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedNamespaceOrType";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.INamespaceOrTypeSymbol NamespaceOrTypeGetterDelegate(global::System.Object _obj);

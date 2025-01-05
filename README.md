@@ -6,7 +6,7 @@ This source generator package generates code that makes it possible to use featu
 dependency to the version supporting those features.
 The consuming project would instead compile against an "oldest supported" version and use the generator to take advantage of newer features
 when they are available.
-The generator package has knowledge of features added after Roslyn 3.0.0. When the generated code runs, it uses reflection to detect
+The generator package has knowledge of features added after Roslyn versin 1.3.2. When the generated code runs, it uses reflection to detect
 which of those features that are available in the Roslyn version used at runtime. This for example means that an analyzer can run in any
 Visual Studio version starting from the first 2019 version and still analyze code the uses newer language features. Similarly for code fixes
 and code refactorings, or whatever the generator is used in.
@@ -22,11 +22,38 @@ Note that a reference to that package needs to be added manually for now.
 
 When the consuming project is using c# 8.0 or newer, the generated code enables the nullable context in the generated files.
 
+## Configuration
+
+The configuration file supports these settings:
+* baselineVersion - Specifies the Roslyn version that the generated code should assume is always available. Code will be generated for features added after this version.
+  Note that this is the version stated in the assemblies, not the package version. They are not always the same.
+* assemblies - Specifies which Roslyn parts that code should be generated for. Expressed using the NuGet package names.
+* includeTypes - Specifies which types to generate code for. All available types will be generated unless this setting is specified.
+* useFoldersInFilePaths - Specifies whether or not to place generated files in a folder structure. Needs to be set to false when compiling using an older Roslyn version than 4.6.0.
+
+Example configuration file, appropriate for an analyzer project requiring Roslyn 3.0.0 (Visual Studio 2019 RTM):
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/bjornhellander/CodeAnalysis.Lightup/master/Configuration.schema.json",
+  "baselineVersion": "3.0.0.0",
+  "assemblies": [ "Microsoft.CodeAnalysis.Common", "Microsoft.CodeAnalysis.CSharp" ]
+}
+```
+
+Example configuration file, appropriate for a code fix project related to the analyzer project above:
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/bjornhellander/CodeAnalysis.Lightup/master/Configuration.schema.json",
+  "baselineVersion": "3.0.0.0",
+  "assemblies": [ "Microsoft.CodeAnalysis.Workspaces.Common", "Microsoft.CodeAnalysis.CSharp.Workspaces" ]
+}
+```
+
 ## Alternatives
 
 There is at least one other way of accomplishing more or less the same thing: It is possible to package multiple versions of for example an
 analyzer assembly in a NuGet package and the compiler will then use the latest supported one. There are pros and cons to each strategy.
-A short description can for example be found here: https://www.meziantou.net/roslyn-analyzers-how-to.htm#support-multiple-ver
+A short description of this can for example be found here: https://www.meziantou.net/roslyn-analyzers-how-to.htm#support-multiple-ver
 
 ## Analyzers
 
@@ -41,7 +68,7 @@ The following diagnostics are reported as guidance, if no files are being genera
 - Some types, mostly related to source generators and diagnostic suppressors, are not handled.
 - SeparatedSyntaxListWrapper is incomplete.
 - C# 6.0 is required in the consuming project(s).
-- Roslyn versions before 3.0.0 are not supported.
+- Roslyn versions before 1.3.2 are not supported.
 
 ## Troubleshooting
 
@@ -59,7 +86,7 @@ generator NuGet package to inform about problems with the configuration file.
 ### The generated code does not compile
 
 The generated code needs types from the NuGet package 'CodeAnalysis.Lightup.Runtime'.
-Make sure an appropriate version is available in the consuming projects(s).
+Make sure an appropriate version is referenced in the consuming projects(s).
 
 ## Credits
 

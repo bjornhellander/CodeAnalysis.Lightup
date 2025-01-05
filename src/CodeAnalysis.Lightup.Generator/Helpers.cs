@@ -19,6 +19,13 @@ internal static class Helpers
     private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.json$");
     private static readonly List<AssemblyKind> NoAssemblies = [];
     private static readonly List<string> NoTypes = [];
+    private static readonly Dictionary<string, AssemblyKind> AssemblyKinds = new()
+    {
+        ["Microsoft.CodeAnalysis.Common"] = AssemblyKind.Common,
+        ["Microsoft.CodeAnalysis.CSharp"] = AssemblyKind.CSharp,
+        ["Microsoft.CodeAnalysis.Workspaces.Common"] = AssemblyKind.WorkspacesCommon,
+        ["Microsoft.CodeAnalysis.CSharp.Workspaces"] = AssemblyKind.CSharpWorkspaces,
+    };
 
     // See https://github.com/dotnet/roslyn/pull/66438
     public static bool RoslynSupportsFoldersInGeneratedFilePaths { get; } = GetRoslynVersion() >= new Version(4, 6, 0, 0);
@@ -103,9 +110,9 @@ internal static class Helpers
         var assemblies = new List<AssemblyKind>(assembliesArray.Count);
         foreach (var assemblyToken in assembliesArray)
         {
-            if (assemblyToken.Type != JsonValueType.String || !Enum.TryParse<AssemblyKind>((string)assemblyToken, out var assembly))
+            if (assemblyToken.Type != JsonValueType.String || !AssemblyKinds.TryGetValue((string)assemblyToken, out var assembly))
             {
-                throw new ConfigurationException($"Incorrect 'assemblies' attribute value: '{(string)assemblyToken}'. Expected one of these: {string.Join(", ", Enum.GetNames(typeof(AssemblyKind)))}.");
+                throw new ConfigurationException($"Incorrect 'assemblies' attribute value: '{(string)assemblyToken}'. Expected one of these: {string.Join(", ", AssemblyKinds.Keys)}.");
             }
 
             assemblies.Add(assembly);

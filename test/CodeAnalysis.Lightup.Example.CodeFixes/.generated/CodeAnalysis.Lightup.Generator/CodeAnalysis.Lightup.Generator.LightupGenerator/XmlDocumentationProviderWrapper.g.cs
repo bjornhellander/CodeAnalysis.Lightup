@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.XmlDocumentationProvider";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromBytesDelegate0(global::System.Byte[]? xmlDocCommentBytes);
         private delegate global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromFileDelegate1(global::System.String? xmlDocCommentFilePath);
