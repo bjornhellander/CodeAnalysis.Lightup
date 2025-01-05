@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate void DefaultVisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation operation);
-        private delegate void VisitDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation? operation);
+        private delegate void DefaultVisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper operation);
+        private delegate void VisitDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation);
 
         private static readonly DefaultVisitDelegate0 DefaultVisitFunc0;
         private static readonly VisitDelegate1 VisitFunc1;
@@ -51,13 +51,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
-        public void DefaultVisit(global::Microsoft.CodeAnalysis.IOperation operation)
+        public void DefaultVisit(global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper operation)
         {
             DefaultVisitFunc0(wrappedObject, operation);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
-        public void Visit(global::Microsoft.CodeAnalysis.IOperation? operation)
+        public void Visit(global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation)
         {
             VisitFunc1(wrappedObject, operation);
         }

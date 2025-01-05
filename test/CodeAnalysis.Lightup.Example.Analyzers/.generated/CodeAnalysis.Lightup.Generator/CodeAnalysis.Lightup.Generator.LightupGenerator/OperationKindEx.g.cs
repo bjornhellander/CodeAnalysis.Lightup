@@ -2,397 +2,400 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.OperationKind.</summary>
-    public static partial class OperationKindEx
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.OperationKind. Added in version 1.2.0.0.</summary>
+    public enum OperationKindEx : global::System.Int32
     {
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Invalid = (global::Microsoft.CodeAnalysis.OperationKind)1;
+        /// <summary>Added in version 1.2.0.0.</summary>
+        None = 0,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Block = (global::Microsoft.CodeAnalysis.OperationKind)2;
+        Invalid = 1,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind VariableDeclarationGroup = (global::Microsoft.CodeAnalysis.OperationKind)3;
+        Block = 2,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Switch = (global::Microsoft.CodeAnalysis.OperationKind)4;
+        VariableDeclarationGroup = 3,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Loop = (global::Microsoft.CodeAnalysis.OperationKind)5;
+        Switch = 4,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Labeled = (global::Microsoft.CodeAnalysis.OperationKind)6;
+        Loop = 5,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Branch = (global::Microsoft.CodeAnalysis.OperationKind)7;
+        Labeled = 6,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Empty = (global::Microsoft.CodeAnalysis.OperationKind)8;
+        Branch = 7,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Return = (global::Microsoft.CodeAnalysis.OperationKind)9;
+        Empty = 8,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind YieldBreak = (global::Microsoft.CodeAnalysis.OperationKind)10;
+        Return = 9,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Lock = (global::Microsoft.CodeAnalysis.OperationKind)11;
+        YieldBreak = 10,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Try = (global::Microsoft.CodeAnalysis.OperationKind)12;
+        Lock = 11,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Using = (global::Microsoft.CodeAnalysis.OperationKind)13;
+        Try = 12,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind YieldReturn = (global::Microsoft.CodeAnalysis.OperationKind)14;
+        Using = 13,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ExpressionStatement = (global::Microsoft.CodeAnalysis.OperationKind)15;
+        YieldReturn = 14,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind LocalFunction = (global::Microsoft.CodeAnalysis.OperationKind)16;
+        ExpressionStatement = 15,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Stop = (global::Microsoft.CodeAnalysis.OperationKind)17;
+        LocalFunction = 16,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind End = (global::Microsoft.CodeAnalysis.OperationKind)18;
+        Stop = 17,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind RaiseEvent = (global::Microsoft.CodeAnalysis.OperationKind)19;
+        End = 18,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Literal = (global::Microsoft.CodeAnalysis.OperationKind)20;
+        RaiseEvent = 19,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Conversion = (global::Microsoft.CodeAnalysis.OperationKind)21;
+        Literal = 20,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Invocation = (global::Microsoft.CodeAnalysis.OperationKind)22;
+        Conversion = 21,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ArrayElementReference = (global::Microsoft.CodeAnalysis.OperationKind)23;
+        Invocation = 22,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind LocalReference = (global::Microsoft.CodeAnalysis.OperationKind)24;
+        ArrayElementReference = 23,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ParameterReference = (global::Microsoft.CodeAnalysis.OperationKind)25;
+        LocalReference = 24,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FieldReference = (global::Microsoft.CodeAnalysis.OperationKind)26;
+        ParameterReference = 25,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind MethodReference = (global::Microsoft.CodeAnalysis.OperationKind)27;
+        FieldReference = 26,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind PropertyReference = (global::Microsoft.CodeAnalysis.OperationKind)28;
+        MethodReference = 27,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind EventReference = (global::Microsoft.CodeAnalysis.OperationKind)30;
-
-        /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Unary = (global::Microsoft.CodeAnalysis.OperationKind)31;
+        PropertyReference = 28,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind UnaryOperator = (global::Microsoft.CodeAnalysis.OperationKind)31;
+        EventReference = 30,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Binary = (global::Microsoft.CodeAnalysis.OperationKind)32;
+        Unary = 31,
 
         /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind BinaryOperator = (global::Microsoft.CodeAnalysis.OperationKind)32;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Conditional = (global::Microsoft.CodeAnalysis.OperationKind)33;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Coalesce = (global::Microsoft.CodeAnalysis.OperationKind)34;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind AnonymousFunction = (global::Microsoft.CodeAnalysis.OperationKind)35;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ObjectCreation = (global::Microsoft.CodeAnalysis.OperationKind)36;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TypeParameterObjectCreation = (global::Microsoft.CodeAnalysis.OperationKind)37;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ArrayCreation = (global::Microsoft.CodeAnalysis.OperationKind)38;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InstanceReference = (global::Microsoft.CodeAnalysis.OperationKind)39;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind IsType = (global::Microsoft.CodeAnalysis.OperationKind)40;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Await = (global::Microsoft.CodeAnalysis.OperationKind)41;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SimpleAssignment = (global::Microsoft.CodeAnalysis.OperationKind)42;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CompoundAssignment = (global::Microsoft.CodeAnalysis.OperationKind)43;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Parenthesized = (global::Microsoft.CodeAnalysis.OperationKind)44;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind EventAssignment = (global::Microsoft.CodeAnalysis.OperationKind)45;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ConditionalAccess = (global::Microsoft.CodeAnalysis.OperationKind)46;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ConditionalAccessInstance = (global::Microsoft.CodeAnalysis.OperationKind)47;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedString = (global::Microsoft.CodeAnalysis.OperationKind)48;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind AnonymousObjectCreation = (global::Microsoft.CodeAnalysis.OperationKind)49;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ObjectOrCollectionInitializer = (global::Microsoft.CodeAnalysis.OperationKind)50;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind MemberInitializer = (global::Microsoft.CodeAnalysis.OperationKind)51;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CollectionElementInitializer = (global::Microsoft.CodeAnalysis.OperationKind)52;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind NameOf = (global::Microsoft.CodeAnalysis.OperationKind)53;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Tuple = (global::Microsoft.CodeAnalysis.OperationKind)54;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DynamicObjectCreation = (global::Microsoft.CodeAnalysis.OperationKind)55;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DynamicMemberReference = (global::Microsoft.CodeAnalysis.OperationKind)56;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DynamicInvocation = (global::Microsoft.CodeAnalysis.OperationKind)57;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DynamicIndexerAccess = (global::Microsoft.CodeAnalysis.OperationKind)58;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TranslatedQuery = (global::Microsoft.CodeAnalysis.OperationKind)59;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DelegateCreation = (global::Microsoft.CodeAnalysis.OperationKind)60;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DefaultValue = (global::Microsoft.CodeAnalysis.OperationKind)61;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TypeOf = (global::Microsoft.CodeAnalysis.OperationKind)62;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SizeOf = (global::Microsoft.CodeAnalysis.OperationKind)63;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind AddressOf = (global::Microsoft.CodeAnalysis.OperationKind)64;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind IsPattern = (global::Microsoft.CodeAnalysis.OperationKind)65;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Increment = (global::Microsoft.CodeAnalysis.OperationKind)66;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Throw = (global::Microsoft.CodeAnalysis.OperationKind)67;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Decrement = (global::Microsoft.CodeAnalysis.OperationKind)68;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DeconstructionAssignment = (global::Microsoft.CodeAnalysis.OperationKind)69;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DeclarationExpression = (global::Microsoft.CodeAnalysis.OperationKind)70;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind OmittedArgument = (global::Microsoft.CodeAnalysis.OperationKind)71;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FieldInitializer = (global::Microsoft.CodeAnalysis.OperationKind)72;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind VariableInitializer = (global::Microsoft.CodeAnalysis.OperationKind)73;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind PropertyInitializer = (global::Microsoft.CodeAnalysis.OperationKind)74;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ParameterInitializer = (global::Microsoft.CodeAnalysis.OperationKind)75;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ArrayInitializer = (global::Microsoft.CodeAnalysis.OperationKind)76;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind VariableDeclarator = (global::Microsoft.CodeAnalysis.OperationKind)77;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind VariableDeclaration = (global::Microsoft.CodeAnalysis.OperationKind)78;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Argument = (global::Microsoft.CodeAnalysis.OperationKind)79;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CatchClause = (global::Microsoft.CodeAnalysis.OperationKind)80;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SwitchCase = (global::Microsoft.CodeAnalysis.OperationKind)81;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CaseClause = (global::Microsoft.CodeAnalysis.OperationKind)82;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringText = (global::Microsoft.CodeAnalysis.OperationKind)83;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Interpolation = (global::Microsoft.CodeAnalysis.OperationKind)84;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ConstantPattern = (global::Microsoft.CodeAnalysis.OperationKind)85;
-
-        /// <summary>Added in version 2.6.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DeclarationPattern = (global::Microsoft.CodeAnalysis.OperationKind)86;
+        UnaryOperator = 31,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TupleBinary = (global::Microsoft.CodeAnalysis.OperationKind)87;
+        Binary = 32,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        BinaryOperator = 32,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Conditional = 33,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Coalesce = 34,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        AnonymousFunction = 35,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ObjectCreation = 36,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        TypeParameterObjectCreation = 37,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ArrayCreation = 38,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        InstanceReference = 39,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        IsType = 40,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Await = 41,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        SimpleAssignment = 42,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        CompoundAssignment = 43,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Parenthesized = 44,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        EventAssignment = 45,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ConditionalAccess = 46,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ConditionalAccessInstance = 47,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        InterpolatedString = 48,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        AnonymousObjectCreation = 49,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ObjectOrCollectionInitializer = 50,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        MemberInitializer = 51,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        CollectionElementInitializer = 52,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        NameOf = 53,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Tuple = 54,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DynamicObjectCreation = 55,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DynamicMemberReference = 56,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DynamicInvocation = 57,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DynamicIndexerAccess = 58,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        TranslatedQuery = 59,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DelegateCreation = 60,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DefaultValue = 61,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        TypeOf = 62,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        SizeOf = 63,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        AddressOf = 64,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        IsPattern = 65,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Increment = 66,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Throw = 67,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Decrement = 68,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DeconstructionAssignment = 69,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DeclarationExpression = 70,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        OmittedArgument = 71,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        FieldInitializer = 72,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        VariableInitializer = 73,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        PropertyInitializer = 74,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ParameterInitializer = 75,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ArrayInitializer = 76,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        VariableDeclarator = 77,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        VariableDeclaration = 78,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Argument = 79,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        CatchClause = 80,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        SwitchCase = 81,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        CaseClause = 82,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        InterpolatedStringText = 83,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        Interpolation = 84,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        ConstantPattern = 85,
+
+        /// <summary>Added in version 2.6.0.0.</summary>
+        DeclarationPattern = 86,
+
+        /// <summary>Added in version 3.0.0.0.</summary>
+        TupleBinary = 87,
 
         /// <summary>Added in version 2.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TupleBinaryOperator = (global::Microsoft.CodeAnalysis.OperationKind)87;
+        TupleBinaryOperator = 87,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind MethodBody = (global::Microsoft.CodeAnalysis.OperationKind)88;
+        MethodBody = 88,
 
         /// <summary>Added in version 2.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind MethodBodyOperation = (global::Microsoft.CodeAnalysis.OperationKind)88;
+        MethodBodyOperation = 88,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBody = (global::Microsoft.CodeAnalysis.OperationKind)89;
+        ConstructorBody = 89,
 
         /// <summary>Added in version 2.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ConstructorBodyOperation = (global::Microsoft.CodeAnalysis.OperationKind)89;
+        ConstructorBodyOperation = 89,
 
         /// <summary>Added in version 2.8.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Discard = (global::Microsoft.CodeAnalysis.OperationKind)90;
+        Discard = 90,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FlowCapture = (global::Microsoft.CodeAnalysis.OperationKind)91;
+        FlowCapture = 91,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FlowCaptureReference = (global::Microsoft.CodeAnalysis.OperationKind)92;
+        FlowCaptureReference = 92,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind IsNull = (global::Microsoft.CodeAnalysis.OperationKind)93;
+        IsNull = 93,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CaughtException = (global::Microsoft.CodeAnalysis.OperationKind)94;
+        CaughtException = 94,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind StaticLocalInitializationSemaphore = (global::Microsoft.CodeAnalysis.OperationKind)95;
+        StaticLocalInitializationSemaphore = 95,
 
         /// <summary>Added in version 2.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FlowAnonymousFunction = (global::Microsoft.CodeAnalysis.OperationKind)96;
+        FlowAnonymousFunction = 96,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CoalesceAssignment = (global::Microsoft.CodeAnalysis.OperationKind)97;
+        CoalesceAssignment = 97,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Range = (global::Microsoft.CodeAnalysis.OperationKind)99;
+        Range = 99,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ReDim = (global::Microsoft.CodeAnalysis.OperationKind)101;
+        ReDim = 101,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ReDimClause = (global::Microsoft.CodeAnalysis.OperationKind)102;
+        ReDimClause = 102,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind RecursivePattern = (global::Microsoft.CodeAnalysis.OperationKind)103;
+        RecursivePattern = 103,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind DiscardPattern = (global::Microsoft.CodeAnalysis.OperationKind)104;
+        DiscardPattern = 104,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SwitchExpression = (global::Microsoft.CodeAnalysis.OperationKind)105;
+        SwitchExpression = 105,
 
         /// <summary>Added in version 3.0.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SwitchExpressionArm = (global::Microsoft.CodeAnalysis.OperationKind)106;
+        SwitchExpressionArm = 106,
 
         /// <summary>Added in version 3.3.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind PropertySubpattern = (global::Microsoft.CodeAnalysis.OperationKind)107;
+        PropertySubpattern = 107,
 
         /// <summary>Added in version 3.4.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind UsingDeclaration = (global::Microsoft.CodeAnalysis.OperationKind)108;
+        UsingDeclaration = 108,
 
         /// <summary>Added in version 3.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind NegatedPattern = (global::Microsoft.CodeAnalysis.OperationKind)109;
+        NegatedPattern = 109,
 
         /// <summary>Added in version 3.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind BinaryPattern = (global::Microsoft.CodeAnalysis.OperationKind)110;
+        BinaryPattern = 110,
 
         /// <summary>Added in version 3.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind TypePattern = (global::Microsoft.CodeAnalysis.OperationKind)111;
+        TypePattern = 111,
 
         /// <summary>Added in version 3.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind RelationalPattern = (global::Microsoft.CodeAnalysis.OperationKind)112;
+        RelationalPattern = 112,
 
         /// <summary>Added in version 3.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind With = (global::Microsoft.CodeAnalysis.OperationKind)113;
+        With = 113,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerCreation = (global::Microsoft.CodeAnalysis.OperationKind)114;
+        InterpolatedStringHandlerCreation = 114,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAddition = (global::Microsoft.CodeAnalysis.OperationKind)115;
+        InterpolatedStringAddition = 115,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendLiteral = (global::Microsoft.CodeAnalysis.OperationKind)116;
+        InterpolatedStringAppendLiteral = 116,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendFormatted = (global::Microsoft.CodeAnalysis.OperationKind)117;
+        InterpolatedStringAppendFormatted = 117,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringAppendInvalid = (global::Microsoft.CodeAnalysis.OperationKind)118;
+        InterpolatedStringAppendInvalid = 118,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InterpolatedStringHandlerArgumentPlaceholder = (global::Microsoft.CodeAnalysis.OperationKind)119;
+        InterpolatedStringHandlerArgumentPlaceholder = 119,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind FunctionPointerInvocation = (global::Microsoft.CodeAnalysis.OperationKind)120;
+        FunctionPointerInvocation = 120,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ListPattern = (global::Microsoft.CodeAnalysis.OperationKind)121;
+        ListPattern = 121,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind SlicePattern = (global::Microsoft.CodeAnalysis.OperationKind)122;
+        SlicePattern = 122,
 
         /// <summary>Added in version 4.1.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind ImplicitIndexerReference = (global::Microsoft.CodeAnalysis.OperationKind)123;
+        ImplicitIndexerReference = 123,
 
         /// <summary>Added in version 4.3.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Utf8String = (global::Microsoft.CodeAnalysis.OperationKind)124;
+        Utf8String = 124,
 
         /// <summary>Added in version 4.5.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Attribute = (global::Microsoft.CodeAnalysis.OperationKind)125;
+        Attribute = 125,
 
         /// <summary>Added in version 4.7.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind InlineArrayAccess = (global::Microsoft.CodeAnalysis.OperationKind)126;
+        InlineArrayAccess = 126,
 
         /// <summary>Added in version 4.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind CollectionExpression = (global::Microsoft.CodeAnalysis.OperationKind)127;
+        CollectionExpression = 127,
 
         /// <summary>Added in version 4.9.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.OperationKind Spread = (global::Microsoft.CodeAnalysis.OperationKind)128;
+        Spread = 128,
     }
 }

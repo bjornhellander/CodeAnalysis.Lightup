@@ -10,8 +10,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation MaximumValueGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation MinimumValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper MaximumValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper MinimumValueGetterDelegate(global::System.Object _obj);
 
         private static readonly MaximumValueGetterDelegate MaximumValueGetterFunc;
         private static readonly MinimumValueGetterDelegate MinimumValueGetterFunc;
@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation MaximumValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper MaximumValue
         {
             get { return MaximumValueGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation MinimumValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper MinimumValue
         {
             get { return MinimumValueGetterFunc(wrappedObject); }
         }

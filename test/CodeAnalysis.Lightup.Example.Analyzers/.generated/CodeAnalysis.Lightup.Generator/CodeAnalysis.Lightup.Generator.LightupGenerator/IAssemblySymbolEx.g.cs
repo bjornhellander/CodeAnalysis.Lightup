@@ -9,20 +9,29 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IAssemblySymbol";
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypesDelegate0(global::Microsoft.CodeAnalysis.IAssemblySymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.AssemblyMetadata? GetMetadataDelegate1(global::Microsoft.CodeAnalysis.IAssemblySymbol _obj);
 
         private static readonly GetForwardedTypesDelegate0 GetForwardedTypesFunc0;
+        private static readonly GetMetadataDelegate1 GetMetadataFunc1;
 
         static IAssemblySymbolEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             GetForwardedTypesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetForwardedTypesDelegate0>(wrappedType, "GetForwardedTypes");
+            GetMetadataFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetMetadataDelegate1>(wrappedType, "GetMetadata");
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> GetForwardedTypes(this global::Microsoft.CodeAnalysis.IAssemblySymbol _obj)
         {
             return GetForwardedTypesFunc0(_obj);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.AssemblyMetadata? GetMetadata(this global::Microsoft.CodeAnalysis.IAssemblySymbol _obj)
+        {
+            return GetMetadataFunc1(_obj);
         }
     }
 }

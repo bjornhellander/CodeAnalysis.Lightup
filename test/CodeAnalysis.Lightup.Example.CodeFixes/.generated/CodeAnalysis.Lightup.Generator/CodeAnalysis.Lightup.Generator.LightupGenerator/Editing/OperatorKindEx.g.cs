@@ -2,10 +2,88 @@
 
 namespace Microsoft.CodeAnalysis.Editing.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.OperatorKind.</summary>
-    public static partial class OperatorKindEx
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Editing.OperatorKind. Added in version 1.2.0.0.</summary>
+    public enum OperatorKindEx : global::System.Int32
     {
+        /// <summary>Added in version 1.2.0.0.</summary>
+        ImplicitConversion = 0,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        ExplicitConversion = 1,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Addition = 2,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        BitwiseAnd = 3,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        BitwiseOr = 4,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Decrement = 5,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Division = 6,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Equality = 7,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        ExclusiveOr = 8,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        False = 9,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        GreaterThan = 10,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        GreaterThanOrEqual = 11,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Increment = 12,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Inequality = 13,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        LeftShift = 14,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        LessThan = 15,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        LessThanOrEqual = 16,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        LogicalNot = 17,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Modulus = 18,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Multiply = 19,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        OnesComplement = 20,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        RightShift = 21,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        Subtraction = 22,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        True = 23,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        UnaryNegation = 24,
+
+        /// <summary>Added in version 1.2.0.0.</summary>
+        UnaryPlus = 25,
+
         /// <summary>Added in version 4.3.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind UnsignedRightShift = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)26;
+        UnsignedRightShift = 26,
     }
 }

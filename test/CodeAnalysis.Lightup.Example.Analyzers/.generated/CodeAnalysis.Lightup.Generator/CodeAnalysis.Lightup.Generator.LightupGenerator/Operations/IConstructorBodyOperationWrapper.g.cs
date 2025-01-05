@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? InitializerGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? InitializerGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::System.Object _obj);
 
         private static readonly InitializerGetterDelegate InitializerGetterFunc;
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Initializer
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Initializer
         {
             get { return InitializerGetterFunc(wrappedObject); }
         }

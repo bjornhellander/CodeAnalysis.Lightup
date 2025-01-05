@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.PortableExecutableReference";
 
         private delegate global::Microsoft.CodeAnalysis.Metadata GetMetadataDelegate0(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
-        private delegate global::Microsoft.CodeAnalysis.MetadataId GetMetadataIdDelegate1(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.MetadataIdWrapper GetMetadataIdDelegate1(global::Microsoft.CodeAnalysis.PortableExecutableReference _obj);
 
         private static readonly GetMetadataDelegate0 GetMetadataFunc0;
         private static readonly GetMetadataIdDelegate1 GetMetadataIdFunc1;
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.MetadataId GetMetadataId(this global::Microsoft.CodeAnalysis.PortableExecutableReference _obj)
+        public static global::Microsoft.CodeAnalysis.Lightup.MetadataIdWrapper GetMetadataId(this global::Microsoft.CodeAnalysis.PortableExecutableReference _obj)
         {
             return GetMetadataIdFunc1(_obj);
         }

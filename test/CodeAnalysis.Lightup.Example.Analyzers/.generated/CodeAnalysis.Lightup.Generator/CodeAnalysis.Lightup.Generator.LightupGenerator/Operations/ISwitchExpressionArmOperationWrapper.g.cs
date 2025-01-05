@@ -10,17 +10,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? GuardGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GuardGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper ValueGetterDelegate(global::System.Object _obj);
 
         private static readonly GuardGetterDelegate GuardGetterFunc;
         private static readonly LocalsGetterDelegate LocalsGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ISwitchExpressionArmOperationWrapper()
         {
@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             ValueGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ValueGetterDelegate>(WrappedType, nameof(Value));
         }
 
-        private ISwitchExpressionArmOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private ISwitchExpressionArmOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Guard
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Guard
         {
             get { return GuardGetterFunc(wrappedObject); }
         }
@@ -56,26 +56,26 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Value
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Value
         {
             get { return ValueGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ISwitchExpressionArmOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static ISwitchExpressionArmOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ISwitchExpressionArmOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

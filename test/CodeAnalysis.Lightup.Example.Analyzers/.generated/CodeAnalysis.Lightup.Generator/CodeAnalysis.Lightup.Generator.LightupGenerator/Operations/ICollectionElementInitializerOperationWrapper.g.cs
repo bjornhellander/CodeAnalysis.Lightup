@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol AddMethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Boolean IsDynamicGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol AddMethodGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> ArgumentsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsDynamicGetterDelegate(global::System.Object _obj);
 
         private static readonly AddMethodGetterDelegate AddMethodGetterFunc;
         private static readonly ArgumentsGetterDelegate ArgumentsGetterFunc;
         private static readonly IsDynamicGetterDelegate IsDynamicGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ICollectionElementInitializerOperationWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsDynamicGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsDynamicGetterDelegate>(WrappedType, nameof(IsDynamic));
         }
 
-        private ICollectionElementInitializerOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private ICollectionElementInitializerOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -41,7 +41,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> Arguments
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> Arguments
         {
             get { return ArgumentsGetterFunc(wrappedObject); }
         }
@@ -53,20 +53,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ICollectionElementInitializerOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static ICollectionElementInitializerOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ICollectionElementInitializerOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

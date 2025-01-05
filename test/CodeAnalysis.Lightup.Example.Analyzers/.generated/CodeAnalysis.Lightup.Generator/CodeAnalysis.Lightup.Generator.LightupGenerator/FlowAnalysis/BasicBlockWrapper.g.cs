@@ -10,14 +10,14 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? BranchValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? BranchValueGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowBranchWrapper? ConditionalSuccessorGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowConditionKindEx ConditionKindGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowRegionWrapper EnclosingRegionGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowBranchWrapper? FallThroughSuccessorGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsReachableGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.BasicBlockKindEx KindGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> OperationsGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> OperationsGetterDelegate(global::System.Object _obj);
         private delegate global::System.Int32 OrdinalGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowBranchWrapper> PredecessorsGetterDelegate(global::System.Object _obj);
 
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Property added in version 2.9.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? BranchValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? BranchValue
         {
             get { return BranchValueGetterFunc(wrappedObject); }
         }
@@ -98,7 +98,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Property added in version 2.9.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> Operations
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> Operations
         {
             get { return OperationsGetterFunc(wrappedObject); }
         }

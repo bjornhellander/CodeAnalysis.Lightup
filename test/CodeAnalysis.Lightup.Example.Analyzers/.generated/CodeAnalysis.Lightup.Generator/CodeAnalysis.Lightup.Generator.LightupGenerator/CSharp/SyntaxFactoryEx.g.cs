@@ -58,199 +58,247 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardDesignationSyntaxWrapper DiscardDesignationDelegate47(global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper DiscardPatternDelegate48();
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper DiscardPatternDelegate49(global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatementDelegate50(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatementDelegate51(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken doKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatementDelegate52(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatementDelegate53(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax EnumMemberDeclarationDelegate54(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclarationDelegate55(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclarationDelegate56(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper ExpressionColonDelegate57(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper ExpressionElementDelegate58(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatementDelegate59(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatementDelegate60(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpressionDelegate61();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpressionDelegate62(global::Microsoft.CodeAnalysis.SyntaxToken token);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate63(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate64(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate65(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatementDelegate66(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatementDelegate67(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken fixedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate68(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate69(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate70(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate71(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate72(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate73(global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate74(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate75(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatementDelegate76(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatementDelegate77(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConventionDelegate78(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConventionDelegate79(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameterDelegate80(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameterDelegate81(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterListDelegate82(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterListDelegate83(global::Microsoft.CodeAnalysis.SyntaxToken lessThanToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters, global::Microsoft.CodeAnalysis.SyntaxToken greaterThanToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate84();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate85(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate86(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper FunctionPointerUnmanagedCallingConventionDelegate87(global::Microsoft.CodeAnalysis.SyntaxToken name);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionListDelegate88(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionListDelegate89(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax GlobalStatementDelegate90(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatementDelegate91(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatementDelegate92(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken gotoKeyword, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatementDelegate93(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatementDelegate94(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken ifKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate95();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate96(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate97(global::Microsoft.CodeAnalysis.SyntaxToken newKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpressionDelegate98(global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpressionDelegate99(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InterfaceDeclarationSyntax InterfaceDeclarationDelegate100(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InterpolatedStringExpressionSyntax InterpolatedStringExpressionDelegate101(global::Microsoft.CodeAnalysis.SyntaxToken stringStartToken, global::Microsoft.CodeAnalysis.SyntaxToken stringEndToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpressionDelegate102(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpressionDelegate103(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatementDelegate104(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatementDelegate105(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePositionDelegate106(global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken character);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePositionDelegate107(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate108(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate109(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate110(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.SyntaxToken minusToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate111(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate112(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate113(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate114(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate115(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate116(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate117(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::System.String identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate118(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate119(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate120(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate121(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate122(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatementDelegate123(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatementDelegate124(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken lockKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclarationDelegate125(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclarationDelegate126(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate127(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate128(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate129(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate130(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate131(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate132(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax OperatorMemberCrefDelegate133(global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate134();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate135(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate136(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate137(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate138(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate139(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate140(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate141(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPatternDelegate142(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPatternDelegate143(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignationDelegate144(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignationDelegate145(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? ParseMemberDeclarationDelegate146(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate147(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate148(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate149(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate150(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax ParseTypeNameDelegate151(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClauseDelegate152(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClauseDelegate153(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate154(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate155(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClauseDelegate156(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClauseDelegate157(global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate158();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate159(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate160(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate161(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate162(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate163(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate164(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate165(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate166(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate167(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate168(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePatternDelegate169();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePatternDelegate170(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpressionDelegate171(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpressionDelegate172(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraintDelegate173();
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraintDelegate174(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate175(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate176(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate177(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper RelationalPatternDelegate178(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatementDelegate179(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatementDelegate180(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken returnKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedTypeDelegate181(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedTypeDelegate182(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate183(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate184(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate185(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate186(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate187(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate188(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate189(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper SingleVariableDesignationDelegate190(global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePatternDelegate191(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePatternDelegate192(global::Microsoft.CodeAnalysis.SyntaxToken dotDotToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElementDelegate193(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElementDelegate194(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpressionDelegate195(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpressionDelegate196(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclarationDelegate197(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclarationDelegate198(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate199(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate200(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate201(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate202(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate203(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate204(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate205(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate206(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate207(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchStatementSyntax SwitchStatementDelegate208(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchSectionSyntax> sections, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpressionDelegate209(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpressionDelegate210(global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatementDelegate211(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatementDelegate212(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatementDelegate213(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatementDelegate214(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElementDelegate215(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElementDelegate216(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpressionDelegate217(global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpressionDelegate218(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleTypeDelegate219(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleTypeDelegate220(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper TypePatternDelegate221(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPatternDelegate222(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPatternDelegate223(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatementDelegate224(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatementDelegate225(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate226(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate227(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate228(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate229(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate230(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate231(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate232(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPatternDelegate233(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPatternDelegate234(global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClauseDelegate235(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClauseDelegate236(global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatementDelegate237(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatementDelegate238(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpressionDelegate239(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpressionDelegate240(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken withKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatementDelegate241(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatementDelegate242(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken yieldKeyword, global::Microsoft.CodeAnalysis.SyntaxToken returnOrBreakKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DocumentationCommentTriviaSyntax DocumentationCommentDelegate50(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatementDelegate51(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatementDelegate52(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken doKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatementDelegate53(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatementDelegate54(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax EnumMemberDeclarationDelegate55(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclarationDelegate56(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclarationDelegate57(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper ExpressionColonDelegate58(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper ExpressionElementDelegate59(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatementDelegate60(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatementDelegate61(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpressionDelegate62();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpressionDelegate63(global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate64(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate65(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclarationDelegate66(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatementDelegate67(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatementDelegate68(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken fixedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate69(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate70(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatementDelegate71(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate72(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate73(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate74(global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate75(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatementDelegate76(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatementDelegate77(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatementDelegate78(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConventionDelegate79(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConventionDelegate80(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameterDelegate81(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameterDelegate82(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterListDelegate83(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterListDelegate84(global::Microsoft.CodeAnalysis.SyntaxToken lessThanToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters, global::Microsoft.CodeAnalysis.SyntaxToken greaterThanToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate85();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate86(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerTypeDelegate87(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper FunctionPointerUnmanagedCallingConventionDelegate88(global::Microsoft.CodeAnalysis.SyntaxToken name);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionListDelegate89(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionListDelegate90(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax GlobalStatementDelegate91(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatementDelegate92(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatementDelegate93(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken gotoKeyword, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatementDelegate94(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatementDelegate95(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken ifKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate96();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate97(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpressionDelegate98(global::Microsoft.CodeAnalysis.SyntaxToken newKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpressionDelegate99(global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpressionDelegate100(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InterfaceDeclarationSyntax InterfaceDeclarationDelegate101(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InterpolatedStringExpressionSyntax InterpolatedStringExpressionDelegate102(global::Microsoft.CodeAnalysis.SyntaxToken stringStartToken, global::Microsoft.CodeAnalysis.SyntaxToken stringEndToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpressionDelegate103(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpressionDelegate104(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatementDelegate105(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatementDelegate106(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePositionDelegate107(global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken character);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePositionDelegate108(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate109(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate110(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTriviaDelegate111(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.SyntaxToken minusToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate112(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate113(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPatternDelegate114(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate115(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate116(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatementDelegate117(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate118(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::System.String identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate119(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate120(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate121(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate122(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatementDelegate123(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatementDelegate124(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatementDelegate125(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken lockKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclarationDelegate126(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclarationDelegate127(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate128(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate129(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTriviaDelegate130(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate131(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate132(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclarationDelegate133(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax OperatorMemberCrefDelegate134(global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate135();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate136(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate137(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate138(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate139(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate140(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate141(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpressionDelegate142(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPatternDelegate143(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPatternDelegate144(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignationDelegate145(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignationDelegate146(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? ParseMemberDeclarationDelegate147(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate148(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate149(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate150(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTreeDelegate151(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax ParseTypeNameDelegate152(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClauseDelegate153(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClauseDelegate154(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate155(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseTypeDelegate156(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClauseDelegate157(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClauseDelegate158(global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate159();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate160(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpressionDelegate161(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate162(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate163(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate164(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate165(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate166(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate167(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate168(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclarationDelegate169(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePatternDelegate170();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePatternDelegate171(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpressionDelegate172(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpressionDelegate173(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraintDelegate174();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraintDelegate175(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate176(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate177(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefTypeDelegate178(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper RelationalPatternDelegate179(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatementDelegate180(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatementDelegate181(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken returnKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedTypeDelegate182(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedTypeDelegate183(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate184(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate185(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate186(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate187(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate188(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate189(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpressionDelegate190(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper SingleVariableDesignationDelegate191(global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePatternDelegate192(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePatternDelegate193(global::Microsoft.CodeAnalysis.SyntaxToken dotDotToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElementDelegate194(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElementDelegate195(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpressionDelegate196(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpressionDelegate197(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclarationDelegate198(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclarationDelegate199(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate200(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate201(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper SubpatternDelegate202(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate203(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate204(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpressionDelegate205(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate206(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate207(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArmDelegate208(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchStatementSyntax SwitchStatementDelegate209(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchSectionSyntax> sections, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpressionDelegate210(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpressionDelegate211(global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatementDelegate212(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatementDelegate213(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatementDelegate214(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatementDelegate215(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElementDelegate216(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElementDelegate217(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpressionDelegate218(global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpressionDelegate219(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleTypeDelegate220(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleTypeDelegate221(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper TypePatternDelegate222(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPatternDelegate223(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPatternDelegate224(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatementDelegate225(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatementDelegate226(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate227(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate228(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate229(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirectiveDelegate230(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate231(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate232(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatementDelegate233(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPatternDelegate234(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPatternDelegate235(global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClauseDelegate236(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClauseDelegate237(global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatementDelegate238(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatementDelegate239(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpressionDelegate240(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpressionDelegate241(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken withKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlCrefAttributeSyntax XmlCrefAttributeDelegate242(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlCrefAttributeSyntax XmlCrefAttributeDelegate243(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlElementDelegate244(global::System.String localName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlElementDelegate245(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlEmptyElementDelegate246(global::System.String localName);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExampleElementDelegate247(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExampleElementDelegate248(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExceptionElementDelegate249(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExceptionElementDelegate250(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlMultiLineElementDelegate251(global::System.String localName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlMultiLineElementDelegate252(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameAttributeSyntax XmlNameAttributeDelegate253(global::System.String parameterName);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlNewLineDelegate254(global::System.String text);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlNullKeywordElementDelegate255();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParaElementDelegate256(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParaElementDelegate257(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParamElementDelegate258(global::System.String parameterName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParamElementDelegate259(global::System.String parameterName, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlParamRefElementDelegate260(global::System.String parameterName);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPermissionElementDelegate261(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPermissionElementDelegate262(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPlaceholderElementDelegate263(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPlaceholderElementDelegate264(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlPreliminaryElementDelegate265();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlRemarksElementDelegate266(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlRemarksElementDelegate267(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlReturnsElementDelegate268(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlReturnsElementDelegate269(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlSeeAlsoElementDelegate270(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSeeAlsoElementDelegate271(global::System.Uri linkAddress, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> linkText);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlSeeElementDelegate272(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSummaryElementDelegate273(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSummaryElementDelegate274(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlTextDelegate275(params global::Microsoft.CodeAnalysis.SyntaxToken[] textTokens);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlTextDelegate276(global::System.String value);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttributeDelegate277(global::System.String name, params global::Microsoft.CodeAnalysis.SyntaxToken[] textTokens);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttributeDelegate278(global::System.String name, global::System.String value);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttributeDelegate279(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind, global::Microsoft.CodeAnalysis.SyntaxTokenList textTokens);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttributeDelegate280(global::System.String name, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind, global::Microsoft.CodeAnalysis.SyntaxTokenList textTokens);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken XmlTextLiteralDelegate281(global::System.String value);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken XmlTextLiteralDelegate282(global::System.String text, global::System.String value);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken XmlTextNewLineDelegate283(global::System.String text);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken XmlTextNewLineDelegate284(global::System.String text, global::System.Boolean continueXmlDocumentationComment);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlThreadSafetyElementDelegate285();
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlThreadSafetyElementDelegate286(global::System.Boolean isStatic, global::System.Boolean isInstance);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlValueElementDelegate287(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlValueElementDelegate288(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatementDelegate289(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatementDelegate290(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken yieldKeyword, global::Microsoft.CodeAnalysis.SyntaxToken returnOrBreakKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
 
         private static readonly AccessorDeclarationDelegate0 AccessorDeclarationFunc0;
         private static readonly AccessorDeclarationDelegate1 AccessorDeclarationFunc1;
@@ -302,91 +350,91 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly DiscardDesignationDelegate47 DiscardDesignationFunc47;
         private static readonly DiscardPatternDelegate48 DiscardPatternFunc48;
         private static readonly DiscardPatternDelegate49 DiscardPatternFunc49;
-        private static readonly DoStatementDelegate50 DoStatementFunc50;
+        private static readonly DocumentationCommentDelegate50 DocumentationCommentFunc50;
         private static readonly DoStatementDelegate51 DoStatementFunc51;
-        private static readonly EmptyStatementDelegate52 EmptyStatementFunc52;
+        private static readonly DoStatementDelegate52 DoStatementFunc52;
         private static readonly EmptyStatementDelegate53 EmptyStatementFunc53;
-        private static readonly EnumMemberDeclarationDelegate54 EnumMemberDeclarationFunc54;
-        private static readonly EventDeclarationDelegate55 EventDeclarationFunc55;
+        private static readonly EmptyStatementDelegate54 EmptyStatementFunc54;
+        private static readonly EnumMemberDeclarationDelegate55 EnumMemberDeclarationFunc55;
         private static readonly EventDeclarationDelegate56 EventDeclarationFunc56;
-        private static readonly ExpressionColonDelegate57 ExpressionColonFunc57;
-        private static readonly ExpressionElementDelegate58 ExpressionElementFunc58;
-        private static readonly ExpressionStatementDelegate59 ExpressionStatementFunc59;
+        private static readonly EventDeclarationDelegate57 EventDeclarationFunc57;
+        private static readonly ExpressionColonDelegate58 ExpressionColonFunc58;
+        private static readonly ExpressionElementDelegate59 ExpressionElementFunc59;
         private static readonly ExpressionStatementDelegate60 ExpressionStatementFunc60;
-        private static readonly FieldExpressionDelegate61 FieldExpressionFunc61;
+        private static readonly ExpressionStatementDelegate61 ExpressionStatementFunc61;
         private static readonly FieldExpressionDelegate62 FieldExpressionFunc62;
-        private static readonly FileScopedNamespaceDeclarationDelegate63 FileScopedNamespaceDeclarationFunc63;
+        private static readonly FieldExpressionDelegate63 FieldExpressionFunc63;
         private static readonly FileScopedNamespaceDeclarationDelegate64 FileScopedNamespaceDeclarationFunc64;
         private static readonly FileScopedNamespaceDeclarationDelegate65 FileScopedNamespaceDeclarationFunc65;
-        private static readonly FixedStatementDelegate66 FixedStatementFunc66;
+        private static readonly FileScopedNamespaceDeclarationDelegate66 FileScopedNamespaceDeclarationFunc66;
         private static readonly FixedStatementDelegate67 FixedStatementFunc67;
-        private static readonly ForEachStatementDelegate68 ForEachStatementFunc68;
+        private static readonly FixedStatementDelegate68 FixedStatementFunc68;
         private static readonly ForEachStatementDelegate69 ForEachStatementFunc69;
         private static readonly ForEachStatementDelegate70 ForEachStatementFunc70;
-        private static readonly ForEachVariableStatementDelegate71 ForEachVariableStatementFunc71;
+        private static readonly ForEachStatementDelegate71 ForEachStatementFunc71;
         private static readonly ForEachVariableStatementDelegate72 ForEachVariableStatementFunc72;
         private static readonly ForEachVariableStatementDelegate73 ForEachVariableStatementFunc73;
         private static readonly ForEachVariableStatementDelegate74 ForEachVariableStatementFunc74;
         private static readonly ForEachVariableStatementDelegate75 ForEachVariableStatementFunc75;
-        private static readonly ForStatementDelegate76 ForStatementFunc76;
+        private static readonly ForEachVariableStatementDelegate76 ForEachVariableStatementFunc76;
         private static readonly ForStatementDelegate77 ForStatementFunc77;
-        private static readonly FunctionPointerCallingConventionDelegate78 FunctionPointerCallingConventionFunc78;
+        private static readonly ForStatementDelegate78 ForStatementFunc78;
         private static readonly FunctionPointerCallingConventionDelegate79 FunctionPointerCallingConventionFunc79;
-        private static readonly FunctionPointerParameterDelegate80 FunctionPointerParameterFunc80;
+        private static readonly FunctionPointerCallingConventionDelegate80 FunctionPointerCallingConventionFunc80;
         private static readonly FunctionPointerParameterDelegate81 FunctionPointerParameterFunc81;
-        private static readonly FunctionPointerParameterListDelegate82 FunctionPointerParameterListFunc82;
+        private static readonly FunctionPointerParameterDelegate82 FunctionPointerParameterFunc82;
         private static readonly FunctionPointerParameterListDelegate83 FunctionPointerParameterListFunc83;
-        private static readonly FunctionPointerTypeDelegate84 FunctionPointerTypeFunc84;
+        private static readonly FunctionPointerParameterListDelegate84 FunctionPointerParameterListFunc84;
         private static readonly FunctionPointerTypeDelegate85 FunctionPointerTypeFunc85;
         private static readonly FunctionPointerTypeDelegate86 FunctionPointerTypeFunc86;
-        private static readonly FunctionPointerUnmanagedCallingConventionDelegate87 FunctionPointerUnmanagedCallingConventionFunc87;
-        private static readonly FunctionPointerUnmanagedCallingConventionListDelegate88 FunctionPointerUnmanagedCallingConventionListFunc88;
+        private static readonly FunctionPointerTypeDelegate87 FunctionPointerTypeFunc87;
+        private static readonly FunctionPointerUnmanagedCallingConventionDelegate88 FunctionPointerUnmanagedCallingConventionFunc88;
         private static readonly FunctionPointerUnmanagedCallingConventionListDelegate89 FunctionPointerUnmanagedCallingConventionListFunc89;
-        private static readonly GlobalStatementDelegate90 GlobalStatementFunc90;
-        private static readonly GotoStatementDelegate91 GotoStatementFunc91;
+        private static readonly FunctionPointerUnmanagedCallingConventionListDelegate90 FunctionPointerUnmanagedCallingConventionListFunc90;
+        private static readonly GlobalStatementDelegate91 GlobalStatementFunc91;
         private static readonly GotoStatementDelegate92 GotoStatementFunc92;
-        private static readonly IfStatementDelegate93 IfStatementFunc93;
+        private static readonly GotoStatementDelegate93 GotoStatementFunc93;
         private static readonly IfStatementDelegate94 IfStatementFunc94;
-        private static readonly ImplicitObjectCreationExpressionDelegate95 ImplicitObjectCreationExpressionFunc95;
+        private static readonly IfStatementDelegate95 IfStatementFunc95;
         private static readonly ImplicitObjectCreationExpressionDelegate96 ImplicitObjectCreationExpressionFunc96;
         private static readonly ImplicitObjectCreationExpressionDelegate97 ImplicitObjectCreationExpressionFunc97;
-        private static readonly ImplicitStackAllocArrayCreationExpressionDelegate98 ImplicitStackAllocArrayCreationExpressionFunc98;
+        private static readonly ImplicitObjectCreationExpressionDelegate98 ImplicitObjectCreationExpressionFunc98;
         private static readonly ImplicitStackAllocArrayCreationExpressionDelegate99 ImplicitStackAllocArrayCreationExpressionFunc99;
-        private static readonly InterfaceDeclarationDelegate100 InterfaceDeclarationFunc100;
-        private static readonly InterpolatedStringExpressionDelegate101 InterpolatedStringExpressionFunc101;
-        private static readonly IsPatternExpressionDelegate102 IsPatternExpressionFunc102;
+        private static readonly ImplicitStackAllocArrayCreationExpressionDelegate100 ImplicitStackAllocArrayCreationExpressionFunc100;
+        private static readonly InterfaceDeclarationDelegate101 InterfaceDeclarationFunc101;
+        private static readonly InterpolatedStringExpressionDelegate102 InterpolatedStringExpressionFunc102;
         private static readonly IsPatternExpressionDelegate103 IsPatternExpressionFunc103;
-        private static readonly LabeledStatementDelegate104 LabeledStatementFunc104;
+        private static readonly IsPatternExpressionDelegate104 IsPatternExpressionFunc104;
         private static readonly LabeledStatementDelegate105 LabeledStatementFunc105;
-        private static readonly LineDirectivePositionDelegate106 LineDirectivePositionFunc106;
+        private static readonly LabeledStatementDelegate106 LabeledStatementFunc106;
         private static readonly LineDirectivePositionDelegate107 LineDirectivePositionFunc107;
-        private static readonly LineSpanDirectiveTriviaDelegate108 LineSpanDirectiveTriviaFunc108;
+        private static readonly LineDirectivePositionDelegate108 LineDirectivePositionFunc108;
         private static readonly LineSpanDirectiveTriviaDelegate109 LineSpanDirectiveTriviaFunc109;
         private static readonly LineSpanDirectiveTriviaDelegate110 LineSpanDirectiveTriviaFunc110;
-        private static readonly ListPatternDelegate111 ListPatternFunc111;
+        private static readonly LineSpanDirectiveTriviaDelegate111 LineSpanDirectiveTriviaFunc111;
         private static readonly ListPatternDelegate112 ListPatternFunc112;
         private static readonly ListPatternDelegate113 ListPatternFunc113;
-        private static readonly LocalDeclarationStatementDelegate114 LocalDeclarationStatementFunc114;
+        private static readonly ListPatternDelegate114 ListPatternFunc114;
         private static readonly LocalDeclarationStatementDelegate115 LocalDeclarationStatementFunc115;
         private static readonly LocalDeclarationStatementDelegate116 LocalDeclarationStatementFunc116;
-        private static readonly LocalFunctionStatementDelegate117 LocalFunctionStatementFunc117;
+        private static readonly LocalDeclarationStatementDelegate117 LocalDeclarationStatementFunc117;
         private static readonly LocalFunctionStatementDelegate118 LocalFunctionStatementFunc118;
         private static readonly LocalFunctionStatementDelegate119 LocalFunctionStatementFunc119;
         private static readonly LocalFunctionStatementDelegate120 LocalFunctionStatementFunc120;
         private static readonly LocalFunctionStatementDelegate121 LocalFunctionStatementFunc121;
         private static readonly LocalFunctionStatementDelegate122 LocalFunctionStatementFunc122;
-        private static readonly LockStatementDelegate123 LockStatementFunc123;
+        private static readonly LocalFunctionStatementDelegate123 LocalFunctionStatementFunc123;
         private static readonly LockStatementDelegate124 LockStatementFunc124;
-        private static readonly NamespaceDeclarationDelegate125 NamespaceDeclarationFunc125;
+        private static readonly LockStatementDelegate125 LockStatementFunc125;
         private static readonly NamespaceDeclarationDelegate126 NamespaceDeclarationFunc126;
-        private static readonly NullableDirectiveTriviaDelegate127 NullableDirectiveTriviaFunc127;
+        private static readonly NamespaceDeclarationDelegate127 NamespaceDeclarationFunc127;
         private static readonly NullableDirectiveTriviaDelegate128 NullableDirectiveTriviaFunc128;
         private static readonly NullableDirectiveTriviaDelegate129 NullableDirectiveTriviaFunc129;
-        private static readonly OperatorDeclarationDelegate130 OperatorDeclarationFunc130;
+        private static readonly NullableDirectiveTriviaDelegate130 NullableDirectiveTriviaFunc130;
         private static readonly OperatorDeclarationDelegate131 OperatorDeclarationFunc131;
         private static readonly OperatorDeclarationDelegate132 OperatorDeclarationFunc132;
-        private static readonly OperatorMemberCrefDelegate133 OperatorMemberCrefFunc133;
-        private static readonly ParenthesizedLambdaExpressionDelegate134 ParenthesizedLambdaExpressionFunc134;
+        private static readonly OperatorDeclarationDelegate133 OperatorDeclarationFunc133;
+        private static readonly OperatorMemberCrefDelegate134 OperatorMemberCrefFunc134;
         private static readonly ParenthesizedLambdaExpressionDelegate135 ParenthesizedLambdaExpressionFunc135;
         private static readonly ParenthesizedLambdaExpressionDelegate136 ParenthesizedLambdaExpressionFunc136;
         private static readonly ParenthesizedLambdaExpressionDelegate137 ParenthesizedLambdaExpressionFunc137;
@@ -394,26 +442,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly ParenthesizedLambdaExpressionDelegate139 ParenthesizedLambdaExpressionFunc139;
         private static readonly ParenthesizedLambdaExpressionDelegate140 ParenthesizedLambdaExpressionFunc140;
         private static readonly ParenthesizedLambdaExpressionDelegate141 ParenthesizedLambdaExpressionFunc141;
-        private static readonly ParenthesizedPatternDelegate142 ParenthesizedPatternFunc142;
+        private static readonly ParenthesizedLambdaExpressionDelegate142 ParenthesizedLambdaExpressionFunc142;
         private static readonly ParenthesizedPatternDelegate143 ParenthesizedPatternFunc143;
-        private static readonly ParenthesizedVariableDesignationDelegate144 ParenthesizedVariableDesignationFunc144;
+        private static readonly ParenthesizedPatternDelegate144 ParenthesizedPatternFunc144;
         private static readonly ParenthesizedVariableDesignationDelegate145 ParenthesizedVariableDesignationFunc145;
-        private static readonly ParseMemberDeclarationDelegate146 ParseMemberDeclarationFunc146;
-        private static readonly ParseSyntaxTreeDelegate147 ParseSyntaxTreeFunc147;
+        private static readonly ParenthesizedVariableDesignationDelegate146 ParenthesizedVariableDesignationFunc146;
+        private static readonly ParseMemberDeclarationDelegate147 ParseMemberDeclarationFunc147;
         private static readonly ParseSyntaxTreeDelegate148 ParseSyntaxTreeFunc148;
         private static readonly ParseSyntaxTreeDelegate149 ParseSyntaxTreeFunc149;
         private static readonly ParseSyntaxTreeDelegate150 ParseSyntaxTreeFunc150;
-        private static readonly ParseTypeNameDelegate151 ParseTypeNameFunc151;
-        private static readonly PositionalPatternClauseDelegate152 PositionalPatternClauseFunc152;
+        private static readonly ParseSyntaxTreeDelegate151 ParseSyntaxTreeFunc151;
+        private static readonly ParseTypeNameDelegate152 ParseTypeNameFunc152;
         private static readonly PositionalPatternClauseDelegate153 PositionalPatternClauseFunc153;
-        private static readonly PrimaryConstructorBaseTypeDelegate154 PrimaryConstructorBaseTypeFunc154;
+        private static readonly PositionalPatternClauseDelegate154 PositionalPatternClauseFunc154;
         private static readonly PrimaryConstructorBaseTypeDelegate155 PrimaryConstructorBaseTypeFunc155;
-        private static readonly PropertyPatternClauseDelegate156 PropertyPatternClauseFunc156;
+        private static readonly PrimaryConstructorBaseTypeDelegate156 PrimaryConstructorBaseTypeFunc156;
         private static readonly PropertyPatternClauseDelegate157 PropertyPatternClauseFunc157;
-        private static readonly RangeExpressionDelegate158 RangeExpressionFunc158;
+        private static readonly PropertyPatternClauseDelegate158 PropertyPatternClauseFunc158;
         private static readonly RangeExpressionDelegate159 RangeExpressionFunc159;
         private static readonly RangeExpressionDelegate160 RangeExpressionFunc160;
-        private static readonly RecordDeclarationDelegate161 RecordDeclarationFunc161;
+        private static readonly RangeExpressionDelegate161 RangeExpressionFunc161;
         private static readonly RecordDeclarationDelegate162 RecordDeclarationFunc162;
         private static readonly RecordDeclarationDelegate163 RecordDeclarationFunc163;
         private static readonly RecordDeclarationDelegate164 RecordDeclarationFunc164;
@@ -421,80 +469,128 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly RecordDeclarationDelegate166 RecordDeclarationFunc166;
         private static readonly RecordDeclarationDelegate167 RecordDeclarationFunc167;
         private static readonly RecordDeclarationDelegate168 RecordDeclarationFunc168;
-        private static readonly RecursivePatternDelegate169 RecursivePatternFunc169;
+        private static readonly RecordDeclarationDelegate169 RecordDeclarationFunc169;
         private static readonly RecursivePatternDelegate170 RecursivePatternFunc170;
-        private static readonly RefExpressionDelegate171 RefExpressionFunc171;
+        private static readonly RecursivePatternDelegate171 RecursivePatternFunc171;
         private static readonly RefExpressionDelegate172 RefExpressionFunc172;
-        private static readonly RefStructConstraintDelegate173 RefStructConstraintFunc173;
+        private static readonly RefExpressionDelegate173 RefExpressionFunc173;
         private static readonly RefStructConstraintDelegate174 RefStructConstraintFunc174;
-        private static readonly RefTypeDelegate175 RefTypeFunc175;
+        private static readonly RefStructConstraintDelegate175 RefStructConstraintFunc175;
         private static readonly RefTypeDelegate176 RefTypeFunc176;
         private static readonly RefTypeDelegate177 RefTypeFunc177;
-        private static readonly RelationalPatternDelegate178 RelationalPatternFunc178;
-        private static readonly ReturnStatementDelegate179 ReturnStatementFunc179;
+        private static readonly RefTypeDelegate178 RefTypeFunc178;
+        private static readonly RelationalPatternDelegate179 RelationalPatternFunc179;
         private static readonly ReturnStatementDelegate180 ReturnStatementFunc180;
-        private static readonly ScopedTypeDelegate181 ScopedTypeFunc181;
+        private static readonly ReturnStatementDelegate181 ReturnStatementFunc181;
         private static readonly ScopedTypeDelegate182 ScopedTypeFunc182;
-        private static readonly SimpleLambdaExpressionDelegate183 SimpleLambdaExpressionFunc183;
+        private static readonly ScopedTypeDelegate183 ScopedTypeFunc183;
         private static readonly SimpleLambdaExpressionDelegate184 SimpleLambdaExpressionFunc184;
         private static readonly SimpleLambdaExpressionDelegate185 SimpleLambdaExpressionFunc185;
         private static readonly SimpleLambdaExpressionDelegate186 SimpleLambdaExpressionFunc186;
         private static readonly SimpleLambdaExpressionDelegate187 SimpleLambdaExpressionFunc187;
         private static readonly SimpleLambdaExpressionDelegate188 SimpleLambdaExpressionFunc188;
         private static readonly SimpleLambdaExpressionDelegate189 SimpleLambdaExpressionFunc189;
-        private static readonly SingleVariableDesignationDelegate190 SingleVariableDesignationFunc190;
-        private static readonly SlicePatternDelegate191 SlicePatternFunc191;
+        private static readonly SimpleLambdaExpressionDelegate190 SimpleLambdaExpressionFunc190;
+        private static readonly SingleVariableDesignationDelegate191 SingleVariableDesignationFunc191;
         private static readonly SlicePatternDelegate192 SlicePatternFunc192;
-        private static readonly SpreadElementDelegate193 SpreadElementFunc193;
+        private static readonly SlicePatternDelegate193 SlicePatternFunc193;
         private static readonly SpreadElementDelegate194 SpreadElementFunc194;
-        private static readonly StackAllocArrayCreationExpressionDelegate195 StackAllocArrayCreationExpressionFunc195;
+        private static readonly SpreadElementDelegate195 SpreadElementFunc195;
         private static readonly StackAllocArrayCreationExpressionDelegate196 StackAllocArrayCreationExpressionFunc196;
-        private static readonly StructDeclarationDelegate197 StructDeclarationFunc197;
+        private static readonly StackAllocArrayCreationExpressionDelegate197 StackAllocArrayCreationExpressionFunc197;
         private static readonly StructDeclarationDelegate198 StructDeclarationFunc198;
-        private static readonly SubpatternDelegate199 SubpatternFunc199;
+        private static readonly StructDeclarationDelegate199 StructDeclarationFunc199;
         private static readonly SubpatternDelegate200 SubpatternFunc200;
         private static readonly SubpatternDelegate201 SubpatternFunc201;
-        private static readonly SwitchExpressionDelegate202 SwitchExpressionFunc202;
+        private static readonly SubpatternDelegate202 SubpatternFunc202;
         private static readonly SwitchExpressionDelegate203 SwitchExpressionFunc203;
         private static readonly SwitchExpressionDelegate204 SwitchExpressionFunc204;
-        private static readonly SwitchExpressionArmDelegate205 SwitchExpressionArmFunc205;
+        private static readonly SwitchExpressionDelegate205 SwitchExpressionFunc205;
         private static readonly SwitchExpressionArmDelegate206 SwitchExpressionArmFunc206;
         private static readonly SwitchExpressionArmDelegate207 SwitchExpressionArmFunc207;
-        private static readonly SwitchStatementDelegate208 SwitchStatementFunc208;
-        private static readonly ThrowExpressionDelegate209 ThrowExpressionFunc209;
+        private static readonly SwitchExpressionArmDelegate208 SwitchExpressionArmFunc208;
+        private static readonly SwitchStatementDelegate209 SwitchStatementFunc209;
         private static readonly ThrowExpressionDelegate210 ThrowExpressionFunc210;
-        private static readonly ThrowStatementDelegate211 ThrowStatementFunc211;
+        private static readonly ThrowExpressionDelegate211 ThrowExpressionFunc211;
         private static readonly ThrowStatementDelegate212 ThrowStatementFunc212;
-        private static readonly TryStatementDelegate213 TryStatementFunc213;
+        private static readonly ThrowStatementDelegate213 ThrowStatementFunc213;
         private static readonly TryStatementDelegate214 TryStatementFunc214;
-        private static readonly TupleElementDelegate215 TupleElementFunc215;
+        private static readonly TryStatementDelegate215 TryStatementFunc215;
         private static readonly TupleElementDelegate216 TupleElementFunc216;
-        private static readonly TupleExpressionDelegate217 TupleExpressionFunc217;
+        private static readonly TupleElementDelegate217 TupleElementFunc217;
         private static readonly TupleExpressionDelegate218 TupleExpressionFunc218;
-        private static readonly TupleTypeDelegate219 TupleTypeFunc219;
+        private static readonly TupleExpressionDelegate219 TupleExpressionFunc219;
         private static readonly TupleTypeDelegate220 TupleTypeFunc220;
-        private static readonly TypePatternDelegate221 TypePatternFunc221;
-        private static readonly UnaryPatternDelegate222 UnaryPatternFunc222;
+        private static readonly TupleTypeDelegate221 TupleTypeFunc221;
+        private static readonly TypePatternDelegate222 TypePatternFunc222;
         private static readonly UnaryPatternDelegate223 UnaryPatternFunc223;
-        private static readonly UnsafeStatementDelegate224 UnsafeStatementFunc224;
+        private static readonly UnaryPatternDelegate224 UnaryPatternFunc224;
         private static readonly UnsafeStatementDelegate225 UnsafeStatementFunc225;
-        private static readonly UsingDirectiveDelegate226 UsingDirectiveFunc226;
+        private static readonly UnsafeStatementDelegate226 UnsafeStatementFunc226;
         private static readonly UsingDirectiveDelegate227 UsingDirectiveFunc227;
         private static readonly UsingDirectiveDelegate228 UsingDirectiveFunc228;
         private static readonly UsingDirectiveDelegate229 UsingDirectiveFunc229;
-        private static readonly UsingStatementDelegate230 UsingStatementFunc230;
+        private static readonly UsingDirectiveDelegate230 UsingDirectiveFunc230;
         private static readonly UsingStatementDelegate231 UsingStatementFunc231;
         private static readonly UsingStatementDelegate232 UsingStatementFunc232;
-        private static readonly VarPatternDelegate233 VarPatternFunc233;
+        private static readonly UsingStatementDelegate233 UsingStatementFunc233;
         private static readonly VarPatternDelegate234 VarPatternFunc234;
-        private static readonly WhenClauseDelegate235 WhenClauseFunc235;
+        private static readonly VarPatternDelegate235 VarPatternFunc235;
         private static readonly WhenClauseDelegate236 WhenClauseFunc236;
-        private static readonly WhileStatementDelegate237 WhileStatementFunc237;
+        private static readonly WhenClauseDelegate237 WhenClauseFunc237;
         private static readonly WhileStatementDelegate238 WhileStatementFunc238;
-        private static readonly WithExpressionDelegate239 WithExpressionFunc239;
+        private static readonly WhileStatementDelegate239 WhileStatementFunc239;
         private static readonly WithExpressionDelegate240 WithExpressionFunc240;
-        private static readonly YieldStatementDelegate241 YieldStatementFunc241;
-        private static readonly YieldStatementDelegate242 YieldStatementFunc242;
+        private static readonly WithExpressionDelegate241 WithExpressionFunc241;
+        private static readonly XmlCrefAttributeDelegate242 XmlCrefAttributeFunc242;
+        private static readonly XmlCrefAttributeDelegate243 XmlCrefAttributeFunc243;
+        private static readonly XmlElementDelegate244 XmlElementFunc244;
+        private static readonly XmlElementDelegate245 XmlElementFunc245;
+        private static readonly XmlEmptyElementDelegate246 XmlEmptyElementFunc246;
+        private static readonly XmlExampleElementDelegate247 XmlExampleElementFunc247;
+        private static readonly XmlExampleElementDelegate248 XmlExampleElementFunc248;
+        private static readonly XmlExceptionElementDelegate249 XmlExceptionElementFunc249;
+        private static readonly XmlExceptionElementDelegate250 XmlExceptionElementFunc250;
+        private static readonly XmlMultiLineElementDelegate251 XmlMultiLineElementFunc251;
+        private static readonly XmlMultiLineElementDelegate252 XmlMultiLineElementFunc252;
+        private static readonly XmlNameAttributeDelegate253 XmlNameAttributeFunc253;
+        private static readonly XmlNewLineDelegate254 XmlNewLineFunc254;
+        private static readonly XmlNullKeywordElementDelegate255 XmlNullKeywordElementFunc255;
+        private static readonly XmlParaElementDelegate256 XmlParaElementFunc256;
+        private static readonly XmlParaElementDelegate257 XmlParaElementFunc257;
+        private static readonly XmlParamElementDelegate258 XmlParamElementFunc258;
+        private static readonly XmlParamElementDelegate259 XmlParamElementFunc259;
+        private static readonly XmlParamRefElementDelegate260 XmlParamRefElementFunc260;
+        private static readonly XmlPermissionElementDelegate261 XmlPermissionElementFunc261;
+        private static readonly XmlPermissionElementDelegate262 XmlPermissionElementFunc262;
+        private static readonly XmlPlaceholderElementDelegate263 XmlPlaceholderElementFunc263;
+        private static readonly XmlPlaceholderElementDelegate264 XmlPlaceholderElementFunc264;
+        private static readonly XmlPreliminaryElementDelegate265 XmlPreliminaryElementFunc265;
+        private static readonly XmlRemarksElementDelegate266 XmlRemarksElementFunc266;
+        private static readonly XmlRemarksElementDelegate267 XmlRemarksElementFunc267;
+        private static readonly XmlReturnsElementDelegate268 XmlReturnsElementFunc268;
+        private static readonly XmlReturnsElementDelegate269 XmlReturnsElementFunc269;
+        private static readonly XmlSeeAlsoElementDelegate270 XmlSeeAlsoElementFunc270;
+        private static readonly XmlSeeAlsoElementDelegate271 XmlSeeAlsoElementFunc271;
+        private static readonly XmlSeeElementDelegate272 XmlSeeElementFunc272;
+        private static readonly XmlSummaryElementDelegate273 XmlSummaryElementFunc273;
+        private static readonly XmlSummaryElementDelegate274 XmlSummaryElementFunc274;
+        private static readonly XmlTextDelegate275 XmlTextFunc275;
+        private static readonly XmlTextDelegate276 XmlTextFunc276;
+        private static readonly XmlTextAttributeDelegate277 XmlTextAttributeFunc277;
+        private static readonly XmlTextAttributeDelegate278 XmlTextAttributeFunc278;
+        private static readonly XmlTextAttributeDelegate279 XmlTextAttributeFunc279;
+        private static readonly XmlTextAttributeDelegate280 XmlTextAttributeFunc280;
+        private static readonly XmlTextLiteralDelegate281 XmlTextLiteralFunc281;
+        private static readonly XmlTextLiteralDelegate282 XmlTextLiteralFunc282;
+        private static readonly XmlTextNewLineDelegate283 XmlTextNewLineFunc283;
+        private static readonly XmlTextNewLineDelegate284 XmlTextNewLineFunc284;
+        private static readonly XmlThreadSafetyElementDelegate285 XmlThreadSafetyElementFunc285;
+        private static readonly XmlThreadSafetyElementDelegate286 XmlThreadSafetyElementFunc286;
+        private static readonly XmlValueElementDelegate287 XmlValueElementFunc287;
+        private static readonly XmlValueElementDelegate288 XmlValueElementFunc288;
+        private static readonly YieldStatementDelegate289 YieldStatementFunc289;
+        private static readonly YieldStatementDelegate290 YieldStatementFunc290;
 
         static SyntaxFactoryEx()
         {
@@ -550,199 +646,247 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             DiscardDesignationFunc47 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DiscardDesignationDelegate47>(wrappedType, "DiscardDesignation", "underscoreTokenSyntaxToken");
             DiscardPatternFunc48 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DiscardPatternDelegate48>(wrappedType, "DiscardPattern");
             DiscardPatternFunc49 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DiscardPatternDelegate49>(wrappedType, "DiscardPattern", "underscoreTokenSyntaxToken");
-            DoStatementFunc50 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DoStatementDelegate50>(wrappedType, "DoStatement", "attributeListsSyntaxList`1", "statementStatementSyntax", "conditionExpressionSyntax");
-            DoStatementFunc51 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DoStatementDelegate51>(wrappedType, "DoStatement", "attributeListsSyntaxList`1", "doKeywordSyntaxToken", "statementStatementSyntax", "whileKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            EmptyStatementFunc52 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EmptyStatementDelegate52>(wrappedType, "EmptyStatement", "attributeListsSyntaxList`1");
-            EmptyStatementFunc53 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EmptyStatementDelegate53>(wrappedType, "EmptyStatement", "attributeListsSyntaxList`1", "semicolonTokenSyntaxToken");
-            EnumMemberDeclarationFunc54 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EnumMemberDeclarationDelegate54>(wrappedType, "EnumMemberDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "equalsValueEqualsValueClauseSyntax");
-            EventDeclarationFunc55 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EventDeclarationDelegate55>(wrappedType, "EventDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "semicolonTokenSyntaxToken");
-            EventDeclarationFunc56 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EventDeclarationDelegate56>(wrappedType, "EventDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "accessorListAccessorListSyntax", "semicolonTokenSyntaxToken");
-            ExpressionColonFunc57 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionColonDelegate57>(wrappedType, "ExpressionColon", "expressionExpressionSyntax", "colonTokenSyntaxToken");
-            ExpressionElementFunc58 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionElementDelegate58>(wrappedType, "ExpressionElement", "expressionExpressionSyntax");
-            ExpressionStatementFunc59 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionStatementDelegate59>(wrappedType, "ExpressionStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
-            ExpressionStatementFunc60 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionStatementDelegate60>(wrappedType, "ExpressionStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
-            FieldExpressionFunc61 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FieldExpressionDelegate61>(wrappedType, "FieldExpression");
-            FieldExpressionFunc62 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FieldExpressionDelegate62>(wrappedType, "FieldExpression", "tokenSyntaxToken");
-            FileScopedNamespaceDeclarationFunc63 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate63>(wrappedType, "FileScopedNamespaceDeclaration", "nameNameSyntax");
-            FileScopedNamespaceDeclarationFunc64 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate64>(wrappedType, "FileScopedNamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "nameNameSyntax", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
-            FileScopedNamespaceDeclarationFunc65 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate65>(wrappedType, "FileScopedNamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "namespaceKeywordSyntaxToken", "nameNameSyntax", "semicolonTokenSyntaxToken", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
-            FixedStatementFunc66 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FixedStatementDelegate66>(wrappedType, "FixedStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "statementStatementSyntax");
-            FixedStatementFunc67 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FixedStatementDelegate67>(wrappedType, "FixedStatement", "attributeListsSyntaxList`1", "fixedKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForEachStatementFunc68 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate68>(wrappedType, "ForEachStatement", "attributeListsSyntaxList`1", "typeTypeSyntax", "identifierSyntaxToken", "expressionExpressionSyntax", "statementStatementSyntax");
-            ForEachStatementFunc69 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate69>(wrappedType, "ForEachStatement", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "typeTypeSyntax", "identifierSyntaxToken", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForEachStatementFunc70 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate70>(wrappedType, "ForEachStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "typeTypeSyntax", "identifierSyntaxToken", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForEachVariableStatementFunc71 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate71>(wrappedType, "ForEachVariableStatement", "variableExpressionSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
-            ForEachVariableStatementFunc72 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate72>(wrappedType, "ForEachVariableStatement", "attributeListsSyntaxList`1", "variableExpressionSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
-            ForEachVariableStatementFunc73 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate73>(wrappedType, "ForEachVariableStatement", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForEachVariableStatementFunc74 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate74>(wrappedType, "ForEachVariableStatement", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForEachVariableStatementFunc75 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate75>(wrappedType, "ForEachVariableStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            ForStatementFunc76 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForStatementDelegate76>(wrappedType, "ForStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "conditionExpressionSyntax", "incrementorsSeparatedSyntaxList`1", "statementStatementSyntax");
-            ForStatementFunc77 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForStatementDelegate77>(wrappedType, "ForStatement", "attributeListsSyntaxList`1", "forKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "firstSemicolonTokenSyntaxToken", "conditionExpressionSyntax", "secondSemicolonTokenSyntaxToken", "incrementorsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            FunctionPointerCallingConventionFunc78 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerCallingConventionDelegate78>(wrappedType, "FunctionPointerCallingConvention", "managedOrUnmanagedKeywordSyntaxToken");
-            FunctionPointerCallingConventionFunc79 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerCallingConventionDelegate79>(wrappedType, "FunctionPointerCallingConvention", "managedOrUnmanagedKeywordSyntaxToken", "unmanagedCallingConventionListFunctionPointerUnmanagedCallingConventionListSyntax");
-            FunctionPointerParameterFunc80 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterDelegate80>(wrappedType, "FunctionPointerParameter", "typeTypeSyntax");
-            FunctionPointerParameterFunc81 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterDelegate81>(wrappedType, "FunctionPointerParameter", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "typeTypeSyntax");
-            FunctionPointerParameterListFunc82 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterListDelegate82>(wrappedType, "FunctionPointerParameterList", "parametersSeparatedSyntaxList`1");
-            FunctionPointerParameterListFunc83 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterListDelegate83>(wrappedType, "FunctionPointerParameterList", "lessThanTokenSyntaxToken", "parametersSeparatedSyntaxList`1", "greaterThanTokenSyntaxToken");
-            FunctionPointerTypeFunc84 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate84>(wrappedType, "FunctionPointerType");
-            FunctionPointerTypeFunc85 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate85>(wrappedType, "FunctionPointerType", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
-            FunctionPointerTypeFunc86 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate86>(wrappedType, "FunctionPointerType", "delegateKeywordSyntaxToken", "asteriskTokenSyntaxToken", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
-            FunctionPointerUnmanagedCallingConventionFunc87 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionDelegate87>(wrappedType, "FunctionPointerUnmanagedCallingConvention", "nameSyntaxToken");
-            FunctionPointerUnmanagedCallingConventionListFunc88 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionListDelegate88>(wrappedType, "FunctionPointerUnmanagedCallingConventionList", "callingConventionsSeparatedSyntaxList`1");
-            FunctionPointerUnmanagedCallingConventionListFunc89 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionListDelegate89>(wrappedType, "FunctionPointerUnmanagedCallingConventionList", "openBracketTokenSyntaxToken", "callingConventionsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
-            GlobalStatementFunc90 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GlobalStatementDelegate90>(wrappedType, "GlobalStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
-            GotoStatementFunc91 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GotoStatementDelegate91>(wrappedType, "GotoStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "caseOrDefaultKeywordSyntaxToken", "expressionExpressionSyntax");
-            GotoStatementFunc92 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GotoStatementDelegate92>(wrappedType, "GotoStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "gotoKeywordSyntaxToken", "caseOrDefaultKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
-            IfStatementFunc93 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IfStatementDelegate93>(wrappedType, "IfStatement", "attributeListsSyntaxList`1", "conditionExpressionSyntax", "statementStatementSyntax", "elseElseClauseSyntax");
-            IfStatementFunc94 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IfStatementDelegate94>(wrappedType, "IfStatement", "attributeListsSyntaxList`1", "ifKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax", "elseElseClauseSyntax");
-            ImplicitObjectCreationExpressionFunc95 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate95>(wrappedType, "ImplicitObjectCreationExpression");
-            ImplicitObjectCreationExpressionFunc96 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate96>(wrappedType, "ImplicitObjectCreationExpression", "argumentListArgumentListSyntax", "initializerInitializerExpressionSyntax");
-            ImplicitObjectCreationExpressionFunc97 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate97>(wrappedType, "ImplicitObjectCreationExpression", "newKeywordSyntaxToken", "argumentListArgumentListSyntax", "initializerInitializerExpressionSyntax");
-            ImplicitStackAllocArrayCreationExpressionFunc98 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitStackAllocArrayCreationExpressionDelegate98>(wrappedType, "ImplicitStackAllocArrayCreationExpression", "initializerInitializerExpressionSyntax");
-            ImplicitStackAllocArrayCreationExpressionFunc99 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitStackAllocArrayCreationExpressionDelegate99>(wrappedType, "ImplicitStackAllocArrayCreationExpression", "stackAllocKeywordSyntaxToken", "openBracketTokenSyntaxToken", "closeBracketTokenSyntaxToken", "initializerInitializerExpressionSyntax");
-            InterfaceDeclarationFunc100 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<InterfaceDeclarationDelegate100>(wrappedType, "InterfaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            InterpolatedStringExpressionFunc101 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<InterpolatedStringExpressionDelegate101>(wrappedType, "InterpolatedStringExpression", "stringStartTokenSyntaxToken", "stringEndTokenSyntaxToken");
-            IsPatternExpressionFunc102 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsPatternExpressionDelegate102>(wrappedType, "IsPatternExpression", "expressionExpressionSyntax", "patternPatternSyntax");
-            IsPatternExpressionFunc103 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsPatternExpressionDelegate103>(wrappedType, "IsPatternExpression", "expressionExpressionSyntax", "isKeywordSyntaxToken", "patternPatternSyntax");
-            LabeledStatementFunc104 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LabeledStatementDelegate104>(wrappedType, "LabeledStatement", "attributeListsSyntaxList`1", "identifierSyntaxToken", "statementStatementSyntax");
-            LabeledStatementFunc105 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LabeledStatementDelegate105>(wrappedType, "LabeledStatement", "attributeListsSyntaxList`1", "identifierSyntaxToken", "colonTokenSyntaxToken", "statementStatementSyntax");
-            LineDirectivePositionFunc106 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineDirectivePositionDelegate106>(wrappedType, "LineDirectivePosition", "lineSyntaxToken", "characterSyntaxToken");
-            LineDirectivePositionFunc107 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineDirectivePositionDelegate107>(wrappedType, "LineDirectivePosition", "openParenTokenSyntaxToken", "lineSyntaxToken", "commaTokenSyntaxToken", "characterSyntaxToken", "closeParenTokenSyntaxToken");
-            LineSpanDirectiveTriviaFunc108 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate108>(wrappedType, "LineSpanDirectiveTrivia", "startLineDirectivePositionSyntax", "endLineDirectivePositionSyntax", "fileSyntaxToken", "isActiveBoolean");
-            LineSpanDirectiveTriviaFunc109 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate109>(wrappedType, "LineSpanDirectiveTrivia", "startLineDirectivePositionSyntax", "endLineDirectivePositionSyntax", "characterOffsetSyntaxToken", "fileSyntaxToken", "isActiveBoolean");
-            LineSpanDirectiveTriviaFunc110 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate110>(wrappedType, "LineSpanDirectiveTrivia", "hashTokenSyntaxToken", "lineKeywordSyntaxToken", "startLineDirectivePositionSyntax", "minusTokenSyntaxToken", "endLineDirectivePositionSyntax", "characterOffsetSyntaxToken", "fileSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
-            ListPatternFunc111 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate111>(wrappedType, "ListPattern", "patternsSeparatedSyntaxList`1");
-            ListPatternFunc112 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate112>(wrappedType, "ListPattern", "patternsSeparatedSyntaxList`1", "designationVariableDesignationSyntax");
-            ListPatternFunc113 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate113>(wrappedType, "ListPattern", "openBracketTokenSyntaxToken", "patternsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken", "designationVariableDesignationSyntax");
-            LocalDeclarationStatementFunc114 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate114>(wrappedType, "LocalDeclarationStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax");
-            LocalDeclarationStatementFunc115 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate115>(wrappedType, "LocalDeclarationStatement", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
-            LocalDeclarationStatementFunc116 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate116>(wrappedType, "LocalDeclarationStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
-            LocalFunctionStatementFunc117 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate117>(wrappedType, "LocalFunctionStatement", "returnTypeTypeSyntax", "identifierString");
-            LocalFunctionStatementFunc118 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate118>(wrappedType, "LocalFunctionStatement", "returnTypeTypeSyntax", "identifierSyntaxToken");
-            LocalFunctionStatementFunc119 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate119>(wrappedType, "LocalFunctionStatement", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
-            LocalFunctionStatementFunc120 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate120>(wrappedType, "LocalFunctionStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
-            LocalFunctionStatementFunc121 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate121>(wrappedType, "LocalFunctionStatement", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            LocalFunctionStatementFunc122 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate122>(wrappedType, "LocalFunctionStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            LockStatementFunc123 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LockStatementDelegate123>(wrappedType, "LockStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax", "statementStatementSyntax");
-            LockStatementFunc124 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LockStatementDelegate124>(wrappedType, "LockStatement", "attributeListsSyntaxList`1", "lockKeywordSyntaxToken", "openParenTokenSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            NamespaceDeclarationFunc125 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NamespaceDeclarationDelegate125>(wrappedType, "NamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "nameNameSyntax", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
-            NamespaceDeclarationFunc126 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NamespaceDeclarationDelegate126>(wrappedType, "NamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "namespaceKeywordSyntaxToken", "nameNameSyntax", "openBraceTokenSyntaxToken", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            NullableDirectiveTriviaFunc127 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate127>(wrappedType, "NullableDirectiveTrivia", "settingTokenSyntaxToken", "isActiveBoolean");
-            NullableDirectiveTriviaFunc128 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate128>(wrappedType, "NullableDirectiveTrivia", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "isActiveBoolean");
-            NullableDirectiveTriviaFunc129 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate129>(wrappedType, "NullableDirectiveTrivia", "hashTokenSyntaxToken", "nullableKeywordSyntaxToken", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
-            OperatorDeclarationFunc130 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate130>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
-            OperatorDeclarationFunc131 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate131>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            OperatorDeclarationFunc132 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate132>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            OperatorMemberCrefFunc133 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorMemberCrefDelegate133>(wrappedType, "OperatorMemberCref", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parametersCrefParameterListSyntax");
-            ParenthesizedLambdaExpressionFunc134 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate134>(wrappedType, "ParenthesizedLambdaExpression");
-            ParenthesizedLambdaExpressionFunc135 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate135>(wrappedType, "ParenthesizedLambdaExpression", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc136 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate136>(wrappedType, "ParenthesizedLambdaExpression", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc137 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate137>(wrappedType, "ParenthesizedLambdaExpression", "asyncKeywordSyntaxToken", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc138 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate138>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc139 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate139>(wrappedType, "ParenthesizedLambdaExpression", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc140 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate140>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedLambdaExpressionFunc141 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate141>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            ParenthesizedPatternFunc142 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedPatternDelegate142>(wrappedType, "ParenthesizedPattern", "patternPatternSyntax");
-            ParenthesizedPatternFunc143 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedPatternDelegate143>(wrappedType, "ParenthesizedPattern", "openParenTokenSyntaxToken", "patternPatternSyntax", "closeParenTokenSyntaxToken");
-            ParenthesizedVariableDesignationFunc144 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedVariableDesignationDelegate144>(wrappedType, "ParenthesizedVariableDesignation", "variablesSeparatedSyntaxList`1");
-            ParenthesizedVariableDesignationFunc145 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedVariableDesignationDelegate145>(wrappedType, "ParenthesizedVariableDesignation", "openParenTokenSyntaxToken", "variablesSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
-            ParseMemberDeclarationFunc146 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseMemberDeclarationDelegate146>(wrappedType, "ParseMemberDeclaration", "textString", "offsetInt32", "optionsParseOptions", "consumeFullTextBoolean");
-            ParseSyntaxTreeFunc147 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate147>(wrappedType, "ParseSyntaxTree", "textSourceText", "optionsParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
-            ParseSyntaxTreeFunc148 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate148>(wrappedType, "ParseSyntaxTree", "textSourceText", "optionsParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
-            ParseSyntaxTreeFunc149 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate149>(wrappedType, "ParseSyntaxTree", "textString", "optionsParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
-            ParseSyntaxTreeFunc150 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate150>(wrappedType, "ParseSyntaxTree", "textString", "optionsParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
-            ParseTypeNameFunc151 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTypeNameDelegate151>(wrappedType, "ParseTypeName", "textString", "offsetInt32", "optionsParseOptions", "consumeFullTextBoolean");
-            PositionalPatternClauseFunc152 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PositionalPatternClauseDelegate152>(wrappedType, "PositionalPatternClause", "subpatternsSeparatedSyntaxList`1");
-            PositionalPatternClauseFunc153 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PositionalPatternClauseDelegate153>(wrappedType, "PositionalPatternClause", "openParenTokenSyntaxToken", "subpatternsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
-            PrimaryConstructorBaseTypeFunc154 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate154>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax");
-            PrimaryConstructorBaseTypeFunc155 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate155>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax", "argumentListArgumentListSyntax");
-            PropertyPatternClauseFunc156 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PropertyPatternClauseDelegate156>(wrappedType, "PropertyPatternClause", "subpatternsSeparatedSyntaxList`1");
-            PropertyPatternClauseFunc157 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PropertyPatternClauseDelegate157>(wrappedType, "PropertyPatternClause", "openBraceTokenSyntaxToken", "subpatternsSeparatedSyntaxList`1", "closeBraceTokenSyntaxToken");
-            RangeExpressionFunc158 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate158>(wrappedType, "RangeExpression");
-            RangeExpressionFunc159 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate159>(wrappedType, "RangeExpression", "leftOperandExpressionSyntax", "rightOperandExpressionSyntax");
-            RangeExpressionFunc160 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate160>(wrappedType, "RangeExpression", "leftOperandExpressionSyntax", "operatorTokenSyntaxToken", "rightOperandExpressionSyntax");
-            RecordDeclarationFunc161 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate161>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierString");
-            RecordDeclarationFunc162 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate162>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierSyntaxToken");
-            RecordDeclarationFunc163 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate163>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierString");
-            RecordDeclarationFunc164 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate164>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierSyntaxToken");
-            RecordDeclarationFunc165 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate165>(wrappedType, "RecordDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
-            RecordDeclarationFunc166 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate166>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
-            RecordDeclarationFunc167 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate167>(wrappedType, "RecordDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            RecordDeclarationFunc168 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate168>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "classOrStructKeywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            RecursivePatternFunc169 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecursivePatternDelegate169>(wrappedType, "RecursivePattern");
-            RecursivePatternFunc170 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecursivePatternDelegate170>(wrappedType, "RecursivePattern", "typeTypeSyntax", "positionalPatternClausePositionalPatternClauseSyntax", "propertyPatternClausePropertyPatternClauseSyntax", "designationVariableDesignationSyntax");
-            RefExpressionFunc171 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefExpressionDelegate171>(wrappedType, "RefExpression", "expressionExpressionSyntax");
-            RefExpressionFunc172 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefExpressionDelegate172>(wrappedType, "RefExpression", "refKeywordSyntaxToken", "expressionExpressionSyntax");
-            RefStructConstraintFunc173 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefStructConstraintDelegate173>(wrappedType, "RefStructConstraint");
-            RefStructConstraintFunc174 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefStructConstraintDelegate174>(wrappedType, "RefStructConstraint", "refKeywordSyntaxToken", "structKeywordSyntaxToken");
-            RefTypeFunc175 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate175>(wrappedType, "RefType", "typeTypeSyntax");
-            RefTypeFunc176 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate176>(wrappedType, "RefType", "refKeywordSyntaxToken", "typeTypeSyntax");
-            RefTypeFunc177 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate177>(wrappedType, "RefType", "refKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
-            RelationalPatternFunc178 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RelationalPatternDelegate178>(wrappedType, "RelationalPattern", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
-            ReturnStatementFunc179 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ReturnStatementDelegate179>(wrappedType, "ReturnStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
-            ReturnStatementFunc180 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ReturnStatementDelegate180>(wrappedType, "ReturnStatement", "attributeListsSyntaxList`1", "returnKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
-            ScopedTypeFunc181 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ScopedTypeDelegate181>(wrappedType, "ScopedType", "typeTypeSyntax");
-            ScopedTypeFunc182 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ScopedTypeDelegate182>(wrappedType, "ScopedType", "scopedKeywordSyntaxToken", "typeTypeSyntax");
-            SimpleLambdaExpressionFunc183 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate183>(wrappedType, "SimpleLambdaExpression", "parameterParameterSyntax");
-            SimpleLambdaExpressionFunc184 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate184>(wrappedType, "SimpleLambdaExpression", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SimpleLambdaExpressionFunc185 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate185>(wrappedType, "SimpleLambdaExpression", "modifiersSyntaxTokenList", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SimpleLambdaExpressionFunc186 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate186>(wrappedType, "SimpleLambdaExpression", "asyncKeywordSyntaxToken", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SimpleLambdaExpressionFunc187 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate187>(wrappedType, "SimpleLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SimpleLambdaExpressionFunc188 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate188>(wrappedType, "SimpleLambdaExpression", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SimpleLambdaExpressionFunc189 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate189>(wrappedType, "SimpleLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
-            SingleVariableDesignationFunc190 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SingleVariableDesignationDelegate190>(wrappedType, "SingleVariableDesignation", "identifierSyntaxToken");
-            SlicePatternFunc191 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SlicePatternDelegate191>(wrappedType, "SlicePattern", "patternPatternSyntax");
-            SlicePatternFunc192 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SlicePatternDelegate192>(wrappedType, "SlicePattern", "dotDotTokenSyntaxToken", "patternPatternSyntax");
-            SpreadElementFunc193 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SpreadElementDelegate193>(wrappedType, "SpreadElement", "expressionExpressionSyntax");
-            SpreadElementFunc194 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SpreadElementDelegate194>(wrappedType, "SpreadElement", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
-            StackAllocArrayCreationExpressionFunc195 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StackAllocArrayCreationExpressionDelegate195>(wrappedType, "StackAllocArrayCreationExpression", "typeTypeSyntax", "initializerInitializerExpressionSyntax");
-            StackAllocArrayCreationExpressionFunc196 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StackAllocArrayCreationExpressionDelegate196>(wrappedType, "StackAllocArrayCreationExpression", "stackAllocKeywordSyntaxToken", "typeTypeSyntax", "initializerInitializerExpressionSyntax");
-            StructDeclarationFunc197 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StructDeclarationDelegate197>(wrappedType, "StructDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
-            StructDeclarationFunc198 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StructDeclarationDelegate198>(wrappedType, "StructDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
-            SubpatternFunc199 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate199>(wrappedType, "Subpattern", "patternPatternSyntax");
-            SubpatternFunc200 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate200>(wrappedType, "Subpattern", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
-            SubpatternFunc201 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate201>(wrappedType, "Subpattern", "nameColonNameColonSyntax", "patternPatternSyntax");
-            SwitchExpressionFunc202 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate202>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax");
-            SwitchExpressionFunc203 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate203>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax", "armsSeparatedSyntaxList`1");
-            SwitchExpressionFunc204 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate204>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax", "switchKeywordSyntaxToken", "openBraceTokenSyntaxToken", "armsSeparatedSyntaxList`1", "closeBraceTokenSyntaxToken");
-            SwitchExpressionArmFunc205 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate205>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "expressionExpressionSyntax");
-            SwitchExpressionArmFunc206 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate206>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "expressionExpressionSyntax");
-            SwitchExpressionArmFunc207 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate207>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "equalsGreaterThanTokenSyntaxToken", "expressionExpressionSyntax");
-            SwitchStatementFunc208 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchStatementDelegate208>(wrappedType, "SwitchStatement", "attributeListsSyntaxList`1", "switchKeywordSyntaxToken", "openParenTokenSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "openBraceTokenSyntaxToken", "sectionsSyntaxList`1", "closeBraceTokenSyntaxToken");
-            ThrowExpressionFunc209 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowExpressionDelegate209>(wrappedType, "ThrowExpression", "expressionExpressionSyntax");
-            ThrowExpressionFunc210 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowExpressionDelegate210>(wrappedType, "ThrowExpression", "throwKeywordSyntaxToken", "expressionExpressionSyntax");
-            ThrowStatementFunc211 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowStatementDelegate211>(wrappedType, "ThrowStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
-            ThrowStatementFunc212 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowStatementDelegate212>(wrappedType, "ThrowStatement", "attributeListsSyntaxList`1", "throwKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
-            TryStatementFunc213 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryStatementDelegate213>(wrappedType, "TryStatement", "attributeListsSyntaxList`1", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
-            TryStatementFunc214 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryStatementDelegate214>(wrappedType, "TryStatement", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
-            TupleElementFunc215 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleElementDelegate215>(wrappedType, "TupleElement", "typeTypeSyntax");
-            TupleElementFunc216 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleElementDelegate216>(wrappedType, "TupleElement", "typeTypeSyntax", "identifierSyntaxToken");
-            TupleExpressionFunc217 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleExpressionDelegate217>(wrappedType, "TupleExpression", "argumentsSeparatedSyntaxList`1");
-            TupleExpressionFunc218 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleExpressionDelegate218>(wrappedType, "TupleExpression", "openParenTokenSyntaxToken", "argumentsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
-            TupleTypeFunc219 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleTypeDelegate219>(wrappedType, "TupleType", "elementsSeparatedSyntaxList`1");
-            TupleTypeFunc220 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleTypeDelegate220>(wrappedType, "TupleType", "openParenTokenSyntaxToken", "elementsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
-            TypePatternFunc221 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TypePatternDelegate221>(wrappedType, "TypePattern", "typeTypeSyntax");
-            UnaryPatternFunc222 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnaryPatternDelegate222>(wrappedType, "UnaryPattern", "patternPatternSyntax");
-            UnaryPatternFunc223 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnaryPatternDelegate223>(wrappedType, "UnaryPattern", "operatorTokenSyntaxToken", "patternPatternSyntax");
-            UnsafeStatementFunc224 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnsafeStatementDelegate224>(wrappedType, "UnsafeStatement", "attributeListsSyntaxList`1", "blockBlockSyntax");
-            UnsafeStatementFunc225 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnsafeStatementDelegate225>(wrappedType, "UnsafeStatement", "attributeListsSyntaxList`1", "unsafeKeywordSyntaxToken", "blockBlockSyntax");
-            UsingDirectiveFunc226 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate226>(wrappedType, "UsingDirective", "namespaceOrTypeTypeSyntax");
-            UsingDirectiveFunc227 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate227>(wrappedType, "UsingDirective", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax");
-            UsingDirectiveFunc228 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate228>(wrappedType, "UsingDirective", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "aliasNameEqualsSyntax", "nameNameSyntax", "semicolonTokenSyntaxToken");
-            UsingDirectiveFunc229 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate229>(wrappedType, "UsingDirective", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "unsafeKeywordSyntaxToken", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax", "semicolonTokenSyntaxToken");
-            UsingStatementFunc230 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate230>(wrappedType, "UsingStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
-            UsingStatementFunc231 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate231>(wrappedType, "UsingStatement", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            UsingStatementFunc232 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate232>(wrappedType, "UsingStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            VarPatternFunc233 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<VarPatternDelegate233>(wrappedType, "VarPattern", "designationVariableDesignationSyntax");
-            VarPatternFunc234 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<VarPatternDelegate234>(wrappedType, "VarPattern", "varKeywordSyntaxToken", "designationVariableDesignationSyntax");
-            WhenClauseFunc235 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhenClauseDelegate235>(wrappedType, "WhenClause", "conditionExpressionSyntax");
-            WhenClauseFunc236 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhenClauseDelegate236>(wrappedType, "WhenClause", "whenKeywordSyntaxToken", "conditionExpressionSyntax");
-            WhileStatementFunc237 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhileStatementDelegate237>(wrappedType, "WhileStatement", "attributeListsSyntaxList`1", "conditionExpressionSyntax", "statementStatementSyntax");
-            WhileStatementFunc238 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhileStatementDelegate238>(wrappedType, "WhileStatement", "attributeListsSyntaxList`1", "whileKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            WithExpressionFunc239 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WithExpressionDelegate239>(wrappedType, "WithExpression", "expressionExpressionSyntax", "initializerInitializerExpressionSyntax");
-            WithExpressionFunc240 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WithExpressionDelegate240>(wrappedType, "WithExpression", "expressionExpressionSyntax", "withKeywordSyntaxToken", "initializerInitializerExpressionSyntax");
-            YieldStatementFunc241 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<YieldStatementDelegate241>(wrappedType, "YieldStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
-            YieldStatementFunc242 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<YieldStatementDelegate242>(wrappedType, "YieldStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "yieldKeywordSyntaxToken", "returnOrBreakKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
+            DocumentationCommentFunc50 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DocumentationCommentDelegate50>(wrappedType, "DocumentationComment", "contentXmlNodeSyntax[]");
+            DoStatementFunc51 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DoStatementDelegate51>(wrappedType, "DoStatement", "attributeListsSyntaxList`1", "statementStatementSyntax", "conditionExpressionSyntax");
+            DoStatementFunc52 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<DoStatementDelegate52>(wrappedType, "DoStatement", "attributeListsSyntaxList`1", "doKeywordSyntaxToken", "statementStatementSyntax", "whileKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            EmptyStatementFunc53 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EmptyStatementDelegate53>(wrappedType, "EmptyStatement", "attributeListsSyntaxList`1");
+            EmptyStatementFunc54 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EmptyStatementDelegate54>(wrappedType, "EmptyStatement", "attributeListsSyntaxList`1", "semicolonTokenSyntaxToken");
+            EnumMemberDeclarationFunc55 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EnumMemberDeclarationDelegate55>(wrappedType, "EnumMemberDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "equalsValueEqualsValueClauseSyntax");
+            EventDeclarationFunc56 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EventDeclarationDelegate56>(wrappedType, "EventDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "semicolonTokenSyntaxToken");
+            EventDeclarationFunc57 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<EventDeclarationDelegate57>(wrappedType, "EventDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "eventKeywordSyntaxToken", "typeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "identifierSyntaxToken", "accessorListAccessorListSyntax", "semicolonTokenSyntaxToken");
+            ExpressionColonFunc58 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionColonDelegate58>(wrappedType, "ExpressionColon", "expressionExpressionSyntax", "colonTokenSyntaxToken");
+            ExpressionElementFunc59 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionElementDelegate59>(wrappedType, "ExpressionElement", "expressionExpressionSyntax");
+            ExpressionStatementFunc60 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionStatementDelegate60>(wrappedType, "ExpressionStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
+            ExpressionStatementFunc61 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ExpressionStatementDelegate61>(wrappedType, "ExpressionStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
+            FieldExpressionFunc62 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FieldExpressionDelegate62>(wrappedType, "FieldExpression");
+            FieldExpressionFunc63 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FieldExpressionDelegate63>(wrappedType, "FieldExpression", "tokenSyntaxToken");
+            FileScopedNamespaceDeclarationFunc64 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate64>(wrappedType, "FileScopedNamespaceDeclaration", "nameNameSyntax");
+            FileScopedNamespaceDeclarationFunc65 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate65>(wrappedType, "FileScopedNamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "nameNameSyntax", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
+            FileScopedNamespaceDeclarationFunc66 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FileScopedNamespaceDeclarationDelegate66>(wrappedType, "FileScopedNamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "namespaceKeywordSyntaxToken", "nameNameSyntax", "semicolonTokenSyntaxToken", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
+            FixedStatementFunc67 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FixedStatementDelegate67>(wrappedType, "FixedStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "statementStatementSyntax");
+            FixedStatementFunc68 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FixedStatementDelegate68>(wrappedType, "FixedStatement", "attributeListsSyntaxList`1", "fixedKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForEachStatementFunc69 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate69>(wrappedType, "ForEachStatement", "attributeListsSyntaxList`1", "typeTypeSyntax", "identifierSyntaxToken", "expressionExpressionSyntax", "statementStatementSyntax");
+            ForEachStatementFunc70 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate70>(wrappedType, "ForEachStatement", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "typeTypeSyntax", "identifierSyntaxToken", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForEachStatementFunc71 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachStatementDelegate71>(wrappedType, "ForEachStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "typeTypeSyntax", "identifierSyntaxToken", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForEachVariableStatementFunc72 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate72>(wrappedType, "ForEachVariableStatement", "variableExpressionSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
+            ForEachVariableStatementFunc73 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate73>(wrappedType, "ForEachVariableStatement", "attributeListsSyntaxList`1", "variableExpressionSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
+            ForEachVariableStatementFunc74 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate74>(wrappedType, "ForEachVariableStatement", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForEachVariableStatementFunc75 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate75>(wrappedType, "ForEachVariableStatement", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForEachVariableStatementFunc76 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForEachVariableStatementDelegate76>(wrappedType, "ForEachVariableStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "forEachKeywordSyntaxToken", "openParenTokenSyntaxToken", "variableExpressionSyntax", "inKeywordSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            ForStatementFunc77 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForStatementDelegate77>(wrappedType, "ForStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "conditionExpressionSyntax", "incrementorsSeparatedSyntaxList`1", "statementStatementSyntax");
+            ForStatementFunc78 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ForStatementDelegate78>(wrappedType, "ForStatement", "attributeListsSyntaxList`1", "forKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "firstSemicolonTokenSyntaxToken", "conditionExpressionSyntax", "secondSemicolonTokenSyntaxToken", "incrementorsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            FunctionPointerCallingConventionFunc79 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerCallingConventionDelegate79>(wrappedType, "FunctionPointerCallingConvention", "managedOrUnmanagedKeywordSyntaxToken");
+            FunctionPointerCallingConventionFunc80 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerCallingConventionDelegate80>(wrappedType, "FunctionPointerCallingConvention", "managedOrUnmanagedKeywordSyntaxToken", "unmanagedCallingConventionListFunctionPointerUnmanagedCallingConventionListSyntax");
+            FunctionPointerParameterFunc81 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterDelegate81>(wrappedType, "FunctionPointerParameter", "typeTypeSyntax");
+            FunctionPointerParameterFunc82 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterDelegate82>(wrappedType, "FunctionPointerParameter", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "typeTypeSyntax");
+            FunctionPointerParameterListFunc83 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterListDelegate83>(wrappedType, "FunctionPointerParameterList", "parametersSeparatedSyntaxList`1");
+            FunctionPointerParameterListFunc84 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerParameterListDelegate84>(wrappedType, "FunctionPointerParameterList", "lessThanTokenSyntaxToken", "parametersSeparatedSyntaxList`1", "greaterThanTokenSyntaxToken");
+            FunctionPointerTypeFunc85 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate85>(wrappedType, "FunctionPointerType");
+            FunctionPointerTypeFunc86 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate86>(wrappedType, "FunctionPointerType", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
+            FunctionPointerTypeFunc87 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerTypeDelegate87>(wrappedType, "FunctionPointerType", "delegateKeywordSyntaxToken", "asteriskTokenSyntaxToken", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
+            FunctionPointerUnmanagedCallingConventionFunc88 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionDelegate88>(wrappedType, "FunctionPointerUnmanagedCallingConvention", "nameSyntaxToken");
+            FunctionPointerUnmanagedCallingConventionListFunc89 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionListDelegate89>(wrappedType, "FunctionPointerUnmanagedCallingConventionList", "callingConventionsSeparatedSyntaxList`1");
+            FunctionPointerUnmanagedCallingConventionListFunc90 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<FunctionPointerUnmanagedCallingConventionListDelegate90>(wrappedType, "FunctionPointerUnmanagedCallingConventionList", "openBracketTokenSyntaxToken", "callingConventionsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken");
+            GlobalStatementFunc91 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GlobalStatementDelegate91>(wrappedType, "GlobalStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
+            GotoStatementFunc92 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GotoStatementDelegate92>(wrappedType, "GotoStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "caseOrDefaultKeywordSyntaxToken", "expressionExpressionSyntax");
+            GotoStatementFunc93 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GotoStatementDelegate93>(wrappedType, "GotoStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "gotoKeywordSyntaxToken", "caseOrDefaultKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
+            IfStatementFunc94 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IfStatementDelegate94>(wrappedType, "IfStatement", "attributeListsSyntaxList`1", "conditionExpressionSyntax", "statementStatementSyntax", "elseElseClauseSyntax");
+            IfStatementFunc95 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IfStatementDelegate95>(wrappedType, "IfStatement", "attributeListsSyntaxList`1", "ifKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax", "elseElseClauseSyntax");
+            ImplicitObjectCreationExpressionFunc96 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate96>(wrappedType, "ImplicitObjectCreationExpression");
+            ImplicitObjectCreationExpressionFunc97 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate97>(wrappedType, "ImplicitObjectCreationExpression", "argumentListArgumentListSyntax", "initializerInitializerExpressionSyntax");
+            ImplicitObjectCreationExpressionFunc98 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitObjectCreationExpressionDelegate98>(wrappedType, "ImplicitObjectCreationExpression", "newKeywordSyntaxToken", "argumentListArgumentListSyntax", "initializerInitializerExpressionSyntax");
+            ImplicitStackAllocArrayCreationExpressionFunc99 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitStackAllocArrayCreationExpressionDelegate99>(wrappedType, "ImplicitStackAllocArrayCreationExpression", "initializerInitializerExpressionSyntax");
+            ImplicitStackAllocArrayCreationExpressionFunc100 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ImplicitStackAllocArrayCreationExpressionDelegate100>(wrappedType, "ImplicitStackAllocArrayCreationExpression", "stackAllocKeywordSyntaxToken", "openBracketTokenSyntaxToken", "closeBracketTokenSyntaxToken", "initializerInitializerExpressionSyntax");
+            InterfaceDeclarationFunc101 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<InterfaceDeclarationDelegate101>(wrappedType, "InterfaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            InterpolatedStringExpressionFunc102 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<InterpolatedStringExpressionDelegate102>(wrappedType, "InterpolatedStringExpression", "stringStartTokenSyntaxToken", "stringEndTokenSyntaxToken");
+            IsPatternExpressionFunc103 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsPatternExpressionDelegate103>(wrappedType, "IsPatternExpression", "expressionExpressionSyntax", "patternPatternSyntax");
+            IsPatternExpressionFunc104 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsPatternExpressionDelegate104>(wrappedType, "IsPatternExpression", "expressionExpressionSyntax", "isKeywordSyntaxToken", "patternPatternSyntax");
+            LabeledStatementFunc105 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LabeledStatementDelegate105>(wrappedType, "LabeledStatement", "attributeListsSyntaxList`1", "identifierSyntaxToken", "statementStatementSyntax");
+            LabeledStatementFunc106 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LabeledStatementDelegate106>(wrappedType, "LabeledStatement", "attributeListsSyntaxList`1", "identifierSyntaxToken", "colonTokenSyntaxToken", "statementStatementSyntax");
+            LineDirectivePositionFunc107 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineDirectivePositionDelegate107>(wrappedType, "LineDirectivePosition", "lineSyntaxToken", "characterSyntaxToken");
+            LineDirectivePositionFunc108 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineDirectivePositionDelegate108>(wrappedType, "LineDirectivePosition", "openParenTokenSyntaxToken", "lineSyntaxToken", "commaTokenSyntaxToken", "characterSyntaxToken", "closeParenTokenSyntaxToken");
+            LineSpanDirectiveTriviaFunc109 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate109>(wrappedType, "LineSpanDirectiveTrivia", "startLineDirectivePositionSyntax", "endLineDirectivePositionSyntax", "fileSyntaxToken", "isActiveBoolean");
+            LineSpanDirectiveTriviaFunc110 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate110>(wrappedType, "LineSpanDirectiveTrivia", "startLineDirectivePositionSyntax", "endLineDirectivePositionSyntax", "characterOffsetSyntaxToken", "fileSyntaxToken", "isActiveBoolean");
+            LineSpanDirectiveTriviaFunc111 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LineSpanDirectiveTriviaDelegate111>(wrappedType, "LineSpanDirectiveTrivia", "hashTokenSyntaxToken", "lineKeywordSyntaxToken", "startLineDirectivePositionSyntax", "minusTokenSyntaxToken", "endLineDirectivePositionSyntax", "characterOffsetSyntaxToken", "fileSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            ListPatternFunc112 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate112>(wrappedType, "ListPattern", "patternsSeparatedSyntaxList`1");
+            ListPatternFunc113 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate113>(wrappedType, "ListPattern", "patternsSeparatedSyntaxList`1", "designationVariableDesignationSyntax");
+            ListPatternFunc114 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ListPatternDelegate114>(wrappedType, "ListPattern", "openBracketTokenSyntaxToken", "patternsSeparatedSyntaxList`1", "closeBracketTokenSyntaxToken", "designationVariableDesignationSyntax");
+            LocalDeclarationStatementFunc115 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate115>(wrappedType, "LocalDeclarationStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax");
+            LocalDeclarationStatementFunc116 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate116>(wrappedType, "LocalDeclarationStatement", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
+            LocalDeclarationStatementFunc117 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalDeclarationStatementDelegate117>(wrappedType, "LocalDeclarationStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "modifiersSyntaxTokenList", "declarationVariableDeclarationSyntax", "semicolonTokenSyntaxToken");
+            LocalFunctionStatementFunc118 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate118>(wrappedType, "LocalFunctionStatement", "returnTypeTypeSyntax", "identifierString");
+            LocalFunctionStatementFunc119 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate119>(wrappedType, "LocalFunctionStatement", "returnTypeTypeSyntax", "identifierSyntaxToken");
+            LocalFunctionStatementFunc120 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate120>(wrappedType, "LocalFunctionStatement", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
+            LocalFunctionStatementFunc121 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate121>(wrappedType, "LocalFunctionStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
+            LocalFunctionStatementFunc122 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate122>(wrappedType, "LocalFunctionStatement", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            LocalFunctionStatementFunc123 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LocalFunctionStatementDelegate123>(wrappedType, "LocalFunctionStatement", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "constraintClausesSyntaxList`1", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            LockStatementFunc124 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LockStatementDelegate124>(wrappedType, "LockStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax", "statementStatementSyntax");
+            LockStatementFunc125 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<LockStatementDelegate125>(wrappedType, "LockStatement", "attributeListsSyntaxList`1", "lockKeywordSyntaxToken", "openParenTokenSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            NamespaceDeclarationFunc126 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NamespaceDeclarationDelegate126>(wrappedType, "NamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "nameNameSyntax", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1");
+            NamespaceDeclarationFunc127 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NamespaceDeclarationDelegate127>(wrappedType, "NamespaceDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "namespaceKeywordSyntaxToken", "nameNameSyntax", "openBraceTokenSyntaxToken", "externsSyntaxList`1", "usingsSyntaxList`1", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            NullableDirectiveTriviaFunc128 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate128>(wrappedType, "NullableDirectiveTrivia", "settingTokenSyntaxToken", "isActiveBoolean");
+            NullableDirectiveTriviaFunc129 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate129>(wrappedType, "NullableDirectiveTrivia", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "isActiveBoolean");
+            NullableDirectiveTriviaFunc130 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<NullableDirectiveTriviaDelegate130>(wrappedType, "NullableDirectiveTrivia", "hashTokenSyntaxToken", "nullableKeywordSyntaxToken", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            OperatorDeclarationFunc131 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate131>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax");
+            OperatorDeclarationFunc132 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate132>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            OperatorDeclarationFunc133 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorDeclarationDelegate133>(wrappedType, "OperatorDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            OperatorMemberCrefFunc134 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<OperatorMemberCrefDelegate134>(wrappedType, "OperatorMemberCref", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parametersCrefParameterListSyntax");
+            ParenthesizedLambdaExpressionFunc135 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate135>(wrappedType, "ParenthesizedLambdaExpression");
+            ParenthesizedLambdaExpressionFunc136 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate136>(wrappedType, "ParenthesizedLambdaExpression", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc137 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate137>(wrappedType, "ParenthesizedLambdaExpression", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc138 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate138>(wrappedType, "ParenthesizedLambdaExpression", "asyncKeywordSyntaxToken", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc139 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate139>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc140 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate140>(wrappedType, "ParenthesizedLambdaExpression", "modifiersSyntaxTokenList", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc141 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate141>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "parameterListParameterListSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedLambdaExpressionFunc142 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedLambdaExpressionDelegate142>(wrappedType, "ParenthesizedLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "parameterListParameterListSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            ParenthesizedPatternFunc143 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedPatternDelegate143>(wrappedType, "ParenthesizedPattern", "patternPatternSyntax");
+            ParenthesizedPatternFunc144 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedPatternDelegate144>(wrappedType, "ParenthesizedPattern", "openParenTokenSyntaxToken", "patternPatternSyntax", "closeParenTokenSyntaxToken");
+            ParenthesizedVariableDesignationFunc145 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedVariableDesignationDelegate145>(wrappedType, "ParenthesizedVariableDesignation", "variablesSeparatedSyntaxList`1");
+            ParenthesizedVariableDesignationFunc146 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParenthesizedVariableDesignationDelegate146>(wrappedType, "ParenthesizedVariableDesignation", "openParenTokenSyntaxToken", "variablesSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
+            ParseMemberDeclarationFunc147 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseMemberDeclarationDelegate147>(wrappedType, "ParseMemberDeclaration", "textString", "offsetInt32", "optionsParseOptions", "consumeFullTextBoolean");
+            ParseSyntaxTreeFunc148 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate148>(wrappedType, "ParseSyntaxTree", "textSourceText", "optionsParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseSyntaxTreeFunc149 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate149>(wrappedType, "ParseSyntaxTree", "textSourceText", "optionsParseOptions", "pathString", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
+            ParseSyntaxTreeFunc150 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate150>(wrappedType, "ParseSyntaxTree", "textString", "optionsParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "cancellationTokenCancellationToken");
+            ParseSyntaxTreeFunc151 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseSyntaxTreeDelegate151>(wrappedType, "ParseSyntaxTree", "textString", "optionsParseOptions", "pathString", "encodingEncoding", "diagnosticOptionsImmutableDictionary`2", "isGeneratedCodeNullable`1", "cancellationTokenCancellationToken");
+            ParseTypeNameFunc152 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ParseTypeNameDelegate152>(wrappedType, "ParseTypeName", "textString", "offsetInt32", "optionsParseOptions", "consumeFullTextBoolean");
+            PositionalPatternClauseFunc153 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PositionalPatternClauseDelegate153>(wrappedType, "PositionalPatternClause", "subpatternsSeparatedSyntaxList`1");
+            PositionalPatternClauseFunc154 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PositionalPatternClauseDelegate154>(wrappedType, "PositionalPatternClause", "openParenTokenSyntaxToken", "subpatternsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
+            PrimaryConstructorBaseTypeFunc155 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate155>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax");
+            PrimaryConstructorBaseTypeFunc156 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PrimaryConstructorBaseTypeDelegate156>(wrappedType, "PrimaryConstructorBaseType", "typeTypeSyntax", "argumentListArgumentListSyntax");
+            PropertyPatternClauseFunc157 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PropertyPatternClauseDelegate157>(wrappedType, "PropertyPatternClause", "subpatternsSeparatedSyntaxList`1");
+            PropertyPatternClauseFunc158 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<PropertyPatternClauseDelegate158>(wrappedType, "PropertyPatternClause", "openBraceTokenSyntaxToken", "subpatternsSeparatedSyntaxList`1", "closeBraceTokenSyntaxToken");
+            RangeExpressionFunc159 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate159>(wrappedType, "RangeExpression");
+            RangeExpressionFunc160 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate160>(wrappedType, "RangeExpression", "leftOperandExpressionSyntax", "rightOperandExpressionSyntax");
+            RangeExpressionFunc161 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RangeExpressionDelegate161>(wrappedType, "RangeExpression", "leftOperandExpressionSyntax", "operatorTokenSyntaxToken", "rightOperandExpressionSyntax");
+            RecordDeclarationFunc162 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate162>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierString");
+            RecordDeclarationFunc163 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate163>(wrappedType, "RecordDeclaration", "keywordSyntaxToken", "identifierSyntaxToken");
+            RecordDeclarationFunc164 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate164>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierString");
+            RecordDeclarationFunc165 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate165>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "keywordSyntaxToken", "identifierSyntaxToken");
+            RecordDeclarationFunc166 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate166>(wrappedType, "RecordDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
+            RecordDeclarationFunc167 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate167>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
+            RecordDeclarationFunc168 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate168>(wrappedType, "RecordDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            RecordDeclarationFunc169 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecordDeclarationDelegate169>(wrappedType, "RecordDeclaration", "kindSyntaxKind", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "classOrStructKeywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            RecursivePatternFunc170 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecursivePatternDelegate170>(wrappedType, "RecursivePattern");
+            RecursivePatternFunc171 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RecursivePatternDelegate171>(wrappedType, "RecursivePattern", "typeTypeSyntax", "positionalPatternClausePositionalPatternClauseSyntax", "propertyPatternClausePropertyPatternClauseSyntax", "designationVariableDesignationSyntax");
+            RefExpressionFunc172 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefExpressionDelegate172>(wrappedType, "RefExpression", "expressionExpressionSyntax");
+            RefExpressionFunc173 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefExpressionDelegate173>(wrappedType, "RefExpression", "refKeywordSyntaxToken", "expressionExpressionSyntax");
+            RefStructConstraintFunc174 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefStructConstraintDelegate174>(wrappedType, "RefStructConstraint");
+            RefStructConstraintFunc175 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefStructConstraintDelegate175>(wrappedType, "RefStructConstraint", "refKeywordSyntaxToken", "structKeywordSyntaxToken");
+            RefTypeFunc176 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate176>(wrappedType, "RefType", "typeTypeSyntax");
+            RefTypeFunc177 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate177>(wrappedType, "RefType", "refKeywordSyntaxToken", "typeTypeSyntax");
+            RefTypeFunc178 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RefTypeDelegate178>(wrappedType, "RefType", "refKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
+            RelationalPatternFunc179 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<RelationalPatternDelegate179>(wrappedType, "RelationalPattern", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
+            ReturnStatementFunc180 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ReturnStatementDelegate180>(wrappedType, "ReturnStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
+            ReturnStatementFunc181 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ReturnStatementDelegate181>(wrappedType, "ReturnStatement", "attributeListsSyntaxList`1", "returnKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
+            ScopedTypeFunc182 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ScopedTypeDelegate182>(wrappedType, "ScopedType", "typeTypeSyntax");
+            ScopedTypeFunc183 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ScopedTypeDelegate183>(wrappedType, "ScopedType", "scopedKeywordSyntaxToken", "typeTypeSyntax");
+            SimpleLambdaExpressionFunc184 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate184>(wrappedType, "SimpleLambdaExpression", "parameterParameterSyntax");
+            SimpleLambdaExpressionFunc185 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate185>(wrappedType, "SimpleLambdaExpression", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SimpleLambdaExpressionFunc186 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate186>(wrappedType, "SimpleLambdaExpression", "modifiersSyntaxTokenList", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SimpleLambdaExpressionFunc187 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate187>(wrappedType, "SimpleLambdaExpression", "asyncKeywordSyntaxToken", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SimpleLambdaExpressionFunc188 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate188>(wrappedType, "SimpleLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SimpleLambdaExpressionFunc189 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate189>(wrappedType, "SimpleLambdaExpression", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SimpleLambdaExpressionFunc190 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SimpleLambdaExpressionDelegate190>(wrappedType, "SimpleLambdaExpression", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "parameterParameterSyntax", "arrowTokenSyntaxToken", "blockBlockSyntax", "expressionBodyExpressionSyntax");
+            SingleVariableDesignationFunc191 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SingleVariableDesignationDelegate191>(wrappedType, "SingleVariableDesignation", "identifierSyntaxToken");
+            SlicePatternFunc192 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SlicePatternDelegate192>(wrappedType, "SlicePattern", "patternPatternSyntax");
+            SlicePatternFunc193 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SlicePatternDelegate193>(wrappedType, "SlicePattern", "dotDotTokenSyntaxToken", "patternPatternSyntax");
+            SpreadElementFunc194 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SpreadElementDelegate194>(wrappedType, "SpreadElement", "expressionExpressionSyntax");
+            SpreadElementFunc195 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SpreadElementDelegate195>(wrappedType, "SpreadElement", "operatorTokenSyntaxToken", "expressionExpressionSyntax");
+            StackAllocArrayCreationExpressionFunc196 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StackAllocArrayCreationExpressionDelegate196>(wrappedType, "StackAllocArrayCreationExpression", "typeTypeSyntax", "initializerInitializerExpressionSyntax");
+            StackAllocArrayCreationExpressionFunc197 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StackAllocArrayCreationExpressionDelegate197>(wrappedType, "StackAllocArrayCreationExpression", "stackAllocKeywordSyntaxToken", "typeTypeSyntax", "initializerInitializerExpressionSyntax");
+            StructDeclarationFunc198 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StructDeclarationDelegate198>(wrappedType, "StructDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "membersSyntaxList`1");
+            StructDeclarationFunc199 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<StructDeclarationDelegate199>(wrappedType, "StructDeclaration", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "keywordSyntaxToken", "identifierSyntaxToken", "typeParameterListTypeParameterListSyntax", "parameterListParameterListSyntax", "baseListBaseListSyntax", "constraintClausesSyntaxList`1", "openBraceTokenSyntaxToken", "membersSyntaxList`1", "closeBraceTokenSyntaxToken", "semicolonTokenSyntaxToken");
+            SubpatternFunc200 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate200>(wrappedType, "Subpattern", "patternPatternSyntax");
+            SubpatternFunc201 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate201>(wrappedType, "Subpattern", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
+            SubpatternFunc202 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SubpatternDelegate202>(wrappedType, "Subpattern", "nameColonNameColonSyntax", "patternPatternSyntax");
+            SwitchExpressionFunc203 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate203>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax");
+            SwitchExpressionFunc204 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate204>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax", "armsSeparatedSyntaxList`1");
+            SwitchExpressionFunc205 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionDelegate205>(wrappedType, "SwitchExpression", "governingExpressionExpressionSyntax", "switchKeywordSyntaxToken", "openBraceTokenSyntaxToken", "armsSeparatedSyntaxList`1", "closeBraceTokenSyntaxToken");
+            SwitchExpressionArmFunc206 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate206>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "expressionExpressionSyntax");
+            SwitchExpressionArmFunc207 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate207>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "expressionExpressionSyntax");
+            SwitchExpressionArmFunc208 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchExpressionArmDelegate208>(wrappedType, "SwitchExpressionArm", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "equalsGreaterThanTokenSyntaxToken", "expressionExpressionSyntax");
+            SwitchStatementFunc209 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<SwitchStatementDelegate209>(wrappedType, "SwitchStatement", "attributeListsSyntaxList`1", "switchKeywordSyntaxToken", "openParenTokenSyntaxToken", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "openBraceTokenSyntaxToken", "sectionsSyntaxList`1", "closeBraceTokenSyntaxToken");
+            ThrowExpressionFunc210 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowExpressionDelegate210>(wrappedType, "ThrowExpression", "expressionExpressionSyntax");
+            ThrowExpressionFunc211 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowExpressionDelegate211>(wrappedType, "ThrowExpression", "throwKeywordSyntaxToken", "expressionExpressionSyntax");
+            ThrowStatementFunc212 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowStatementDelegate212>(wrappedType, "ThrowStatement", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
+            ThrowStatementFunc213 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ThrowStatementDelegate213>(wrappedType, "ThrowStatement", "attributeListsSyntaxList`1", "throwKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
+            TryStatementFunc214 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryStatementDelegate214>(wrappedType, "TryStatement", "attributeListsSyntaxList`1", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
+            TryStatementFunc215 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryStatementDelegate215>(wrappedType, "TryStatement", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
+            TupleElementFunc216 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleElementDelegate216>(wrappedType, "TupleElement", "typeTypeSyntax");
+            TupleElementFunc217 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleElementDelegate217>(wrappedType, "TupleElement", "typeTypeSyntax", "identifierSyntaxToken");
+            TupleExpressionFunc218 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleExpressionDelegate218>(wrappedType, "TupleExpression", "argumentsSeparatedSyntaxList`1");
+            TupleExpressionFunc219 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleExpressionDelegate219>(wrappedType, "TupleExpression", "openParenTokenSyntaxToken", "argumentsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
+            TupleTypeFunc220 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleTypeDelegate220>(wrappedType, "TupleType", "elementsSeparatedSyntaxList`1");
+            TupleTypeFunc221 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TupleTypeDelegate221>(wrappedType, "TupleType", "openParenTokenSyntaxToken", "elementsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
+            TypePatternFunc222 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TypePatternDelegate222>(wrappedType, "TypePattern", "typeTypeSyntax");
+            UnaryPatternFunc223 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnaryPatternDelegate223>(wrappedType, "UnaryPattern", "patternPatternSyntax");
+            UnaryPatternFunc224 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnaryPatternDelegate224>(wrappedType, "UnaryPattern", "operatorTokenSyntaxToken", "patternPatternSyntax");
+            UnsafeStatementFunc225 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnsafeStatementDelegate225>(wrappedType, "UnsafeStatement", "attributeListsSyntaxList`1", "blockBlockSyntax");
+            UnsafeStatementFunc226 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UnsafeStatementDelegate226>(wrappedType, "UnsafeStatement", "attributeListsSyntaxList`1", "unsafeKeywordSyntaxToken", "blockBlockSyntax");
+            UsingDirectiveFunc227 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate227>(wrappedType, "UsingDirective", "namespaceOrTypeTypeSyntax");
+            UsingDirectiveFunc228 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate228>(wrappedType, "UsingDirective", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax");
+            UsingDirectiveFunc229 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate229>(wrappedType, "UsingDirective", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "aliasNameEqualsSyntax", "nameNameSyntax", "semicolonTokenSyntaxToken");
+            UsingDirectiveFunc230 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingDirectiveDelegate230>(wrappedType, "UsingDirective", "globalKeywordSyntaxToken", "usingKeywordSyntaxToken", "staticKeywordSyntaxToken", "unsafeKeywordSyntaxToken", "aliasNameEqualsSyntax", "namespaceOrTypeTypeSyntax", "semicolonTokenSyntaxToken");
+            UsingStatementFunc231 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate231>(wrappedType, "UsingStatement", "attributeListsSyntaxList`1", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "statementStatementSyntax");
+            UsingStatementFunc232 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate232>(wrappedType, "UsingStatement", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            UsingStatementFunc233 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<UsingStatementDelegate233>(wrappedType, "UsingStatement", "attributeListsSyntaxList`1", "awaitKeywordSyntaxToken", "usingKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "expressionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            VarPatternFunc234 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<VarPatternDelegate234>(wrappedType, "VarPattern", "designationVariableDesignationSyntax");
+            VarPatternFunc235 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<VarPatternDelegate235>(wrappedType, "VarPattern", "varKeywordSyntaxToken", "designationVariableDesignationSyntax");
+            WhenClauseFunc236 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhenClauseDelegate236>(wrappedType, "WhenClause", "conditionExpressionSyntax");
+            WhenClauseFunc237 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhenClauseDelegate237>(wrappedType, "WhenClause", "whenKeywordSyntaxToken", "conditionExpressionSyntax");
+            WhileStatementFunc238 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhileStatementDelegate238>(wrappedType, "WhileStatement", "attributeListsSyntaxList`1", "conditionExpressionSyntax", "statementStatementSyntax");
+            WhileStatementFunc239 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WhileStatementDelegate239>(wrappedType, "WhileStatement", "attributeListsSyntaxList`1", "whileKeywordSyntaxToken", "openParenTokenSyntaxToken", "conditionExpressionSyntax", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            WithExpressionFunc240 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WithExpressionDelegate240>(wrappedType, "WithExpression", "expressionExpressionSyntax", "initializerInitializerExpressionSyntax");
+            WithExpressionFunc241 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<WithExpressionDelegate241>(wrappedType, "WithExpression", "expressionExpressionSyntax", "withKeywordSyntaxToken", "initializerInitializerExpressionSyntax");
+            XmlCrefAttributeFunc242 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlCrefAttributeDelegate242>(wrappedType, "XmlCrefAttribute", "crefCrefSyntax");
+            XmlCrefAttributeFunc243 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlCrefAttributeDelegate243>(wrappedType, "XmlCrefAttribute", "crefCrefSyntax", "quoteKindSyntaxKind");
+            XmlElementFunc244 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlElementDelegate244>(wrappedType, "XmlElement", "localNameString", "contentSyntaxList`1");
+            XmlElementFunc245 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlElementDelegate245>(wrappedType, "XmlElement", "nameXmlNameSyntax", "contentSyntaxList`1");
+            XmlEmptyElementFunc246 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlEmptyElementDelegate246>(wrappedType, "XmlEmptyElement", "localNameString");
+            XmlExampleElementFunc247 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlExampleElementDelegate247>(wrappedType, "XmlExampleElement", "contentXmlNodeSyntax[]");
+            XmlExampleElementFunc248 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlExampleElementDelegate248>(wrappedType, "XmlExampleElement", "contentSyntaxList`1");
+            XmlExceptionElementFunc249 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlExceptionElementDelegate249>(wrappedType, "XmlExceptionElement", "crefCrefSyntax", "contentXmlNodeSyntax[]");
+            XmlExceptionElementFunc250 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlExceptionElementDelegate250>(wrappedType, "XmlExceptionElement", "crefCrefSyntax", "contentSyntaxList`1");
+            XmlMultiLineElementFunc251 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlMultiLineElementDelegate251>(wrappedType, "XmlMultiLineElement", "localNameString", "contentSyntaxList`1");
+            XmlMultiLineElementFunc252 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlMultiLineElementDelegate252>(wrappedType, "XmlMultiLineElement", "nameXmlNameSyntax", "contentSyntaxList`1");
+            XmlNameAttributeFunc253 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlNameAttributeDelegate253>(wrappedType, "XmlNameAttribute", "parameterNameString");
+            XmlNewLineFunc254 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlNewLineDelegate254>(wrappedType, "XmlNewLine", "textString");
+            XmlNullKeywordElementFunc255 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlNullKeywordElementDelegate255>(wrappedType, "XmlNullKeywordElement");
+            XmlParaElementFunc256 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlParaElementDelegate256>(wrappedType, "XmlParaElement", "contentSyntaxList`1");
+            XmlParaElementFunc257 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlParaElementDelegate257>(wrappedType, "XmlParaElement", "contentXmlNodeSyntax[]");
+            XmlParamElementFunc258 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlParamElementDelegate258>(wrappedType, "XmlParamElement", "parameterNameString", "contentSyntaxList`1");
+            XmlParamElementFunc259 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlParamElementDelegate259>(wrappedType, "XmlParamElement", "parameterNameString", "contentXmlNodeSyntax[]");
+            XmlParamRefElementFunc260 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlParamRefElementDelegate260>(wrappedType, "XmlParamRefElement", "parameterNameString");
+            XmlPermissionElementFunc261 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlPermissionElementDelegate261>(wrappedType, "XmlPermissionElement", "crefCrefSyntax", "contentXmlNodeSyntax[]");
+            XmlPermissionElementFunc262 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlPermissionElementDelegate262>(wrappedType, "XmlPermissionElement", "crefCrefSyntax", "contentSyntaxList`1");
+            XmlPlaceholderElementFunc263 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlPlaceholderElementDelegate263>(wrappedType, "XmlPlaceholderElement", "contentXmlNodeSyntax[]");
+            XmlPlaceholderElementFunc264 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlPlaceholderElementDelegate264>(wrappedType, "XmlPlaceholderElement", "contentSyntaxList`1");
+            XmlPreliminaryElementFunc265 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlPreliminaryElementDelegate265>(wrappedType, "XmlPreliminaryElement");
+            XmlRemarksElementFunc266 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlRemarksElementDelegate266>(wrappedType, "XmlRemarksElement", "contentXmlNodeSyntax[]");
+            XmlRemarksElementFunc267 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlRemarksElementDelegate267>(wrappedType, "XmlRemarksElement", "contentSyntaxList`1");
+            XmlReturnsElementFunc268 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlReturnsElementDelegate268>(wrappedType, "XmlReturnsElement", "contentXmlNodeSyntax[]");
+            XmlReturnsElementFunc269 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlReturnsElementDelegate269>(wrappedType, "XmlReturnsElement", "contentSyntaxList`1");
+            XmlSeeAlsoElementFunc270 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlSeeAlsoElementDelegate270>(wrappedType, "XmlSeeAlsoElement", "crefCrefSyntax");
+            XmlSeeAlsoElementFunc271 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlSeeAlsoElementDelegate271>(wrappedType, "XmlSeeAlsoElement", "linkAddressUri", "linkTextSyntaxList`1");
+            XmlSeeElementFunc272 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlSeeElementDelegate272>(wrappedType, "XmlSeeElement", "crefCrefSyntax");
+            XmlSummaryElementFunc273 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlSummaryElementDelegate273>(wrappedType, "XmlSummaryElement", "contentXmlNodeSyntax[]");
+            XmlSummaryElementFunc274 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlSummaryElementDelegate274>(wrappedType, "XmlSummaryElement", "contentSyntaxList`1");
+            XmlTextFunc275 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextDelegate275>(wrappedType, "XmlText", "textTokensSyntaxToken[]");
+            XmlTextFunc276 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextDelegate276>(wrappedType, "XmlText", "valueString");
+            XmlTextAttributeFunc277 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextAttributeDelegate277>(wrappedType, "XmlTextAttribute", "nameString", "textTokensSyntaxToken[]");
+            XmlTextAttributeFunc278 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextAttributeDelegate278>(wrappedType, "XmlTextAttribute", "nameString", "valueString");
+            XmlTextAttributeFunc279 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextAttributeDelegate279>(wrappedType, "XmlTextAttribute", "nameXmlNameSyntax", "quoteKindSyntaxKind", "textTokensSyntaxTokenList");
+            XmlTextAttributeFunc280 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextAttributeDelegate280>(wrappedType, "XmlTextAttribute", "nameString", "quoteKindSyntaxKind", "textTokensSyntaxTokenList");
+            XmlTextLiteralFunc281 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextLiteralDelegate281>(wrappedType, "XmlTextLiteral", "valueString");
+            XmlTextLiteralFunc282 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextLiteralDelegate282>(wrappedType, "XmlTextLiteral", "textString", "valueString");
+            XmlTextNewLineFunc283 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextNewLineDelegate283>(wrappedType, "XmlTextNewLine", "textString");
+            XmlTextNewLineFunc284 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlTextNewLineDelegate284>(wrappedType, "XmlTextNewLine", "textString", "continueXmlDocumentationCommentBoolean");
+            XmlThreadSafetyElementFunc285 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlThreadSafetyElementDelegate285>(wrappedType, "XmlThreadSafetyElement");
+            XmlThreadSafetyElementFunc286 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlThreadSafetyElementDelegate286>(wrappedType, "XmlThreadSafetyElement", "isStaticBoolean", "isInstanceBoolean");
+            XmlValueElementFunc287 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlValueElementDelegate287>(wrappedType, "XmlValueElement", "contentXmlNodeSyntax[]");
+            XmlValueElementFunc288 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<XmlValueElementDelegate288>(wrappedType, "XmlValueElement", "contentSyntaxList`1");
+            YieldStatementFunc289 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<YieldStatementDelegate289>(wrappedType, "YieldStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "expressionExpressionSyntax");
+            YieldStatementFunc290 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<YieldStatementDelegate290>(wrappedType, "YieldStatement", "kindSyntaxKind", "attributeListsSyntaxList`1", "yieldKeywordSyntaxToken", "returnOrBreakKeywordSyntaxToken", "expressionExpressionSyntax", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
@@ -1045,1162 +1189,1450 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return DiscardPatternFunc49(underscoreToken);
         }
 
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.DocumentationCommentTriviaSyntax DocumentationComment(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return DocumentationCommentFunc50(content);
+        }
+
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition)
         {
-            return DoStatementFunc50(attributeLists, statement, condition);
+            return DoStatementFunc51(attributeLists, statement, condition);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.DoStatementSyntax DoStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken doKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return DoStatementFunc51(attributeLists, doKeyword, statement, whileKeyword, openParenToken, condition, closeParenToken, semicolonToken);
+            return DoStatementFunc52(attributeLists, doKeyword, statement, whileKeyword, openParenToken, condition, closeParenToken, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return EmptyStatementFunc52(attributeLists);
+            return EmptyStatementFunc53(attributeLists);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.EmptyStatementSyntax EmptyStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return EmptyStatementFunc53(attributeLists, semicolonToken);
+            return EmptyStatementFunc54(attributeLists, semicolonToken);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.EnumMemberDeclarationSyntax EnumMemberDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.EqualsValueClauseSyntax? equalsValue)
         {
-            return EnumMemberDeclarationFunc54(attributeLists, modifiers, identifier, equalsValue);
+            return EnumMemberDeclarationFunc55(attributeLists, modifiers, identifier, equalsValue);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return EventDeclarationFunc55(attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, semicolonToken);
+            return EventDeclarationFunc56(attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, semicolonToken);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.EventDeclarationSyntax EventDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken eventKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return EventDeclarationFunc56(attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, accessorList, semicolonToken);
+            return EventDeclarationFunc57(attributeLists, modifiers, eventKeyword, type, explicitInterfaceSpecifier, identifier, accessorList, semicolonToken);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper ExpressionColon(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
         {
-            return ExpressionColonFunc57(expression, colonToken);
+            return ExpressionColonFunc58(expression, colonToken);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper ExpressionElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return ExpressionElementFunc58(expression);
+            return ExpressionElementFunc59(expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return ExpressionStatementFunc59(attributeLists, expression);
+            return ExpressionStatementFunc60(attributeLists, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionStatementSyntax ExpressionStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return ExpressionStatementFunc60(attributeLists, expression, semicolonToken);
+            return ExpressionStatementFunc61(attributeLists, expression, semicolonToken);
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpression()
         {
-            return FieldExpressionFunc61();
+            return FieldExpressionFunc62();
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper FieldExpression(global::Microsoft.CodeAnalysis.SyntaxToken token)
         {
-            return FieldExpressionFunc62(token);
+            return FieldExpressionFunc63(token);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclaration(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name)
         {
-            return FileScopedNamespaceDeclarationFunc63(name);
+            return FileScopedNamespaceDeclarationFunc64(name);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return FileScopedNamespaceDeclarationFunc64(attributeLists, modifiers, name, externs, usings, members);
+            return FileScopedNamespaceDeclarationFunc65(attributeLists, modifiers, name, externs, usings, members);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper FileScopedNamespaceDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return FileScopedNamespaceDeclarationFunc65(attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
+            return FileScopedNamespaceDeclarationFunc66(attributeLists, modifiers, namespaceKeyword, name, semicolonToken, externs, usings, members);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return FixedStatementFunc66(attributeLists, declaration, statement);
+            return FixedStatementFunc67(attributeLists, declaration, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.FixedStatementSyntax FixedStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken fixedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return FixedStatementFunc67(attributeLists, fixedKeyword, openParenToken, declaration, closeParenToken, statement);
+            return FixedStatementFunc68(attributeLists, fixedKeyword, openParenToken, declaration, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachStatementFunc68(attributeLists, type, identifier, expression, statement);
+            return ForEachStatementFunc69(attributeLists, type, identifier, expression, statement);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatement(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachStatementFunc69(awaitKeyword, forEachKeyword, openParenToken, type, identifier, inKeyword, expression, closeParenToken, statement);
+            return ForEachStatementFunc70(awaitKeyword, forEachKeyword, openParenToken, type, identifier, inKeyword, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForEachStatementSyntax ForEachStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachStatementFunc70(attributeLists, awaitKeyword, forEachKeyword, openParenToken, type, identifier, inKeyword, expression, closeParenToken, statement);
+            return ForEachStatementFunc71(attributeLists, awaitKeyword, forEachKeyword, openParenToken, type, identifier, inKeyword, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatement(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachVariableStatementFunc71(variable, expression, statement);
+            return ForEachVariableStatementFunc72(variable, expression, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachVariableStatementFunc72(attributeLists, variable, expression, statement);
+            return ForEachVariableStatementFunc73(attributeLists, variable, expression, statement);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatement(global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachVariableStatementFunc73(forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
+            return ForEachVariableStatementFunc74(forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatement(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachVariableStatementFunc74(awaitKeyword, forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
+            return ForEachVariableStatementFunc75(awaitKeyword, forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper ForEachVariableStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax variable, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForEachVariableStatementFunc75(attributeLists, awaitKeyword, forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
+            return ForEachVariableStatementFunc76(attributeLists, awaitKeyword, forEachKeyword, openParenToken, variable, inKeyword, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForStatementFunc76(attributeLists, declaration, initializers, condition, incrementors, statement);
+            return ForStatementFunc77(attributeLists, declaration, initializers, condition, incrementors, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax ForStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return ForStatementFunc77(attributeLists, forKeyword, openParenToken, declaration, initializers, firstSemicolonToken, condition, secondSemicolonToken, incrementors, closeParenToken, statement);
+            return ForStatementFunc78(attributeLists, forKeyword, openParenToken, declaration, initializers, firstSemicolonToken, condition, secondSemicolonToken, incrementors, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConvention(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword)
         {
-            return FunctionPointerCallingConventionFunc78(managedOrUnmanagedKeyword);
+            return FunctionPointerCallingConventionFunc79(managedOrUnmanagedKeyword);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper FunctionPointerCallingConvention(global::Microsoft.CodeAnalysis.SyntaxToken managedOrUnmanagedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper? unmanagedCallingConventionList)
         {
-            return FunctionPointerCallingConventionFunc79(managedOrUnmanagedKeyword, unmanagedCallingConventionList);
+            return FunctionPointerCallingConventionFunc80(managedOrUnmanagedKeyword, unmanagedCallingConventionList);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameter(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return FunctionPointerParameterFunc80(type);
+            return FunctionPointerParameterFunc81(type);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper FunctionPointerParameter(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return FunctionPointerParameterFunc81(attributeLists, modifiers, type);
+            return FunctionPointerParameterFunc82(attributeLists, modifiers, type);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterList(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters)
         {
-            return FunctionPointerParameterListFunc82(parameters);
+            return FunctionPointerParameterListFunc83(parameters);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper FunctionPointerParameterList(global::Microsoft.CodeAnalysis.SyntaxToken lessThanToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper> parameters, global::Microsoft.CodeAnalysis.SyntaxToken greaterThanToken)
         {
-            return FunctionPointerParameterListFunc83(lessThanToken, parameters, greaterThanToken);
+            return FunctionPointerParameterListFunc84(lessThanToken, parameters, greaterThanToken);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerType()
         {
-            return FunctionPointerTypeFunc84();
+            return FunctionPointerTypeFunc85();
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerType(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
         {
-            return FunctionPointerTypeFunc85(callingConvention, parameterList);
+            return FunctionPointerTypeFunc86(callingConvention, parameterList);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper FunctionPointerType(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
         {
-            return FunctionPointerTypeFunc86(delegateKeyword, asteriskToken, callingConvention, parameterList);
+            return FunctionPointerTypeFunc87(delegateKeyword, asteriskToken, callingConvention, parameterList);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper FunctionPointerUnmanagedCallingConvention(global::Microsoft.CodeAnalysis.SyntaxToken name)
         {
-            return FunctionPointerUnmanagedCallingConventionFunc87(name);
+            return FunctionPointerUnmanagedCallingConventionFunc88(name);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions)
         {
-            return FunctionPointerUnmanagedCallingConventionListFunc88(callingConventions);
+            return FunctionPointerUnmanagedCallingConventionListFunc89(callingConventions);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper FunctionPointerUnmanagedCallingConventionList(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper> callingConventions, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
         {
-            return FunctionPointerUnmanagedCallingConventionListFunc89(openBracketToken, callingConventions, closeBracketToken);
+            return FunctionPointerUnmanagedCallingConventionListFunc90(openBracketToken, callingConventions, closeBracketToken);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax GlobalStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return GlobalStatementFunc90(attributeLists, modifiers, statement);
+            return GlobalStatementFunc91(attributeLists, modifiers, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatement(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression)
         {
-            return GotoStatementFunc91(kind, attributeLists, caseOrDefaultKeyword, expression);
+            return GotoStatementFunc92(kind, attributeLists, caseOrDefaultKeyword, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GotoStatementSyntax GotoStatement(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken gotoKeyword, global::Microsoft.CodeAnalysis.SyntaxToken caseOrDefaultKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return GotoStatementFunc92(kind, attributeLists, gotoKeyword, caseOrDefaultKeyword, expression, semicolonToken);
+            return GotoStatementFunc93(kind, attributeLists, gotoKeyword, caseOrDefaultKeyword, expression, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else)
         {
-            return IfStatementFunc93(attributeLists, condition, statement, @else);
+            return IfStatementFunc94(attributeLists, condition, statement, @else);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.IfStatementSyntax IfStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken ifKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement, global::Microsoft.CodeAnalysis.CSharp.Syntax.ElseClauseSyntax? @else)
         {
-            return IfStatementFunc94(attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
+            return IfStatementFunc95(attributeLists, ifKeyword, openParenToken, condition, closeParenToken, statement, @else);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression()
         {
-            return ImplicitObjectCreationExpressionFunc95();
+            return ImplicitObjectCreationExpressionFunc96();
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
-            return ImplicitObjectCreationExpressionFunc96(argumentList, initializer);
+            return ImplicitObjectCreationExpressionFunc97(argumentList, initializer);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper ImplicitObjectCreationExpression(global::Microsoft.CodeAnalysis.SyntaxToken newKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
-            return ImplicitObjectCreationExpressionFunc97(newKeyword, argumentList, initializer);
+            return ImplicitObjectCreationExpressionFunc98(newKeyword, argumentList, initializer);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return ImplicitStackAllocArrayCreationExpressionFunc98(initializer);
+            return ImplicitStackAllocArrayCreationExpressionFunc99(initializer);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper ImplicitStackAllocArrayCreationExpression(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return ImplicitStackAllocArrayCreationExpressionFunc99(stackAllocKeyword, openBracketToken, closeBracketToken, initializer);
+            return ImplicitStackAllocArrayCreationExpressionFunc100(stackAllocKeyword, openBracketToken, closeBracketToken, initializer);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.InterfaceDeclarationSyntax InterfaceDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return InterfaceDeclarationFunc100(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            return InterfaceDeclarationFunc101(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.InterpolatedStringExpressionSyntax InterpolatedStringExpression(global::Microsoft.CodeAnalysis.SyntaxToken stringStartToken, global::Microsoft.CodeAnalysis.SyntaxToken stringEndToken)
         {
-            return InterpolatedStringExpressionFunc101(stringStartToken, stringEndToken);
+            return InterpolatedStringExpressionFunc102(stringStartToken, stringEndToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return IsPatternExpressionFunc102(expression, pattern);
+            return IsPatternExpressionFunc103(expression, pattern);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper IsPatternExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return IsPatternExpressionFunc103(expression, isKeyword, pattern);
+            return IsPatternExpressionFunc104(expression, isKeyword, pattern);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return LabeledStatementFunc104(attributeLists, identifier, statement);
+            return LabeledStatementFunc105(attributeLists, identifier, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LabeledStatementSyntax LabeledStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return LabeledStatementFunc105(attributeLists, identifier, colonToken, statement);
+            return LabeledStatementFunc106(attributeLists, identifier, colonToken, statement);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePosition(global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken character)
         {
-            return LineDirectivePositionFunc106(line, character);
+            return LineDirectivePositionFunc107(line, character);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper LineDirectivePosition(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SyntaxToken line, global::Microsoft.CodeAnalysis.SyntaxToken commaToken, global::Microsoft.CodeAnalysis.SyntaxToken character, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return LineDirectivePositionFunc107(openParenToken, line, commaToken, character, closeParenToken);
+            return LineDirectivePositionFunc108(openParenToken, line, commaToken, character, closeParenToken);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTrivia(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive)
         {
-            return LineSpanDirectiveTriviaFunc108(start, end, file, isActive);
+            return LineSpanDirectiveTriviaFunc109(start, end, file, isActive);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTrivia(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::System.Boolean isActive)
         {
-            return LineSpanDirectiveTriviaFunc109(start, end, characterOffset, file, isActive);
+            return LineSpanDirectiveTriviaFunc110(start, end, characterOffset, file, isActive);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper LineSpanDirectiveTrivia(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper start, global::Microsoft.CodeAnalysis.SyntaxToken minusToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper end, global::Microsoft.CodeAnalysis.SyntaxToken characterOffset, global::Microsoft.CodeAnalysis.SyntaxToken file, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
         {
-            return LineSpanDirectiveTriviaFunc110(hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
+            return LineSpanDirectiveTriviaFunc111(hashToken, lineKeyword, start, minusToken, end, characterOffset, file, endOfDirectiveToken, isActive);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPattern(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns)
         {
-            return ListPatternFunc111(patterns);
+            return ListPatternFunc112(patterns);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPattern(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation)
         {
-            return ListPatternFunc112(patterns, designation);
+            return ListPatternFunc113(patterns, designation);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper ListPattern(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper> patterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation)
         {
-            return ListPatternFunc113(openBracketToken, patterns, closeBracketToken, designation);
+            return ListPatternFunc114(openBracketToken, patterns, closeBracketToken, designation);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration)
         {
-            return LocalDeclarationStatementFunc114(attributeLists, modifiers, declaration);
+            return LocalDeclarationStatementFunc115(attributeLists, modifiers, declaration);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatement(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return LocalDeclarationStatementFunc115(awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
+            return LocalDeclarationStatementFunc116(awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax LocalDeclarationStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return LocalDeclarationStatementFunc116(attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
+            return LocalDeclarationStatementFunc117(attributeLists, awaitKeyword, usingKeyword, modifiers, declaration, semicolonToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::System.String identifier)
         {
-            return LocalFunctionStatementFunc117(returnType, identifier);
+            return LocalFunctionStatementFunc118(returnType, identifier);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return LocalFunctionStatementFunc118(returnType, identifier);
+            return LocalFunctionStatementFunc119(returnType, identifier);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody)
         {
-            return LocalFunctionStatementFunc119(modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody);
+            return LocalFunctionStatementFunc120(modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody)
         {
-            return LocalFunctionStatementFunc120(attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody);
+            return LocalFunctionStatementFunc121(attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return LocalFunctionStatementFunc121(modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
+            return LocalFunctionStatementFunc122(modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper LocalFunctionStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return LocalFunctionStatementFunc122(attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
+            return LocalFunctionStatementFunc123(attributeLists, modifiers, returnType, identifier, typeParameterList, parameterList, constraintClauses, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return LockStatementFunc123(attributeLists, expression, statement);
+            return LockStatementFunc124(attributeLists, expression, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LockStatementSyntax LockStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken lockKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return LockStatementFunc124(attributeLists, lockKeyword, openParenToken, expression, closeParenToken, statement);
+            return LockStatementFunc125(attributeLists, lockKeyword, openParenToken, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return NamespaceDeclarationFunc125(attributeLists, modifiers, name, externs, usings, members);
+            return NamespaceDeclarationFunc126(attributeLists, modifiers, name, externs, usings, members);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.NamespaceDeclarationSyntax NamespaceDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken namespaceKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> externs, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> usings, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return NamespaceDeclarationFunc126(attributeLists, modifiers, namespaceKeyword, name, openBraceToken, externs, usings, members, closeBraceToken, semicolonToken);
+            return NamespaceDeclarationFunc127(attributeLists, modifiers, namespaceKeyword, name, openBraceToken, externs, usings, members, closeBraceToken, semicolonToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTrivia(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::System.Boolean isActive)
         {
-            return NullableDirectiveTriviaFunc127(settingToken, isActive);
+            return NullableDirectiveTriviaFunc128(settingToken, isActive);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTrivia(global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::System.Boolean isActive)
         {
-            return NullableDirectiveTriviaFunc128(settingToken, targetToken, isActive);
+            return NullableDirectiveTriviaFunc129(settingToken, targetToken, isActive);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper NullableDirectiveTrivia(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
         {
-            return NullableDirectiveTriviaFunc129(hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
+            return NullableDirectiveTriviaFunc130(hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody)
         {
-            return OperatorDeclarationFunc130(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorToken, parameterList, body, expressionBody);
+            return OperatorDeclarationFunc131(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorToken, parameterList, body, expressionBody);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return OperatorDeclarationFunc131(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+            return OperatorDeclarationFunc132(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax OperatorDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return OperatorDeclarationFunc132(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+            return OperatorDeclarationFunc133(attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorMemberCrefSyntax OperatorMemberCref(global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters)
         {
-            return OperatorMemberCrefFunc133(operatorKeyword, checkedKeyword, operatorToken, parameters);
+            return OperatorMemberCrefFunc134(operatorKeyword, checkedKeyword, operatorToken, parameters);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression()
         {
-            return ParenthesizedLambdaExpressionFunc134();
+            return ParenthesizedLambdaExpressionFunc135();
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc135(parameterList, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc136(parameterList, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc136(modifiers, parameterList, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc137(modifiers, parameterList, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc137(asyncKeyword, parameterList, arrowToken, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc138(asyncKeyword, parameterList, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc138(attributeLists, modifiers, parameterList, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc139(attributeLists, modifiers, parameterList, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc139(modifiers, parameterList, arrowToken, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc140(modifiers, parameterList, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc140(attributeLists, modifiers, returnType, parameterList, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc141(attributeLists, modifiers, returnType, parameterList, block, expressionBody);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ParenthesizedLambdaExpressionSyntax ParenthesizedLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return ParenthesizedLambdaExpressionFunc141(attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
+            return ParenthesizedLambdaExpressionFunc142(attributeLists, modifiers, returnType, parameterList, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return ParenthesizedPatternFunc142(pattern);
+            return ParenthesizedPatternFunc143(pattern);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper ParenthesizedPattern(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return ParenthesizedPatternFunc143(openParenToken, pattern, closeParenToken);
+            return ParenthesizedPatternFunc144(openParenToken, pattern, closeParenToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignation(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables)
         {
-            return ParenthesizedVariableDesignationFunc144(variables);
+            return ParenthesizedVariableDesignationFunc145(variables);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper ParenthesizedVariableDesignation(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return ParenthesizedVariableDesignationFunc145(openParenToken, variables, closeParenToken);
+            return ParenthesizedVariableDesignationFunc146(openParenToken, variables, closeParenToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax? ParseMemberDeclaration(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText)
         {
-            return ParseMemberDeclarationFunc146(text, offset, options, consumeFullText);
+            return ParseMemberDeclarationFunc147(text, offset, options, consumeFullText);
         }
 
         /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTree(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseSyntaxTreeFunc147(text, options, path, diagnosticOptions, cancellationToken);
+            return ParseSyntaxTreeFunc148(text, options, path, diagnosticOptions, cancellationToken);
         }
 
         /// <summary>Method added in version 3.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTree(global::Microsoft.CodeAnalysis.Text.SourceText text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseSyntaxTreeFunc148(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
+            return ParseSyntaxTreeFunc149(text, options, path, diagnosticOptions, isGeneratedCode, cancellationToken);
         }
 
         /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTree(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseSyntaxTreeFunc149(text, options, path, encoding, diagnosticOptions, cancellationToken);
+            return ParseSyntaxTreeFunc150(text, options, path, encoding, diagnosticOptions, cancellationToken);
         }
 
         /// <summary>Method added in version 3.5.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxTree ParseSyntaxTree(global::System.String text, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.String path, global::System.Text.Encoding? encoding, global::System.Collections.Immutable.ImmutableDictionary<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>? diagnosticOptions, global::System.Nullable<global::System.Boolean> isGeneratedCode, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ParseSyntaxTreeFunc150(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
+            return ParseSyntaxTreeFunc151(text, options, path, encoding, diagnosticOptions, isGeneratedCode, cancellationToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax ParseTypeName(global::System.String text, global::System.Int32 offset, global::Microsoft.CodeAnalysis.ParseOptions? options, global::System.Boolean consumeFullText)
         {
-            return ParseTypeNameFunc151(text, offset, options, consumeFullText);
+            return ParseTypeNameFunc152(text, offset, options, consumeFullText);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClause(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns)
         {
-            return PositionalPatternClauseFunc152(subpatterns);
+            return PositionalPatternClauseFunc153(subpatterns);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper PositionalPatternClause(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return PositionalPatternClauseFunc153(openParenToken, subpatterns, closeParenToken);
+            return PositionalPatternClauseFunc154(openParenToken, subpatterns, closeParenToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return PrimaryConstructorBaseTypeFunc154(type);
+            return PrimaryConstructorBaseTypeFunc155(type);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper PrimaryConstructorBaseType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
         {
-            return PrimaryConstructorBaseTypeFunc155(type, argumentList);
+            return PrimaryConstructorBaseTypeFunc156(type, argumentList);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClause(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns)
         {
-            return PropertyPatternClauseFunc156(subpatterns);
+            return PropertyPatternClauseFunc157(subpatterns);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper PropertyPatternClause(global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper> subpatterns, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
         {
-            return PropertyPatternClauseFunc157(openBraceToken, subpatterns, closeBraceToken);
+            return PropertyPatternClauseFunc158(openBraceToken, subpatterns, closeBraceToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpression()
         {
-            return RangeExpressionFunc158();
+            return RangeExpressionFunc159();
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand)
         {
-            return RangeExpressionFunc159(leftOperand, rightOperand);
+            return RangeExpressionFunc160(leftOperand, rightOperand);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper RangeExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand)
         {
-            return RangeExpressionFunc160(leftOperand, operatorToken, rightOperand);
+            return RangeExpressionFunc161(leftOperand, operatorToken, rightOperand);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier)
         {
-            return RecordDeclarationFunc161(keyword, identifier);
+            return RecordDeclarationFunc162(keyword, identifier);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return RecordDeclarationFunc162(keyword, identifier);
+            return RecordDeclarationFunc163(keyword, identifier);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::System.String identifier)
         {
-            return RecordDeclarationFunc163(kind, keyword, identifier);
+            return RecordDeclarationFunc164(kind, keyword, identifier);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return RecordDeclarationFunc164(kind, keyword, identifier);
+            return RecordDeclarationFunc165(kind, keyword, identifier);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return RecordDeclarationFunc165(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
+            return RecordDeclarationFunc166(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return RecordDeclarationFunc166(kind, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
+            return RecordDeclarationFunc167(kind, attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return RecordDeclarationFunc167(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            return RecordDeclarationFunc168(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper RecordDeclaration(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return RecordDeclarationFunc168(kind, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            return RecordDeclarationFunc169(kind, attributeLists, modifiers, keyword, classOrStructKeyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePattern()
         {
-            return RecursivePatternFunc169();
+            return RecursivePatternFunc170();
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper RecursivePattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation)
         {
-            return RecursivePatternFunc170(type, positionalPatternClause, propertyPatternClause, designation);
+            return RecursivePatternFunc171(type, positionalPatternClause, propertyPatternClause, designation);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return RefExpressionFunc171(expression);
+            return RefExpressionFunc172(expression);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper RefExpression(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return RefExpressionFunc172(refKeyword, expression);
+            return RefExpressionFunc173(refKeyword, expression);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraint()
         {
-            return RefStructConstraintFunc173();
+            return RefStructConstraintFunc174();
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper RefStructConstraint(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken structKeyword)
         {
-            return RefStructConstraintFunc174(refKeyword, structKeyword);
+            return RefStructConstraintFunc175(refKeyword, structKeyword);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return RefTypeFunc175(type);
+            return RefTypeFunc176(type);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefType(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return RefTypeFunc176(refKeyword, type);
+            return RefTypeFunc177(refKeyword, type);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper RefType(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return RefTypeFunc177(refKeyword, readOnlyKeyword, type);
+            return RefTypeFunc178(refKeyword, readOnlyKeyword, type);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper RelationalPattern(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return RelationalPatternFunc178(operatorToken, expression);
+            return RelationalPatternFunc179(operatorToken, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression)
         {
-            return ReturnStatementFunc179(attributeLists, expression);
+            return ReturnStatementFunc180(attributeLists, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ReturnStatementSyntax ReturnStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken returnKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return ReturnStatementFunc180(attributeLists, returnKeyword, expression, semicolonToken);
+            return ReturnStatementFunc181(attributeLists, returnKeyword, expression, semicolonToken);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return ScopedTypeFunc181(type);
+            return ScopedTypeFunc182(type);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper ScopedType(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return ScopedTypeFunc182(scopedKeyword, type);
+            return ScopedTypeFunc183(scopedKeyword, type);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter)
         {
-            return SimpleLambdaExpressionFunc183(parameter);
+            return SimpleLambdaExpressionFunc184(parameter);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc184(parameter, block, expressionBody);
+            return SimpleLambdaExpressionFunc185(parameter, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc185(modifiers, parameter, block, expressionBody);
+            return SimpleLambdaExpressionFunc186(modifiers, parameter, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc186(asyncKeyword, parameter, arrowToken, block, expressionBody);
+            return SimpleLambdaExpressionFunc187(asyncKeyword, parameter, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc187(attributeLists, modifiers, parameter, block, expressionBody);
+            return SimpleLambdaExpressionFunc188(attributeLists, modifiers, parameter, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc188(modifiers, parameter, arrowToken, block, expressionBody);
+            return SimpleLambdaExpressionFunc189(modifiers, parameter, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SimpleLambdaExpressionSyntax SimpleLambdaExpression(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax parameter, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return SimpleLambdaExpressionFunc189(attributeLists, modifiers, parameter, arrowToken, block, expressionBody);
+            return SimpleLambdaExpressionFunc190(attributeLists, modifiers, parameter, arrowToken, block, expressionBody);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper SingleVariableDesignation(global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return SingleVariableDesignationFunc190(identifier);
+            return SingleVariableDesignationFunc191(identifier);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern)
         {
-            return SlicePatternFunc191(pattern);
+            return SlicePatternFunc192(pattern);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper SlicePattern(global::Microsoft.CodeAnalysis.SyntaxToken dotDotToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper? pattern)
         {
-            return SlicePatternFunc192(dotDotToken, pattern);
+            return SlicePatternFunc193(dotDotToken, pattern);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return SpreadElementFunc193(expression);
+            return SpreadElementFunc194(expression);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper SpreadElement(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return SpreadElementFunc194(operatorToken, expression);
+            return SpreadElementFunc195(operatorToken, expression);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
-            return StackAllocArrayCreationExpressionFunc195(type, initializer);
+            return StackAllocArrayCreationExpressionFunc196(type, initializer);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax StackAllocArrayCreationExpression(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
-            return StackAllocArrayCreationExpressionFunc196(stackAllocKeyword, type, initializer);
+            return StackAllocArrayCreationExpressionFunc197(stackAllocKeyword, type, initializer);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members)
         {
-            return StructDeclarationFunc197(attributeLists, modifiers, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
+            return StructDeclarationFunc198(attributeLists, modifiers, identifier, typeParameterList, parameterList, baseList, constraintClauses, members);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax StructDeclaration(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.SyntaxToken identifier, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax> constraintClauses, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> members, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return StructDeclarationFunc198(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
+            return StructDeclarationFunc199(attributeLists, modifiers, keyword, identifier, typeParameterList, parameterList, baseList, constraintClauses, openBraceToken, members, closeBraceToken, semicolonToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper Subpattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return SubpatternFunc199(pattern);
+            return SubpatternFunc200(pattern);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper Subpattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return SubpatternFunc200(expressionColon, pattern);
+            return SubpatternFunc201(expressionColon, pattern);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper Subpattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return SubpatternFunc201(nameColon, pattern);
+            return SubpatternFunc202(nameColon, pattern);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression)
         {
-            return SwitchExpressionFunc202(governingExpression);
+            return SwitchExpressionFunc203(governingExpression);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms)
         {
-            return SwitchExpressionFunc203(governingExpression, arms);
+            return SwitchExpressionFunc204(governingExpression, arms);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper SwitchExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax governingExpression, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper> arms, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
         {
-            return SwitchExpressionFunc204(governingExpression, switchKeyword, openBraceToken, arms, closeBraceToken);
+            return SwitchExpressionFunc205(governingExpression, switchKeyword, openBraceToken, arms, closeBraceToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArm(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return SwitchExpressionArmFunc205(pattern, expression);
+            return SwitchExpressionArmFunc206(pattern, expression);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArm(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return SwitchExpressionArmFunc206(pattern, whenClause, expression);
+            return SwitchExpressionArmFunc207(pattern, whenClause, expression);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper SwitchExpressionArm(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return SwitchExpressionArmFunc207(pattern, whenClause, equalsGreaterThanToken, expression);
+            return SwitchExpressionArmFunc208(pattern, whenClause, equalsGreaterThanToken, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchStatementSyntax SwitchStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken switchKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchSectionSyntax> sections, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
         {
-            return SwitchStatementFunc208(attributeLists, switchKeyword, openParenToken, expression, closeParenToken, openBraceToken, sections, closeBraceToken);
+            return SwitchStatementFunc209(attributeLists, switchKeyword, openParenToken, expression, closeParenToken, openBraceToken, sections, closeBraceToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return ThrowExpressionFunc209(expression);
+            return ThrowExpressionFunc210(expression);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper ThrowExpression(global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return ThrowExpressionFunc210(throwKeyword, expression);
+            return ThrowExpressionFunc211(throwKeyword, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression)
         {
-            return ThrowStatementFunc211(attributeLists, expression);
+            return ThrowStatementFunc212(attributeLists, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ThrowStatementSyntax ThrowStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken throwKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return ThrowStatementFunc212(attributeLists, throwKeyword, expression, semicolonToken);
+            return ThrowStatementFunc213(attributeLists, throwKeyword, expression, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally)
         {
-            return TryStatementFunc213(attributeLists, block, catches, @finally);
+            return TryStatementFunc214(attributeLists, block, catches, @finally);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax TryStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally)
         {
-            return TryStatementFunc214(attributeLists, tryKeyword, block, catches, @finally);
+            return TryStatementFunc215(attributeLists, tryKeyword, block, catches, @finally);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return TupleElementFunc215(type);
+            return TupleElementFunc216(type);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper TupleElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return TupleElementFunc216(type, identifier);
+            return TupleElementFunc217(type, identifier);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpression(global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments)
         {
-            return TupleExpressionFunc217(arguments);
+            return TupleExpressionFunc218(arguments);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper TupleExpression(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return TupleExpressionFunc218(openParenToken, arguments, closeParenToken);
+            return TupleExpressionFunc219(openParenToken, arguments, closeParenToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleType(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements)
         {
-            return TupleTypeFunc219(elements);
+            return TupleTypeFunc220(elements);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper TupleType(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper> elements, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return TupleTypeFunc220(openParenToken, elements, closeParenToken);
+            return TupleTypeFunc221(openParenToken, elements, closeParenToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper TypePattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return TypePatternFunc221(type);
+            return TypePatternFunc222(type);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return UnaryPatternFunc222(pattern);
+            return UnaryPatternFunc223(pattern);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper UnaryPattern(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return UnaryPatternFunc223(operatorToken, pattern);
+            return UnaryPatternFunc224(operatorToken, pattern);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block)
         {
-            return UnsafeStatementFunc224(attributeLists, block);
+            return UnsafeStatementFunc225(attributeLists, block);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeStatementSyntax UnsafeStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block)
         {
-            return UnsafeStatementFunc225(attributeLists, unsafeKeyword, block);
+            return UnsafeStatementFunc226(attributeLists, unsafeKeyword, block);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType)
         {
-            return UsingDirectiveFunc226(namespaceOrType);
+            return UsingDirectiveFunc227(namespaceOrType);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType)
         {
-            return UsingDirectiveFunc227(alias, namespaceOrType);
+            return UsingDirectiveFunc228(alias, namespaceOrType);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return UsingDirectiveFunc228(globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
+            return UsingDirectiveFunc229(globalKeyword, usingKeyword, staticKeyword, alias, name, semicolonToken);
         }
 
         /// <summary>Method added in version 4.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax UsingDirective(global::Microsoft.CodeAnalysis.SyntaxToken globalKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken staticKeyword, global::Microsoft.CodeAnalysis.SyntaxToken unsafeKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameEqualsSyntax? alias, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax namespaceOrType, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return UsingDirectiveFunc229(globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
+            return UsingDirectiveFunc230(globalKeyword, usingKeyword, staticKeyword, unsafeKeyword, alias, namespaceOrType, semicolonToken);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return UsingStatementFunc230(attributeLists, declaration, expression, statement);
+            return UsingStatementFunc231(attributeLists, declaration, expression, statement);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatement(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return UsingStatementFunc231(awaitKeyword, usingKeyword, openParenToken, declaration, expression, closeParenToken, statement);
+            return UsingStatementFunc232(awaitKeyword, usingKeyword, openParenToken, declaration, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax UsingStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken usingKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return UsingStatementFunc232(attributeLists, awaitKeyword, usingKeyword, openParenToken, declaration, expression, closeParenToken, statement);
+            return UsingStatementFunc233(attributeLists, awaitKeyword, usingKeyword, openParenToken, declaration, expression, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation)
         {
-            return VarPatternFunc233(designation);
+            return VarPatternFunc234(designation);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper VarPattern(global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation)
         {
-            return VarPatternFunc234(varKeyword, designation);
+            return VarPatternFunc235(varKeyword, designation);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClause(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition)
         {
-            return WhenClauseFunc235(condition);
+            return WhenClauseFunc236(condition);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WhenClause(global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition)
         {
-            return WhenClauseFunc236(whenKeyword, condition);
+            return WhenClauseFunc237(whenKeyword, condition);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return WhileStatementFunc237(attributeLists, condition, statement);
+            return WhileStatementFunc238(attributeLists, condition, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax WhileStatement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken whileKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return WhileStatementFunc238(attributeLists, whileKeyword, openParenToken, condition, closeParenToken, statement);
+            return WhileStatementFunc239(attributeLists, whileKeyword, openParenToken, condition, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return WithExpressionFunc239(expression, initializer);
+            return WithExpressionFunc240(expression, initializer);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken withKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return WithExpressionFunc240(expression, withKeyword, initializer);
+            return WithExpressionFunc241(expression, withKeyword, initializer);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlCrefAttributeSyntax XmlCrefAttribute(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref)
+        {
+            return XmlCrefAttributeFunc242(cref);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlCrefAttributeSyntax XmlCrefAttribute(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind)
+        {
+            return XmlCrefAttributeFunc243(cref, quoteKind);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlElement(global::System.String localName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlElementFunc244(localName, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlElementFunc245(name, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlEmptyElement(global::System.String localName)
+        {
+            return XmlEmptyElementFunc246(localName);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExampleElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlExampleElementFunc247(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExampleElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlExampleElementFunc248(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExceptionElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlExceptionElementFunc249(cref, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlExceptionElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlExceptionElementFunc250(cref, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlMultiLineElement(global::System.String localName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlMultiLineElementFunc251(localName, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlMultiLineElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlMultiLineElementFunc252(name, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameAttributeSyntax XmlNameAttribute(global::System.String parameterName)
+        {
+            return XmlNameAttributeFunc253(parameterName);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlNewLine(global::System.String text)
+        {
+            return XmlNewLineFunc254(text);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlNullKeywordElement()
+        {
+            return XmlNullKeywordElementFunc255();
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParaElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlParaElementFunc256(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParaElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlParaElementFunc257(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParamElement(global::System.String parameterName, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlParamElementFunc258(parameterName, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlParamElement(global::System.String parameterName, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlParamElementFunc259(parameterName, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlParamRefElement(global::System.String parameterName)
+        {
+            return XmlParamRefElementFunc260(parameterName);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPermissionElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlPermissionElementFunc261(cref, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPermissionElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlPermissionElementFunc262(cref, content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPlaceholderElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlPlaceholderElementFunc263(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlPlaceholderElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlPlaceholderElementFunc264(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlPreliminaryElement()
+        {
+            return XmlPreliminaryElementFunc265();
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlRemarksElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlRemarksElementFunc266(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlRemarksElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlRemarksElementFunc267(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlReturnsElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlReturnsElementFunc268(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlReturnsElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlReturnsElementFunc269(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlSeeAlsoElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref)
+        {
+            return XmlSeeAlsoElementFunc270(cref);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSeeAlsoElement(global::System.Uri linkAddress, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> linkText)
+        {
+            return XmlSeeAlsoElementFunc271(linkAddress, linkText);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlSeeElement(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefSyntax cref)
+        {
+            return XmlSeeElementFunc272(cref);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSummaryElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlSummaryElementFunc273(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlSummaryElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlSummaryElementFunc274(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlText(params global::Microsoft.CodeAnalysis.SyntaxToken[] textTokens)
+        {
+            return XmlTextFunc275(textTokens);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextSyntax XmlText(global::System.String value)
+        {
+            return XmlTextFunc276(value);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttribute(global::System.String name, params global::Microsoft.CodeAnalysis.SyntaxToken[] textTokens)
+        {
+            return XmlTextAttributeFunc277(name, textTokens);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttribute(global::System.String name, global::System.String value)
+        {
+            return XmlTextAttributeFunc278(name, value);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttribute(global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNameSyntax name, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind, global::Microsoft.CodeAnalysis.SyntaxTokenList textTokens)
+        {
+            return XmlTextAttributeFunc279(name, quoteKind, textTokens);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlTextAttributeSyntax XmlTextAttribute(global::System.String name, global::Microsoft.CodeAnalysis.CSharp.SyntaxKind quoteKind, global::Microsoft.CodeAnalysis.SyntaxTokenList textTokens)
+        {
+            return XmlTextAttributeFunc280(name, quoteKind, textTokens);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken XmlTextLiteral(global::System.String value)
+        {
+            return XmlTextLiteralFunc281(value);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken XmlTextLiteral(global::System.String text, global::System.String value)
+        {
+            return XmlTextLiteralFunc282(text, value);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken XmlTextNewLine(global::System.String text)
+        {
+            return XmlTextNewLineFunc283(text);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxToken XmlTextNewLine(global::System.String text, global::System.Boolean continueXmlDocumentationComment)
+        {
+            return XmlTextNewLineFunc284(text, continueXmlDocumentationComment);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlThreadSafetyElement()
+        {
+            return XmlThreadSafetyElementFunc285();
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlEmptyElementSyntax XmlThreadSafetyElement(global::System.Boolean isStatic, global::System.Boolean isInstance)
+        {
+            return XmlThreadSafetyElementFunc286(isStatic, isInstance);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlValueElement(params global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax[] content)
+        {
+            return XmlValueElementFunc287(content);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax XmlValueElement(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax> content)
+        {
+            return XmlValueElementFunc288(content);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatement(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression)
         {
-            return YieldStatementFunc241(kind, attributeLists, expression);
+            return YieldStatementFunc289(kind, attributeLists, expression);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.YieldStatementSyntax YieldStatement(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken yieldKeyword, global::Microsoft.CodeAnalysis.SyntaxToken returnOrBreakKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expression, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return YieldStatementFunc242(kind, attributeLists, yieldKeyword, returnOrBreakKeyword, expression, semicolonToken);
+            return YieldStatementFunc290(kind, attributeLists, yieldKeyword, returnOrBreakKeyword, expression, semicolonToken);
         }
     }
 }

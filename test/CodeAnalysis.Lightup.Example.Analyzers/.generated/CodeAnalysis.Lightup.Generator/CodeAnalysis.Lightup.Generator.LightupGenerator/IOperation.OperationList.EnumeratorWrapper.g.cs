@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationEx {
+public partial struct IOperationWrapper {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Enumerator. Added in version 4.2.0.0.</summary>
     public partial struct EnumeratorWrapper
@@ -12,7 +12,7 @@ public partial struct OperationListWrapper {
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper CurrentGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean MoveNextDelegate0(global::System.Object _obj);
         private delegate void ResetDelegate1(global::System.Object _obj);
@@ -40,7 +40,7 @@ public partial struct OperationListWrapper {
         }
 
         /// <summary>Property added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Current
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Current
         {
             get { return CurrentGetterFunc(wrappedObject); }
         }

@@ -8,15 +8,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsDelegate0(global::Microsoft.CodeAnalysis.IOperation? operation);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsAndSelfDelegate1(global::Microsoft.CodeAnalysis.IOperation? operation);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> DescendantsDelegate0(global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> DescendantsAndSelfDelegate1(global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation);
         private delegate global::System.String? GetArgumentNameDelegate2(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
         private delegate global::System.String? GetArgumentNameDelegate3(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
         private delegate global::System.String? GetArgumentNameDelegate4(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
         private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate5(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
         private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate6(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
         private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate7(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperationDelegate8(global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GetCorrespondingOperationDelegate8(global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate9(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationOperationWrapper declaration);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate10(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper declarationGroup);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate11(global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
@@ -56,13 +56,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
-        public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> Descendants(this global::Microsoft.CodeAnalysis.IOperation? operation)
+        public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> Descendants(this global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation)
         {
             return DescendantsFunc0(operation);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
-        public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsAndSelf(this global::Microsoft.CodeAnalysis.IOperation? operation)
+        public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> DescendantsAndSelf(this global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? operation)
         {
             return DescendantsAndSelfFunc1(operation);
         }
@@ -104,7 +104,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperation(this global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation)
+        public static global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GetCorrespondingOperation(this global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation)
         {
             return GetCorrespondingOperationFunc8(operation);
         }

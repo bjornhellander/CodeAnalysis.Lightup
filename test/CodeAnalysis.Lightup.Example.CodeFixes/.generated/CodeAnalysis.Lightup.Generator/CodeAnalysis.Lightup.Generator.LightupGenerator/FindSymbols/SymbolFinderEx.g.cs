@@ -8,75 +8,93 @@ namespace Microsoft.CodeAnalysis.FindSymbols.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FindSymbols.SymbolFinder";
 
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsyncDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsyncDelegate1(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsyncDelegate2(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate3(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate4(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate5(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate6(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsyncDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsyncDelegate1(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsyncDelegate2(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsyncDelegate3(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate4(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate5(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate6(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsyncDelegate7(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.ISymbol> FindSymbolAtPositionAsyncDelegate8(global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.Workspace workspace, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly FindDerivedClassesAsyncDelegate0 FindDerivedClassesAsyncFunc0;
-        private static readonly FindDerivedInterfacesAsyncDelegate1 FindDerivedInterfacesAsyncFunc1;
-        private static readonly FindImplementationsAsyncDelegate2 FindImplementationsAsyncFunc2;
-        private static readonly FindSourceDeclarationsWithPatternAsyncDelegate3 FindSourceDeclarationsWithPatternAsyncFunc3;
+        private static readonly FindDerivedClassesAsyncDelegate1 FindDerivedClassesAsyncFunc1;
+        private static readonly FindDerivedInterfacesAsyncDelegate2 FindDerivedInterfacesAsyncFunc2;
+        private static readonly FindImplementationsAsyncDelegate3 FindImplementationsAsyncFunc3;
         private static readonly FindSourceDeclarationsWithPatternAsyncDelegate4 FindSourceDeclarationsWithPatternAsyncFunc4;
         private static readonly FindSourceDeclarationsWithPatternAsyncDelegate5 FindSourceDeclarationsWithPatternAsyncFunc5;
         private static readonly FindSourceDeclarationsWithPatternAsyncDelegate6 FindSourceDeclarationsWithPatternAsyncFunc6;
+        private static readonly FindSourceDeclarationsWithPatternAsyncDelegate7 FindSourceDeclarationsWithPatternAsyncFunc7;
+        private static readonly FindSymbolAtPositionAsyncDelegate8 FindSymbolAtPositionAsyncFunc8;
 
         static SymbolFinderEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            FindDerivedClassesAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
-            FindDerivedInterfacesAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate1>(wrappedType, "FindDerivedInterfacesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
-            FindImplementationsAsyncFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate2>(wrappedType, "FindImplementationsAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
-            FindSourceDeclarationsWithPatternAsyncFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate3>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "projectProject", "patternString", "cancellationTokenCancellationToken");
-            FindSourceDeclarationsWithPatternAsyncFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate4>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "solutionSolution", "patternString", "cancellationTokenCancellationToken");
-            FindSourceDeclarationsWithPatternAsyncFunc5 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate5>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "projectProject", "patternString", "filterSymbolFilter", "cancellationTokenCancellationToken");
-            FindSourceDeclarationsWithPatternAsyncFunc6 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate6>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "solutionSolution", "patternString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            FindDerivedClassesAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate0>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindDerivedClassesAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedClassesAsyncDelegate1>(wrappedType, "FindDerivedClassesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindDerivedInterfacesAsyncFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindDerivedInterfacesAsyncDelegate2>(wrappedType, "FindDerivedInterfacesAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindImplementationsAsyncFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindImplementationsAsyncDelegate3>(wrappedType, "FindImplementationsAsync", "typeINamedTypeSymbol", "solutionSolution", "transitiveBoolean", "projectsIImmutableSet`1", "cancellationTokenCancellationToken");
+            FindSourceDeclarationsWithPatternAsyncFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate4>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "projectProject", "patternString", "cancellationTokenCancellationToken");
+            FindSourceDeclarationsWithPatternAsyncFunc5 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate5>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "solutionSolution", "patternString", "cancellationTokenCancellationToken");
+            FindSourceDeclarationsWithPatternAsyncFunc6 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate6>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "projectProject", "patternString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            FindSourceDeclarationsWithPatternAsyncFunc7 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSourceDeclarationsWithPatternAsyncDelegate7>(wrappedType, "FindSourceDeclarationsWithPatternAsync", "solutionSolution", "patternString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            FindSymbolAtPositionAsyncFunc8 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<FindSymbolAtPositionAsyncDelegate8>(wrappedType, "FindSymbolAtPositionAsync", "semanticModelSemanticModel", "positionInt32", "workspaceWorkspace", "cancellationTokenCancellationToken");
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return FindDerivedClassesAsyncFunc0(type, solution, projects, cancellationToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedClassesAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindDerivedClassesAsyncFunc0(type, solution, transitive, projects, cancellationToken);
+            return FindDerivedClassesAsyncFunc1(type, solution, transitive, projects, cancellationToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindDerivedInterfacesAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindDerivedInterfacesAsyncFunc1(type, solution, transitive, projects, cancellationToken);
+            return FindDerivedInterfacesAsyncFunc2(type, solution, transitive, projects, cancellationToken);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.INamedTypeSymbol>> FindImplementationsAsync(global::Microsoft.CodeAnalysis.INamedTypeSymbol type, global::Microsoft.CodeAnalysis.Solution solution, global::System.Boolean transitive, global::System.Collections.Immutable.IImmutableSet<global::Microsoft.CodeAnalysis.Project>? projects, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindImplementationsAsyncFunc2(type, solution, transitive, projects, cancellationToken);
+            return FindImplementationsAsyncFunc3(type, solution, transitive, projects, cancellationToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsync(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindSourceDeclarationsWithPatternAsyncFunc3(project, pattern, cancellationToken);
+            return FindSourceDeclarationsWithPatternAsyncFunc4(project, pattern, cancellationToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindSourceDeclarationsWithPatternAsyncFunc4(solution, pattern, cancellationToken);
+            return FindSourceDeclarationsWithPatternAsyncFunc5(solution, pattern, cancellationToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsync(global::Microsoft.CodeAnalysis.Project project, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindSourceDeclarationsWithPatternAsyncFunc5(project, pattern, filter, cancellationToken);
+            return FindSourceDeclarationsWithPatternAsyncFunc6(project, pattern, filter, cancellationToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> FindSourceDeclarationsWithPatternAsync(global::Microsoft.CodeAnalysis.Solution solution, global::System.String pattern, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken)
         {
-            return FindSourceDeclarationsWithPatternAsyncFunc6(solution, pattern, filter, cancellationToken);
+            return FindSourceDeclarationsWithPatternAsyncFunc7(solution, pattern, filter, cancellationToken);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.ISymbol> FindSymbolAtPositionAsync(global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.Workspace workspace, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return FindSymbolAtPositionAsyncFunc8(semanticModel, position, workspace, cancellationToken);
         }
     }
 }

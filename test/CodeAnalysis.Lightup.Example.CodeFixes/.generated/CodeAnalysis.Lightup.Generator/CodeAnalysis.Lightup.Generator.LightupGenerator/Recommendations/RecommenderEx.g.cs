@@ -9,20 +9,29 @@ namespace Microsoft.CodeAnalysis.Recommendations.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Recommendations.Recommender";
 
         private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsyncDelegate0(global::Microsoft.CodeAnalysis.Document document, global::System.Int32 position, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsyncDelegate1(global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.Workspace workspace, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetRecommendedSymbolsAtPositionAsyncDelegate0 GetRecommendedSymbolsAtPositionAsyncFunc0;
+        private static readonly GetRecommendedSymbolsAtPositionAsyncDelegate1 GetRecommendedSymbolsAtPositionAsyncFunc1;
 
         static RecommenderEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             GetRecommendedSymbolsAtPositionAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<GetRecommendedSymbolsAtPositionAsyncDelegate0>(wrappedType, "GetRecommendedSymbolsAtPositionAsync", "documentDocument", "positionInt32", "optionsOptionSet", "cancellationTokenCancellationToken");
+            GetRecommendedSymbolsAtPositionAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<GetRecommendedSymbolsAtPositionAsyncDelegate1>(wrappedType, "GetRecommendedSymbolsAtPositionAsync", "semanticModelSemanticModel", "positionInt32", "workspaceWorkspace", "optionsOptionSet", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsync(global::Microsoft.CodeAnalysis.Document document, global::System.Int32 position, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetRecommendedSymbolsAtPositionAsyncFunc0(document, position, options, cancellationToken);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::System.Threading.Tasks.Task<global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol>> GetRecommendedSymbolsAtPositionAsync(global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Int32 position, global::Microsoft.CodeAnalysis.Workspace workspace, global::Microsoft.CodeAnalysis.Options.OptionSet? options, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetRecommendedSymbolsAtPositionAsyncFunc1(semanticModel, position, workspace, options, cancellationToken);
         }
     }
 }

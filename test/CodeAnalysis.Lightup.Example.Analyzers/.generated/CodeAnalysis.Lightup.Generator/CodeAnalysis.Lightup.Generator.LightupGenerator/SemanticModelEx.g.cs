@@ -12,11 +12,13 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper> GetImportScopesDelegate0(global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContextDelegate1(global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GetOperationDelegate2(global::Microsoft.CodeAnalysis.SemanticModel _obj, global::Microsoft.CodeAnalysis.SyntaxNode node, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly NullableAnalysisIsDisabledGetterDelegate NullableAnalysisIsDisabledGetterFunc;
 
         private static readonly GetImportScopesDelegate0 GetImportScopesFunc0;
         private static readonly GetNullableContextDelegate1 GetNullableContextFunc1;
+        private static readonly GetOperationDelegate2 GetOperationFunc2;
 
         static SemanticModelEx()
         {
@@ -26,6 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             GetImportScopesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetImportScopesDelegate0>(wrappedType, "GetImportScopes", "positionInt32", "cancellationTokenCancellationToken");
             GetNullableContextFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetNullableContextDelegate1>(wrappedType, "GetNullableContext", "positionInt32");
+            GetOperationFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOperationDelegate2>(wrappedType, "GetOperation", "nodeSyntaxNode", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Property added in version 4.10.0.0.</summary>
@@ -44,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextEx GetNullableContext(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::System.Int32 position)
         {
             return GetNullableContextFunc1(_obj, position);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GetOperation(this global::Microsoft.CodeAnalysis.SemanticModel _obj, global::Microsoft.CodeAnalysis.SyntaxNode node, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetOperationFunc2(_obj, node, cancellationToken);
         }
     }
 }

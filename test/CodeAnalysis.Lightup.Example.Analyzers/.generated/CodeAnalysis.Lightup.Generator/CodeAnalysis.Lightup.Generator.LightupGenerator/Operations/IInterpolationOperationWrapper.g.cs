@@ -10,9 +10,9 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? AlignmentGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation ExpressionGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? FormatStringGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? AlignmentGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper ExpressionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? FormatStringGetterDelegate(global::System.Object _obj);
 
         private static readonly AlignmentGetterDelegate AlignmentGetterFunc;
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
@@ -35,19 +35,19 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Alignment
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Alignment
         {
             get { return AlignmentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Expression
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Expression
         {
             get { return ExpressionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? FormatString
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? FormatString
         {
             get { return FormatStringGetterFunc(wrappedObject); }
         }

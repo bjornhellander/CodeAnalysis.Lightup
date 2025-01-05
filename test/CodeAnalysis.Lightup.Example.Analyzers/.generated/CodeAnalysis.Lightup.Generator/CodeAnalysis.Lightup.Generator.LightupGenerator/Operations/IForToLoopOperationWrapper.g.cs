@@ -10,12 +10,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation InitialValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper InitialValueGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsCheckedGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LimitValueGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LoopControlVariableGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> NextVariablesGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation StepValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LimitValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LoopControlVariableGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> NextVariablesGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper StepValueGetterDelegate(global::System.Object _obj);
 
         private static readonly InitialValueGetterDelegate InitialValueGetterFunc;
         private static readonly IsCheckedGetterDelegate IsCheckedGetterFunc;
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation InitialValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper InitialValue
         {
             get { return InitialValueGetterFunc(wrappedObject); }
         }
@@ -56,25 +56,25 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation LimitValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LimitValue
         {
             get { return LimitValueGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation LoopControlVariable
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LoopControlVariable
         {
             get { return LoopControlVariableGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> NextVariables
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> NextVariables
         {
             get { return NextVariablesGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation StepValue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper StepValue
         {
             get { return StepValueGetterFunc(wrappedObject); }
         }

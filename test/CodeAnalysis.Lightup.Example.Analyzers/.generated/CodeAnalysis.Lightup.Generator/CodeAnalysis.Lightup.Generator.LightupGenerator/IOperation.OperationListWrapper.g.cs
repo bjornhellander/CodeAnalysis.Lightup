@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationEx {
+public partial struct IOperationWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList. Added in version 4.2.0.0.</summary>
     public partial struct OperationListWrapper
     {
@@ -14,11 +14,11 @@ public partial class IOperationEx {
         private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean AnyDelegate0(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate1(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate3(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper FirstDelegate1(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LastDelegate3(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> ToImmutableArrayDelegate5(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 
@@ -82,31 +82,31 @@ public partial class IOperationEx {
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation First()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper First()
         {
             return FirstFunc1(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.EnumeratorWrapper GetEnumerator()
         {
             return GetEnumeratorFunc2(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Last()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Last()
         {
             return LastFunc3(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper Reverse()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.ReversedWrapper Reverse()
         {
             return ReverseFunc4(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> ToImmutableArray()
         {
             return ToImmutableArrayFunc5(wrappedObject);
         }

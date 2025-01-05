@@ -10,17 +10,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation ConditionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Boolean IsRefGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? WhenFalseGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation WhenTrueGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper ConditionGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsRefGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? WhenFalseGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper WhenTrueGetterDelegate(global::System.Object _obj);
 
         private static readonly ConditionGetterDelegate ConditionGetterFunc;
         private static readonly IsRefGetterDelegate IsRefGetterFunc;
         private static readonly WhenFalseGetterDelegate WhenFalseGetterFunc;
         private static readonly WhenTrueGetterDelegate WhenTrueGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IConditionalOperationWrapper()
         {
@@ -32,13 +32,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             WhenTrueGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<WhenTrueGetterDelegate>(WrappedType, nameof(WhenTrue));
         }
 
-        private IConditionalOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private IConditionalOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Condition
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Condition
         {
             get { return ConditionGetterFunc(wrappedObject); }
         }
@@ -50,32 +50,32 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? WhenFalse
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? WhenFalse
         {
             get { return WhenFalseGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation WhenTrue
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper WhenTrue
         {
             get { return WhenTrueGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IConditionalOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static IConditionalOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IConditionalOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

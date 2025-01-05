@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation MemberGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper MemberGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::System.Object _obj);
 
         private static readonly MemberGetterDelegate MemberGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IPropertySubpatternOperationWrapper()
         {
@@ -26,13 +26,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             PatternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
         }
 
-        private IPropertySubpatternOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private IPropertySubpatternOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.3.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Member
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Member
         {
             get { return MemberGetterFunc(wrappedObject); }
         }
@@ -44,20 +44,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IPropertySubpatternOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static IPropertySubpatternOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IPropertySubpatternOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation CollectionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper CollectionGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsAsynchronousGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LoopControlVariableGetterDelegate(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> NextVariablesGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LoopControlVariableGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> NextVariablesGetterDelegate(global::System.Object _obj);
 
         private static readonly CollectionGetterDelegate CollectionGetterFunc;
         private static readonly IsAsynchronousGetterDelegate IsAsynchronousGetterFunc;
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Collection
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Collection
         {
             get { return CollectionGetterFunc(wrappedObject); }
         }
@@ -50,13 +50,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation LoopControlVariable
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper LoopControlVariable
         {
             get { return LoopControlVariableGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> NextVariables
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> NextVariables
         {
             get { return NextVariablesGetterFunc(wrappedObject); }
         }

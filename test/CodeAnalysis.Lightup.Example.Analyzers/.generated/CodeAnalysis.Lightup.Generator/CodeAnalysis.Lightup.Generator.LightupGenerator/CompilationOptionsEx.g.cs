@@ -11,6 +11,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String LanguageGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx MetadataImportOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
+        private delegate global::System.Boolean PublicSignGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithConcurrentBuildDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean concurrent);
@@ -22,12 +23,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptionsDelegate6(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
         private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithModuleNameDelegate7(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? moduleName);
         private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithOverflowChecksDelegate8(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean checkOverflow);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassNameDelegate9(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate10(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithPublicSignDelegate9(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean publicSign);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassNameDelegate10(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate11(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly MetadataImportOptionsGetterDelegate MetadataImportOptionsGetterFunc;
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
+        private static readonly PublicSignGetterDelegate PublicSignGetterFunc;
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;
 
         private static readonly WithConcurrentBuildDelegate0 WithConcurrentBuildFunc0;
@@ -39,8 +42,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly WithMetadataImportOptionsDelegate6 WithMetadataImportOptionsFunc6;
         private static readonly WithModuleNameDelegate7 WithModuleNameFunc7;
         private static readonly WithOverflowChecksDelegate8 WithOverflowChecksFunc8;
-        private static readonly WithScriptClassNameDelegate9 WithScriptClassNameFunc9;
-        private static readonly WithSyntaxTreeOptionsProviderDelegate10 WithSyntaxTreeOptionsProviderFunc10;
+        private static readonly WithPublicSignDelegate9 WithPublicSignFunc9;
+        private static readonly WithScriptClassNameDelegate10 WithScriptClassNameFunc10;
+        private static readonly WithSyntaxTreeOptionsProviderDelegate11 WithSyntaxTreeOptionsProviderFunc11;
 
         static CompilationOptionsEx()
         {
@@ -49,6 +53,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             LanguageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(wrappedType, nameof(Language));
             MetadataImportOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MetadataImportOptionsGetterDelegate>(wrappedType, nameof(MetadataImportOptions));
             NullableContextOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
+            PublicSignGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PublicSignGetterDelegate>(wrappedType, nameof(PublicSign));
             SyntaxTreeOptionsProviderGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
             WithConcurrentBuildFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithConcurrentBuildDelegate0>(wrappedType, "WithConcurrentBuild", "concurrentBoolean");
@@ -60,8 +65,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             WithMetadataImportOptionsFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate6>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
             WithModuleNameFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithModuleNameDelegate7>(wrappedType, "WithModuleName", "moduleNameString");
             WithOverflowChecksFunc8 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithOverflowChecksDelegate8>(wrappedType, "WithOverflowChecks", "checkOverflowBoolean");
-            WithScriptClassNameFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithScriptClassNameDelegate9>(wrappedType, "WithScriptClassName", "scriptClassNameString");
-            WithSyntaxTreeOptionsProviderFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate10>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithPublicSignFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithPublicSignDelegate9>(wrappedType, "WithPublicSign", "publicSignBoolean");
+            WithScriptClassNameFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithScriptClassNameDelegate10>(wrappedType, "WithScriptClassName", "scriptClassNameString");
+            WithSyntaxTreeOptionsProviderFunc11 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate11>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -80,6 +86,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
         {
             return NullableContextOptionsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::System.Boolean PublicSign(this global::Microsoft.CodeAnalysis.CompilationOptions _obj)
+        {
+            return PublicSignGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
@@ -142,16 +154,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             return WithOverflowChecksFunc8(_obj, checkOverflow);
         }
 
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CompilationOptions WithPublicSign(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean publicSign)
+        {
+            return WithPublicSignFunc9(_obj, publicSign);
+        }
+
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassName(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName)
         {
-            return WithScriptClassNameFunc9(_obj, scriptClassName);
+            return WithScriptClassNameFunc10(_obj, scriptClassName);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
-            return WithSyntaxTreeOptionsProviderFunc10(_obj, provider);
+            return WithSyntaxTreeOptionsProviderFunc11(_obj, provider);
         }
     }
 }

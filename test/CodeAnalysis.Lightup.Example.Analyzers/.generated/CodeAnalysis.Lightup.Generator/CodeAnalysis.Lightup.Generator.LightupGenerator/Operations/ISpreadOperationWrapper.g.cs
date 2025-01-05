@@ -10,15 +10,15 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ElementConversionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ElementTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation OperandGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ElementConversionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ElementTypeGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper OperandGetterDelegate(global::System.Object _obj);
 
         private static readonly ElementConversionGetterDelegate ElementConversionGetterFunc;
         private static readonly ElementTypeGetterDelegate ElementTypeGetterFunc;
         private static readonly OperandGetterDelegate OperandGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ISpreadOperationWrapper()
         {
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             OperandGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperandGetterDelegate>(WrappedType, nameof(Operand));
         }
 
-        private ISpreadOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private ISpreadOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -47,26 +47,26 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.9.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Operand
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Operand
         {
             get { return OperandGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ISpreadOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static ISpreadOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ISpreadOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

@@ -10,17 +10,17 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper BodyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.ICatchClauseOperationWrapper> CatchesGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.ILabelSymbol? ExitLabelGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? FinallyGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper BodyGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.ICatchClauseOperationWrapper> CatchesGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.ILabelSymbol? ExitLabelGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper? FinallyGetterDelegate(global::System.Object _obj);
 
         private static readonly BodyGetterDelegate BodyGetterFunc;
         private static readonly CatchesGetterDelegate CatchesGetterFunc;
         private static readonly ExitLabelGetterDelegate ExitLabelGetterFunc;
         private static readonly FinallyGetterDelegate FinallyGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ITryOperationWrapper()
         {
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             FinallyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FinallyGetterDelegate>(WrappedType, nameof(Finally));
         }
 
-        private ITryOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private ITryOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -62,20 +62,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ITryOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static ITryOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ITryOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

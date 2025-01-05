@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? GuardGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? GuardGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.ILabelSymbol LabelGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IPatternOperationWrapper PatternGetterDelegate(global::System.Object _obj);
 
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Guard
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Guard
         {
             get { return GuardGetterFunc(wrappedObject); }
         }

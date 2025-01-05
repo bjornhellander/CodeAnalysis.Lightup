@@ -10,10 +10,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? ConditionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? ConditionGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean ConditionIsTopGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean ConditionIsUntilGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? IgnoredConditionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? IgnoredConditionGetterDelegate(global::System.Object _obj);
 
         private static readonly ConditionGetterDelegate ConditionGetterFunc;
         private static readonly ConditionIsTopGetterDelegate ConditionIsTopGetterFunc;
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Condition
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Condition
         {
             get { return ConditionGetterFunc(wrappedObject); }
         }
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? IgnoredCondition
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? IgnoredCondition
         {
             get { return IgnoredConditionGetterFunc(wrappedObject); }
         }

@@ -10,13 +10,25 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.DiagnosticSeverity MinimumReportedSeverityGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj);
 
-        private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
-        private delegate void RegisterSymbolStartActionDelegate1(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind);
+        private delegate void ConfigureGeneratedCodeAnalysisDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.GeneratedCodeAnalysisFlagsEx analysisMode);
+        private delegate void EnableConcurrentExecutionDelegate1(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj);
+        private delegate void RegisterAdditionalFileActionDelegate2(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
+        private delegate void RegisterOperationActionDelegate3(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationAnalysisContextWrapper> action, params global::Microsoft.CodeAnalysis.Lightup.OperationKindEx[] operationKinds);
+        private delegate void RegisterOperationActionDelegate4(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationAnalysisContextWrapper> action, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.OperationKindEx> operationKinds);
+        private delegate void RegisterOperationBlockActionDelegate5(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationBlockAnalysisContextWrapper> action);
+        private delegate void RegisterOperationBlockStartActionDelegate6(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationBlockStartAnalysisContextWrapper> action);
+        private delegate void RegisterSymbolStartActionDelegate7(global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind);
 
         private static readonly MinimumReportedSeverityGetterDelegate MinimumReportedSeverityGetterFunc;
 
-        private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
-        private static readonly RegisterSymbolStartActionDelegate1 RegisterSymbolStartActionFunc1;
+        private static readonly ConfigureGeneratedCodeAnalysisDelegate0 ConfigureGeneratedCodeAnalysisFunc0;
+        private static readonly EnableConcurrentExecutionDelegate1 EnableConcurrentExecutionFunc1;
+        private static readonly RegisterAdditionalFileActionDelegate2 RegisterAdditionalFileActionFunc2;
+        private static readonly RegisterOperationActionDelegate3 RegisterOperationActionFunc3;
+        private static readonly RegisterOperationActionDelegate4 RegisterOperationActionFunc4;
+        private static readonly RegisterOperationBlockActionDelegate5 RegisterOperationBlockActionFunc5;
+        private static readonly RegisterOperationBlockStartActionDelegate6 RegisterOperationBlockStartActionFunc6;
+        private static readonly RegisterSymbolStartActionDelegate7 RegisterSymbolStartActionFunc7;
 
         static AnalysisContextEx()
         {
@@ -24,8 +36,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
 
             MinimumReportedSeverityGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MinimumReportedSeverityGetterDelegate>(wrappedType, nameof(MinimumReportedSeverity));
 
-            RegisterAdditionalFileActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
-            RegisterSymbolStartActionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolStartActionDelegate1>(wrappedType, "RegisterSymbolStartAction", "actionAction`1", "symbolKindSymbolKind");
+            ConfigureGeneratedCodeAnalysisFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ConfigureGeneratedCodeAnalysisDelegate0>(wrappedType, "ConfigureGeneratedCodeAnalysis", "analysisModeGeneratedCodeAnalysisFlags");
+            EnableConcurrentExecutionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EnableConcurrentExecutionDelegate1>(wrappedType, "EnableConcurrentExecution");
+            RegisterAdditionalFileActionFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate2>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
+            RegisterOperationActionFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate3>(wrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsOperationKind[]");
+            RegisterOperationActionFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate4>(wrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsImmutableArray`1");
+            RegisterOperationBlockActionFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockActionDelegate5>(wrappedType, "RegisterOperationBlockAction", "actionAction`1");
+            RegisterOperationBlockStartActionFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockStartActionDelegate6>(wrappedType, "RegisterOperationBlockStartAction", "actionAction`1");
+            RegisterSymbolStartActionFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolStartActionDelegate7>(wrappedType, "RegisterSymbolStartAction", "actionAction`1", "symbolKindSymbolKind");
         }
 
         /// <summary>Property added in version 4.9.0.0.</summary>
@@ -34,16 +52,52 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             return MinimumReportedSeverityGetterFunc(_obj);
         }
 
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void ConfigureGeneratedCodeAnalysis(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::Microsoft.CodeAnalysis.Diagnostics.Lightup.GeneratedCodeAnalysisFlagsEx analysisMode)
+        {
+            ConfigureGeneratedCodeAnalysisFunc0(_obj, analysisMode);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void EnableConcurrentExecution(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj)
+        {
+            EnableConcurrentExecutionFunc1(_obj);
+        }
+
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static void RegisterAdditionalFileAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action)
         {
-            RegisterAdditionalFileActionFunc0(_obj, action);
+            RegisterAdditionalFileActionFunc2(_obj, action);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void RegisterOperationAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationAnalysisContextWrapper> action, params global::Microsoft.CodeAnalysis.Lightup.OperationKindEx[] operationKinds)
+        {
+            RegisterOperationActionFunc3(_obj, action, operationKinds);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void RegisterOperationAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationAnalysisContextWrapper> action, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.OperationKindEx> operationKinds)
+        {
+            RegisterOperationActionFunc4(_obj, action, operationKinds);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void RegisterOperationBlockAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationBlockAnalysisContextWrapper> action)
+        {
+            RegisterOperationBlockActionFunc5(_obj, action);
+        }
+
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static void RegisterOperationBlockStartAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.OperationBlockStartAnalysisContextWrapper> action)
+        {
+            RegisterOperationBlockStartActionFunc6(_obj, action);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static void RegisterSymbolStartAction(this global::Microsoft.CodeAnalysis.Diagnostics.AnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind)
         {
-            RegisterSymbolStartActionFunc1(_obj, action, symbolKind);
+            RegisterSymbolStartActionFunc7(_obj, action, symbolKind);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation AppendCallGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper AppendCallGetterDelegate(global::System.Object _obj);
 
         private static readonly AppendCallGetterDelegate AppendCallGetterFunc;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 4.1.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation AppendCall
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper AppendCall
         {
             get { return AppendCallGetterFunc(wrappedObject); }
         }

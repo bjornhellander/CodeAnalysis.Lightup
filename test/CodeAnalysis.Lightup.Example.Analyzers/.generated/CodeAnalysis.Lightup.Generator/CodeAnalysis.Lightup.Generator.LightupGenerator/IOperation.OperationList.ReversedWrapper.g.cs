@@ -3,7 +3,7 @@
 
 namespace Microsoft.CodeAnalysis.Lightup
 {
-public partial class IOperationEx {
+public partial struct IOperationWrapper {
 public partial struct OperationListWrapper {
     /// <summary>Provides lightup support for struct Microsoft.CodeAnalysis.IOperation+OperationList+Reversed. Added in version 4.2.0.0.</summary>
     public partial struct ReversedWrapper
@@ -14,8 +14,8 @@ public partial struct OperationListWrapper {
 
         private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> ToImmutableArrayDelegate1(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 
@@ -65,13 +65,13 @@ public partial struct OperationListWrapper {
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumerator()
         {
             return GetEnumeratorFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
-        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper> ToImmutableArray()
         {
             return ToImmutableArrayFunc1(wrappedObject);
         }

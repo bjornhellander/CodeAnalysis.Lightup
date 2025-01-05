@@ -10,7 +10,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation ValueGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper ValueGetterDelegate(global::System.Object _obj);
 
         private static readonly ValueGetterDelegate ValueGetterFunc;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Value
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper Value
         {
             get { return ValueGetterFunc(wrappedObject); }
         }

@@ -9,17 +9,20 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SyntaxNode";
 
         private delegate global::System.Boolean ContainsDirectiveDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 rawKind);
-        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxTrivia FindTriviaDelegate1(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 position, global::System.Func<global::Microsoft.CodeAnalysis.SyntaxTrivia, global::System.Boolean>? stepInto);
+        private delegate global::System.Boolean IsIncrementallyIdenticalToDelegate2(global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other);
 
         private static readonly ContainsDirectiveDelegate0 ContainsDirectiveFunc0;
-        private static readonly IsIncrementallyIdenticalToDelegate1 IsIncrementallyIdenticalToFunc1;
+        private static readonly FindTriviaDelegate1 FindTriviaFunc1;
+        private static readonly IsIncrementallyIdenticalToDelegate2 IsIncrementallyIdenticalToFunc2;
 
         static SyntaxNodeEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ContainsDirectiveFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ContainsDirectiveDelegate0>(wrappedType, "ContainsDirective", "rawKindInt32");
-            IsIncrementallyIdenticalToFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate1>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
+            FindTriviaFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<FindTriviaDelegate1>(wrappedType, "FindTrivia", "positionInt32", "stepIntoFunc`2");
+            IsIncrementallyIdenticalToFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsIncrementallyIdenticalToDelegate2>(wrappedType, "IsIncrementallyIdenticalTo", "otherSyntaxNode");
         }
 
         /// <summary>Method added in version 4.5.0.0.</summary>
@@ -28,10 +31,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             return ContainsDirectiveFunc0(_obj, rawKind);
         }
 
+        /// <summary>Method added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxTrivia FindTrivia(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::System.Int32 position, global::System.Func<global::Microsoft.CodeAnalysis.SyntaxTrivia, global::System.Boolean>? stepInto)
+        {
+            return FindTriviaFunc1(_obj, position, stepInto);
+        }
+
         /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Boolean IsIncrementallyIdenticalTo(this global::Microsoft.CodeAnalysis.SyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxNode? other)
         {
-            return IsIncrementallyIdenticalToFunc1(_obj, other);
+            return IsIncrementallyIdenticalToFunc2(_obj, other);
         }
     }
 }

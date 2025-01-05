@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IArgumentOperationWrapper> ArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? InstanceGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Boolean IsVirtualGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol TargetMethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Operations.Lightup.IArgumentOperationWrapper> ArgumentsGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? InstanceGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsVirtualGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol TargetMethodGetterDelegate(global::System.Object _obj);
 
         private static readonly ArgumentsGetterDelegate ArgumentsGetterFunc;
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly IsVirtualGetterDelegate IsVirtualGetterFunc;
         private static readonly TargetMethodGetterDelegate TargetMethodGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static IInvocationOperationWrapper()
         {
@@ -35,7 +35,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             TargetMethodGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TargetMethodGetterDelegate>(WrappedType, nameof(TargetMethod));
         }
 
-        private IInvocationOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private IInvocationOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
@@ -53,7 +53,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Instance
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Instance
         {
             get { return InstanceGetterFunc(wrappedObject); }
         }
@@ -71,20 +71,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static IInvocationOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static IInvocationOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new IInvocationOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

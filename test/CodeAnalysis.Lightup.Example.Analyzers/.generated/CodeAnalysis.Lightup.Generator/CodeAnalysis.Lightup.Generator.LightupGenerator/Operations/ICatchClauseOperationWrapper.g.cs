@@ -10,11 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.IOperation? ExceptionDeclarationOrExpressionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol ExceptionTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? FilterGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper HandlerGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? ExceptionDeclarationOrExpressionGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.ITypeSymbol ExceptionTypeGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? FilterGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IBlockOperationWrapper HandlerGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::System.Object _obj);
 
         private static readonly ExceptionDeclarationOrExpressionGetterDelegate ExceptionDeclarationOrExpressionGetterFunc;
         private static readonly ExceptionTypeGetterDelegate ExceptionTypeGetterFunc;
@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly HandlerGetterDelegate HandlerGetterFunc;
         private static readonly LocalsGetterDelegate LocalsGetterFunc;
 
-        private readonly global::Microsoft.CodeAnalysis.IOperation wrappedObject;
+        private readonly global::System.Object wrappedObject;
 
         static ICatchClauseOperationWrapper()
         {
@@ -35,13 +35,13 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             LocalsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<LocalsGetterDelegate>(WrappedType, nameof(Locals));
         }
 
-        private ICatchClauseOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
+        private ICatchClauseOperationWrapper(global::System.Object obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? ExceptionDeclarationOrExpression
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? ExceptionDeclarationOrExpression
         {
             get { return ExceptionDeclarationOrExpressionGetterFunc(wrappedObject); }
         }
@@ -53,7 +53,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation? Filter
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper? Filter
         {
             get { return FilterGetterFunc(wrappedObject); }
         }
@@ -71,20 +71,20 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is(global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static ICatchClauseOperationWrapper Wrap(global::Microsoft.CodeAnalysis.IOperation obj)
+        public static ICatchClauseOperationWrapper Wrap(global::System.Object obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::Microsoft.CodeAnalysis.IOperation>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Wrap<global::System.Object>(obj, WrappedType);
             return new ICatchClauseOperationWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation Unwrap()
+        public global::System.Object Unwrap()
         {
             return wrappedObject;
         }

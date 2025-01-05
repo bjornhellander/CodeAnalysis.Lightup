@@ -14,6 +14,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         private delegate void AdditionalFileActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
         private delegate global::System.Boolean ConcurrentGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
         private delegate void ConcurrentSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Boolean _value);
+        private delegate global::System.Int32 OperationActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void OperationActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
+        private delegate global::System.Int32 OperationBlockActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void OperationBlockActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
+        private delegate global::System.Int32 OperationBlockEndActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void OperationBlockEndActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
+        private delegate global::System.Int32 OperationBlockStartActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
+        private delegate void OperationBlockStartActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
         private delegate global::System.Int32 SuppressionActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
         private delegate void SuppressionActionsCountSetterDelegate(Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value);
         private delegate global::System.Int32 SymbolEndActionsCountGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj);
@@ -27,6 +35,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         private static readonly AdditionalFileActionsCountSetterDelegate AdditionalFileActionsCountSetterFunc;
         private static readonly ConcurrentGetterDelegate ConcurrentGetterFunc;
         private static readonly ConcurrentSetterDelegate ConcurrentSetterFunc;
+        private static readonly OperationActionsCountGetterDelegate OperationActionsCountGetterFunc;
+        private static readonly OperationActionsCountSetterDelegate OperationActionsCountSetterFunc;
+        private static readonly OperationBlockActionsCountGetterDelegate OperationBlockActionsCountGetterFunc;
+        private static readonly OperationBlockActionsCountSetterDelegate OperationBlockActionsCountSetterFunc;
+        private static readonly OperationBlockEndActionsCountGetterDelegate OperationBlockEndActionsCountGetterFunc;
+        private static readonly OperationBlockEndActionsCountSetterDelegate OperationBlockEndActionsCountSetterFunc;
+        private static readonly OperationBlockStartActionsCountGetterDelegate OperationBlockStartActionsCountGetterFunc;
+        private static readonly OperationBlockStartActionsCountSetterDelegate OperationBlockStartActionsCountSetterFunc;
         private static readonly SuppressionActionsCountGetterDelegate SuppressionActionsCountGetterFunc;
         private static readonly SuppressionActionsCountSetterDelegate SuppressionActionsCountSetterFunc;
         private static readonly SymbolEndActionsCountGetterDelegate SymbolEndActionsCountGetterFunc;
@@ -44,6 +60,14 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
             AdditionalFileActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<AdditionalFileActionsCountSetterDelegate>(wrappedType, nameof(AdditionalFileActionsCount));
             ConcurrentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConcurrentGetterDelegate>(wrappedType, nameof(Concurrent));
             ConcurrentSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<ConcurrentSetterDelegate>(wrappedType, nameof(Concurrent));
+            OperationActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperationActionsCountGetterDelegate>(wrappedType, nameof(OperationActionsCount));
+            OperationActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<OperationActionsCountSetterDelegate>(wrappedType, nameof(OperationActionsCount));
+            OperationBlockActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperationBlockActionsCountGetterDelegate>(wrappedType, nameof(OperationBlockActionsCount));
+            OperationBlockActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<OperationBlockActionsCountSetterDelegate>(wrappedType, nameof(OperationBlockActionsCount));
+            OperationBlockEndActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperationBlockEndActionsCountGetterDelegate>(wrappedType, nameof(OperationBlockEndActionsCount));
+            OperationBlockEndActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<OperationBlockEndActionsCountSetterDelegate>(wrappedType, nameof(OperationBlockEndActionsCount));
+            OperationBlockStartActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OperationBlockStartActionsCountGetterDelegate>(wrappedType, nameof(OperationBlockStartActionsCount));
+            OperationBlockStartActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<OperationBlockStartActionsCountSetterDelegate>(wrappedType, nameof(OperationBlockStartActionsCount));
             SuppressionActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SuppressionActionsCountGetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
             SuppressionActionsCountSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<SuppressionActionsCountSetterDelegate>(wrappedType, nameof(SuppressionActionsCount));
             SymbolEndActionsCountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SymbolEndActionsCountGetterDelegate>(wrappedType, nameof(SymbolEndActionsCount));
@@ -80,6 +104,54 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Telemetry.Lightup
         public static void SetConcurrent(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Boolean _value)
         {
             ConcurrentSetterFunc(_obj, _value);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::System.Int32 OperationActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
+        {
+            return OperationActionsCountGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static void SetOperationActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value)
+        {
+            OperationActionsCountSetterFunc(_obj, _value);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::System.Int32 OperationBlockActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
+        {
+            return OperationBlockActionsCountGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static void SetOperationBlockActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value)
+        {
+            OperationBlockActionsCountSetterFunc(_obj, _value);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::System.Int32 OperationBlockEndActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
+        {
+            return OperationBlockEndActionsCountGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static void SetOperationBlockEndActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value)
+        {
+            OperationBlockEndActionsCountSetterFunc(_obj, _value);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::System.Int32 OperationBlockStartActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj)
+        {
+            return OperationBlockStartActionsCountGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static void SetOperationBlockStartActionsCount(this global::Microsoft.CodeAnalysis.Diagnostics.Telemetry.AnalyzerTelemetryInfo _obj, global::System.Int32 _value)
+        {
+            OperationBlockStartActionsCountSetterFunc(_obj, _value);
         }
 
         /// <summary>Property added in version 3.3.0.0.</summary>

@@ -8,10 +8,18 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext";
 
+        private delegate Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext ConstructorDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.ISymbol? containingSymbol, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions options, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostic> reportDiagnostic, global::System.Func<global::Microsoft.CodeAnalysis.Diagnostic, global::System.Boolean> isSupportedDiagnostic, global::System.Threading.CancellationToken cancellationToken);
+
+        private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? ContainingSymbolGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
         private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> FilterSpanGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxTree FilterTreeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
         private delegate global::System.Boolean IsGeneratedCodeGetterDelegate(global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj);
 
+        private static readonly ConstructorDelegate0 ConstructorFunc0;
+
+        private static readonly CompilationGetterDelegate CompilationGetterFunc;
+        private static readonly ContainingSymbolGetterDelegate ContainingSymbolGetterFunc;
         private static readonly FilterSpanGetterDelegate FilterSpanGetterFunc;
         private static readonly FilterTreeGetterDelegate FilterTreeGetterFunc;
         private static readonly IsGeneratedCodeGetterDelegate IsGeneratedCodeGetterFunc;
@@ -20,9 +28,31 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "nodeSyntaxNode", "containingSymbolISymbol", "semanticModelSemanticModel", "optionsAnalyzerOptions", "reportDiagnosticAction`1", "isSupportedDiagnosticFunc`2", "cancellationTokenCancellationToken");
+
+            CompilationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CompilationGetterDelegate>(wrappedType, nameof(Compilation));
+            ContainingSymbolGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ContainingSymbolGetterDelegate>(wrappedType, nameof(ContainingSymbol));
             FilterSpanGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FilterSpanGetterDelegate>(wrappedType, nameof(FilterSpan));
             FilterTreeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FilterTreeGetterDelegate>(wrappedType, nameof(FilterTree));
             IsGeneratedCodeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsGeneratedCodeGetterDelegate>(wrappedType, nameof(IsGeneratedCode));
+        }
+
+        /// <summary>Constructor added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext Create(global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.ISymbol? containingSymbol, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerOptions options, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostic> reportDiagnostic, global::System.Func<global::Microsoft.CodeAnalysis.Diagnostic, global::System.Boolean> isSupportedDiagnostic, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return ConstructorFunc0(node, containingSymbol, semanticModel, options, reportDiagnostic, isSupportedDiagnostic, cancellationToken);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Compilation Compilation(this global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj)
+        {
+            return CompilationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 1.2.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.ISymbol? ContainingSymbol(this global::Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext _obj)
+        {
+            return ContainingSymbolGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.7.0.0.</summary>

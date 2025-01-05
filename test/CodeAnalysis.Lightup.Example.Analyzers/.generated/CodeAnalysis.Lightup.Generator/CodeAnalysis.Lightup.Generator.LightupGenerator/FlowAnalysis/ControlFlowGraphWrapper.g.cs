@@ -12,7 +12,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.BasicBlockWrapper> BlocksGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IMethodSymbol> LocalFunctionsGetterDelegate(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation OriginalOperationGetterDelegate(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper OriginalOperationGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper? ParentGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowRegionWrapper RootGetterDelegate(global::System.Object _obj);
 
@@ -89,7 +89,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Property added in version 2.9.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.IOperation OriginalOperation
+        public global::Microsoft.CodeAnalysis.Lightup.IOperationWrapper OriginalOperation
         {
             get { return OriginalOperationGetterFunc(wrappedObject); }
         }
