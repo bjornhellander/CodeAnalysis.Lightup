@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.Text;
 
 // TODO: Create Roslyn issue for descriptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -59,7 +60,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
 
         if (configFiles.Length == 0)
         {
-            ReportDiagnostic(context, NoFileDescriptor);
+            ReportDiagnostic(context, NoFileDescriptor, null);
             return;
         }
 
@@ -68,15 +69,16 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             var configFileContent = configFile.GetText()!.ToString();
             if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var useFoldersInFilePaths, out var errorMessage))
             {
-                ReportDiagnostic(context, BadFileDescriptor, Path.GetFileName(configFile.Path), errorMessage);
+                var location = Location.Create(configFile.Path, new TextSpan(0, 0), new LinePositionSpan(new LinePosition(0, 0), new LinePosition(0, 0)));
+                ReportDiagnostic(context, BadFileDescriptor, location, Path.GetFileName(configFile.Path), errorMessage);
                 return;
             }
         }
     }
 
-    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, params string[] parameters)
+    private static void ReportDiagnostic(CompilationAnalysisContext context, DiagnosticDescriptor descriptor, Location? location, params string[] parameters)
     {
-        var diagnostic = Diagnostic.Create(descriptor, null, parameters);
+        var diagnostic = Diagnostic.Create(descriptor, location, parameters);
         context.ReportDiagnostic(diagnostic);
     }
 }
