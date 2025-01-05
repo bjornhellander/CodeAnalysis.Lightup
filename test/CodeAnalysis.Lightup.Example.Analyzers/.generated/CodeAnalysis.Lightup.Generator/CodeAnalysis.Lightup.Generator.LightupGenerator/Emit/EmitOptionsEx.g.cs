@@ -8,54 +8,69 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.EmitOptions";
 
-        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions ConstructorDelegate0(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm);
-        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions ConstructorDelegate1(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions ConstructorDelegate0(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String pdbFilePath, global::System.String outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions ConstructorDelegate1(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm);
+        private delegate Microsoft.CodeAnalysis.Emit.EmitOptions ConstructorDelegate2(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding);
 
         private delegate global::System.Text.Encoding? DefaultSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
         private delegate global::System.Text.Encoding? FallbackSourceFileEncodingGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> InstrumentationKindsGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
         private delegate global::System.Security.Cryptography.HashAlgorithmName PdbChecksumAlgorithmGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? defaultSourceFileEncoding);
         private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithmDelegate2(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithInstrumentationKindsDelegate2(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithmDelegate3(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;
+        private static readonly ConstructorDelegate2 ConstructorFunc2;
 
         private static readonly DefaultSourceFileEncodingGetterDelegate DefaultSourceFileEncodingGetterFunc;
         private static readonly FallbackSourceFileEncodingGetterDelegate FallbackSourceFileEncodingGetterFunc;
+        private static readonly InstrumentationKindsGetterDelegate InstrumentationKindsGetterFunc;
         private static readonly PdbChecksumAlgorithmGetterDelegate PdbChecksumAlgorithmGetterFunc;
 
         private static readonly WithDefaultSourceFileEncodingDelegate0 WithDefaultSourceFileEncodingFunc0;
         private static readonly WithFallbackSourceFileEncodingDelegate1 WithFallbackSourceFileEncodingFunc1;
-        private static readonly WithPdbChecksumAlgorithmDelegate2 WithPdbChecksumAlgorithmFunc2;
+        private static readonly WithInstrumentationKindsDelegate2 WithInstrumentationKindsFunc2;
+        private static readonly WithPdbChecksumAlgorithmDelegate3 WithPdbChecksumAlgorithmFunc3;
 
         static EmitOptionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
-            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1");
-            ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1", "defaultSourceFileEncodingEncoding", "fallbackSourceFileEncodingEncoding");
+            ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1");
+            ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1");
+            ConstructorFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate2>(wrappedType, "metadataOnlyBoolean", "debugInformationFormatDebugInformationFormat", "pdbFilePathString", "outputNameOverrideString", "fileAlignmentInt32", "baseAddressUInt64", "highEntropyVirtualAddressSpaceBoolean", "subsystemVersionSubsystemVersion", "runtimeMetadataVersionString", "tolerateErrorsBoolean", "includePrivateMembersBoolean", "instrumentationKindsImmutableArray`1", "pdbChecksumAlgorithmNullable`1", "defaultSourceFileEncodingEncoding", "fallbackSourceFileEncodingEncoding");
 
             DefaultSourceFileEncodingGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<DefaultSourceFileEncodingGetterDelegate>(wrappedType, nameof(DefaultSourceFileEncoding));
             FallbackSourceFileEncodingGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FallbackSourceFileEncodingGetterDelegate>(wrappedType, nameof(FallbackSourceFileEncoding));
+            InstrumentationKindsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<InstrumentationKindsGetterDelegate>(wrappedType, nameof(InstrumentationKinds));
             PdbChecksumAlgorithmGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PdbChecksumAlgorithmGetterDelegate>(wrappedType, nameof(PdbChecksumAlgorithm));
 
             WithDefaultSourceFileEncodingFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
             WithFallbackSourceFileEncodingFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
-            WithPdbChecksumAlgorithmFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithPdbChecksumAlgorithmDelegate2>(wrappedType, "WithPdbChecksumAlgorithm", "nameHashAlgorithmName");
+            WithInstrumentationKindsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithInstrumentationKindsDelegate2>(wrappedType, "WithInstrumentationKinds", "instrumentationKindsImmutableArray`1");
+            WithPdbChecksumAlgorithmFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithPdbChecksumAlgorithmDelegate3>(wrappedType, "WithPdbChecksumAlgorithm", "nameHashAlgorithmName");
+        }
+
+        /// <summary>Constructor added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String pdbFilePath, global::System.String outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds)
+        {
+            return ConstructorFunc0(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds);
         }
 
         /// <summary>Constructor added in version 2.8.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm)
+        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm)
         {
-            return ConstructorFunc0(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm);
+            return ConstructorFunc1(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm);
         }
 
         /// <summary>Constructor added in version 3.7.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.InstrumentationKind> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding)
+        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions Create(global::System.Boolean metadataOnly, global::Microsoft.CodeAnalysis.Emit.DebugInformationFormat debugInformationFormat, global::System.String? pdbFilePath, global::System.String? outputNameOverride, global::System.Int32 fileAlignment, global::System.UInt64 baseAddress, global::System.Boolean highEntropyVirtualAddressSpace, global::Microsoft.CodeAnalysis.SubsystemVersion subsystemVersion, global::System.String? runtimeMetadataVersion, global::System.Boolean tolerateErrors, global::System.Boolean includePrivateMembers, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds, global::System.Nullable<global::System.Security.Cryptography.HashAlgorithmName> pdbChecksumAlgorithm, global::System.Text.Encoding? defaultSourceFileEncoding, global::System.Text.Encoding? fallbackSourceFileEncoding)
         {
-            return ConstructorFunc1(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm, defaultSourceFileEncoding, fallbackSourceFileEncoding);
+            return ConstructorFunc2(metadataOnly, debugInformationFormat, pdbFilePath, outputNameOverride, fileAlignment, baseAddress, highEntropyVirtualAddressSpace, subsystemVersion, runtimeMetadataVersion, tolerateErrors, includePrivateMembers, instrumentationKinds, pdbChecksumAlgorithm, defaultSourceFileEncoding, fallbackSourceFileEncoding);
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>
@@ -68,6 +83,12 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         public static global::System.Text.Encoding? FallbackSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
         {
             return FallbackSourceFileEncodingGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> InstrumentationKinds(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj)
+        {
+            return InstrumentationKindsGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
@@ -88,10 +109,16 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             return WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
         }
 
+        /// <summary>Method added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithInstrumentationKinds(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds)
+        {
+            return WithInstrumentationKindsFunc2(_obj, instrumentationKinds);
+        }
+
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithm(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name)
         {
-            return WithPdbChecksumAlgorithmFunc2(_obj, name);
+            return WithPdbChecksumAlgorithmFunc3(_obj, name);
         }
     }
 }

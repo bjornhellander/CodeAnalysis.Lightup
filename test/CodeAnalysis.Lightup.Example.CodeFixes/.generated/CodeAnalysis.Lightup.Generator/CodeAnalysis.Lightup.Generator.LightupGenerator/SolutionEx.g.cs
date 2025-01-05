@@ -9,6 +9,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Solution";
 
         private delegate global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferencesGetterDelegate(global::Microsoft.CodeAnalysis.Solution _obj);
+        private delegate global::Microsoft.CodeAnalysis.Options.OptionSet OptionsGetterDelegate(global::Microsoft.CodeAnalysis.Solution _obj);
         private delegate global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper ServicesGetterDelegate(global::Microsoft.CodeAnalysis.Solution _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Solution AddAdditionalDocumentsDelegate0(global::Microsoft.CodeAnalysis.Solution _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.DocumentInfo> documentInfos);
@@ -38,6 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Solution WithProjectOutputRefFilePathDelegate24(global::Microsoft.CodeAnalysis.Solution _obj, global::Microsoft.CodeAnalysis.ProjectId projectId, global::System.String? outputRefFilePath);
 
         private static readonly AnalyzerReferencesGetterDelegate AnalyzerReferencesGetterFunc;
+        private static readonly OptionsGetterDelegate OptionsGetterFunc;
         private static readonly ServicesGetterDelegate ServicesGetterFunc;
 
         private static readonly AddAdditionalDocumentsDelegate0 AddAdditionalDocumentsFunc0;
@@ -71,6 +73,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             AnalyzerReferencesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AnalyzerReferencesGetterDelegate>(wrappedType, nameof(AnalyzerReferences));
+            OptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<OptionsGetterDelegate>(wrappedType, nameof(Options));
             ServicesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<ServicesGetterDelegate>(wrappedType, nameof(Services));
 
             AddAdditionalDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<AddAdditionalDocumentsDelegate0>(wrappedType, "AddAdditionalDocuments", "documentInfosImmutableArray`1");
@@ -104,6 +107,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Collections.Generic.IReadOnlyList<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference> AnalyzerReferences(this global::Microsoft.CodeAnalysis.Solution _obj)
         {
             return AnalyzerReferencesGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Options.OptionSet Options(this global::Microsoft.CodeAnalysis.Solution _obj)
+        {
+            return OptionsGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

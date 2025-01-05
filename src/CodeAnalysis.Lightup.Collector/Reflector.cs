@@ -15,13 +15,13 @@ using CodeAnalysis.Lightup.Definitions;
 internal class Reflector
 {
 #pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
-    private static readonly FieldComparer fieldComparer = new FieldComparer();
-    private static readonly EventComparer eventComparer = new EventComparer();
-    private static readonly PropertyComparer propertyComparer = new PropertyComparer();
-    private static readonly IndexerComparer indexerComparer = new IndexerComparer();
-    private static readonly ConstructorComparer constructorComparer = new ConstructorComparer();
-    private static readonly MethodComparer methodComparer = new MethodComparer();
-    private static readonly EnumValueComparer enumValueComparer = new EnumValueComparer();
+    private static readonly FieldComparer fieldComparer = new();
+    private static readonly EventComparer eventComparer = new();
+    private static readonly PropertyComparer propertyComparer = new();
+    private static readonly IndexerComparer indexerComparer = new();
+    private static readonly ConstructorComparer constructorComparer = new();
+    private static readonly MethodComparer methodComparer = new();
+    private static readonly EnumValueComparer enumValueComparer = new();
 #pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
 
     private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
@@ -333,7 +333,7 @@ internal class Reflector
         }
         else if (typeDef is ClassTypeDefinition classTypeDef)
         {
-            UpdateClassType(classTypeDef, type, assemblyVersion, typeDefs);
+            UpdateClassType(classTypeDef, type, assemblyVersion);
         }
         else if (typeDef is InterfaceTypeDefinition interfaceTypeDef)
         {
@@ -379,48 +379,39 @@ internal class Reflector
         UpdateType(structTypeDef, type, assemblyVersion);
     }
 
-    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion, Dictionary<string, BaseTypeDefinition> typeDefs)
+    private static void UpdateClassType(ClassTypeDefinition classTypeDef, Type type, Version? assemblyVersion)
     {
         UpdateType(classTypeDef, type, assemblyVersion);
 
-        var baseType = GetClassBaseType(type, typeDefs);
+        var baseType = GetClassBaseType(type);
         var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
         classTypeDef.BaseClass = baseClassRef;
 
         Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
-        Assert.IsTrue(classTypeDef.IsAbstract == IsAbstractType(type), "IsAbstract has changed");
+        //// TODO: Investigate how to handle a type changing "abstractness"
+        classTypeDef.IsAbstract = IsAbstractType(type);
     }
 
-    private static Type? GetClassBaseType(
-        Type type,
-        Dictionary<string, BaseTypeDefinition> typeDefs)
+    private static Type? GetClassBaseType(Type type)
     {
-        var currType = type;
-        while (true)
+        var baseType = type.BaseType;
+        if (baseType == null)
         {
-            var baseType = currType.BaseType;
-            if (baseType == null)
-            {
-                Assert.Fail("Could not get base type");
-                return null;
-            }
-            else if (baseType.FullName == null)
-            {
-                Assert.Fail("Could not get base type");
-                return null;
-            }
-            else if (baseType.FullName == "System.Object")
-            {
-                return null;
-            }
-            else if (!typeDefs.TryGetValue(baseType.FullName, out var typeDef) || typeDef.AssemblyVersion == null)
-            {
-                return baseType;
-            }
-            else
-            {
-                currType = baseType;
-            }
+            Assert.Fail("Could not get base type");
+            return null;
+        }
+        else if (baseType.FullName == null)
+        {
+            Assert.Fail("Could not get base type name");
+            return null;
+        }
+        else if (baseType.FullName == "System.Object")
+        {
+            return null;
+        }
+        else
+        {
+            return baseType;
         }
     }
 

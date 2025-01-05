@@ -13,7 +13,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialDefinitionPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? PartialImplementationPartGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
+        private delegate global::System.Boolean ReturnsByRefGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::System.Boolean ReturnsByRefReadonlyGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
 
         private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
@@ -21,7 +23,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
         private static readonly PartialDefinitionPartGetterDelegate PartialDefinitionPartGetterFunc;
         private static readonly PartialImplementationPartGetterDelegate PartialImplementationPartGetterFunc;
+        private static readonly RefCustomModifiersGetterDelegate RefCustomModifiersGetterFunc;
         private static readonly RefKindGetterDelegate RefKindGetterFunc;
+        private static readonly ReturnsByRefGetterDelegate ReturnsByRefGetterFunc;
         private static readonly ReturnsByRefReadonlyGetterDelegate ReturnsByRefReadonlyGetterFunc;
 
         static IPropertySymbolEx()
@@ -33,7 +37,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             PartialDefinitionPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialDefinitionPartGetterDelegate>(wrappedType, nameof(PartialDefinitionPart));
             PartialImplementationPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialImplementationPartGetterDelegate>(wrappedType, nameof(PartialImplementationPart));
+            RefCustomModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
             RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
+            ReturnsByRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefGetterDelegate>(wrappedType, nameof(ReturnsByRef));
             ReturnsByRefReadonlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefReadonlyGetterDelegate>(wrappedType, nameof(ReturnsByRefReadonly));
         }
 
@@ -67,10 +73,22 @@ namespace Microsoft.CodeAnalysis.Lightup
             return PartialImplementationPartGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
+        {
+            return RefCustomModifiersGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.RefKind RefKind(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return RefKindGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean ReturnsByRef(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
+        {
+            return ReturnsByRefGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>

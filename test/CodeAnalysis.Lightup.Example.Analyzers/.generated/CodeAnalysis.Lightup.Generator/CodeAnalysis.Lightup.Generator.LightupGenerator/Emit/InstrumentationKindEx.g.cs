@@ -2,13 +2,19 @@
 
 namespace Microsoft.CodeAnalysis.Emit.Lightup
 {
-    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Emit.InstrumentationKind.</summary>
-    public static partial class InstrumentationKindEx
+    /// <summary>Provides lightup support for enum Microsoft.CodeAnalysis.Emit.InstrumentationKind. Added in version 2.0.0.0.</summary>
+    public enum InstrumentationKindEx : global::System.Int32
     {
-        /// <summary>Added in version 4.10.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.Emit.InstrumentationKind StackOverflowProbing = (global::Microsoft.CodeAnalysis.Emit.InstrumentationKind)2;
+        /// <summary>Added in version 2.0.0.0.</summary>
+        None = 0,
+
+        /// <summary>Added in version 2.0.0.0.</summary>
+        TestCoverage = 1,
 
         /// <summary>Added in version 4.10.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.Emit.InstrumentationKind ModuleCancellation = (global::Microsoft.CodeAnalysis.Emit.InstrumentationKind)3;
+        StackOverflowProbing = 2,
+
+        /// <summary>Added in version 4.10.0.0.</summary>
+        ModuleCancellation = 3,
     }
 }

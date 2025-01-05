@@ -8,39 +8,48 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Document";
 
-        private delegate global::Microsoft.CodeAnalysis.Document WithFilePathDelegate0(global::Microsoft.CodeAnalysis.Document _obj, global::System.String? filePath);
-        private delegate global::Microsoft.CodeAnalysis.Document WithFoldersDelegate1(global::Microsoft.CodeAnalysis.Document _obj, global::System.Collections.Generic.IEnumerable<global::System.String> folders);
-        private delegate global::Microsoft.CodeAnalysis.Document WithNameDelegate2(global::Microsoft.CodeAnalysis.Document _obj, global::System.String name);
+        private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Options.Lightup.DocumentOptionSetWrapper> GetOptionsAsyncDelegate0(global::Microsoft.CodeAnalysis.Document _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.Document WithFilePathDelegate1(global::Microsoft.CodeAnalysis.Document _obj, global::System.String? filePath);
+        private delegate global::Microsoft.CodeAnalysis.Document WithFoldersDelegate2(global::Microsoft.CodeAnalysis.Document _obj, global::System.Collections.Generic.IEnumerable<global::System.String> folders);
+        private delegate global::Microsoft.CodeAnalysis.Document WithNameDelegate3(global::Microsoft.CodeAnalysis.Document _obj, global::System.String name);
 
-        private static readonly WithFilePathDelegate0 WithFilePathFunc0;
-        private static readonly WithFoldersDelegate1 WithFoldersFunc1;
-        private static readonly WithNameDelegate2 WithNameFunc2;
+        private static readonly GetOptionsAsyncDelegate0 GetOptionsAsyncFunc0;
+        private static readonly WithFilePathDelegate1 WithFilePathFunc1;
+        private static readonly WithFoldersDelegate2 WithFoldersFunc2;
+        private static readonly WithNameDelegate3 WithNameFunc3;
 
         static DocumentEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
-            WithFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithFilePathDelegate0>(wrappedType, "WithFilePath", "filePathString");
-            WithFoldersFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithFoldersDelegate1>(wrappedType, "WithFolders", "foldersIEnumerable`1");
-            WithNameFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithNameDelegate2>(wrappedType, "WithName", "nameString");
+            GetOptionsAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetOptionsAsyncDelegate0>(wrappedType, "GetOptionsAsync", "cancellationTokenCancellationToken");
+            WithFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithFilePathDelegate1>(wrappedType, "WithFilePath", "filePathString");
+            WithFoldersFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithFoldersDelegate2>(wrappedType, "WithFolders", "foldersIEnumerable`1");
+            WithNameFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithNameDelegate3>(wrappedType, "WithName", "nameString");
+        }
+
+        /// <summary>Method added in version 2.0.0.0.</summary>
+        public static global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Options.Lightup.DocumentOptionSetWrapper> GetOptionsAsync(this global::Microsoft.CodeAnalysis.Document _obj, global::System.Threading.CancellationToken cancellationToken)
+        {
+            return GetOptionsAsyncFunc0(_obj, cancellationToken);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Document WithFilePath(this global::Microsoft.CodeAnalysis.Document _obj, global::System.String? filePath)
         {
-            return WithFilePathFunc0(_obj, filePath);
+            return WithFilePathFunc1(_obj, filePath);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Document WithFolders(this global::Microsoft.CodeAnalysis.Document _obj, global::System.Collections.Generic.IEnumerable<global::System.String> folders)
         {
-            return WithFoldersFunc1(_obj, folders);
+            return WithFoldersFunc2(_obj, folders);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Document WithName(this global::Microsoft.CodeAnalysis.Document _obj, global::System.String name)
         {
-            return WithNameFunc2(_obj, name);
+            return WithNameFunc3(_obj, name);
         }
     }
 }

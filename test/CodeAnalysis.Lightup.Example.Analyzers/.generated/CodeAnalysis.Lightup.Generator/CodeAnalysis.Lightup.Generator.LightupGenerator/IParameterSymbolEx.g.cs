@@ -12,12 +12,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean IsParamsArrayGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
         private delegate global::System.Boolean IsParamsCollectionGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ScopedKindEx ScopedKindGetterDelegate(global::Microsoft.CodeAnalysis.IParameterSymbol _obj);
 
         private static readonly IsDiscardGetterDelegate IsDiscardGetterFunc;
         private static readonly IsParamsArrayGetterDelegate IsParamsArrayGetterFunc;
         private static readonly IsParamsCollectionGetterDelegate IsParamsCollectionGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
+        private static readonly RefCustomModifiersGetterDelegate RefCustomModifiersGetterFunc;
         private static readonly ScopedKindGetterDelegate ScopedKindGetterFunc;
 
         static IParameterSymbolEx()
@@ -28,6 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsParamsArrayGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsParamsArrayGetterDelegate>(wrappedType, nameof(IsParamsArray));
             IsParamsCollectionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsParamsCollectionGetterDelegate>(wrappedType, nameof(IsParamsCollection));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            RefCustomModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
             ScopedKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ScopedKindGetterDelegate>(wrappedType, nameof(ScopedKind));
         }
 
@@ -53,6 +56,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiers(this global::Microsoft.CodeAnalysis.IParameterSymbol _obj)
+        {
+            return RefCustomModifiersGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

@@ -1279,7 +1279,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         return typeDef switch
         {
-            ClassTypeDefinition x => GetFullBaseTypeName(x),
+            ClassTypeDefinition x => GetFullBaseTypeName(x, typeDefs),
             InterfaceTypeDefinition x => GetFullBaseTypeName(x, typeDefs),
             StructTypeDefinition => null,
             _ => throw new NotImplementedException(),
@@ -1287,17 +1287,34 @@ namespace Microsoft.CodeAnalysis.Lightup
     }
 
     private static string? GetFullBaseTypeName(
-        ClassTypeDefinition typeDef)
+        ClassTypeDefinition typeDef,
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
-        var baseTypeRef = typeDef.BaseClass;
-        if (baseTypeRef == null)
+        var currTypeDef = typeDef;
+        while (currTypeDef != null)
         {
-            return null;
-        }
+            var baseTypeRef = currTypeDef.BaseClass;
+            if (baseTypeRef == null)
+            {
+                return null;
+            }
 
-        if (baseTypeRef is NamedTypeReference x)
-        {
-            return $"{x.Namespace}.{x.Name}";
+            if (baseTypeRef is not NamedTypeReference namedBaseTypeRef)
+            {
+                return null;
+            }
+
+            if (!typeDefs.TryGetValue(namedBaseTypeRef.FullName, out var baseTypeDef))
+            {
+                return namedBaseTypeRef.FullName;
+            }
+
+            if (baseTypeDef.AssemblyVersion == null)
+            {
+                return $"{namedBaseTypeRef.Namespace}.{namedBaseTypeRef.Name}";
+            }
+
+            currTypeDef = (ClassTypeDefinition)baseTypeDef;
         }
 
         Assert.Fail("Could not get base type");
@@ -1347,6 +1364,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         var result = typeDef.Fields
             .Where(x => x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
+            // TODO: Enable generation of CodeStyleOptions (some members reference CodeStyleOption<> which was added in 2.0.0)
+            .Where(x => typeDef.FullName != "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions")
             .ToList();
         return result;
     }

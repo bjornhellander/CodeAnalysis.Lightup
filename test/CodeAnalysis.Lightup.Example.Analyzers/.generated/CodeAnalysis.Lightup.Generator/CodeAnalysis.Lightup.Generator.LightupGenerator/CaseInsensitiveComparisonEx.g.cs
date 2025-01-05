@@ -10,9 +10,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Int32 CompareDelegate0(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right);
         private delegate global::System.Boolean EqualsDelegate1(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right);
+        private delegate global::System.Boolean StartsWithDelegate2(global::System.String value, global::System.String possibleStart);
 
         private static readonly CompareDelegate0 CompareFunc0;
         private static readonly EqualsDelegate1 EqualsFunc1;
+        private static readonly StartsWithDelegate2 StartsWithFunc2;
 
         static CaseInsensitiveComparisonEx()
         {
@@ -20,6 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             CompareFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CompareDelegate0>(wrappedType, "Compare", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
             EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<EqualsDelegate1>(wrappedType, "Equals", "leftReadOnlySpan`1", "rightReadOnlySpan`1");
+            StartsWithFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<StartsWithDelegate2>(wrappedType, "StartsWith", "valueString", "possibleStartString");
         }
 
         /// <summary>Method added in version 3.9.0.0.</summary>
@@ -32,6 +35,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean Equals(global::System.ReadOnlySpan<global::System.Char> left, global::System.ReadOnlySpan<global::System.Char> right)
         {
             return EqualsFunc1(left, right);
+        }
+
+        /// <summary>Method added in version 2.0.0.0.</summary>
+        public static global::System.Boolean StartsWith(global::System.String value, global::System.String possibleStart)
+        {
+            return StartsWithFunc2(value, possibleStart);
         }
     }
 }

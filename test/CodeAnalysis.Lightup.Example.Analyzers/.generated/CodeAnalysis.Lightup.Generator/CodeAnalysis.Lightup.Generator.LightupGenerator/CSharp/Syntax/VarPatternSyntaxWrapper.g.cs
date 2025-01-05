@@ -10,13 +10,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
 
         private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
 
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax DesignationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxToken VarKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper DesignationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken VarKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
-        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithDesignationDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithVarKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken varKeyword);
+        private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithDesignationDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithVarKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken varKeyword);
 
         private static readonly DesignationGetterDelegate DesignationGetterFunc;
         private static readonly VarKeywordGetterDelegate VarKeywordGetterFunc;
@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WithDesignationDelegate2 WithDesignationFunc2;
         private static readonly WithVarKeywordDelegate3 WithVarKeywordFunc3;
 
-        private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax wrappedObject;
+        private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
         static VarPatternSyntaxWrapper()
         {
@@ -41,13 +41,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WithVarKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithVarKeywordDelegate3>(WrappedType, "WithVarKeyword", "varKeywordSyntaxToken");
         }
 
-        private VarPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax obj)
+        private VarPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
         {
             wrappedObject = obj;
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax Designation
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper Designation
         {
             get { return DesignationGetterFunc(wrappedObject); }
         }
@@ -59,32 +59,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static explicit operator VarPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax obj)
+        public static explicit operator VarPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
         {
             return Wrap(obj);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax(VarPatternSyntaxWrapper obj)
+        public static implicit operator global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode(VarPatternSyntaxWrapper obj)
         {
             return obj.Unwrap();
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
+        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
 
         /// <summary>Creates a wrapper object containing the specified object. If the object is not compatible with this wrapper, an exception will be thrown.</summary>
-        public static VarPatternSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax obj)
+        public static VarPatternSyntaxWrapper Wrap(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
         {
-            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax>(obj, WrappedType);
+            var obj2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Wrap<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>(obj, WrappedType);
             return new VarPatternSyntaxWrapper(obj2);
         }
 
         /// <summary>Returns the wrapped object.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax Unwrap()
+        public global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode Unwrap()
         {
             return wrappedObject;
         }
@@ -96,13 +96,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax designation)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken varKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation)
         {
             return UpdateFunc1(wrappedObject, varKeyword, designation);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithDesignation(global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax designation)
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper WithDesignation(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper designation)
         {
             return WithDesignationFunc2(wrappedObject, designation);
         }

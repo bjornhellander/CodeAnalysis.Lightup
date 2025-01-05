@@ -8,6 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IFieldSymbol";
 
+        private delegate global::Microsoft.CodeAnalysis.IFieldSymbol? CorrespondingTupleFieldGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Int32 FixedSizeGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Boolean IsExplicitlyNamedTupleElementGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::System.Boolean IsFixedSizeBufferGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
@@ -16,6 +17,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> RefCustomModifiersGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.IFieldSymbol _obj);
 
+        private static readonly CorrespondingTupleFieldGetterDelegate CorrespondingTupleFieldGetterFunc;
         private static readonly FixedSizeGetterDelegate FixedSizeGetterFunc;
         private static readonly IsExplicitlyNamedTupleElementGetterDelegate IsExplicitlyNamedTupleElementGetterFunc;
         private static readonly IsFixedSizeBufferGetterDelegate IsFixedSizeBufferGetterFunc;
@@ -28,6 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            CorrespondingTupleFieldGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CorrespondingTupleFieldGetterDelegate>(wrappedType, nameof(CorrespondingTupleField));
             FixedSizeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FixedSizeGetterDelegate>(wrappedType, nameof(FixedSize));
             IsExplicitlyNamedTupleElementGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsExplicitlyNamedTupleElementGetterDelegate>(wrappedType, nameof(IsExplicitlyNamedTupleElement));
             IsFixedSizeBufferGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFixedSizeBufferGetterDelegate>(wrappedType, nameof(IsFixedSizeBuffer));
@@ -35,6 +38,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             RefCustomModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefCustomModifiersGetterDelegate>(wrappedType, nameof(RefCustomModifiers));
             RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IFieldSymbol? CorrespondingTupleField(this global::Microsoft.CodeAnalysis.IFieldSymbol _obj)
+        {
+            return CorrespondingTupleFieldGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.0.0.0.</summary>

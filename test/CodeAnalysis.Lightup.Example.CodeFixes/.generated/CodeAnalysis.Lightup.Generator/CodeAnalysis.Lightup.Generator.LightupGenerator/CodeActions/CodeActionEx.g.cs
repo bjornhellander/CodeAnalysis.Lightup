@@ -11,6 +11,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         private delegate global::System.Boolean IsInlinableGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> NestedActionsGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
         private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx PriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> TagsGetterDelegate(global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate0(global::System.String title, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> nestedActions, global::System.Boolean isInlinable);
         private delegate global::Microsoft.CodeAnalysis.CodeActions.CodeAction CreateDelegate1(global::System.String title, global::System.Func<global::System.Threading.CancellationToken, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> createChangedDocument, global::System.String? equivalenceKey, global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx priority);
@@ -24,6 +25,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         private static readonly IsInlinableGetterDelegate IsInlinableGetterFunc;
         private static readonly NestedActionsGetterDelegate NestedActionsGetterFunc;
         private static readonly PriorityGetterDelegate PriorityGetterFunc;
+        private static readonly TagsGetterDelegate TagsGetterFunc;
 
         private static readonly CreateDelegate0 CreateFunc0;
         private static readonly CreateDelegate1 CreateFunc1;
@@ -41,6 +43,7 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
             IsInlinableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsInlinableGetterDelegate>(wrappedType, nameof(IsInlinable));
             NestedActionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<NestedActionsGetterDelegate>(wrappedType, nameof(NestedActions));
             PriorityGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<PriorityGetterDelegate>(wrappedType, nameof(Priority));
+            TagsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<TagsGetterDelegate>(wrappedType, nameof(Tags));
 
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "titleString", "nestedActionsImmutableArray`1", "isInlinableBoolean");
             CreateFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate1>(wrappedType, "Create", "titleString", "createChangedDocumentFunc`2", "equivalenceKeyString", "priorityCodeActionPriority");
@@ -68,6 +71,12 @@ namespace Microsoft.CodeAnalysis.CodeActions.Lightup
         public static global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionPriorityEx Priority(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
         {
             return PriorityGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::System.String> Tags(this global::Microsoft.CodeAnalysis.CodeActions.CodeAction _obj)
+        {
+            return TagsGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>

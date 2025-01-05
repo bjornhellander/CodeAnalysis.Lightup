@@ -10,6 +10,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::System.Boolean IsFixedGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
         private delegate global::System.Boolean IsForEachGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
+        private delegate global::System.Boolean IsRefGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
         private delegate global::System.Boolean IsUsingGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.RefKind RefKindGetterDelegate(global::Microsoft.CodeAnalysis.ILocalSymbol _obj);
@@ -17,6 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly IsFixedGetterDelegate IsFixedGetterFunc;
         private static readonly IsForEachGetterDelegate IsForEachGetterFunc;
+        private static readonly IsRefGetterDelegate IsRefGetterFunc;
         private static readonly IsUsingGetterDelegate IsUsingGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
         private static readonly RefKindGetterDelegate RefKindGetterFunc;
@@ -28,6 +30,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             IsFixedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFixedGetterDelegate>(wrappedType, nameof(IsFixed));
             IsForEachGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsForEachGetterDelegate>(wrappedType, nameof(IsForEach));
+            IsRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsRefGetterDelegate>(wrappedType, nameof(IsRef));
             IsUsingGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUsingGetterDelegate>(wrappedType, nameof(IsUsing));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
             RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
@@ -44,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsForEach(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
         {
             return IsForEachGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 2.0.0.0.</summary>
+        public static global::System.Boolean IsRef(this global::Microsoft.CodeAnalysis.ILocalSymbol _obj)
+        {
+            return IsRefGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>
