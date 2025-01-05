@@ -59,7 +59,9 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
 
         if (configFiles.Length == 0)
         {
-            ReportDiagnostic(context, NoFileDescriptor, null);
+            var syntaxTree = context.Compilation.SyntaxTrees.OrderBy(x => x.FilePath).FirstOrDefault();
+            var location = syntaxTree?.GetLocation(new TextSpan(0, 0)) ?? null;
+            ReportDiagnostic(context, NoFileDescriptor, location);
             return;
         }
 
