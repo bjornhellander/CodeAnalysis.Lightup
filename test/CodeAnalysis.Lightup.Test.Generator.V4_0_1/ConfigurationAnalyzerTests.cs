@@ -42,7 +42,7 @@ public class ConfigurationAnalyzerTests
     public async Task TestEmptyConfigurationFile()
     {
         var test = CreateTest("CodeAnalysis.Lightup.json", content: "");
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Failed to parse file");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -51,7 +51,7 @@ public class ConfigurationAnalyzerTests
     public async Task TestConfigurationFileWithEmptyArray()
     {
         var test = CreateTest("CodeAnalysis.Lightup.json", content: "[]");
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Failed to parse file");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -66,7 +66,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Missing 'assemblies' attribute.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Missing 'assemblies' attribute.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -82,7 +82,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Empty 'assemblies' attribute.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Empty 'assemblies' attribute.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -98,7 +98,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'assemblies' attribute value: ''. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: ''. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -114,7 +114,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'assemblies' attribute. Expected an array.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute. Expected an array.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -130,7 +130,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'assemblies' attribute value: 'Xyz'. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: 'Xyz'. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -145,7 +145,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Missing 'baselineVersion' attribute.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Missing 'baselineVersion' attribute.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -161,7 +161,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'baselineVersion' attribute value: ''.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'baselineVersion' attribute value: ''.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -177,7 +177,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'baselineVersion' attribute value: 'Xyz'.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'baselineVersion' attribute value: 'Xyz'.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -194,7 +194,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Failed to parse file");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -211,7 +211,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'includeTypes' attribute value. Expected an array of strings.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'includeTypes' attribute value. Expected an array of strings.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -228,7 +228,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'includeTypes' attribute value. Expected an array of strings.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'includeTypes' attribute value. Expected an array of strings.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -248,7 +248,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", UseFoldersInFilePathsMessage);
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments(UseFoldersInFilePathsMessage);
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -264,7 +264,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -280,7 +280,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -297,7 +297,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", "Failed to parse file");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -318,7 +318,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("CodeAnalysis.Lightup.json", UseFoldersInFilePathsMessage);
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments(UseFoldersInFilePathsMessage);
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }

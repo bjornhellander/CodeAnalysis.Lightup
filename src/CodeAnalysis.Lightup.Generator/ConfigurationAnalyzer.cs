@@ -4,7 +4,6 @@
 namespace CodeAnalysis.Lightup.Generator;
 
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
@@ -32,7 +31,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
         new DiagnosticDescriptor(
             id: BadFileDiagnosticId,
             title: "Incorrect configuration file",
-            messageFormat: "Incorrect configuration file {0}: {1}",
+            messageFormat: "Incorrect configuration file: {0}",
             category: "Source Generator",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true,
@@ -70,7 +69,7 @@ public class ConfigurationAnalyzer : DiagnosticAnalyzer
             if (!Helpers.TryParseConfiguration(configFileContent, out var assemblies, out var baselineVersion, out var typesToInclude, out var useFoldersInFilePaths, out var errorMessage))
             {
                 var location = Location.Create(configFile.Path, new TextSpan(0, 0), new LinePositionSpan(new LinePosition(0, 0), new LinePosition(0, 0)));
-                ReportDiagnostic(context, BadFileDescriptor, location, Path.GetFileName(configFile.Path), errorMessage);
+                ReportDiagnostic(context, BadFileDescriptor, location, errorMessage);
                 return;
             }
         }
