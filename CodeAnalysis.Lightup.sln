@@ -62,7 +62,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeAnalysis.Lightup.Test.V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Test.V4_12_0", "test\CodeAnalysis.Lightup.Test.V4_12_0\CodeAnalysis.Lightup.Test.V4_12_0.csproj", "{BF54F48A-2353-4D6A-886E-4B7108BE7621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V1_3_2", "ref\CodeAnalysis.Lightup.Reference.V1_3_2\CodeAnalysis.Lightup.Reference.V1_3_2.csproj", "{FA7C792E-46E2-4984-8940-0C033D451231}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V1_3_0", "ref\CodeAnalysis.Lightup.Reference.V1_3_0\CodeAnalysis.Lightup.Reference.V1_3_0.csproj", "{FA7C792E-46E2-4984-8940-0C033D451231}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V2_0_0", "ref\CodeAnalysis.Lightup.Reference.V2_0_0\CodeAnalysis.Lightup.Reference.V2_0_0.csproj", "{F9B5004C-56C3-4734-A89F-831714E736E5}"
 EndProject
