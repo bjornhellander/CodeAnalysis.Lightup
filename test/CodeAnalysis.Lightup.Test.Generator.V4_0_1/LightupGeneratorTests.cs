@@ -227,6 +227,14 @@ namespace Microsoft.CodeAnalysis.Lightup
 }
 ";
 
+    private static readonly Dictionary<AssemblyKind, string> AssemblyKindStrings = new()
+    {
+        [AssemblyKind.Common] = "Microsoft.CodeAnalysis.Common",
+        [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp",
+        [AssemblyKind.WorkspacesCommon] = "Microsoft.CodeAnalysis.Workspaces.Common",
+        [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Workspaces",
+    };
+
     private static readonly Dictionary<AssemblyKind, string> ExampleTypeNames = new()
     {
         [AssemblyKind.Common] = "Microsoft.CodeAnalysis.IOperation",
@@ -1115,7 +1123,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         });
 
         var configFileContent = $@"{{
-	{(assemblyKind != null ? $@"""assemblies"": [ ""{assemblyKind}"" ]," : "")}
+	{(assemblyKind != null ? $@"""assemblies"": [ ""{(assemblyKind != null ? AssemblyKindStrings[assemblyKind.Value] : "")}"" ]," : "")}
 	{(baselineVersion != null ? $@"""baselineVersion"": ""{baselineVersion}""," : "")}
     ""includeTypes"": [ {string.Join(", ", typesToInclude.Select(x => $@"""{x}"""))} ],
     ""useFoldersInFilePaths"": {(useFoldersInFilePaths.Value ? "true" : "false")}

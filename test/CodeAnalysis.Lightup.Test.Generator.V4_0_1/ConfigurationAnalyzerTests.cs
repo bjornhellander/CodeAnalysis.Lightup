@@ -98,7 +98,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: ''. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: ''. Expected one of these: Microsoft.CodeAnalysis.Common, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Workspaces.Common, Microsoft.CodeAnalysis.CSharp.Workspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -130,7 +130,7 @@ public class ConfigurationAnalyzerTests
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: 'Xyz'. Expected one of these: Common, CSharp, WorkspacesCommon, CSharpWorkspaces.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: 'Xyz'. Expected one of these: Microsoft.CodeAnalysis.Common, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Workspaces.Common, Microsoft.CodeAnalysis.CSharp.Workspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -140,7 +140,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
 }}";
 
@@ -155,7 +155,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  """",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
 }}";
@@ -171,7 +171,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""Xyz"",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
 }}";
@@ -187,7 +187,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
 	""baselineVersion"":  ""3.8.0.0"",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
@@ -204,7 +204,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
     ""includeTypes"": """"
@@ -221,7 +221,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
     ""includeTypes"": [false]
@@ -243,7 +243,7 @@ public class ConfigurationAnalyzerTests
 
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0""
 }}";
 
@@ -258,7 +258,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": """"
 }}";
@@ -274,7 +274,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": ""Xyz""
 }}";
@@ -290,7 +290,7 @@ public class ConfigurationAnalyzerTests
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Common"", ""CSharp"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"", ""Microsoft.CodeAnalysis.CSharp"" ],
 	""baselineVersion"":  ""3.0.0.0""
     ""useFoldersInFilePaths"": true,
     ""useFoldersInFilePaths"": false
@@ -312,7 +312,7 @@ public class ConfigurationAnalyzerTests
 
         var content = $@"
 {{
-	""assemblies"": [ ""Common"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": true
 }}";
@@ -332,7 +332,7 @@ public class ConfigurationAnalyzerTests
         {
             var configFileContent = content ?? $@"
 {{
-	""assemblies"": [ ""Common"", ""CSharp"", ""WorkspacesCommon"", ""CSharpWorkspaces"" ],
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"", ""Microsoft.CodeAnalysis.CSharp"", ""Microsoft.CodeAnalysis.Workspaces.Common"", ""Microsoft.CodeAnalysis.CSharp.Workspaces"" ],
 	""baselineVersion"":  ""3.0.0.0"",
     ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
     ""includeTypes"": [ ""abc"" ]
