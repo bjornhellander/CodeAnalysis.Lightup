@@ -9,7 +9,7 @@ public partial class RenamerEx {
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentActionSet";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Rename.Lightup.RenamerEx.RenameDocumentActionWrapper> ApplicableActionsGetterDelegate(global::System.Object _obj);
 

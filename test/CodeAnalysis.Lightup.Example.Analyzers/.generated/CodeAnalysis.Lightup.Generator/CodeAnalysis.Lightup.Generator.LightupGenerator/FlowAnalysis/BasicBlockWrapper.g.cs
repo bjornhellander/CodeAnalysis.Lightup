@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.BasicBlock";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IOperation? BranchValueGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowBranchWrapper? ConditionalSuccessorGetterDelegate(global::System.Object _obj);

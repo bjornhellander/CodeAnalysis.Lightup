@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.CasePatternSwitchLabelSyntax";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken ColonTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken KeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj);

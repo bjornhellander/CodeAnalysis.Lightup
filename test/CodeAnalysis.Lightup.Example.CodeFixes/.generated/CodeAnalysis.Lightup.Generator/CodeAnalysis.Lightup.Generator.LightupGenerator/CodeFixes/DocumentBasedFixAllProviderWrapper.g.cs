@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeFixes.DocumentBasedFixAllProvider";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsyncDelegate0(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider _obj, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopesDelegate1(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider _obj);

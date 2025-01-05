@@ -7,7 +7,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public struct SeparatedSyntaxListWrapper<TNode>
     {
-        private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);

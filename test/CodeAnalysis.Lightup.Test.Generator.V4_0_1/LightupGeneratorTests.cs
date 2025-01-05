@@ -27,7 +27,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     public struct SeparatedSyntaxListWrapper<TNode>
     {
-        private static readonly global::System.Type? WrappedType; // NOTE: Possibly used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
@@ -476,7 +476,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.SourceGeneratedDocument"";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
@@ -655,7 +655,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation"";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IOperation? InitializerGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::System.Object _obj);
@@ -739,7 +739,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.DocumentActiveContextChangedEventArgs"";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate DocumentActiveContextChangedEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Solution? solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer? sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId? oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId? newActiveContextDocumentId);
 
@@ -857,7 +857,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax"";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseBracketTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? DesignationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);

@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ImportedXmlNamespace";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxReference? DeclaringSyntaxReferenceGetterDelegate(global::System.Object _obj);
         private delegate global::System.String XmlNamespaceGetterDelegate(global::System.Object _obj);

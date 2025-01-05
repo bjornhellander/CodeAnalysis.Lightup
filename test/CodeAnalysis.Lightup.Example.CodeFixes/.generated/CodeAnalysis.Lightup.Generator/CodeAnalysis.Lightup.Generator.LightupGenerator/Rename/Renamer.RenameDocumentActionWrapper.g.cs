@@ -9,7 +9,7 @@ public partial class RenamerEx {
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.Renamer+RenameDocumentAction";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String GetDescriptionDelegate0(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrorsDelegate1(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);

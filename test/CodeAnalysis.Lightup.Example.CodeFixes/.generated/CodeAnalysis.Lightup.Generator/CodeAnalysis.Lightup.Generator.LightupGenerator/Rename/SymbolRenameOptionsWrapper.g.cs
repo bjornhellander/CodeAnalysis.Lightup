@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Rename.SymbolRenameOptions";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate SymbolRenameOptionsWrapper ConstructorDelegate0(global::System.Boolean RenameOverloads, global::System.Boolean RenameInStrings, global::System.Boolean RenameInComments, global::System.Boolean RenameFile);
 

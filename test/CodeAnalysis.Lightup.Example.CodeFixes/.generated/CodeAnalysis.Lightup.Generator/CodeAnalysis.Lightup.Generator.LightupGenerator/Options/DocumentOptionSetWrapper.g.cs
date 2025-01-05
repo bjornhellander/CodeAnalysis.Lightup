@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Options.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Options.DocumentOptionSet";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private readonly global::Microsoft.CodeAnalysis.Options.OptionSet wrappedObject;
 

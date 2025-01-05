@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationWalker";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate void DefaultVisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation operation);
         private delegate void VisitDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation? operation);

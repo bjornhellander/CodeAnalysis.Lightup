@@ -11,7 +11,7 @@ public partial struct ReversedWrapper {
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList+Reversed+Enumerator";
 
-        private static readonly global::System.Type? WrappedType; // NOTE: Used via reflection
+        private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object _obj);
 
