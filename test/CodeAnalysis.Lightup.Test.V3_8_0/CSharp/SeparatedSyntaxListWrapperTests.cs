@@ -39,10 +39,22 @@ public partial class SeparatedSyntaxListWrapperTests
         var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.Count);
 
-        obj = obj.Add(SyntaxFactory.RecordDeclaration(
-            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
-            "abc"));
+        obj = obj.Add(CreateNativeItem());
         wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(1, wrapper.Count);
+    }
+
+    [TestMethod]
+    public void TestAddGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.Count);
+
+        var newNativeItem = CreateNativeItem();
+        var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
+
+        wrapper = wrapper.Add(newWrappedItem);
         Assert.AreEqual(1, wrapper.Count);
     }
 
@@ -53,9 +65,7 @@ public partial class SeparatedSyntaxListWrapperTests
         var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.Count);
 
-        var newNativeItem = SyntaxFactory.RecordDeclaration(
-            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
-            "abc");
+        var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
 
         wrapper = wrapper.AddRange([newWrappedItem]);
@@ -69,12 +79,17 @@ public partial class SeparatedSyntaxListWrapperTests
         var wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.Count);
 
-        var newNativeItem = SyntaxFactory.RecordDeclaration(
-            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
-            "abc");
+        var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
 
         wrapper = wrapper.Insert(0, newWrappedItem);
         Assert.AreEqual(1, wrapper.Count);
+    }
+
+    private static RecordDeclarationSyntax CreateNativeItem()
+    {
+        return SyntaxFactory.RecordDeclaration(
+                    SyntaxFactory.Token(SyntaxKind.RecordKeyword),
+                    "abc");
     }
 }
