@@ -62,6 +62,25 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestFullSpanGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.FullSpan.Start);
+        Assert.AreEqual(0, wrapper.FullSpan.End);
+
+        obj = obj.Add(CreateNativeItem());
+        wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.FullSpan.Start);
+        Assert.AreEqual(9, wrapper.FullSpan.End);
+
+        obj = obj.Add(CreateNativeItem());
+        wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.FullSpan.Start);
+        Assert.AreEqual(19, wrapper.FullSpan.End);
+    }
+
+    [TestMethod]
     public void TestIndexerGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
