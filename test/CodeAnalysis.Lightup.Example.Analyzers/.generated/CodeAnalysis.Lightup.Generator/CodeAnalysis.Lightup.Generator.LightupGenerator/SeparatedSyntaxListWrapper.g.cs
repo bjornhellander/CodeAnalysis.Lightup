@@ -11,6 +11,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
+        private delegate TNode IndexerDelegate(object obj, int index);
         private delegate TNode FirstDelegate(object obj);
         private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate TNode LastDelegate(object obj);
@@ -28,6 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate SeparatedSyntaxListWrapper<TNode> RemoveDelegate(object obj, TNode node);
 
         private static readonly CountDelegate CountAccessor;
+        private static readonly IndexerDelegate IndexerAccessor;
         private static readonly FirstDelegate FirstAccessor;
         private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly LastDelegate LastAccessor;
@@ -55,6 +57,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            IndexerAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexerDelegate>(WrappedType, "get_Item", "indexInt32");
             FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
             FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
@@ -99,7 +102,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public TNode this[int index]
         {
-             get { throw new global::System.NotImplementedException(); }
+             get { return IndexerAccessor(wrappedObject, index); }
         }
 
         //public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)

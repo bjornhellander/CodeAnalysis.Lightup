@@ -45,6 +45,17 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestIndexerGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.AddRange([CreateNativeItem("a"), CreateNativeItem("b")]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual("a", wrapper[0].Identifier.Text);
+        Assert.AreEqual("b", wrapper[1].Identifier.Text);
+    }
+
+    [TestMethod]
     public void TestFirstGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
