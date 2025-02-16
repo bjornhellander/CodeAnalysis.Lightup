@@ -158,6 +158,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate int CountDelegate(object obj);
         private delegate TNode IndexerDelegate(object obj, int index);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken GetSeparatorDelegate(object obj, int index);
         private delegate TNode FirstDelegate(object obj);
         private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate TNode LastDelegate(object obj);
@@ -179,6 +180,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly CountDelegate CountAccessor;
         private static readonly IndexerDelegate IndexerAccessor;
+        private static readonly GetSeparatorDelegate GetSeparatorAccessor;
         private static readonly FirstDelegate FirstAccessor;
         private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly LastDelegate LastAccessor;
@@ -210,6 +212,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
             IndexerAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexerDelegate>(WrappedType, ""get_Item"", ""indexInt32"");
+            GetSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorDelegate>(WrappedType, nameof(GetSeparator), ""indexInt32"");
             FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
             FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
@@ -288,7 +291,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
         {{
-             throw new global::System.NotImplementedException();
+             return GetSeparatorAccessor(wrappedObject, index);
         }}
 
         public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
