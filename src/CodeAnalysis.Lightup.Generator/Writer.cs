@@ -164,6 +164,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate bool ContainsDelegate(object obj, TNode node);
         private delegate int IndexOfNodeDelegate(object obj, TNode node);
         private delegate int IndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
+        private delegate int LastIndexOfNodeDelegate(object obj, TNode node);
+        private delegate int LastIndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
         private delegate SeparatedSyntaxListWrapper<TNode> AddDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
@@ -178,6 +180,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly ContainsDelegate ContainsAccessor;
         private static readonly IndexOfNodeDelegate IndexOfNodeAccessor;
         private static readonly IndexOfPredicateDelegate IndexOfPredicateAccessor;
+        private static readonly LastIndexOfNodeDelegate LastIndexOfNodeAccessor;
+        private static readonly LastIndexOfPredicateDelegate LastIndexOfPredicateAccessor;
         private static readonly AddDelegate AddAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
         private static readonly InsertDelegate InsertAccessor;
@@ -202,6 +206,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             ContainsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsDelegate>(WrappedType, nameof(Contains), ""node"" + wrappedNodeTypeName);
             IndexOfNodeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexOfNodeDelegate>(WrappedType, nameof(IndexOf), ""node"" + wrappedNodeTypeName);
             IndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexOfPredicateDelegate>(WrappedType, nameof(IndexOf), ""predicateFunc`2"");
+            LastIndexOfNodeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfNodeDelegate>(WrappedType, nameof(LastIndexOf), ""node"" + wrappedNodeTypeName);
+            LastIndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfPredicateDelegate>(WrappedType, nameof(LastIndexOf), ""predicateFunc`2"");
             AddAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDelegate>(WrappedType, nameof(Add), ""node"" + wrappedNodeTypeName);
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
             InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), ""indexInt32"", ""node"" + wrappedNodeTypeName);
@@ -322,12 +328,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public int LastIndexOf(TNode node)
         {{
-             throw new global::System.NotImplementedException();
+            return LastIndexOfNodeAccessor(wrappedObject, node);
         }}
 
         public int LastIndexOf(global::System.Func<TNode, bool> predicate)
         {{
-             throw new global::System.NotImplementedException();
+            return LastIndexOfPredicateAccessor(wrappedObject, predicate);
         }}
 
         public bool Any()

@@ -147,6 +147,37 @@ public partial class SeparatedSyntaxListWrapperTests
         Assert.AreEqual(0, wrapper.IndexOf(x => x.Identifier.Text == "x"));
         Assert.AreEqual(1, wrapper.IndexOf(x => x.Identifier.Text == "y"));
         Assert.AreEqual(-1, wrapper.IndexOf(x => x.Identifier.Text == "z"));
+        Assert.AreEqual(0, wrapper.IndexOf(x => true));
+    }
+
+    [TestMethod]
+    public void TestLastIndexOfNodeGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var nativeItem1 = CreateNativeItem("x");
+        var nativeItem2 = CreateNativeItem("y");
+        var nativeItem3 = CreateNativeItem("z");
+        obj = obj.AddRange([nativeItem1, nativeItem2]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual(0, wrapper.LastIndexOf(wrapper.First()));
+        Assert.AreEqual(1, wrapper.LastIndexOf(wrapper.Last()));
+        Assert.AreEqual(-1, wrapper.LastIndexOf(RecordDeclarationSyntaxWrapper.Wrap(nativeItem3)));
+    }
+
+    [TestMethod]
+    public void TestLastIndexOfPredicateGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var nativeItem1 = CreateNativeItem("x");
+        var nativeItem2 = CreateNativeItem("y");
+        obj = obj.AddRange([nativeItem1, nativeItem2]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual(0, wrapper.LastIndexOf(x => x.Identifier.Text == "x"));
+        Assert.AreEqual(1, wrapper.LastIndexOf(x => x.Identifier.Text == "y"));
+        Assert.AreEqual(-1, wrapper.LastIndexOf(x => x.Identifier.Text == "z"));
+        Assert.AreEqual(1, wrapper.LastIndexOf(x => true));
     }
 
     [TestMethod]
