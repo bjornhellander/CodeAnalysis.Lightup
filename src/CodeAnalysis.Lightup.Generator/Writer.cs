@@ -156,9 +156,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate int CountDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
+        private static readonly InsertDelegate InsertAccessor;
 
         private readonly object wrappedObject;
 
@@ -167,10 +169,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrapperNodeType = typeof(TNode);
             var wrappedNodeTypeField = wrapperNodeType.GetField(""WrappedType"", global::System.Reflection.BindingFlags.Static | global::System.Reflection.BindingFlags.NonPublic);
             var wrappedNodeType = (global::System.Type)wrappedNodeTypeField.GetValue(null);
+            var wrappedNodeTypeName = wrappedNodeType?.Name;
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
+            InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), ""indexInt32"", ""node"" + wrappedNodeTypeName);
         }}
 
         private SeparatedSyntaxListWrapper(object obj)
@@ -316,7 +320,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
         {{
-             throw new global::System.NotImplementedException();
+             return InsertAccessor(wrappedObject, index, node);
         }}
 
         public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)

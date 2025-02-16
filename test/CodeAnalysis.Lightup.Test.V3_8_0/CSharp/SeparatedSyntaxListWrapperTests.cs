@@ -61,4 +61,20 @@ public partial class SeparatedSyntaxListWrapperTests
         wrapper = wrapper.AddRange([newWrappedItem]);
         Assert.AreEqual(1, wrapper.Count);
     }
+
+    [TestMethod]
+    public void TestInsertGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.Count);
+
+        var newNativeItem = SyntaxFactory.RecordDeclaration(
+            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
+            "abc");
+        var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
+
+        wrapper = wrapper.Insert(0, newWrappedItem);
+        Assert.AreEqual(1, wrapper.Count);
+    }
 }
