@@ -64,20 +64,21 @@ public partial class SeparatedSyntaxListWrapperTests
     [TestMethod]
     public void TestFullSpanGivenCompatibleObject()
     {
-        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>).Add(CreateNativeItem().WithTrailingTrivia(SyntaxFactory.Space));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.FullSpan.Start);
-        Assert.AreEqual(0, wrapper.FullSpan.End);
 
-        obj = obj.Add(CreateNativeItem());
-        wrapper = Wrapper.Wrap(obj);
         Assert.AreEqual(0, wrapper.FullSpan.Start);
-        Assert.AreEqual(9, wrapper.FullSpan.End);
+        Assert.AreEqual(10, wrapper.FullSpan.End);
+    }
 
-        obj = obj.Add(CreateNativeItem());
-        wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.FullSpan.Start);
-        Assert.AreEqual(19, wrapper.FullSpan.End);
+    [TestMethod]
+    public void TestSpanGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>).Add(CreateNativeItem().WithTrailingTrivia(SyntaxFactory.Space));
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual(0, wrapper.Span.Start);
+        Assert.AreEqual(9, wrapper.Span.End);
     }
 
     [TestMethod]

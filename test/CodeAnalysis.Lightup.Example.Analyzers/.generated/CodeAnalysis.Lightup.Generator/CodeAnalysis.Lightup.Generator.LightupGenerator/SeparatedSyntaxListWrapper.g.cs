@@ -13,6 +13,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate int CountDelegate(object obj);
         private delegate int SeparatorCountDelegate(object obj);
         private delegate global::Microsoft.CodeAnalysis.Text.TextSpan FullSpanDelegate(object obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.TextSpan SpanDelegate(object obj);
         private delegate TNode IndexerDelegate(object obj, int index);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken GetSeparatorDelegate(object obj, int index);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparatorsDelegate(object obj);
@@ -40,6 +41,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CountDelegate CountAccessor;
         private static readonly SeparatorCountDelegate SeparatorCountAccessor;
         private static readonly FullSpanDelegate FullSpanAccessor;
+        private static readonly SpanDelegate SpanAccessor;
         private static readonly IndexerDelegate IndexerAccessor;
         private static readonly GetSeparatorDelegate GetSeparatorAccessor;
         private static readonly GetSeparatorsDelegate GetSeparatorsAccessor;
@@ -77,6 +79,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
             SeparatorCountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SeparatorCountDelegate>(WrappedType, nameof(SeparatorCount));
             FullSpanAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<FullSpanDelegate>(WrappedType, nameof(FullSpan));
+            SpanAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SpanDelegate>(WrappedType, nameof(Span));
             IndexerAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexerDelegate>(WrappedType, "get_Item", "indexInt32");
             GetSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorDelegate>(WrappedType, nameof(GetSeparator), "indexInt32");
             GetSeparatorsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorsDelegate>(WrappedType, nameof(GetSeparators));
@@ -124,7 +127,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan Span
         {
-             get { throw new global::System.NotImplementedException(); }
+            get { return SpanAccessor(wrappedObject); }
         }
 
         public TNode this[int index]
