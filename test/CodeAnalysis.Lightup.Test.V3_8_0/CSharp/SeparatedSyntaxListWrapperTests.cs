@@ -45,6 +45,18 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestFirstGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(2, wrapper.Count);
+
+        var result = wrapper.First();
+        Assert.AreEqual("a", result.Identifier.Text);
+    }
+
+    [TestMethod]
     public void TestAddGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
@@ -100,10 +112,30 @@ public partial class SeparatedSyntaxListWrapperTests
         Assert.AreEqual(1, wrapper.Count);
     }
 
-    private static RecordDeclarationSyntax CreateNativeItem()
+    [TestMethod]
+    public void TestRemoveAtGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("abc"));
+        obj = obj.Add(CreateNativeItem("def"));
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(2, wrapper.Count);
+
+        wrapper = wrapper.RemoveAt(0);
+        Assert.AreEqual(1, wrapper.Count);
+        obj = Unwrap(wrapper);
+        Assert.AreEqual("def", obj[0].Identifier.Text);
+    }
+
+    private static RecordDeclarationSyntax CreateNativeItem(string identifier = "abc")
     {
         return SyntaxFactory.RecordDeclaration(
-                    SyntaxFactory.Token(SyntaxKind.RecordKeyword),
-                    "abc");
+            SyntaxFactory.Token(SyntaxKind.RecordKeyword),
+            identifier);
+    }
+
+    private static SeparatedSyntaxList<RecordDeclarationSyntax> Unwrap(Wrapper wrapper)
+    {
+        return (SeparatedSyntaxList<RecordDeclarationSyntax>)wrapper.Unwrap();
     }
 }
