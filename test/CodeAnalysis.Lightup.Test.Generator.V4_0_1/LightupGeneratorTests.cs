@@ -31,6 +31,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
+        private delegate int SeparatorCountDelegate(object obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.TextSpan FullSpanDelegate(object obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.TextSpan SpanDelegate(object obj);
+        private delegate TNode IndexerDelegate(object obj, int index);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken GetSeparatorDelegate(object obj, int index);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparatorsDelegate(object obj);
+        private delegate string ToStringDelegate(object obj);
+        private delegate string ToFullStringDelegate(object obj);
         private delegate TNode FirstDelegate(object obj);
         private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate TNode LastDelegate(object obj);
@@ -40,14 +48,27 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate int IndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
         private delegate int LastIndexOfNodeDelegate(object obj, TNode node);
         private delegate int LastIndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
+        private delegate bool AnyDelegate(object obj);
+        private delegate SyntaxNodeOrTokenList GetWithSeparatorsDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> InsertRangeDelegate(object obj, int index, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> RemoveAtDelegate(object obj, int index);
         private delegate SeparatedSyntaxListWrapper<TNode> RemoveDelegate(object obj, TNode node);
+        private delegate SeparatedSyntaxListWrapper<TNode> ReplaceDelegate(object obj, TNode nodeInList, TNode newNode);
+        private delegate SeparatedSyntaxListWrapper<TNode> ReplaceRangeDelegate(object obj, TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes);
+        private delegate SeparatedSyntaxListWrapper<TNode> ReplaceSeparatorDelegate(object obj, global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator);
 
         private static readonly CountDelegate CountAccessor;
+        private static readonly SeparatorCountDelegate SeparatorCountAccessor;
+        private static readonly FullSpanDelegate FullSpanAccessor;
+        private static readonly SpanDelegate SpanAccessor;
+        private static readonly IndexerDelegate IndexerAccessor;
+        private static readonly GetSeparatorDelegate GetSeparatorAccessor;
+        private static readonly GetSeparatorsDelegate GetSeparatorsAccessor;
+        private static readonly ToStringDelegate ToStringAccessor;
+        private static readonly ToFullStringDelegate ToFullStringAccessor;
         private static readonly FirstDelegate FirstAccessor;
         private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly LastDelegate LastAccessor;
@@ -57,12 +78,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly IndexOfPredicateDelegate IndexOfPredicateAccessor;
         private static readonly LastIndexOfNodeDelegate LastIndexOfNodeAccessor;
         private static readonly LastIndexOfPredicateDelegate LastIndexOfPredicateAccessor;
+        private static readonly AnyDelegate AnyAccessor;
+        private static readonly GetWithSeparatorsDelegate GetWithSeparatorsAccessor;
         private static readonly AddDelegate AddAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
         private static readonly InsertDelegate InsertAccessor;
         private static readonly InsertRangeDelegate InsertRangeAccessor;
         private static readonly RemoveAtDelegate RemoveAtAccessor;
         private static readonly RemoveDelegate RemoveAccessor;
+        private static readonly ReplaceDelegate ReplaceAccessor;
+        private static readonly ReplaceRangeDelegate ReplaceRangeAccessor;
+        private static readonly ReplaceSeparatorDelegate ReplaceSeparatorAccessor;
 
         private readonly object wrappedObject;
 
@@ -75,6 +101,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            SeparatorCountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SeparatorCountDelegate>(WrappedType, nameof(SeparatorCount));
+            FullSpanAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<FullSpanDelegate>(WrappedType, nameof(FullSpan));
+            SpanAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SpanDelegate>(WrappedType, nameof(Span));
+            IndexerAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexerDelegate>(WrappedType, ""get_Item"", ""indexInt32"");
+            GetSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorDelegate>(WrappedType, nameof(GetSeparator), ""indexInt32"");
+            GetSeparatorsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorsDelegate>(WrappedType, nameof(GetSeparators));
+            ToStringAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToStringDelegate>(WrappedType, nameof(ToString));
+            ToFullStringAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToFullStringDelegate>(WrappedType, nameof(ToFullString));
             FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
             FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
@@ -84,12 +118,17 @@ namespace Microsoft.CodeAnalysis.Lightup
             IndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexOfPredicateDelegate>(WrappedType, nameof(IndexOf), ""predicateFunc`2"");
             LastIndexOfNodeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfNodeDelegate>(WrappedType, nameof(LastIndexOf), ""node"" + wrappedNodeTypeName);
             LastIndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfPredicateDelegate>(WrappedType, nameof(LastIndexOf), ""predicateFunc`2"");
+            AnyAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AnyDelegate>(WrappedType, nameof(Any));
+            GetWithSeparatorsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetWithSeparatorsDelegate>(WrappedType, nameof(GetWithSeparators));
             AddAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDelegate>(WrappedType, nameof(Add), ""node"" + wrappedNodeTypeName);
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
             InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), ""indexInt32"", ""node"" + wrappedNodeTypeName);
             InsertRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertRangeDelegate>(WrappedType, nameof(InsertRange), ""indexInt32"", ""nodesIEnumerable`1"");
             RemoveAtAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveAtDelegate>(WrappedType, nameof(RemoveAt), ""indexInt32"");
             RemoveAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveDelegate>(WrappedType, nameof(Remove), ""node"" + wrappedNodeTypeName);
+            ReplaceAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ReplaceDelegate>(WrappedType, nameof(Replace), ""nodeInList"" + wrappedNodeTypeName, ""newNode"" + wrappedNodeTypeName);
+            ReplaceRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ReplaceRangeDelegate>(WrappedType, nameof(ReplaceRange), ""nodeInList"" + wrappedNodeTypeName, ""newNodesIEnumerable`1"");
+            ReplaceSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ReplaceSeparatorDelegate>(WrappedType, nameof(ReplaceSeparator), ""separatorTokenSyntaxToken"", ""newSeparatorSyntaxToken"");
         }
 
         private SeparatedSyntaxListWrapper(object obj)
@@ -104,22 +143,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public int SeparatorCount
         {
-            get { throw new global::System.NotImplementedException(); }
+            get { return SeparatorCountAccessor(wrappedObject); }
         }
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan
         {
-             get { throw new global::System.NotImplementedException(); }
+            get { return FullSpanAccessor(wrappedObject); }
         }
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan Span
         {
-             get { throw new global::System.NotImplementedException(); }
+            get { return SpanAccessor(wrappedObject); }
         }
 
         public TNode this[int index]
         {
-             get { throw new global::System.NotImplementedException(); }
+             get { return IndexerAccessor(wrappedObject, index); }
         }
 
         //public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
@@ -150,22 +189,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
         {
-             throw new global::System.NotImplementedException();
+             return GetSeparatorAccessor(wrappedObject, index);
         }
 
         public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparators()
         {
-             throw new global::System.NotImplementedException();
+             return GetSeparatorsAccessor(wrappedObject);
         }
 
         public override string ToString()
         {
-             throw new global::System.NotImplementedException();
+             return ToStringAccessor(wrappedObject);
         }
 
         public string ToFullString()
         {
-             throw new global::System.NotImplementedException();
+             return ToFullStringAccessor(wrappedObject);
         }
 
         public TNode First()
@@ -215,12 +254,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public bool Any()
         {
-             throw new global::System.NotImplementedException();
+            return AnyAccessor(wrappedObject);
         }
 
         public SyntaxNodeOrTokenList GetWithSeparators()
         {
-             throw new global::System.NotImplementedException();
+             return GetWithSeparatorsAccessor(wrappedObject);
         }
 
         public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
@@ -255,17 +294,17 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
         {
-             throw new global::System.NotImplementedException();
+             return ReplaceAccessor(wrappedObject, nodeInList, newNode);
         }
 
         public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)
         {
-             throw new global::System.NotImplementedException();
+             return ReplaceRangeAccessor(wrappedObject, nodeInList, newNodes);
         }
 
         public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
         {
-             throw new global::System.NotImplementedException();
+             return ReplaceSeparatorAccessor(wrappedObject, separatorToken, newSeparator);
         }
     }
 }
