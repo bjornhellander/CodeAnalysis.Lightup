@@ -26,14 +26,43 @@ public class LightupGeneratorTests
 namespace Microsoft.CodeAnalysis.Lightup
 {
     public struct SeparatedSyntaxListWrapper<TNode>
+        where TNode : struct
     {
         private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
+        private delegate TNode FirstDelegate(object obj);
+        private delegate TNode? FirstOrDefaultDelegate(object obj);
+        private delegate TNode LastDelegate(object obj);
+        private delegate TNode? LastOrDefaultDelegate(object obj);
+        private delegate bool ContainsDelegate(object obj, TNode node);
+        private delegate int IndexOfNodeDelegate(object obj, TNode node);
+        private delegate int IndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
+        private delegate int LastIndexOfNodeDelegate(object obj, TNode node);
+        private delegate int LastIndexOfPredicateDelegate(object obj, global::System.Func<TNode, bool> predicate);
+        private delegate SeparatedSyntaxListWrapper<TNode> AddDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
+        private delegate SeparatedSyntaxListWrapper<TNode> InsertRangeDelegate(object obj, int index, global::System.Collections.Generic.IEnumerable<TNode> arg1);
+        private delegate SeparatedSyntaxListWrapper<TNode> RemoveAtDelegate(object obj, int index);
+        private delegate SeparatedSyntaxListWrapper<TNode> RemoveDelegate(object obj, TNode node);
 
         private static readonly CountDelegate CountAccessor;
+        private static readonly FirstDelegate FirstAccessor;
+        private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
+        private static readonly LastDelegate LastAccessor;
+        private static readonly LastOrDefaultDelegate LastOrDefaultAccessor;
+        private static readonly ContainsDelegate ContainsAccessor;
+        private static readonly IndexOfNodeDelegate IndexOfNodeAccessor;
+        private static readonly IndexOfPredicateDelegate IndexOfPredicateAccessor;
+        private static readonly LastIndexOfNodeDelegate LastIndexOfNodeAccessor;
+        private static readonly LastIndexOfPredicateDelegate LastIndexOfPredicateAccessor;
+        private static readonly AddDelegate AddAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
+        private static readonly InsertDelegate InsertAccessor;
+        private static readonly InsertRangeDelegate InsertRangeAccessor;
+        private static readonly RemoveAtDelegate RemoveAtAccessor;
+        private static readonly RemoveDelegate RemoveAccessor;
 
         private readonly object wrappedObject;
 
@@ -42,10 +71,25 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrapperNodeType = typeof(TNode);
             var wrappedNodeTypeField = wrapperNodeType.GetField(""WrappedType"", global::System.Reflection.BindingFlags.Static | global::System.Reflection.BindingFlags.NonPublic);
             var wrappedNodeType = (global::System.Type)wrappedNodeTypeField.GetValue(null);
+            var wrappedNodeTypeName = wrappedNodeType?.Name;
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
+            FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
+            LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
+            LastOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastOrDefaultDelegate>(WrappedType, nameof(LastOrDefault));
+            ContainsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsDelegate>(WrappedType, nameof(Contains), ""node"" + wrappedNodeTypeName);
+            IndexOfNodeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexOfNodeDelegate>(WrappedType, nameof(IndexOf), ""node"" + wrappedNodeTypeName);
+            IndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexOfPredicateDelegate>(WrappedType, nameof(IndexOf), ""predicateFunc`2"");
+            LastIndexOfNodeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfNodeDelegate>(WrappedType, nameof(LastIndexOf), ""node"" + wrappedNodeTypeName);
+            LastIndexOfPredicateAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastIndexOfPredicateDelegate>(WrappedType, nameof(LastIndexOf), ""predicateFunc`2"");
+            AddAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDelegate>(WrappedType, nameof(Add), ""node"" + wrappedNodeTypeName);
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
+            InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), ""indexInt32"", ""node"" + wrappedNodeTypeName);
+            InsertRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertRangeDelegate>(WrappedType, nameof(InsertRange), ""indexInt32"", ""nodesIEnumerable`1"");
+            RemoveAtAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveAtDelegate>(WrappedType, nameof(RemoveAt), ""indexInt32"");
+            RemoveAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveDelegate>(WrappedType, nameof(Remove), ""node"" + wrappedNodeTypeName);
         }
 
         private SeparatedSyntaxListWrapper(object obj)
@@ -78,15 +122,15 @@ namespace Microsoft.CodeAnalysis.Lightup
              get { throw new global::System.NotImplementedException(); }
         }
 
-        public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
-        {
-             throw new global::System.NotImplementedException();
-        }
+        //public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
+        //{
+        //     throw new global::System.NotImplementedException();
+        //}
 
-        public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
-        {
-             throw new global::System.NotImplementedException();
-        }
+        //public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
+        //{
+        //     throw new global::System.NotImplementedException();
+        //}
 
         public static bool Is(object? obj)
         {
@@ -126,47 +170,47 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public TNode First()
         {
-             throw new global::System.NotImplementedException();
+             return FirstAccessor(wrappedObject);
         }
 
-        public TNode FirstOrDefault()
+        public TNode? FirstOrDefault()
         {
-            throw new global::System.NotImplementedException();
+             return FirstOrDefaultAccessor(wrappedObject);
         }
 
         public TNode Last()
         {
-             throw new global::System.NotImplementedException();
+             return LastAccessor(wrappedObject);
         }
 
-        public TNode LastOrDefault()
+        public TNode? LastOrDefault()
         {
-             throw new global::System.NotImplementedException();
+             return LastOrDefaultAccessor(wrappedObject);
         }
 
         public bool Contains(TNode node)
         {
-             throw new global::System.NotImplementedException();
+             return ContainsAccessor(wrappedObject, node);
         }
 
         public int IndexOf(TNode node)
         {
-             throw new global::System.NotImplementedException();
+            return IndexOfNodeAccessor(wrappedObject, node);
         }
 
         public int IndexOf(global::System.Func<TNode, bool> predicate)
         {
-             throw new global::System.NotImplementedException();
+            return IndexOfPredicateAccessor(wrappedObject, predicate);
         }
 
         public int LastIndexOf(TNode node)
         {
-             throw new global::System.NotImplementedException();
+            return LastIndexOfNodeAccessor(wrappedObject, node);
         }
 
         public int LastIndexOf(global::System.Func<TNode, bool> predicate)
         {
-             throw new global::System.NotImplementedException();
+            return LastIndexOfPredicateAccessor(wrappedObject, predicate);
         }
 
         public bool Any()
@@ -181,7 +225,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public SeparatedSyntaxListWrapper<TNode> Add(TNode node)
         {
-             throw new global::System.NotImplementedException();
+             return AddAccessor(wrappedObject, node);
         }
 
         public SeparatedSyntaxListWrapper<TNode> AddRange(global::System.Collections.Generic.IEnumerable<TNode> nodes)
@@ -191,22 +235,22 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public SeparatedSyntaxListWrapper<TNode> Insert(int index, TNode node)
         {
-             throw new global::System.NotImplementedException();
+             return InsertAccessor(wrappedObject, index, node);
         }
 
         public SeparatedSyntaxListWrapper<TNode> InsertRange(int index, global::System.Collections.Generic.IEnumerable<TNode> nodes)
         {
-             throw new global::System.NotImplementedException();
+             return InsertRangeAccessor(wrappedObject, index, nodes);
         }
 
         public SeparatedSyntaxListWrapper<TNode> RemoveAt(int index)
         {
-             throw new global::System.NotImplementedException();
+             return RemoveAtAccessor(wrappedObject, index);
         }
 
         public SeparatedSyntaxListWrapper<TNode> Remove(TNode node)
         {
-             throw new global::System.NotImplementedException();
+             return RemoveAccessor(wrappedObject, node);
         }
 
         public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
