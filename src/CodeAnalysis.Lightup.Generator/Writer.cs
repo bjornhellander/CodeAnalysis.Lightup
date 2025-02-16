@@ -161,6 +161,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate TNode LastDelegate(object obj);
         private delegate TNode? LastOrDefaultDelegate(object obj);
+        private delegate bool ContainsDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
@@ -172,6 +173,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly LastDelegate LastAccessor;
         private static readonly LastOrDefaultDelegate LastOrDefaultAccessor;
+        private static readonly ContainsDelegate ContainsAccessor;
         private static readonly AddDelegate AddAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
         private static readonly InsertDelegate InsertAccessor;
@@ -193,6 +195,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
             LastOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastOrDefaultDelegate>(WrappedType, nameof(LastOrDefault));
+            ContainsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsDelegate>(WrappedType, nameof(Contains), ""node"" + wrappedNodeTypeName);
             AddAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDelegate>(WrappedType, nameof(Add), ""node"" + wrappedNodeTypeName);
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), ""nodesIEnumerable`1"");
             InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), ""indexInt32"", ""node"" + wrappedNodeTypeName);
@@ -298,7 +301,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public bool Contains(TNode node)
         {{
-             throw new global::System.NotImplementedException();
+             return ContainsAccessor(wrappedObject, node);
         }}
 
         public int IndexOf(TNode node)

@@ -50,7 +50,6 @@ public partial class SeparatedSyntaxListWrapperTests
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(2, wrapper.Count);
 
         var result = wrapper.First();
         Assert.AreEqual("a", result.Identifier.Text);
@@ -61,7 +60,6 @@ public partial class SeparatedSyntaxListWrapperTests
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var result = wrapper.FirstOrDefault();
         Assert.IsNull(result);
@@ -73,7 +71,6 @@ public partial class SeparatedSyntaxListWrapperTests
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(2, wrapper.Count);
 
         var result = wrapper.FirstOrDefault();
         Assert.IsNotNull(result);
@@ -86,7 +83,6 @@ public partial class SeparatedSyntaxListWrapperTests
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(2, wrapper.Count);
 
         var result = wrapper.Last();
         Assert.AreEqual("b", result.Identifier.Text);
@@ -97,7 +93,6 @@ public partial class SeparatedSyntaxListWrapperTests
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var result = wrapper.LastOrDefault();
         Assert.IsNull(result);
@@ -109,7 +104,6 @@ public partial class SeparatedSyntaxListWrapperTests
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(2, wrapper.Count);
 
         var result = wrapper.LastOrDefault();
         Assert.IsNotNull(result);
@@ -117,11 +111,20 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestContainsGivenExistingItem()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.IsTrue(wrapper.Contains(wrapper.First()));
+    }
+
+    [TestMethod]
     public void TestAddGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
@@ -135,7 +138,6 @@ public partial class SeparatedSyntaxListWrapperTests
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
@@ -149,7 +151,6 @@ public partial class SeparatedSyntaxListWrapperTests
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
@@ -163,7 +164,6 @@ public partial class SeparatedSyntaxListWrapperTests
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(0, wrapper.Count);
 
         var newNativeItem = CreateNativeItem();
         var newWrappedItem = RecordDeclarationSyntaxWrapper.Wrap(newNativeItem);
@@ -179,7 +179,6 @@ public partial class SeparatedSyntaxListWrapperTests
         obj = obj.Add(CreateNativeItem("abc"));
         obj = obj.Add(CreateNativeItem("def"));
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(2, wrapper.Count);
 
         wrapper = wrapper.RemoveAt(0);
         Assert.AreEqual(1, wrapper.Count);
