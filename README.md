@@ -66,7 +66,6 @@ The following diagnostics are reported as guidance, if no files are being genera
 - Generic types are not handled.
 - Generic members are not handled.
 - Some types, mostly related to source generators and diagnostic suppressors, are not handled.
-- SeparatedSyntaxListWrapper is very incomplete.
 - C# 6.0 is required in the consuming project(s).
 - Roslyn versions before 1.3.2 are not supported.
 
