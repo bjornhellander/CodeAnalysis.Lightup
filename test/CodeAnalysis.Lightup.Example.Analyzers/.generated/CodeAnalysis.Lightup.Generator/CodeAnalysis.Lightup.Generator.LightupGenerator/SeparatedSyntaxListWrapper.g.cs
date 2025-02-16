@@ -6,11 +6,13 @@
 namespace Microsoft.CodeAnalysis.Lightup
 {
     public struct SeparatedSyntaxListWrapper<TNode>
+        where TNode : struct
     {
         private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate TNode FirstDelegate(object obj);
+        private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate SeparatedSyntaxListWrapper<TNode> AddDelegate(object obj, TNode node);
         private delegate SeparatedSyntaxListWrapper<TNode> AddRangeDelegate(object obj, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> InsertDelegate(object obj, int index, TNode node);
@@ -19,6 +21,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly CountDelegate CountAccessor;
         private static readonly FirstDelegate FirstAccessor;
+        private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly AddDelegate AddAccessor;
         private static readonly AddRangeDelegate AddRangeAccessor;
         private static readonly InsertDelegate InsertAccessor;
@@ -37,6 +40,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
             FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
+            FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             AddAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDelegate>(WrappedType, nameof(Add), "node" + wrappedNodeTypeName);
             AddRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddRangeDelegate>(WrappedType, nameof(AddRange), "nodesIEnumerable`1");
             InsertAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertDelegate>(WrappedType, nameof(Insert), "indexInt32", "node" + wrappedNodeTypeName);
@@ -74,15 +78,15 @@ namespace Microsoft.CodeAnalysis.Lightup
              get { throw new global::System.NotImplementedException(); }
         }
 
-        public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
-        {
-             throw new global::System.NotImplementedException();
-        }
+        //public static implicit operator SeparatedSyntaxListWrapper<SyntaxNode>(SeparatedSyntaxListWrapper<TNode> nodes)
+        //{
+        //     throw new global::System.NotImplementedException();
+        //}
 
-        public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
-        {
-             throw new global::System.NotImplementedException();
-        }
+        //public static implicit operator SeparatedSyntaxListWrapper<TNode>(SeparatedSyntaxListWrapper<SyntaxNode> nodes)
+        //{
+        //     throw new global::System.NotImplementedException();
+        //}
 
         public static bool Is(object? obj)
         {
@@ -125,9 +129,9 @@ namespace Microsoft.CodeAnalysis.Lightup
              return FirstAccessor(wrappedObject);
         }
 
-        public TNode FirstOrDefault()
+        public TNode? FirstOrDefault()
         {
-            throw new global::System.NotImplementedException();
+             return FirstOrDefaultAccessor(wrappedObject);
         }
 
         public TNode Last()
