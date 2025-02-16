@@ -81,6 +81,18 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestLastGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(2, wrapper.Count);
+
+        var result = wrapper.Last();
+        Assert.AreEqual("b", result.Identifier.Text);
+    }
+
+    [TestMethod]
     public void TestAddGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
