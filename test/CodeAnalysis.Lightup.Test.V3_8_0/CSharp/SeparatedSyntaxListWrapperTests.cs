@@ -303,6 +303,19 @@ public partial class SeparatedSyntaxListWrapperTests
         Assert.AreEqual("def", wrapper.First().Identifier.Text);
     }
 
+    [TestMethod]
+    public void TestReplaceRangeGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("a"));
+        var wrapper = Wrapper.Wrap(obj);
+
+        wrapper = wrapper.ReplaceRange(wrapper.First(), [Wrap(CreateNativeItem("b")), Wrap(CreateNativeItem("c"))]);
+        Assert.AreEqual(2, wrapper.Count);
+        Assert.AreEqual("b", wrapper.First().Identifier.Text);
+        Assert.AreEqual("c", wrapper.Last().Identifier.Text);
+    }
+
     private static RecordDeclarationSyntax CreateNativeItem(string identifier = "abc")
     {
         return SyntaxFactory.RecordDeclaration(
@@ -310,8 +323,13 @@ public partial class SeparatedSyntaxListWrapperTests
             identifier);
     }
 
-    private static SeparatedSyntaxList<RecordDeclarationSyntax> Unwrap(Wrapper wrapper)
+    private static SeparatedSyntaxList<RecordDeclarationSyntax> Unwrap(Wrapper obj)
     {
-        return (SeparatedSyntaxList<RecordDeclarationSyntax>)wrapper.Unwrap();
+        return (SeparatedSyntaxList<RecordDeclarationSyntax>)obj.Unwrap();
+    }
+
+    private static RecordDeclarationSyntaxWrapper Wrap(RecordDeclarationSyntax obj)
+    {
+        return RecordDeclarationSyntaxWrapper.Wrap(obj);
     }
 }
