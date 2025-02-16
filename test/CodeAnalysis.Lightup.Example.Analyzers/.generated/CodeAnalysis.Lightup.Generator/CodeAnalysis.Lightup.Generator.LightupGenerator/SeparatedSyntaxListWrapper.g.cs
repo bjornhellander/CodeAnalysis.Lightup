@@ -11,6 +11,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
+        private delegate int SeparatorCountDelegate(object obj);
         private delegate TNode IndexerDelegate(object obj, int index);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken GetSeparatorDelegate(object obj, int index);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparatorsDelegate(object obj);
@@ -36,6 +37,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate SeparatedSyntaxListWrapper<TNode> ReplaceSeparatorDelegate(object obj, global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator);
 
         private static readonly CountDelegate CountAccessor;
+        private static readonly SeparatorCountDelegate SeparatorCountAccessor;
         private static readonly IndexerDelegate IndexerAccessor;
         private static readonly GetSeparatorDelegate GetSeparatorAccessor;
         private static readonly GetSeparatorsDelegate GetSeparatorsAccessor;
@@ -71,6 +73,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
 
             CountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CountDelegate>(WrappedType, nameof(Count));
+            SeparatorCountAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<SeparatorCountDelegate>(WrappedType, nameof(SeparatorCount));
             IndexerAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<IndexerDelegate>(WrappedType, "get_Item", "indexInt32");
             GetSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorDelegate>(WrappedType, nameof(GetSeparator), "indexInt32");
             GetSeparatorsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorsDelegate>(WrappedType, nameof(GetSeparators));
@@ -108,7 +111,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public int SeparatorCount
         {
-            get { throw new global::System.NotImplementedException(); }
+            get { return SeparatorCountAccessor(wrappedObject); }
         }
 
         public global::Microsoft.CodeAnalysis.Text.TextSpan FullSpan

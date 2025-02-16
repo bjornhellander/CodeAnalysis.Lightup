@@ -46,6 +46,22 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestSeparatorCountGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.SeparatorCount);
+
+        obj = obj.Add(CreateNativeItem());
+        wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(0, wrapper.SeparatorCount);
+
+        obj = obj.Add(CreateNativeItem());
+        wrapper = Wrapper.Wrap(obj);
+        Assert.AreEqual(1, wrapper.SeparatorCount);
+    }
+
+    [TestMethod]
     public void TestIndexerGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
