@@ -326,6 +326,19 @@ public partial class SeparatedSyntaxListWrapperTests
         Assert.AreEqual("c", wrapper.Last().Identifier.Text);
     }
 
+    [TestMethod]
+    public void TestReplaceSeparatorGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.AddRange([CreateNativeItem("a"), CreateNativeItem("b")]);
+        var wrapper = Wrapper.Wrap(obj);
+        Assert.IsTrue(wrapper.GetSeparator(0).HasTrailingTrivia);
+
+        var newToken = SyntaxFactory.Token(SyntaxKind.CommaToken).WithoutTrivia();
+        wrapper = wrapper.ReplaceSeparator(wrapper.GetSeparator(0), newToken);
+        Assert.IsFalse(wrapper.GetSeparator(0).HasTrailingTrivia);
+    }
+
     private static RecordDeclarationSyntax CreateNativeItem(string identifier = "abc")
     {
         return SyntaxFactory.RecordDeclaration(
