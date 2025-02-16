@@ -18,6 +18,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken GetSeparatorDelegate(object obj, int index);
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.SyntaxToken> GetSeparatorsDelegate(object obj);
         private delegate string ToStringDelegate(object obj);
+        private delegate string ToFullStringDelegate(object obj);
         private delegate TNode FirstDelegate(object obj);
         private delegate TNode? FirstOrDefaultDelegate(object obj);
         private delegate TNode LastDelegate(object obj);
@@ -47,6 +48,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly GetSeparatorDelegate GetSeparatorAccessor;
         private static readonly GetSeparatorsDelegate GetSeparatorsAccessor;
         private static readonly ToStringDelegate ToStringAccessor;
+        private static readonly ToFullStringDelegate ToFullStringAccessor;
         private static readonly FirstDelegate FirstAccessor;
         private static readonly FirstOrDefaultDelegate FirstOrDefaultAccessor;
         private static readonly LastDelegate LastAccessor;
@@ -86,6 +88,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetSeparatorAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorDelegate>(WrappedType, nameof(GetSeparator), "indexInt32");
             GetSeparatorsAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSeparatorsDelegate>(WrappedType, nameof(GetSeparators));
             ToStringAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToStringDelegate>(WrappedType, nameof(ToString));
+            ToFullStringAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToFullStringDelegate>(WrappedType, nameof(ToFullString));
             FirstAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstDelegate>(WrappedType, nameof(First));
             FirstOrDefaultAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<FirstOrDefaultDelegate>(WrappedType, nameof(FirstOrDefault));
             LastAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<LastDelegate>(WrappedType, nameof(Last));
@@ -181,7 +184,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public string ToFullString()
         {
-             throw new global::System.NotImplementedException();
+             return ToFullStringAccessor(wrappedObject);
         }
 
         public TNode First()

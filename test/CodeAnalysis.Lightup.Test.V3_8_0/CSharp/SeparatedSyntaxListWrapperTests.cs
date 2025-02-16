@@ -123,6 +123,16 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
+    public void TestToFullStringGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual("recorda,recordb", wrapper.ToFullString());
+    }
+
+    [TestMethod]
     public void TestFirstGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
