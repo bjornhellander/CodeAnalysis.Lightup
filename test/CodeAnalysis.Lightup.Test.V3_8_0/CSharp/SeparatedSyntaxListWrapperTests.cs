@@ -144,23 +144,18 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestFirstOrDefaultGivenEmptyCompatibleObject()
+    public void TestFirstOrDefaultGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
 
         var result = wrapper.FirstOrDefault();
         Assert.IsNull(result);
-    }
 
-    [TestMethod]
-    public void TestFirstOrDefaultGivenNonEmptyCompatibleObject()
-    {
-        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
-        var wrapper = Wrapper.Wrap(obj);
+        wrapper = Wrapper.Wrap(obj);
 
-        var result = wrapper.FirstOrDefault();
+        result = wrapper.FirstOrDefault();
         Assert.IsNotNull(result);
         Assert.AreEqual("a", result.Value.Identifier.Text);
     }
@@ -177,35 +172,31 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestLastOrDefaultGivenEmptyCompatibleObject()
+    public void TestLastOrDefaultGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         var wrapper = Wrapper.Wrap(obj);
 
         var result = wrapper.LastOrDefault();
         Assert.IsNull(result);
-    }
 
-    [TestMethod]
-    public void TestLastOrDefaultGivenNonEmptyCompatibleObject()
-    {
-        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
-        var wrapper = Wrapper.Wrap(obj);
+        wrapper = Wrapper.Wrap(obj);
 
-        var result = wrapper.LastOrDefault();
+        result = wrapper.LastOrDefault();
         Assert.IsNotNull(result);
         Assert.AreEqual("b", result.Value.Identifier.Text);
     }
 
     [TestMethod]
-    public void TestContainsGivenExistingItem()
+    public void TestContainsGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.Add(CreateNativeItem("a")).Add(CreateNativeItem("b"));
         var wrapper = Wrapper.Wrap(obj);
 
         Assert.IsTrue(wrapper.Contains(wrapper.First()));
+        Assert.IsFalse(wrapper.Contains(Wrap(CreateNativeItem("a"))));
     }
 
     [TestMethod]
@@ -357,25 +348,17 @@ public partial class SeparatedSyntaxListWrapperTests
     }
 
     [TestMethod]
-    public void TestRemoveGivenExistingItem()
+    public void TestRemoveGivenCompatibleObject()
     {
         var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
         obj = obj.AddRange([CreateNativeItem("abc"), CreateNativeItem("def")]);
-
         var wrapper = Wrapper.Wrap(obj);
+
         wrapper = wrapper.Remove(wrapper.First());
         Assert.AreEqual(1, wrapper.Count);
-    }
 
-    [TestMethod]
-    public void TestRemoveGivenNonExistingItem()
-    {
-        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
-        obj = obj.AddRange([CreateNativeItem("abc"), CreateNativeItem("def")]);
-
-        var wrapper = Wrapper.Wrap(obj);
         wrapper = wrapper.Remove(RecordDeclarationSyntaxWrapper.Wrap(CreateNativeItem("xyz")));
-        Assert.AreEqual(2, wrapper.Count);
+        Assert.AreEqual(1, wrapper.Count);
     }
 
     [TestMethod]
