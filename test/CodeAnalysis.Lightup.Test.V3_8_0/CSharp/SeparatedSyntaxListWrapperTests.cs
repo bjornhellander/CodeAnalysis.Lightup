@@ -3,6 +3,7 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
+using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -63,6 +64,16 @@ public partial class SeparatedSyntaxListWrapperTests
         var wrapper = Wrapper.Wrap(obj);
 
         Assert.AreEqual(",", wrapper.GetSeparator(0).Text);
+    }
+
+    [TestMethod]
+    public void TestGetSeparatorsGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.AddRange([CreateNativeItem("a"), CreateNativeItem("b")]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        Assert.AreEqual(1, wrapper.GetSeparators().Count());
     }
 
     [TestMethod]
