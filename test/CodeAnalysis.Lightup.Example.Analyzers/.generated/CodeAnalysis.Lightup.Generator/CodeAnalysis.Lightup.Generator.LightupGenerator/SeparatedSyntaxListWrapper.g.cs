@@ -28,6 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate SeparatedSyntaxListWrapper<TNode> InsertRangeDelegate(object obj, int index, global::System.Collections.Generic.IEnumerable<TNode> arg1);
         private delegate SeparatedSyntaxListWrapper<TNode> RemoveAtDelegate(object obj, int index);
         private delegate SeparatedSyntaxListWrapper<TNode> RemoveDelegate(object obj, TNode node);
+        private delegate SeparatedSyntaxListWrapper<TNode> ReplaceDelegate(object obj, TNode nodeInList, TNode newNode);
 
         private static readonly CountDelegate CountAccessor;
         private static readonly IndexerDelegate IndexerAccessor;
@@ -47,6 +48,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly InsertRangeDelegate InsertRangeAccessor;
         private static readonly RemoveAtDelegate RemoveAtAccessor;
         private static readonly RemoveDelegate RemoveAccessor;
+        private static readonly ReplaceDelegate ReplaceAccessor;
 
         private readonly object wrappedObject;
 
@@ -76,6 +78,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             InsertRangeAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<InsertRangeDelegate>(WrappedType, nameof(InsertRange), "indexInt32", "nodesIEnumerable`1");
             RemoveAtAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveAtDelegate>(WrappedType, nameof(RemoveAt), "indexInt32");
             RemoveAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<RemoveDelegate>(WrappedType, nameof(Remove), "node" + wrappedNodeTypeName);
+            ReplaceAccessor = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ReplaceDelegate>(WrappedType, nameof(Replace), "nodeInList" + wrappedNodeTypeName, "newNode" + wrappedNodeTypeName);
         }
 
         private SeparatedSyntaxListWrapper(object obj)
@@ -241,7 +244,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         public SeparatedSyntaxListWrapper<TNode> Replace(TNode nodeInList, TNode newNode)
         {
-             throw new global::System.NotImplementedException();
+             return ReplaceAccessor(wrappedObject, nodeInList, newNode);
         }
 
         public SeparatedSyntaxListWrapper<TNode> ReplaceRange(TNode nodeInList, global::System.Collections.Generic.IEnumerable<TNode> newNodes)

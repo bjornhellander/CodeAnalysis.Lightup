@@ -291,6 +291,18 @@ public partial class SeparatedSyntaxListWrapperTests
         Assert.AreEqual(2, wrapper.Count);
     }
 
+    [TestMethod]
+    public void TestReplaceGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.Add(CreateNativeItem("abc"));
+        var wrapper = Wrapper.Wrap(obj);
+
+        wrapper = wrapper.Replace(wrapper.First(), RecordDeclarationSyntaxWrapper.Wrap(CreateNativeItem("def")));
+        Assert.AreEqual(1, wrapper.Count);
+        Assert.AreEqual("def", wrapper.First().Identifier.Text);
+    }
+
     private static RecordDeclarationSyntax CreateNativeItem(string identifier = "abc")
     {
         return SyntaxFactory.RecordDeclaration(
