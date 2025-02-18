@@ -49,6 +49,14 @@ Example configuration file, appropriate for a code fix project related to the an
 }
 ```
 
+## Package versioning
+
+The generator package has a version number where the major and minor parts match the supported Roslyn version.
+The remaining parts of the version number will be incremented as seen appropriate and will have no direct connection to
+the version of the supported Roslyn version.
+
+The runtime package does not have a dependency to Roslyn and will have a version number which is independently assigned.
+
 ## Alternatives
 
 There is at least one other way of accomplishing more or less the same thing: It is possible to package multiple versions of for example an
