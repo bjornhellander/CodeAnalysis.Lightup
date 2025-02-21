@@ -18,7 +18,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetContinueWithMethod()
         {
-            var result = typeof(ValueTaskExtensions).GetMethod("ContinueWith");
+            var result = typeof(ValueTaskExtensions).GetPublicMethod("ContinueWith");
             return result;
         }
     }

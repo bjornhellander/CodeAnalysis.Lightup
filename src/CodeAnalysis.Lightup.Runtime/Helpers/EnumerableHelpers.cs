@@ -6,6 +6,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
     using System;
     using System.Linq;
     using System.Reflection;
+    using CodeAnalysis.Lightup.Runtime.Extensions;
 
     internal static class EnumerableHelpers
     {
@@ -18,7 +19,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetEnumerableSelectMethod()
         {
-            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableSelectMethod);
+            var result = typeof(Enumerable).GetMethod(IsEnumerableSelectMethod);
             return result;
         }
 
@@ -53,7 +54,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetEnumerableToArrayMethod()
         {
-            var result = typeof(Enumerable).GetMethods().Single(IsEnumerableToArrayMethod);
+            var result = typeof(Enumerable).GetMethod(IsEnumerableToArrayMethod);
             return result;
         }
 
