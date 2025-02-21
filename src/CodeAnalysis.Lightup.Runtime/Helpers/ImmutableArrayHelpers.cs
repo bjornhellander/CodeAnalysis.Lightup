@@ -8,6 +8,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
     using System.Collections.Immutable;
     using System.Linq;
     using System.Reflection;
+    using CodeAnalysis.Lightup.Runtime.Extensions;
 
     internal static class ImmutableArrayHelpers
     {
@@ -20,7 +21,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetImmutableArraySelectMethod()
         {
-            var result = typeof(ImmutableArrayExtensions).GetMethods().Single(IsImmutableArraySelectMethod);
+            var result = typeof(ImmutableArrayExtensions).GetMethod(IsImmutableArraySelectMethod);
             return result;
         }
 
@@ -43,7 +44,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetImmutableArrayToImmutableArrayMethod()
         {
-            var result = typeof(ImmutableArray).GetMethods().Single(IsImmutableArrayToImmutableArrayMethod);
+            var result = typeof(ImmutableArray).GetMethod(IsImmutableArrayToImmutableArrayMethod);
             return result;
         }
 
@@ -61,7 +62,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
             }
 
             var parameterType = parameters[0].ParameterType;
-            if (!parameterType.IsGenericType || parameterType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
+            if (!parameterType.IsGenericType() || parameterType.GetGenericTypeDefinition() != typeof(IEnumerable<>))
             {
                 return false;
             }

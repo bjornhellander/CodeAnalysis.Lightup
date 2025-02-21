@@ -4,6 +4,7 @@
 namespace CodeAnalysis.Lightup.Runtime.Extensions
 {
     using System;
+    using System.Linq;
     using System.Reflection;
 
     internal static class ReflectionExtensions
@@ -11,75 +12,106 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
         public static Type? GetPublicType(this Assembly assembly, string name)
         {
             var type = assembly.GetType(name);
-            return type != null && (type.IsPublic || type.IsNestedPublic) ? type : null;
+            return type != null && (type.GetTypeInfo().IsPublic || type.GetTypeInfo().IsNestedPublic) ? type : null;
+        }
+
+        public static bool IsValueType(this Type type)
+        {
+            var result = type.GetTypeInfo().IsValueType;
+            return result;
+        }
+
+        public static bool IsEnum(this Type type)
+        {
+            var result = type.GetTypeInfo().IsEnum;
+            return result;
+        }
+
+        public static bool IsGenericType(this Type type)
+        {
+            var result = type.GetTypeInfo().IsGenericType;
+            return result;
+        }
+
+        public static bool IsAssignableFrom(this Type type, Type otherType)
+        {
+            var result = type.GetTypeInfo().IsAssignableFrom(otherType.GetTypeInfo());
+            return result;
         }
 
         public static FieldInfo? GetPublicField(this Type type, string name)
         {
-            var field = type.GetField(name);
-            return field != null && field.IsPublic ? field : null;
+            var field = type.GetTypeInfo().GetDeclaredField(name);
+            return field != null ? field : null;
         }
 
         public static ConstructorInfo? GetPublicConstructor(this Type type, string[] paramTags)
         {
-            ConstructorInfo? selectedMethod = null;
+            ConstructorInfo? selectedConstructor = null;
 
-            foreach (var currConstructor in type.GetConstructors(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+            foreach (var currConstructor in type.GetTypeInfo().DeclaredConstructors.Where(x => x.IsPublic && !x.IsStatic))
             {
                 if (!HasCorrectParameters(currConstructor, paramTags))
                 {
                     continue;
                 }
 
-                if (selectedMethod != null)
+                if (selectedConstructor != null)
                 {
                     throw new InvalidOperationException("Found more than one matching method");
                 }
 
-                selectedMethod = currConstructor;
+                selectedConstructor = currConstructor;
             }
 
-            if (selectedMethod == null)
+            if (selectedConstructor == null)
             {
                 return null;
             }
 
-            return selectedMethod;
+            return selectedConstructor;
+        }
+
+        public static ConstructorInfo GetConstructor(this Type type, Func<ConstructorInfo, bool>? predicate = null)
+        {
+            predicate ??= _ => true;
+            var constructorInfo = type.GetTypeInfo().DeclaredConstructors.Single(predicate);
+            return constructorInfo;
         }
 
         public static MethodInfo? GetPublicPropertyGetter(this Type type, string name)
         {
-            var property = type.GetProperty(name);
-            var method = property?.GetGetMethod();
-            return method;
+            var property = type.GetTypeInfo().GetDeclaredProperty(name);
+            var method = property?.GetMethod;
+            return (method != null && method.IsPublic) ? method : null;
         }
 
         public static MethodInfo? GetPublicPropertySetter(this Type type, string name)
         {
-            var property = type.GetProperty(name);
-            var method = property?.GetSetMethod();
-            return method;
+            var property = type.GetTypeInfo().GetDeclaredProperty(name);
+            var method = property?.SetMethod;
+            return (method != null && method.IsPublic) ? method : null;
         }
 
         public static MethodInfo? GetPublicEventAdder(this Type type, string name)
         {
-            var @event = type.GetEvent(name);
-            var method = @event?.GetAddMethod();
-            return method;
+            var @event = type.GetTypeInfo().GetDeclaredEvent(name);
+            var method = @event?.AddMethod;
+            return (method != null && method.IsPublic) ? method : null;
         }
 
         public static MethodInfo? GetPublicEventRemover(this Type type, string name)
         {
-            var @event = type.GetEvent(name);
-            var method = @event?.GetRemoveMethod();
-            return method;
+            var @event = type.GetTypeInfo().GetDeclaredEvent(name);
+            var method = @event?.RemoveMethod;
+            return (method != null && method.IsPublic) ? method : null;
         }
 
         public static MethodInfo? GetPublicMethod(this Type type, string name, string[] paramTags)
         {
             MethodInfo? selectedMethod = null;
 
-            foreach (var currMethod in type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+            foreach (var currMethod in type.GetTypeInfo().DeclaredMethods.Where(x => x.IsPublic))
             {
                 if (currMethod.Name != name)
                 {
@@ -126,6 +158,18 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
             }
 
             return true;
+        }
+
+        public static MethodInfo GetPublicMethod(this Type type, string name)
+        {
+            var result = type.GetTypeInfo().GetDeclaredMethod(name);
+            return result;
+        }
+
+        public static MethodInfo GetMethod(this Type type, Func<MethodInfo, bool> predicate)
+        {
+            var result = type.GetTypeInfo().DeclaredMethods.Single(predicate);
+            return result;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
                 }
                 catch (Exception ex)
                 {
-                    return new ValueTask<TResult>(Task.FromException<TResult>(ex));
+                    return new ValueTask<TResult>(TaskExtensions.FromException<TResult>(ex));
                 }
             }
             else
@@ -43,7 +43,7 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
             }
             catch (Exception ex)
             {
-                return await new ValueTask<TResult>(Task.FromException<TResult>(ex));
+                return await new ValueTask<TResult>(TaskExtensions.FromException<TResult>(ex));
             }
         }
     }

@@ -4,9 +4,9 @@
 namespace CodeAnalysis.Lightup.Runtime.Helpers
 {
     using System;
-    using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
+    using CodeAnalysis.Lightup.Runtime.Extensions;
 
     internal static class TaskHelpers
     {
@@ -19,7 +19,7 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
         private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType)
         {
-            var result = typeof(Task<>).MakeGenericType(sourceItemType).GetMethods().Single(x => IsTaskContinueWithMethod(x, sourceItemType));
+            var result = typeof(Task<>).MakeGenericType(sourceItemType).GetMethod(x => IsTaskContinueWithMethod(x, sourceItemType));
             return result;
         }
 
