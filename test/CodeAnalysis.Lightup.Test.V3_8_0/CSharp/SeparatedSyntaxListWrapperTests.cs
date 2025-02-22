@@ -3,6 +3,7 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
+using System.Collections;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -90,6 +91,40 @@ public partial class SeparatedSyntaxListWrapperTests
 
         Assert.AreEqual("a", wrapper[0].Identifier.Text);
         Assert.AreEqual("b", wrapper[1].Identifier.Text);
+    }
+
+    [TestMethod]
+    public void TestGenericGetEnumeratorGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.AddRange([CreateNativeItem("0"), CreateNativeItem("1")]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        var i = 0;
+        foreach (var item in wrapper)
+        {
+            Assert.AreEqual(i.ToString(), wrapper[i].Identifier.Text);
+            i++;
+        }
+
+        Assert.AreEqual(2, i);
+    }
+
+    [TestMethod]
+    public void TestNonGenericGetEnumeratorGivenCompatibleObject()
+    {
+        var obj = default(SeparatedSyntaxList<RecordDeclarationSyntax>);
+        obj = obj.AddRange([CreateNativeItem("0"), CreateNativeItem("1")]);
+        var wrapper = Wrapper.Wrap(obj);
+
+        var i = 0;
+        foreach (var item in (IEnumerable)wrapper)
+        {
+            Assert.AreEqual(i.ToString(), wrapper[i].Identifier.Text);
+            i++;
+        }
+
+        Assert.AreEqual(2, i);
     }
 
     [TestMethod]
