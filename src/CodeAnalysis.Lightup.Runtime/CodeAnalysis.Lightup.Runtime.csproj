@@ -4,6 +4,8 @@
 		<TargetFramework>netstandard1.1</TargetFramework>
 		<LangVersion>8.0</LangVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<!--NETSDK1215 = Targeting .NET Standard prior to 2.0 is no longer recommended-->
+		<NoWarn>NETSDK1215;$(NoWarn)</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup>
