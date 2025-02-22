@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard1.1</TargetFramework>
+		<TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
 		<LangVersion>8.0</LangVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<!--NETSDK1215 = Targeting .NET Standard prior to 2.0 is no longer recommended-->
