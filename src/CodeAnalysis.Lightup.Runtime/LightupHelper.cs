@@ -218,7 +218,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
             if (field == null)
             {
-                var notSupportedStatement = CreateThrowInvalidOperationException();
+                var notSupportedStatement = CreateThrowInvalidOperationExceptionExpression();
                 expressions.Add(notSupportedStatement);
 
                 var dummyValue = Expression.Default(wrapperReturnType);
@@ -254,7 +254,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
             if (method == null)
             {
-                var notSupportedStatement = CreateThrowInvalidOperationException();
+                var notSupportedStatement = CreateThrowInvalidOperationExceptionExpression();
                 expressions.Add(notSupportedStatement);
 
                 var dummyValue = Expression.Default(wrapperReturnType);
@@ -383,7 +383,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
             if (constructor == null)
             {
-                var notSupportedStatement = CreateThrowInvalidOperationException();
+                var notSupportedStatement = CreateThrowInvalidOperationExceptionExpression();
                 expressions.Add(notSupportedStatement);
 
                 var dummyValue = Expression.Default(wrapperReturnType);
@@ -547,12 +547,7 @@ namespace CodeAnalysis.Lightup.Runtime
                 else
                 {
                     var wrapperItemType = targetType.GenericTypeArguments[0];
-
-                    var wrapMethod = wrapperItemType.GetPublicMethod("Wrap");
-                    if (wrapMethod == null)
-                    {
-                        throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
-                    }
+                    var wrapMethod = GetWrapMethod(wrapperItemType);
 
                     var result = Expression.Condition(
                         Expression.IsTrue(
@@ -568,12 +563,7 @@ namespace CodeAnalysis.Lightup.Runtime
             }
             else
             {
-                var wrapMethod = targetType.GetPublicMethod("Wrap");
-                if (wrapMethod == null)
-                {
-                    throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
-                }
-
+                var wrapMethod = GetWrapMethod(targetType);
                 var parameters = wrapMethod.GetParameters();
                 if (parameters.Length != 1)
                 {
@@ -800,12 +790,7 @@ namespace CodeAnalysis.Lightup.Runtime
                 else
                 {
                     var wrapperItemType = wrapperType.GenericTypeArguments[0];
-
-                    var unwrapMethod = wrapperItemType.GetPublicMethod("Unwrap");
-                    if (unwrapMethod == null)
-                    {
-                        throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
-                    }
+                    var unwrapMethod = GetUnwrapMethod(wrapperItemType);
 
                     var result = Expression.Condition(
                         Expression.IsTrue(
@@ -840,13 +825,23 @@ namespace CodeAnalysis.Lightup.Runtime
             }
         }
 
-        private static Expression CreateThrowInvalidOperationException()
+        private static UnaryExpression CreateThrowInvalidOperationExceptionExpression()
         {
-            var invalidOperationExceptionConstructor = typeof(InvalidOperationException).GetConstructor(x => x.GetParameters().Length == 0);
-            var notSupportedStatement = Expression.Throw(
-                Expression.New(
-                    invalidOperationExceptionConstructor));
-            return notSupportedStatement;
+            var constructor = typeof(InvalidOperationException).GetConstructor(x => x.GetParameters().Length == 0);
+            var expression = Expression.Throw(Expression.New(constructor));
+            return expression;
+        }
+
+        private static MethodInfo GetWrapMethod(Type wrapperType)
+        {
+            var method = wrapperType.GetPublicMethod("Wrap");
+            return method ?? throw new InvalidOperationException("Could not find method 'Wrap' in wrapper");
+        }
+
+        private static MethodInfo GetUnwrapMethod(Type wrapperType)
+        {
+            var method = wrapperType.GetPublicMethod("Unwrap");
+            return method ?? throw new InvalidOperationException("Could not find method 'Unwrap' in wrapper");
         }
 
         private struct BodyAndParameters
@@ -860,7 +855,7 @@ namespace CodeAnalysis.Lightup.Runtime
                 Parameters = parameters;
             }
 
-            public void Deconstruct(out Expression body, out ParameterExpression[] parameters)
+            public readonly void Deconstruct(out Expression body, out ParameterExpression[] parameters)
             {
                 body = Body;
                 parameters = Parameters;

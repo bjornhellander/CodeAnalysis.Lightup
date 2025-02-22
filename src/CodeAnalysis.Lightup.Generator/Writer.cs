@@ -150,7 +150,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
 namespace Microsoft.CodeAnalysis.Lightup
 {{
-    public struct SeparatedSyntaxListWrapper<TNode>
+    public struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
         where TNode : struct
     {{
         private static readonly global::System.Type{na} WrappedType;
@@ -312,6 +312,16 @@ namespace Microsoft.CodeAnalysis.Lightup
              return wrappedObject;
         }}
 
+        public global::System.Collections.Generic.IEnumerator<TNode> GetEnumerator()
+        {{
+            return new Enumerator(this);
+        }}
+
+        global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator()
+        {{
+            return new Enumerator(this);
+        }}
+
         public global::Microsoft.CodeAnalysis.SyntaxToken GetSeparator(int index)
         {{
              return GetSeparatorAccessor(wrappedObject, index);
@@ -430,6 +440,43 @@ namespace Microsoft.CodeAnalysis.Lightup
         public SeparatedSyntaxListWrapper<TNode> ReplaceSeparator(global::Microsoft.CodeAnalysis.SyntaxToken separatorToken, global::Microsoft.CodeAnalysis.SyntaxToken newSeparator)
         {{
              return ReplaceSeparatorAccessor(wrappedObject, separatorToken, newSeparator);
+        }}
+
+        private class Enumerator : global::System.Collections.Generic.IEnumerator<TNode>
+        {{
+            private readonly SeparatedSyntaxListWrapper<TNode> wrapper;
+            private int i;
+
+            public Enumerator(SeparatedSyntaxListWrapper<TNode> wrapper)
+            {{
+                this.wrapper = wrapper;
+                i = -1;
+            }}
+
+            public TNode Current => wrapper[i];
+
+            object global::System.Collections.IEnumerator.Current => wrapper[i];
+
+            public bool MoveNext()
+            {{
+                var j = i + 1;
+                if (j < wrapper.Count)
+                {{
+                    i = j;
+                    return true;
+                }}
+
+                return false;
+            }}
+
+            public void Reset()
+            {{
+                i = -1;
+            }}
+
+            public void Dispose()
+            {{
+            }}
         }}
     }}
 }}
