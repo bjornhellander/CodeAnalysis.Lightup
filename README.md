@@ -6,7 +6,7 @@ This source generator package generates code that makes it possible to use featu
 dependency to the version supporting those features.
 The consuming project would instead compile against an "oldest supported" version and use the generator to take advantage of newer features
 when they are available.
-The generator package has knowledge of features added after Roslyn versin 1.3.2. When the generated code runs, it uses reflection to detect
+The generator package has knowledge of features added after Roslyn version 1.3.2. When the generated code runs, it uses reflection to detect
 which of those features that are available in the Roslyn version used at runtime. This for example means that an analyzer can run in any
 Visual Studio version starting from the first 2019 version and still analyze code the uses newer language features. Similarly for code fixes
 and code refactorings, or whatever the generator is used in.
