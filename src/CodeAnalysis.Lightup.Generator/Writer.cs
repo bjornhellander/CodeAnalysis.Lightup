@@ -758,9 +758,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 AppendInstanceConstructorDelegateDeclarations(sb, targetName, constructor, index, nullableAnnotation, typeDefs);
             }
         }
@@ -783,18 +782,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, typeDefs);
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
             }
         }
@@ -810,9 +807,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (_, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 sb.AppendLine($"        private static readonly ConstructorDelegate{index} ConstructorFunc{index};");
             }
         }
@@ -843,18 +839,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
@@ -876,9 +870,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 sb.AppendLine($"            ConstructorFunc{index} = global::{fullHelperName}.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(WrappedType{GetCreateConstructorAccessorArguments(constructor)});");
             }
         }
@@ -909,18 +902,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(WrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
@@ -940,9 +931,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"        }}");
             Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
         }
-        foreach (var constructor in instanceConstructors)
+        foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
         {
-            var index = instanceConstructors.IndexOf(constructor);
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
             sb.AppendLine($"        public static {targetName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
@@ -1010,9 +1000,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"        {{");
         sb.AppendLine($"            return wrappedObject;");
         sb.AppendLine($"        }}");
-        foreach (var methodDef in staticMethods)
+        foreach (var (methodDef, index) in GetWithIndex(staticMethods))
         {
-            var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
@@ -1020,9 +1009,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
             sb.AppendLine($"        }}");
         }
-        foreach (var methodDef in instanceMethods)
+        foreach (var (methodDef, index) in GetWithIndex(instanceMethods))
         {
-            var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
@@ -1114,9 +1102,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 AppendInstanceConstructorDelegateDeclarations(sb, typeDef.FullName, constructor, index, nullableAnnotation, typeDefs);
             }
         }
@@ -1147,18 +1134,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, typeDefs);
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
             }
         }
@@ -1174,9 +1159,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (_, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 sb.AppendLine($"        private static readonly ConstructorDelegate{index} ConstructorFunc{index};");
             }
         }
@@ -1216,18 +1200,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 sb.AppendLine($"        private static readonly {method.Name}Delegate{index} {method.Name}Func{index};");
             }
         }
@@ -1247,9 +1229,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (instanceConstructors.Count != 0)
         {
             sb.AppendLine();
-            foreach (var constructor in instanceConstructors)
+            foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                var index = instanceConstructors.IndexOf(constructor);
                 sb.AppendLine($"            ConstructorFunc{index} = global::{fullHelperName}.CreateInstanceConstructorAccessor<ConstructorDelegate{index}>(wrappedType{GetCreateConstructorAccessorArguments(constructor)});");
             }
         }
@@ -1289,18 +1270,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         if (staticMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in staticMethods)
+            foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                var index = staticMethods.IndexOf(method);
                 sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateStaticMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
         if (instanceMethods.Count != 0)
         {
             sb.AppendLine();
-            foreach (var method in instanceMethods)
+            foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                var index = instanceMethods.IndexOf(method);
                 sb.AppendLine($"            {method.Name}Func{index} = global::{fullHelperName}.CreateInstanceMethodAccessor<{method.Name}Delegate{index}>(wrappedType, {GetCreateMethodAccessorArguments(method)});");
             }
         }
@@ -1315,9 +1294,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            get {{ return {field.Name}GetterFunc(); }}");
             sb.AppendLine($"        }}");
         }
-        foreach (var constructor in instanceConstructors)
+        foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
         {
-            var index = instanceConstructors.IndexOf(constructor);
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
             sb.AppendLine($"        public static global::{fullBaseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
@@ -1376,9 +1354,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            {@event.Name}RemoverFunc(_obj, _delegate);");
             sb.AppendLine($"        }}");
         }
-        foreach (var methodDef in staticMethods)
+        foreach (var (methodDef, index) in GetWithIndex(staticMethods))
         {
-            var index = staticMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
@@ -1386,9 +1363,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
             sb.AppendLine($"        }}");
         }
-        foreach (var methodDef in instanceMethods)
+        foreach (var (methodDef, index) in GetWithIndex(instanceMethods))
         {
-            var index = instanceMethods.IndexOf(methodDef);
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
             sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, true)})");
@@ -2023,5 +1999,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         return typeDefs.TryGetValue(namedTypeRef.FullName!, out var typeDef) && typeDef is EnumTypeDefinition;
+    }
+
+    private static IEnumerable<(ConstructorDefinition Item, int Index)> GetWithIndex(IReadOnlyList<ConstructorDefinition> input)
+    {
+        var output = input.Select((x, i) => (x, i));
+        return output;
+    }
+
+    private static IEnumerable<(MethodDefinition Item, int Index)> GetWithIndex(IReadOnlyList<MethodDefinition> input)
+    {
+        var output = input.Select((x, i) => (x, i));
+        return output;
     }
 }
