@@ -15,16 +15,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String FilePathGetterDelegate(global::System.Object _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromBytesDelegate0(global::System.String filePath, global::System.ArraySegment<global::System.Byte> bytes, global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromSourceDelegate1(global::System.String filePath, global::Microsoft.CodeAnalysis.Text.SourceText text);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromStreamDelegate2(global::System.String filePath, global::System.IO.Stream stream, global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromSourceDelegate0(global::System.String filePath, global::Microsoft.CodeAnalysis.Text.SourceText text);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromStreamDelegate0(global::System.String filePath, global::System.IO.Stream stream, global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
 
         private static readonly ChecksumGetterDelegate ChecksumGetterFunc;
         private static readonly ChecksumAlgorithmGetterDelegate ChecksumAlgorithmGetterFunc;
         private static readonly FilePathGetterDelegate FilePathGetterFunc;
 
         private static readonly FromBytesDelegate0 FromBytesFunc0;
-        private static readonly FromSourceDelegate1 FromSourceFunc1;
-        private static readonly FromStreamDelegate2 FromStreamFunc2;
+        private static readonly FromSourceDelegate0 FromSourceFunc0;
+        private static readonly FromStreamDelegate0 FromStreamFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -37,8 +37,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             FilePathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<FilePathGetterDelegate>(WrappedType, nameof(FilePath));
 
             FromBytesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromBytesDelegate0>(WrappedType, "FromBytes", "filePathString", "bytesArraySegment`1", "checksumAlgorithmSourceHashAlgorithm");
-            FromSourceFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromSourceDelegate1>(WrappedType, "FromSource", "filePathString", "textSourceText");
-            FromStreamFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromStreamDelegate2>(WrappedType, "FromStream", "filePathString", "streamStream", "checksumAlgorithmSourceHashAlgorithm");
+            FromSourceFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromSourceDelegate0>(WrappedType, "FromSource", "filePathString", "textSourceText");
+            FromStreamFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromStreamDelegate0>(WrappedType, "FromStream", "filePathString", "streamStream", "checksumAlgorithmSourceHashAlgorithm");
         }
 
         private EmbeddedTextWrapper(global::System.Object obj)
@@ -92,13 +92,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromSource(global::System.String filePath, global::Microsoft.CodeAnalysis.Text.SourceText text)
         {
-            return FromSourceFunc1(filePath, text);
+            return FromSourceFunc0(filePath, text);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.EmbeddedTextWrapper FromStream(global::System.String filePath, global::System.IO.Stream stream, global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm)
         {
-            return FromStreamFunc2(filePath, stream, checksumAlgorithm);
+            return FromStreamFunc0(filePath, stream, checksumAlgorithm);
         }
     }
 }

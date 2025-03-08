@@ -9,41 +9,41 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddBaseListTypesDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithBaseListDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithCloseBraceTokenDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithIdentifierDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithModifiersDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithOpenBraceTokenDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithSemicolonTokenDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddBaseListTypesDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithBaseListDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithCloseBraceTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithIdentifierDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithOpenBraceTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithSemicolonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddBaseListTypesDelegate1 AddBaseListTypesFunc1;
-        private static readonly AddModifiersDelegate2 AddModifiersFunc2;
-        private static readonly WithAttributeListsDelegate3 WithAttributeListsFunc3;
-        private static readonly WithBaseListDelegate4 WithBaseListFunc4;
-        private static readonly WithCloseBraceTokenDelegate5 WithCloseBraceTokenFunc5;
-        private static readonly WithIdentifierDelegate6 WithIdentifierFunc6;
-        private static readonly WithModifiersDelegate7 WithModifiersFunc7;
-        private static readonly WithOpenBraceTokenDelegate8 WithOpenBraceTokenFunc8;
-        private static readonly WithSemicolonTokenDelegate9 WithSemicolonTokenFunc9;
+        private static readonly AddBaseListTypesDelegate0 AddBaseListTypesFunc0;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithBaseListDelegate0 WithBaseListFunc0;
+        private static readonly WithCloseBraceTokenDelegate0 WithCloseBraceTokenFunc0;
+        private static readonly WithIdentifierDelegate0 WithIdentifierFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
+        private static readonly WithOpenBraceTokenDelegate0 WithOpenBraceTokenFunc0;
+        private static readonly WithSemicolonTokenDelegate0 WithSemicolonTokenFunc0;
 
         static BaseTypeDeclarationSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBaseListTypesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate1>(wrappedType, "AddBaseListTypes", "itemsBaseTypeSyntax[]");
-            AddModifiersFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            WithAttributeListsFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithBaseListFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate4>(wrappedType, "WithBaseList", "baseListBaseListSyntax");
-            WithCloseBraceTokenFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate5>(wrappedType, "WithCloseBraceToken", "closeBraceTokenSyntaxToken");
-            WithIdentifierFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate6>(wrappedType, "WithIdentifier", "identifierSyntaxToken");
-            WithModifiersFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate7>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithOpenBraceTokenFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate8>(wrappedType, "WithOpenBraceToken", "openBraceTokenSyntaxToken");
-            WithSemicolonTokenFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate9>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            AddBaseListTypesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBaseListTypesDelegate0>(wrappedType, "AddBaseListTypes", "itemsBaseTypeSyntax[]");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBaseListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBaseListDelegate0>(wrappedType, "WithBaseList", "baseListBaseListSyntax");
+            WithCloseBraceTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBraceTokenDelegate0>(wrappedType, "WithCloseBraceToken", "closeBraceTokenSyntaxToken");
+            WithIdentifierFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate0>(wrappedType, "WithIdentifier", "identifierSyntaxToken");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithOpenBraceTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBraceTokenDelegate0>(wrappedType, "WithOpenBraceToken", "openBraceTokenSyntaxToken");
+            WithSemicolonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate0>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -55,55 +55,55 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddBaseListTypes(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax[] items)
         {
-            return AddBaseListTypesFunc1(_obj, items);
+            return AddBaseListTypesFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc2(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc3(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithBaseList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList)
         {
-            return WithBaseListFunc4(_obj, baseList);
+            return WithBaseListFunc0(_obj, baseList);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithCloseBraceToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBraceToken)
         {
-            return WithCloseBraceTokenFunc5(_obj, closeBraceToken);
+            return WithCloseBraceTokenFunc0(_obj, closeBraceToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithIdentifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return WithIdentifierFunc6(_obj, identifier);
+            return WithIdentifierFunc0(_obj, identifier);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc7(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithOpenBraceToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBraceToken)
         {
-            return WithOpenBraceTokenFunc8(_obj, openBraceToken);
+            return WithOpenBraceTokenFunc0(_obj, openBraceToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax WithSemicolonToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return WithSemicolonTokenFunc9(_obj, semicolonToken);
+            return WithSemicolonTokenFunc0(_obj, semicolonToken);
         }
     }
 }

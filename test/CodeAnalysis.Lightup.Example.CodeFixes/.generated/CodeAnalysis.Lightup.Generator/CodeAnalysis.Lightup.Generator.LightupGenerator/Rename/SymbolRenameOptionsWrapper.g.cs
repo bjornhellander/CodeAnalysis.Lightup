@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private delegate void RenameOverloadsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
         private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameOverloads, out global::System.Boolean RenameInStrings, out global::System.Boolean RenameInComments, out global::System.Boolean RenameFile);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -36,7 +36,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private static readonly RenameOverloadsSetterDelegate RenameOverloadsSetterFunc;
 
         private static readonly DeconstructDelegate0 DeconstructFunc0;
-        private static readonly EqualsDelegate1 EqualsFunc1;
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             RenameOverloadsSetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameOverloadsSetterDelegate>(WrappedType, nameof(RenameOverloads));
 
             DeconstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameOverloadsBoolean&", "RenameInStringsBoolean&", "RenameInCommentsBoolean&", "RenameFileBoolean&");
-            EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherSymbolRenameOptions");
+            EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherSymbolRenameOptions");
         }
 
         private SymbolRenameOptionsWrapper(global::System.Object obj)
@@ -126,7 +126,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.SymbolRenameOptionsWrapper other)
         {
-            return EqualsFunc1(wrappedObject, other);
+            return EqualsFunc0(wrappedObject, other);
         }
     }
 }

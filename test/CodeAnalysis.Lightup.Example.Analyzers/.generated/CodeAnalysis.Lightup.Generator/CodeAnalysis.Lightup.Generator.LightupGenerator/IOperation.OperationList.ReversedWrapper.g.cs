@@ -15,12 +15,12 @@ public partial struct OperationListWrapper {
         private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate1(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate0(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 
         private static readonly GetEnumeratorDelegate0 GetEnumeratorFunc0;
-        private static readonly ToImmutableArrayDelegate1 ToImmutableArrayFunc1;
+        private static readonly ToImmutableArrayDelegate0 ToImmutableArrayFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -31,7 +31,7 @@ public partial struct OperationListWrapper {
             CountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
 
             GetEnumeratorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate0>(WrappedType, "GetEnumerator");
-            ToImmutableArrayFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate1>(WrappedType, "ToImmutableArray");
+            ToImmutableArrayFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate0>(WrappedType, "ToImmutableArray");
         }
 
         private ReversedWrapper(global::System.Object obj)
@@ -73,7 +73,7 @@ public partial struct OperationListWrapper {
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
         {
-            return ToImmutableArrayFunc1(wrappedObject);
+            return ToImmutableArrayFunc0(wrappedObject);
         }
     }
 }

@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax AddParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax WithParametersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax> parameters);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax WithParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax> parameters);
 
         private static readonly AddParametersDelegate0 AddParametersFunc0;
-        private static readonly WithParametersDelegate1 WithParametersFunc1;
+        private static readonly WithParametersDelegate0 WithParametersFunc0;
 
         static BaseParameterListSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AddParametersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParametersDelegate0>(wrappedType, "AddParameters", "itemsParameterSyntax[]");
-            WithParametersFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate1>(wrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
+            WithParametersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParametersDelegate0>(wrappedType, "WithParameters", "parametersSeparatedSyntaxList`1");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax WithParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseParameterListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax> parameters)
         {
-            return WithParametersFunc1(_obj, parameters);
+            return WithParametersFunc0(_obj, parameters);
         }
     }
 }

@@ -11,30 +11,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? ExpressionBodyGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyStatementsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddParameterListParametersDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithAttributeListsDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithBodyDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithExpressionBodyDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithModifiersDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithParameterListDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithSemicolonTokenDelegate10(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyStatementsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddParameterListParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithBodyDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithExpressionBodyDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithParameterListDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithSemicolonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
 
         private static readonly ExpressionBodyGetterDelegate ExpressionBodyGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddBodyAttributeListsDelegate1 AddBodyAttributeListsFunc1;
-        private static readonly AddBodyStatementsDelegate2 AddBodyStatementsFunc2;
-        private static readonly AddModifiersDelegate3 AddModifiersFunc3;
-        private static readonly AddParameterListParametersDelegate4 AddParameterListParametersFunc4;
-        private static readonly WithAttributeListsDelegate5 WithAttributeListsFunc5;
-        private static readonly WithBodyDelegate6 WithBodyFunc6;
-        private static readonly WithExpressionBodyDelegate7 WithExpressionBodyFunc7;
-        private static readonly WithModifiersDelegate8 WithModifiersFunc8;
-        private static readonly WithParameterListDelegate9 WithParameterListFunc9;
-        private static readonly WithSemicolonTokenDelegate10 WithSemicolonTokenFunc10;
+        private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
+        private static readonly AddBodyStatementsDelegate0 AddBodyStatementsFunc0;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly AddParameterListParametersDelegate0 AddParameterListParametersFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithBodyDelegate0 WithBodyFunc0;
+        private static readonly WithExpressionBodyDelegate0 WithExpressionBodyFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
+        private static readonly WithParameterListDelegate0 WithParameterListFunc0;
+        private static readonly WithSemicolonTokenDelegate0 WithSemicolonTokenFunc0;
 
         static BaseMethodDeclarationSyntaxEx()
         {
@@ -43,16 +43,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExpressionBodyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionBodyGetterDelegate>(wrappedType, nameof(ExpressionBody));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBodyAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate1>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
-            AddBodyStatementsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyStatementsDelegate2>(wrappedType, "AddBodyStatements", "itemsStatementSyntax[]");
-            AddModifiersFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            AddParameterListParametersFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate4>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
-            WithAttributeListsFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate5>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithBodyFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBodyDelegate6>(wrappedType, "WithBody", "bodyBlockSyntax");
-            WithExpressionBodyFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate7>(wrappedType, "WithExpressionBody", "expressionBodyArrowExpressionClauseSyntax");
-            WithModifiersFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate8>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithParameterListFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate9>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
-            WithSemicolonTokenFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate10>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            AddBodyAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
+            AddBodyStatementsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyStatementsDelegate0>(wrappedType, "AddBodyStatements", "itemsStatementSyntax[]");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            AddParameterListParametersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(wrappedType, "AddParameterListParameters", "itemsParameterSyntax[]");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBodyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBodyDelegate0>(wrappedType, "WithBody", "bodyBlockSyntax");
+            WithExpressionBodyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate0>(wrappedType, "WithExpressionBody", "expressionBodyArrowExpressionClauseSyntax");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithParameterListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate0>(wrappedType, "WithParameterList", "parameterListParameterListSyntax");
+            WithSemicolonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate0>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -70,61 +70,61 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
-            return AddBodyAttributeListsFunc1(_obj, items);
+            return AddBodyAttributeListsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddBodyStatements(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
         {
-            return AddBodyStatementsFunc2(_obj, items);
+            return AddBodyStatementsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc3(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax AddParameterListParameters(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax[] items)
         {
-            return AddParameterListParametersFunc4(_obj, items);
+            return AddParameterListParametersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc5(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body)
         {
-            return WithBodyFunc6(_obj, body);
+            return WithBodyFunc0(_obj, body);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody)
         {
-            return WithExpressionBodyFunc7(_obj, expressionBody);
+            return WithExpressionBodyFunc0(_obj, expressionBody);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc8(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithParameterList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList)
         {
-            return WithParameterListFunc9(_obj, parameterList);
+            return WithParameterListFunc0(_obj, parameterList);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax WithSemicolonToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseMethodDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return WithSemicolonTokenFunc10(_obj, semicolonToken);
+            return WithSemicolonTokenFunc0(_obj, semicolonToken);
         }
     }
 }

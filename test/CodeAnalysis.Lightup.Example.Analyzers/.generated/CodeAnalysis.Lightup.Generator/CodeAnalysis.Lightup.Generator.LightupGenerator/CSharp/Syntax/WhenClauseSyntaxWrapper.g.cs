@@ -14,17 +14,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken WhenKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithConditionDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithWhenKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithConditionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithWhenKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword);
 
         private static readonly ConditionGetterDelegate ConditionGetterFunc;
         private static readonly WhenKeywordGetterDelegate WhenKeywordGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithConditionDelegate2 WithConditionFunc2;
-        private static readonly WithWhenKeywordDelegate3 WithWhenKeywordFunc3;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithConditionDelegate0 WithConditionFunc0;
+        private static readonly WithWhenKeywordDelegate0 WithWhenKeywordFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -36,9 +36,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WhenKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<WhenKeywordGetterDelegate>(WrappedType, nameof(WhenKeyword));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "whenKeywordSyntaxToken", "conditionExpressionSyntax");
-            WithConditionFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConditionDelegate2>(WrappedType, "WithCondition", "conditionExpressionSyntax");
-            WithWhenKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenKeywordDelegate3>(WrappedType, "WithWhenKeyword", "whenKeywordSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "whenKeywordSyntaxToken", "conditionExpressionSyntax");
+            WithConditionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConditionDelegate0>(WrappedType, "WithCondition", "conditionExpressionSyntax");
+            WithWhenKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenKeywordDelegate0>(WrappedType, "WithWhenKeyword", "whenKeywordSyntaxToken");
         }
 
         private WhenClauseSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -98,19 +98,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition)
         {
-            return UpdateFunc1(wrappedObject, whenKeyword, condition);
+            return UpdateFunc0(wrappedObject, whenKeyword, condition);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithCondition(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax condition)
         {
-            return WithConditionFunc2(wrappedObject, condition);
+            return WithConditionFunc0(wrappedObject, condition);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper WithWhenKeyword(global::Microsoft.CodeAnalysis.SyntaxToken whenKeyword)
         {
-            return WithWhenKeywordFunc3(wrappedObject, whenKeyword);
+            return WithWhenKeywordFunc0(wrappedObject, whenKeyword);
         }
     }
 }

@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken UnderscoreTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper WithUnderscoreTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper WithUnderscoreTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken);
 
         private static readonly UnderscoreTokenGetterDelegate UnderscoreTokenGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithUnderscoreTokenDelegate2 WithUnderscoreTokenFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithUnderscoreTokenDelegate0 WithUnderscoreTokenFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             UnderscoreTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<UnderscoreTokenGetterDelegate>(WrappedType, nameof(UnderscoreToken));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "underscoreTokenSyntaxToken");
-            WithUnderscoreTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUnderscoreTokenDelegate2>(WrappedType, "WithUnderscoreToken", "underscoreTokenSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "underscoreTokenSyntaxToken");
+            WithUnderscoreTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithUnderscoreTokenDelegate0>(WrappedType, "WithUnderscoreToken", "underscoreTokenSyntaxToken");
         }
 
         private DiscardPatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken)
         {
-            return UpdateFunc1(wrappedObject, underscoreToken);
+            return UpdateFunc0(wrappedObject, underscoreToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper WithUnderscoreToken(global::Microsoft.CodeAnalysis.SyntaxToken underscoreToken)
         {
-            return WithUnderscoreTokenFunc2(wrappedObject, underscoreToken);
+            return WithUnderscoreTokenFunc0(wrappedObject, underscoreToken);
         }
     }
 }

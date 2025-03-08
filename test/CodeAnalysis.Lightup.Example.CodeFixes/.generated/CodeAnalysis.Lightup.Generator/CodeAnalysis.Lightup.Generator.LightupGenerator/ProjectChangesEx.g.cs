@@ -9,23 +9,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ProjectChanges";
 
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetAddedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate1(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedDocumentsDelegate2(global::Microsoft.CodeAnalysis.ProjectChanges _obj, global::System.Boolean onlyGetDocumentsWithTextChanges);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate3(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj, global::System.Boolean onlyGetDocumentsWithTextChanges);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectChanges _obj);
 
         private static readonly GetAddedAnalyzerConfigDocumentsDelegate0 GetAddedAnalyzerConfigDocumentsFunc0;
-        private static readonly GetChangedAnalyzerConfigDocumentsDelegate1 GetChangedAnalyzerConfigDocumentsFunc1;
-        private static readonly GetChangedDocumentsDelegate2 GetChangedDocumentsFunc2;
-        private static readonly GetRemovedAnalyzerConfigDocumentsDelegate3 GetRemovedAnalyzerConfigDocumentsFunc3;
+        private static readonly GetChangedAnalyzerConfigDocumentsDelegate0 GetChangedAnalyzerConfigDocumentsFunc0;
+        private static readonly GetChangedDocumentsDelegate0 GetChangedDocumentsFunc0;
+        private static readonly GetRemovedAnalyzerConfigDocumentsDelegate0 GetRemovedAnalyzerConfigDocumentsFunc0;
 
         static ProjectChangesEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             GetAddedAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetAddedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetAddedAnalyzerConfigDocuments");
-            GetChangedAnalyzerConfigDocumentsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate1>(wrappedType, "GetChangedAnalyzerConfigDocuments");
-            GetChangedDocumentsFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedDocumentsDelegate2>(wrappedType, "GetChangedDocuments", "onlyGetDocumentsWithTextChangesBoolean");
-            GetRemovedAnalyzerConfigDocumentsFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate3>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
+            GetChangedAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetChangedAnalyzerConfigDocuments");
+            GetChangedDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetChangedDocumentsDelegate0>(wrappedType, "GetChangedDocuments", "onlyGetDocumentsWithTextChangesBoolean");
+            GetRemovedAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRemovedAnalyzerConfigDocumentsDelegate0>(wrappedType, "GetRemovedAnalyzerConfigDocuments");
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
@@ -37,19 +37,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
-            return GetChangedAnalyzerConfigDocumentsFunc1(_obj);
+            return GetChangedAnalyzerConfigDocumentsFunc0(_obj);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetChangedDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj, global::System.Boolean onlyGetDocumentsWithTextChanges)
         {
-            return GetChangedDocumentsFunc2(_obj, onlyGetDocumentsWithTextChanges);
+            return GetChangedDocumentsFunc0(_obj, onlyGetDocumentsWithTextChanges);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentId> GetRemovedAnalyzerConfigDocuments(this global::Microsoft.CodeAnalysis.ProjectChanges _obj)
         {
-            return GetRemovedAnalyzerConfigDocumentsFunc3(_obj);
+            return GetRemovedAnalyzerConfigDocumentsFunc0(_obj);
         }
     }
 }

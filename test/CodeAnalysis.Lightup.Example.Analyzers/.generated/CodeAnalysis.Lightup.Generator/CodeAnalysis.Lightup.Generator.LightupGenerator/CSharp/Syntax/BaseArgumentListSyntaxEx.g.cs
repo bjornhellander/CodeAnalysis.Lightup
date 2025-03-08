@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax AddArgumentsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax WithArgumentsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax WithArgumentsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments);
 
         private static readonly AddArgumentsDelegate0 AddArgumentsFunc0;
-        private static readonly WithArgumentsDelegate1 WithArgumentsFunc1;
+        private static readonly WithArgumentsDelegate0 WithArgumentsFunc0;
 
         static BaseArgumentListSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AddArgumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddArgumentsDelegate0>(wrappedType, "AddArguments", "itemsArgumentSyntax[]");
-            WithArgumentsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArgumentsDelegate1>(wrappedType, "WithArguments", "argumentsSeparatedSyntaxList`1");
+            WithArgumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArgumentsDelegate0>(wrappedType, "WithArguments", "argumentsSeparatedSyntaxList`1");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax WithArguments(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseArgumentListSyntax _obj, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax> arguments)
         {
-            return WithArgumentsFunc1(_obj, arguments);
+            return WithArgumentsFunc0(_obj, arguments);
         }
     }
 }

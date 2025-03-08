@@ -17,7 +17,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
 
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> GetTypeArgumentCustomModifiersDelegate1(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Int32 ordinal);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> GetTypeArgumentCustomModifiersDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Int32 ordinal);
 
         private static readonly IsComImportGetterDelegate IsComImportGetterFunc;
         private static readonly IsFileLocalGetterDelegate IsFileLocalGetterFunc;
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly TypeArgumentNullableAnnotationsGetterDelegate TypeArgumentNullableAnnotationsGetterFunc;
 
         private static readonly ConstructDelegate0 ConstructFunc0;
-        private static readonly GetTypeArgumentCustomModifiersDelegate1 GetTypeArgumentCustomModifiersFunc1;
+        private static readonly GetTypeArgumentCustomModifiersDelegate0 GetTypeArgumentCustomModifiersFunc0;
 
         static INamedTypeSymbolEx()
         {
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             TypeArgumentNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
 
             ConstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
-            GetTypeArgumentCustomModifiersFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypeArgumentCustomModifiersDelegate1>(wrappedType, "GetTypeArgumentCustomModifiers", "ordinalInt32");
+            GetTypeArgumentCustomModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypeArgumentCustomModifiersDelegate0>(wrappedType, "GetTypeArgumentCustomModifiers", "ordinalInt32");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -97,7 +97,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> GetTypeArgumentCustomModifiers(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Int32 ordinal)
         {
-            return GetTypeArgumentCustomModifiersFunc1(_obj, ordinal);
+            return GetTypeArgumentCustomModifiersFunc0(_obj, ordinal);
         }
     }
 }

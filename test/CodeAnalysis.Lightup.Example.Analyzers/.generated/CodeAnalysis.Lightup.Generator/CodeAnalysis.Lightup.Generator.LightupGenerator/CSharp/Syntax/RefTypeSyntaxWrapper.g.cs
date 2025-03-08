@@ -15,22 +15,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithReadOnlyKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithRefKeywordDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithTypeDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithReadOnlyKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithRefKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ReadOnlyKeywordGetterDelegate ReadOnlyKeywordGetterFunc;
         private static readonly RefKeywordGetterDelegate RefKeywordGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithReadOnlyKeywordDelegate3 WithReadOnlyKeywordFunc3;
-        private static readonly WithRefKeywordDelegate4 WithRefKeywordFunc4;
-        private static readonly WithTypeDelegate5 WithTypeFunc5;
+        private static readonly WithReadOnlyKeywordDelegate0 WithReadOnlyKeywordFunc0;
+        private static readonly WithRefKeywordDelegate0 WithRefKeywordFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax wrappedObject;
 
@@ -43,11 +43,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "refKeywordSyntaxToken", "typeTypeSyntax");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "refKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
-            WithReadOnlyKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate3>(WrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
-            WithRefKeywordFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRefKeywordDelegate4>(WrappedType, "WithRefKeyword", "refKeywordSyntaxToken");
-            WithTypeFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate5>(WrappedType, "WithType", "typeTypeSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "refKeywordSyntaxToken", "typeTypeSyntax");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "refKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
+            WithReadOnlyKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate0>(WrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
+            WithRefKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRefKeywordDelegate0>(WrappedType, "WithRefKeyword", "refKeywordSyntaxToken");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private RefTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax obj)
@@ -113,31 +113,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return UpdateFunc1(wrappedObject, refKeyword, type);
+            return UpdateFunc0(wrappedObject, refKeyword, type);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return UpdateFunc2(wrappedObject, refKeyword, readOnlyKeyword, type);
+            return UpdateFunc1(wrappedObject, refKeyword, readOnlyKeyword, type);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithReadOnlyKeyword(global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword)
         {
-            return WithReadOnlyKeywordFunc3(wrappedObject, readOnlyKeyword);
+            return WithReadOnlyKeywordFunc0(wrappedObject, readOnlyKeyword);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithRefKeyword(global::Microsoft.CodeAnalysis.SyntaxToken refKeyword)
         {
-            return WithRefKeywordFunc4(wrappedObject, refKeyword);
+            return WithRefKeywordFunc0(wrappedObject, refKeyword);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return WithTypeFunc5(wrappedObject, type);
+            return WithTypeFunc0(wrappedObject, type);
         }
     }
 }

@@ -14,17 +14,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithTypeDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ScopedKeywordGetterDelegate ScopedKeywordGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithScopedKeywordDelegate2 WithScopedKeywordFunc2;
-        private static readonly WithTypeDelegate3 WithTypeFunc3;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithScopedKeywordDelegate0 WithScopedKeywordFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax wrappedObject;
 
@@ -36,9 +36,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "scopedKeywordSyntaxToken", "typeTypeSyntax");
-            WithScopedKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithScopedKeywordDelegate2>(WrappedType, "WithScopedKeyword", "scopedKeywordSyntaxToken");
-            WithTypeFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate3>(WrappedType, "WithType", "typeTypeSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "scopedKeywordSyntaxToken", "typeTypeSyntax");
+            WithScopedKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithScopedKeywordDelegate0>(WrappedType, "WithScopedKeyword", "scopedKeywordSyntaxToken");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private ScopedTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax obj)
@@ -98,19 +98,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return UpdateFunc1(wrappedObject, scopedKeyword, type);
+            return UpdateFunc0(wrappedObject, scopedKeyword, type);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithScopedKeyword(global::Microsoft.CodeAnalysis.SyntaxToken scopedKeyword)
         {
-            return WithScopedKeywordFunc2(wrappedObject, scopedKeyword);
+            return WithScopedKeywordFunc0(wrappedObject, scopedKeyword);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return WithTypeFunc3(wrappedObject, type);
+            return WithTypeFunc0(wrappedObject, type);
         }
     }
 }

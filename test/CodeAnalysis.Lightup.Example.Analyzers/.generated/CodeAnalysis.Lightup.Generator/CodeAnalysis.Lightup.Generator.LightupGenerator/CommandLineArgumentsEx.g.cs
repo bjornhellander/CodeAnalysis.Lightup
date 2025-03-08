@@ -22,7 +22,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String? SourceLinkGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
 
         private delegate global::System.String GetOutputFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
-        private delegate global::System.String GetPdbFilePathDelegate1(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
+        private delegate global::System.String GetPdbFilePathDelegate0(global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName);
 
         private static readonly AnalyzerConfigPathsGetterDelegate AnalyzerConfigPathsGetterFunc;
         private static readonly DisplayLangVersionsGetterDelegate DisplayLangVersionsGetterFunc;
@@ -38,7 +38,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly SourceLinkGetterDelegate SourceLinkGetterFunc;
 
         private static readonly GetOutputFilePathDelegate0 GetOutputFilePathFunc0;
-        private static readonly GetPdbFilePathDelegate1 GetPdbFilePathFunc1;
+        private static readonly GetPdbFilePathDelegate0 GetPdbFilePathFunc0;
 
         static CommandLineArgumentsEx()
         {
@@ -58,7 +58,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             SourceLinkGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SourceLinkGetterDelegate>(wrappedType, nameof(SourceLink));
 
             GetOutputFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetOutputFilePathDelegate0>(wrappedType, "GetOutputFilePath", "outputFileNameString");
-            GetPdbFilePathFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate1>(wrappedType, "GetPdbFilePath", "outputFileNameString");
+            GetPdbFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetPdbFilePathDelegate0>(wrappedType, "GetPdbFilePath", "outputFileNameString");
         }
 
         /// <summary>Property added in version 3.1.0.0.</summary>
@@ -142,7 +142,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::System.String GetPdbFilePath(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj, global::System.String outputFileName)
         {
-            return GetPdbFilePathFunc1(_obj, outputFileName);
+            return GetPdbFilePathFunc0(_obj, outputFileName);
         }
     }
 }

@@ -11,10 +11,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromBytesDelegate0(global::System.Byte[]? xmlDocCommentBytes);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromFileDelegate1(global::System.String? xmlDocCommentFilePath);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromFileDelegate0(global::System.String? xmlDocCommentFilePath);
 
         private static readonly CreateFromBytesDelegate0 CreateFromBytesFunc0;
-        private static readonly CreateFromFileDelegate1 CreateFromFileFunc1;
+        private static readonly CreateFromFileDelegate0 CreateFromFileFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.DocumentationProvider wrappedObject;
 
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             CreateFromBytesFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateFromBytesDelegate0>(WrappedType, "CreateFromBytes", "xmlDocCommentBytesByte[]");
-            CreateFromFileFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateFromFileDelegate1>(WrappedType, "CreateFromFile", "xmlDocCommentFilePathString");
+            CreateFromFileFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateFromFileDelegate0>(WrappedType, "CreateFromFile", "xmlDocCommentFilePathString");
         }
 
         private XmlDocumentationProviderWrapper(global::Microsoft.CodeAnalysis.DocumentationProvider obj)
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.XmlDocumentationProviderWrapper? CreateFromFile(global::System.String? xmlDocCommentFilePath)
         {
-            return CreateFromFileFunc1(xmlDocCommentFilePath);
+            return CreateFromFileFunc0(xmlDocCommentFilePath);
         }
     }
 }

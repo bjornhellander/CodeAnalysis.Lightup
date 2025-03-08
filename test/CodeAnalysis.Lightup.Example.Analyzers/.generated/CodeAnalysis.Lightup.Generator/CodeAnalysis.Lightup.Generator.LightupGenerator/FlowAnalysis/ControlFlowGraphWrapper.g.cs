@@ -26,7 +26,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper? CreateDelegate7(global::Microsoft.CodeAnalysis.SyntaxNode node, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::System.Threading.CancellationToken cancellationToken);
 
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetAnonymousFunctionControlFlowGraphDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.IFlowAnonymousFunctionOperationWrapper anonymousFunction, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraphDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraphDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly BlocksGetterDelegate BlocksGetterFunc;
         private static readonly LocalFunctionsGetterDelegate LocalFunctionsGetterFunc;
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         private static readonly CreateDelegate7 CreateFunc7;
 
         private static readonly GetAnonymousFunctionControlFlowGraphDelegate0 GetAnonymousFunctionControlFlowGraphFunc0;
-        private static readonly GetLocalFunctionControlFlowGraphDelegate1 GetLocalFunctionControlFlowGraphFunc1;
+        private static readonly GetLocalFunctionControlFlowGraphDelegate0 GetLocalFunctionControlFlowGraphFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -68,7 +68,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
             CreateFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate7>(WrappedType, "Create", "nodeSyntaxNode", "semanticModelSemanticModel", "cancellationTokenCancellationToken");
 
             GetAnonymousFunctionControlFlowGraphFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnonymousFunctionControlFlowGraphDelegate0>(WrappedType, "GetAnonymousFunctionControlFlowGraph", "anonymousFunctionIFlowAnonymousFunctionOperation", "cancellationTokenCancellationToken");
-            GetLocalFunctionControlFlowGraphFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetLocalFunctionControlFlowGraphDelegate1>(WrappedType, "GetLocalFunctionControlFlowGraph", "localFunctionIMethodSymbol", "cancellationTokenCancellationToken");
+            GetLocalFunctionControlFlowGraphFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetLocalFunctionControlFlowGraphDelegate0>(WrappedType, "GetLocalFunctionControlFlowGraph", "localFunctionIMethodSymbol", "cancellationTokenCancellationToken");
         }
 
         private ControlFlowGraphWrapper(global::System.Object obj)
@@ -182,7 +182,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraph(global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetLocalFunctionControlFlowGraphFunc1(wrappedObject, localFunction, cancellationToken);
+            return GetLocalFunctionControlFlowGraphFunc0(wrappedObject, localFunction, cancellationToken);
         }
     }
 }

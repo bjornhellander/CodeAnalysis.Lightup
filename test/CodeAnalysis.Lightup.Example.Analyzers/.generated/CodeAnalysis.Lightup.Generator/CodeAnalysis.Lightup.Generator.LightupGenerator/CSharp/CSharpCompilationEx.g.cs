@@ -9,26 +9,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpCompilation";
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ClassifyCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol source, global::Microsoft.CodeAnalysis.ITypeSymbol destination);
-        private delegate global::System.Boolean ContainsSymbolsWithNameDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Boolean ContainsSymbolsWithNameDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModelDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithNameDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferencesDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly ClassifyCommonConversionDelegate0 ClassifyCommonConversionFunc0;
-        private static readonly ContainsSymbolsWithNameDelegate1 ContainsSymbolsWithNameFunc1;
-        private static readonly GetSemanticModelDelegate2 GetSemanticModelFunc2;
-        private static readonly GetSymbolsWithNameDelegate3 GetSymbolsWithNameFunc3;
-        private static readonly GetUsedAssemblyReferencesDelegate4 GetUsedAssemblyReferencesFunc4;
+        private static readonly ContainsSymbolsWithNameDelegate0 ContainsSymbolsWithNameFunc0;
+        private static readonly GetSemanticModelDelegate0 GetSemanticModelFunc0;
+        private static readonly GetSymbolsWithNameDelegate0 GetSymbolsWithNameFunc0;
+        private static readonly GetUsedAssemblyReferencesDelegate0 GetUsedAssemblyReferencesFunc0;
 
         static CSharpCompilationEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             ClassifyCommonConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ClassifyCommonConversionDelegate0>(wrappedType, "ClassifyCommonConversion", "sourceITypeSymbol", "destinationITypeSymbol");
-            ContainsSymbolsWithNameFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsSymbolsWithNameDelegate1>(wrappedType, "ContainsSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
-            GetSemanticModelFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate2>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
-            GetSymbolsWithNameFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSymbolsWithNameDelegate3>(wrappedType, "GetSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
-            GetUsedAssemblyReferencesFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate4>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
+            ContainsSymbolsWithNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ContainsSymbolsWithNameDelegate0>(wrappedType, "ContainsSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            GetSemanticModelFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSemanticModelDelegate0>(wrappedType, "GetSemanticModel", "syntaxTreeSyntaxTree", "optionsSemanticModelOptions");
+            GetSymbolsWithNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetSymbolsWithNameDelegate0>(wrappedType, "GetSymbolsWithName", "nameString", "filterSymbolFilter", "cancellationTokenCancellationToken");
+            GetUsedAssemblyReferencesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetUsedAssemblyReferencesDelegate0>(wrappedType, "GetUsedAssemblyReferences", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -40,25 +40,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Boolean ContainsSymbolsWithName(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken)
         {
-            return ContainsSymbolsWithNameFunc1(_obj, name, filter, cancellationToken);
+            return ContainsSymbolsWithNameFunc0(_obj, name, filter, cancellationToken);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SemanticModel GetSemanticModel(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::Microsoft.CodeAnalysis.SyntaxTree syntaxTree, global::Microsoft.CodeAnalysis.Lightup.SemanticModelOptionsEx options)
         {
-            return GetSemanticModelFunc2(_obj, syntaxTree, options);
+            return GetSemanticModelFunc0(_obj, syntaxTree, options);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ISymbol> GetSymbolsWithName(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.String name, global::Microsoft.CodeAnalysis.SymbolFilter filter, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetSymbolsWithNameFunc3(_obj, name, filter, cancellationToken);
+            return GetSymbolsWithNameFunc0(_obj, name, filter, cancellationToken);
         }
 
         /// <summary>Method added in version 3.10.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.MetadataReference> GetUsedAssemblyReferences(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilation _obj, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetUsedAssemblyReferencesFunc4(_obj, cancellationToken);
+            return GetUsedAssemblyReferencesFunc0(_obj, cancellationToken);
         }
     }
 }

@@ -11,12 +11,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? InitializerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax WithInitializerDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax WithInitializerDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer);
 
         private static readonly InitializerGetterDelegate InitializerGetterFunc;
 
         private static readonly UpdateDelegate0 UpdateFunc0;
-        private static readonly WithInitializerDelegate1 WithInitializerFunc1;
+        private static readonly WithInitializerDelegate0 WithInitializerFunc0;
 
         static StackAllocArrayCreationExpressionSyntaxEx()
         {
@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             InitializerGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<InitializerGetterDelegate>(wrappedType, nameof(Initializer));
 
             UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "stackAllocKeywordSyntaxToken", "typeTypeSyntax", "initializerInitializerExpressionSyntax");
-            WithInitializerFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate1>(wrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
+            WithInitializerFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate0>(wrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
         }
 
         /// <summary>Property added in version 2.8.0.0.</summary>
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax WithInitializer(this global::Microsoft.CodeAnalysis.CSharp.Syntax.StackAllocArrayCreationExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax? initializer)
         {
-            return WithInitializerFunc1(_obj, initializer);
+            return WithInitializerFunc0(_obj, initializer);
         }
     }
 }

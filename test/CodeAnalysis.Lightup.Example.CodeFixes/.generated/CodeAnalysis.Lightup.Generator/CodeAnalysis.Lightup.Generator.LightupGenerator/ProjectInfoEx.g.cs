@@ -15,10 +15,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo CreateDelegate0(global::Microsoft.CodeAnalysis.ProjectId id, global::Microsoft.CodeAnalysis.VersionStamp version, global::System.String name, global::System.String assemblyName, global::System.String language, global::System.String? filePath, global::System.String? outputFilePath, global::Microsoft.CodeAnalysis.CompilationOptions? compilationOptions, global::Microsoft.CodeAnalysis.ParseOptions? parseOptions, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? documents, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.ProjectReference>? projectReferences, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.MetadataReference>? metadataReferences, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.Diagnostics.AnalyzerReference>? analyzerReferences, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? additionalDocuments, global::System.Boolean isSubmission, global::System.Type? hostObjectType, global::System.String? outputRefFilePath);
 
         private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithAnalyzerConfigDocumentsDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.DocumentInfo>? analyzerConfigDocuments);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate1(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate2(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate3(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id);
-        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithOutputRefFilePathDelegate4(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? outputRefFilePath);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfoDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespaceDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithIdDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id);
+        private delegate global::Microsoft.CodeAnalysis.ProjectInfo WithOutputRefFilePathDelegate0(global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? outputRefFilePath);
 
         private static readonly AnalyzerConfigDocumentsGetterDelegate AnalyzerConfigDocumentsGetterFunc;
         private static readonly CompilationOutputInfoGetterDelegate CompilationOutputInfoGetterFunc;
@@ -27,10 +27,10 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CreateDelegate0 CreateFunc0;
 
         private static readonly WithAnalyzerConfigDocumentsDelegate0 WithAnalyzerConfigDocumentsFunc0;
-        private static readonly WithCompilationOutputInfoDelegate1 WithCompilationOutputInfoFunc1;
-        private static readonly WithDefaultNamespaceDelegate2 WithDefaultNamespaceFunc2;
-        private static readonly WithIdDelegate3 WithIdFunc3;
-        private static readonly WithOutputRefFilePathDelegate4 WithOutputRefFilePathFunc4;
+        private static readonly WithCompilationOutputInfoDelegate0 WithCompilationOutputInfoFunc0;
+        private static readonly WithDefaultNamespaceDelegate0 WithDefaultNamespaceFunc0;
+        private static readonly WithIdDelegate0 WithIdFunc0;
+        private static readonly WithOutputRefFilePathDelegate0 WithOutputRefFilePathFunc0;
 
         static ProjectInfoEx()
         {
@@ -43,10 +43,10 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<CreateDelegate0>(wrappedType, "Create", "idProjectId", "versionVersionStamp", "nameString", "assemblyNameString", "languageString", "filePathString", "outputFilePathString", "compilationOptionsCompilationOptions", "parseOptionsParseOptions", "documentsIEnumerable`1", "projectReferencesIEnumerable`1", "metadataReferencesIEnumerable`1", "analyzerReferencesIEnumerable`1", "additionalDocumentsIEnumerable`1", "isSubmissionBoolean", "hostObjectTypeType", "outputRefFilePathString");
 
             WithAnalyzerConfigDocumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAnalyzerConfigDocumentsDelegate0>(wrappedType, "WithAnalyzerConfigDocuments", "analyzerConfigDocumentsIEnumerable`1");
-            WithCompilationOutputInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate1>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
-            WithDefaultNamespaceFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate2>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
-            WithIdFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIdDelegate3>(wrappedType, "WithId", "idProjectId");
-            WithOutputRefFilePathFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithOutputRefFilePathDelegate4>(wrappedType, "WithOutputRefFilePath", "outputRefFilePathString");
+            WithCompilationOutputInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithCompilationOutputInfoDelegate0>(wrappedType, "WithCompilationOutputInfo", "infoCompilationOutputInfo&");
+            WithDefaultNamespaceFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultNamespaceDelegate0>(wrappedType, "WithDefaultNamespace", "defaultNamespaceString");
+            WithIdFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIdDelegate0>(wrappedType, "WithId", "idProjectId");
+            WithOutputRefFilePathFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithOutputRefFilePathDelegate0>(wrappedType, "WithOutputRefFilePath", "outputRefFilePathString");
         }
 
         /// <summary>Property added in version 3.2.0.0.</summary>
@@ -82,25 +82,25 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithCompilationOutputInfo(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper info)
         {
-            return WithCompilationOutputInfoFunc1(_obj, info);
+            return WithCompilationOutputInfoFunc0(_obj, info);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithDefaultNamespace(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? defaultNamespace)
         {
-            return WithDefaultNamespaceFunc2(_obj, defaultNamespace);
+            return WithDefaultNamespaceFunc0(_obj, defaultNamespace);
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithId(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::Microsoft.CodeAnalysis.ProjectId id)
         {
-            return WithIdFunc3(_obj, id);
+            return WithIdFunc0(_obj, id);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ProjectInfo WithOutputRefFilePath(this global::Microsoft.CodeAnalysis.ProjectInfo _obj, global::System.String? outputRefFilePath)
         {
-            return WithOutputRefFilePathFunc4(_obj, outputRefFilePath);
+            return WithOutputRefFilePathFunc0(_obj, outputRefFilePath);
         }
     }
 }

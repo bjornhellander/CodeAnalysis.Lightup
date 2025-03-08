@@ -16,12 +16,12 @@ public partial struct ReversedWrapper {
         private delegate global::Microsoft.CodeAnalysis.IOperation CurrentGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean MoveNextDelegate0(global::System.Object _obj);
-        private delegate void ResetDelegate1(global::System.Object _obj);
+        private delegate void ResetDelegate0(global::System.Object _obj);
 
         private static readonly CurrentGetterDelegate CurrentGetterFunc;
 
         private static readonly MoveNextDelegate0 MoveNextFunc0;
-        private static readonly ResetDelegate1 ResetFunc1;
+        private static readonly ResetDelegate0 ResetFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -32,7 +32,7 @@ public partial struct ReversedWrapper {
             CurrentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CurrentGetterDelegate>(WrappedType, nameof(Current));
 
             MoveNextFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<MoveNextDelegate0>(WrappedType, "MoveNext");
-            ResetFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ResetDelegate1>(WrappedType, "Reset");
+            ResetFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ResetDelegate0>(WrappedType, "Reset");
         }
 
         private EnumeratorWrapper(global::System.Object obj)
@@ -74,7 +74,7 @@ public partial struct ReversedWrapper {
         /// <summary>Method added in version 4.2.0.0.</summary>
         public void Reset()
         {
-            ResetFunc1(wrappedObject);
+            ResetFunc0(wrappedObject);
         }
     }
 }

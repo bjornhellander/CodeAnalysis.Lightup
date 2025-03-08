@@ -11,10 +11,10 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate void DefaultVisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation operation);
-        private delegate void VisitDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation? operation);
+        private delegate void VisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation? operation);
 
         private static readonly DefaultVisitDelegate0 DefaultVisitFunc0;
-        private static readonly VisitDelegate1 VisitFunc1;
+        private static readonly VisitDelegate0 VisitFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             DefaultVisitFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<DefaultVisitDelegate0>(WrappedType, "DefaultVisit", "operationIOperation");
-            VisitFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitDelegate1>(WrappedType, "Visit", "operationIOperation");
+            VisitFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitDelegate0>(WrappedType, "Visit", "operationIOperation");
         }
 
         private OperationWalkerWrapper(global::System.Object obj)
@@ -59,7 +59,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         /// <summary>Method added in version 2.6.0.0.</summary>
         public void Visit(global::Microsoft.CodeAnalysis.IOperation? operation)
         {
-            VisitFunc1(wrappedObject, operation);
+            VisitFunc0(wrappedObject, operation);
         }
     }
 }

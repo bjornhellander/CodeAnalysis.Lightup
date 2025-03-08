@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.AdhocWorkspace";
 
         private delegate void CloseAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate1(global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate);
+        private delegate void OpenAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate);
 
         private static readonly CloseAnalyzerConfigDocumentDelegate0 CloseAnalyzerConfigDocumentFunc0;
-        private static readonly OpenAnalyzerConfigDocumentDelegate1 OpenAnalyzerConfigDocumentFunc1;
+        private static readonly OpenAnalyzerConfigDocumentDelegate0 OpenAnalyzerConfigDocumentFunc0;
 
         static AdhocWorkspaceEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             CloseAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
-            OpenAnalyzerConfigDocumentFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate1>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
+            OpenAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate0>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.AdhocWorkspace _obj, global::Microsoft.CodeAnalysis.DocumentId? documentId, global::System.Boolean activate)
         {
-            OpenAnalyzerConfigDocumentFunc1(_obj, documentId, activate);
+            OpenAnalyzerConfigDocumentFunc0(_obj, documentId, activate);
         }
     }
 }

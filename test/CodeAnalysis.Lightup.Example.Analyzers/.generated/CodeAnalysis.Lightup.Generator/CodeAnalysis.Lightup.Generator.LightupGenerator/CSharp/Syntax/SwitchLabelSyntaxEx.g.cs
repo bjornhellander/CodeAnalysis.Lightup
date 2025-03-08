@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax WithKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax WithKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword);
 
         private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
-        private static readonly WithKeywordDelegate1 WithKeywordFunc1;
+        private static readonly WithKeywordDelegate0 WithKeywordFunc0;
 
         static SwitchLabelSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             WithColonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(wrappedType, "WithColonToken", "colonTokenSyntaxToken");
-            WithKeywordFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate1>(wrappedType, "WithKeyword", "keywordSyntaxToken");
+            WithKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate0>(wrappedType, "WithKeyword", "keywordSyntaxToken");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax WithKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword)
         {
-            return WithKeywordFunc1(_obj, keyword);
+            return WithKeywordFunc0(_obj, keyword);
         }
     }
 }

@@ -12,10 +12,10 @@ public partial class RenamerEx {
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String GetDescriptionDelegate0(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrorsDelegate1(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrorsDelegate0(global::System.Object _obj, global::System.Globalization.CultureInfo? culture);
 
         private static readonly GetDescriptionDelegate0 GetDescriptionFunc0;
-        private static readonly GetErrorsDelegate1 GetErrorsFunc1;
+        private static readonly GetErrorsDelegate0 GetErrorsFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -24,7 +24,7 @@ public partial class RenamerEx {
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             GetDescriptionFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetDescriptionDelegate0>(WrappedType, "GetDescription", "cultureCultureInfo");
-            GetErrorsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetErrorsDelegate1>(WrappedType, "GetErrors", "cultureCultureInfo");
+            GetErrorsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetErrorsDelegate0>(WrappedType, "GetErrors", "cultureCultureInfo");
         }
 
         private RenameDocumentActionWrapper(global::System.Object obj)
@@ -60,7 +60,7 @@ public partial class RenamerEx {
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::System.String> GetErrors(global::System.Globalization.CultureInfo? culture)
         {
-            return GetErrorsFunc1(wrappedObject, culture);
+            return GetErrorsFunc0(wrappedObject, culture);
         }
     }
 }

@@ -16,12 +16,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper ParameterListGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper AddParameterListParametersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithAsteriskTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithCallingConventionDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithDelegateKeywordDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithParameterListDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper AddParameterListParametersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithAsteriskTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithCallingConventionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithDelegateKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithParameterListDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList);
 
         private static readonly AsteriskTokenGetterDelegate AsteriskTokenGetterFunc;
         private static readonly CallingConventionGetterDelegate CallingConventionGetterFunc;
@@ -29,12 +29,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly ParameterListGetterDelegate ParameterListGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddParameterListParametersDelegate1 AddParameterListParametersFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithAsteriskTokenDelegate3 WithAsteriskTokenFunc3;
-        private static readonly WithCallingConventionDelegate4 WithCallingConventionFunc4;
-        private static readonly WithDelegateKeywordDelegate5 WithDelegateKeywordFunc5;
-        private static readonly WithParameterListDelegate6 WithParameterListFunc6;
+        private static readonly AddParameterListParametersDelegate0 AddParameterListParametersFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithAsteriskTokenDelegate0 WithAsteriskTokenFunc0;
+        private static readonly WithCallingConventionDelegate0 WithCallingConventionFunc0;
+        private static readonly WithDelegateKeywordDelegate0 WithDelegateKeywordFunc0;
+        private static readonly WithParameterListDelegate0 WithParameterListFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax wrappedObject;
 
@@ -48,12 +48,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ParameterListGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ParameterListGetterDelegate>(WrappedType, nameof(ParameterList));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddParameterListParametersFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate1>(WrappedType, "AddParameterListParameters", "itemsFunctionPointerParameterSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "delegateKeywordSyntaxToken", "asteriskTokenSyntaxToken", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
-            WithAsteriskTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAsteriskTokenDelegate3>(WrappedType, "WithAsteriskToken", "asteriskTokenSyntaxToken");
-            WithCallingConventionFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCallingConventionDelegate4>(WrappedType, "WithCallingConvention", "callingConventionFunctionPointerCallingConventionSyntax");
-            WithDelegateKeywordFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDelegateKeywordDelegate5>(WrappedType, "WithDelegateKeyword", "delegateKeywordSyntaxToken");
-            WithParameterListFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate6>(WrappedType, "WithParameterList", "parameterListFunctionPointerParameterListSyntax");
+            AddParameterListParametersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddParameterListParametersDelegate0>(WrappedType, "AddParameterListParameters", "itemsFunctionPointerParameterSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "delegateKeywordSyntaxToken", "asteriskTokenSyntaxToken", "callingConventionFunctionPointerCallingConventionSyntax", "parameterListFunctionPointerParameterListSyntax");
+            WithAsteriskTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAsteriskTokenDelegate0>(WrappedType, "WithAsteriskToken", "asteriskTokenSyntaxToken");
+            WithCallingConventionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCallingConventionDelegate0>(WrappedType, "WithCallingConvention", "callingConventionFunctionPointerCallingConventionSyntax");
+            WithDelegateKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDelegateKeywordDelegate0>(WrappedType, "WithDelegateKeyword", "delegateKeywordSyntaxToken");
+            WithParameterListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithParameterListDelegate0>(WrappedType, "WithParameterList", "parameterListFunctionPointerParameterListSyntax");
         }
 
         private FunctionPointerTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax obj)
@@ -125,37 +125,37 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper AddParameterListParameters(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper[] items)
         {
-            return AddParameterListParametersFunc1(wrappedObject, items);
+            return AddParameterListParametersFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword, global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
         {
-            return UpdateFunc2(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
+            return UpdateFunc0(wrappedObject, delegateKeyword, asteriskToken, callingConvention, parameterList);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithAsteriskToken(global::Microsoft.CodeAnalysis.SyntaxToken asteriskToken)
         {
-            return WithAsteriskTokenFunc3(wrappedObject, asteriskToken);
+            return WithAsteriskTokenFunc0(wrappedObject, asteriskToken);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithCallingConvention(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper? callingConvention)
         {
-            return WithCallingConventionFunc4(wrappedObject, callingConvention);
+            return WithCallingConventionFunc0(wrappedObject, callingConvention);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithDelegateKeyword(global::Microsoft.CodeAnalysis.SyntaxToken delegateKeyword)
         {
-            return WithDelegateKeywordFunc5(wrappedObject, delegateKeyword);
+            return WithDelegateKeywordFunc0(wrappedObject, delegateKeyword);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper WithParameterList(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper parameterList)
         {
-            return WithParameterListFunc6(wrappedObject, parameterList);
+            return WithParameterListFunc0(wrappedObject, parameterList);
         }
     }
 }

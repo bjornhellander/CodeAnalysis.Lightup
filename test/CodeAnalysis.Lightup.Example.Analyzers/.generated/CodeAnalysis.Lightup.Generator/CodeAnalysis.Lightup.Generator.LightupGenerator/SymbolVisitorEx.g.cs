@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.SymbolVisitor";
 
         private delegate void VisitDiscardDelegate0(global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IDiscardSymbolWrapper symbol);
-        private delegate void VisitFunctionPointerTypeDelegate1(global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol);
+        private delegate void VisitFunctionPointerTypeDelegate0(global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol);
 
         private static readonly VisitDiscardDelegate0 VisitDiscardFunc0;
-        private static readonly VisitFunctionPointerTypeDelegate1 VisitFunctionPointerTypeFunc1;
+        private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
 
         static SymbolVisitorEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             VisitDiscardFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitDiscardDelegate0>(wrappedType, "VisitDiscard", "symbolIDiscardSymbol");
-            VisitFunctionPointerTypeFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate1>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
+            VisitFunctionPointerTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "symbolIFunctionPointerTypeSymbol");
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static void VisitFunctionPointerType(this global::Microsoft.CodeAnalysis.SymbolVisitor _obj, global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper symbol)
         {
-            VisitFunctionPointerTypeFunc1(_obj, symbol);
+            VisitFunctionPointerTypeFunc0(_obj, symbol);
         }
     }
 }

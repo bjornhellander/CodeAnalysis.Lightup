@@ -11,10 +11,10 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.CodeActions.CodeAction> GetFixAsyncDelegate0(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider _obj, global::Microsoft.CodeAnalysis.CodeFixes.FixAllContext fixAllContext);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopesDelegate1(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider _obj);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopesDelegate0(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider _obj);
 
         private static readonly GetFixAsyncDelegate0 GetFixAsyncFunc0;
-        private static readonly GetSupportedFixAllScopesDelegate1 GetSupportedFixAllScopesFunc1;
+        private static readonly GetSupportedFixAllScopesDelegate0 GetSupportedFixAllScopesFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider wrappedObject;
 
@@ -23,7 +23,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             GetFixAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetFixAsyncDelegate0>(WrappedType, "GetFixAsync", "fixAllContextFixAllContext");
-            GetSupportedFixAllScopesFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate1>(WrappedType, "GetSupportedFixAllScopes");
+            GetSupportedFixAllScopesFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetSupportedFixAllScopesDelegate0>(WrappedType, "GetSupportedFixAllScopes");
         }
 
         private DocumentBasedFixAllProviderWrapper(global::Microsoft.CodeAnalysis.CodeFixes.FixAllProvider obj)
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.CodeFixes.Lightup
         /// <summary>Method added in version 3.9.0.0.</summary>
         public global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.CodeFixes.FixAllScope> GetSupportedFixAllScopes()
         {
-            return GetSupportedFixAllScopesFunc1(wrappedObject);
+            return GetSupportedFixAllScopesFunc0(wrappedObject);
         }
     }
 }

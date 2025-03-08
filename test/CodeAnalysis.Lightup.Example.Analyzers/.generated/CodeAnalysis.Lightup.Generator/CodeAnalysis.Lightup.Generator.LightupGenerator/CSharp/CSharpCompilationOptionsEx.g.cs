@@ -15,8 +15,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithMetadataImportOptionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptionsDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProviderDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;
@@ -25,8 +25,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
 
         private static readonly WithMetadataImportOptionsDelegate0 WithMetadataImportOptionsFunc0;
-        private static readonly WithNullableContextOptionsDelegate1 WithNullableContextOptionsFunc1;
-        private static readonly WithSyntaxTreeOptionsProviderDelegate2 WithSyntaxTreeOptionsProviderFunc2;
+        private static readonly WithNullableContextOptionsDelegate0 WithNullableContextOptionsFunc0;
+        private static readonly WithSyntaxTreeOptionsProviderDelegate0 WithSyntaxTreeOptionsProviderFunc0;
 
         static CSharpCompilationOptionsEx()
         {
@@ -39,8 +39,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             NullableContextOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
 
             WithMetadataImportOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate0>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
-            WithNullableContextOptionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate1>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
-            WithSyntaxTreeOptionsProviderFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate2>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithNullableContextOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
+            WithSyntaxTreeOptionsProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Constructor added in version 2.8.0.0.</summary>
@@ -76,13 +76,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptions(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options)
         {
-            return WithNullableContextOptionsFunc1(_obj, options);
+            return WithNullableContextOptionsFunc0(_obj, options);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
-            return WithSyntaxTreeOptionsProviderFunc2(_obj, provider);
+            return WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
         }
     }
 }

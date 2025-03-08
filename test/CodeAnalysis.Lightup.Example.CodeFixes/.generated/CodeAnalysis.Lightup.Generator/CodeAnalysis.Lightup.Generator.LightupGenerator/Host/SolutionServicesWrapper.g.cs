@@ -13,12 +13,12 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         private delegate global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguagesGetterDelegate(global::System.Object _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Host.Lightup.LanguageServicesWrapper GetLanguageServicesDelegate0(global::System.Object _obj, global::System.String languageName);
-        private delegate global::System.Boolean IsSupportedDelegate1(global::System.Object _obj, global::System.String languageName);
+        private delegate global::System.Boolean IsSupportedDelegate0(global::System.Object _obj, global::System.String languageName);
 
         private static readonly SupportedLanguagesGetterDelegate SupportedLanguagesGetterFunc;
 
         private static readonly GetLanguageServicesDelegate0 GetLanguageServicesFunc0;
-        private static readonly IsSupportedDelegate1 IsSupportedFunc1;
+        private static readonly IsSupportedDelegate0 IsSupportedFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
             SupportedLanguagesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<SupportedLanguagesGetterDelegate>(WrappedType, nameof(SupportedLanguages));
 
             GetLanguageServicesFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetLanguageServicesDelegate0>(WrappedType, "GetLanguageServices", "languageNameString");
-            IsSupportedFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate1>(WrappedType, "IsSupported", "languageNameString");
+            IsSupportedFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<IsSupportedDelegate0>(WrappedType, "IsSupported", "languageNameString");
         }
 
         private SolutionServicesWrapper(global::System.Object obj)
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         /// <summary>Method added in version 4.4.0.0.</summary>
         public global::System.Boolean IsSupported(global::System.String languageName)
         {
-            return IsSupportedFunc1(wrappedObject, languageName);
+            return IsSupportedFunc0(wrappedObject, languageName);
         }
     }
 }

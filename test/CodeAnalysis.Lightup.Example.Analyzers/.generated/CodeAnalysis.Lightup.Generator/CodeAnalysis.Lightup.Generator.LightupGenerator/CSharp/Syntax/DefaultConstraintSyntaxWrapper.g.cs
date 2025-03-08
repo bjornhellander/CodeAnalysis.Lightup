@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken DefaultKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword);
 
         private static readonly DefaultKeywordGetterDelegate DefaultKeywordGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithDefaultKeywordDelegate2 WithDefaultKeywordFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithDefaultKeywordDelegate0 WithDefaultKeywordFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             DefaultKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<DefaultKeywordGetterDelegate>(WrappedType, nameof(DefaultKeyword));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "defaultKeywordSyntaxToken");
-            WithDefaultKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate2>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "defaultKeywordSyntaxToken");
+            WithDefaultKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDefaultKeywordDelegate0>(WrappedType, "WithDefaultKeyword", "defaultKeywordSyntaxToken");
         }
 
         private DefaultConstraintSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
         {
-            return UpdateFunc1(wrappedObject, defaultKeyword);
+            return UpdateFunc0(wrappedObject, defaultKeyword);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper WithDefaultKeyword(global::Microsoft.CodeAnalysis.SyntaxToken defaultKeyword)
         {
-            return WithDefaultKeywordFunc2(wrappedObject, defaultKeyword);
+            return WithDefaultKeywordFunc0(wrappedObject, defaultKeyword);
         }
     }
 }

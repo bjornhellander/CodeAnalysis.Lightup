@@ -18,9 +18,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         private delegate global::System.Security.Cryptography.HashAlgorithmName PdbChecksumAlgorithmGetterDelegate(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithDefaultSourceFileEncodingDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? defaultSourceFileEncoding);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate1(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithInstrumentationKindsDelegate2(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds);
-        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithmDelegate3(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncodingDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithInstrumentationKindsDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds);
+        private delegate global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithmDelegate0(global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
         private static readonly ConstructorDelegate1 ConstructorFunc1;
@@ -32,9 +32,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         private static readonly PdbChecksumAlgorithmGetterDelegate PdbChecksumAlgorithmGetterFunc;
 
         private static readonly WithDefaultSourceFileEncodingDelegate0 WithDefaultSourceFileEncodingFunc0;
-        private static readonly WithFallbackSourceFileEncodingDelegate1 WithFallbackSourceFileEncodingFunc1;
-        private static readonly WithInstrumentationKindsDelegate2 WithInstrumentationKindsFunc2;
-        private static readonly WithPdbChecksumAlgorithmDelegate3 WithPdbChecksumAlgorithmFunc3;
+        private static readonly WithFallbackSourceFileEncodingDelegate0 WithFallbackSourceFileEncodingFunc0;
+        private static readonly WithInstrumentationKindsDelegate0 WithInstrumentationKindsFunc0;
+        private static readonly WithPdbChecksumAlgorithmDelegate0 WithPdbChecksumAlgorithmFunc0;
 
         static EmitOptionsEx()
         {
@@ -50,9 +50,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             PdbChecksumAlgorithmGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PdbChecksumAlgorithmGetterDelegate>(wrappedType, nameof(PdbChecksumAlgorithm));
 
             WithDefaultSourceFileEncodingFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithDefaultSourceFileEncodingDelegate0>(wrappedType, "WithDefaultSourceFileEncoding", "defaultSourceFileEncodingEncoding");
-            WithFallbackSourceFileEncodingFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate1>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
-            WithInstrumentationKindsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithInstrumentationKindsDelegate2>(wrappedType, "WithInstrumentationKinds", "instrumentationKindsImmutableArray`1");
-            WithPdbChecksumAlgorithmFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithPdbChecksumAlgorithmDelegate3>(wrappedType, "WithPdbChecksumAlgorithm", "nameHashAlgorithmName");
+            WithFallbackSourceFileEncodingFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithFallbackSourceFileEncodingDelegate0>(wrappedType, "WithFallbackSourceFileEncoding", "fallbackSourceFileEncodingEncoding");
+            WithInstrumentationKindsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithInstrumentationKindsDelegate0>(wrappedType, "WithInstrumentationKinds", "instrumentationKindsImmutableArray`1");
+            WithPdbChecksumAlgorithmFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithPdbChecksumAlgorithmDelegate0>(wrappedType, "WithPdbChecksumAlgorithm", "nameHashAlgorithmName");
         }
 
         /// <summary>Constructor added in version 2.0.0.0.</summary>
@@ -106,19 +106,19 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithFallbackSourceFileEncoding(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Text.Encoding? fallbackSourceFileEncoding)
         {
-            return WithFallbackSourceFileEncodingFunc1(_obj, fallbackSourceFileEncoding);
+            return WithFallbackSourceFileEncodingFunc0(_obj, fallbackSourceFileEncoding);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithInstrumentationKinds(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Emit.Lightup.InstrumentationKindEx> instrumentationKinds)
         {
-            return WithInstrumentationKindsFunc2(_obj, instrumentationKinds);
+            return WithInstrumentationKindsFunc0(_obj, instrumentationKinds);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Emit.EmitOptions WithPdbChecksumAlgorithm(this global::Microsoft.CodeAnalysis.Emit.EmitOptions _obj, global::System.Security.Cryptography.HashAlgorithmName name)
         {
-            return WithPdbChecksumAlgorithmFunc3(_obj, name);
+            return WithPdbChecksumAlgorithmFunc0(_obj, name);
         }
     }
 }

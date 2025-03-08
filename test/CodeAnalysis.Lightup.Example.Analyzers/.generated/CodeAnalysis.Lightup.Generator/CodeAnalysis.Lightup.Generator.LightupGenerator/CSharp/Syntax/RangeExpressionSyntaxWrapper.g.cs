@@ -15,20 +15,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? RightOperandGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithLeftOperandDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithOperatorTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithRightOperandDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithLeftOperandDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithOperatorTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithRightOperandDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand);
 
         private static readonly LeftOperandGetterDelegate LeftOperandGetterFunc;
         private static readonly OperatorTokenGetterDelegate OperatorTokenGetterFunc;
         private static readonly RightOperandGetterDelegate RightOperandGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithLeftOperandDelegate2 WithLeftOperandFunc2;
-        private static readonly WithOperatorTokenDelegate3 WithOperatorTokenFunc3;
-        private static readonly WithRightOperandDelegate4 WithRightOperandFunc4;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithLeftOperandDelegate0 WithLeftOperandFunc0;
+        private static readonly WithOperatorTokenDelegate0 WithOperatorTokenFunc0;
+        private static readonly WithRightOperandDelegate0 WithRightOperandFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax wrappedObject;
 
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             RightOperandGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<RightOperandGetterDelegate>(WrappedType, nameof(RightOperand));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "leftOperandExpressionSyntax", "operatorTokenSyntaxToken", "rightOperandExpressionSyntax");
-            WithLeftOperandFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithLeftOperandDelegate2>(WrappedType, "WithLeftOperand", "leftOperandExpressionSyntax");
-            WithOperatorTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate3>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
-            WithRightOperandFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRightOperandDelegate4>(WrappedType, "WithRightOperand", "rightOperandExpressionSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "leftOperandExpressionSyntax", "operatorTokenSyntaxToken", "rightOperandExpressionSyntax");
+            WithLeftOperandFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithLeftOperandDelegate0>(WrappedType, "WithLeftOperand", "leftOperandExpressionSyntax");
+            WithOperatorTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOperatorTokenDelegate0>(WrappedType, "WithOperatorToken", "operatorTokenSyntaxToken");
+            WithRightOperandFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRightOperandDelegate0>(WrappedType, "WithRightOperand", "rightOperandExpressionSyntax");
         }
 
         private RangeExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
@@ -110,25 +110,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand)
         {
-            return UpdateFunc1(wrappedObject, leftOperand, operatorToken, rightOperand);
+            return UpdateFunc0(wrappedObject, leftOperand, operatorToken, rightOperand);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithLeftOperand(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? leftOperand)
         {
-            return WithLeftOperandFunc2(wrappedObject, leftOperand);
+            return WithLeftOperandFunc0(wrappedObject, leftOperand);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithOperatorToken(global::Microsoft.CodeAnalysis.SyntaxToken operatorToken)
         {
-            return WithOperatorTokenFunc3(wrappedObject, operatorToken);
+            return WithOperatorTokenFunc0(wrappedObject, operatorToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper WithRightOperand(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? rightOperand)
         {
-            return WithRightOperandFunc4(wrappedObject, rightOperand);
+            return WithRightOperandFunc0(wrappedObject, rightOperand);
         }
     }
 }

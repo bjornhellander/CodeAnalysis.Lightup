@@ -14,20 +14,20 @@ public partial class IOperationEx {
         private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean AnyDelegate0(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate1(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate2(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate3(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper ReverseDelegate4(global::System.Object _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate5(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation FirstDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumeratorDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.IOperation LastDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper ReverseDelegate0(global::System.Object _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArrayDelegate0(global::System.Object _obj);
 
         private static readonly CountGetterDelegate CountGetterFunc;
 
         private static readonly AnyDelegate0 AnyFunc0;
-        private static readonly FirstDelegate1 FirstFunc1;
-        private static readonly GetEnumeratorDelegate2 GetEnumeratorFunc2;
-        private static readonly LastDelegate3 LastFunc3;
-        private static readonly ReverseDelegate4 ReverseFunc4;
-        private static readonly ToImmutableArrayDelegate5 ToImmutableArrayFunc5;
+        private static readonly FirstDelegate0 FirstFunc0;
+        private static readonly GetEnumeratorDelegate0 GetEnumeratorFunc0;
+        private static readonly LastDelegate0 LastFunc0;
+        private static readonly ReverseDelegate0 ReverseFunc0;
+        private static readonly ToImmutableArrayDelegate0 ToImmutableArrayFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -38,11 +38,11 @@ public partial class IOperationEx {
             CountGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CountGetterDelegate>(WrappedType, nameof(Count));
 
             AnyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<AnyDelegate0>(WrappedType, "Any");
-            FirstFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<FirstDelegate1>(WrappedType, "First");
-            GetEnumeratorFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate2>(WrappedType, "GetEnumerator");
-            LastFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<LastDelegate3>(WrappedType, "Last");
-            ReverseFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ReverseDelegate4>(WrappedType, "Reverse");
-            ToImmutableArrayFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate5>(WrappedType, "ToImmutableArray");
+            FirstFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<FirstDelegate0>(WrappedType, "First");
+            GetEnumeratorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetEnumeratorDelegate0>(WrappedType, "GetEnumerator");
+            LastFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<LastDelegate0>(WrappedType, "Last");
+            ReverseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ReverseDelegate0>(WrappedType, "Reverse");
+            ToImmutableArrayFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToImmutableArrayDelegate0>(WrappedType, "ToImmutableArray");
         }
 
         private OperationListWrapper(global::System.Object obj)
@@ -84,31 +84,31 @@ public partial class IOperationEx {
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation First()
         {
-            return FirstFunc1(wrappedObject);
+            return FirstFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.EnumeratorWrapper GetEnumerator()
         {
-            return GetEnumeratorFunc2(wrappedObject);
+            return GetEnumeratorFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.IOperation Last()
         {
-            return LastFunc3(wrappedObject);
+            return LastFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.IOperationEx.OperationListWrapper.ReversedWrapper Reverse()
         {
-            return ReverseFunc4(wrappedObject);
+            return ReverseFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ToImmutableArray()
         {
-            return ToImmutableArrayFunc5(wrappedObject);
+            return ToImmutableArrayFunc0(wrappedObject);
         }
     }
 }

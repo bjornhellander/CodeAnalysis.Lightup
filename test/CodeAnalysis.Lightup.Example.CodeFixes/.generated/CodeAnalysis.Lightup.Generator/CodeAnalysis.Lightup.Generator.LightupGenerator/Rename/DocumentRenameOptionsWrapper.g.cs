@@ -18,7 +18,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private delegate void RenameMatchingTypeInStringsSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
         private delegate void DeconstructDelegate0(global::System.Object _obj, out global::System.Boolean RenameMatchingTypeInStrings, out global::System.Boolean RenameMatchingTypeInComments);
-        private delegate global::System.Boolean EqualsDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -28,7 +28,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         private static readonly RenameMatchingTypeInStringsSetterDelegate RenameMatchingTypeInStringsSetterFunc;
 
         private static readonly DeconstructDelegate0 DeconstructFunc0;
-        private static readonly EqualsDelegate1 EqualsFunc1;
+        private static readonly EqualsDelegate0 EqualsFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -44,7 +44,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
             RenameMatchingTypeInStringsSetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceSetAccessor<RenameMatchingTypeInStringsSetterDelegate>(WrappedType, nameof(RenameMatchingTypeInStrings));
 
             DeconstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<DeconstructDelegate0>(WrappedType, "Deconstruct", "RenameMatchingTypeInStringsBoolean&", "RenameMatchingTypeInCommentsBoolean&");
-            EqualsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate1>(WrappedType, "Equals", "otherDocumentRenameOptions");
+            EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherDocumentRenameOptions");
         }
 
         private DocumentRenameOptionsWrapper(global::System.Object obj)
@@ -100,7 +100,7 @@ namespace Microsoft.CodeAnalysis.Rename.Lightup
         /// <summary>Method added in version 4.2.0.0.</summary>
         public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.Rename.Lightup.DocumentRenameOptionsWrapper other)
         {
-            return EqualsFunc1(wrappedObject, other);
+            return EqualsFunc0(wrappedObject, other);
         }
     }
 }

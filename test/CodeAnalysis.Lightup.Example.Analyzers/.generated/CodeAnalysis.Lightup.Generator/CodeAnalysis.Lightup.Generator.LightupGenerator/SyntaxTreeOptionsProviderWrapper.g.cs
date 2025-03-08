@@ -11,12 +11,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.GeneratedKindEx IsGeneratedDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Boolean TryGetDiagnosticValueDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity);
-        private delegate global::System.Boolean TryGetGlobalDiagnosticValueDelegate2(global::System.Object _obj, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity);
+        private delegate global::System.Boolean TryGetDiagnosticValueDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity);
+        private delegate global::System.Boolean TryGetGlobalDiagnosticValueDelegate0(global::System.Object _obj, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity);
 
         private static readonly IsGeneratedDelegate0 IsGeneratedFunc0;
-        private static readonly TryGetDiagnosticValueDelegate1 TryGetDiagnosticValueFunc1;
-        private static readonly TryGetGlobalDiagnosticValueDelegate2 TryGetGlobalDiagnosticValueFunc2;
+        private static readonly TryGetDiagnosticValueDelegate0 TryGetDiagnosticValueFunc0;
+        private static readonly TryGetGlobalDiagnosticValueDelegate0 TryGetGlobalDiagnosticValueFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -25,8 +25,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             IsGeneratedFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<IsGeneratedDelegate0>(WrappedType, "IsGenerated", "treeSyntaxTree", "cancellationTokenCancellationToken");
-            TryGetDiagnosticValueFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<TryGetDiagnosticValueDelegate1>(WrappedType, "TryGetDiagnosticValue", "treeSyntaxTree", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
-            TryGetGlobalDiagnosticValueFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate2>(WrappedType, "TryGetGlobalDiagnosticValue", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
+            TryGetDiagnosticValueFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<TryGetDiagnosticValueDelegate0>(WrappedType, "TryGetDiagnosticValue", "treeSyntaxTree", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
+            TryGetGlobalDiagnosticValueFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<TryGetGlobalDiagnosticValueDelegate0>(WrappedType, "TryGetGlobalDiagnosticValue", "diagnosticIdString", "cancellationTokenCancellationToken", "severityReportDiagnostic&");
         }
 
         private SyntaxTreeOptionsProviderWrapper(global::System.Object obj)
@@ -62,13 +62,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean TryGetDiagnosticValue(global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
         {
-            return TryGetDiagnosticValueFunc1(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
+            return TryGetDiagnosticValueFunc0(wrappedObject, tree, diagnosticId, cancellationToken, out severity);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public global::System.Boolean TryGetGlobalDiagnosticValue(global::System.String diagnosticId, global::System.Threading.CancellationToken cancellationToken, out global::Microsoft.CodeAnalysis.ReportDiagnostic severity)
         {
-            return TryGetGlobalDiagnosticValueFunc2(wrappedObject, diagnosticId, cancellationToken, out severity);
+            return TryGetGlobalDiagnosticValueFunc0(wrappedObject, diagnosticId, cancellationToken, out severity);
         }
     }
 }

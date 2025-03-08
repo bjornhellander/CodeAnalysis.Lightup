@@ -9,35 +9,35 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddAccessorListAccessorsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorDeclarationSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAccessorListDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAttributeListsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithExplicitInterfaceSpecifierDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithModifiersDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithTypeDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAccessorListDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithExplicitInterfaceSpecifierDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly AddAccessorListAccessorsDelegate0 AddAccessorListAccessorsFunc0;
-        private static readonly AddAttributeListsDelegate1 AddAttributeListsFunc1;
-        private static readonly AddModifiersDelegate2 AddModifiersFunc2;
-        private static readonly WithAccessorListDelegate3 WithAccessorListFunc3;
-        private static readonly WithAttributeListsDelegate4 WithAttributeListsFunc4;
-        private static readonly WithExplicitInterfaceSpecifierDelegate5 WithExplicitInterfaceSpecifierFunc5;
-        private static readonly WithModifiersDelegate6 WithModifiersFunc6;
-        private static readonly WithTypeDelegate7 WithTypeFunc7;
+        private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly WithAccessorListDelegate0 WithAccessorListFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithExplicitInterfaceSpecifierDelegate0 WithExplicitInterfaceSpecifierFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         static BasePropertyDeclarationSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AddAccessorListAccessorsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAccessorListAccessorsDelegate0>(wrappedType, "AddAccessorListAccessors", "itemsAccessorDeclarationSyntax[]");
-            AddAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate1>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddModifiersFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            WithAccessorListFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAccessorListDelegate3>(wrappedType, "WithAccessorList", "accessorListAccessorListSyntax");
-            WithAttributeListsFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate4>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithExplicitInterfaceSpecifierFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate5>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
-            WithModifiersFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate6>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithTypeFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate7>(wrappedType, "WithType", "typeTypeSyntax");
+            AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithAccessorListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAccessorListDelegate0>(wrappedType, "WithAccessorList", "accessorListAccessorListSyntax");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithExplicitInterfaceSpecifierFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate0>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(wrappedType, "WithType", "typeTypeSyntax");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -49,43 +49,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
-            return AddAttributeListsFunc1(_obj, items);
+            return AddAttributeListsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc2(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAccessorList(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.AccessorListSyntax? accessorList)
         {
-            return WithAccessorListFunc3(_obj, accessorList);
+            return WithAccessorListFunc0(_obj, accessorList);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc4(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithExplicitInterfaceSpecifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
         {
-            return WithExplicitInterfaceSpecifierFunc5(_obj, explicitInterfaceSpecifier);
+            return WithExplicitInterfaceSpecifierFunc0(_obj, explicitInterfaceSpecifier);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc6(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax WithType(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BasePropertyDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return WithTypeFunc7(_obj, type);
+            return WithTypeFunc0(_obj, type);
         }
     }
 }

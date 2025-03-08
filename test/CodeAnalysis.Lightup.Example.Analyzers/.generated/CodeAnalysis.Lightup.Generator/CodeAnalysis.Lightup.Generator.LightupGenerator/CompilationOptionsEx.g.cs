@@ -14,16 +14,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? SyntaxTreeOptionsProviderGetterDelegate(global::Microsoft.CodeAnalysis.CompilationOptions _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithConcurrentBuildDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean concurrent);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyContainerDelegate1(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyContainer);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyFileDelegate2(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyFile);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoPublicKeyDelegate3(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> cryptoPublicKey);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithDelaySignDelegate4(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Nullable<global::System.Boolean> delaySign);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMainTypeNameDelegate5(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? mainTypeName);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptionsDelegate6(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithModuleNameDelegate7(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? moduleName);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithOverflowChecksDelegate8(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean checkOverflow);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassNameDelegate9(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName);
-        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate10(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyContainerDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyContainer);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyFileDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyFile);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoPublicKeyDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> cryptoPublicKey);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithDelaySignDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Nullable<global::System.Boolean> delaySign);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMainTypeNameDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? mainTypeName);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptionsDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithModuleNameDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? moduleName);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithOverflowChecksDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean checkOverflow);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassNameDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName);
+        private delegate global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
 
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
         private static readonly MetadataImportOptionsGetterDelegate MetadataImportOptionsGetterFunc;
@@ -31,16 +31,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly SyntaxTreeOptionsProviderGetterDelegate SyntaxTreeOptionsProviderGetterFunc;
 
         private static readonly WithConcurrentBuildDelegate0 WithConcurrentBuildFunc0;
-        private static readonly WithCryptoKeyContainerDelegate1 WithCryptoKeyContainerFunc1;
-        private static readonly WithCryptoKeyFileDelegate2 WithCryptoKeyFileFunc2;
-        private static readonly WithCryptoPublicKeyDelegate3 WithCryptoPublicKeyFunc3;
-        private static readonly WithDelaySignDelegate4 WithDelaySignFunc4;
-        private static readonly WithMainTypeNameDelegate5 WithMainTypeNameFunc5;
-        private static readonly WithMetadataImportOptionsDelegate6 WithMetadataImportOptionsFunc6;
-        private static readonly WithModuleNameDelegate7 WithModuleNameFunc7;
-        private static readonly WithOverflowChecksDelegate8 WithOverflowChecksFunc8;
-        private static readonly WithScriptClassNameDelegate9 WithScriptClassNameFunc9;
-        private static readonly WithSyntaxTreeOptionsProviderDelegate10 WithSyntaxTreeOptionsProviderFunc10;
+        private static readonly WithCryptoKeyContainerDelegate0 WithCryptoKeyContainerFunc0;
+        private static readonly WithCryptoKeyFileDelegate0 WithCryptoKeyFileFunc0;
+        private static readonly WithCryptoPublicKeyDelegate0 WithCryptoPublicKeyFunc0;
+        private static readonly WithDelaySignDelegate0 WithDelaySignFunc0;
+        private static readonly WithMainTypeNameDelegate0 WithMainTypeNameFunc0;
+        private static readonly WithMetadataImportOptionsDelegate0 WithMetadataImportOptionsFunc0;
+        private static readonly WithModuleNameDelegate0 WithModuleNameFunc0;
+        private static readonly WithOverflowChecksDelegate0 WithOverflowChecksFunc0;
+        private static readonly WithScriptClassNameDelegate0 WithScriptClassNameFunc0;
+        private static readonly WithSyntaxTreeOptionsProviderDelegate0 WithSyntaxTreeOptionsProviderFunc0;
 
         static CompilationOptionsEx()
         {
@@ -52,16 +52,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             SyntaxTreeOptionsProviderGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SyntaxTreeOptionsProviderGetterDelegate>(wrappedType, nameof(SyntaxTreeOptionsProvider));
 
             WithConcurrentBuildFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithConcurrentBuildDelegate0>(wrappedType, "WithConcurrentBuild", "concurrentBoolean");
-            WithCryptoKeyContainerFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoKeyContainerDelegate1>(wrappedType, "WithCryptoKeyContainer", "cryptoKeyContainerString");
-            WithCryptoKeyFileFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoKeyFileDelegate2>(wrappedType, "WithCryptoKeyFile", "cryptoKeyFileString");
-            WithCryptoPublicKeyFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoPublicKeyDelegate3>(wrappedType, "WithCryptoPublicKey", "cryptoPublicKeyImmutableArray`1");
-            WithDelaySignFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithDelaySignDelegate4>(wrappedType, "WithDelaySign", "delaySignNullable`1");
-            WithMainTypeNameFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMainTypeNameDelegate5>(wrappedType, "WithMainTypeName", "mainTypeNameString");
-            WithMetadataImportOptionsFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate6>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
-            WithModuleNameFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithModuleNameDelegate7>(wrappedType, "WithModuleName", "moduleNameString");
-            WithOverflowChecksFunc8 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithOverflowChecksDelegate8>(wrappedType, "WithOverflowChecks", "checkOverflowBoolean");
-            WithScriptClassNameFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithScriptClassNameDelegate9>(wrappedType, "WithScriptClassName", "scriptClassNameString");
-            WithSyntaxTreeOptionsProviderFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate10>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
+            WithCryptoKeyContainerFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoKeyContainerDelegate0>(wrappedType, "WithCryptoKeyContainer", "cryptoKeyContainerString");
+            WithCryptoKeyFileFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoKeyFileDelegate0>(wrappedType, "WithCryptoKeyFile", "cryptoKeyFileString");
+            WithCryptoPublicKeyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithCryptoPublicKeyDelegate0>(wrappedType, "WithCryptoPublicKey", "cryptoPublicKeyImmutableArray`1");
+            WithDelaySignFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithDelaySignDelegate0>(wrappedType, "WithDelaySign", "delaySignNullable`1");
+            WithMainTypeNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMainTypeNameDelegate0>(wrappedType, "WithMainTypeName", "mainTypeNameString");
+            WithMetadataImportOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate0>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
+            WithModuleNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithModuleNameDelegate0>(wrappedType, "WithModuleName", "moduleNameString");
+            WithOverflowChecksFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithOverflowChecksDelegate0>(wrappedType, "WithOverflowChecks", "checkOverflowBoolean");
+            WithScriptClassNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithScriptClassNameDelegate0>(wrappedType, "WithScriptClassName", "scriptClassNameString");
+            WithSyntaxTreeOptionsProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -97,61 +97,61 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyContainer(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyContainer)
         {
-            return WithCryptoKeyContainerFunc1(_obj, cryptoKeyContainer);
+            return WithCryptoKeyContainerFunc0(_obj, cryptoKeyContainer);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoKeyFile(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? cryptoKeyFile)
         {
-            return WithCryptoKeyFileFunc2(_obj, cryptoKeyFile);
+            return WithCryptoKeyFileFunc0(_obj, cryptoKeyFile);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithCryptoPublicKey(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> cryptoPublicKey)
         {
-            return WithCryptoPublicKeyFunc3(_obj, cryptoPublicKey);
+            return WithCryptoPublicKeyFunc0(_obj, cryptoPublicKey);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithDelaySign(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Nullable<global::System.Boolean> delaySign)
         {
-            return WithDelaySignFunc4(_obj, delaySign);
+            return WithDelaySignFunc0(_obj, delaySign);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithMainTypeName(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? mainTypeName)
         {
-            return WithMainTypeNameFunc5(_obj, mainTypeName);
+            return WithMainTypeNameFunc0(_obj, mainTypeName);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithMetadataImportOptions(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value)
         {
-            return WithMetadataImportOptionsFunc6(_obj, value);
+            return WithMetadataImportOptionsFunc0(_obj, value);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithModuleName(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String? moduleName)
         {
-            return WithModuleNameFunc7(_obj, moduleName);
+            return WithModuleNameFunc0(_obj, moduleName);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithOverflowChecks(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.Boolean checkOverflow)
         {
-            return WithOverflowChecksFunc8(_obj, checkOverflow);
+            return WithOverflowChecksFunc0(_obj, checkOverflow);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithScriptClassName(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::System.String scriptClassName)
         {
-            return WithScriptClassNameFunc9(_obj, scriptClassName);
+            return WithScriptClassNameFunc0(_obj, scriptClassName);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CompilationOptions WithSyntaxTreeOptionsProvider(this global::Microsoft.CodeAnalysis.CompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider)
         {
-            return WithSyntaxTreeOptionsProviderFunc10(_obj, provider);
+            return WithSyntaxTreeOptionsProviderFunc0(_obj, provider);
         }
     }
 }
