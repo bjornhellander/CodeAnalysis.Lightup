@@ -11,11 +11,15 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate RuntimeRudeEditWrapper ConstructorDelegate0(global::System.String message);
+        private delegate RuntimeRudeEditWrapper ConstructorDelegate1(global::System.String message, global::System.Int32 errorCode);
 
+        private delegate global::System.Int32 ErrorCodeGetterDelegate(global::System.Object _obj);
         private delegate global::System.String MessageGetterDelegate(global::System.Object _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
+        private static readonly ConstructorDelegate1 ConstructorFunc1;
 
+        private static readonly ErrorCodeGetterDelegate ErrorCodeGetterFunc;
         private static readonly MessageGetterDelegate MessageGetterFunc;
 
         private readonly global::System.Object wrappedObject;
@@ -25,7 +29,9 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType, "messageString");
+            ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(WrappedType, "messageString", "errorCodeInt32");
 
+            ErrorCodeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorCodeGetterDelegate>(WrappedType, nameof(ErrorCode));
             MessageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MessageGetterDelegate>(WrappedType, nameof(Message));
         }
 
@@ -38,6 +44,18 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         public static RuntimeRudeEditWrapper Create(global::System.String message)
         {
             return ConstructorFunc0(message);
+        }
+
+        /// <summary>Constructor added in version 4.13.0.0.</summary>
+        public static RuntimeRudeEditWrapper Create(global::System.String message, global::System.Int32 errorCode)
+        {
+            return ConstructorFunc1(message, errorCode);
+        }
+
+        /// <summary>Property added in version 4.13.0.0.</summary>
+        public global::System.Int32 ErrorCode
+        {
+            get { return ErrorCodeGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.9.0.0.</summary>

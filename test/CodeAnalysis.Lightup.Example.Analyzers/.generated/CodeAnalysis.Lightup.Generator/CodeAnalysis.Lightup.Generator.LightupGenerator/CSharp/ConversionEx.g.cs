@@ -15,6 +15,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.Boolean IsInlineArrayGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsInterpolatedStringHandlerGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsObjectCreationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsSpanGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsStackAllocGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsSwitchExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsThrowGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
@@ -30,6 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly IsInlineArrayGetterDelegate IsInlineArrayGetterFunc;
         private static readonly IsInterpolatedStringHandlerGetterDelegate IsInterpolatedStringHandlerGetterFunc;
         private static readonly IsObjectCreationGetterDelegate IsObjectCreationGetterFunc;
+        private static readonly IsSpanGetterDelegate IsSpanGetterFunc;
         private static readonly IsStackAllocGetterDelegate IsStackAllocGetterFunc;
         private static readonly IsSwitchExpressionGetterDelegate IsSwitchExpressionGetterFunc;
         private static readonly IsThrowGetterDelegate IsThrowGetterFunc;
@@ -49,6 +51,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsInlineArrayGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsInlineArrayGetterDelegate>(wrappedType, nameof(IsInlineArray));
             IsInterpolatedStringHandlerGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsInterpolatedStringHandlerGetterDelegate>(wrappedType, nameof(IsInterpolatedStringHandler));
             IsObjectCreationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsObjectCreationGetterDelegate>(wrappedType, nameof(IsObjectCreation));
+            IsSpanGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSpanGetterDelegate>(wrappedType, nameof(IsSpan));
             IsStackAllocGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsStackAllocGetterDelegate>(wrappedType, nameof(IsStackAlloc));
             IsSwitchExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsSwitchExpressionGetterDelegate>(wrappedType, nameof(IsSwitchExpression));
             IsThrowGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsThrowGetterDelegate>(wrappedType, nameof(IsThrow));
@@ -98,6 +101,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Boolean IsObjectCreation(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsObjectCreationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.13.0.0.</summary>
+        public static global::System.Boolean IsSpan(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsSpanGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>

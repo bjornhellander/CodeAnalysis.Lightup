@@ -16,7 +16,7 @@
 		<Description>
 			Source generator package adding support for newer Roslyn features than for example an analyzer is compiled against. The consuming project needs to reference a version of the CodeAnalysis.Lightup.Runtime package which is compatible with version 1.0.0.
 		</Description>
-		<PackageVersion>4.12.0.0</PackageVersion>
+		<PackageVersion>4.13.0.0</PackageVersion>
 		<Authors>Björn Hellander</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/bjornhellander/CodeAnalysis.Lightup</PackageProjectUrl>

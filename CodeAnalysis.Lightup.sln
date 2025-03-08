@@ -134,6 +134,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Refere
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_12_0", "ref\CodeAnalysis.Lightup.Reference.V4_12_0\CodeAnalysis.Lightup.Reference.V4_12_0.csproj", "{C846DD1D-4888-471F-A15C-F375AA4CD778}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_13_0", "ref\CodeAnalysis.Lightup.Reference.V4_13_0\CodeAnalysis.Lightup.Reference.V4_13_0.csproj", "{EFFEA793-A882-84CB-E7FB-04D4554F3F4E}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - doc", "1 - doc", "{BC2ED45C-25E9-48E1-A788-1A3930DACDC3}"
 	ProjectSection(SolutionItems) = preProject
 		doc\RoslynLightup001.md = doc\RoslynLightup001.md
@@ -384,6 +386,10 @@ Global
 		{C846DD1D-4888-471F-A15C-F375AA4CD778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C846DD1D-4888-471F-A15C-F375AA4CD778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C846DD1D-4888-471F-A15C-F375AA4CD778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -447,6 +453,7 @@ Global
 		{14069368-9AD4-46E4-B431-CC56946D7B12} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 		{E7CCF4A6-BE86-4737-9917-5AF1BA598586} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 		{C846DD1D-4888-471F-A15C-F375AA4CD778} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
+		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}
