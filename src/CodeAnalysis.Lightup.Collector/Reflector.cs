@@ -387,8 +387,20 @@ internal class Reflector
         var baseClassRef = baseType != null ? CreateTypeReference(baseType) : null;
         classTypeDef.BaseClass = baseClassRef;
 
-        Assert.IsTrue(classTypeDef.IsStatic == IsStaticType(type), "IsStatic has changed");
-        //// TODO: Investigate how to handle a type changing "abstractness"
+        var isStatic = IsStaticType(type);
+        switch (classTypeDef.FullName)
+        {
+            case "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions":
+                // This type was changed to static in 4.13.0
+                Assert.IsTrue(isStatic || assemblyVersion == null || assemblyVersion < new Version(4, 13, 0), "CodeStyleOptions has changed again");
+                classTypeDef.IsStatic = isStatic;
+                break;
+            default:
+                Assert.IsTrue(classTypeDef.IsStatic == isStatic, "IsStatic has changed");
+                break;
+        }
+
+        // TODO: Investigate how to handle a type changing "abstractness"
         classTypeDef.IsAbstract = IsAbstractType(type);
     }
 

@@ -11,14 +11,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object _obj);
+        private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other);
         private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate0(global::System.Object _obj, global::System.String? path);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithGeneratedFilesOutputDirectoryDelegate0(global::System.Object _obj, global::System.String? path);
 
         private static readonly AssemblyPathGetterDelegate AssemblyPathGetterFunc;
+        private static readonly GeneratedFilesOutputDirectoryGetterDelegate GeneratedFilesOutputDirectoryGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly WithAssemblyPathDelegate0 WithAssemblyPathFunc0;
+        private static readonly WithGeneratedFilesOutputDirectoryDelegate0 WithGeneratedFilesOutputDirectoryFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -27,9 +31,11 @@ namespace Microsoft.CodeAnalysis.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             AssemblyPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
+            GeneratedFilesOutputDirectoryGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(WrappedType, nameof(GeneratedFilesOutputDirectory));
 
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherCompilationOutputInfo");
             WithAssemblyPathFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate0>(WrappedType, "WithAssemblyPath", "pathString");
+            WithGeneratedFilesOutputDirectoryFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithGeneratedFilesOutputDirectoryDelegate0>(WrappedType, "WithGeneratedFilesOutputDirectory", "pathString");
         }
 
         private CompilationOutputInfoWrapper(global::System.Object obj)
@@ -41,6 +47,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public global::System.String? AssemblyPath
         {
             get { return AssemblyPathGetterFunc(wrappedObject); }
+        }
+
+        /// <summary>Property added in version 4.13.0.0.</summary>
+        public global::System.String? GeneratedFilesOutputDirectory
+        {
+            get { return GeneratedFilesOutputDirectoryGetterFunc(wrappedObject); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
@@ -72,6 +84,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
         {
             return WithAssemblyPathFunc0(wrappedObject, path);
+        }
+
+        /// <summary>Method added in version 4.13.0.0.</summary>
+        public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithGeneratedFilesOutputDirectory(global::System.String? path)
+        {
+            return WithGeneratedFilesOutputDirectoryFunc0(wrappedObject, path);
         }
     }
 }

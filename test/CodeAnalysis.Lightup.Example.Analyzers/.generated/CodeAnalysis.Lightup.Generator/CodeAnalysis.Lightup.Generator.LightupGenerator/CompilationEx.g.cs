@@ -20,6 +20,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.INamespaceSymbol CreateErrorNamespaceSymbolDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamespaceSymbol container, global::System.String name);
         private delegate global::Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper CreateFunctionPointerTypeSymbolDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.ITypeSymbol returnType, global::Microsoft.CodeAnalysis.RefKind returnRefKind, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> parameterTypes, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.RefKind> parameterRefKinds, global::System.Reflection.Metadata.SignatureCallingConvention callingConvention, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> callingConventionTypes);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbolDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Boolean signed);
+        private delegate global::Microsoft.CodeAnalysis.IPreprocessingSymbol CreatePreprocessingSymbolDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate0(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate1(global::Microsoft.CodeAnalysis.Compilation _obj, global::Microsoft.CodeAnalysis.INamedTypeSymbol underlyingType, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateTupleTypeSymbolDelegate2(global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> elementTypes, global::System.Collections.Immutable.ImmutableArray<global::System.String> elementNames, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Location> elementLocations, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> elementNullableAnnotations);
@@ -48,6 +49,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CreateErrorNamespaceSymbolDelegate0 CreateErrorNamespaceSymbolFunc0;
         private static readonly CreateFunctionPointerTypeSymbolDelegate0 CreateFunctionPointerTypeSymbolFunc0;
         private static readonly CreateNativeIntegerTypeSymbolDelegate0 CreateNativeIntegerTypeSymbolFunc0;
+        private static readonly CreatePreprocessingSymbolDelegate0 CreatePreprocessingSymbolFunc0;
         private static readonly CreateTupleTypeSymbolDelegate0 CreateTupleTypeSymbolFunc0;
         private static readonly CreateTupleTypeSymbolDelegate1 CreateTupleTypeSymbolFunc1;
         private static readonly CreateTupleTypeSymbolDelegate2 CreateTupleTypeSymbolFunc2;
@@ -80,6 +82,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             CreateErrorNamespaceSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateErrorNamespaceSymbolDelegate0>(wrappedType, "CreateErrorNamespaceSymbol", "containerINamespaceSymbol", "nameString");
             CreateFunctionPointerTypeSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateFunctionPointerTypeSymbolDelegate0>(wrappedType, "CreateFunctionPointerTypeSymbol", "returnTypeITypeSymbol", "returnRefKindRefKind", "parameterTypesImmutableArray`1", "parameterRefKindsImmutableArray`1", "callingConventionSignatureCallingConvention", "callingConventionTypesImmutableArray`1");
             CreateNativeIntegerTypeSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateNativeIntegerTypeSymbolDelegate0>(wrappedType, "CreateNativeIntegerTypeSymbol", "signedBoolean");
+            CreatePreprocessingSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreatePreprocessingSymbolDelegate0>(wrappedType, "CreatePreprocessingSymbol", "nameString");
             CreateTupleTypeSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate0>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1");
             CreateTupleTypeSymbolFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate1>(wrappedType, "CreateTupleTypeSymbol", "underlyingTypeINamedTypeSymbol", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1");
             CreateTupleTypeSymbolFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<CreateTupleTypeSymbolDelegate2>(wrappedType, "CreateTupleTypeSymbol", "elementTypesImmutableArray`1", "elementNamesImmutableArray`1", "elementLocationsImmutableArray`1", "elementNullableAnnotationsImmutableArray`1");
@@ -161,6 +164,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.INamedTypeSymbol CreateNativeIntegerTypeSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.Boolean signed)
         {
             return CreateNativeIntegerTypeSymbolFunc0(_obj, signed);
+        }
+
+        /// <summary>Method added in version 4.13.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IPreprocessingSymbol CreatePreprocessingSymbol(this global::Microsoft.CodeAnalysis.Compilation _obj, global::System.String name)
+        {
+            return CreatePreprocessingSymbolFunc0(_obj, name);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
