@@ -14,13 +14,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax ExpressionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpressionDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
 
         private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
 
         private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
-        private static readonly WithExpressionDelegate1 WithExpressionFunc1;
+        private static readonly WithExpressionDelegate0 WithExpressionFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExpressionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ExpressionGetterDelegate>(WrappedType, nameof(Expression));
 
             WithColonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
-            WithExpressionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate1>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate0>(WrappedType, "WithExpression", "expressionExpressionSyntax");
         }
 
         private BaseExpressionColonSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -92,7 +92,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return WithExpressionFunc1(wrappedObject, expression);
+            return WithExpressionFunc0(wrappedObject, expression);
         }
     }
 }

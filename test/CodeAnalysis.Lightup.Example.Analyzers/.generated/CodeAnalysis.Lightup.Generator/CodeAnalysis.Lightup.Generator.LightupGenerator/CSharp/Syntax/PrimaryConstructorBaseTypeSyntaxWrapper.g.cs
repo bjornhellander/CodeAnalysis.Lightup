@@ -14,19 +14,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArgumentsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentListDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly ArgumentListGetterDelegate ArgumentListGetterFunc;
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddArgumentListArgumentsDelegate1 AddArgumentListArgumentsFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithArgumentListDelegate3 WithArgumentListFunc3;
-        private static readonly WithTypeDelegate4 WithTypeFunc4;
+        private static readonly AddArgumentListArgumentsDelegate0 AddArgumentListArgumentsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithArgumentListDelegate0 WithArgumentListFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax wrappedObject;
 
@@ -38,10 +38,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddArgumentListArgumentsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate1>(WrappedType, "AddArgumentListArguments", "itemsArgumentSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "typeTypeSyntax", "argumentListArgumentListSyntax");
-            WithArgumentListFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate3>(WrappedType, "WithArgumentList", "argumentListArgumentListSyntax");
-            WithTypeFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate4>(WrappedType, "WithType", "typeTypeSyntax");
+            AddArgumentListArgumentsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddArgumentListArgumentsDelegate0>(WrappedType, "AddArgumentListArguments", "itemsArgumentSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "typeTypeSyntax", "argumentListArgumentListSyntax");
+            WithArgumentListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArgumentListDelegate0>(WrappedType, "WithArgumentList", "argumentListArgumentListSyntax");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private PrimaryConstructorBaseTypeSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax obj)
@@ -101,25 +101,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper AddArgumentListArguments(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax[] items)
         {
-            return AddArgumentListArgumentsFunc1(wrappedObject, items);
+            return AddArgumentListArgumentsFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
         {
-            return UpdateFunc2(wrappedObject, type, argumentList);
+            return UpdateFunc0(wrappedObject, type, argumentList);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithArgumentList(global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax argumentList)
         {
-            return WithArgumentListFunc3(wrappedObject, argumentList);
+            return WithArgumentListFunc0(wrappedObject, argumentList);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return WithTypeFunc4(wrappedObject, type);
+            return WithTypeFunc0(wrappedObject, type);
         }
     }
 }

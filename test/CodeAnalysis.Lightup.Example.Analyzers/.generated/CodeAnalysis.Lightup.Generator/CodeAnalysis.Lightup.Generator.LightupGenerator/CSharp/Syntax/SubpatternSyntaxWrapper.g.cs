@@ -15,22 +15,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithExpressionColonDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithNameColonDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithPatternDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithExpressionColonDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithNameColonDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
 
         private static readonly ExpressionColonGetterDelegate ExpressionColonGetterFunc;
         private static readonly NameColonGetterDelegate NameColonGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithExpressionColonDelegate3 WithExpressionColonFunc3;
-        private static readonly WithNameColonDelegate4 WithNameColonFunc4;
-        private static readonly WithPatternDelegate5 WithPatternFunc5;
+        private static readonly WithExpressionColonDelegate0 WithExpressionColonFunc0;
+        private static readonly WithNameColonDelegate0 WithNameColonFunc0;
+        private static readonly WithPatternDelegate0 WithPatternFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -43,11 +43,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             PatternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "nameColonNameColonSyntax", "patternPatternSyntax");
-            WithExpressionColonFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate3>(WrappedType, "WithExpressionColon", "expressionColonBaseExpressionColonSyntax");
-            WithNameColonFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNameColonDelegate4>(WrappedType, "WithNameColon", "nameColonNameColonSyntax");
-            WithPatternFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate5>(WrappedType, "WithPattern", "patternPatternSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "expressionColonBaseExpressionColonSyntax", "patternPatternSyntax");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "nameColonNameColonSyntax", "patternPatternSyntax");
+            WithExpressionColonFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionColonDelegate0>(WrappedType, "WithExpressionColon", "expressionColonBaseExpressionColonSyntax");
+            WithNameColonFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNameColonDelegate0>(WrappedType, "WithNameColon", "nameColonNameColonSyntax");
+            WithPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate0>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
         private SubpatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -113,31 +113,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return UpdateFunc1(wrappedObject, expressionColon, pattern);
+            return UpdateFunc0(wrappedObject, expressionColon, pattern);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return UpdateFunc2(wrappedObject, nameColon, pattern);
+            return UpdateFunc1(wrappedObject, nameColon, pattern);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithExpressionColon(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BaseExpressionColonSyntaxWrapper? expressionColon)
         {
-            return WithExpressionColonFunc3(wrappedObject, expressionColon);
+            return WithExpressionColonFunc0(wrappedObject, expressionColon);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithNameColon(global::Microsoft.CodeAnalysis.CSharp.Syntax.NameColonSyntax? nameColon)
         {
-            return WithNameColonFunc4(wrappedObject, nameColon);
+            return WithNameColonFunc0(wrappedObject, nameColon);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return WithPatternFunc5(wrappedObject, pattern);
+            return WithPatternFunc0(wrappedObject, pattern);
         }
     }
 }

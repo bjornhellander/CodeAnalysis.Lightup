@@ -12,19 +12,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? ExplicitInterfaceSpecifierGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax AddBodyAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifierDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifierDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
         private static readonly ExplicitInterfaceSpecifierGetterDelegate ExplicitInterfaceSpecifierGetterFunc;
 
         private static readonly AddBodyAttributeListsDelegate0 AddBodyAttributeListsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
         private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithCheckedKeywordDelegate3 WithCheckedKeywordFunc3;
-        private static readonly WithExplicitInterfaceSpecifierDelegate4 WithExplicitInterfaceSpecifierFunc4;
+        private static readonly WithCheckedKeywordDelegate0 WithCheckedKeywordFunc0;
+        private static readonly WithExplicitInterfaceSpecifierDelegate0 WithExplicitInterfaceSpecifierFunc0;
 
         static OperatorDeclarationSyntaxEx()
         {
@@ -34,10 +34,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ExplicitInterfaceSpecifierGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ExplicitInterfaceSpecifierGetterDelegate>(wrappedType, nameof(ExplicitInterfaceSpecifier));
 
             AddBodyAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBodyAttributeListsDelegate0>(wrappedType, "AddBodyAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
-            WithCheckedKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate3>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
-            WithExplicitInterfaceSpecifierFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate4>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "returnTypeTypeSyntax", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "operatorTokenSyntaxToken", "parameterListParameterListSyntax", "bodyBlockSyntax", "expressionBodyArrowExpressionClauseSyntax", "semicolonTokenSyntaxToken");
+            WithCheckedKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate0>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
+            WithExplicitInterfaceSpecifierFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExplicitInterfaceSpecifierDelegate0>(wrappedType, "WithExplicitInterfaceSpecifier", "explicitInterfaceSpecifierExplicitInterfaceSpecifierSyntax");
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
@@ -61,25 +61,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+            return UpdateFunc0(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax returnType, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax parameterList, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? body, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArrowExpressionClauseSyntax? expressionBody, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return UpdateFunc2(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
+            return UpdateFunc1(_obj, attributeLists, modifiers, returnType, explicitInterfaceSpecifier, operatorKeyword, checkedKeyword, operatorToken, parameterList, body, expressionBody, semicolonToken);
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithCheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
         {
-            return WithCheckedKeywordFunc3(_obj, checkedKeyword);
+            return WithCheckedKeywordFunc0(_obj, checkedKeyword);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax WithExplicitInterfaceSpecifier(this global::Microsoft.CodeAnalysis.CSharp.Syntax.OperatorDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExplicitInterfaceSpecifierSyntax? explicitInterfaceSpecifier)
         {
-            return WithExplicitInterfaceSpecifierFunc4(_obj, explicitInterfaceSpecifier);
+            return WithExplicitInterfaceSpecifierFunc0(_obj, explicitInterfaceSpecifier);
         }
     }
 }

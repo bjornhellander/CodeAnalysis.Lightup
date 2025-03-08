@@ -11,18 +11,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate void DisposeDelegate0(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate1(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate2(global::System.Object _obj);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate3(global::System.Object _obj);
-        private delegate void ResetToDelegate4(global::System.Object _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
-        private delegate void SkipForwardToDelegate5(global::System.Object _obj, global::System.Int32 position);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTriviaDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextTokenDelegate0(global::System.Object _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTriviaDelegate0(global::System.Object _obj);
+        private delegate void ResetToDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result);
+        private delegate void SkipForwardToDelegate0(global::System.Object _obj, global::System.Int32 position);
 
         private static readonly DisposeDelegate0 DisposeFunc0;
-        private static readonly ParseLeadingTriviaDelegate1 ParseLeadingTriviaFunc1;
-        private static readonly ParseNextTokenDelegate2 ParseNextTokenFunc2;
-        private static readonly ParseTrailingTriviaDelegate3 ParseTrailingTriviaFunc3;
-        private static readonly ResetToDelegate4 ResetToFunc4;
-        private static readonly SkipForwardToDelegate5 SkipForwardToFunc5;
+        private static readonly ParseLeadingTriviaDelegate0 ParseLeadingTriviaFunc0;
+        private static readonly ParseNextTokenDelegate0 ParseNextTokenFunc0;
+        private static readonly ParseTrailingTriviaDelegate0 ParseTrailingTriviaFunc0;
+        private static readonly ResetToDelegate0 ResetToFunc0;
+        private static readonly SkipForwardToDelegate0 SkipForwardToFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -31,11 +31,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             DisposeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<DisposeDelegate0>(WrappedType, "Dispose");
-            ParseLeadingTriviaFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseLeadingTriviaDelegate1>(WrappedType, "ParseLeadingTrivia");
-            ParseNextTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseNextTokenDelegate2>(WrappedType, "ParseNextToken");
-            ParseTrailingTriviaFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseTrailingTriviaDelegate3>(WrappedType, "ParseTrailingTrivia");
-            ResetToFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ResetToDelegate4>(WrappedType, "ResetTo", "resultResult");
-            SkipForwardToFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<SkipForwardToDelegate5>(WrappedType, "SkipForwardTo", "positionInt32");
+            ParseLeadingTriviaFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseLeadingTriviaDelegate0>(WrappedType, "ParseLeadingTrivia");
+            ParseNextTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseNextTokenDelegate0>(WrappedType, "ParseNextToken");
+            ParseTrailingTriviaFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ParseTrailingTriviaDelegate0>(WrappedType, "ParseTrailingTrivia");
+            ResetToFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ResetToDelegate0>(WrappedType, "ResetTo", "resultResult");
+            SkipForwardToFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<SkipForwardToDelegate0>(WrappedType, "SkipForwardTo", "positionInt32");
         }
 
         private SyntaxTokenParserWrapper(global::System.Object obj)
@@ -71,31 +71,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseLeadingTrivia()
         {
-            return ParseLeadingTriviaFunc1(wrappedObject);
+            return ParseLeadingTriviaFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseNextToken()
         {
-            return ParseNextTokenFunc2(wrappedObject);
+            return ParseNextTokenFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper ParseTrailingTrivia()
         {
-            return ParseTrailingTriviaFunc3(wrappedObject);
+            return ParseTrailingTriviaFunc0(wrappedObject);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
         public void ResetTo(global::Microsoft.CodeAnalysis.CSharp.Lightup.SyntaxTokenParserWrapper.ResultWrapper result)
         {
-            ResetToFunc4(wrappedObject, result);
+            ResetToFunc0(wrappedObject, result);
         }
 
         /// <summary>Method added in version 4.10.0.0.</summary>
         public void SkipForwardTo(global::System.Int32 position)
         {
-            SkipForwardToFunc5(wrappedObject, position);
+            SkipForwardToFunc0(wrappedObject, position);
         }
     }
 }

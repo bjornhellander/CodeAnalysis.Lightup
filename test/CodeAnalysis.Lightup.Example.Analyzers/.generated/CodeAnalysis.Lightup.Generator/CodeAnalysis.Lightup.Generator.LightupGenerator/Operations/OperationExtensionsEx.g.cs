@@ -9,50 +9,50 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationExtensions";
 
         private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsDelegate0(global::Microsoft.CodeAnalysis.IOperation? operation);
-        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsAndSelfDelegate1(global::Microsoft.CodeAnalysis.IOperation? operation);
-        private delegate global::System.String? GetArgumentNameDelegate2(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::System.String? GetArgumentNameDelegate3(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::System.String? GetArgumentNameDelegate4(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate5(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate6(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate7(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
-        private delegate global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperationDelegate8(global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate9(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationOperationWrapper declaration);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate10(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper declarationGroup);
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate11(global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
-        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableInitializerOperationWrapper? GetVariableInitializerDelegate12(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclaratorOperationWrapper declarationOperation);
+        private delegate global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsAndSelfDelegate0(global::Microsoft.CodeAnalysis.IOperation? operation);
+        private delegate global::System.String? GetArgumentNameDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::System.String? GetArgumentNameDelegate1(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::System.String? GetArgumentNameDelegate2(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate1(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKindDelegate2(global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index);
+        private delegate global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperationDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationOperationWrapper declaration);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariablesDelegate1(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper declarationGroup);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignatureDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer);
+        private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableInitializerOperationWrapper? GetVariableInitializerDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclaratorOperationWrapper declarationOperation);
 
         private static readonly DescendantsDelegate0 DescendantsFunc0;
-        private static readonly DescendantsAndSelfDelegate1 DescendantsAndSelfFunc1;
+        private static readonly DescendantsAndSelfDelegate0 DescendantsAndSelfFunc0;
+        private static readonly GetArgumentNameDelegate0 GetArgumentNameFunc0;
+        private static readonly GetArgumentNameDelegate1 GetArgumentNameFunc1;
         private static readonly GetArgumentNameDelegate2 GetArgumentNameFunc2;
-        private static readonly GetArgumentNameDelegate3 GetArgumentNameFunc3;
-        private static readonly GetArgumentNameDelegate4 GetArgumentNameFunc4;
-        private static readonly GetArgumentRefKindDelegate5 GetArgumentRefKindFunc5;
-        private static readonly GetArgumentRefKindDelegate6 GetArgumentRefKindFunc6;
-        private static readonly GetArgumentRefKindDelegate7 GetArgumentRefKindFunc7;
-        private static readonly GetCorrespondingOperationDelegate8 GetCorrespondingOperationFunc8;
-        private static readonly GetDeclaredVariablesDelegate9 GetDeclaredVariablesFunc9;
-        private static readonly GetDeclaredVariablesDelegate10 GetDeclaredVariablesFunc10;
-        private static readonly GetFunctionPointerSignatureDelegate11 GetFunctionPointerSignatureFunc11;
-        private static readonly GetVariableInitializerDelegate12 GetVariableInitializerFunc12;
+        private static readonly GetArgumentRefKindDelegate0 GetArgumentRefKindFunc0;
+        private static readonly GetArgumentRefKindDelegate1 GetArgumentRefKindFunc1;
+        private static readonly GetArgumentRefKindDelegate2 GetArgumentRefKindFunc2;
+        private static readonly GetCorrespondingOperationDelegate0 GetCorrespondingOperationFunc0;
+        private static readonly GetDeclaredVariablesDelegate0 GetDeclaredVariablesFunc0;
+        private static readonly GetDeclaredVariablesDelegate1 GetDeclaredVariablesFunc1;
+        private static readonly GetFunctionPointerSignatureDelegate0 GetFunctionPointerSignatureFunc0;
+        private static readonly GetVariableInitializerDelegate0 GetVariableInitializerFunc0;
 
         static OperationExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             DescendantsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<DescendantsDelegate0>(wrappedType, "Descendants", "operationIOperation");
-            DescendantsAndSelfFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<DescendantsAndSelfDelegate1>(wrappedType, "DescendantsAndSelf", "operationIOperation");
-            GetArgumentNameFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate2>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicInvocationOperation", "indexInt32");
-            GetArgumentNameFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate3>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicIndexerAccessOperation", "indexInt32");
-            GetArgumentNameFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate4>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicObjectCreationOperation", "indexInt32");
-            GetArgumentRefKindFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate5>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicInvocationOperation", "indexInt32");
-            GetArgumentRefKindFunc6 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate6>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicIndexerAccessOperation", "indexInt32");
-            GetArgumentRefKindFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate7>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicObjectCreationOperation", "indexInt32");
-            GetCorrespondingOperationFunc8 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetCorrespondingOperationDelegate8>(wrappedType, "GetCorrespondingOperation", "operationIBranchOperation");
-            GetDeclaredVariablesFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetDeclaredVariablesDelegate9>(wrappedType, "GetDeclaredVariables", "declarationIVariableDeclarationOperation");
-            GetDeclaredVariablesFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetDeclaredVariablesDelegate10>(wrappedType, "GetDeclaredVariables", "declarationGroupIVariableDeclarationGroupOperation");
-            GetFunctionPointerSignatureFunc11 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate11>(wrappedType, "GetFunctionPointerSignature", "functionPointerIFunctionPointerInvocationOperation");
-            GetVariableInitializerFunc12 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetVariableInitializerDelegate12>(wrappedType, "GetVariableInitializer", "declarationOperationIVariableDeclaratorOperation");
+            DescendantsAndSelfFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<DescendantsAndSelfDelegate0>(wrappedType, "DescendantsAndSelf", "operationIOperation");
+            GetArgumentNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate0>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicInvocationOperation", "indexInt32");
+            GetArgumentNameFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate1>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicIndexerAccessOperation", "indexInt32");
+            GetArgumentNameFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentNameDelegate2>(wrappedType, "GetArgumentName", "dynamicOperationIDynamicObjectCreationOperation", "indexInt32");
+            GetArgumentRefKindFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate0>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicInvocationOperation", "indexInt32");
+            GetArgumentRefKindFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate1>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicIndexerAccessOperation", "indexInt32");
+            GetArgumentRefKindFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetArgumentRefKindDelegate2>(wrappedType, "GetArgumentRefKind", "dynamicOperationIDynamicObjectCreationOperation", "indexInt32");
+            GetCorrespondingOperationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetCorrespondingOperationDelegate0>(wrappedType, "GetCorrespondingOperation", "operationIBranchOperation");
+            GetDeclaredVariablesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetDeclaredVariablesDelegate0>(wrappedType, "GetDeclaredVariables", "declarationIVariableDeclarationOperation");
+            GetDeclaredVariablesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetDeclaredVariablesDelegate1>(wrappedType, "GetDeclaredVariables", "declarationGroupIVariableDeclarationGroupOperation");
+            GetFunctionPointerSignatureFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetFunctionPointerSignatureDelegate0>(wrappedType, "GetFunctionPointerSignature", "functionPointerIFunctionPointerInvocationOperation");
+            GetVariableInitializerFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetVariableInitializerDelegate0>(wrappedType, "GetVariableInitializer", "declarationOperationIVariableDeclaratorOperation");
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
@@ -64,73 +64,73 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Collections.Generic.IEnumerable<global::Microsoft.CodeAnalysis.IOperation> DescendantsAndSelf(this global::Microsoft.CodeAnalysis.IOperation? operation)
         {
-            return DescendantsAndSelfFunc1(operation);
+            return DescendantsAndSelfFunc0(operation);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.String? GetArgumentName(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentNameFunc2(dynamicOperation, index);
+            return GetArgumentNameFunc0(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.String? GetArgumentName(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentNameFunc3(dynamicOperation, index);
+            return GetArgumentNameFunc1(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.String? GetArgumentName(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentNameFunc4(dynamicOperation, index);
+            return GetArgumentNameFunc2(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKind(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicInvocationOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentRefKindFunc5(dynamicOperation, index);
+            return GetArgumentRefKindFunc0(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKind(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicIndexerAccessOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentRefKindFunc6(dynamicOperation, index);
+            return GetArgumentRefKindFunc1(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Nullable<global::Microsoft.CodeAnalysis.RefKind> GetArgumentRefKind(this global::Microsoft.CodeAnalysis.Operations.Lightup.IDynamicObjectCreationOperationWrapper dynamicOperation, global::System.Int32 index)
         {
-            return GetArgumentRefKindFunc7(dynamicOperation, index);
+            return GetArgumentRefKindFunc2(dynamicOperation, index);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IOperation? GetCorrespondingOperation(this global::Microsoft.CodeAnalysis.Operations.Lightup.IBranchOperationWrapper operation)
         {
-            return GetCorrespondingOperationFunc8(operation);
+            return GetCorrespondingOperationFunc0(operation);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariables(this global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationOperationWrapper declaration)
         {
-            return GetDeclaredVariablesFunc9(declaration);
+            return GetDeclaredVariablesFunc0(declaration);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> GetDeclaredVariables(this global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclarationGroupOperationWrapper declarationGroup)
         {
-            return GetDeclaredVariablesFunc10(declarationGroup);
+            return GetDeclaredVariablesFunc1(declarationGroup);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.IMethodSymbol GetFunctionPointerSignature(this global::Microsoft.CodeAnalysis.Operations.Lightup.IFunctionPointerInvocationOperationWrapper functionPointer)
         {
-            return GetFunctionPointerSignatureFunc11(functionPointer);
+            return GetFunctionPointerSignatureFunc0(functionPointer);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableInitializerOperationWrapper? GetVariableInitializer(this global::Microsoft.CodeAnalysis.Operations.Lightup.IVariableDeclaratorOperationWrapper declarationOperation)
         {
-            return GetVariableInitializerFunc12(declarationOperation);
+            return GetVariableInitializerFunc0(declarationOperation);
         }
     }
 }

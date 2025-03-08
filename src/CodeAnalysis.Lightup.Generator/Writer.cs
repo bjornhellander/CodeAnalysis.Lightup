@@ -2009,7 +2009,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
     private static IEnumerable<(MethodDefinition Item, int Index)> GetWithIndex(IReadOnlyList<MethodDefinition> input)
     {
-        var output = input.Select((x, i) => (x, i));
+        var output = input.Select(x =>
+        {
+            var temp = input.Where(y => y.Name == x.Name).ToList();
+            var index = temp.IndexOf(x);
+            return (x, index);
+        }).ToList();
         return output;
     }
 }

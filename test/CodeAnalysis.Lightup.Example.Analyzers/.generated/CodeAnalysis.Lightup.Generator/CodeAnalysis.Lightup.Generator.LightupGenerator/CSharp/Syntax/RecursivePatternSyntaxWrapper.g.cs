@@ -16,13 +16,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPositionalPatternClauseSubpatternsDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPropertyPatternClauseSubpatternsDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper UpdateDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithDesignationDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPositionalPatternClauseDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPropertyPatternClauseDelegate6(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithTypeDelegate7(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPositionalPatternClauseSubpatternsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPropertyPatternClauseSubpatternsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithDesignationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPositionalPatternClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPropertyPatternClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type);
 
         private static readonly DesignationGetterDelegate DesignationGetterFunc;
         private static readonly PositionalPatternClauseGetterDelegate PositionalPatternClauseGetterFunc;
@@ -30,13 +30,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddPositionalPatternClauseSubpatternsDelegate1 AddPositionalPatternClauseSubpatternsFunc1;
-        private static readonly AddPropertyPatternClauseSubpatternsDelegate2 AddPropertyPatternClauseSubpatternsFunc2;
-        private static readonly UpdateDelegate3 UpdateFunc3;
-        private static readonly WithDesignationDelegate4 WithDesignationFunc4;
-        private static readonly WithPositionalPatternClauseDelegate5 WithPositionalPatternClauseFunc5;
-        private static readonly WithPropertyPatternClauseDelegate6 WithPropertyPatternClauseFunc6;
-        private static readonly WithTypeDelegate7 WithTypeFunc7;
+        private static readonly AddPositionalPatternClauseSubpatternsDelegate0 AddPositionalPatternClauseSubpatternsFunc0;
+        private static readonly AddPropertyPatternClauseSubpatternsDelegate0 AddPropertyPatternClauseSubpatternsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithDesignationDelegate0 WithDesignationFunc0;
+        private static readonly WithPositionalPatternClauseDelegate0 WithPositionalPatternClauseFunc0;
+        private static readonly WithPropertyPatternClauseDelegate0 WithPropertyPatternClauseFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -50,13 +50,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddPositionalPatternClauseSubpatternsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddPositionalPatternClauseSubpatternsDelegate1>(WrappedType, "AddPositionalPatternClauseSubpatterns", "itemsSubpatternSyntax[]");
-            AddPropertyPatternClauseSubpatternsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddPropertyPatternClauseSubpatternsDelegate2>(WrappedType, "AddPropertyPatternClauseSubpatterns", "itemsSubpatternSyntax[]");
-            UpdateFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate3>(WrappedType, "Update", "typeTypeSyntax", "positionalPatternClausePositionalPatternClauseSyntax", "propertyPatternClausePropertyPatternClauseSyntax", "designationVariableDesignationSyntax");
-            WithDesignationFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDesignationDelegate4>(WrappedType, "WithDesignation", "designationVariableDesignationSyntax");
-            WithPositionalPatternClauseFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPositionalPatternClauseDelegate5>(WrappedType, "WithPositionalPatternClause", "positionalPatternClausePositionalPatternClauseSyntax");
-            WithPropertyPatternClauseFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPropertyPatternClauseDelegate6>(WrappedType, "WithPropertyPatternClause", "propertyPatternClausePropertyPatternClauseSyntax");
-            WithTypeFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate7>(WrappedType, "WithType", "typeTypeSyntax");
+            AddPositionalPatternClauseSubpatternsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddPositionalPatternClauseSubpatternsDelegate0>(WrappedType, "AddPositionalPatternClauseSubpatterns", "itemsSubpatternSyntax[]");
+            AddPropertyPatternClauseSubpatternsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddPropertyPatternClauseSubpatternsDelegate0>(WrappedType, "AddPropertyPatternClauseSubpatterns", "itemsSubpatternSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "typeTypeSyntax", "positionalPatternClausePositionalPatternClauseSyntax", "propertyPatternClausePropertyPatternClauseSyntax", "designationVariableDesignationSyntax");
+            WithDesignationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDesignationDelegate0>(WrappedType, "WithDesignation", "designationVariableDesignationSyntax");
+            WithPositionalPatternClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPositionalPatternClauseDelegate0>(WrappedType, "WithPositionalPatternClause", "positionalPatternClausePositionalPatternClauseSyntax");
+            WithPropertyPatternClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPropertyPatternClauseDelegate0>(WrappedType, "WithPropertyPatternClause", "propertyPatternClausePropertyPatternClauseSyntax");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private RecursivePatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -128,43 +128,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPositionalPatternClauseSubpatterns(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items)
         {
-            return AddPositionalPatternClauseSubpatternsFunc1(wrappedObject, items);
+            return AddPositionalPatternClauseSubpatternsFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper AddPropertyPatternClauseSubpatterns(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper[] items)
         {
-            return AddPropertyPatternClauseSubpatternsFunc2(wrappedObject, items);
+            return AddPropertyPatternClauseSubpatternsFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation)
         {
-            return UpdateFunc3(wrappedObject, type, positionalPatternClause, propertyPatternClause, designation);
+            return UpdateFunc0(wrappedObject, type, positionalPatternClause, propertyPatternClause, designation);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithDesignation(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper? designation)
         {
-            return WithDesignationFunc4(wrappedObject, designation);
+            return WithDesignationFunc0(wrappedObject, designation);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPositionalPatternClause(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper? positionalPatternClause)
         {
-            return WithPositionalPatternClauseFunc5(wrappedObject, positionalPatternClause);
+            return WithPositionalPatternClauseFunc0(wrappedObject, positionalPatternClause);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithPropertyPatternClause(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper? propertyPatternClause)
         {
-            return WithPropertyPatternClauseFunc6(wrappedObject, propertyPatternClause);
+            return WithPropertyPatternClauseFunc0(wrappedObject, propertyPatternClause);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax? type)
         {
-            return WithTypeFunc7(wrappedObject, type);
+            return WithTypeFunc0(wrappedObject, type);
         }
     }
 }

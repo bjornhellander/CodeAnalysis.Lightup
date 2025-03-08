@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.ControlFlowGraphExtensions";
 
         private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetAnonymousFunctionControlFlowGraphInScopeDelegate0(global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper controlFlowGraph, global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.IFlowAnonymousFunctionOperationWrapper anonymousFunction, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraphInScopeDelegate1(global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper controlFlowGraph, global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraphInScopeDelegate0(global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper controlFlowGraph, global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly GetAnonymousFunctionControlFlowGraphInScopeDelegate0 GetAnonymousFunctionControlFlowGraphInScopeFunc0;
-        private static readonly GetLocalFunctionControlFlowGraphInScopeDelegate1 GetLocalFunctionControlFlowGraphInScopeFunc1;
+        private static readonly GetLocalFunctionControlFlowGraphInScopeDelegate0 GetLocalFunctionControlFlowGraphInScopeFunc0;
 
         static ControlFlowGraphExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             GetAnonymousFunctionControlFlowGraphInScopeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetAnonymousFunctionControlFlowGraphInScopeDelegate0>(wrappedType, "GetAnonymousFunctionControlFlowGraphInScope", "controlFlowGraphControlFlowGraph", "anonymousFunctionIFlowAnonymousFunctionOperation", "cancellationTokenCancellationToken");
-            GetLocalFunctionControlFlowGraphInScopeFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetLocalFunctionControlFlowGraphInScopeDelegate1>(wrappedType, "GetLocalFunctionControlFlowGraphInScope", "controlFlowGraphControlFlowGraph", "localFunctionIMethodSymbol", "cancellationTokenCancellationToken");
+            GetLocalFunctionControlFlowGraphInScopeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<GetLocalFunctionControlFlowGraphInScopeDelegate0>(wrappedType, "GetLocalFunctionControlFlowGraphInScope", "controlFlowGraphControlFlowGraph", "localFunctionIMethodSymbol", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper GetLocalFunctionControlFlowGraphInScope(this global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.ControlFlowGraphWrapper controlFlowGraph, global::Microsoft.CodeAnalysis.IMethodSymbol localFunction, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetLocalFunctionControlFlowGraphInScopeFunc1(controlFlowGraph, localFunction, cancellationToken);
+            return GetLocalFunctionControlFlowGraphInScopeFunc0(controlFlowGraph, localFunction, cancellationToken);
         }
     }
 }

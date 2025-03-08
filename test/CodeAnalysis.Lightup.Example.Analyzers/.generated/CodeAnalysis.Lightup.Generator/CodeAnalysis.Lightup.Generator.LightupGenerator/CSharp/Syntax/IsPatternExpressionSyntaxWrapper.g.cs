@@ -15,20 +15,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper PatternGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithExpressionDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithIsKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithIsKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
 
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
         private static readonly IsKeywordGetterDelegate IsKeywordGetterFunc;
         private static readonly PatternGetterDelegate PatternGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithExpressionDelegate2 WithExpressionFunc2;
-        private static readonly WithIsKeywordDelegate3 WithIsKeywordFunc3;
-        private static readonly WithPatternDelegate4 WithPatternFunc4;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithExpressionDelegate0 WithExpressionFunc0;
+        private static readonly WithIsKeywordDelegate0 WithIsKeywordFunc0;
+        private static readonly WithPatternDelegate0 WithPatternFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax wrappedObject;
 
@@ -41,10 +41,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             PatternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<PatternGetterDelegate>(WrappedType, nameof(Pattern));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "expressionExpressionSyntax", "isKeywordSyntaxToken", "patternPatternSyntax");
-            WithExpressionFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate2>(WrappedType, "WithExpression", "expressionExpressionSyntax");
-            WithIsKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIsKeywordDelegate3>(WrappedType, "WithIsKeyword", "isKeywordSyntaxToken");
-            WithPatternFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate4>(WrappedType, "WithPattern", "patternPatternSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "expressionExpressionSyntax", "isKeywordSyntaxToken", "patternPatternSyntax");
+            WithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate0>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithIsKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIsKeywordDelegate0>(WrappedType, "WithIsKeyword", "isKeywordSyntaxToken");
+            WithPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate0>(WrappedType, "WithPattern", "patternPatternSyntax");
         }
 
         private IsPatternExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
@@ -110,25 +110,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression, global::Microsoft.CodeAnalysis.SyntaxToken isKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return UpdateFunc1(wrappedObject, expression, isKeyword, pattern);
+            return UpdateFunc0(wrappedObject, expression, isKeyword, pattern);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return WithExpressionFunc2(wrappedObject, expression);
+            return WithExpressionFunc0(wrappedObject, expression);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithIsKeyword(global::Microsoft.CodeAnalysis.SyntaxToken isKeyword)
         {
-            return WithIsKeywordFunc3(wrappedObject, isKeyword);
+            return WithIsKeywordFunc0(wrappedObject, isKeyword);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return WithPatternFunc4(wrappedObject, pattern);
+            return WithPatternFunc0(wrappedObject, pattern);
         }
     }
 }

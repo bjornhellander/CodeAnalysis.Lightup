@@ -16,11 +16,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? WhenClauseGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithEqualsGreaterThanTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithExpressionDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithWhenClauseDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithEqualsGreaterThanTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithWhenClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause);
 
         private static readonly EqualsGreaterThanTokenGetterDelegate EqualsGreaterThanTokenGetterFunc;
         private static readonly ExpressionGetterDelegate ExpressionGetterFunc;
@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WhenClauseGetterDelegate WhenClauseGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithEqualsGreaterThanTokenDelegate2 WithEqualsGreaterThanTokenFunc2;
-        private static readonly WithExpressionDelegate3 WithExpressionFunc3;
-        private static readonly WithPatternDelegate4 WithPatternFunc4;
-        private static readonly WithWhenClauseDelegate5 WithWhenClauseFunc5;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithEqualsGreaterThanTokenDelegate0 WithEqualsGreaterThanTokenFunc0;
+        private static readonly WithExpressionDelegate0 WithExpressionFunc0;
+        private static readonly WithPatternDelegate0 WithPatternFunc0;
+        private static readonly WithWhenClauseDelegate0 WithWhenClauseFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -46,11 +46,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WhenClauseGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<WhenClauseGetterDelegate>(WrappedType, nameof(WhenClause));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "equalsGreaterThanTokenSyntaxToken", "expressionExpressionSyntax");
-            WithEqualsGreaterThanTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEqualsGreaterThanTokenDelegate2>(WrappedType, "WithEqualsGreaterThanToken", "equalsGreaterThanTokenSyntaxToken");
-            WithExpressionFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate3>(WrappedType, "WithExpression", "expressionExpressionSyntax");
-            WithPatternFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate4>(WrappedType, "WithPattern", "patternPatternSyntax");
-            WithWhenClauseFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenClauseDelegate5>(WrappedType, "WithWhenClause", "whenClauseWhenClauseSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "equalsGreaterThanTokenSyntaxToken", "expressionExpressionSyntax");
+            WithEqualsGreaterThanTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEqualsGreaterThanTokenDelegate0>(WrappedType, "WithEqualsGreaterThanToken", "equalsGreaterThanTokenSyntaxToken");
+            WithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate0>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate0>(WrappedType, "WithPattern", "patternPatternSyntax");
+            WithWhenClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenClauseDelegate0>(WrappedType, "WithWhenClause", "whenClauseWhenClauseSyntax");
         }
 
         private SwitchExpressionArmSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -122,31 +122,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return UpdateFunc1(wrappedObject, pattern, whenClause, equalsGreaterThanToken, expression);
+            return UpdateFunc0(wrappedObject, pattern, whenClause, equalsGreaterThanToken, expression);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithEqualsGreaterThanToken(global::Microsoft.CodeAnalysis.SyntaxToken equalsGreaterThanToken)
         {
-            return WithEqualsGreaterThanTokenFunc2(wrappedObject, equalsGreaterThanToken);
+            return WithEqualsGreaterThanTokenFunc0(wrappedObject, equalsGreaterThanToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return WithExpressionFunc3(wrappedObject, expression);
+            return WithExpressionFunc0(wrappedObject, expression);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return WithPatternFunc4(wrappedObject, pattern);
+            return WithPatternFunc0(wrappedObject, pattern);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper WithWhenClause(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause)
         {
-            return WithWhenClauseFunc5(wrappedObject, whenClause);
+            return WithWhenClauseFunc0(wrappedObject, whenClause);
         }
     }
 }

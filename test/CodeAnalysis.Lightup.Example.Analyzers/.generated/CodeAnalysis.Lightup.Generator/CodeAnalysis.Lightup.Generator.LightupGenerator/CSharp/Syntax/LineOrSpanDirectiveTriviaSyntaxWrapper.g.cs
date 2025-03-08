@@ -14,17 +14,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken LineKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken file);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFileDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken file);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword);
 
         private static readonly FileGetterDelegate FileGetterFunc;
         private static readonly LineKeywordGetterDelegate LineKeywordGetterFunc;
 
         private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
-        private static readonly WithFileDelegate1 WithFileFunc1;
-        private static readonly WithHashTokenDelegate2 WithHashTokenFunc2;
-        private static readonly WithLineKeywordDelegate3 WithLineKeywordFunc3;
+        private static readonly WithFileDelegate0 WithFileFunc0;
+        private static readonly WithHashTokenDelegate0 WithHashTokenFunc0;
+        private static readonly WithLineKeywordDelegate0 WithLineKeywordFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax wrappedObject;
 
@@ -36,9 +36,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             LineKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<LineKeywordGetterDelegate>(WrappedType, nameof(LineKeyword));
 
             WithEndOfDirectiveTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
-            WithFileFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithFileDelegate1>(WrappedType, "WithFile", "fileSyntaxToken");
-            WithHashTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate2>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
-            WithLineKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate3>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
+            WithFileFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithFileDelegate0>(WrappedType, "WithFile", "fileSyntaxToken");
+            WithHashTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate0>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
+            WithLineKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithLineKeywordDelegate0>(WrappedType, "WithLineKeyword", "lineKeywordSyntaxToken");
         }
 
         private LineOrSpanDirectiveTriviaSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax obj)
@@ -98,19 +98,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithFile(global::Microsoft.CodeAnalysis.SyntaxToken file)
         {
-            return WithFileFunc1(wrappedObject, file);
+            return WithFileFunc0(wrappedObject, file);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithHashToken(global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
         {
-            return WithHashTokenFunc2(wrappedObject, hashToken);
+            return WithHashTokenFunc0(wrappedObject, hashToken);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineOrSpanDirectiveTriviaSyntaxWrapper WithLineKeyword(global::Microsoft.CodeAnalysis.SyntaxToken lineKeyword)
         {
-            return WithLineKeywordFunc3(wrappedObject, lineKeyword);
+            return WithLineKeywordFunc0(wrappedObject, lineKeyword);
         }
     }
 }

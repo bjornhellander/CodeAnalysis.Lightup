@@ -13,12 +13,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object _obj);
 
         private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper other);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate1(global::System.Object _obj, global::System.String? path);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPathDelegate0(global::System.Object _obj, global::System.String? path);
 
         private static readonly AssemblyPathGetterDelegate AssemblyPathGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
-        private static readonly WithAssemblyPathDelegate1 WithAssemblyPathFunc1;
+        private static readonly WithAssemblyPathDelegate0 WithAssemblyPathFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -29,7 +29,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             AssemblyPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<AssemblyPathGetterDelegate>(WrappedType, nameof(AssemblyPath));
 
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherCompilationOutputInfo");
-            WithAssemblyPathFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate1>(WrappedType, "WithAssemblyPath", "pathString");
+            WithAssemblyPathFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithAssemblyPathDelegate0>(WrappedType, "WithAssemblyPath", "pathString");
         }
 
         private CompilationOutputInfoWrapper(global::System.Object obj)
@@ -71,7 +71,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.Lightup.CompilationOutputInfoWrapper WithAssemblyPath(global::System.String? path)
         {
-            return WithAssemblyPathFunc1(wrappedObject, path);
+            return WithAssemblyPathFunc0(wrappedObject, path);
         }
     }
 }

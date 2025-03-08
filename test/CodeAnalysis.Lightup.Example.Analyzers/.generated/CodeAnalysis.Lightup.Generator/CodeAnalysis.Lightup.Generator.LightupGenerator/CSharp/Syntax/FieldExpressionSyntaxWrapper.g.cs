@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken TokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken token);
 
         private static readonly TokenGetterDelegate TokenGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithTokenDelegate2 WithTokenFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithTokenDelegate0 WithTokenFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TokenGetterDelegate>(WrappedType, nameof(Token));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "tokenSyntaxToken");
-            WithTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTokenDelegate2>(WrappedType, "WithToken", "tokenSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "tokenSyntaxToken");
+            WithTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTokenDelegate0>(WrappedType, "WithToken", "tokenSyntaxToken");
         }
 
         private FieldExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.12.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken token)
         {
-            return UpdateFunc1(wrappedObject, token);
+            return UpdateFunc0(wrappedObject, token);
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper WithToken(global::Microsoft.CodeAnalysis.SyntaxToken token)
         {
-            return WithTokenFunc2(wrappedObject, token);
+            return WithTokenFunc0(wrappedObject, token);
         }
     }
 }

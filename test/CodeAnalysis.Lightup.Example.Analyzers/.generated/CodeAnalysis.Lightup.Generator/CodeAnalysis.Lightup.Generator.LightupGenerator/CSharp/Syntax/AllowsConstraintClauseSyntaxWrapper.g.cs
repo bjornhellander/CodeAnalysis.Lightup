@@ -14,19 +14,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> ConstraintsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper AddConstraintsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithAllowsKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithConstraintsDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper AddConstraintsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithAllowsKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithConstraintsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints);
 
         private static readonly AllowsKeywordGetterDelegate AllowsKeywordGetterFunc;
         private static readonly ConstraintsGetterDelegate ConstraintsGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddConstraintsDelegate1 AddConstraintsFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithAllowsKeywordDelegate3 WithAllowsKeywordFunc3;
-        private static readonly WithConstraintsDelegate4 WithConstraintsFunc4;
+        private static readonly AddConstraintsDelegate0 AddConstraintsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithAllowsKeywordDelegate0 WithAllowsKeywordFunc0;
+        private static readonly WithConstraintsDelegate0 WithConstraintsFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax wrappedObject;
 
@@ -38,10 +38,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ConstraintsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ConstraintsGetterDelegate>(WrappedType, nameof(Constraints));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddConstraintsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddConstraintsDelegate1>(WrappedType, "AddConstraints", "itemsAllowsConstraintSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "allowsKeywordSyntaxToken", "constraintsSeparatedSyntaxList`1");
-            WithAllowsKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAllowsKeywordDelegate3>(WrappedType, "WithAllowsKeyword", "allowsKeywordSyntaxToken");
-            WithConstraintsFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConstraintsDelegate4>(WrappedType, "WithConstraints", "constraintsSeparatedSyntaxList`1");
+            AddConstraintsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddConstraintsDelegate0>(WrappedType, "AddConstraints", "itemsAllowsConstraintSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "allowsKeywordSyntaxToken", "constraintsSeparatedSyntaxList`1");
+            WithAllowsKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAllowsKeywordDelegate0>(WrappedType, "WithAllowsKeyword", "allowsKeywordSyntaxToken");
+            WithConstraintsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithConstraintsDelegate0>(WrappedType, "WithConstraints", "constraintsSeparatedSyntaxList`1");
         }
 
         private AllowsConstraintClauseSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintSyntax obj)
@@ -101,25 +101,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper AddConstraints(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper[] items)
         {
-            return AddConstraintsFunc1(wrappedObject, items);
+            return AddConstraintsFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints)
         {
-            return UpdateFunc2(wrappedObject, allowsKeyword, constraints);
+            return UpdateFunc0(wrappedObject, allowsKeyword, constraints);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithAllowsKeyword(global::Microsoft.CodeAnalysis.SyntaxToken allowsKeyword)
         {
-            return WithAllowsKeywordFunc3(wrappedObject, allowsKeyword);
+            return WithAllowsKeywordFunc0(wrappedObject, allowsKeyword);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper WithConstraints(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintSyntaxWrapper> constraints)
         {
-            return WithConstraintsFunc4(wrappedObject, constraints);
+            return WithConstraintsFunc0(wrappedObject, constraints);
         }
     }
 }

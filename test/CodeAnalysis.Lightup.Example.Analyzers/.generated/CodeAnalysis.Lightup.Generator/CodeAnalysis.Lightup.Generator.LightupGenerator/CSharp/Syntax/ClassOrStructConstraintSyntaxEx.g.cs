@@ -11,12 +11,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken QuestionTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken classOrStructKeyword, global::Microsoft.CodeAnalysis.SyntaxToken questionToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax WithQuestionTokenDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken questionToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax WithQuestionTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken questionToken);
 
         private static readonly QuestionTokenGetterDelegate QuestionTokenGetterFunc;
 
         private static readonly UpdateDelegate0 UpdateFunc0;
-        private static readonly WithQuestionTokenDelegate1 WithQuestionTokenFunc1;
+        private static readonly WithQuestionTokenDelegate0 WithQuestionTokenFunc0;
 
         static ClassOrStructConstraintSyntaxEx()
         {
@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             QuestionTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<QuestionTokenGetterDelegate>(wrappedType, nameof(QuestionToken));
 
             UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "classOrStructKeywordSyntaxToken", "questionTokenSyntaxToken");
-            WithQuestionTokenFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithQuestionTokenDelegate1>(wrappedType, "WithQuestionToken", "questionTokenSyntaxToken");
+            WithQuestionTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithQuestionTokenDelegate0>(wrappedType, "WithQuestionToken", "questionTokenSyntaxToken");
         }
 
         /// <summary>Property added in version 3.0.0.0.</summary>
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax WithQuestionToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ClassOrStructConstraintSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken questionToken)
         {
-            return WithQuestionTokenFunc1(_obj, questionToken);
+            return WithQuestionTokenFunc0(_obj, questionToken);
         }
     }
 }

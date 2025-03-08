@@ -16,12 +16,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken StackAllocKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper AddInitializerExpressionsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithCloseBracketTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithInitializerDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithOpenBracketTokenDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithStackAllocKeywordDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper AddInitializerExpressionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithCloseBracketTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithInitializerDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithOpenBracketTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithStackAllocKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword);
 
         private static readonly CloseBracketTokenGetterDelegate CloseBracketTokenGetterFunc;
         private static readonly InitializerGetterDelegate InitializerGetterFunc;
@@ -29,12 +29,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly StackAllocKeywordGetterDelegate StackAllocKeywordGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddInitializerExpressionsDelegate1 AddInitializerExpressionsFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithCloseBracketTokenDelegate3 WithCloseBracketTokenFunc3;
-        private static readonly WithInitializerDelegate4 WithInitializerFunc4;
-        private static readonly WithOpenBracketTokenDelegate5 WithOpenBracketTokenFunc5;
-        private static readonly WithStackAllocKeywordDelegate6 WithStackAllocKeywordFunc6;
+        private static readonly AddInitializerExpressionsDelegate0 AddInitializerExpressionsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithCloseBracketTokenDelegate0 WithCloseBracketTokenFunc0;
+        private static readonly WithInitializerDelegate0 WithInitializerFunc0;
+        private static readonly WithOpenBracketTokenDelegate0 WithOpenBracketTokenFunc0;
+        private static readonly WithStackAllocKeywordDelegate0 WithStackAllocKeywordFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax wrappedObject;
 
@@ -48,12 +48,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             StackAllocKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<StackAllocKeywordGetterDelegate>(WrappedType, nameof(StackAllocKeyword));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddInitializerExpressionsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate1>(WrappedType, "AddInitializerExpressions", "itemsExpressionSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "stackAllocKeywordSyntaxToken", "openBracketTokenSyntaxToken", "closeBracketTokenSyntaxToken", "initializerInitializerExpressionSyntax");
-            WithCloseBracketTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate3>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
-            WithInitializerFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate4>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
-            WithOpenBracketTokenFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate5>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
-            WithStackAllocKeywordFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithStackAllocKeywordDelegate6>(WrappedType, "WithStackAllocKeyword", "stackAllocKeywordSyntaxToken");
+            AddInitializerExpressionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddInitializerExpressionsDelegate0>(WrappedType, "AddInitializerExpressions", "itemsExpressionSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "stackAllocKeywordSyntaxToken", "openBracketTokenSyntaxToken", "closeBracketTokenSyntaxToken", "initializerInitializerExpressionSyntax");
+            WithCloseBracketTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseBracketTokenDelegate0>(WrappedType, "WithCloseBracketToken", "closeBracketTokenSyntaxToken");
+            WithInitializerFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInitializerDelegate0>(WrappedType, "WithInitializer", "initializerInitializerExpressionSyntax");
+            WithOpenBracketTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenBracketTokenDelegate0>(WrappedType, "WithOpenBracketToken", "openBracketTokenSyntaxToken");
+            WithStackAllocKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithStackAllocKeywordDelegate0>(WrappedType, "WithStackAllocKeyword", "stackAllocKeywordSyntaxToken");
         }
 
         private ImplicitStackAllocArrayCreationExpressionSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax obj)
@@ -125,37 +125,37 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper AddInitializerExpressions(params global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax[] items)
         {
-            return AddInitializerExpressionsFunc1(wrappedObject, items);
+            return AddInitializerExpressionsFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken, global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return UpdateFunc2(wrappedObject, stackAllocKeyword, openBracketToken, closeBracketToken, initializer);
+            return UpdateFunc0(wrappedObject, stackAllocKeyword, openBracketToken, closeBracketToken, initializer);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithCloseBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken closeBracketToken)
         {
-            return WithCloseBracketTokenFunc3(wrappedObject, closeBracketToken);
+            return WithCloseBracketTokenFunc0(wrappedObject, closeBracketToken);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithInitializer(global::Microsoft.CodeAnalysis.CSharp.Syntax.InitializerExpressionSyntax initializer)
         {
-            return WithInitializerFunc4(wrappedObject, initializer);
+            return WithInitializerFunc0(wrappedObject, initializer);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithOpenBracketToken(global::Microsoft.CodeAnalysis.SyntaxToken openBracketToken)
         {
-            return WithOpenBracketTokenFunc5(wrappedObject, openBracketToken);
+            return WithOpenBracketTokenFunc0(wrappedObject, openBracketToken);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper WithStackAllocKeyword(global::Microsoft.CodeAnalysis.SyntaxToken stackAllocKeyword)
         {
-            return WithStackAllocKeywordFunc6(wrappedObject, stackAllocKeyword);
+            return WithStackAllocKeywordFunc0(wrappedObject, stackAllocKeyword);
         }
     }
 }

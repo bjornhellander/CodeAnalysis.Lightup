@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullableContextOptionsExtensions";
 
         private delegate global::System.Boolean AnnotationsEnabledDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context);
-        private delegate global::System.Boolean WarningsEnabledDelegate1(global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context);
+        private delegate global::System.Boolean WarningsEnabledDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context);
 
         private static readonly AnnotationsEnabledDelegate0 AnnotationsEnabledFunc0;
-        private static readonly WarningsEnabledDelegate1 WarningsEnabledFunc1;
+        private static readonly WarningsEnabledDelegate0 WarningsEnabledFunc0;
 
         static NullableContextOptionsExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             AnnotationsEnabledFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContextOptions");
-            WarningsEnabledFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate1>(wrappedType, "WarningsEnabled", "contextNullableContextOptions");
+            WarningsEnabledFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate0>(wrappedType, "WarningsEnabled", "contextNullableContextOptions");
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean WarningsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx context)
         {
-            return WarningsEnabledFunc1(context);
+            return WarningsEnabledFunc0(context);
         }
     }
 }

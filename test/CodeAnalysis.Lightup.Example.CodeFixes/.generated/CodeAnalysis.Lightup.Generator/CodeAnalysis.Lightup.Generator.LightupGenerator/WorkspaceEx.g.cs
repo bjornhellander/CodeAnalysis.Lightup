@@ -16,9 +16,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate void TextDocumentOpenedRemoverDelegate(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.EventHandler<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> _delegate);
 
         private delegate global::System.Boolean CanApplyCompilationOptionChangeDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.CompilationOptions oldOptions, global::Microsoft.CodeAnalysis.CompilationOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate1(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
-        private delegate void CloseAnalyzerConfigDocumentDelegate2(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
-        private delegate void OpenAnalyzerConfigDocumentDelegate3(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
+        private delegate global::System.Boolean CanApplyParseOptionChangeDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
+        private delegate void CloseAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
+        private delegate void OpenAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
 
         private static readonly DocumentActiveContextChangedAdderDelegate DocumentActiveContextChangedAdderFunc;
         private static readonly DocumentActiveContextChangedRemoverDelegate DocumentActiveContextChangedRemoverFunc;
@@ -28,9 +28,9 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly TextDocumentOpenedRemoverDelegate TextDocumentOpenedRemoverFunc;
 
         private static readonly CanApplyCompilationOptionChangeDelegate0 CanApplyCompilationOptionChangeFunc0;
-        private static readonly CanApplyParseOptionChangeDelegate1 CanApplyParseOptionChangeFunc1;
-        private static readonly CloseAnalyzerConfigDocumentDelegate2 CloseAnalyzerConfigDocumentFunc2;
-        private static readonly OpenAnalyzerConfigDocumentDelegate3 OpenAnalyzerConfigDocumentFunc3;
+        private static readonly CanApplyParseOptionChangeDelegate0 CanApplyParseOptionChangeFunc0;
+        private static readonly CloseAnalyzerConfigDocumentDelegate0 CloseAnalyzerConfigDocumentFunc0;
+        private static readonly OpenAnalyzerConfigDocumentDelegate0 OpenAnalyzerConfigDocumentFunc0;
 
         static WorkspaceEx()
         {
@@ -44,9 +44,9 @@ namespace Microsoft.CodeAnalysis.Lightup
             TextDocumentOpenedRemoverFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceRemoveAccessor<TextDocumentOpenedRemoverDelegate>(wrappedType, "TextDocumentOpened");
 
             CanApplyCompilationOptionChangeFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyCompilationOptionChangeDelegate0>(wrappedType, "CanApplyCompilationOptionChange", "oldOptionsCompilationOptions", "newOptionsCompilationOptions", "projectProject");
-            CanApplyParseOptionChangeFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate1>(wrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
-            CloseAnalyzerConfigDocumentFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate2>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
-            OpenAnalyzerConfigDocumentFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate3>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
+            CanApplyParseOptionChangeFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate0>(wrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
+            CloseAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
+            OpenAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate0>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
         }
 
         /// <summary>Event added in version 2.0.0.0.</summary>
@@ -94,19 +94,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean CanApplyParseOptionChange(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project)
         {
-            return CanApplyParseOptionChangeFunc1(_obj, oldOptions, newOptions, project);
+            return CanApplyParseOptionChangeFunc0(_obj, oldOptions, newOptions, project);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static void CloseAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId)
         {
-            CloseAnalyzerConfigDocumentFunc2(_obj, documentId);
+            CloseAnalyzerConfigDocumentFunc0(_obj, documentId);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate)
         {
-            OpenAnalyzerConfigDocumentFunc3(_obj, documentId, activate);
+            OpenAnalyzerConfigDocumentFunc0(_obj, documentId, activate);
         }
     }
 }

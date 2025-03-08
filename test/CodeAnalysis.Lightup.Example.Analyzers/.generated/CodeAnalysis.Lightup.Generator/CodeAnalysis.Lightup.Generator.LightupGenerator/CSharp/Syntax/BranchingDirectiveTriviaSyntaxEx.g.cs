@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax WithEndOfDirectiveTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax WithHashTokenDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax WithHashTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
 
         private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
-        private static readonly WithHashTokenDelegate1 WithHashTokenFunc1;
+        private static readonly WithHashTokenDelegate0 WithHashTokenFunc0;
 
         static BranchingDirectiveTriviaSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             WithEndOfDirectiveTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(wrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
-            WithHashTokenFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate1>(wrappedType, "WithHashToken", "hashTokenSyntaxToken");
+            WithHashTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate0>(wrappedType, "WithHashToken", "hashTokenSyntaxToken");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax WithHashToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BranchingDirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
         {
-            return WithHashTokenFunc1(_obj, hashToken);
+            return WithHashTokenFunc0(_obj, hashToken);
         }
     }
 }

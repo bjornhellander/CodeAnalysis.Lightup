@@ -11,12 +11,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken CheckedKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken implicitOrExplicitKeyword, global::Microsoft.CodeAnalysis.SyntaxToken operatorKeyword, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type, global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterListSyntax? parameters);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword);
 
         private static readonly CheckedKeywordGetterDelegate CheckedKeywordGetterFunc;
 
         private static readonly UpdateDelegate0 UpdateFunc0;
-        private static readonly WithCheckedKeywordDelegate1 WithCheckedKeywordFunc1;
+        private static readonly WithCheckedKeywordDelegate0 WithCheckedKeywordFunc0;
 
         static ConversionOperatorMemberCrefSyntaxEx()
         {
@@ -25,7 +25,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             CheckedKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<CheckedKeywordGetterDelegate>(wrappedType, nameof(CheckedKeyword));
 
             UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "implicitOrExplicitKeywordSyntaxToken", "operatorKeywordSyntaxToken", "checkedKeywordSyntaxToken", "typeTypeSyntax", "parametersCrefParameterListSyntax");
-            WithCheckedKeywordFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate1>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
+            WithCheckedKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCheckedKeywordDelegate0>(wrappedType, "WithCheckedKeyword", "checkedKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax WithCheckedKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ConversionOperatorMemberCrefSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken checkedKeyword)
         {
-            return WithCheckedKeywordFunc1(_obj, checkedKeyword);
+            return WithCheckedKeywordFunc0(_obj, checkedKeyword);
         }
     }
 }

@@ -12,15 +12,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken RefKindKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeywordDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithRefKindKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithRefKindKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword);
 
         private static readonly ReadOnlyKeywordGetterDelegate ReadOnlyKeywordGetterFunc;
         private static readonly RefKindKeywordGetterDelegate RefKindKeywordGetterFunc;
 
         private static readonly UpdateDelegate0 UpdateFunc0;
-        private static readonly WithReadOnlyKeywordDelegate1 WithReadOnlyKeywordFunc1;
-        private static readonly WithRefKindKeywordDelegate2 WithRefKindKeywordFunc2;
+        private static readonly WithReadOnlyKeywordDelegate0 WithReadOnlyKeywordFunc0;
+        private static readonly WithRefKindKeywordDelegate0 WithRefKindKeywordFunc0;
 
         static CrefParameterSyntaxEx()
         {
@@ -30,8 +30,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             RefKindKeywordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<RefKindKeywordGetterDelegate>(wrappedType, nameof(RefKindKeyword));
 
             UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "refKindKeywordSyntaxToken", "readOnlyKeywordSyntaxToken", "typeTypeSyntax");
-            WithReadOnlyKeywordFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate1>(wrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
-            WithRefKindKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRefKindKeywordDelegate2>(wrappedType, "WithRefKindKeyword", "refKindKeywordSyntaxToken");
+            WithReadOnlyKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithReadOnlyKeywordDelegate0>(wrappedType, "WithReadOnlyKeyword", "readOnlyKeywordSyntaxToken");
+            WithRefKindKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithRefKindKeywordDelegate0>(wrappedType, "WithRefKindKeyword", "refKindKeywordSyntaxToken");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
@@ -55,13 +55,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithReadOnlyKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken readOnlyKeyword)
         {
-            return WithReadOnlyKeywordFunc1(_obj, readOnlyKeyword);
+            return WithReadOnlyKeywordFunc0(_obj, readOnlyKeyword);
         }
 
         /// <summary>Method added in version 2.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax WithRefKindKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.CrefParameterSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken refKindKeyword)
         {
-            return WithRefKindKeywordFunc2(_obj, refKindKeyword);
+            return WithRefKindKeywordFunc0(_obj, refKindKeyword);
         }
     }
 }

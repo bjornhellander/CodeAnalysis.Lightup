@@ -9,23 +9,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.NullableContextExtensions";
 
         private delegate global::System.Boolean AnnotationsEnabledDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
-        private delegate global::System.Boolean AnnotationsInheritedDelegate1(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
-        private delegate global::System.Boolean WarningsEnabledDelegate2(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
-        private delegate global::System.Boolean WarningsInheritedDelegate3(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate global::System.Boolean AnnotationsInheritedDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate global::System.Boolean WarningsEnabledDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
+        private delegate global::System.Boolean WarningsInheritedDelegate0(global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context);
 
         private static readonly AnnotationsEnabledDelegate0 AnnotationsEnabledFunc0;
-        private static readonly AnnotationsInheritedDelegate1 AnnotationsInheritedFunc1;
-        private static readonly WarningsEnabledDelegate2 WarningsEnabledFunc2;
-        private static readonly WarningsInheritedDelegate3 WarningsInheritedFunc3;
+        private static readonly AnnotationsInheritedDelegate0 AnnotationsInheritedFunc0;
+        private static readonly WarningsEnabledDelegate0 WarningsEnabledFunc0;
+        private static readonly WarningsInheritedDelegate0 WarningsInheritedFunc0;
 
         static NullableContextExtensionsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             AnnotationsEnabledFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsEnabledDelegate0>(wrappedType, "AnnotationsEnabled", "contextNullableContext");
-            AnnotationsInheritedFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsInheritedDelegate1>(wrappedType, "AnnotationsInherited", "contextNullableContext");
-            WarningsEnabledFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate2>(wrappedType, "WarningsEnabled", "contextNullableContext");
-            WarningsInheritedFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsInheritedDelegate3>(wrappedType, "WarningsInherited", "contextNullableContext");
+            AnnotationsInheritedFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<AnnotationsInheritedDelegate0>(wrappedType, "AnnotationsInherited", "contextNullableContext");
+            WarningsEnabledFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsEnabledDelegate0>(wrappedType, "WarningsEnabled", "contextNullableContext");
+            WarningsInheritedFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<WarningsInheritedDelegate0>(wrappedType, "WarningsInherited", "contextNullableContext");
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
@@ -37,19 +37,19 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean AnnotationsInherited(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
         {
-            return AnnotationsInheritedFunc1(context);
+            return AnnotationsInheritedFunc0(context);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean WarningsEnabled(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
         {
-            return WarningsEnabledFunc2(context);
+            return WarningsEnabledFunc0(context);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
         public static global::System.Boolean WarningsInherited(this global::Microsoft.CodeAnalysis.Lightup.NullableContextEx context)
         {
-            return WarningsInheritedFunc3(context);
+            return WarningsInheritedFunc0(context);
         }
     }
 }

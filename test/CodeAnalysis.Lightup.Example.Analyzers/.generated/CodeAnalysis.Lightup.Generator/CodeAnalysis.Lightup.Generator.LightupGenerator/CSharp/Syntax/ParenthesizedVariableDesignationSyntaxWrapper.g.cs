@@ -15,22 +15,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> VariablesGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper AddVariablesDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithCloseParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithOpenParenTokenDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithVariablesDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper AddVariablesDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithCloseParenTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithOpenParenTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithVariablesDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables);
 
         private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;
         private static readonly OpenParenTokenGetterDelegate OpenParenTokenGetterFunc;
         private static readonly VariablesGetterDelegate VariablesGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly AddVariablesDelegate1 AddVariablesFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithCloseParenTokenDelegate3 WithCloseParenTokenFunc3;
-        private static readonly WithOpenParenTokenDelegate4 WithOpenParenTokenFunc4;
-        private static readonly WithVariablesDelegate5 WithVariablesFunc5;
+        private static readonly AddVariablesDelegate0 AddVariablesFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithCloseParenTokenDelegate0 WithCloseParenTokenFunc0;
+        private static readonly WithOpenParenTokenDelegate0 WithOpenParenTokenFunc0;
+        private static readonly WithVariablesDelegate0 WithVariablesFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -43,11 +43,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             VariablesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<VariablesGetterDelegate>(WrappedType, nameof(Variables));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            AddVariablesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddVariablesDelegate1>(WrappedType, "AddVariables", "itemsVariableDesignationSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(WrappedType, "Update", "openParenTokenSyntaxToken", "variablesSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
-            WithCloseParenTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
-            WithOpenParenTokenFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate4>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
-            WithVariablesFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithVariablesDelegate5>(WrappedType, "WithVariables", "variablesSeparatedSyntaxList`1");
+            AddVariablesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddVariablesDelegate0>(WrappedType, "AddVariables", "itemsVariableDesignationSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "openParenTokenSyntaxToken", "variablesSeparatedSyntaxList`1", "closeParenTokenSyntaxToken");
+            WithCloseParenTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate0>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
+            WithOpenParenTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate0>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
+            WithVariablesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithVariablesDelegate0>(WrappedType, "WithVariables", "variablesSeparatedSyntaxList`1");
         }
 
         private ParenthesizedVariableDesignationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -113,31 +113,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper AddVariables(params global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper[] items)
         {
-            return AddVariablesFunc1(wrappedObject, items);
+            return AddVariablesFunc0(wrappedObject, items);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return UpdateFunc2(wrappedObject, openParenToken, variables, closeParenToken);
+            return UpdateFunc0(wrappedObject, openParenToken, variables, closeParenToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithCloseParenToken(global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
+            return WithCloseParenTokenFunc0(wrappedObject, closeParenToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithOpenParenToken(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken)
         {
-            return WithOpenParenTokenFunc4(wrappedObject, openParenToken);
+            return WithOpenParenTokenFunc0(wrappedObject, openParenToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper WithVariables(global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VariableDesignationSyntaxWrapper> variables)
         {
-            return WithVariablesFunc5(wrappedObject, variables);
+            return WithVariablesFunc0(wrappedObject, variables);
         }
     }
 }

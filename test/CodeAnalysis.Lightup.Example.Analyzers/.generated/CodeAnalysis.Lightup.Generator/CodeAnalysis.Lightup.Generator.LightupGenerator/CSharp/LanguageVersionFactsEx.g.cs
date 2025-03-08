@@ -9,20 +9,20 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.LanguageVersionFacts";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.LanguageVersion MapSpecifiedToEffectiveVersionDelegate0(global::Microsoft.CodeAnalysis.CSharp.LanguageVersion version);
-        private delegate global::System.String ToDisplayStringDelegate1(global::Microsoft.CodeAnalysis.CSharp.LanguageVersion version);
-        private delegate global::System.Boolean TryParseDelegate2(global::System.String? version, out global::Microsoft.CodeAnalysis.CSharp.LanguageVersion result);
+        private delegate global::System.String ToDisplayStringDelegate0(global::Microsoft.CodeAnalysis.CSharp.LanguageVersion version);
+        private delegate global::System.Boolean TryParseDelegate0(global::System.String? version, out global::Microsoft.CodeAnalysis.CSharp.LanguageVersion result);
 
         private static readonly MapSpecifiedToEffectiveVersionDelegate0 MapSpecifiedToEffectiveVersionFunc0;
-        private static readonly ToDisplayStringDelegate1 ToDisplayStringFunc1;
-        private static readonly TryParseDelegate2 TryParseFunc2;
+        private static readonly ToDisplayStringDelegate0 ToDisplayStringFunc0;
+        private static readonly TryParseDelegate0 TryParseFunc0;
 
         static LanguageVersionFactsEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             MapSpecifiedToEffectiveVersionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<MapSpecifiedToEffectiveVersionDelegate0>(wrappedType, "MapSpecifiedToEffectiveVersion", "versionLanguageVersion");
-            ToDisplayStringFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate1>(wrappedType, "ToDisplayString", "versionLanguageVersion");
-            TryParseFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryParseDelegate2>(wrappedType, "TryParse", "versionString", "resultLanguageVersion&");
+            ToDisplayStringFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<ToDisplayStringDelegate0>(wrappedType, "ToDisplayString", "versionLanguageVersion");
+            TryParseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryParseDelegate0>(wrappedType, "TryParse", "versionString", "resultLanguageVersion&");
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
@@ -34,13 +34,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::System.String ToDisplayString(this global::Microsoft.CodeAnalysis.CSharp.LanguageVersion version)
         {
-            return ToDisplayStringFunc1(version);
+            return ToDisplayStringFunc0(version);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>
         public static global::System.Boolean TryParse(global::System.String? version, out global::Microsoft.CodeAnalysis.CSharp.LanguageVersion result)
         {
-            return TryParseFunc2(version, out result);
+            return TryParseFunc0(version, out result);
         }
     }
 }

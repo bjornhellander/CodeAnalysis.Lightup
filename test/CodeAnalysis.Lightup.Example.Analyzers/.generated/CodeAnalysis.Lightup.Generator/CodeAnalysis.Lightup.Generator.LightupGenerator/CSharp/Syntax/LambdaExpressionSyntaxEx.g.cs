@@ -11,30 +11,30 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatementsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddModifiersDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithArrowTokenDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithAsyncKeywordDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithAttributeListsDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithBlockDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithBodyDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? body);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithExpressionBodyDelegate9(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithModifiersDelegate10(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatementsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithArrowTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithAsyncKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithBlockDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithBodyDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? body);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithExpressionBodyDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddBlockAttributeListsDelegate1 AddBlockAttributeListsFunc1;
-        private static readonly AddBlockStatementsDelegate2 AddBlockStatementsFunc2;
-        private static readonly AddModifiersDelegate3 AddModifiersFunc3;
-        private static readonly WithArrowTokenDelegate4 WithArrowTokenFunc4;
-        private static readonly WithAsyncKeywordDelegate5 WithAsyncKeywordFunc5;
-        private static readonly WithAttributeListsDelegate6 WithAttributeListsFunc6;
-        private static readonly WithBlockDelegate7 WithBlockFunc7;
-        private static readonly WithBodyDelegate8 WithBodyFunc8;
-        private static readonly WithExpressionBodyDelegate9 WithExpressionBodyFunc9;
-        private static readonly WithModifiersDelegate10 WithModifiersFunc10;
+        private static readonly AddBlockAttributeListsDelegate0 AddBlockAttributeListsFunc0;
+        private static readonly AddBlockStatementsDelegate0 AddBlockStatementsFunc0;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly WithArrowTokenDelegate0 WithArrowTokenFunc0;
+        private static readonly WithAsyncKeywordDelegate0 WithAsyncKeywordFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithBlockDelegate0 WithBlockFunc0;
+        private static readonly WithBodyDelegate0 WithBodyFunc0;
+        private static readonly WithExpressionBodyDelegate0 WithExpressionBodyFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
 
         static LambdaExpressionSyntaxEx()
         {
@@ -43,16 +43,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AttributeListsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockStatementsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate2>(wrappedType, "AddBlockStatements", "itemsStatementSyntax[]");
-            AddModifiersFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate3>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            WithArrowTokenFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArrowTokenDelegate4>(wrappedType, "WithArrowToken", "arrowTokenSyntaxToken");
-            WithAsyncKeywordFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAsyncKeywordDelegate5>(wrappedType, "WithAsyncKeyword", "asyncKeywordSyntaxToken");
-            WithAttributeListsFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate6>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithBlockFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate7>(wrappedType, "WithBlock", "blockBlockSyntax");
-            WithBodyFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBodyDelegate8>(wrappedType, "WithBody", "bodyCSharpSyntaxNode");
-            WithExpressionBodyFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate9>(wrappedType, "WithExpressionBody", "expressionBodyExpressionSyntax");
-            WithModifiersFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate10>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            AddBlockAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
+            AddBlockStatementsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockStatementsDelegate0>(wrappedType, "AddBlockStatements", "itemsStatementSyntax[]");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithArrowTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithArrowTokenDelegate0>(wrappedType, "WithArrowToken", "arrowTokenSyntaxToken");
+            WithAsyncKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAsyncKeywordDelegate0>(wrappedType, "WithAsyncKeyword", "asyncKeywordSyntaxToken");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithBlockFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBlockDelegate0>(wrappedType, "WithBlock", "blockBlockSyntax");
+            WithBodyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithBodyDelegate0>(wrappedType, "WithBody", "bodyCSharpSyntaxNode");
+            WithExpressionBodyFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionBodyDelegate0>(wrappedType, "WithExpressionBody", "expressionBodyExpressionSyntax");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.11.0.0.</summary>
@@ -70,61 +70,61 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
-            return AddBlockAttributeListsFunc1(_obj, items);
+            return AddBlockAttributeListsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.AnonymousFunctionExpressionSyntax AddBlockStatements(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax[] items)
         {
-            return AddBlockStatementsFunc2(_obj, items);
+            return AddBlockStatementsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc3(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithArrowToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken arrowToken)
         {
-            return WithArrowTokenFunc4(_obj, arrowToken);
+            return WithArrowTokenFunc0(_obj, arrowToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithAsyncKeyword(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken asyncKeyword)
         {
-            return WithAsyncKeywordFunc5(_obj, asyncKeyword);
+            return WithAsyncKeywordFunc0(_obj, asyncKeyword);
         }
 
         /// <summary>Method added in version 3.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc6(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithBlock(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax? block)
         {
-            return WithBlockFunc7(_obj, block);
+            return WithBlockFunc0(_obj, block);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax? WithBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode? body)
         {
-            return WithBodyFunc8(_obj, body);
+            return WithBodyFunc0(_obj, body);
         }
 
         /// <summary>Method added in version 3.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithExpressionBody(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? expressionBody)
         {
-            return WithExpressionBodyFunc9(_obj, expressionBody);
+            return WithExpressionBodyFunc0(_obj, expressionBody);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.LambdaExpressionSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc10(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
     }
 }

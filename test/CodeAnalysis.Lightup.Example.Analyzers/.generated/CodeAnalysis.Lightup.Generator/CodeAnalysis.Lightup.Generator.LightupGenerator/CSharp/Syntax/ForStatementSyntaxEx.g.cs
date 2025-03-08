@@ -11,14 +11,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax WithAttributeListsDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithAttributeListsDelegate2 WithAttributeListsFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
 
         static ForStatementSyntaxEx()
         {
@@ -27,8 +27,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AttributeListsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "forKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "firstSemicolonTokenSyntaxToken", "conditionExpressionSyntax", "secondSemicolonTokenSyntaxToken", "incrementorsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken", "statementStatementSyntax");
-            WithAttributeListsFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate2>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "forKeywordSyntaxToken", "openParenTokenSyntaxToken", "declarationVariableDeclarationSyntax", "initializersSeparatedSyntaxList`1", "firstSemicolonTokenSyntaxToken", "conditionExpressionSyntax", "secondSemicolonTokenSyntaxToken", "incrementorsSeparatedSyntaxList`1", "closeParenTokenSyntaxToken", "statementStatementSyntax");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
@@ -46,13 +46,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken forKeyword, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax? declaration, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> initializers, global::Microsoft.CodeAnalysis.SyntaxToken firstSemicolonToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax? condition, global::Microsoft.CodeAnalysis.SyntaxToken secondSemicolonToken, global::Microsoft.CodeAnalysis.SeparatedSyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax> incrementors, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return UpdateFunc1(_obj, attributeLists, forKeyword, openParenToken, declaration, initializers, firstSemicolonToken, condition, secondSemicolonToken, incrementors, closeParenToken, statement);
+            return UpdateFunc0(_obj, attributeLists, forKeyword, openParenToken, declaration, initializers, firstSemicolonToken, condition, secondSemicolonToken, incrementors, closeParenToken, statement);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ForStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc2(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
     }
 }

@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate CodeAnalysisProgressWrapper ConstructorDelegate0();
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddCompleteItemsDelegate0(global::System.Int32 count, global::System.String? description);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddIncompleteItemsDelegate1(global::System.Int32 count, global::System.String? description);
-        private delegate global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper DescriptionDelegate2(global::System.String description);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddIncompleteItemsDelegate0(global::System.Int32 count, global::System.String? description);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper DescriptionDelegate0(global::System.String description);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
         private static readonly AddCompleteItemsDelegate0 AddCompleteItemsFunc0;
-        private static readonly AddIncompleteItemsDelegate1 AddIncompleteItemsFunc1;
-        private static readonly DescriptionDelegate2 DescriptionFunc2;
+        private static readonly AddIncompleteItemsDelegate0 AddIncompleteItemsFunc0;
+        private static readonly DescriptionDelegate0 DescriptionFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             ConstructorFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate0>(WrappedType);
 
             AddCompleteItemsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<AddCompleteItemsDelegate0>(WrappedType, "AddCompleteItems", "countInt32", "descriptionString");
-            AddIncompleteItemsFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<AddIncompleteItemsDelegate1>(WrappedType, "AddIncompleteItems", "countInt32", "descriptionString");
-            DescriptionFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<DescriptionDelegate2>(WrappedType, "Description", "descriptionString");
+            AddIncompleteItemsFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<AddIncompleteItemsDelegate0>(WrappedType, "AddIncompleteItems", "countInt32", "descriptionString");
+            DescriptionFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticMethodAccessor<DescriptionDelegate0>(WrappedType, "Description", "descriptionString");
         }
 
         private CodeAnalysisProgressWrapper(global::System.Object obj)
@@ -74,13 +74,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper AddIncompleteItems(global::System.Int32 count, global::System.String? description)
         {
-            return AddIncompleteItemsFunc1(count, description);
+            return AddIncompleteItemsFunc0(count, description);
         }
 
         /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.CodeAnalysisProgressWrapper Description(global::System.String description)
         {
-            return DescriptionFunc2(description);
+            return DescriptionFunc0(description);
         }
     }
 }

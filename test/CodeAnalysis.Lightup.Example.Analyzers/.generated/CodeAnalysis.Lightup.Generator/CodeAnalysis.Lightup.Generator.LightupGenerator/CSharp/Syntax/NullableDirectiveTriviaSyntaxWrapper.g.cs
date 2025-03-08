@@ -18,13 +18,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken TargetTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithHashTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithIsActiveDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::System.Boolean isActive);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithNullableKeywordDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithSettingTokenDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken settingToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithTargetTokenDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken targetToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithHashTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithIsActiveDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithNullableKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithSettingTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken settingToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithTargetTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken targetToken);
 
         private static readonly EndOfDirectiveTokenGetterDelegate EndOfDirectiveTokenGetterFunc;
         private static readonly HashTokenGetterDelegate HashTokenGetterFunc;
@@ -34,13 +34,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly TargetTokenGetterDelegate TargetTokenGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithEndOfDirectiveTokenDelegate2 WithEndOfDirectiveTokenFunc2;
-        private static readonly WithHashTokenDelegate3 WithHashTokenFunc3;
-        private static readonly WithIsActiveDelegate4 WithIsActiveFunc4;
-        private static readonly WithNullableKeywordDelegate5 WithNullableKeywordFunc5;
-        private static readonly WithSettingTokenDelegate6 WithSettingTokenFunc6;
-        private static readonly WithTargetTokenDelegate7 WithTargetTokenFunc7;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
+        private static readonly WithHashTokenDelegate0 WithHashTokenFunc0;
+        private static readonly WithIsActiveDelegate0 WithIsActiveFunc0;
+        private static readonly WithNullableKeywordDelegate0 WithNullableKeywordFunc0;
+        private static readonly WithSettingTokenDelegate0 WithSettingTokenFunc0;
+        private static readonly WithTargetTokenDelegate0 WithTargetTokenFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax wrappedObject;
 
@@ -56,13 +56,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TargetTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TargetTokenGetterDelegate>(WrappedType, nameof(TargetToken));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "hashTokenSyntaxToken", "nullableKeywordSyntaxToken", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
-            WithEndOfDirectiveTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate2>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
-            WithHashTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate3>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
-            WithIsActiveFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIsActiveDelegate4>(WrappedType, "WithIsActive", "isActiveBoolean");
-            WithNullableKeywordFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableKeywordDelegate5>(WrappedType, "WithNullableKeyword", "nullableKeywordSyntaxToken");
-            WithSettingTokenFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSettingTokenDelegate6>(WrappedType, "WithSettingToken", "settingTokenSyntaxToken");
-            WithTargetTokenFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate7>(WrappedType, "WithTargetToken", "targetTokenSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "hashTokenSyntaxToken", "nullableKeywordSyntaxToken", "settingTokenSyntaxToken", "targetTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            WithEndOfDirectiveTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
+            WithHashTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate0>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
+            WithIsActiveFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIsActiveDelegate0>(WrappedType, "WithIsActive", "isActiveBoolean");
+            WithNullableKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableKeywordDelegate0>(WrappedType, "WithNullableKeyword", "nullableKeywordSyntaxToken");
+            WithSettingTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSettingTokenDelegate0>(WrappedType, "WithSettingToken", "settingTokenSyntaxToken");
+            WithTargetTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTargetTokenDelegate0>(WrappedType, "WithTargetToken", "targetTokenSyntaxToken");
         }
 
         private NullableDirectiveTriviaSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax obj)
@@ -146,43 +146,43 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword, global::Microsoft.CodeAnalysis.SyntaxToken settingToken, global::Microsoft.CodeAnalysis.SyntaxToken targetToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
         {
-            return UpdateFunc1(wrappedObject, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
+            return UpdateFunc0(wrappedObject, hashToken, nullableKeyword, settingToken, targetToken, endOfDirectiveToken, isActive);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithEndOfDirectiveToken(global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken)
         {
-            return WithEndOfDirectiveTokenFunc2(wrappedObject, endOfDirectiveToken);
+            return WithEndOfDirectiveTokenFunc0(wrappedObject, endOfDirectiveToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithHashToken(global::Microsoft.CodeAnalysis.SyntaxToken hashToken)
         {
-            return WithHashTokenFunc3(wrappedObject, hashToken);
+            return WithHashTokenFunc0(wrappedObject, hashToken);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithIsActive(global::System.Boolean isActive)
         {
-            return WithIsActiveFunc4(wrappedObject, isActive);
+            return WithIsActiveFunc0(wrappedObject, isActive);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithNullableKeyword(global::Microsoft.CodeAnalysis.SyntaxToken nullableKeyword)
         {
-            return WithNullableKeywordFunc5(wrappedObject, nullableKeyword);
+            return WithNullableKeywordFunc0(wrappedObject, nullableKeyword);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithSettingToken(global::Microsoft.CodeAnalysis.SyntaxToken settingToken)
         {
-            return WithSettingTokenFunc6(wrappedObject, settingToken);
+            return WithSettingTokenFunc0(wrappedObject, settingToken);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper WithTargetToken(global::Microsoft.CodeAnalysis.SyntaxToken targetToken)
         {
-            return WithTargetTokenFunc7(wrappedObject, targetToken);
+            return WithTargetTokenFunc0(wrappedObject, targetToken);
         }
     }
 }

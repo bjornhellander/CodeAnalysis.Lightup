@@ -20,8 +20,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate7(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.AdditionalText file, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate8(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SemanticModel model, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Diagnostics.AnalysisResult> GetAnalysisResultAsyncDelegate9(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate10(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate11(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsyncDelegate1(global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -35,8 +35,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private static readonly GetAnalysisResultAsyncDelegate7 GetAnalysisResultAsyncFunc7;
         private static readonly GetAnalysisResultAsyncDelegate8 GetAnalysisResultAsyncFunc8;
         private static readonly GetAnalysisResultAsyncDelegate9 GetAnalysisResultAsyncFunc9;
-        private static readonly GetAnalyzerSyntaxDiagnosticsAsyncDelegate10 GetAnalyzerSyntaxDiagnosticsAsyncFunc10;
-        private static readonly GetAnalyzerSyntaxDiagnosticsAsyncDelegate11 GetAnalyzerSyntaxDiagnosticsAsyncFunc11;
+        private static readonly GetAnalyzerSyntaxDiagnosticsAsyncDelegate0 GetAnalyzerSyntaxDiagnosticsAsyncFunc0;
+        private static readonly GetAnalyzerSyntaxDiagnosticsAsyncDelegate1 GetAnalyzerSyntaxDiagnosticsAsyncFunc1;
 
         static CompilationWithAnalyzersEx()
         {
@@ -54,8 +54,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             GetAnalysisResultAsyncFunc7 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate7>(wrappedType, "GetAnalysisResultAsync", "fileAdditionalText", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
             GetAnalysisResultAsyncFunc8 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate8>(wrappedType, "GetAnalysisResultAsync", "modelSemanticModel", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
             GetAnalysisResultAsyncFunc9 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalysisResultAsyncDelegate9>(wrappedType, "GetAnalysisResultAsync", "treeSyntaxTree", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc10 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate10>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "cancellationTokenCancellationToken");
-            GetAnalyzerSyntaxDiagnosticsAsyncFunc11 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate11>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate0>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "cancellationTokenCancellationToken");
+            GetAnalyzerSyntaxDiagnosticsAsyncFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetAnalyzerSyntaxDiagnosticsAsyncDelegate1>(wrappedType, "GetAnalyzerSyntaxDiagnosticsAsync", "treeSyntaxTree", "filterSpanNullable`1", "analyzersImmutableArray`1", "cancellationTokenCancellationToken");
         }
 
         /// <summary>Constructor added in version 4.8.0.0.</summary>
@@ -127,13 +127,13 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetAnalyzerSyntaxDiagnosticsAsyncFunc10(_obj, tree, filterSpan, cancellationToken);
+            return GetAnalyzerSyntaxDiagnosticsAsyncFunc0(_obj, tree, filterSpan, cancellationToken);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::System.Threading.Tasks.Task<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostic>> GetAnalyzerSyntaxDiagnosticsAsync(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationWithAnalyzers _obj, global::Microsoft.CodeAnalysis.SyntaxTree tree, global::System.Nullable<global::Microsoft.CodeAnalysis.Text.TextSpan> filterSpan, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer> analyzers, global::System.Threading.CancellationToken cancellationToken)
         {
-            return GetAnalyzerSyntaxDiagnosticsAsyncFunc11(_obj, tree, filterSpan, analyzers, cancellationToken);
+            return GetAnalyzerSyntaxDiagnosticsAsyncFunc1(_obj, tree, filterSpan, analyzers, cancellationToken);
         }
     }
 }

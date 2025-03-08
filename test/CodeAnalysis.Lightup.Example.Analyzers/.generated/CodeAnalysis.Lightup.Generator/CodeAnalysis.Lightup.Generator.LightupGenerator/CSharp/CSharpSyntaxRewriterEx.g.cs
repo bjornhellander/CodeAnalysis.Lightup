@@ -9,182 +9,182 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter";
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitAllowsConstraintClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.AllowsConstraintClauseSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitBinaryPatternDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitCasePatternSwitchLabelDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitCollectionExpressionDelegate3(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitConstantPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ConstantPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationExpressionDelegate5(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationPatternDelegate6(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDefaultConstraintDelegate7(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardDesignationDelegate8(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardDesignationSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardPatternDelegate9(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionColonDelegate10(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionElementDelegate11(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFieldExpressionDelegate12(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFileScopedNamespaceDeclarationDelegate13(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitForEachVariableStatementDelegate14(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerCallingConventionDelegate15(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameterDelegate16(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameterListDelegate17(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerTypeDelegate18(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConventionDelegate19(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConventionListDelegate20(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitObjectCreationExpressionDelegate21(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitStackAllocArrayCreationExpressionDelegate22(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitIsPatternExpressionDelegate23(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineDirectivePositionDelegate24(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineSpanDirectiveTriviaDelegate25(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitListPatternDelegate26(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLocalFunctionStatementDelegate27(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitNullableDirectiveTriviaDelegate28(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedPatternDelegate29(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedVariableDesignationDelegate30(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPositionalPatternClauseDelegate31(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPrimaryConstructorBaseTypeDelegate32(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPropertyPatternClauseDelegate33(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRangeExpressionDelegate34(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecordDeclarationDelegate35(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecursivePatternDelegate36(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefExpressionDelegate37(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefStructConstraintDelegate38(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefTypeDelegate39(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRelationalPatternDelegate40(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitScopedTypeDelegate41(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSingleVariableDesignationDelegate42(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSlicePatternDelegate43(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSpreadElementDelegate44(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSubpatternDelegate45(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpressionDelegate46(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpressionArmDelegate47(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitThrowExpressionDelegate48(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleElementDelegate49(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleExpressionDelegate50(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleTypeDelegate51(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTypePatternDelegate52(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitUnaryPatternDelegate53(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitVarPatternDelegate54(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitWhenClauseDelegate55(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitWithExpressionDelegate56(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitBinaryPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitCasePatternSwitchLabelDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitCollectionExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitConstantPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ConstantPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDefaultConstraintDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardDesignationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardDesignationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionColonDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFieldExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFileScopedNamespaceDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitForEachVariableStatementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerCallingConventionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameterDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameterListDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConventionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConventionListDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitObjectCreationExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitStackAllocArrayCreationExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitIsPatternExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineDirectivePositionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineSpanDirectiveTriviaDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitListPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitLocalFunctionStatementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitNullableDirectiveTriviaDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedVariableDesignationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPositionalPatternClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPrimaryConstructorBaseTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitPropertyPatternClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRangeExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecordDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecursivePatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefStructConstraintDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitRelationalPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitScopedTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSingleVariableDesignationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSlicePatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSpreadElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSubpatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpressionArmDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitThrowExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitTypePatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitUnaryPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitVarPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitWhenClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitWithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node);
 
         private static readonly VisitAllowsConstraintClauseDelegate0 VisitAllowsConstraintClauseFunc0;
-        private static readonly VisitBinaryPatternDelegate1 VisitBinaryPatternFunc1;
-        private static readonly VisitCasePatternSwitchLabelDelegate2 VisitCasePatternSwitchLabelFunc2;
-        private static readonly VisitCollectionExpressionDelegate3 VisitCollectionExpressionFunc3;
-        private static readonly VisitConstantPatternDelegate4 VisitConstantPatternFunc4;
-        private static readonly VisitDeclarationExpressionDelegate5 VisitDeclarationExpressionFunc5;
-        private static readonly VisitDeclarationPatternDelegate6 VisitDeclarationPatternFunc6;
-        private static readonly VisitDefaultConstraintDelegate7 VisitDefaultConstraintFunc7;
-        private static readonly VisitDiscardDesignationDelegate8 VisitDiscardDesignationFunc8;
-        private static readonly VisitDiscardPatternDelegate9 VisitDiscardPatternFunc9;
-        private static readonly VisitExpressionColonDelegate10 VisitExpressionColonFunc10;
-        private static readonly VisitExpressionElementDelegate11 VisitExpressionElementFunc11;
-        private static readonly VisitFieldExpressionDelegate12 VisitFieldExpressionFunc12;
-        private static readonly VisitFileScopedNamespaceDeclarationDelegate13 VisitFileScopedNamespaceDeclarationFunc13;
-        private static readonly VisitForEachVariableStatementDelegate14 VisitForEachVariableStatementFunc14;
-        private static readonly VisitFunctionPointerCallingConventionDelegate15 VisitFunctionPointerCallingConventionFunc15;
-        private static readonly VisitFunctionPointerParameterDelegate16 VisitFunctionPointerParameterFunc16;
-        private static readonly VisitFunctionPointerParameterListDelegate17 VisitFunctionPointerParameterListFunc17;
-        private static readonly VisitFunctionPointerTypeDelegate18 VisitFunctionPointerTypeFunc18;
-        private static readonly VisitFunctionPointerUnmanagedCallingConventionDelegate19 VisitFunctionPointerUnmanagedCallingConventionFunc19;
-        private static readonly VisitFunctionPointerUnmanagedCallingConventionListDelegate20 VisitFunctionPointerUnmanagedCallingConventionListFunc20;
-        private static readonly VisitImplicitObjectCreationExpressionDelegate21 VisitImplicitObjectCreationExpressionFunc21;
-        private static readonly VisitImplicitStackAllocArrayCreationExpressionDelegate22 VisitImplicitStackAllocArrayCreationExpressionFunc22;
-        private static readonly VisitIsPatternExpressionDelegate23 VisitIsPatternExpressionFunc23;
-        private static readonly VisitLineDirectivePositionDelegate24 VisitLineDirectivePositionFunc24;
-        private static readonly VisitLineSpanDirectiveTriviaDelegate25 VisitLineSpanDirectiveTriviaFunc25;
-        private static readonly VisitListPatternDelegate26 VisitListPatternFunc26;
-        private static readonly VisitLocalFunctionStatementDelegate27 VisitLocalFunctionStatementFunc27;
-        private static readonly VisitNullableDirectiveTriviaDelegate28 VisitNullableDirectiveTriviaFunc28;
-        private static readonly VisitParenthesizedPatternDelegate29 VisitParenthesizedPatternFunc29;
-        private static readonly VisitParenthesizedVariableDesignationDelegate30 VisitParenthesizedVariableDesignationFunc30;
-        private static readonly VisitPositionalPatternClauseDelegate31 VisitPositionalPatternClauseFunc31;
-        private static readonly VisitPrimaryConstructorBaseTypeDelegate32 VisitPrimaryConstructorBaseTypeFunc32;
-        private static readonly VisitPropertyPatternClauseDelegate33 VisitPropertyPatternClauseFunc33;
-        private static readonly VisitRangeExpressionDelegate34 VisitRangeExpressionFunc34;
-        private static readonly VisitRecordDeclarationDelegate35 VisitRecordDeclarationFunc35;
-        private static readonly VisitRecursivePatternDelegate36 VisitRecursivePatternFunc36;
-        private static readonly VisitRefExpressionDelegate37 VisitRefExpressionFunc37;
-        private static readonly VisitRefStructConstraintDelegate38 VisitRefStructConstraintFunc38;
-        private static readonly VisitRefTypeDelegate39 VisitRefTypeFunc39;
-        private static readonly VisitRelationalPatternDelegate40 VisitRelationalPatternFunc40;
-        private static readonly VisitScopedTypeDelegate41 VisitScopedTypeFunc41;
-        private static readonly VisitSingleVariableDesignationDelegate42 VisitSingleVariableDesignationFunc42;
-        private static readonly VisitSlicePatternDelegate43 VisitSlicePatternFunc43;
-        private static readonly VisitSpreadElementDelegate44 VisitSpreadElementFunc44;
-        private static readonly VisitSubpatternDelegate45 VisitSubpatternFunc45;
-        private static readonly VisitSwitchExpressionDelegate46 VisitSwitchExpressionFunc46;
-        private static readonly VisitSwitchExpressionArmDelegate47 VisitSwitchExpressionArmFunc47;
-        private static readonly VisitThrowExpressionDelegate48 VisitThrowExpressionFunc48;
-        private static readonly VisitTupleElementDelegate49 VisitTupleElementFunc49;
-        private static readonly VisitTupleExpressionDelegate50 VisitTupleExpressionFunc50;
-        private static readonly VisitTupleTypeDelegate51 VisitTupleTypeFunc51;
-        private static readonly VisitTypePatternDelegate52 VisitTypePatternFunc52;
-        private static readonly VisitUnaryPatternDelegate53 VisitUnaryPatternFunc53;
-        private static readonly VisitVarPatternDelegate54 VisitVarPatternFunc54;
-        private static readonly VisitWhenClauseDelegate55 VisitWhenClauseFunc55;
-        private static readonly VisitWithExpressionDelegate56 VisitWithExpressionFunc56;
+        private static readonly VisitBinaryPatternDelegate0 VisitBinaryPatternFunc0;
+        private static readonly VisitCasePatternSwitchLabelDelegate0 VisitCasePatternSwitchLabelFunc0;
+        private static readonly VisitCollectionExpressionDelegate0 VisitCollectionExpressionFunc0;
+        private static readonly VisitConstantPatternDelegate0 VisitConstantPatternFunc0;
+        private static readonly VisitDeclarationExpressionDelegate0 VisitDeclarationExpressionFunc0;
+        private static readonly VisitDeclarationPatternDelegate0 VisitDeclarationPatternFunc0;
+        private static readonly VisitDefaultConstraintDelegate0 VisitDefaultConstraintFunc0;
+        private static readonly VisitDiscardDesignationDelegate0 VisitDiscardDesignationFunc0;
+        private static readonly VisitDiscardPatternDelegate0 VisitDiscardPatternFunc0;
+        private static readonly VisitExpressionColonDelegate0 VisitExpressionColonFunc0;
+        private static readonly VisitExpressionElementDelegate0 VisitExpressionElementFunc0;
+        private static readonly VisitFieldExpressionDelegate0 VisitFieldExpressionFunc0;
+        private static readonly VisitFileScopedNamespaceDeclarationDelegate0 VisitFileScopedNamespaceDeclarationFunc0;
+        private static readonly VisitForEachVariableStatementDelegate0 VisitForEachVariableStatementFunc0;
+        private static readonly VisitFunctionPointerCallingConventionDelegate0 VisitFunctionPointerCallingConventionFunc0;
+        private static readonly VisitFunctionPointerParameterDelegate0 VisitFunctionPointerParameterFunc0;
+        private static readonly VisitFunctionPointerParameterListDelegate0 VisitFunctionPointerParameterListFunc0;
+        private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
+        private static readonly VisitFunctionPointerUnmanagedCallingConventionDelegate0 VisitFunctionPointerUnmanagedCallingConventionFunc0;
+        private static readonly VisitFunctionPointerUnmanagedCallingConventionListDelegate0 VisitFunctionPointerUnmanagedCallingConventionListFunc0;
+        private static readonly VisitImplicitObjectCreationExpressionDelegate0 VisitImplicitObjectCreationExpressionFunc0;
+        private static readonly VisitImplicitStackAllocArrayCreationExpressionDelegate0 VisitImplicitStackAllocArrayCreationExpressionFunc0;
+        private static readonly VisitIsPatternExpressionDelegate0 VisitIsPatternExpressionFunc0;
+        private static readonly VisitLineDirectivePositionDelegate0 VisitLineDirectivePositionFunc0;
+        private static readonly VisitLineSpanDirectiveTriviaDelegate0 VisitLineSpanDirectiveTriviaFunc0;
+        private static readonly VisitListPatternDelegate0 VisitListPatternFunc0;
+        private static readonly VisitLocalFunctionStatementDelegate0 VisitLocalFunctionStatementFunc0;
+        private static readonly VisitNullableDirectiveTriviaDelegate0 VisitNullableDirectiveTriviaFunc0;
+        private static readonly VisitParenthesizedPatternDelegate0 VisitParenthesizedPatternFunc0;
+        private static readonly VisitParenthesizedVariableDesignationDelegate0 VisitParenthesizedVariableDesignationFunc0;
+        private static readonly VisitPositionalPatternClauseDelegate0 VisitPositionalPatternClauseFunc0;
+        private static readonly VisitPrimaryConstructorBaseTypeDelegate0 VisitPrimaryConstructorBaseTypeFunc0;
+        private static readonly VisitPropertyPatternClauseDelegate0 VisitPropertyPatternClauseFunc0;
+        private static readonly VisitRangeExpressionDelegate0 VisitRangeExpressionFunc0;
+        private static readonly VisitRecordDeclarationDelegate0 VisitRecordDeclarationFunc0;
+        private static readonly VisitRecursivePatternDelegate0 VisitRecursivePatternFunc0;
+        private static readonly VisitRefExpressionDelegate0 VisitRefExpressionFunc0;
+        private static readonly VisitRefStructConstraintDelegate0 VisitRefStructConstraintFunc0;
+        private static readonly VisitRefTypeDelegate0 VisitRefTypeFunc0;
+        private static readonly VisitRelationalPatternDelegate0 VisitRelationalPatternFunc0;
+        private static readonly VisitScopedTypeDelegate0 VisitScopedTypeFunc0;
+        private static readonly VisitSingleVariableDesignationDelegate0 VisitSingleVariableDesignationFunc0;
+        private static readonly VisitSlicePatternDelegate0 VisitSlicePatternFunc0;
+        private static readonly VisitSpreadElementDelegate0 VisitSpreadElementFunc0;
+        private static readonly VisitSubpatternDelegate0 VisitSubpatternFunc0;
+        private static readonly VisitSwitchExpressionDelegate0 VisitSwitchExpressionFunc0;
+        private static readonly VisitSwitchExpressionArmDelegate0 VisitSwitchExpressionArmFunc0;
+        private static readonly VisitThrowExpressionDelegate0 VisitThrowExpressionFunc0;
+        private static readonly VisitTupleElementDelegate0 VisitTupleElementFunc0;
+        private static readonly VisitTupleExpressionDelegate0 VisitTupleExpressionFunc0;
+        private static readonly VisitTupleTypeDelegate0 VisitTupleTypeFunc0;
+        private static readonly VisitTypePatternDelegate0 VisitTypePatternFunc0;
+        private static readonly VisitUnaryPatternDelegate0 VisitUnaryPatternFunc0;
+        private static readonly VisitVarPatternDelegate0 VisitVarPatternFunc0;
+        private static readonly VisitWhenClauseDelegate0 VisitWhenClauseFunc0;
+        private static readonly VisitWithExpressionDelegate0 VisitWithExpressionFunc0;
 
         static CSharpSyntaxRewriterEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             VisitAllowsConstraintClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitAllowsConstraintClauseDelegate0>(wrappedType, "VisitAllowsConstraintClause", "nodeAllowsConstraintClauseSyntax");
-            VisitBinaryPatternFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate1>(wrappedType, "VisitBinaryPattern", "nodeBinaryPatternSyntax");
-            VisitCasePatternSwitchLabelFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitCasePatternSwitchLabelDelegate2>(wrappedType, "VisitCasePatternSwitchLabel", "nodeCasePatternSwitchLabelSyntax");
-            VisitCollectionExpressionFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitCollectionExpressionDelegate3>(wrappedType, "VisitCollectionExpression", "nodeCollectionExpressionSyntax");
-            VisitConstantPatternFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitConstantPatternDelegate4>(wrappedType, "VisitConstantPattern", "nodeConstantPatternSyntax");
-            VisitDeclarationExpressionFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDeclarationExpressionDelegate5>(wrappedType, "VisitDeclarationExpression", "nodeDeclarationExpressionSyntax");
-            VisitDeclarationPatternFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDeclarationPatternDelegate6>(wrappedType, "VisitDeclarationPattern", "nodeDeclarationPatternSyntax");
-            VisitDefaultConstraintFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDefaultConstraintDelegate7>(wrappedType, "VisitDefaultConstraint", "nodeDefaultConstraintSyntax");
-            VisitDiscardDesignationFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardDesignationDelegate8>(wrappedType, "VisitDiscardDesignation", "nodeDiscardDesignationSyntax");
-            VisitDiscardPatternFunc9 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardPatternDelegate9>(wrappedType, "VisitDiscardPattern", "nodeDiscardPatternSyntax");
-            VisitExpressionColonFunc10 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionColonDelegate10>(wrappedType, "VisitExpressionColon", "nodeExpressionColonSyntax");
-            VisitExpressionElementFunc11 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionElementDelegate11>(wrappedType, "VisitExpressionElement", "nodeExpressionElementSyntax");
-            VisitFieldExpressionFunc12 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFieldExpressionDelegate12>(wrappedType, "VisitFieldExpression", "nodeFieldExpressionSyntax");
-            VisitFileScopedNamespaceDeclarationFunc13 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate13>(wrappedType, "VisitFileScopedNamespaceDeclaration", "nodeFileScopedNamespaceDeclarationSyntax");
-            VisitForEachVariableStatementFunc14 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitForEachVariableStatementDelegate14>(wrappedType, "VisitForEachVariableStatement", "nodeForEachVariableStatementSyntax");
-            VisitFunctionPointerCallingConventionFunc15 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerCallingConventionDelegate15>(wrappedType, "VisitFunctionPointerCallingConvention", "nodeFunctionPointerCallingConventionSyntax");
-            VisitFunctionPointerParameterFunc16 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterDelegate16>(wrappedType, "VisitFunctionPointerParameter", "nodeFunctionPointerParameterSyntax");
-            VisitFunctionPointerParameterListFunc17 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterListDelegate17>(wrappedType, "VisitFunctionPointerParameterList", "nodeFunctionPointerParameterListSyntax");
-            VisitFunctionPointerTypeFunc18 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate18>(wrappedType, "VisitFunctionPointerType", "nodeFunctionPointerTypeSyntax");
-            VisitFunctionPointerUnmanagedCallingConventionFunc19 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionDelegate19>(wrappedType, "VisitFunctionPointerUnmanagedCallingConvention", "nodeFunctionPointerUnmanagedCallingConventionSyntax");
-            VisitFunctionPointerUnmanagedCallingConventionListFunc20 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionListDelegate20>(wrappedType, "VisitFunctionPointerUnmanagedCallingConventionList", "nodeFunctionPointerUnmanagedCallingConventionListSyntax");
-            VisitImplicitObjectCreationExpressionFunc21 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitObjectCreationExpressionDelegate21>(wrappedType, "VisitImplicitObjectCreationExpression", "nodeImplicitObjectCreationExpressionSyntax");
-            VisitImplicitStackAllocArrayCreationExpressionFunc22 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitStackAllocArrayCreationExpressionDelegate22>(wrappedType, "VisitImplicitStackAllocArrayCreationExpression", "nodeImplicitStackAllocArrayCreationExpressionSyntax");
-            VisitIsPatternExpressionFunc23 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitIsPatternExpressionDelegate23>(wrappedType, "VisitIsPatternExpression", "nodeIsPatternExpressionSyntax");
-            VisitLineDirectivePositionFunc24 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLineDirectivePositionDelegate24>(wrappedType, "VisitLineDirectivePosition", "nodeLineDirectivePositionSyntax");
-            VisitLineSpanDirectiveTriviaFunc25 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLineSpanDirectiveTriviaDelegate25>(wrappedType, "VisitLineSpanDirectiveTrivia", "nodeLineSpanDirectiveTriviaSyntax");
-            VisitListPatternFunc26 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate26>(wrappedType, "VisitListPattern", "nodeListPatternSyntax");
-            VisitLocalFunctionStatementFunc27 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLocalFunctionStatementDelegate27>(wrappedType, "VisitLocalFunctionStatement", "nodeLocalFunctionStatementSyntax");
-            VisitNullableDirectiveTriviaFunc28 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitNullableDirectiveTriviaDelegate28>(wrappedType, "VisitNullableDirectiveTrivia", "nodeNullableDirectiveTriviaSyntax");
-            VisitParenthesizedPatternFunc29 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitParenthesizedPatternDelegate29>(wrappedType, "VisitParenthesizedPattern", "nodeParenthesizedPatternSyntax");
-            VisitParenthesizedVariableDesignationFunc30 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitParenthesizedVariableDesignationDelegate30>(wrappedType, "VisitParenthesizedVariableDesignation", "nodeParenthesizedVariableDesignationSyntax");
-            VisitPositionalPatternClauseFunc31 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPositionalPatternClauseDelegate31>(wrappedType, "VisitPositionalPatternClause", "nodePositionalPatternClauseSyntax");
-            VisitPrimaryConstructorBaseTypeFunc32 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPrimaryConstructorBaseTypeDelegate32>(wrappedType, "VisitPrimaryConstructorBaseType", "nodePrimaryConstructorBaseTypeSyntax");
-            VisitPropertyPatternClauseFunc33 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPropertyPatternClauseDelegate33>(wrappedType, "VisitPropertyPatternClause", "nodePropertyPatternClauseSyntax");
-            VisitRangeExpressionFunc34 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRangeExpressionDelegate34>(wrappedType, "VisitRangeExpression", "nodeRangeExpressionSyntax");
-            VisitRecordDeclarationFunc35 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRecordDeclarationDelegate35>(wrappedType, "VisitRecordDeclaration", "nodeRecordDeclarationSyntax");
-            VisitRecursivePatternFunc36 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate36>(wrappedType, "VisitRecursivePattern", "nodeRecursivePatternSyntax");
-            VisitRefExpressionFunc37 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefExpressionDelegate37>(wrappedType, "VisitRefExpression", "nodeRefExpressionSyntax");
-            VisitRefStructConstraintFunc38 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefStructConstraintDelegate38>(wrappedType, "VisitRefStructConstraint", "nodeRefStructConstraintSyntax");
-            VisitRefTypeFunc39 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefTypeDelegate39>(wrappedType, "VisitRefType", "nodeRefTypeSyntax");
-            VisitRelationalPatternFunc40 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate40>(wrappedType, "VisitRelationalPattern", "nodeRelationalPatternSyntax");
-            VisitScopedTypeFunc41 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitScopedTypeDelegate41>(wrappedType, "VisitScopedType", "nodeScopedTypeSyntax");
-            VisitSingleVariableDesignationFunc42 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSingleVariableDesignationDelegate42>(wrappedType, "VisitSingleVariableDesignation", "nodeSingleVariableDesignationSyntax");
-            VisitSlicePatternFunc43 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate43>(wrappedType, "VisitSlicePattern", "nodeSlicePatternSyntax");
-            VisitSpreadElementFunc44 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSpreadElementDelegate44>(wrappedType, "VisitSpreadElement", "nodeSpreadElementSyntax");
-            VisitSubpatternFunc45 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSubpatternDelegate45>(wrappedType, "VisitSubpattern", "nodeSubpatternSyntax");
-            VisitSwitchExpressionFunc46 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSwitchExpressionDelegate46>(wrappedType, "VisitSwitchExpression", "nodeSwitchExpressionSyntax");
-            VisitSwitchExpressionArmFunc47 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSwitchExpressionArmDelegate47>(wrappedType, "VisitSwitchExpressionArm", "nodeSwitchExpressionArmSyntax");
-            VisitThrowExpressionFunc48 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitThrowExpressionDelegate48>(wrappedType, "VisitThrowExpression", "nodeThrowExpressionSyntax");
-            VisitTupleElementFunc49 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleElementDelegate49>(wrappedType, "VisitTupleElement", "nodeTupleElementSyntax");
-            VisitTupleExpressionFunc50 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleExpressionDelegate50>(wrappedType, "VisitTupleExpression", "nodeTupleExpressionSyntax");
-            VisitTupleTypeFunc51 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleTypeDelegate51>(wrappedType, "VisitTupleType", "nodeTupleTypeSyntax");
-            VisitTypePatternFunc52 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate52>(wrappedType, "VisitTypePattern", "nodeTypePatternSyntax");
-            VisitUnaryPatternFunc53 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnaryPatternDelegate53>(wrappedType, "VisitUnaryPattern", "nodeUnaryPatternSyntax");
-            VisitVarPatternFunc54 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitVarPatternDelegate54>(wrappedType, "VisitVarPattern", "nodeVarPatternSyntax");
-            VisitWhenClauseFunc55 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWhenClauseDelegate55>(wrappedType, "VisitWhenClause", "nodeWhenClauseSyntax");
-            VisitWithExpressionFunc56 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate56>(wrappedType, "VisitWithExpression", "nodeWithExpressionSyntax");
+            VisitBinaryPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitBinaryPatternDelegate0>(wrappedType, "VisitBinaryPattern", "nodeBinaryPatternSyntax");
+            VisitCasePatternSwitchLabelFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitCasePatternSwitchLabelDelegate0>(wrappedType, "VisitCasePatternSwitchLabel", "nodeCasePatternSwitchLabelSyntax");
+            VisitCollectionExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitCollectionExpressionDelegate0>(wrappedType, "VisitCollectionExpression", "nodeCollectionExpressionSyntax");
+            VisitConstantPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitConstantPatternDelegate0>(wrappedType, "VisitConstantPattern", "nodeConstantPatternSyntax");
+            VisitDeclarationExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDeclarationExpressionDelegate0>(wrappedType, "VisitDeclarationExpression", "nodeDeclarationExpressionSyntax");
+            VisitDeclarationPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDeclarationPatternDelegate0>(wrappedType, "VisitDeclarationPattern", "nodeDeclarationPatternSyntax");
+            VisitDefaultConstraintFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDefaultConstraintDelegate0>(wrappedType, "VisitDefaultConstraint", "nodeDefaultConstraintSyntax");
+            VisitDiscardDesignationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardDesignationDelegate0>(wrappedType, "VisitDiscardDesignation", "nodeDiscardDesignationSyntax");
+            VisitDiscardPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardPatternDelegate0>(wrappedType, "VisitDiscardPattern", "nodeDiscardPatternSyntax");
+            VisitExpressionColonFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionColonDelegate0>(wrappedType, "VisitExpressionColon", "nodeExpressionColonSyntax");
+            VisitExpressionElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionElementDelegate0>(wrappedType, "VisitExpressionElement", "nodeExpressionElementSyntax");
+            VisitFieldExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFieldExpressionDelegate0>(wrappedType, "VisitFieldExpression", "nodeFieldExpressionSyntax");
+            VisitFileScopedNamespaceDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate0>(wrappedType, "VisitFileScopedNamespaceDeclaration", "nodeFileScopedNamespaceDeclarationSyntax");
+            VisitForEachVariableStatementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitForEachVariableStatementDelegate0>(wrappedType, "VisitForEachVariableStatement", "nodeForEachVariableStatementSyntax");
+            VisitFunctionPointerCallingConventionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerCallingConventionDelegate0>(wrappedType, "VisitFunctionPointerCallingConvention", "nodeFunctionPointerCallingConventionSyntax");
+            VisitFunctionPointerParameterFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterDelegate0>(wrappedType, "VisitFunctionPointerParameter", "nodeFunctionPointerParameterSyntax");
+            VisitFunctionPointerParameterListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerParameterListDelegate0>(wrappedType, "VisitFunctionPointerParameterList", "nodeFunctionPointerParameterListSyntax");
+            VisitFunctionPointerTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "nodeFunctionPointerTypeSyntax");
+            VisitFunctionPointerUnmanagedCallingConventionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionDelegate0>(wrappedType, "VisitFunctionPointerUnmanagedCallingConvention", "nodeFunctionPointerUnmanagedCallingConventionSyntax");
+            VisitFunctionPointerUnmanagedCallingConventionListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionListDelegate0>(wrappedType, "VisitFunctionPointerUnmanagedCallingConventionList", "nodeFunctionPointerUnmanagedCallingConventionListSyntax");
+            VisitImplicitObjectCreationExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitObjectCreationExpressionDelegate0>(wrappedType, "VisitImplicitObjectCreationExpression", "nodeImplicitObjectCreationExpressionSyntax");
+            VisitImplicitStackAllocArrayCreationExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitStackAllocArrayCreationExpressionDelegate0>(wrappedType, "VisitImplicitStackAllocArrayCreationExpression", "nodeImplicitStackAllocArrayCreationExpressionSyntax");
+            VisitIsPatternExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitIsPatternExpressionDelegate0>(wrappedType, "VisitIsPatternExpression", "nodeIsPatternExpressionSyntax");
+            VisitLineDirectivePositionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLineDirectivePositionDelegate0>(wrappedType, "VisitLineDirectivePosition", "nodeLineDirectivePositionSyntax");
+            VisitLineSpanDirectiveTriviaFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLineSpanDirectiveTriviaDelegate0>(wrappedType, "VisitLineSpanDirectiveTrivia", "nodeLineSpanDirectiveTriviaSyntax");
+            VisitListPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitListPatternDelegate0>(wrappedType, "VisitListPattern", "nodeListPatternSyntax");
+            VisitLocalFunctionStatementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitLocalFunctionStatementDelegate0>(wrappedType, "VisitLocalFunctionStatement", "nodeLocalFunctionStatementSyntax");
+            VisitNullableDirectiveTriviaFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitNullableDirectiveTriviaDelegate0>(wrappedType, "VisitNullableDirectiveTrivia", "nodeNullableDirectiveTriviaSyntax");
+            VisitParenthesizedPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitParenthesizedPatternDelegate0>(wrappedType, "VisitParenthesizedPattern", "nodeParenthesizedPatternSyntax");
+            VisitParenthesizedVariableDesignationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitParenthesizedVariableDesignationDelegate0>(wrappedType, "VisitParenthesizedVariableDesignation", "nodeParenthesizedVariableDesignationSyntax");
+            VisitPositionalPatternClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPositionalPatternClauseDelegate0>(wrappedType, "VisitPositionalPatternClause", "nodePositionalPatternClauseSyntax");
+            VisitPrimaryConstructorBaseTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPrimaryConstructorBaseTypeDelegate0>(wrappedType, "VisitPrimaryConstructorBaseType", "nodePrimaryConstructorBaseTypeSyntax");
+            VisitPropertyPatternClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitPropertyPatternClauseDelegate0>(wrappedType, "VisitPropertyPatternClause", "nodePropertyPatternClauseSyntax");
+            VisitRangeExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRangeExpressionDelegate0>(wrappedType, "VisitRangeExpression", "nodeRangeExpressionSyntax");
+            VisitRecordDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRecordDeclarationDelegate0>(wrappedType, "VisitRecordDeclaration", "nodeRecordDeclarationSyntax");
+            VisitRecursivePatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRecursivePatternDelegate0>(wrappedType, "VisitRecursivePattern", "nodeRecursivePatternSyntax");
+            VisitRefExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefExpressionDelegate0>(wrappedType, "VisitRefExpression", "nodeRefExpressionSyntax");
+            VisitRefStructConstraintFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefStructConstraintDelegate0>(wrappedType, "VisitRefStructConstraint", "nodeRefStructConstraintSyntax");
+            VisitRefTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRefTypeDelegate0>(wrappedType, "VisitRefType", "nodeRefTypeSyntax");
+            VisitRelationalPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitRelationalPatternDelegate0>(wrappedType, "VisitRelationalPattern", "nodeRelationalPatternSyntax");
+            VisitScopedTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitScopedTypeDelegate0>(wrappedType, "VisitScopedType", "nodeScopedTypeSyntax");
+            VisitSingleVariableDesignationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSingleVariableDesignationDelegate0>(wrappedType, "VisitSingleVariableDesignation", "nodeSingleVariableDesignationSyntax");
+            VisitSlicePatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSlicePatternDelegate0>(wrappedType, "VisitSlicePattern", "nodeSlicePatternSyntax");
+            VisitSpreadElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSpreadElementDelegate0>(wrappedType, "VisitSpreadElement", "nodeSpreadElementSyntax");
+            VisitSubpatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSubpatternDelegate0>(wrappedType, "VisitSubpattern", "nodeSubpatternSyntax");
+            VisitSwitchExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSwitchExpressionDelegate0>(wrappedType, "VisitSwitchExpression", "nodeSwitchExpressionSyntax");
+            VisitSwitchExpressionArmFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitSwitchExpressionArmDelegate0>(wrappedType, "VisitSwitchExpressionArm", "nodeSwitchExpressionArmSyntax");
+            VisitThrowExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitThrowExpressionDelegate0>(wrappedType, "VisitThrowExpression", "nodeThrowExpressionSyntax");
+            VisitTupleElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleElementDelegate0>(wrappedType, "VisitTupleElement", "nodeTupleElementSyntax");
+            VisitTupleExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleExpressionDelegate0>(wrappedType, "VisitTupleExpression", "nodeTupleExpressionSyntax");
+            VisitTupleTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleTypeDelegate0>(wrappedType, "VisitTupleType", "nodeTupleTypeSyntax");
+            VisitTypePatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate0>(wrappedType, "VisitTypePattern", "nodeTypePatternSyntax");
+            VisitUnaryPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnaryPatternDelegate0>(wrappedType, "VisitUnaryPattern", "nodeUnaryPatternSyntax");
+            VisitVarPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitVarPatternDelegate0>(wrappedType, "VisitVarPattern", "nodeVarPatternSyntax");
+            VisitWhenClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWhenClauseDelegate0>(wrappedType, "VisitWhenClause", "nodeWhenClauseSyntax");
+            VisitWithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate0>(wrappedType, "VisitWithExpression", "nodeWithExpressionSyntax");
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
@@ -196,337 +196,337 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitBinaryPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.BinaryPatternSyntaxWrapper node)
         {
-            return VisitBinaryPatternFunc1(_obj, node);
+            return VisitBinaryPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitCasePatternSwitchLabel(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper node)
         {
-            return VisitCasePatternSwitchLabelFunc2(_obj, node);
+            return VisitCasePatternSwitchLabelFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitCollectionExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CollectionExpressionSyntaxWrapper node)
         {
-            return VisitCollectionExpressionFunc3(_obj, node);
+            return VisitCollectionExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitConstantPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ConstantPatternSyntaxWrapper node)
         {
-            return VisitConstantPatternFunc4(_obj, node);
+            return VisitConstantPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationExpressionSyntaxWrapper node)
         {
-            return VisitDeclarationExpressionFunc5(_obj, node);
+            return VisitDeclarationExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitDeclarationPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DeclarationPatternSyntaxWrapper node)
         {
-            return VisitDeclarationPatternFunc6(_obj, node);
+            return VisitDeclarationPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitDefaultConstraint(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DefaultConstraintSyntaxWrapper node)
         {
-            return VisitDefaultConstraintFunc7(_obj, node);
+            return VisitDefaultConstraintFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardDesignation(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardDesignationSyntaxWrapper node)
         {
-            return VisitDiscardDesignationFunc8(_obj, node);
+            return VisitDiscardDesignationFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper node)
         {
-            return VisitDiscardPatternFunc9(_obj, node);
+            return VisitDiscardPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionColon(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node)
         {
-            return VisitExpressionColonFunc10(_obj, node);
+            return VisitExpressionColonFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node)
         {
-            return VisitExpressionElementFunc11(_obj, node);
+            return VisitExpressionElementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFieldExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node)
         {
-            return VisitFieldExpressionFunc12(_obj, node);
+            return VisitFieldExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFileScopedNamespaceDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node)
         {
-            return VisitFileScopedNamespaceDeclarationFunc13(_obj, node);
+            return VisitFileScopedNamespaceDeclarationFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitForEachVariableStatement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper node)
         {
-            return VisitForEachVariableStatementFunc14(_obj, node);
+            return VisitForEachVariableStatementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerCallingConvention(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper node)
         {
-            return VisitFunctionPointerCallingConventionFunc15(_obj, node);
+            return VisitFunctionPointerCallingConventionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameter(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterSyntaxWrapper node)
         {
-            return VisitFunctionPointerParameterFunc16(_obj, node);
+            return VisitFunctionPointerParameterFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerParameterList(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerParameterListSyntaxWrapper node)
         {
-            return VisitFunctionPointerParameterListFunc17(_obj, node);
+            return VisitFunctionPointerParameterListFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node)
         {
-            return VisitFunctionPointerTypeFunc18(_obj, node);
+            return VisitFunctionPointerTypeFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConvention(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node)
         {
-            return VisitFunctionPointerUnmanagedCallingConventionFunc19(_obj, node);
+            return VisitFunctionPointerUnmanagedCallingConventionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitFunctionPointerUnmanagedCallingConventionList(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
         {
-            return VisitFunctionPointerUnmanagedCallingConventionListFunc20(_obj, node);
+            return VisitFunctionPointerUnmanagedCallingConventionListFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitObjectCreationExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node)
         {
-            return VisitImplicitObjectCreationExpressionFunc21(_obj, node);
+            return VisitImplicitObjectCreationExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitImplicitStackAllocArrayCreationExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper node)
         {
-            return VisitImplicitStackAllocArrayCreationExpressionFunc22(_obj, node);
+            return VisitImplicitStackAllocArrayCreationExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitIsPatternExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper node)
         {
-            return VisitIsPatternExpressionFunc23(_obj, node);
+            return VisitIsPatternExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineDirectivePosition(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineDirectivePositionSyntaxWrapper node)
         {
-            return VisitLineDirectivePositionFunc24(_obj, node);
+            return VisitLineDirectivePositionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitLineSpanDirectiveTrivia(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper node)
         {
-            return VisitLineSpanDirectiveTriviaFunc25(_obj, node);
+            return VisitLineSpanDirectiveTriviaFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitListPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ListPatternSyntaxWrapper node)
         {
-            return VisitListPatternFunc26(_obj, node);
+            return VisitListPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitLocalFunctionStatement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper node)
         {
-            return VisitLocalFunctionStatementFunc27(_obj, node);
+            return VisitLocalFunctionStatementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitNullableDirectiveTrivia(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.NullableDirectiveTriviaSyntaxWrapper node)
         {
-            return VisitNullableDirectiveTriviaFunc28(_obj, node);
+            return VisitNullableDirectiveTriviaFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedPatternSyntaxWrapper node)
         {
-            return VisitParenthesizedPatternFunc29(_obj, node);
+            return VisitParenthesizedPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitParenthesizedVariableDesignation(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ParenthesizedVariableDesignationSyntaxWrapper node)
         {
-            return VisitParenthesizedVariableDesignationFunc30(_obj, node);
+            return VisitParenthesizedVariableDesignationFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitPositionalPatternClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PositionalPatternClauseSyntaxWrapper node)
         {
-            return VisitPositionalPatternClauseFunc31(_obj, node);
+            return VisitPositionalPatternClauseFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitPrimaryConstructorBaseType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper node)
         {
-            return VisitPrimaryConstructorBaseTypeFunc32(_obj, node);
+            return VisitPrimaryConstructorBaseTypeFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitPropertyPatternClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PropertyPatternClauseSyntaxWrapper node)
         {
-            return VisitPropertyPatternClauseFunc33(_obj, node);
+            return VisitPropertyPatternClauseFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRangeExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RangeExpressionSyntaxWrapper node)
         {
-            return VisitRangeExpressionFunc34(_obj, node);
+            return VisitRangeExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecordDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecordDeclarationSyntaxWrapper node)
         {
-            return VisitRecordDeclarationFunc35(_obj, node);
+            return VisitRecordDeclarationFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRecursivePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RecursivePatternSyntaxWrapper node)
         {
-            return VisitRecursivePatternFunc36(_obj, node);
+            return VisitRecursivePatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefExpressionSyntaxWrapper node)
         {
-            return VisitRefExpressionFunc37(_obj, node);
+            return VisitRefExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefStructConstraint(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefStructConstraintSyntaxWrapper node)
         {
-            return VisitRefStructConstraintFunc38(_obj, node);
+            return VisitRefStructConstraintFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRefType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RefTypeSyntaxWrapper node)
         {
-            return VisitRefTypeFunc39(_obj, node);
+            return VisitRefTypeFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitRelationalPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.RelationalPatternSyntaxWrapper node)
         {
-            return VisitRelationalPatternFunc40(_obj, node);
+            return VisitRelationalPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitScopedType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ScopedTypeSyntaxWrapper node)
         {
-            return VisitScopedTypeFunc41(_obj, node);
+            return VisitScopedTypeFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSingleVariableDesignation(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper node)
         {
-            return VisitSingleVariableDesignationFunc42(_obj, node);
+            return VisitSingleVariableDesignationFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSlicePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SlicePatternSyntaxWrapper node)
         {
-            return VisitSlicePatternFunc43(_obj, node);
+            return VisitSlicePatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSpreadElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SpreadElementSyntaxWrapper node)
         {
-            return VisitSpreadElementFunc44(_obj, node);
+            return VisitSpreadElementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSubpattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SubpatternSyntaxWrapper node)
         {
-            return VisitSubpatternFunc45(_obj, node);
+            return VisitSubpatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionSyntaxWrapper node)
         {
-            return VisitSwitchExpressionFunc46(_obj, node);
+            return VisitSwitchExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitSwitchExpressionArm(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SwitchExpressionArmSyntaxWrapper node)
         {
-            return VisitSwitchExpressionArmFunc47(_obj, node);
+            return VisitSwitchExpressionArmFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitThrowExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ThrowExpressionSyntaxWrapper node)
         {
-            return VisitThrowExpressionFunc48(_obj, node);
+            return VisitThrowExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper node)
         {
-            return VisitTupleElementFunc49(_obj, node);
+            return VisitTupleElementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper node)
         {
-            return VisitTupleExpressionFunc50(_obj, node);
+            return VisitTupleExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitTupleType(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper node)
         {
-            return VisitTupleTypeFunc51(_obj, node);
+            return VisitTupleTypeFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitTypePattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node)
         {
-            return VisitTypePatternFunc52(_obj, node);
+            return VisitTypePatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitUnaryPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node)
         {
-            return VisitUnaryPatternFunc53(_obj, node);
+            return VisitUnaryPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitVarPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper node)
         {
-            return VisitVarPatternFunc54(_obj, node);
+            return VisitVarPatternFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitWhenClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node)
         {
-            return VisitWhenClauseFunc55(_obj, node);
+            return VisitWhenClauseFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitWithExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node)
         {
-            return VisitWithExpressionFunc56(_obj, node);
+            return VisitWithExpressionFunc0(_obj, node);
         }
     }
 }

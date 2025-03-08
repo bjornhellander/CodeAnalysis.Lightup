@@ -16,11 +16,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? WhenClauseGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithColonTokenDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithKeywordDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithPatternDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithWhenClauseDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken keyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithWhenClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause);
 
         private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
         private static readonly KeywordGetterDelegate KeywordGetterFunc;
@@ -28,11 +28,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly WhenClauseGetterDelegate WhenClauseGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithColonTokenDelegate2 WithColonTokenFunc2;
-        private static readonly WithKeywordDelegate3 WithKeywordFunc3;
-        private static readonly WithPatternDelegate4 WithPatternFunc4;
-        private static readonly WithWhenClauseDelegate5 WithWhenClauseFunc5;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
+        private static readonly WithKeywordDelegate0 WithKeywordFunc0;
+        private static readonly WithPatternDelegate0 WithPatternFunc0;
+        private static readonly WithWhenClauseDelegate0 WithWhenClauseFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax wrappedObject;
 
@@ -46,11 +46,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WhenClauseGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<WhenClauseGetterDelegate>(WrappedType, nameof(WhenClause));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "keywordSyntaxToken", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "colonTokenSyntaxToken");
-            WithColonTokenFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate2>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
-            WithKeywordFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate3>(WrappedType, "WithKeyword", "keywordSyntaxToken");
-            WithPatternFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate4>(WrappedType, "WithPattern", "patternPatternSyntax");
-            WithWhenClauseFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenClauseDelegate5>(WrappedType, "WithWhenClause", "whenClauseWhenClauseSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "keywordSyntaxToken", "patternPatternSyntax", "whenClauseWhenClauseSyntax", "colonTokenSyntaxToken");
+            WithColonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
+            WithKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithKeywordDelegate0>(WrappedType, "WithKeyword", "keywordSyntaxToken");
+            WithPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithPatternDelegate0>(WrappedType, "WithPattern", "patternPatternSyntax");
+            WithWhenClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithWhenClauseDelegate0>(WrappedType, "WithWhenClause", "whenClauseWhenClauseSyntax");
         }
 
         private CasePatternSwitchLabelSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax obj)
@@ -122,31 +122,31 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken keyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause, global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
         {
-            return UpdateFunc1(wrappedObject, keyword, pattern, whenClause, colonToken);
+            return UpdateFunc0(wrappedObject, keyword, pattern, whenClause, colonToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
         {
-            return WithColonTokenFunc2(wrappedObject, colonToken);
+            return WithColonTokenFunc0(wrappedObject, colonToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithKeyword(global::Microsoft.CodeAnalysis.SyntaxToken keyword)
         {
-            return WithKeywordFunc3(wrappedObject, keyword);
+            return WithKeywordFunc0(wrappedObject, keyword);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithPattern(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PatternSyntaxWrapper pattern)
         {
-            return WithPatternFunc4(wrappedObject, pattern);
+            return WithPatternFunc0(wrappedObject, pattern);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CasePatternSwitchLabelSyntaxWrapper WithWhenClause(global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper? whenClause)
         {
-            return WithWhenClauseFunc5(wrappedObject, whenClause);
+            return WithWhenClauseFunc0(wrappedObject, whenClause);
         }
     }
 }

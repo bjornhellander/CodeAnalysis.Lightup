@@ -11,16 +11,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax AddBlockAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax AddBlockAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddBlockAttributeListsDelegate1 AddBlockAttributeListsFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithAttributeListsDelegate3 WithAttributeListsFunc3;
+        private static readonly AddBlockAttributeListsDelegate0 AddBlockAttributeListsFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
 
         static TryStatementSyntaxEx()
         {
@@ -29,9 +29,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AttributeListsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddBlockAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate1>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
-            WithAttributeListsFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            AddBlockAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddBlockAttributeListsDelegate0>(wrappedType, "AddBlockAttributeLists", "itemsAttributeListSyntax[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "tryKeywordSyntaxToken", "blockBlockSyntax", "catchesSyntaxList`1", "finallyFinallyClauseSyntax");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
@@ -49,19 +49,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax AddBlockAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items)
         {
-            return AddBlockAttributeListsFunc1(_obj, items);
+            return AddBlockAttributeListsFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken tryKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.BlockSyntax block, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.CatchClauseSyntax> catches, global::Microsoft.CodeAnalysis.CSharp.Syntax.FinallyClauseSyntax? @finally)
         {
-            return UpdateFunc2(_obj, attributeLists, tryKeyword, block, catches, @finally);
+            return UpdateFunc0(_obj, attributeLists, tryKeyword, block, catches, @finally);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.TryStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc3(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
     }
 }

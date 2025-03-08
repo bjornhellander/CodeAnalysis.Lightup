@@ -21,10 +21,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate1(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate2(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate3(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired);
-        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate4(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired);
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile);
 
         private static readonly ExternGetterDelegate ExternGetterFunc;
         private static readonly FileGetterDelegate FileGetterFunc;
@@ -39,10 +39,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         private static readonly IsVolatileGetterDelegate IsVolatileGetterFunc;
 
         private static readonly WithIsExternDelegate0 WithIsExternFunc0;
-        private static readonly WithIsFileDelegate1 WithIsFileFunc1;
-        private static readonly WithIsRefDelegate2 WithIsRefFunc2;
-        private static readonly WithIsRequiredDelegate3 WithIsRequiredFunc3;
-        private static readonly WithIsVolatileDelegate4 WithIsVolatileFunc4;
+        private static readonly WithIsFileDelegate0 WithIsFileFunc0;
+        private static readonly WithIsRefDelegate0 WithIsRefFunc0;
+        private static readonly WithIsRequiredDelegate0 WithIsRequiredFunc0;
+        private static readonly WithIsVolatileDelegate0 WithIsVolatileFunc0;
 
         static DeclarationModifiersEx()
         {
@@ -61,10 +61,10 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             IsVolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
             WithIsExternFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "isExternBoolean");
-            WithIsFileFunc1 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate1>(wrappedType, "WithIsFile", "isFileBoolean");
-            WithIsRefFunc2 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate2>(wrappedType, "WithIsRef", "isRefBoolean");
-            WithIsRequiredFunc3 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate3>(wrappedType, "WithIsRequired", "isRequiredBoolean");
-            WithIsVolatileFunc4 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate4>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
+            WithIsFileFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate0>(wrappedType, "WithIsFile", "isFileBoolean");
+            WithIsRefFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate0>(wrappedType, "WithIsRef", "isRefBoolean");
+            WithIsRequiredFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate0>(wrappedType, "WithIsRequired", "isRequiredBoolean");
+            WithIsVolatileFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate0>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
@@ -136,25 +136,25 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         /// <summary>Method added in version 4.4.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile)
         {
-            return WithIsFileFunc1(_obj, isFile);
+            return WithIsFileFunc0(_obj, isFile);
         }
 
         /// <summary>Method added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRef(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef)
         {
-            return WithIsRefFunc2(_obj, isRef);
+            return WithIsRefFunc0(_obj, isRef);
         }
 
         /// <summary>Method added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequired(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired)
         {
-            return WithIsRequiredFunc3(_obj, isRequired);
+            return WithIsRequiredFunc0(_obj, isRequired);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile)
         {
-            return WithIsVolatileFunc4(_obj, isVolatile);
+            return WithIsVolatileFunc0(_obj, isVolatile);
         }
     }
 }

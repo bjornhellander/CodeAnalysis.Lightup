@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken IdentifierGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper WithIdentifierDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper WithIdentifierDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.SyntaxToken identifier);
 
         private static readonly IdentifierGetterDelegate IdentifierGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithIdentifierDelegate2 WithIdentifierFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithIdentifierDelegate0 WithIdentifierFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             IdentifierGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IdentifierGetterDelegate>(WrappedType, nameof(Identifier));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "identifierSyntaxToken");
-            WithIdentifierFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate2>(WrappedType, "WithIdentifier", "identifierSyntaxToken");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "identifierSyntaxToken");
+            WithIdentifierFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIdentifierDelegate0>(WrappedType, "WithIdentifier", "identifierSyntaxToken");
         }
 
         private SingleVariableDesignationSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return UpdateFunc1(wrappedObject, identifier);
+            return UpdateFunc0(wrappedObject, identifier);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper WithIdentifier(global::Microsoft.CodeAnalysis.SyntaxToken identifier)
         {
-            return WithIdentifierFunc2(wrappedObject, identifier);
+            return WithIdentifierFunc0(wrappedObject, identifier);
         }
     }
 }

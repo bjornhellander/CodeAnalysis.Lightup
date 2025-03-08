@@ -9,32 +9,32 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddDeclarationVariablesDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclaratorSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddModifiersDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithDeclarationDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithModifiersDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithSemicolonTokenDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddDeclarationVariablesDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclaratorSyntax[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithSemicolonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddDeclarationVariablesDelegate1 AddDeclarationVariablesFunc1;
-        private static readonly AddModifiersDelegate2 AddModifiersFunc2;
-        private static readonly WithAttributeListsDelegate3 WithAttributeListsFunc3;
-        private static readonly WithDeclarationDelegate4 WithDeclarationFunc4;
-        private static readonly WithModifiersDelegate5 WithModifiersFunc5;
-        private static readonly WithSemicolonTokenDelegate6 WithSemicolonTokenFunc6;
+        private static readonly AddDeclarationVariablesDelegate0 AddDeclarationVariablesFunc0;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithDeclarationDelegate0 WithDeclarationFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
+        private static readonly WithSemicolonTokenDelegate0 WithSemicolonTokenFunc0;
 
         static BaseFieldDeclarationSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddDeclarationVariablesFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDeclarationVariablesDelegate1>(wrappedType, "AddDeclarationVariables", "itemsVariableDeclaratorSyntax[]");
-            AddModifiersFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate2>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            WithAttributeListsFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithDeclarationFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDeclarationDelegate4>(wrappedType, "WithDeclaration", "declarationVariableDeclarationSyntax");
-            WithModifiersFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate5>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
-            WithSemicolonTokenFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate6>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
+            AddDeclarationVariablesFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddDeclarationVariablesDelegate0>(wrappedType, "AddDeclarationVariables", "itemsVariableDeclaratorSyntax[]");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithDeclarationDelegate0>(wrappedType, "WithDeclaration", "declarationVariableDeclarationSyntax");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            WithSemicolonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSemicolonTokenDelegate0>(wrappedType, "WithSemicolonToken", "semicolonTokenSyntaxToken");
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
@@ -46,37 +46,37 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddDeclarationVariables(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclaratorSyntax[] items)
         {
-            return AddDeclarationVariablesFunc1(_obj, items);
+            return AddDeclarationVariablesFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc2(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc3(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithDeclaration(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDeclarationSyntax declaration)
         {
-            return WithDeclarationFunc4(_obj, declaration);
+            return WithDeclarationFunc0(_obj, declaration);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc5(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax WithSemicolonToken(this global::Microsoft.CodeAnalysis.CSharp.Syntax.BaseFieldDeclarationSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
         {
-            return WithSemicolonTokenFunc6(_obj, semicolonToken);
+            return WithSemicolonTokenFunc0(_obj, semicolonToken);
         }
     }
 }

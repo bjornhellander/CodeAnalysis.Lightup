@@ -9,17 +9,17 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext";
 
         private delegate void RegisterAdditionalFileActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.AdditionalFileAnalysisContextWrapper> action);
-        private delegate void RegisterSymbolStartActionDelegate1(global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind);
+        private delegate void RegisterSymbolStartActionDelegate0(global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind);
 
         private static readonly RegisterAdditionalFileActionDelegate0 RegisterAdditionalFileActionFunc0;
-        private static readonly RegisterSymbolStartActionDelegate1 RegisterSymbolStartActionFunc1;
+        private static readonly RegisterSymbolStartActionDelegate0 RegisterSymbolStartActionFunc0;
 
         static CompilationStartAnalysisContextEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             RegisterAdditionalFileActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterAdditionalFileActionDelegate0>(wrappedType, "RegisterAdditionalFileAction", "actionAction`1");
-            RegisterSymbolStartActionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolStartActionDelegate1>(wrappedType, "RegisterSymbolStartAction", "actionAction`1", "symbolKindSymbolKind");
+            RegisterSymbolStartActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolStartActionDelegate0>(wrappedType, "RegisterSymbolStartAction", "actionAction`1", "symbolKindSymbolKind");
         }
 
         /// <summary>Method added in version 3.8.0.0.</summary>
@@ -31,7 +31,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public static void RegisterSymbolStartAction(this global::Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.Lightup.SymbolStartAnalysisContextWrapper> action, global::Microsoft.CodeAnalysis.SymbolKind symbolKind)
         {
-            RegisterSymbolStartActionFunc1(_obj, action, symbolKind);
+            RegisterSymbolStartActionFunc0(_obj, action, symbolKind);
         }
     }
 }

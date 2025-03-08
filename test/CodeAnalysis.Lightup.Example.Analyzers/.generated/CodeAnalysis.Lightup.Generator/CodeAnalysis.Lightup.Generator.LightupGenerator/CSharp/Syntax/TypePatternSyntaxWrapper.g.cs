@@ -13,14 +13,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax TypeGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper WithTypeDelegate2(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper WithTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type);
 
         private static readonly TypeGetterDelegate TypeGetterFunc;
 
         private static readonly AcceptDelegate0 AcceptFunc0;
-        private static readonly UpdateDelegate1 UpdateFunc1;
-        private static readonly WithTypeDelegate2 WithTypeFunc2;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithTypeDelegate0 WithTypeFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode wrappedObject;
 
@@ -31,8 +31,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             TypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<TypeGetterDelegate>(WrappedType, nameof(Type));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(WrappedType, "Update", "typeTypeSyntax");
-            WithTypeFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate2>(WrappedType, "WithType", "typeTypeSyntax");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "typeTypeSyntax");
+            WithTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithTypeDelegate0>(WrappedType, "WithType", "typeTypeSyntax");
         }
 
         private TypePatternSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode obj)
@@ -86,13 +86,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper Update(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return UpdateFunc1(wrappedObject, type);
+            return UpdateFunc0(wrappedObject, type);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper WithType(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax type)
         {
-            return WithTypeFunc2(wrappedObject, type);
+            return WithTypeFunc0(wrappedObject, type);
         }
     }
 }

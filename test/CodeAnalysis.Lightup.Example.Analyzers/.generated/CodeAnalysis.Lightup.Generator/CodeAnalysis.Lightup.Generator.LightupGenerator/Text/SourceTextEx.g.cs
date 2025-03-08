@@ -15,7 +15,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
         private delegate global::Microsoft.CodeAnalysis.Text.SourceText FromDelegate2(global::System.Byte[] buffer, global::System.Int32 length, global::System.Text.Encoding? encoding, global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm, global::System.Boolean throwIfBinaryDetected, global::System.Boolean canBeEmbedded);
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetChecksumDelegate0(global::Microsoft.CodeAnalysis.Text.SourceText _obj);
-        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHashDelegate1(global::Microsoft.CodeAnalysis.Text.SourceText _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHashDelegate0(global::Microsoft.CodeAnalysis.Text.SourceText _obj);
 
         private static readonly CanBeEmbeddedGetterDelegate CanBeEmbeddedGetterFunc;
 
@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
         private static readonly FromDelegate2 FromFunc2;
 
         private static readonly GetChecksumDelegate0 GetChecksumFunc0;
-        private static readonly GetContentHashDelegate1 GetContentHashFunc1;
+        private static readonly GetContentHashDelegate0 GetContentHashFunc0;
 
         static SourceTextEx()
         {
@@ -37,7 +37,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
             FromFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticMethodAccessor<FromDelegate2>(wrappedType, "From", "bufferByte[]", "lengthInt32", "encodingEncoding", "checksumAlgorithmSourceHashAlgorithm", "throwIfBinaryDetectedBoolean", "canBeEmbeddedBoolean");
 
             GetChecksumFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetChecksumDelegate0>(wrappedType, "GetChecksum");
-            GetContentHashFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetContentHashDelegate1>(wrappedType, "GetContentHash");
+            GetContentHashFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetContentHashDelegate0>(wrappedType, "GetContentHash");
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
@@ -73,7 +73,7 @@ namespace Microsoft.CodeAnalysis.Text.Lightup
         /// <summary>Method added in version 4.9.0.0.</summary>
         public static global::System.Collections.Immutable.ImmutableArray<global::System.Byte> GetContentHash(this global::Microsoft.CodeAnalysis.Text.SourceText _obj)
         {
-            return GetContentHashFunc1(_obj);
+            return GetContentHashFunc0(_obj);
         }
     }
 }

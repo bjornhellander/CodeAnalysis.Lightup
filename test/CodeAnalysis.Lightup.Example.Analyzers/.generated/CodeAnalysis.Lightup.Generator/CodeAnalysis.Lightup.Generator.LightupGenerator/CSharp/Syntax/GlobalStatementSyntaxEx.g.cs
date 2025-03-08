@@ -12,19 +12,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxTokenList ModifiersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiersDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax UpdateDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeListsDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiersDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiersDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
         private static readonly ModifiersGetterDelegate ModifiersGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly AddModifiersDelegate1 AddModifiersFunc1;
-        private static readonly UpdateDelegate2 UpdateFunc2;
-        private static readonly WithAttributeListsDelegate3 WithAttributeListsFunc3;
-        private static readonly WithModifiersDelegate4 WithModifiersFunc4;
+        private static readonly AddModifiersDelegate0 AddModifiersFunc0;
+        private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithModifiersDelegate0 WithModifiersFunc0;
 
         static GlobalStatementSyntaxEx()
         {
@@ -34,10 +34,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             ModifiersGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ModifiersGetterDelegate>(wrappedType, nameof(Modifiers));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            AddModifiersFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate1>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
-            UpdateFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate2>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
-            WithAttributeListsFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate3>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithModifiersFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate4>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
+            AddModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddModifiersDelegate0>(wrappedType, "AddModifiers", "itemsSyntaxToken[]");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "modifiersSyntaxTokenList", "statementStatementSyntax");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithModifiersDelegate0>(wrappedType, "WithModifiers", "modifiersSyntaxTokenList");
         }
 
         /// <summary>Property added in version 3.2.0.0.</summary>
@@ -61,25 +61,25 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax AddModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, params global::Microsoft.CodeAnalysis.SyntaxToken[] items)
         {
-            return AddModifiersFunc1(_obj, items);
+            return AddModifiersFunc0(_obj, items);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return UpdateFunc2(_obj, attributeLists, modifiers, statement);
+            return UpdateFunc0(_obj, attributeLists, modifiers, statement);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc3(_obj, attributeLists);
+            return WithAttributeListsFunc0(_obj, attributeLists);
         }
 
         /// <summary>Method added in version 3.2.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax WithModifiers(this global::Microsoft.CodeAnalysis.CSharp.Syntax.GlobalStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxTokenList modifiers)
         {
-            return WithModifiersFunc4(_obj, modifiers);
+            return WithModifiersFunc0(_obj, modifiers);
         }
     }
 }

@@ -19,14 +19,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax StatementGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAttributeListsDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAwaitKeywordDelegate2(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithCloseParenTokenDelegate3(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithExpressionDelegate4(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithForEachKeywordDelegate5(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithInKeywordDelegate6(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithOpenParenTokenDelegate7(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithStatementDelegate8(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAwaitKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithCloseParenTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithForEachKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithInKeywordDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken inKeyword);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithOpenParenTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken openParenToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithStatementDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement);
 
         private static readonly AwaitKeywordGetterDelegate AwaitKeywordGetterFunc;
         private static readonly CloseParenTokenGetterDelegate CloseParenTokenGetterFunc;
@@ -37,14 +37,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly StatementGetterDelegate StatementGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
-        private static readonly WithAttributeListsDelegate1 WithAttributeListsFunc1;
-        private static readonly WithAwaitKeywordDelegate2 WithAwaitKeywordFunc2;
-        private static readonly WithCloseParenTokenDelegate3 WithCloseParenTokenFunc3;
-        private static readonly WithExpressionDelegate4 WithExpressionFunc4;
-        private static readonly WithForEachKeywordDelegate5 WithForEachKeywordFunc5;
-        private static readonly WithInKeywordDelegate6 WithInKeywordFunc6;
-        private static readonly WithOpenParenTokenDelegate7 WithOpenParenTokenFunc7;
-        private static readonly WithStatementDelegate8 WithStatementFunc8;
+        private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithAwaitKeywordDelegate0 WithAwaitKeywordFunc0;
+        private static readonly WithCloseParenTokenDelegate0 WithCloseParenTokenFunc0;
+        private static readonly WithExpressionDelegate0 WithExpressionFunc0;
+        private static readonly WithForEachKeywordDelegate0 WithForEachKeywordFunc0;
+        private static readonly WithInKeywordDelegate0 WithInKeywordFunc0;
+        private static readonly WithOpenParenTokenDelegate0 WithOpenParenTokenFunc0;
+        private static readonly WithStatementDelegate0 WithStatementFunc0;
 
         private readonly global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax wrappedObject;
 
@@ -61,14 +61,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             StatementGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<StatementGetterDelegate>(WrappedType, nameof(Statement));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(WrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
-            WithAttributeListsFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate1>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
-            WithAwaitKeywordFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAwaitKeywordDelegate2>(WrappedType, "WithAwaitKeyword", "awaitKeywordSyntaxToken");
-            WithCloseParenTokenFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate3>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
-            WithExpressionFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate4>(WrappedType, "WithExpression", "expressionExpressionSyntax");
-            WithForEachKeywordFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithForEachKeywordDelegate5>(WrappedType, "WithForEachKeyword", "forEachKeywordSyntaxToken");
-            WithInKeywordFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInKeywordDelegate6>(WrappedType, "WithInKeyword", "inKeywordSyntaxToken");
-            WithOpenParenTokenFunc7 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate7>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
-            WithStatementFunc8 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithStatementDelegate8>(WrappedType, "WithStatement", "statementStatementSyntax");
+            WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(WrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithAwaitKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAwaitKeywordDelegate0>(WrappedType, "WithAwaitKeyword", "awaitKeywordSyntaxToken");
+            WithCloseParenTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithCloseParenTokenDelegate0>(WrappedType, "WithCloseParenToken", "closeParenTokenSyntaxToken");
+            WithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithExpressionDelegate0>(WrappedType, "WithExpression", "expressionExpressionSyntax");
+            WithForEachKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithForEachKeywordDelegate0>(WrappedType, "WithForEachKeyword", "forEachKeywordSyntaxToken");
+            WithInKeywordFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithInKeywordDelegate0>(WrappedType, "WithInKeyword", "inKeywordSyntaxToken");
+            WithOpenParenTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithOpenParenTokenDelegate0>(WrappedType, "WithOpenParenToken", "openParenTokenSyntaxToken");
+            WithStatementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithStatementDelegate0>(WrappedType, "WithStatement", "statementStatementSyntax");
         }
 
         private CommonForEachStatementSyntaxWrapper(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax obj)
@@ -158,49 +158,49 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         /// <summary>Method added in version 3.6.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAttributeLists(global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
-            return WithAttributeListsFunc1(wrappedObject, attributeLists);
+            return WithAttributeListsFunc0(wrappedObject, attributeLists);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithAwaitKeyword(global::Microsoft.CodeAnalysis.SyntaxToken awaitKeyword)
         {
-            return WithAwaitKeywordFunc2(wrappedObject, awaitKeyword);
+            return WithAwaitKeywordFunc0(wrappedObject, awaitKeyword);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithCloseParenToken(global::Microsoft.CodeAnalysis.SyntaxToken closeParenToken)
         {
-            return WithCloseParenTokenFunc3(wrappedObject, closeParenToken);
+            return WithCloseParenTokenFunc0(wrappedObject, closeParenToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithExpression(global::Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax expression)
         {
-            return WithExpressionFunc4(wrappedObject, expression);
+            return WithExpressionFunc0(wrappedObject, expression);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithForEachKeyword(global::Microsoft.CodeAnalysis.SyntaxToken forEachKeyword)
         {
-            return WithForEachKeywordFunc5(wrappedObject, forEachKeyword);
+            return WithForEachKeywordFunc0(wrappedObject, forEachKeyword);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithInKeyword(global::Microsoft.CodeAnalysis.SyntaxToken inKeyword)
         {
-            return WithInKeywordFunc6(wrappedObject, inKeyword);
+            return WithInKeywordFunc0(wrappedObject, inKeyword);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithOpenParenToken(global::Microsoft.CodeAnalysis.SyntaxToken openParenToken)
         {
-            return WithOpenParenTokenFunc7(wrappedObject, openParenToken);
+            return WithOpenParenTokenFunc0(wrappedObject, openParenToken);
         }
 
         /// <summary>Method added in version 2.9.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.CommonForEachStatementSyntaxWrapper WithStatement(global::Microsoft.CodeAnalysis.CSharp.Syntax.StatementSyntax statement)
         {
-            return WithStatementFunc8(wrappedObject, statement);
+            return WithStatementFunc0(wrappedObject, statement);
         }
     }
 }

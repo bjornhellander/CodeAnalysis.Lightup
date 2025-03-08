@@ -19,11 +19,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private delegate global::Microsoft.CodeAnalysis.ISymbol SymbolGetterDelegate(global::System.Object _obj);
 
         private delegate void RegisterCodeBlockActionDelegate0(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.CodeBlockAnalysisContext> action);
-        private delegate void RegisterOperationActionDelegate1(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, params global::Microsoft.CodeAnalysis.OperationKind[] operationKinds);
-        private delegate void RegisterOperationActionDelegate2(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.OperationKind> operationKinds);
-        private delegate void RegisterOperationBlockActionDelegate3(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext> action);
-        private delegate void RegisterOperationBlockStartActionDelegate4(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext> action);
-        private delegate void RegisterSymbolEndActionDelegate5(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext> action);
+        private delegate void RegisterOperationActionDelegate0(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, params global::Microsoft.CodeAnalysis.OperationKind[] operationKinds);
+        private delegate void RegisterOperationActionDelegate1(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.OperationKind> operationKinds);
+        private delegate void RegisterOperationBlockActionDelegate0(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext> action);
+        private delegate void RegisterOperationBlockStartActionDelegate0(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext> action);
+        private delegate void RegisterSymbolEndActionDelegate0(global::System.Object _obj, global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext> action);
 
         private static readonly CancellationTokenGetterDelegate CancellationTokenGetterFunc;
         private static readonly CompilationGetterDelegate CompilationGetterFunc;
@@ -34,11 +34,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         private static readonly SymbolGetterDelegate SymbolGetterFunc;
 
         private static readonly RegisterCodeBlockActionDelegate0 RegisterCodeBlockActionFunc0;
+        private static readonly RegisterOperationActionDelegate0 RegisterOperationActionFunc0;
         private static readonly RegisterOperationActionDelegate1 RegisterOperationActionFunc1;
-        private static readonly RegisterOperationActionDelegate2 RegisterOperationActionFunc2;
-        private static readonly RegisterOperationBlockActionDelegate3 RegisterOperationBlockActionFunc3;
-        private static readonly RegisterOperationBlockStartActionDelegate4 RegisterOperationBlockStartActionFunc4;
-        private static readonly RegisterSymbolEndActionDelegate5 RegisterSymbolEndActionFunc5;
+        private static readonly RegisterOperationBlockActionDelegate0 RegisterOperationBlockActionFunc0;
+        private static readonly RegisterOperationBlockStartActionDelegate0 RegisterOperationBlockStartActionFunc0;
+        private static readonly RegisterSymbolEndActionDelegate0 RegisterSymbolEndActionFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -55,11 +55,11 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
             SymbolGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<SymbolGetterDelegate>(WrappedType, nameof(Symbol));
 
             RegisterCodeBlockActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterCodeBlockActionDelegate0>(WrappedType, "RegisterCodeBlockAction", "actionAction`1");
-            RegisterOperationActionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate1>(WrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsOperationKind[]");
-            RegisterOperationActionFunc2 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate2>(WrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsImmutableArray`1");
-            RegisterOperationBlockActionFunc3 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockActionDelegate3>(WrappedType, "RegisterOperationBlockAction", "actionAction`1");
-            RegisterOperationBlockStartActionFunc4 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockStartActionDelegate4>(WrappedType, "RegisterOperationBlockStartAction", "actionAction`1");
-            RegisterSymbolEndActionFunc5 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolEndActionDelegate5>(WrappedType, "RegisterSymbolEndAction", "actionAction`1");
+            RegisterOperationActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate0>(WrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsOperationKind[]");
+            RegisterOperationActionFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationActionDelegate1>(WrappedType, "RegisterOperationAction", "actionAction`1", "operationKindsImmutableArray`1");
+            RegisterOperationBlockActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockActionDelegate0>(WrappedType, "RegisterOperationBlockAction", "actionAction`1");
+            RegisterOperationBlockStartActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterOperationBlockStartActionDelegate0>(WrappedType, "RegisterOperationBlockStartAction", "actionAction`1");
+            RegisterSymbolEndActionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<RegisterSymbolEndActionDelegate0>(WrappedType, "RegisterSymbolEndAction", "actionAction`1");
         }
 
         private SymbolStartAnalysisContextWrapper(global::System.Object obj)
@@ -137,31 +137,31 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
         /// <summary>Method added in version 3.0.0.0.</summary>
         public void RegisterOperationAction(global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, params global::Microsoft.CodeAnalysis.OperationKind[] operationKinds)
         {
-            RegisterOperationActionFunc1(wrappedObject, action, operationKinds);
+            RegisterOperationActionFunc0(wrappedObject, action, operationKinds);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public void RegisterOperationAction(global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext> action, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.OperationKind> operationKinds)
         {
-            RegisterOperationActionFunc2(wrappedObject, action, operationKinds);
+            RegisterOperationActionFunc1(wrappedObject, action, operationKinds);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public void RegisterOperationBlockAction(global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockAnalysisContext> action)
         {
-            RegisterOperationBlockActionFunc3(wrappedObject, action);
+            RegisterOperationBlockActionFunc0(wrappedObject, action);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public void RegisterOperationBlockStartAction(global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext> action)
         {
-            RegisterOperationBlockStartActionFunc4(wrappedObject, action);
+            RegisterOperationBlockStartActionFunc0(wrappedObject, action);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
         public void RegisterSymbolEndAction(global::System.Action<global::Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext> action)
         {
-            RegisterSymbolEndActionFunc5(wrappedObject, action);
+            RegisterSymbolEndActionFunc0(wrappedObject, action);
         }
     }
 }

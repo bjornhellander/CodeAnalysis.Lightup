@@ -14,13 +14,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper IncludeNullabilityGetterDelegate();
 
         private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.ISymbol? x, global::Microsoft.CodeAnalysis.ISymbol? y);
-        private delegate global::System.Int32 GetHashCodeDelegate1(global::System.Object _obj, global::Microsoft.CodeAnalysis.ISymbol? obj);
+        private delegate global::System.Int32 GetHashCodeDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.ISymbol? obj);
 
         private static readonly DefaultGetterDelegate DefaultGetterFunc;
         private static readonly IncludeNullabilityGetterDelegate IncludeNullabilityGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
-        private static readonly GetHashCodeDelegate1 GetHashCodeFunc1;
+        private static readonly GetHashCodeDelegate0 GetHashCodeFunc0;
 
         private readonly global::System.Object wrappedObject;
 
@@ -32,7 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IncludeNullabilityGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<IncludeNullabilityGetterDelegate>(WrappedType, nameof(IncludeNullability));
 
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "xISymbol", "yISymbol");
-            GetHashCodeFunc1 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate1>(WrappedType, "GetHashCode", "objISymbol");
+            GetHashCodeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetHashCodeDelegate0>(WrappedType, "GetHashCode", "objISymbol");
         }
 
         private SymbolEqualityComparerWrapper(global::System.Object obj)
@@ -80,7 +80,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         /// <summary>Method added in version 3.3.0.0.</summary>
         public global::System.Int32 GetHashCode(global::Microsoft.CodeAnalysis.ISymbol? obj)
         {
-            return GetHashCodeFunc1(wrappedObject, obj);
+            return GetHashCodeFunc0(wrappedObject, obj);
         }
     }
 }
