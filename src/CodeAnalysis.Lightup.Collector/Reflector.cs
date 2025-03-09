@@ -391,7 +391,7 @@ internal class Reflector
         switch (classTypeDef.FullName)
         {
             case "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions":
-                // This type was changed to static in 4.13.0
+                // This type was changed to static in 4.13.0 (see https://github.com/dotnet/roslyn/pull/76040)
                 Assert.IsTrue(isStatic || assemblyVersion == null || assemblyVersion < new Version(4, 13, 0), "CodeStyleOptions has changed again");
                 classTypeDef.IsStatic = isStatic;
                 break;
