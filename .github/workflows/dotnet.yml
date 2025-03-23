@@ -35,3 +35,7 @@ jobs:
       run: git diff --quiet HEAD
     - name: Test
       run: dotnet test -c ${{matrix.configuration}} --no-build --verbosity normal --collect:"Code Coverage"
+    - name: Upload coverage
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
