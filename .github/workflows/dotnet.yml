@@ -34,7 +34,7 @@ jobs:
     - name: Check that generated files did not change
       run: git diff --quiet HEAD
     - name: Test
-      run: dotnet test -c ${{matrix.configuration}} --no-build --verbosity normal --collect:"XPlat Code Coverage"
+      run: dotnet test -c ${{matrix.configuration}} --no-build --verbosity normal --collect:"XPlat Code Coverage" /p:ExcludeByFile="**/.g.cs"
     - name: Upload coverage
       uses: codecov/codecov-action@v5
       with:
