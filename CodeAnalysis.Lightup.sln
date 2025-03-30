@@ -9,12 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - S
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		Configuration.schema.json = Configuration.schema.json
+		CreateCoverageReport.ps1 = CreateCoverageReport.ps1
 		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		HOWTO.md = HOWTO.md
 		LICENSE.txt = LICENSE.txt
 		nuget.config = nuget.config
 		README.md = README.md
+		runsettings.xml = runsettings.xml
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
