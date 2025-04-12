@@ -1,12 +1,12 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+using System.Linq;
+using System.Reflection;
+
 namespace CodeAnalysis.Lightup.Runtime.Extensions
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-
     internal static class ReflectionExtensions
     {
         public static Type? GetPublicType(this Assembly assembly, string name)

@@ -1,14 +1,14 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Diagnostics;
+
 namespace CodeAnalysis.Lightup.Example.Analyzers
 {
-    using System.Collections.Immutable;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.Diagnostics;
-
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class TypeNameAnalyzer : DiagnosticAnalyzer
     {

@@ -1,14 +1,14 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Lightup;
+
 namespace CodeAnalysis.Lightup.Example.Analyzers
 {
-    using System;
-    using System.Linq;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.CSharp;
-    using Microsoft.CodeAnalysis.CSharp.Lightup;
-
     public class LightupStatus
     {
         static LightupStatus()

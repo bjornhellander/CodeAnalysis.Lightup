@@ -5,8 +5,6 @@
 #pragma warning disable SA1513 // Closing brace should be followed by blank line
 #pragma warning disable SA1515 // Single-line comment should be preceded by blank line
 
-namespace CodeAnalysis.Lightup.Generator;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +13,8 @@ using System.Text;
 using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
+
+namespace CodeAnalysis.Lightup.Generator;
 
 internal class Writer
 {

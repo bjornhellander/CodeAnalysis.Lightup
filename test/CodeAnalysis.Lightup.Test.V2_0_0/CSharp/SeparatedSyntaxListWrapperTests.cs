@@ -1,18 +1,17 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V2_0_0.CSharp;
-
 using System.Collections;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using NativeItem = Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
     Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper>;
 using WrapperItem = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper;
+
+namespace CodeAnalysis.Lightup.Test.V2_0_0.CSharp;
 
 // NOTE: This test class should be executed for all non-baseline versions
 [TestClass]

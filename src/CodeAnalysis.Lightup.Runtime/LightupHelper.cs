@@ -1,19 +1,19 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Threading.Tasks;
+using CodeAnalysis.Lightup.Runtime.Extensions;
+using CodeAnalysis.Lightup.Runtime.Helpers;
+
 namespace CodeAnalysis.Lightup.Runtime
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.Immutable;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Reflection;
-    using System.Threading.Tasks;
-    using CodeAnalysis.Lightup.Runtime.Extensions;
-    using CodeAnalysis.Lightup.Runtime.Helpers;
-
     public class LightupHelper
     {
 #pragma warning disable CA1825 // Avoid zero-length array allocations

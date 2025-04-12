@@ -1,13 +1,12 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V3_8_0.Diagnostics;
-
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-
 using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper;
+
+namespace CodeAnalysis.Lightup.Test.V3_8_0.Diagnostics;
 
 [TestClass]
 public partial class AnalyzerConfigOptionsWrapperTests

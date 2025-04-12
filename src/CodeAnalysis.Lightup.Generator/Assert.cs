@@ -1,10 +1,10 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Generator;
-
 using System;
 using System.Diagnostics.CodeAnalysis;
+
+namespace CodeAnalysis.Lightup.Generator;
 
 internal class Assert
 {

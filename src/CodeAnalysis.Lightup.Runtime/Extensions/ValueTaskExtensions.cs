@@ -1,11 +1,11 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+using System.Threading.Tasks;
+
 namespace CodeAnalysis.Lightup.Runtime.Extensions
 {
-    using System;
-    using System.Threading.Tasks;
-
     // NOTE: Created since there is no ContinueWith method in ValueTask
     internal static class ValueTaskExtensions
     {

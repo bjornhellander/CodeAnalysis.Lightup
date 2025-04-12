@@ -1,10 +1,10 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Definitions;
-
 using System;
 using System.Diagnostics;
+
+namespace CodeAnalysis.Lightup.Definitions;
 
 [DebuggerDisplay("{Name}")]
 public class EventDefinition : MemberDefinition

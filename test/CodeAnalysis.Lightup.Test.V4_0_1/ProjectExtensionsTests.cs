@@ -1,13 +1,13 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V4_0_1;
-
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Lightup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace CodeAnalysis.Lightup.Test.V4_0_1;
 
 [TestClass]
 public partial class ProjectExtensionsTests

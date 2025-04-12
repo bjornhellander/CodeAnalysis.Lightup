@@ -1,8 +1,6 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Generator;
-
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,6 +9,8 @@ using System.Text;
 using CodeAnalysis.Lightup.Definitions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+
+namespace CodeAnalysis.Lightup.Generator;
 
 [Generator]
 public class LightupGenerator : IIncrementalGenerator

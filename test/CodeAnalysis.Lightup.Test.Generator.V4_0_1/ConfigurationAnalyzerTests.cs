@@ -1,15 +1,13 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
-
 using System.Threading.Tasks;
 using CodeAnalysis.Lightup.Generator;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<CodeAnalysis.Lightup.Generator.ConfigurationAnalyzer>;
 
-using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<
-    CodeAnalysis.Lightup.Generator.ConfigurationAnalyzer>;
+namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
 [TestClass]
 public class ConfigurationAnalyzerTests

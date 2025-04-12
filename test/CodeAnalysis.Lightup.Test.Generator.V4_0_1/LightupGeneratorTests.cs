@@ -1,8 +1,6 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +12,8 @@ using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Testing;
 using Microsoft.CodeAnalysis.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
 [TestClass]
 public class LightupGeneratorTests

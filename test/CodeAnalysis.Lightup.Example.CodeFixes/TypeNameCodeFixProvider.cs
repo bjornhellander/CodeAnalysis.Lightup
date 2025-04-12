@@ -1,23 +1,23 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+using System.Collections.Immutable;
+using System.Composition;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using CodeAnalysis.Lightup.Example.Analyzers;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CodeActions;
+using Microsoft.CodeAnalysis.CodeFixes;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Rename;
+using Microsoft.CodeAnalysis.Rename.Lightup;
+
 namespace CodeAnalysis.Lightup.Example.CodeFixes
 {
-    using System;
-    using System.Collections.Immutable;
-    using System.Composition;
-    using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using CodeAnalysis.Lightup.Example.Analyzers;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.CodeActions;
-    using Microsoft.CodeAnalysis.CodeFixes;
-    using Microsoft.CodeAnalysis.CSharp;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
-    using Microsoft.CodeAnalysis.Rename;
-    using Microsoft.CodeAnalysis.Rename.Lightup;
-
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(TypeNameCodeFixProvider))]
     [Shared]
     public class TypeNameCodeFixProvider : CodeFixProvider

@@ -1,14 +1,12 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V1_3_2;
-
 using System.Threading.Tasks;
 using CodeAnalysis.Lightup.Example.Analyzers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<CodeAnalysis.Lightup.Example.Analyzers.AdditionalFileNameAnalyzer>;
 
-using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<
-    CodeAnalysis.Lightup.Example.Analyzers.AdditionalFileNameAnalyzer>;
+namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
 [TestClass]
 public class AdditionalFileNameAnalyzerTests

@@ -1,12 +1,11 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.V4_8_0.Emit;
-
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper;
+
+namespace CodeAnalysis.Lightup.Test.V4_8_0.Emit;
 
 [TestClass]
 public partial class MethodInstrumentationWrapperTests

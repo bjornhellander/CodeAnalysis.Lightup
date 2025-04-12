@@ -1,12 +1,12 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Test.Internal;
-
 using System;
 using System.Reflection;
 using CodeAnalysis.Lightup.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace CodeAnalysis.Lightup.Test.Internal;
 
 // NOTE: These tests intend to cover cases that were difficult to test using the generated code
 [TestClass]

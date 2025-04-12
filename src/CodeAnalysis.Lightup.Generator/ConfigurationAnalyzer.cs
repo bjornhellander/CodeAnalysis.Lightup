@@ -1,13 +1,13 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Generator;
-
 using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
+
+namespace CodeAnalysis.Lightup.Generator;
 
 // TODO: Create Roslyn issue for descriptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]

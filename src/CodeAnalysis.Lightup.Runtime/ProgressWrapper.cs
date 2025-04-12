@@ -1,10 +1,10 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
+using System;
+
 namespace CodeAnalysis.Lightup.Runtime
 {
-    using System;
-
     internal class ProgressWrapper<TSource, TTarget> : IProgress<TSource>
     {
         private readonly IProgress<TTarget> actual;

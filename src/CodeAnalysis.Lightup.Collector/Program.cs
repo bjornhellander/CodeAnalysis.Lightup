@@ -1,8 +1,6 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-namespace CodeAnalysis.Lightup.Collector;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +9,8 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using CodeAnalysis.Lightup.Definitions;
+
+namespace CodeAnalysis.Lightup.Collector;
 
 internal class Program
 {
