@@ -10,12 +10,12 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate DocumentActiveContextChangedEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Solution? solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer? sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId? oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId? newActiveContextDocumentId);
+        private delegate DocumentActiveContextChangedEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Solution solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId newActiveContextDocumentId);
 
-        private delegate global::Microsoft.CodeAnalysis.DocumentId? NewActiveContextDocumentIdGetterDelegate(global::System.EventArgs _obj);
-        private delegate global::Microsoft.CodeAnalysis.DocumentId? OldActiveContextDocumentIdGetterDelegate(global::System.EventArgs _obj);
-        private delegate global::Microsoft.CodeAnalysis.Solution? SolutionGetterDelegate(global::System.EventArgs _obj);
-        private delegate global::Microsoft.CodeAnalysis.Text.SourceTextContainer? SourceTextContainerGetterDelegate(global::System.EventArgs _obj);
+        private delegate global::Microsoft.CodeAnalysis.DocumentId NewActiveContextDocumentIdGetterDelegate(global::System.EventArgs _obj);
+        private delegate global::Microsoft.CodeAnalysis.DocumentId OldActiveContextDocumentIdGetterDelegate(global::System.EventArgs _obj);
+        private delegate global::Microsoft.CodeAnalysis.Solution SolutionGetterDelegate(global::System.EventArgs _obj);
+        private delegate global::Microsoft.CodeAnalysis.Text.SourceTextContainer SourceTextContainerGetterDelegate(global::System.EventArgs _obj);
 
         private static readonly ConstructorDelegate0 ConstructorFunc0;
 
@@ -44,31 +44,31 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Constructor added in version 2.0.0.0.</summary>
-        public static DocumentActiveContextChangedEventArgsWrapper Create(global::Microsoft.CodeAnalysis.Solution? solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer? sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId? oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId? newActiveContextDocumentId)
+        public static DocumentActiveContextChangedEventArgsWrapper Create(global::Microsoft.CodeAnalysis.Solution solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId newActiveContextDocumentId)
         {
             return ConstructorFunc0(solution, sourceTextContainer, oldActiveContextDocumentId, newActiveContextDocumentId);
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.DocumentId? NewActiveContextDocumentId
+        public global::Microsoft.CodeAnalysis.DocumentId NewActiveContextDocumentId
         {
             get { return NewActiveContextDocumentIdGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.DocumentId? OldActiveContextDocumentId
+        public global::Microsoft.CodeAnalysis.DocumentId OldActiveContextDocumentId
         {
             get { return OldActiveContextDocumentIdGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Solution? Solution
+        public global::Microsoft.CodeAnalysis.Solution Solution
         {
             get { return SolutionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.Text.SourceTextContainer? SourceTextContainer
+        public global::Microsoft.CodeAnalysis.Text.SourceTextContainer SourceTextContainer
         {
             get { return SourceTextContainerGetterFunc(wrappedObject); }
         }

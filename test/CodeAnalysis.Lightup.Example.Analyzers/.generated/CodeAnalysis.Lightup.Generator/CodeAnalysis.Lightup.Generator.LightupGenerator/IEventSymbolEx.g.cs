@@ -8,21 +8,48 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IEventSymbol";
 
+        private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IEventSymbol? PartialDefinitionPartGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IEventSymbol? PartialImplementationPartGetterDelegate(global::Microsoft.CodeAnalysis.IEventSymbol _obj);
 
+        private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
+        private static readonly PartialDefinitionPartGetterDelegate PartialDefinitionPartGetterFunc;
+        private static readonly PartialImplementationPartGetterDelegate PartialImplementationPartGetterFunc;
 
         static IEventSymbolEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            IsPartialDefinitionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            PartialDefinitionPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialDefinitionPartGetterDelegate>(wrappedType, nameof(PartialDefinitionPart));
+            PartialImplementationPartGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<PartialImplementationPartGetterDelegate>(wrappedType, nameof(PartialImplementationPart));
+        }
+
+        /// <summary>Property added in version 4.14.0.0.</summary>
+        public static global::System.Boolean IsPartialDefinition(this global::Microsoft.CodeAnalysis.IEventSymbol _obj)
+        {
+            return IsPartialDefinitionGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.1.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.IEventSymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.14.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IEventSymbol? PartialDefinitionPart(this global::Microsoft.CodeAnalysis.IEventSymbol _obj)
+        {
+            return PartialDefinitionPartGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.14.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IEventSymbol? PartialImplementationPart(this global::Microsoft.CodeAnalysis.IEventSymbol _obj)
+        {
+            return PartialImplementationPartGetterFunc(_obj);
         }
     }
 }

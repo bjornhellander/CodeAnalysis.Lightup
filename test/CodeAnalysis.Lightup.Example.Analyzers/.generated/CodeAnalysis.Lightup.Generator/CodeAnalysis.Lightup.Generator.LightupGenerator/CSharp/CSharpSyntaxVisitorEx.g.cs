@@ -20,6 +20,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate void VisitDiscardPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper node);
         private delegate void VisitExpressionColonDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node);
         private delegate void VisitExpressionElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node);
+        private delegate void VisitExtensionDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionDeclarationSyntaxWrapper node);
         private delegate void VisitFieldExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node);
         private delegate void VisitFileScopedNamespaceDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node);
         private delegate void VisitForEachVariableStatementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper node);
@@ -29,6 +30,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate void VisitFunctionPointerTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerTypeSyntaxWrapper node);
         private delegate void VisitFunctionPointerUnmanagedCallingConventionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionSyntaxWrapper node);
         private delegate void VisitFunctionPointerUnmanagedCallingConventionListDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node);
+        private delegate void VisitIgnoredDirectiveTriviaDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper node);
         private delegate void VisitImplicitObjectCreationExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitObjectCreationExpressionSyntaxWrapper node);
         private delegate void VisitImplicitStackAllocArrayCreationExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ImplicitStackAllocArrayCreationExpressionSyntaxWrapper node);
         private delegate void VisitIsPatternExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IsPatternExpressionSyntaxWrapper node);
@@ -78,6 +80,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly VisitDiscardPatternDelegate0 VisitDiscardPatternFunc0;
         private static readonly VisitExpressionColonDelegate0 VisitExpressionColonFunc0;
         private static readonly VisitExpressionElementDelegate0 VisitExpressionElementFunc0;
+        private static readonly VisitExtensionDeclarationDelegate0 VisitExtensionDeclarationFunc0;
         private static readonly VisitFieldExpressionDelegate0 VisitFieldExpressionFunc0;
         private static readonly VisitFileScopedNamespaceDeclarationDelegate0 VisitFileScopedNamespaceDeclarationFunc0;
         private static readonly VisitForEachVariableStatementDelegate0 VisitForEachVariableStatementFunc0;
@@ -87,6 +90,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly VisitFunctionPointerTypeDelegate0 VisitFunctionPointerTypeFunc0;
         private static readonly VisitFunctionPointerUnmanagedCallingConventionDelegate0 VisitFunctionPointerUnmanagedCallingConventionFunc0;
         private static readonly VisitFunctionPointerUnmanagedCallingConventionListDelegate0 VisitFunctionPointerUnmanagedCallingConventionListFunc0;
+        private static readonly VisitIgnoredDirectiveTriviaDelegate0 VisitIgnoredDirectiveTriviaFunc0;
         private static readonly VisitImplicitObjectCreationExpressionDelegate0 VisitImplicitObjectCreationExpressionFunc0;
         private static readonly VisitImplicitStackAllocArrayCreationExpressionDelegate0 VisitImplicitStackAllocArrayCreationExpressionFunc0;
         private static readonly VisitIsPatternExpressionDelegate0 VisitIsPatternExpressionFunc0;
@@ -140,6 +144,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitDiscardPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardPatternDelegate0>(wrappedType, "VisitDiscardPattern", "nodeDiscardPatternSyntax");
             VisitExpressionColonFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionColonDelegate0>(wrappedType, "VisitExpressionColon", "nodeExpressionColonSyntax");
             VisitExpressionElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionElementDelegate0>(wrappedType, "VisitExpressionElement", "nodeExpressionElementSyntax");
+            VisitExtensionDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExtensionDeclarationDelegate0>(wrappedType, "VisitExtensionDeclaration", "nodeExtensionDeclarationSyntax");
             VisitFieldExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFieldExpressionDelegate0>(wrappedType, "VisitFieldExpression", "nodeFieldExpressionSyntax");
             VisitFileScopedNamespaceDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate0>(wrappedType, "VisitFileScopedNamespaceDeclaration", "nodeFileScopedNamespaceDeclarationSyntax");
             VisitForEachVariableStatementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitForEachVariableStatementDelegate0>(wrappedType, "VisitForEachVariableStatement", "nodeForEachVariableStatementSyntax");
@@ -149,6 +154,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitFunctionPointerTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerTypeDelegate0>(wrappedType, "VisitFunctionPointerType", "nodeFunctionPointerTypeSyntax");
             VisitFunctionPointerUnmanagedCallingConventionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionDelegate0>(wrappedType, "VisitFunctionPointerUnmanagedCallingConvention", "nodeFunctionPointerUnmanagedCallingConventionSyntax");
             VisitFunctionPointerUnmanagedCallingConventionListFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFunctionPointerUnmanagedCallingConventionListDelegate0>(wrappedType, "VisitFunctionPointerUnmanagedCallingConventionList", "nodeFunctionPointerUnmanagedCallingConventionListSyntax");
+            VisitIgnoredDirectiveTriviaFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitIgnoredDirectiveTriviaDelegate0>(wrappedType, "VisitIgnoredDirectiveTrivia", "nodeIgnoredDirectiveTriviaSyntax");
             VisitImplicitObjectCreationExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitObjectCreationExpressionDelegate0>(wrappedType, "VisitImplicitObjectCreationExpression", "nodeImplicitObjectCreationExpressionSyntax");
             VisitImplicitStackAllocArrayCreationExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitImplicitStackAllocArrayCreationExpressionDelegate0>(wrappedType, "VisitImplicitStackAllocArrayCreationExpression", "nodeImplicitStackAllocArrayCreationExpressionSyntax");
             VisitIsPatternExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitIsPatternExpressionDelegate0>(wrappedType, "VisitIsPatternExpression", "nodeIsPatternExpressionSyntax");
@@ -259,6 +265,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitExpressionElementFunc0(_obj, node);
         }
 
+        /// <summary>Method added in version 4.14.0.0.</summary>
+        public static void VisitExtensionDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionDeclarationSyntaxWrapper node)
+        {
+            VisitExtensionDeclarationFunc0(_obj, node);
+        }
+
         /// <summary>Method added in version 4.12.0.0.</summary>
         public static void VisitFieldExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node)
         {
@@ -311,6 +323,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static void VisitFunctionPointerUnmanagedCallingConventionList(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerUnmanagedCallingConventionListSyntaxWrapper node)
         {
             VisitFunctionPointerUnmanagedCallingConventionListFunc0(_obj, node);
+        }
+
+        /// <summary>Method added in version 4.14.0.0.</summary>
+        public static void VisitIgnoredDirectiveTrivia(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper node)
+        {
+            VisitIgnoredDirectiveTriviaFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>
