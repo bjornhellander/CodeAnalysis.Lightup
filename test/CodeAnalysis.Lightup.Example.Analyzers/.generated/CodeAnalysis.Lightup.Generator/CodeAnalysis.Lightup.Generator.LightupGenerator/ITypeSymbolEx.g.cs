@@ -8,6 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ITypeSymbol";
 
+        private delegate global::Microsoft.CodeAnalysis.IParameterSymbol? ExtensionParameterGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::System.Boolean IsExtensionGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsNativeIntegerTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsRecordGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
@@ -22,6 +24,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String ToMinimalDisplayStringDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.SemanticModel semanticModel, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::System.Int32 position, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol WithNullableAnnotationDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx nullableAnnotation);
 
+        private static readonly ExtensionParameterGetterDelegate ExtensionParameterGetterFunc;
+        private static readonly IsExtensionGetterDelegate IsExtensionGetterFunc;
         private static readonly IsNativeIntegerTypeGetterDelegate IsNativeIntegerTypeGetterFunc;
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;
         private static readonly IsRecordGetterDelegate IsRecordGetterFunc;
@@ -40,6 +44,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ExtensionParameterGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ExtensionParameterGetterDelegate>(wrappedType, nameof(ExtensionParameter));
+            IsExtensionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsExtensionGetterDelegate>(wrappedType, nameof(IsExtension));
             IsNativeIntegerTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNativeIntegerTypeGetterDelegate>(wrappedType, nameof(IsNativeIntegerType));
             IsReadOnlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
             IsRecordGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsRecordGetterDelegate>(wrappedType, nameof(IsRecord));
@@ -53,6 +59,18 @@ namespace Microsoft.CodeAnalysis.Lightup
             ToMinimalDisplayPartsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayPartsDelegate0>(wrappedType, "ToMinimalDisplayParts", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
             ToMinimalDisplayStringFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToMinimalDisplayStringDelegate0>(wrappedType, "ToMinimalDisplayString", "semanticModelSemanticModel", "topLevelNullabilityNullableFlowState", "positionInt32", "formatSymbolDisplayFormat");
             WithNullableAnnotationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<WithNullableAnnotationDelegate0>(wrappedType, "WithNullableAnnotation", "nullableAnnotationNullableAnnotation");
+        }
+
+        /// <summary>Property added in version 4.14.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IParameterSymbol? ExtensionParameter(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
+        {
+            return ExtensionParameterGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 4.14.0.0.</summary>
+        public static global::System.Boolean IsExtension(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
+        {
+            return IsExtensionGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.7.0.0.</summary>

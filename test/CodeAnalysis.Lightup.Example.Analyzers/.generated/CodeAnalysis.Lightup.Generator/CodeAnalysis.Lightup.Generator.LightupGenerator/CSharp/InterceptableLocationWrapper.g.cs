@@ -13,11 +13,13 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.String DataGetterDelegate(global::System.Object _obj);
         private delegate global::System.Int32 VersionGetterDelegate(global::System.Object _obj);
 
+        private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper? other);
         private delegate global::System.String GetDisplayLocationDelegate0(global::System.Object _obj);
 
         private static readonly DataGetterDelegate DataGetterFunc;
         private static readonly VersionGetterDelegate VersionGetterFunc;
 
+        private static readonly EqualsDelegate0 EqualsFunc0;
         private static readonly GetDisplayLocationDelegate0 GetDisplayLocationFunc0;
 
         private readonly global::System.Object wrappedObject;
@@ -29,6 +31,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             DataGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<DataGetterDelegate>(WrappedType, nameof(Data));
             VersionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<VersionGetterDelegate>(WrappedType, nameof(Version));
 
+            EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(WrappedType, "Equals", "otherInterceptableLocation");
             GetDisplayLocationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<GetDisplayLocationDelegate0>(WrappedType, "GetDisplayLocation");
         }
 
@@ -66,6 +69,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public global::System.Object Unwrap()
         {
             return wrappedObject;
+        }
+
+        /// <summary>Method added in version 4.14.0.0.</summary>
+        public global::System.Boolean Equals(global::Microsoft.CodeAnalysis.CSharp.Lightup.InterceptableLocationWrapper? other)
+        {
+            return EqualsFunc0(wrappedObject, other);
         }
 
         /// <summary>Method added in version 4.11.0.0.</summary>

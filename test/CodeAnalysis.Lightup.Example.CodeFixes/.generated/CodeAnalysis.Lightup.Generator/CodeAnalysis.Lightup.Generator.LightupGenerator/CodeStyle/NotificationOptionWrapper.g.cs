@@ -10,14 +10,14 @@ namespace Microsoft.CodeAnalysis.CodeStyle.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
-        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? ErrorGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? NoneGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? SilentGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? SuggestionGetterDelegate();
-        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? WarningGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper ErrorGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper NoneGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper SilentGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper SuggestionGetterDelegate();
+        private delegate global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper WarningGetterDelegate();
 
-        private delegate global::System.String? NameGetterDelegate(global::System.Object _obj);
-        private delegate void NameSetterDelegate(System.Object _obj, global::System.String? _value);
+        private delegate global::System.String NameGetterDelegate(global::System.Object _obj);
+        private delegate void NameSetterDelegate(System.Object _obj, global::System.String _value);
         private delegate global::Microsoft.CodeAnalysis.ReportDiagnostic SeverityGetterDelegate(global::System.Object _obj);
         private delegate void SeveritySetterDelegate(System.Object _obj, global::Microsoft.CodeAnalysis.ReportDiagnostic _value);
         private delegate global::Microsoft.CodeAnalysis.DiagnosticSeverity ValueGetterDelegate(global::System.Object _obj);
@@ -62,37 +62,37 @@ namespace Microsoft.CodeAnalysis.CodeStyle.Lightup
         }
 
         /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? Error
+        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper Error
         {
             get { return ErrorGetterFunc(); }
         }
 
         /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? None
+        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper None
         {
             get { return NoneGetterFunc(); }
         }
 
         /// <summary>Field added in version 2.9.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? Silent
+        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper Silent
         {
             get { return SilentGetterFunc(); }
         }
 
         /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? Suggestion
+        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper Suggestion
         {
             get { return SuggestionGetterFunc(); }
         }
 
         /// <summary>Field added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper? Warning
+        public static global::Microsoft.CodeAnalysis.CodeStyle.Lightup.NotificationOptionWrapper Warning
         {
             get { return WarningGetterFunc(); }
         }
 
         /// <summary>Property added in version 2.0.0.0.</summary>
-        public global::System.String? Name
+        public global::System.String Name
         {
             get { return NameGetterFunc(wrappedObject); }
             set { NameSetterFunc(wrappedObject, value); }

@@ -53,6 +53,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.11.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind AllowsKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8450;
 
+        /// <summary>Added in version 4.14.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8451;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NullableKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8486;
 
@@ -304,5 +307,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SpreadElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9078;
+
+        /// <summary>Added in version 4.14.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9079;
+
+        /// <summary>Added in version 4.14.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IgnoredDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9080;
     }
 }
