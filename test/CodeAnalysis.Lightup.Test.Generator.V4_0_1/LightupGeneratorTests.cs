@@ -1265,7 +1265,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
     private static ReferenceAssemblies CreateReferenceAssemblies()
     {
-        return ReferenceAssemblies.Net.Net80
+        return ReferenceAssemblies.Net.Net90
             .AddPackages([new PackageIdentity("Microsoft.CodeAnalysis", "3.0.0")]);
     }
 }
