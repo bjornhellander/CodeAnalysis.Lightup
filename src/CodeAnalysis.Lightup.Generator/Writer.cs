@@ -1467,10 +1467,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
     private static List<FieldDefinition> GetStaticFields(TypeDefinition typeDef)
     {
+        // TODO: Enable generation of CodeStyleOptions (some members reference CodeStyleOption<> which was added in 2.0.0)
         var result = typeDef.Fields
             .Where(x => x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
-            // TODO: Enable generation of CodeStyleOptions (some members reference CodeStyleOption<> which was added in 2.0.0)
             .Where(x => typeDef.FullName != "Microsoft.CodeAnalysis.CodeStyle.CodeStyleOptions")
             .ToList();
         return result;
@@ -1515,10 +1515,10 @@ namespace Microsoft.CodeAnalysis.Lightup
 
     private static List<PropertyDefinition> GetInstanceProperties(TypeDefinition typeDef)
     {
+        // TODO: Enable generation of IEventAssignmentOperation (property EventReference changed type in version 2.9.0)
         var result = typeDef.Properties
             .Where(x => !x.IsStatic)
             .Where(x => x.AssemblyVersion != null)
-            // TODO: Enable generation of IEventAssignmentOperation (property EventReference changed type in version 2.9.0)
             .Where(x => typeDef.FullName != "Microsoft.CodeAnalysis.Operations.IEventAssignmentOperation" || x.Name != "EventReference")
             .OrderBy(x => x.Name)
             .ToList();
