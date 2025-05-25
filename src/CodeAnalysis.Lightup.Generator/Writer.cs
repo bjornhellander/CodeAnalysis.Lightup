@@ -1,7 +1,7 @@
 ﻿// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
-// Fixed in StyleCop.Analyzes, but not yet released
+// Fixed in StyleCop.Analyzers, but not yet released
 #pragma warning disable SA1513 // Closing brace should be followed by blank line
 #pragma warning disable SA1515 // Single-line comment should be preceded by blank line
 
@@ -2014,7 +2014,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var temp = input.Where(y => y.Name == x.Name).ToList();
             var index = temp.IndexOf(x);
             return (x, index);
-        }).ToList();
+        });
         return output;
     }
 }
