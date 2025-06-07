@@ -21,7 +21,7 @@ public class ProjectExtensionsTests
     }
 
     [TestMethod]
-    public virtual async Task GetSourceGeneratedDocumentsAsync()
+    public virtual async Task GetSourceGeneratedDocuments()
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);

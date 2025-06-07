@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public partial class ProjectExtensionsTests
 {
     [TestMethod]
-    public override async Task GetSourceGeneratedDocumentsAsync()
+    public override async Task GetSourceGeneratedDocuments()
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);
