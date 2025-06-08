@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FunctionPointerCallingConventionSyntaxWrapper;
 
 [TestClass]

@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_0_1.CSharp;
 
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LineSpanDirectiveTriviaSyntaxWrapper;
 
 // NOTE: The main reason for adding these tests is that this wrapper refers to other newly created syntax nodes,

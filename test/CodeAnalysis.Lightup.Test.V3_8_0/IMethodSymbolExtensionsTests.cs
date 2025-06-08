@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0;
 
-using System.Collections.Immutable;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-
 [TestClass]
 public partial class IMethodSymbolExtensionsTests
 {

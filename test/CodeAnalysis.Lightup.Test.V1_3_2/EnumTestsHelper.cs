@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 public static class EnumTestsHelper
 {
     public static void CheckEnum(Type extensionEnumType, Type nativeEnumType)

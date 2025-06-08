@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V2_0_0.CSharp;
 
-using System.Collections;
-using System.Linq;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using NativeItem = Microsoft.CodeAnalysis.CSharp.Syntax.LocalFunctionStatementSyntax;
 using Wrapper = Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper<
     Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper>;

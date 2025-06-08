@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class SolutionInfoExtensionsTests
 {

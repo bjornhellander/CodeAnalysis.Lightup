@@ -7,15 +7,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using CodeAnalysis.Lightup.Definitions;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Text;
-
 internal class Writer
 {
     private static readonly Dictionary<AssemblyKind, string> HelperPrefixes = new()

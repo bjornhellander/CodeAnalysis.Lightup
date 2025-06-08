@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Support.Verifiers;
 
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Testing;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Testing;
-
 public static partial class CSharpAnalyzerVerifier<TAnalyzer>
     where TAnalyzer : DiagnosticAnalyzer, new()
 {

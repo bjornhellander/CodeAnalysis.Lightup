@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Support.Verifiers;
 
-using System;
-using System.Collections.Immutable;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-
 internal static class CSharpVerifierHelper
 {
     /// <summary>

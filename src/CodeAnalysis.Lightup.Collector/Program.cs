@@ -3,15 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Collector;
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Xml.Serialization;
-using CodeAnalysis.Lightup.Definitions;
-
 internal class Program
 {
     private static void Main()

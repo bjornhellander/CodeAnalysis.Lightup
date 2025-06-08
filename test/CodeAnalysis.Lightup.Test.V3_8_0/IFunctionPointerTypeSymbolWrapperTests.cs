@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0;
 
-using Microsoft.CodeAnalysis;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-
 using Wrapper = Microsoft.CodeAnalysis.Lightup.IFunctionPointerTypeSymbolWrapper;
 
 [TestClass]

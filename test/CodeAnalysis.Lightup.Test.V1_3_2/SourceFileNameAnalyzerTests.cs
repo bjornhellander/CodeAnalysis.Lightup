@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.Testing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpCodeFixVerifier<
     CodeAnalysis.Lightup.Example.Analyzers.SourceFileNameAnalyzer,
     CodeAnalysis.Lightup.Example.CodeFixes.SourceFileNameCodeFixProvider>;

@@ -3,17 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeFixes;
-using Microsoft.CodeAnalysis.CodeFixes.Lightup;
-using Microsoft.CodeAnalysis.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class FixAllContextExtensionsTests
 {

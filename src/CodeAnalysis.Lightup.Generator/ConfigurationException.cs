@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-
 [Serializable]
 internal class ConfigurationException : Exception
 {

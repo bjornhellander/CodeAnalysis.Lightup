@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class ProjectExtensionsTests
 {
@@ -21,7 +15,7 @@ public class ProjectExtensionsTests
     }
 
     [TestMethod]
-    public virtual async Task GetSourceGeneratedDocumentsAsync()
+    public virtual async Task GetSourceGeneratedDocuments()
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);

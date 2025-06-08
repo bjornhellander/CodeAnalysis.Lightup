@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_8_0.CodeActions;
 
-using Microsoft.CodeAnalysis.CodeActions;
-using Microsoft.CodeAnalysis.CodeActions.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class CodeActionExtensionsTests
 {

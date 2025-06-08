@@ -3,18 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeAnalysis.Lightup.Definitions;
-using CodeAnalysis.Lightup.Generator;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Testing;
-using Microsoft.CodeAnalysis.Testing;
-using Microsoft.CodeAnalysis.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class LightupGeneratorTests
 {

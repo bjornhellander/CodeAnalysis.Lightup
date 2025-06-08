@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class CommandLineSourceFileExtensionsTests
 {

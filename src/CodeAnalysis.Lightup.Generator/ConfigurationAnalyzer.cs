@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System.Collections.Immutable;
-using System.Linq;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.CodeAnalysis.Text;
-
 // TODO: Create Roslyn issue for descriptions not being shown. Diagnostics without location?
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class ConfigurationAnalyzer : DiagnosticAnalyzer

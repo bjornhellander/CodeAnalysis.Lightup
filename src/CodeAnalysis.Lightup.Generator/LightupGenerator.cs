@@ -3,15 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CodeAnalysis.Lightup.Definitions;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-
 [Generator]
 public class LightupGenerator : IIncrementalGenerator
 {

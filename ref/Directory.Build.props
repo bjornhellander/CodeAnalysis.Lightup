@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<NuGetAudit>false</NuGetAudit>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Ignore nuget vulnerabilities -->
+		<NoWarn>$(NoWarn),NU1903</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\Program.cs" />
+	</ItemGroup>
+
+</Project>

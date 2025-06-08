@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Support.Verifiers;
 
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CodeRefactorings;
-using Microsoft.CodeAnalysis.Testing;
-
 public static partial class VisualBasicCodeRefactoringVerifier<TCodeRefactoring>
     where TCodeRefactoring : CodeRefactoringProvider, new()
 {

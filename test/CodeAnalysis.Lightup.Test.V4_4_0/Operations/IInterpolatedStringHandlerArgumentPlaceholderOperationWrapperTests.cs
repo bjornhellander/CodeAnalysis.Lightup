@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0.Operations;
 
-using Microsoft.CodeAnalysis.Operations;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IInterpolatedStringHandlerArgumentPlaceholderOperationWrapper;
 
 [TestClass]

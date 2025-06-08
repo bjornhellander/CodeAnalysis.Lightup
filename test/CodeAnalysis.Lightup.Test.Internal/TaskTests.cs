@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Internal;
 
-using System;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 // NOTE: These tests are just here to document the behavior of Task
 [TestClass]
 public class TaskTests

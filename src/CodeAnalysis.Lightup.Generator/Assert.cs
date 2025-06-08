@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 internal class Assert
 {
     [DoesNotReturn]

@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0;
 
-using Microsoft.CodeAnalysis;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-
 using Wrapper = Microsoft.CodeAnalysis.Lightup.IImportScopeWrapper;
 
 [TestClass]

@@ -148,6 +148,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - doc", "1 - doc", "{BC2E
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - ref", "2 - ref", "{8025D67E-DC02-42AB-9D7A-947300E602EA}"
+	ProjectSection(SolutionItems) = preProject
+		ref\Directory.Build.props = ref\Directory.Build.props
+		ref\Program.cs = ref\Program.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - src", "3 - src", "{CE401EEE-7B30-47E3-9983-1E266B735B74}"
 EndProject
