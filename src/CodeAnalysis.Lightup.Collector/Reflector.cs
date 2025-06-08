@@ -3,15 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Collector;
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.Loader;
-using CodeAnalysis.Lightup.Definitions;
-
 internal class Reflector
 {
 #pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter

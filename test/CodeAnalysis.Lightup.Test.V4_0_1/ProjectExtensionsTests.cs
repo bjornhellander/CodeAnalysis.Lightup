@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_0_1;
 
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class ProjectExtensionsTests
 {

@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2.Operations;
 
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.Operations.Lightup.IRecursivePatternOperationWrapper;
 
 [TestClass]

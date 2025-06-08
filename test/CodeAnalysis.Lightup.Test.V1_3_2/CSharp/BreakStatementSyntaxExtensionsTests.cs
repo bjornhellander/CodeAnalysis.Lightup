@@ -3,12 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2.CSharp;
 
-using System;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Syntax.Lightup;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class BreakStatementSyntaxExtensionsTests
 {

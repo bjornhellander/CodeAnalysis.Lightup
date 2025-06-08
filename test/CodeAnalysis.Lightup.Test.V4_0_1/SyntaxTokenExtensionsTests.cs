@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_0_1;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class SyntaxTokenExtensionsTests
 {

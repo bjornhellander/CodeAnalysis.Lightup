@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Collector;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 internal class Assert
 {
     [DoesNotReturn]

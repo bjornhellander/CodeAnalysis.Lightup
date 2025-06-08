@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.CSharp;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class LightupStatusTests
 {

@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2.Operations;
 
-using System.Diagnostics.CodeAnalysis;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 [SuppressMessage("Design", "MSTEST0016:Test class should have test method", Justification = "OK")]
 public class OperationExtensionsExtensionsTests

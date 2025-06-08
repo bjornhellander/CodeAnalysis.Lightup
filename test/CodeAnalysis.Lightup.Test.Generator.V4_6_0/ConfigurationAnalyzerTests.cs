@@ -3,8 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Generator.V4_6_0;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class ConfigurationAnalyzerTests
 {

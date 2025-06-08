@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V3_8_0.Diagnostics;
 
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-
 using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper;
 
 [TestClass]

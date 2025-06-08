@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
-using System.Threading.Tasks;
-using CodeAnalysis.Lightup.Generator;
-using Microsoft.CodeAnalysis.Testing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<
     CodeAnalysis.Lightup.Generator.ConfigurationAnalyzer>;
 

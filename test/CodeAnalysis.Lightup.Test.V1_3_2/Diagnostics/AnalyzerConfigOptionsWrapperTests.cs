@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2.Diagnostics;
 
-using System;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.Diagnostics.Lightup.AnalyzerConfigOptionsWrapper;
 
 [TestClass]

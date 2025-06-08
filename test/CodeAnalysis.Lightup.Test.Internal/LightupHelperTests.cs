@@ -3,11 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Internal;
 
-using System;
-using System.Reflection;
-using CodeAnalysis.Lightup.Runtime;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 // NOTE: These tests intend to cover cases that were difficult to test using the generated code
 [TestClass]
 public class LightupHelperTests

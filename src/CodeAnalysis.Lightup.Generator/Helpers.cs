@@ -3,17 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
-using CodeAnalysis.Lightup.Definitions;
-using LightJson;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-
 internal static class Helpers
 {
     private static readonly Regex SettingsFileNameRegex = new("^CodeAnalysis\\.Lightup.*\\.json$");

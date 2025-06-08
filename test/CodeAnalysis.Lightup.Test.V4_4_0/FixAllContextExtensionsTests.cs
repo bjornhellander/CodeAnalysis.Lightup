@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_4_0;
 
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public partial class FixAllContextExtensionsTests
 {

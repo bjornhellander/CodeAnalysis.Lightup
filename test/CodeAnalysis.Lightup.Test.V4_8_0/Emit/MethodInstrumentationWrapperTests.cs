@@ -3,9 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V4_8_0.Emit;
 
-using Microsoft.CodeAnalysis.Emit;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Wrapper = Microsoft.CodeAnalysis.Emit.Lightup.MethodInstrumentationWrapper;
 
 [TestClass]

@@ -3,13 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Internal;
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 [TestClass]
 public class TestAssemblyTests
 {

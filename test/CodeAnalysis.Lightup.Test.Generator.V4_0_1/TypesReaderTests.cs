@@ -3,13 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.Generator.V4_0_1;
 
-using System;
-using System.Linq;
-using CodeAnalysis.Lightup.Definitions;
-using CodeAnalysis.Lightup.Generator;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestInheritanceGenerator.Annotations;
-
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 [TestClass]

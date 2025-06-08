@@ -3,13 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Generator;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Xml.Linq;
-using CodeAnalysis.Lightup.Definitions;
-
 // TODO: Add configuration for including removed members?
 internal static class TypesReader
 {

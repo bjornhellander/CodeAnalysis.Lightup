@@ -3,10 +3,6 @@
 
 namespace CodeAnalysis.Lightup.Test.V1_3_2;
 
-using System.Threading.Tasks;
-using CodeAnalysis.Lightup.Example.Analyzers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using VerifyCS = CodeAnalysis.Lightup.Test.Support.Verifiers.CSharpAnalyzerVerifier<
     CodeAnalysis.Lightup.Example.Analyzers.AdditionalFileNameAnalyzer>;
 
