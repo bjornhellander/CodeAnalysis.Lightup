@@ -19,14 +19,14 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestWrapGivenNullObject()
     {
         TypeDeclarationSyntax? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
     public void TestCastGivenNullObject()
     {
         TypeDeclarationSyntax? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => (Wrapper)obj!);
+        Assert.ThrowsExactly<ArgumentNullException>(() => (Wrapper)obj!);
     }
 
     [TestMethod]
@@ -40,7 +40,7 @@ public class RecordDeclarationSyntaxWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = CreateIncompatibleInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 
     private static ClassDeclarationSyntax CreateIncompatibleInstance()

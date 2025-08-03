@@ -11,6 +11,6 @@ public class AnalyzerConfigWrapperTests
     [TestMethod]
     public virtual void TestParse()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Parse("", "/a/b.txt"));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Parse("", "/a/b.txt"));
     }
 }

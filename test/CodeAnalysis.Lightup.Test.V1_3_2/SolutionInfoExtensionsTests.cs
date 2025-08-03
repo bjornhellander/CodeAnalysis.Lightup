@@ -9,7 +9,7 @@ public class SolutionInfoExtensionsTests
     [TestMethod]
     public virtual void TestConstructor()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => CallCreate());
+        Assert.ThrowsExactly<InvalidOperationException>(() => CallCreate());
     }
 
     protected static SolutionInfo CallCreate()

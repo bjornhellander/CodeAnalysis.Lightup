@@ -9,6 +9,6 @@ public class SarifVersionFactsExTests
     [TestMethod]
     public virtual void TestTryParse()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => SarifVersionFactsEx.TryParse("1", out var _));
+        Assert.ThrowsExactly<InvalidOperationException>(() => SarifVersionFactsEx.TryParse("1", out var _));
     }
 }

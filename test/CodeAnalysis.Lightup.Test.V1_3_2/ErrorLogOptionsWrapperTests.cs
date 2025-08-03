@@ -11,6 +11,6 @@ public class ErrorLogOptionsWrapperTests
     [TestMethod]
     public virtual void TestConstructor()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Create("/a/b.txt", SarifVersionEx.Sarif2));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Create("/a/b.txt", SarifVersionEx.Sarif2));
     }
 }

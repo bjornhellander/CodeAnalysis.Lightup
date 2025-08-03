@@ -10,7 +10,7 @@ public class IAssemblySymbolExtensionsTests
     public virtual void TestGetForwardedTypesGivenCompatibleObject()
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.GetForwardedTypes());
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.GetForwardedTypes());
     }
 
     protected static IAssemblySymbol CreateInstance()

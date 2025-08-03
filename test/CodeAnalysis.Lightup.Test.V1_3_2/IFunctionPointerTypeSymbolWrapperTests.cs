@@ -19,7 +19,7 @@ public class IFunctionPointerTypeSymbolWrapperTests
     public void TestWrapGivenNullObject()
     {
         ITypeSymbol? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -33,6 +33,6 @@ public class IFunctionPointerTypeSymbolWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = Mock.Of<ITypeSymbol>();
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }

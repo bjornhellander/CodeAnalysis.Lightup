@@ -11,6 +11,6 @@ public class SymbolEqualityComparerWrapperTests
     [TestMethod]
     public virtual void TestDefault()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Default);
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Default);
     }
 }

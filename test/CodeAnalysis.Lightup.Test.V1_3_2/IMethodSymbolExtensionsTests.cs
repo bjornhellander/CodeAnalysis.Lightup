@@ -13,7 +13,7 @@ public class IMethodSymbolExtensionsTests
     public virtual void TestTypeArgumentNullableAnnotationsGivenCompatibleObject(NullableAnnotationEx nullableAnnotation)
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.TypeArgumentNullableAnnotations());
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.TypeArgumentNullableAnnotations());
     }
 
     [TestMethod]
@@ -23,7 +23,7 @@ public class IMethodSymbolExtensionsTests
     public virtual void TestConstructGivenCompatibleObject(NullableAnnotationEx nullableAnnotation)
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.Construct([], [nullableAnnotation]));
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.Construct([], [nullableAnnotation]));
     }
 
     private static IMethodSymbol CreateInstance()

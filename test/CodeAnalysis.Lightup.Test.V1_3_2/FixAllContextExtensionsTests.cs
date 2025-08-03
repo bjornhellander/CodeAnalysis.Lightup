@@ -9,7 +9,7 @@ public class FixAllContextExtensionsTests
     [TestMethod]
     public virtual void TestConstructor()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => CallConstructor());
+        Assert.ThrowsExactly<InvalidOperationException>(() => CallConstructor());
     }
 
     protected static (Workspace Workspace, FixAllContext Context) CallConstructor()

@@ -19,7 +19,7 @@ public class IRecursivePatternOperationWrapperTests
     public void TestWrapGivenNullObject()
     {
         object? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -33,6 +33,6 @@ public class IRecursivePatternOperationWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = new object();
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }
