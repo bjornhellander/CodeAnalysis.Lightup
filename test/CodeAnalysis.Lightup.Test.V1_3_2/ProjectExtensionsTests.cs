@@ -11,7 +11,7 @@ public class ProjectExtensionsTests
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);
-        Assert.ThrowsException<InvalidOperationException>(() => project.AnalyzerConfigDocuments());
+        Assert.ThrowsExactly<InvalidOperationException>(() => project.AnalyzerConfigDocuments());
     }
 
     [TestMethod]
@@ -19,6 +19,6 @@ public class ProjectExtensionsTests
     {
         using var workspace = new AdhocWorkspace();
         var project = workspace.AddProject("Project1", LanguageNames.CSharp);
-        await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await project.GetSourceGeneratedDocumentsAsync(default));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await project.GetSourceGeneratedDocumentsAsync(default));
     }
 }

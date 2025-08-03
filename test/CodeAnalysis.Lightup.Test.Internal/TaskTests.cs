@@ -10,15 +10,15 @@ public class TaskTests
     [TestMethod]
     public void TestAntecedentThrowsExceptionBeforeFirstAwait()
     {
-        Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionBeforeFirstAwait());
-        Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionBeforeFirstAwait().ContinueWith(x => x.Result));
+        Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionBeforeFirstAwait());
+        Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionBeforeFirstAwait().ContinueWith(x => x.Result));
     }
 
     [TestMethod]
     public void TestAntecedentThrowsExceptionAfterFirstAwait()
     {
-        Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionAfterFirstAwait());
-        Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionAfterFirstAwait().ContinueWith(x => x.Result));
+        Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionAfterFirstAwait());
+        Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await WillThrowInvalidOperationExeptionAfterFirstAwait().ContinueWith(x => x.Result));
     }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously

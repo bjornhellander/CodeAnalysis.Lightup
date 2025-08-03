@@ -10,14 +10,14 @@ public class BreakStatementSyntaxExtensionsTests
     public virtual void TestAttributeLists()
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.AttributeLists());
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.AttributeLists());
     }
 
     [TestMethod]
     public virtual void TestAddAttributeLists()
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.AddAttributeLists([]));
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.AddAttributeLists([]));
     }
 
     private static BreakStatementSyntax CreateInstance()

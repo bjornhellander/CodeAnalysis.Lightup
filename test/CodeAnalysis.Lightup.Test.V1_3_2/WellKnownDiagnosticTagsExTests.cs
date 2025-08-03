@@ -9,6 +9,6 @@ public class WellKnownDiagnosticTagsExTests
     [TestMethod]
     public virtual void TestCustomObsolete()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => WellKnownDiagnosticTagsEx.CustomObsolete);
+        Assert.ThrowsExactly<InvalidOperationException>(() => WellKnownDiagnosticTagsEx.CustomObsolete);
     }
 }

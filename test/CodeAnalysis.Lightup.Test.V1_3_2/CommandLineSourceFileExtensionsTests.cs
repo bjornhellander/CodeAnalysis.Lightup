@@ -9,7 +9,7 @@ public class CommandLineSourceFileExtensionsTests
     [TestMethod]
     public virtual void TestConstructor()
     {
-        Assert.ThrowsException<InvalidOperationException>(() => CallConstructor());
+        Assert.ThrowsExactly<InvalidOperationException>(() => CallConstructor());
     }
 
     protected static CommandLineSourceFile CallConstructor()

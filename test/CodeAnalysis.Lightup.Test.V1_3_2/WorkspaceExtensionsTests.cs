@@ -10,14 +10,14 @@ public class WorkspaceExtensionsTests
     public virtual void TestAddTextDocumentClosedGivenCompatibleObject()
     {
         using var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.AddTextDocumentClosed(HandleTextDocumentClosed));
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.AddTextDocumentClosed(HandleTextDocumentClosed));
     }
 
     [TestMethod]
     public virtual void TestRemoveTextDocumentClosedGivenCompatibleObject()
     {
         using var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.RemoveTextDocumentClosed(HandleTextDocumentClosed));
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.RemoveTextDocumentClosed(HandleTextDocumentClosed));
     }
 
     protected static Workspace CreateInstance()

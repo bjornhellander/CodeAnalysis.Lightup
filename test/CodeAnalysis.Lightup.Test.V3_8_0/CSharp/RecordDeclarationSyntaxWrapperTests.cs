@@ -79,7 +79,7 @@ public partial class RecordDeclarationSyntaxWrapperTests
     {
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);
-        Assert.ThrowsException<InvalidOperationException>(() => wrapper.ClassOrStructKeyword);
+        Assert.ThrowsExactly<InvalidOperationException>(() => wrapper.ClassOrStructKeyword);
     }
 
     [TestMethod]

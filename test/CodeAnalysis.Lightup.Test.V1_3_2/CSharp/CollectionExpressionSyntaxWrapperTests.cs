@@ -19,7 +19,7 @@ public class CollectionExpressionSyntaxWrapperTests
     public void TestWrapGivenNullObject()
     {
         ExpressionSyntax? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -33,7 +33,7 @@ public class CollectionExpressionSyntaxWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = CreateIncompatibleInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 
     private static LiteralExpressionSyntax CreateIncompatibleInstance()

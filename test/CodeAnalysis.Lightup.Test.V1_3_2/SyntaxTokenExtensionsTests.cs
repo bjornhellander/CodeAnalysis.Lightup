@@ -10,7 +10,7 @@ public class SyntaxTokenExtensionsTests
     public virtual void TestIsIncrementallyIdenticalTo()
     {
         var obj = CreateInstance();
-        Assert.ThrowsException<InvalidOperationException>(() => obj.IsIncrementallyIdenticalTo(default));
+        Assert.ThrowsExactly<InvalidOperationException>(() => obj.IsIncrementallyIdenticalTo(default));
     }
 
     protected static SyntaxToken CreateInstance()

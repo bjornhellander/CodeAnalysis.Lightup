@@ -19,7 +19,7 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     public void TestWrapGivenNullObject()
     {
         IOperation? obj = null;
-        Assert.ThrowsException<ArgumentNullException>(() => Wrapper.Wrap(obj!));
+        Assert.ThrowsExactly<ArgumentNullException>(() => Wrapper.Wrap(obj!));
     }
 
     [TestMethod]
@@ -33,6 +33,6 @@ public class IInterpolatedStringHandlerArgumentPlaceholderOperationWrapperTests
     public void TestWrapGivenIncompatibleObject()
     {
         var obj = Mock.Of<IOperation>();
-        Assert.ThrowsException<InvalidOperationException>(() => Wrapper.Wrap(obj));
+        Assert.ThrowsExactly<InvalidOperationException>(() => Wrapper.Wrap(obj));
     }
 }
