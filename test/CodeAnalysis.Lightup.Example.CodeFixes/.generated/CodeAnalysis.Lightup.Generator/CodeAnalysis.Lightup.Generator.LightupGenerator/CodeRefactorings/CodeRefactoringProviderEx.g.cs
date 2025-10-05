@@ -10,19 +10,31 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionRequestPriorityEx RequestPriorityGetterDelegate(global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllProviderWrapper? GetRefactorAllProviderDelegate0(global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj);
+
         private static readonly RequestPriorityGetterDelegate RequestPriorityGetterFunc;
+
+        private static readonly GetRefactorAllProviderDelegate0 GetRefactorAllProviderFunc0;
 
         static CodeRefactoringProviderEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
             RequestPriorityGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<RequestPriorityGetterDelegate>(wrappedType, nameof(RequestPriority));
+
+            GetRefactorAllProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<GetRefactorAllProviderDelegate0>(wrappedType, "GetRefactorAllProvider");
         }
 
         /// <summary>Property added in version 4.8.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CodeActions.Lightup.CodeActionRequestPriorityEx RequestPriority(this global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj)
         {
             return RequestPriorityGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllProviderWrapper? GetRefactorAllProvider(this global::Microsoft.CodeAnalysis.CodeRefactorings.CodeRefactoringProvider _obj)
+        {
+            return GetRefactorAllProviderFunc0(_obj);
         }
     }
 }

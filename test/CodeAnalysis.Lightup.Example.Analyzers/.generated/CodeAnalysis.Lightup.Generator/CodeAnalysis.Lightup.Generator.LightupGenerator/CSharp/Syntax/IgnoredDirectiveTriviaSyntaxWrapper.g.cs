@@ -11,18 +11,21 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken ColonTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxToken ContentGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken EndOfDirectiveTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken HashTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
         private delegate global::System.Boolean IsActiveGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj);
 
         private delegate void AcceptDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor visitor);
-        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.SyntaxToken content, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithColonTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken colonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithContentDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken content);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithEndOfDirectiveTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithHashTokenDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxToken hashToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithIsActiveDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.DirectiveTriviaSyntax _obj, global::System.Boolean isActive);
 
         private static readonly ColonTokenGetterDelegate ColonTokenGetterFunc;
+        private static readonly ContentGetterDelegate ContentGetterFunc;
         private static readonly EndOfDirectiveTokenGetterDelegate EndOfDirectiveTokenGetterFunc;
         private static readonly HashTokenGetterDelegate HashTokenGetterFunc;
         private static readonly IsActiveGetterDelegate IsActiveGetterFunc;
@@ -30,6 +33,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private static readonly AcceptDelegate0 AcceptFunc0;
         private static readonly UpdateDelegate0 UpdateFunc0;
         private static readonly WithColonTokenDelegate0 WithColonTokenFunc0;
+        private static readonly WithContentDelegate0 WithContentFunc0;
         private static readonly WithEndOfDirectiveTokenDelegate0 WithEndOfDirectiveTokenFunc0;
         private static readonly WithHashTokenDelegate0 WithHashTokenFunc0;
         private static readonly WithIsActiveDelegate0 WithIsActiveFunc0;
@@ -41,13 +45,15 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             ColonTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ColonTokenGetterDelegate>(WrappedType, nameof(ColonToken));
+            ContentGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<ContentGetterDelegate>(WrappedType, nameof(Content));
             EndOfDirectiveTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<EndOfDirectiveTokenGetterDelegate>(WrappedType, nameof(EndOfDirectiveToken));
             HashTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<HashTokenGetterDelegate>(WrappedType, nameof(HashToken));
             IsActiveGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsActiveGetterDelegate>(WrappedType, nameof(IsActive));
 
             AcceptFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AcceptDelegate0>(WrappedType, "Accept", "visitorCSharpSyntaxVisitor");
-            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "hashTokenSyntaxToken", "colonTokenSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
+            UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(WrappedType, "Update", "hashTokenSyntaxToken", "colonTokenSyntaxToken", "contentSyntaxToken", "endOfDirectiveTokenSyntaxToken", "isActiveBoolean");
             WithColonTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithColonTokenDelegate0>(WrappedType, "WithColonToken", "colonTokenSyntaxToken");
+            WithContentFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithContentDelegate0>(WrappedType, "WithContent", "contentSyntaxToken");
             WithEndOfDirectiveTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithEndOfDirectiveTokenDelegate0>(WrappedType, "WithEndOfDirectiveToken", "endOfDirectiveTokenSyntaxToken");
             WithHashTokenFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithHashTokenDelegate0>(WrappedType, "WithHashToken", "hashTokenSyntaxToken");
             WithIsActiveFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithIsActiveDelegate0>(WrappedType, "WithIsActive", "isActiveBoolean");
@@ -62,6 +68,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         public global::Microsoft.CodeAnalysis.SyntaxToken ColonToken
         {
             get { return ColonTokenGetterFunc(wrappedObject); }
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public global::Microsoft.CodeAnalysis.SyntaxToken Content
+        {
+            get { return ContentGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.14.0.0.</summary>
@@ -119,16 +131,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             AcceptFunc0(wrappedObject, visitor);
         }
 
-        /// <summary>Method added in version 4.14.0.0.</summary>
-        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper Update(global::Microsoft.CodeAnalysis.SyntaxToken hashToken, global::Microsoft.CodeAnalysis.SyntaxToken colonToken, global::Microsoft.CodeAnalysis.SyntaxToken content, global::Microsoft.CodeAnalysis.SyntaxToken endOfDirectiveToken, global::System.Boolean isActive)
         {
-            return UpdateFunc0(wrappedObject, hashToken, colonToken, endOfDirectiveToken, isActive);
+            return UpdateFunc0(wrappedObject, hashToken, colonToken, content, endOfDirectiveToken, isActive);
         }
 
         /// <summary>Method added in version 4.14.0.0.</summary>
         public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithColonToken(global::Microsoft.CodeAnalysis.SyntaxToken colonToken)
         {
             return WithColonTokenFunc0(wrappedObject, colonToken);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.IgnoredDirectiveTriviaSyntaxWrapper WithContent(global::Microsoft.CodeAnalysis.SyntaxToken content)
+        {
+            return WithContentFunc0(wrappedObject, content);
         }
 
         /// <summary>Method added in version 4.14.0.0.</summary>

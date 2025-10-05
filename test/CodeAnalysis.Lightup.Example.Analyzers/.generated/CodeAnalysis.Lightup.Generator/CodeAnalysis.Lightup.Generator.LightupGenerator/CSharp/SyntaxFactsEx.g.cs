@@ -9,10 +9,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.SyntaxFacts";
 
         private delegate global::System.Boolean IsCheckedOperatorDelegate0(global::System.String operatorMetadataName);
+        private delegate global::System.Boolean IsOverloadableCompoundAssignmentOperatorDelegate0(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind);
         private delegate global::System.Boolean IsReservedTupleElementNameDelegate0(global::System.String elementName);
         private delegate global::System.String? TryGetInferredMemberNameDelegate0(global::Microsoft.CodeAnalysis.SyntaxNode syntax);
 
         private static readonly IsCheckedOperatorDelegate0 IsCheckedOperatorFunc0;
+        private static readonly IsOverloadableCompoundAssignmentOperatorDelegate0 IsOverloadableCompoundAssignmentOperatorFunc0;
         private static readonly IsReservedTupleElementNameDelegate0 IsReservedTupleElementNameFunc0;
         private static readonly TryGetInferredMemberNameDelegate0 TryGetInferredMemberNameFunc0;
 
@@ -21,6 +23,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             IsCheckedOperatorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsCheckedOperatorDelegate0>(wrappedType, "IsCheckedOperator", "operatorMetadataNameString");
+            IsOverloadableCompoundAssignmentOperatorFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsOverloadableCompoundAssignmentOperatorDelegate0>(wrappedType, "IsOverloadableCompoundAssignmentOperator", "kindSyntaxKind");
             IsReservedTupleElementNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<IsReservedTupleElementNameDelegate0>(wrappedType, "IsReservedTupleElementName", "elementNameString");
             TryGetInferredMemberNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<TryGetInferredMemberNameDelegate0>(wrappedType, "TryGetInferredMemberName", "syntaxSyntaxNode");
         }
@@ -29,6 +32,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Boolean IsCheckedOperator(global::System.String operatorMetadataName)
         {
             return IsCheckedOperatorFunc0(operatorMetadataName);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::System.Boolean IsOverloadableCompoundAssignmentOperator(global::Microsoft.CodeAnalysis.CSharp.SyntaxKind kind)
+        {
+            return IsOverloadableCompoundAssignmentOperatorFunc0(kind);
         }
 
         /// <summary>Method added in version 2.3.0.0.</summary>

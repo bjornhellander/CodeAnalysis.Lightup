@@ -20,7 +20,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitDiscardPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.DiscardPatternSyntaxWrapper node);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionColonDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionColonSyntaxWrapper node);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExpressionElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExpressionElementSyntaxWrapper node);
-        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionDeclarationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionBlockDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionBlockDeclarationSyntaxWrapper node);
+        private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionMemberCrefDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionMemberCrefSyntaxWrapper node);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFieldExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FieldExpressionSyntaxWrapper node);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitFileScopedNamespaceDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper node);
         private delegate global::Microsoft.CodeAnalysis.SyntaxNode? VisitForEachVariableStatementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ForEachVariableStatementSyntaxWrapper node);
@@ -80,7 +81,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly VisitDiscardPatternDelegate0 VisitDiscardPatternFunc0;
         private static readonly VisitExpressionColonDelegate0 VisitExpressionColonFunc0;
         private static readonly VisitExpressionElementDelegate0 VisitExpressionElementFunc0;
-        private static readonly VisitExtensionDeclarationDelegate0 VisitExtensionDeclarationFunc0;
+        private static readonly VisitExtensionBlockDeclarationDelegate0 VisitExtensionBlockDeclarationFunc0;
+        private static readonly VisitExtensionMemberCrefDelegate0 VisitExtensionMemberCrefFunc0;
         private static readonly VisitFieldExpressionDelegate0 VisitFieldExpressionFunc0;
         private static readonly VisitFileScopedNamespaceDeclarationDelegate0 VisitFileScopedNamespaceDeclarationFunc0;
         private static readonly VisitForEachVariableStatementDelegate0 VisitForEachVariableStatementFunc0;
@@ -144,7 +146,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitDiscardPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitDiscardPatternDelegate0>(wrappedType, "VisitDiscardPattern", "nodeDiscardPatternSyntax");
             VisitExpressionColonFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionColonDelegate0>(wrappedType, "VisitExpressionColon", "nodeExpressionColonSyntax");
             VisitExpressionElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExpressionElementDelegate0>(wrappedType, "VisitExpressionElement", "nodeExpressionElementSyntax");
-            VisitExtensionDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExtensionDeclarationDelegate0>(wrappedType, "VisitExtensionDeclaration", "nodeExtensionDeclarationSyntax");
+            VisitExtensionBlockDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExtensionBlockDeclarationDelegate0>(wrappedType, "VisitExtensionBlockDeclaration", "nodeExtensionBlockDeclarationSyntax");
+            VisitExtensionMemberCrefFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitExtensionMemberCrefDelegate0>(wrappedType, "VisitExtensionMemberCref", "nodeExtensionMemberCrefSyntax");
             VisitFieldExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFieldExpressionDelegate0>(wrappedType, "VisitFieldExpression", "nodeFieldExpressionSyntax");
             VisitFileScopedNamespaceDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitFileScopedNamespaceDeclarationDelegate0>(wrappedType, "VisitFileScopedNamespaceDeclaration", "nodeFileScopedNamespaceDeclarationSyntax");
             VisitForEachVariableStatementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitForEachVariableStatementDelegate0>(wrappedType, "VisitForEachVariableStatement", "nodeForEachVariableStatementSyntax");
@@ -265,10 +268,16 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return VisitExpressionElementFunc0(_obj, node);
         }
 
-        /// <summary>Method added in version 4.14.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionDeclarationSyntaxWrapper node)
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionBlockDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionBlockDeclarationSyntaxWrapper node)
         {
-            return VisitExtensionDeclarationFunc0(_obj, node);
+            return VisitExtensionBlockDeclarationFunc0(_obj, node);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.SyntaxNode? VisitExtensionMemberCref(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.ExtensionMemberCrefSyntaxWrapper node)
+        {
+            return VisitExtensionMemberCrefFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 4.12.0.0.</summary>

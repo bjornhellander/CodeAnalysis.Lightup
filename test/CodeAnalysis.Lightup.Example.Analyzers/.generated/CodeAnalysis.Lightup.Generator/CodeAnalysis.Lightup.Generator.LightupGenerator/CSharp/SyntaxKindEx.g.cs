@@ -95,6 +95,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 2.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ConflictMarkerTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8564;
 
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionMemberCref = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8607;
+
         /// <summary>Added in version 2.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IsPatternExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8657;
 
@@ -308,8 +311,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.7.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SpreadElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9078;
 
-        /// <summary>Added in version 4.14.0.0.</summary>
-        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9079;
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionBlockDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9079;
 
         /// <summary>Added in version 4.14.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IgnoredDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9080;

@@ -23,6 +23,7 @@ public class TestAssemblyTests
             typeof(V4_4_0.CSharp.LightupStatusTests),
             typeof(V4_8_0.CSharp.LightupStatusTests),
             typeof(V4_12_0.CSharp.LightupStatusTests),
+            typeof(V5_0_0.CSharp.LightupStatusTests),
         };
         TestAssemblies = types.Select(x => x.Assembly).ToList();
     }
