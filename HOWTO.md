@@ -6,7 +6,7 @@ Make sure that package version is updated
 	dotnet build -c Release
 	dotnet nuget push FILE --api-key APIKEY
 	git tag TAG
-	git push --tags
+	git push origin TAG
 
 # Troubleshooting
 
