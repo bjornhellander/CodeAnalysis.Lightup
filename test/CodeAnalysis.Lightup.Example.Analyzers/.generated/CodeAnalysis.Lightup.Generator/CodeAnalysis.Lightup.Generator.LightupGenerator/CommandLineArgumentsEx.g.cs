@@ -15,6 +15,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean EmitPdbFileGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.ErrorLogOptionsWrapper? ErrorLogOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.CommandLineResourceWrapper> ManifestResourceArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? OutputRefFilePathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.Boolean ReportInternalsVisibleToAttributesGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
         private delegate global::System.String? RuleSetPathGetterDelegate(global::Microsoft.CodeAnalysis.CommandLineArguments _obj);
@@ -31,6 +32,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly EmitPdbFileGetterDelegate EmitPdbFileGetterFunc;
         private static readonly ErrorLogOptionsGetterDelegate ErrorLogOptionsGetterFunc;
         private static readonly GeneratedFilesOutputDirectoryGetterDelegate GeneratedFilesOutputDirectoryGetterFunc;
+        private static readonly ManifestResourceArgumentsGetterDelegate ManifestResourceArgumentsGetterFunc;
         private static readonly OutputRefFilePathGetterDelegate OutputRefFilePathGetterFunc;
         private static readonly ReportInternalsVisibleToAttributesGetterDelegate ReportInternalsVisibleToAttributesGetterFunc;
         private static readonly RuleSetPathGetterDelegate RuleSetPathGetterFunc;
@@ -51,6 +53,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             EmitPdbFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmitPdbFileGetterDelegate>(wrappedType, nameof(EmitPdbFile));
             ErrorLogOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ErrorLogOptionsGetterDelegate>(wrappedType, nameof(ErrorLogOptions));
             GeneratedFilesOutputDirectoryGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<GeneratedFilesOutputDirectoryGetterDelegate>(wrappedType, nameof(GeneratedFilesOutputDirectory));
+            ManifestResourceArgumentsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ManifestResourceArgumentsGetterDelegate>(wrappedType, nameof(ManifestResourceArguments));
             OutputRefFilePathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<OutputRefFilePathGetterDelegate>(wrappedType, nameof(OutputRefFilePath));
             ReportInternalsVisibleToAttributesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReportInternalsVisibleToAttributesGetterDelegate>(wrappedType, nameof(ReportInternalsVisibleToAttributes));
             RuleSetPathGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RuleSetPathGetterDelegate>(wrappedType, nameof(RuleSetPath));
@@ -101,6 +104,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String? GeneratedFilesOutputDirectory(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
         {
             return GeneratedFilesOutputDirectoryGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.CommandLineResourceWrapper> ManifestResourceArguments(this global::Microsoft.CodeAnalysis.CommandLineArguments _obj)
+        {
+            return ManifestResourceArgumentsGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 2.3.0.0.</summary>

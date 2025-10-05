@@ -8,9 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IMethodSymbol";
 
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? AssociatedExtensionImplementationGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Reflection.Metadata.SignatureCallingConvention CallingConventionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Boolean IsConditionalGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Boolean IsInitOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
+        private delegate global::System.Boolean IsIteratorGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Boolean IsPartialDefinitionGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Boolean IsReadOnlyGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
         private delegate global::System.Reflection.MethodImplAttributes MethodImplementationFlagsGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
@@ -25,9 +27,11 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
 
+        private static readonly AssociatedExtensionImplementationGetterDelegate AssociatedExtensionImplementationGetterFunc;
         private static readonly CallingConventionGetterDelegate CallingConventionGetterFunc;
         private static readonly IsConditionalGetterDelegate IsConditionalGetterFunc;
         private static readonly IsInitOnlyGetterDelegate IsInitOnlyGetterFunc;
+        private static readonly IsIteratorGetterDelegate IsIteratorGetterFunc;
         private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
         private static readonly IsReadOnlyGetterDelegate IsReadOnlyGetterFunc;
         private static readonly MethodImplementationFlagsGetterDelegate MethodImplementationFlagsGetterFunc;
@@ -46,9 +50,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            AssociatedExtensionImplementationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<AssociatedExtensionImplementationGetterDelegate>(wrappedType, nameof(AssociatedExtensionImplementation));
             CallingConventionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<CallingConventionGetterDelegate>(wrappedType, nameof(CallingConvention));
             IsConditionalGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsConditionalGetterDelegate>(wrappedType, nameof(IsConditional));
             IsInitOnlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsInitOnlyGetterDelegate>(wrappedType, nameof(IsInitOnly));
+            IsIteratorGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsIteratorGetterDelegate>(wrappedType, nameof(IsIterator));
             IsPartialDefinitionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsPartialDefinitionGetterDelegate>(wrappedType, nameof(IsPartialDefinition));
             IsReadOnlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsReadOnlyGetterDelegate>(wrappedType, nameof(IsReadOnly));
             MethodImplementationFlagsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MethodImplementationFlagsGetterDelegate>(wrappedType, nameof(MethodImplementationFlags));
@@ -62,6 +68,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             UnmanagedCallingConventionTypesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
             ConstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IMethodSymbol? AssociatedExtensionImplementation(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
+        {
+            return AssociatedExtensionImplementationGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.8.0.0.</summary>
@@ -80,6 +92,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean IsInitOnly(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
         {
             return IsInitOnlyGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::System.Boolean IsIterator(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj)
+        {
+            return IsIteratorGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 3.10.0.0.</summary>

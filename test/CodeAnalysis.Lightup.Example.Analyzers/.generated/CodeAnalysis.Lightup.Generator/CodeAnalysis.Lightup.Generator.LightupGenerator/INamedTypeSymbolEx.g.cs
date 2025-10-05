@@ -8,7 +8,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.INamedTypeSymbol";
 
+        private delegate global::System.String? ExtensionGroupingNameGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::System.String? ExtensionMarkerNameGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.IParameterSymbol? ExtensionParameterGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::System.Boolean IsComImportGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::System.Boolean IsExtensionGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::System.Boolean IsFileLocalGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::System.Boolean IsSerializableGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? NativeIntegerUnderlyingTypeGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
@@ -19,7 +23,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> GetTypeArgumentCustomModifiersDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Int32 ordinal);
 
+        private static readonly ExtensionGroupingNameGetterDelegate ExtensionGroupingNameGetterFunc;
+        private static readonly ExtensionMarkerNameGetterDelegate ExtensionMarkerNameGetterFunc;
+        private static readonly ExtensionParameterGetterDelegate ExtensionParameterGetterFunc;
         private static readonly IsComImportGetterDelegate IsComImportGetterFunc;
+        private static readonly IsExtensionGetterDelegate IsExtensionGetterFunc;
         private static readonly IsFileLocalGetterDelegate IsFileLocalGetterFunc;
         private static readonly IsSerializableGetterDelegate IsSerializableGetterFunc;
         private static readonly NativeIntegerUnderlyingTypeGetterDelegate NativeIntegerUnderlyingTypeGetterFunc;
@@ -34,7 +42,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ExtensionGroupingNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ExtensionGroupingNameGetterDelegate>(wrappedType, nameof(ExtensionGroupingName));
+            ExtensionMarkerNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ExtensionMarkerNameGetterDelegate>(wrappedType, nameof(ExtensionMarkerName));
+            ExtensionParameterGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ExtensionParameterGetterDelegate>(wrappedType, nameof(ExtensionParameter));
             IsComImportGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsComImportGetterDelegate>(wrappedType, nameof(IsComImport));
+            IsExtensionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsExtensionGetterDelegate>(wrappedType, nameof(IsExtension));
             IsFileLocalGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsFileLocalGetterDelegate>(wrappedType, nameof(IsFileLocal));
             IsSerializableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsSerializableGetterDelegate>(wrappedType, nameof(IsSerializable));
             NativeIntegerUnderlyingTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NativeIntegerUnderlyingTypeGetterDelegate>(wrappedType, nameof(NativeIntegerUnderlyingType));
@@ -46,10 +58,34 @@ namespace Microsoft.CodeAnalysis.Lightup
             GetTypeArgumentCustomModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypeArgumentCustomModifiersDelegate0>(wrappedType, "GetTypeArgumentCustomModifiers", "ordinalInt32");
         }
 
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::System.String? ExtensionGroupingName(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return ExtensionGroupingNameGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::System.String? ExtensionMarkerName(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return ExtensionMarkerNameGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IParameterSymbol? ExtensionParameter(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return ExtensionParameterGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 2.0.0.0.</summary>
         public static global::System.Boolean IsComImport(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
         {
             return IsComImportGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.0.0.0.</summary>
+        public static global::System.Boolean IsExtension(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return IsExtensionGetterFunc(_obj);
         }
 
         /// <summary>Property added in version 4.4.0.0.</summary>

@@ -6,7 +6,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\CodeAnalysis.Lightup.Generator\CodeAnalysis.Lightup.Generator.csproj" />
-		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V4_12_0\CodeAnalysis.Lightup.Test.V4_12_0.csproj" />
+		<ProjectReference Include="..\CodeAnalysis.Lightup.Test.V5_0_0\CodeAnalysis.Lightup.Test.V5_0_0.csproj" />
 	</ItemGroup>
 
 </Project>

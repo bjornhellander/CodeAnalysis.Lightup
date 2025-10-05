@@ -31,6 +31,7 @@ internal class Reflector
         var types = new Dictionary<string, BaseTypeDefinition>();
         foreach (var referenceProjectName in referenceProjectNames)
         {
+            Console.WriteLine($"Reading {referenceProjectName}");
             CollectTypes(referenceProjectName, rootFolder, types, isFirst);
             isFirst = false;
         }

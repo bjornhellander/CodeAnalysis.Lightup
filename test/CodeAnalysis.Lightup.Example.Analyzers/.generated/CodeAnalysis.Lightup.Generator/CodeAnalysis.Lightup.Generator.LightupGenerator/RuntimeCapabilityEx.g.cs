@@ -28,5 +28,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Added in version 4.11.0.0.</summary>
         ByRefLikeGenerics = 8,
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        RuntimeAsyncMethods = 9,
     }
 }

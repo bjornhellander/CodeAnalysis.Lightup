@@ -687,6 +687,46 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return nativeLambda;
             }
+            else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(Func<,,,>))
+            {
+                // Func<A, B, C, D> where A, B, C or D is a wrapper
+                var wrapperArg1Type = wrapperType.GenericTypeArguments[0];
+                var wrapperArg2Type = wrapperType.GenericTypeArguments[1];
+                var wrapperArg3Type = wrapperType.GenericTypeArguments[2];
+                var wrapperReturnType = wrapperType.GenericTypeArguments[2];
+                var nativeArg1Type = nativeType.GenericTypeArguments[0];
+                var nativeArg2Type = nativeType.GenericTypeArguments[1];
+                var nativeArg3Type = nativeType.GenericTypeArguments[2];
+                var nativeReturnType = nativeType.GenericTypeArguments[2];
+
+                var wrapperInvokeMethod = wrapperType.GetPublicMethod("Invoke");
+
+                var nativeArg1LambdaParameter = Expression.Parameter(nativeArg1Type);
+                var nativeArg2LambdaParameter = Expression.Parameter(nativeArg2Type);
+                var nativeArg3LambdaParameter = Expression.Parameter(nativeArg3Type);
+                var nativeLambda = Expression.Lambda(
+                    nativeType,
+                    GetNativeValue(
+                        Expression.Call(
+                            input,
+                            wrapperInvokeMethod,
+                            GetPossiblyWrappedValue(
+                                nativeArg1LambdaParameter,
+                                wrapperArg1Type),
+                            GetPossiblyWrappedValue(
+                                nativeArg2LambdaParameter,
+                                wrapperArg2Type),
+                            GetPossiblyWrappedValue(
+                                nativeArg3LambdaParameter,
+                                wrapperArg3Type)),
+                        wrapperReturnType,
+                        nativeReturnType),
+                    nativeArg1LambdaParameter,
+                    nativeArg2LambdaParameter,
+                    nativeArg3LambdaParameter);
+
+                return nativeLambda;
+            }
             else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(Func<,,>))
             {
                 // Func<X, Y, Z> where X, Y or Z is a wrapper

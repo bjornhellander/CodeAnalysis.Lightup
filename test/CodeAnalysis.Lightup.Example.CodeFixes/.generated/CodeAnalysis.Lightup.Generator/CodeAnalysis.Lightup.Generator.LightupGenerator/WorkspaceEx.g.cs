@@ -19,6 +19,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean CanApplyParseOptionChangeDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.ParseOptions oldOptions, global::Microsoft.CodeAnalysis.ParseOptions newOptions, global::Microsoft.CodeAnalysis.Project project);
         private delegate void CloseAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId);
         private delegate void OpenAnalyzerConfigDocumentDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentActiveContextChangedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentClosedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.DocumentEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentOpenedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.DocumentEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterTextDocumentClosedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterTextDocumentOpenedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceChangedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceChangeEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceChangedImmediateHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceChangeEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceFailedHandlerDelegate0(global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceDiagnosticEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options);
 
         private static readonly DocumentActiveContextChangedAdderDelegate DocumentActiveContextChangedAdderFunc;
         private static readonly DocumentActiveContextChangedRemoverDelegate DocumentActiveContextChangedRemoverFunc;
@@ -31,6 +39,14 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly CanApplyParseOptionChangeDelegate0 CanApplyParseOptionChangeFunc0;
         private static readonly CloseAnalyzerConfigDocumentDelegate0 CloseAnalyzerConfigDocumentFunc0;
         private static readonly OpenAnalyzerConfigDocumentDelegate0 OpenAnalyzerConfigDocumentFunc0;
+        private static readonly RegisterDocumentActiveContextChangedHandlerDelegate0 RegisterDocumentActiveContextChangedHandlerFunc0;
+        private static readonly RegisterDocumentClosedHandlerDelegate0 RegisterDocumentClosedHandlerFunc0;
+        private static readonly RegisterDocumentOpenedHandlerDelegate0 RegisterDocumentOpenedHandlerFunc0;
+        private static readonly RegisterTextDocumentClosedHandlerDelegate0 RegisterTextDocumentClosedHandlerFunc0;
+        private static readonly RegisterTextDocumentOpenedHandlerDelegate0 RegisterTextDocumentOpenedHandlerFunc0;
+        private static readonly RegisterWorkspaceChangedHandlerDelegate0 RegisterWorkspaceChangedHandlerFunc0;
+        private static readonly RegisterWorkspaceChangedImmediateHandlerDelegate0 RegisterWorkspaceChangedImmediateHandlerFunc0;
+        private static readonly RegisterWorkspaceFailedHandlerDelegate0 RegisterWorkspaceFailedHandlerFunc0;
 
         static WorkspaceEx()
         {
@@ -47,6 +63,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             CanApplyParseOptionChangeFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CanApplyParseOptionChangeDelegate0>(wrappedType, "CanApplyParseOptionChange", "oldOptionsParseOptions", "newOptionsParseOptions", "projectProject");
             CloseAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<CloseAnalyzerConfigDocumentDelegate0>(wrappedType, "CloseAnalyzerConfigDocument", "documentIdDocumentId");
             OpenAnalyzerConfigDocumentFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<OpenAnalyzerConfigDocumentDelegate0>(wrappedType, "OpenAnalyzerConfigDocument", "documentIdDocumentId", "activateBoolean");
+            RegisterDocumentActiveContextChangedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterDocumentActiveContextChangedHandlerDelegate0>(wrappedType, "RegisterDocumentActiveContextChangedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterDocumentClosedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterDocumentClosedHandlerDelegate0>(wrappedType, "RegisterDocumentClosedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterDocumentOpenedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterDocumentOpenedHandlerDelegate0>(wrappedType, "RegisterDocumentOpenedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterTextDocumentClosedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterTextDocumentClosedHandlerDelegate0>(wrappedType, "RegisterTextDocumentClosedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterTextDocumentOpenedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterTextDocumentOpenedHandlerDelegate0>(wrappedType, "RegisterTextDocumentOpenedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterWorkspaceChangedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterWorkspaceChangedHandlerDelegate0>(wrappedType, "RegisterWorkspaceChangedHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterWorkspaceChangedImmediateHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterWorkspaceChangedImmediateHandlerDelegate0>(wrappedType, "RegisterWorkspaceChangedImmediateHandler", "handlerAction`1", "optionsNullable`1");
+            RegisterWorkspaceFailedHandlerFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<RegisterWorkspaceFailedHandlerDelegate0>(wrappedType, "RegisterWorkspaceFailedHandler", "handlerAction`1", "optionsNullable`1");
         }
 
         /// <summary>Event added in version 2.0.0.0.</summary>
@@ -107,6 +131,54 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static void OpenAnalyzerConfigDocument(this global::Microsoft.CodeAnalysis.Workspace _obj, global::Microsoft.CodeAnalysis.DocumentId documentId, global::System.Boolean activate)
         {
             OpenAnalyzerConfigDocumentFunc0(_obj, documentId, activate);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentActiveContextChangedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.DocumentActiveContextChangedEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterDocumentActiveContextChangedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentClosedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.DocumentEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterDocumentClosedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterDocumentOpenedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.DocumentEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterDocumentOpenedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterTextDocumentClosedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterTextDocumentClosedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterTextDocumentOpenedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.Lightup.TextDocumentEventArgsWrapper> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterTextDocumentOpenedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceChangedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceChangeEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterWorkspaceChangedHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceChangedImmediateHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceChangeEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterWorkspaceChangedImmediateHandlerFunc0(_obj, handler, options);
+        }
+
+        /// <summary>Method added in version 5.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventRegistrationWrapper RegisterWorkspaceFailedHandler(this global::Microsoft.CodeAnalysis.Workspace _obj, global::System.Action<global::Microsoft.CodeAnalysis.WorkspaceDiagnosticEventArgs> handler, global::System.Nullable<global::Microsoft.CodeAnalysis.Lightup.WorkspaceEventOptionsWrapper> options)
+        {
+            return RegisterWorkspaceFailedHandlerFunc0(_obj, handler, options);
         }
     }
 }

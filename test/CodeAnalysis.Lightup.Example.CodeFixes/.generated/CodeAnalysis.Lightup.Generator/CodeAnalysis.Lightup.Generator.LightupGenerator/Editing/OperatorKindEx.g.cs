@@ -7,5 +7,38 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         /// <summary>Added in version 4.3.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.Editing.OperatorKind UnsignedRightShift = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)26;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind AdditionAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)27;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind SubtractionAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)28;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind MultiplicationAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)29;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind DivisionAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)30;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind ModulusAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)31;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind ExclusiveOrAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)32;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind BitwiseAndAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)33;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind BitwiseOrAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)34;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind LeftShiftAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)35;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind RightShiftAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)36;
+
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.Editing.OperatorKind UnsignedRightShiftAssignment = (global::Microsoft.CodeAnalysis.Editing.OperatorKind)37;
     }
 }

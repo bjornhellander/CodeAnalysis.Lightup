@@ -38,6 +38,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.12.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp13 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1300;
 
+        /// <summary>Added in version 5.0.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion CSharp14 = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)1400;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.LanguageVersion LatestMajor = (global::Microsoft.CodeAnalysis.CSharp.LanguageVersion)2147483645;
 
