@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0-2.25502.106" />
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0-2.final" />
 	</ItemGroup>
 	
 </Project>
