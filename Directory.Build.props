@@ -26,7 +26,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" PrivateAssets="All" />
-		<PackageReference Include="NewStyleCop.Analyzers" Version="1.1.0" PrivateAssets="All" />
+		<PackageReference Include="NewStyleCop.Analyzers" Version="1.2.0-alpha.1" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(ProjectFileName.Contains('.Test.'))">
