@@ -14,7 +14,7 @@ public partial class IImportScopeWrapperTests
         var obj = CreateInstance();
         var wrapper = Wrapper.Wrap(obj);
         var imports = wrapper.Imports;
-        Assert.AreEqual(1, imports.Length);
+        Assert.HasCount(1, imports);
     }
 
     [TestMethod]

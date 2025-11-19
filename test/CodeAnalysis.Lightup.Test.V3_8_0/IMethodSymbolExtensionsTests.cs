@@ -14,7 +14,7 @@ public partial class IMethodSymbolExtensionsTests
     {
         var obj = CreateInstance(nullableAnnotation);
         var result = IMethodSymbolEx.TypeArgumentNullableAnnotations(obj);
-        Assert.AreEqual(1, result.Length);
+        Assert.HasCount(1, result);
         Assert.AreEqual(nullableAnnotation, result[0]);
     }
 

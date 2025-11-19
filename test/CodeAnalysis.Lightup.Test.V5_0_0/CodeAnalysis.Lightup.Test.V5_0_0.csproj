@@ -7,8 +7,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0" />
 		<PackageReference Include="TestInheritanceGenerator" Version="1.1.0">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
