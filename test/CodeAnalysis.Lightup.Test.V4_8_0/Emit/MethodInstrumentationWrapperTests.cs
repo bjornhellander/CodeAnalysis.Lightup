@@ -15,7 +15,7 @@ public partial class MethodInstrumentationWrapperTests
     {
         var obj = CreateInstance(kind);
         var wrapper = Wrapper.Wrap(obj);
-        Assert.AreEqual(1, wrapper.Kinds.Length);
+        Assert.HasCount(1, wrapper.Kinds);
         Assert.AreEqual(kind, (InstrumentationKind)wrapper.Kinds[0]);
     }
 

@@ -36,10 +36,10 @@ public class TestAssemblyTests
         var testProjectNames = GetTestProjectNames();
         foreach (var testProjectName in testProjectNames)
         {
-            Assert.IsTrue(testAssemblyNames.Contains(testProjectName), $"Add test project {testProjectName} to the {nameof(TestAssemblies)} field");
+            Assert.Contains(testProjectName, testAssemblyNames, $"Add test project {testProjectName} to the {nameof(TestAssemblies)} field");
         }
 
-        Assert.AreEqual(testProjectNames.Count, testAssemblyNames.Count, $"{nameof(TestAssemblies)} contains non-existing projects");
+        Assert.HasCount(testProjectNames.Count, testAssemblyNames, $"{nameof(TestAssemblies)} contains non-existing projects");
     }
 
     [TestMethod]

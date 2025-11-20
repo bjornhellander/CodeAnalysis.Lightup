@@ -11,7 +11,7 @@ public partial class CommandLineSourceFileExtensionsTests
     {
         var obj = CallConstructor();
         Assert.AreEqual("a/b.c", obj.Path);
-        Assert.AreEqual(false, obj.IsScript);
-        Assert.AreEqual(true, obj.IsInputRedirected);
+        Assert.IsFalse(obj.IsScript);
+        Assert.IsTrue(obj.IsInputRedirected);
     }
 }
