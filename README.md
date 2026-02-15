@@ -67,7 +67,7 @@ A short description of this can for example be found here: https://www.meziantou
 
 The following diagnostics are reported as guidance, if no files are being generated:
 * [RoslynLightup001 - Missing configuration file](https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup001.md)
-* [RoslynLightup001 - Incorrect configuration file](https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup002.md)
+* [RoslynLightup002 - Incorrect configuration file](https://github.com/bjornhellander/CodeAnalysis.Lightup/blob/master/doc/RoslynLightup002.md)
 
 ## Limitations
 
@@ -81,7 +81,7 @@ The following diagnostics are reported as guidance, if no files are being genera
 
 ### Problems related to long file paths
 
-If you are using Git, enable support for long file paths by running:
+Support for long file paths needs to be enabled in Git. Enable this by e.g. running the following command:
 
 > git config core.longpaths true
 
