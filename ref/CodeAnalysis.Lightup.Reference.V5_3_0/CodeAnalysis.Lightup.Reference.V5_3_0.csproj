@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="5.3.0" />
+	</ItemGroup>
+	
+</Project>

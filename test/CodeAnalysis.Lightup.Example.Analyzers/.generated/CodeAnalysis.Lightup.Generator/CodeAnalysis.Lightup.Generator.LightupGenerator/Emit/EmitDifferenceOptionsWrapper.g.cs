@@ -16,6 +16,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private delegate global::System.Boolean EmitFieldRvaGetterDelegate(global::System.Object _obj);
         private delegate void EmitFieldRvaSetterDelegate(System.Object _obj, global::System.Boolean _value);
+        private delegate global::System.Boolean MethodImplEntriesSupportedGetterDelegate(global::System.Object _obj);
+        private delegate void MethodImplEntriesSupportedSetterDelegate(System.Object _obj, global::System.Boolean _value);
 
         private static readonly DefaultGetterDelegate DefaultGetterFunc;
 
@@ -23,6 +25,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
         private static readonly EmitFieldRvaGetterDelegate EmitFieldRvaGetterFunc;
         private static readonly EmitFieldRvaSetterDelegate EmitFieldRvaSetterFunc;
+        private static readonly MethodImplEntriesSupportedGetterDelegate MethodImplEntriesSupportedGetterFunc;
+        private static readonly MethodImplEntriesSupportedSetterDelegate MethodImplEntriesSupportedSetterFunc;
 
         private readonly global::System.Object wrappedObject;
 
@@ -36,6 +40,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
 
             EmitFieldRvaGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<EmitFieldRvaGetterDelegate>(WrappedType, nameof(EmitFieldRva));
             EmitFieldRvaSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<EmitFieldRvaSetterDelegate>(WrappedType, nameof(EmitFieldRva));
+            MethodImplEntriesSupportedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MethodImplEntriesSupportedGetterDelegate>(WrappedType, nameof(MethodImplEntriesSupported));
+            MethodImplEntriesSupportedSetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceSetAccessor<MethodImplEntriesSupportedSetterDelegate>(WrappedType, nameof(MethodImplEntriesSupported));
         }
 
         private EmitDifferenceOptionsWrapper(global::System.Object obj)
@@ -60,6 +66,13 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
         {
             get { return EmitFieldRvaGetterFunc(wrappedObject); }
             set { EmitFieldRvaSetterFunc(wrappedObject, value); }
+        }
+
+        /// <summary>Property added in version 5.3.0.0.</summary>
+        public global::System.Boolean MethodImplEntriesSupported
+        {
+            get { return MethodImplEntriesSupportedGetterFunc(wrappedObject); }
+            set { MethodImplEntriesSupportedSetterFunc(wrappedObject, value); }
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>

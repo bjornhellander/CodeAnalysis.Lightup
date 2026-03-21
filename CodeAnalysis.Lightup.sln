@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34511.84
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{81BD22A1-2666-4966-B473-548B9610D73B}"
 	ProjectSection(SolutionItems) = preProject
@@ -144,6 +144,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V4_14_0", "ref\CodeAnalysis.Lightup.Reference.V4_14_0\CodeAnalysis.Lightup.Reference.V4_14_0.csproj", "{1B57C86C-6126-8085-268F-8A240BA171FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V5_0_0", "ref\CodeAnalysis.Lightup.Reference.V5_0_0\CodeAnalysis.Lightup.Reference.V5_0_0.csproj", "{42E9357E-3824-4E9F-4A3C-44740AF3F357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalysis.Lightup.Reference.V5_3_0", "ref\CodeAnalysis.Lightup.Reference.V5_3_0\CodeAnalysis.Lightup.Reference.V5_3_0.csproj", "{C6C74C5D-A97E-9739-F568-FB22E360C61B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - doc", "1 - doc", "{BC2ED45C-25E9-48E1-A788-1A3930DACDC3}"
 	ProjectSection(SolutionItems) = preProject
@@ -415,6 +417,10 @@ Global
 		{42E9357E-3824-4E9F-4A3C-44740AF3F357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E9357E-3824-4E9F-4A3C-44740AF3F357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E9357E-3824-4E9F-4A3C-44740AF3F357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C74C5D-A97E-9739-F568-FB22E360C61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C74C5D-A97E-9739-F568-FB22E360C61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C74C5D-A97E-9739-F568-FB22E360C61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C74C5D-A97E-9739-F568-FB22E360C61B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -482,6 +488,7 @@ Global
 		{EFFEA793-A882-84CB-E7FB-04D4554F3F4E} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 		{1B57C86C-6126-8085-268F-8A240BA171FF} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 		{42E9357E-3824-4E9F-4A3C-44740AF3F357} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
+		{C6C74C5D-A97E-9739-F568-FB22E360C61B} = {8025D67E-DC02-42AB-9D7A-947300E602EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B95F847E-476B-46B4-9E66-F024C8419337}
