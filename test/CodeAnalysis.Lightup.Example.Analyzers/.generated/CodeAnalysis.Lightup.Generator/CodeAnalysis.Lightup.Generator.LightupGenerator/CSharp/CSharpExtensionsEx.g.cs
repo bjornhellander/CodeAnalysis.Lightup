@@ -10,12 +10,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlowDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ConstructorInitializerSyntax constructorInitializer);
         private delegate global::Microsoft.CodeAnalysis.DataFlowAnalysis? AnalyzeDataFlowDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.PrimaryConstructorBaseTypeSyntaxWrapper primaryConstructorBaseType);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo GetAwaitExpressionInfoDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax awaitUsingDeclaration);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo GetAwaitExpressionInfoDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax awaitUsingStatement);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Conversion GetConversionDelegate0(global::Microsoft.CodeAnalysis.Operations.Lightup.IConversionOperationWrapper conversionExpression);
         private delegate global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbolDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleElementSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbolDelegate2(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? GetDeclaredSymbolDelegate3(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper declaratorSyntax, global::System.Threading.CancellationToken cancellationToken);
-        private delegate global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbolDelegate4(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax declaratorSyntax, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbolDelegate1(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate2(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbolDelegate3(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax declaratorSyntax, global::System.Threading.CancellationToken cancellationToken);
+        private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? GetDeclaredSymbolDelegate4(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper declaratorSyntax, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbolDelegate5(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.SingleVariableDesignationSyntaxWrapper designationSyntax, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbolDelegate6(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.LocalFunctionStatementSyntaxWrapper node, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Lightup.DeconstructionInfoWrapper GetDeconstructionInfoDelegate0(global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.AssignmentExpressionSyntax assignment);
@@ -33,6 +35,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         private static readonly AnalyzeDataFlowDelegate0 AnalyzeDataFlowFunc0;
         private static readonly AnalyzeDataFlowDelegate1 AnalyzeDataFlowFunc1;
+        private static readonly GetAwaitExpressionInfoDelegate0 GetAwaitExpressionInfoFunc0;
+        private static readonly GetAwaitExpressionInfoDelegate1 GetAwaitExpressionInfoFunc1;
         private static readonly GetConversionDelegate0 GetConversionFunc0;
         private static readonly GetDeclaredSymbolDelegate0 GetDeclaredSymbolFunc0;
         private static readonly GetDeclaredSymbolDelegate1 GetDeclaredSymbolFunc1;
@@ -60,12 +64,14 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
             AnalyzeDataFlowFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate0>(wrappedType, "AnalyzeDataFlow", "semanticModelSemanticModel", "constructorInitializerConstructorInitializerSyntax");
             AnalyzeDataFlowFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<AnalyzeDataFlowDelegate1>(wrappedType, "AnalyzeDataFlow", "semanticModelSemanticModel", "primaryConstructorBaseTypePrimaryConstructorBaseTypeSyntax");
+            GetAwaitExpressionInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetAwaitExpressionInfoDelegate0>(wrappedType, "GetAwaitExpressionInfo", "semanticModelSemanticModel", "awaitUsingDeclarationLocalDeclarationStatementSyntax");
+            GetAwaitExpressionInfoFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetAwaitExpressionInfoDelegate1>(wrappedType, "GetAwaitExpressionInfo", "semanticModelSemanticModel", "awaitUsingStatementUsingStatementSyntax");
             GetConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetConversionDelegate0>(wrappedType, "GetConversion", "conversionExpressionIConversionOperation");
             GetDeclaredSymbolFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate0>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxTupleElementSyntax", "cancellationTokenCancellationToken");
-            GetDeclaredSymbolFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate1>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxCompilationUnitSyntax", "cancellationTokenCancellationToken");
-            GetDeclaredSymbolFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate2>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxFileScopedNamespaceDeclarationSyntax", "cancellationTokenCancellationToken");
-            GetDeclaredSymbolFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate3>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declaratorSyntaxTupleExpressionSyntax", "cancellationTokenCancellationToken");
-            GetDeclaredSymbolFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate4>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declaratorSyntaxArgumentSyntax", "cancellationTokenCancellationToken");
+            GetDeclaredSymbolFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate1>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxFileScopedNamespaceDeclarationSyntax", "cancellationTokenCancellationToken");
+            GetDeclaredSymbolFunc2 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate2>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declarationSyntaxCompilationUnitSyntax", "cancellationTokenCancellationToken");
+            GetDeclaredSymbolFunc3 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate3>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declaratorSyntaxArgumentSyntax", "cancellationTokenCancellationToken");
+            GetDeclaredSymbolFunc4 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate4>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "declaratorSyntaxTupleExpressionSyntax", "cancellationTokenCancellationToken");
             GetDeclaredSymbolFunc5 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate5>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "designationSyntaxSingleVariableDesignationSyntax", "cancellationTokenCancellationToken");
             GetDeclaredSymbolFunc6 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeclaredSymbolDelegate6>(wrappedType, "GetDeclaredSymbol", "semanticModelSemanticModel", "nodeLocalFunctionStatementSyntax", "cancellationTokenCancellationToken");
             GetDeconstructionInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateStaticMethodAccessor<GetDeconstructionInfoDelegate0>(wrappedType, "GetDeconstructionInfo", "semanticModelSemanticModel", "assignmentAssignmentExpressionSyntax");
@@ -94,6 +100,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return AnalyzeDataFlowFunc1(semanticModel, primaryConstructorBaseType);
         }
 
+        /// <summary>Method added in version 5.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo GetAwaitExpressionInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax awaitUsingDeclaration)
+        {
+            return GetAwaitExpressionInfoFunc0(semanticModel, awaitUsingDeclaration);
+        }
+
+        /// <summary>Method added in version 5.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo GetAwaitExpressionInfo(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax awaitUsingStatement)
+        {
+            return GetAwaitExpressionInfoFunc1(semanticModel, awaitUsingStatement);
+        }
+
         /// <summary>Method added in version 2.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Conversion GetConversion(this global::Microsoft.CodeAnalysis.Operations.Lightup.IConversionOperationWrapper conversionExpression)
         {
@@ -106,26 +124,26 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return GetDeclaredSymbolFunc0(semanticModel, declarationSyntax, cancellationToken);
         }
 
-        /// <summary>Method added in version 3.7.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
+        /// <summary>Method added in version 4.0.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc1(semanticModel, declarationSyntax, cancellationToken);
         }
 
-        /// <summary>Method added in version 4.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.INamespaceSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.FileScopedNamespaceDeclarationSyntaxWrapper declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
+        /// <summary>Method added in version 3.7.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IMethodSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.CompilationUnitSyntax declarationSyntax, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc2(semanticModel, declarationSyntax, cancellationToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper declaratorSyntax, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax declaratorSyntax, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc3(semanticModel, declaratorSyntax, cancellationToken);
         }
 
         /// <summary>Method added in version 2.0.0.0.</summary>
-        public static global::Microsoft.CodeAnalysis.ISymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax declaratorSyntax, global::System.Threading.CancellationToken cancellationToken)
+        public static global::Microsoft.CodeAnalysis.INamedTypeSymbol? GetDeclaredSymbol(this global::Microsoft.CodeAnalysis.SemanticModel? semanticModel, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleExpressionSyntaxWrapper declaratorSyntax, global::System.Threading.CancellationToken cancellationToken)
         {
             return GetDeclaredSymbolFunc4(semanticModel, declaratorSyntax, cancellationToken);
         }

@@ -18,6 +18,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean ReturnsByRefGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
         private delegate global::System.Boolean ReturnsByRefReadonlyGetterDelegate(global::Microsoft.CodeAnalysis.IPropertySymbol _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.IPropertySymbol? ReduceExtensionMemberDelegate0(global::Microsoft.CodeAnalysis.IPropertySymbol _obj, global::Microsoft.CodeAnalysis.ITypeSymbol receiverType);
+
         private static readonly IsPartialDefinitionGetterDelegate IsPartialDefinitionGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
@@ -27,6 +29,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly RefKindGetterDelegate RefKindGetterFunc;
         private static readonly ReturnsByRefGetterDelegate ReturnsByRefGetterFunc;
         private static readonly ReturnsByRefReadonlyGetterDelegate ReturnsByRefReadonlyGetterFunc;
+
+        private static readonly ReduceExtensionMemberDelegate0 ReduceExtensionMemberFunc0;
 
         static IPropertySymbolEx()
         {
@@ -41,6 +45,8 @@ namespace Microsoft.CodeAnalysis.Lightup
             RefKindGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RefKindGetterDelegate>(wrappedType, nameof(RefKind));
             ReturnsByRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefGetterDelegate>(wrappedType, nameof(ReturnsByRef));
             ReturnsByRefReadonlyGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ReturnsByRefReadonlyGetterDelegate>(wrappedType, nameof(ReturnsByRefReadonly));
+
+            ReduceExtensionMemberFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ReduceExtensionMemberDelegate0>(wrappedType, "ReduceExtensionMember", "receiverTypeITypeSymbol");
         }
 
         /// <summary>Property added in version 4.11.0.0.</summary>
@@ -95,6 +101,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Boolean ReturnsByRefReadonly(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj)
         {
             return ReturnsByRefReadonlyGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 5.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IPropertySymbol? ReduceExtensionMember(this global::Microsoft.CodeAnalysis.IPropertySymbol _obj, global::Microsoft.CodeAnalysis.ITypeSymbol receiverType)
+        {
+            return ReduceExtensionMemberFunc0(_obj, receiverType);
         }
     }
 }

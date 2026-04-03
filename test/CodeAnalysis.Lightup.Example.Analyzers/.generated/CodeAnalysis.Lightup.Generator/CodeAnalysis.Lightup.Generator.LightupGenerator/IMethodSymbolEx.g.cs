@@ -26,6 +26,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.INamedTypeSymbol> UnmanagedCallingConventionTypesGetterDelegate(global::Microsoft.CodeAnalysis.IMethodSymbol _obj);
 
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
+        private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? ReduceExtensionMemberDelegate0(global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::Microsoft.CodeAnalysis.ITypeSymbol receiverType);
 
         private static readonly AssociatedExtensionImplementationGetterDelegate AssociatedExtensionImplementationGetterFunc;
         private static readonly CallingConventionGetterDelegate CallingConventionGetterFunc;
@@ -45,6 +46,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly UnmanagedCallingConventionTypesGetterDelegate UnmanagedCallingConventionTypesGetterFunc;
 
         private static readonly ConstructDelegate0 ConstructFunc0;
+        private static readonly ReduceExtensionMemberDelegate0 ReduceExtensionMemberFunc0;
 
         static IMethodSymbolEx()
         {
@@ -68,6 +70,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             UnmanagedCallingConventionTypesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<UnmanagedCallingConventionTypesGetterDelegate>(wrappedType, nameof(UnmanagedCallingConventionTypes));
 
             ConstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
+            ReduceExtensionMemberFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ReduceExtensionMemberDelegate0>(wrappedType, "ReduceExtensionMember", "receiverTypeITypeSymbol");
         }
 
         /// <summary>Property added in version 5.0.0.0.</summary>
@@ -170,6 +173,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.IMethodSymbol Construct(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations)
         {
             return ConstructFunc0(_obj, typeArguments, typeArgumentNullableAnnotations);
+        }
+
+        /// <summary>Method added in version 5.3.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.IMethodSymbol? ReduceExtensionMember(this global::Microsoft.CodeAnalysis.IMethodSymbol _obj, global::Microsoft.CodeAnalysis.ITypeSymbol receiverType)
+        {
+            return ReduceExtensionMemberFunc0(_obj, receiverType);
         }
     }
 }
