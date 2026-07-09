@@ -13,8 +13,8 @@ public class TypesReaderTests
     public void TestRead_V3_0_0_0()
     {
         var types = TypesReader.Read(new Version(3, 0, 0, 0));
-        Assert.HasCount(1007, types);
-        Assert.AreEqual(163, types.Count(x => x.AssemblyVersion != null));
+        Assert.HasCount(1009, types);
+        Assert.AreEqual(165, types.Count(x => x.AssemblyVersion != null));
 
         var type1 = (TypeDefinition)types.Single(x => x.FullName == "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult");
         Assert.AreEqual(new Version(3, 1, 0, 0), type1.AssemblyVersion);
@@ -28,8 +28,8 @@ public class TypesReaderTests
         var version = new Version(3, 8, 0, 0);
 
         var types = TypesReader.Read(version);
-        Assert.HasCount(1007, types);
-        Assert.AreEqual(95, types.Count(x => x.AssemblyVersion != null));
+        Assert.HasCount(1009, types);
+        Assert.AreEqual(97, types.Count(x => x.AssemblyVersion != null));
 
         var type1 = (TypeDefinition)types.Single(x => x.FullName == "Microsoft.CodeAnalysis.AnalyzerConfigOptionsResult");
         Assert.IsNull(type1.AssemblyVersion);

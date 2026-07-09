@@ -10,9 +10,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private static readonly global::System.Type? WrappedType;
 
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ConstructArgumentsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? ConstructMethodGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ElementsGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
 
+        private static readonly ConstructArgumentsGetterDelegate ConstructArgumentsGetterFunc;
         private static readonly ConstructMethodGetterDelegate ConstructMethodGetterFunc;
         private static readonly ElementsGetterDelegate ElementsGetterFunc;
 
@@ -22,6 +24,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         {
             WrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
+            ConstructArgumentsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstructArgumentsGetterDelegate>(WrappedType, nameof(ConstructArguments));
             ConstructMethodGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstructMethodGetterDelegate>(WrappedType, nameof(ConstructMethod));
             ElementsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ElementsGetterDelegate>(WrappedType, nameof(Elements));
         }
@@ -29,6 +32,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private ICollectionExpressionOperationWrapper(global::Microsoft.CodeAnalysis.IOperation obj)
         {
             wrappedObject = obj;
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IOperation> ConstructArguments
+        {
+            get { return ConstructArgumentsGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 4.9.0.0.</summary>

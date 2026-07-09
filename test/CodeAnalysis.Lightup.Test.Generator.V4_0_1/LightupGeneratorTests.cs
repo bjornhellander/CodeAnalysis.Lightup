@@ -414,9 +414,11 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
         private delegate global::System.Boolean IsNullableGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsUnionGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
+        private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
 
         static CommonConversionEx()
         {
@@ -424,6 +426,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
 
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
             IsNullableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(wrappedType, nameof(IsNullable));
+            IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(wrappedType, nameof(IsUnion));
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
@@ -436,6 +439,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         public static global::System.Boolean IsNullable(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return IsNullableGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public static global::System.Boolean IsUnion(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
+        {
+            return IsUnionGetterFunc(_obj);
         }
     }
 }
@@ -461,20 +470,29 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsUnionGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
+        private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
 
         static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(wrappedType, nameof(IsUnion));
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol? ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public static global::System.Boolean IsUnion(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
+        {
+            return IsUnionGetterFunc(_obj);
         }
     }
 }
@@ -500,20 +518,29 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.CommonConversion"";
 
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol ConstrainedToTypeGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
+        private delegate global::System.Boolean IsUnionGetterDelegate(global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj);
 
         private static readonly ConstrainedToTypeGetterDelegate ConstrainedToTypeGetterFunc;
+        private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
 
         static CommonConversionEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ConstrainedToTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<ConstrainedToTypeGetterDelegate>(wrappedType, nameof(ConstrainedToType));
+            IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(wrappedType, nameof(IsUnion));
         }
 
         /// <summary>Property added in version 4.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.ITypeSymbol ConstrainedToType(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
         {
             return ConstrainedToTypeGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public static global::System.Boolean IsUnion(this global::Microsoft.CodeAnalysis.Operations.CommonConversion _obj)
+        {
+            return IsUnionGetterFunc(_obj);
         }
     }
 }

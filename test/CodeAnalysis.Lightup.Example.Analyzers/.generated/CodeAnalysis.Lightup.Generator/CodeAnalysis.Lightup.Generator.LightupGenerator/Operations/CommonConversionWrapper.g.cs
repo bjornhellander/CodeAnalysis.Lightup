@@ -17,6 +17,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private delegate global::System.Boolean IsNullableGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsNumericGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsReferenceGetterDelegate(global::System.Object _obj);
+        private delegate global::System.Boolean IsUnionGetterDelegate(global::System.Object _obj);
         private delegate global::System.Boolean IsUserDefinedGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.IMethodSymbol? MethodSymbolGetterDelegate(global::System.Object _obj);
 
@@ -27,6 +28,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly IsNullableGetterDelegate IsNullableGetterFunc;
         private static readonly IsNumericGetterDelegate IsNumericGetterFunc;
         private static readonly IsReferenceGetterDelegate IsReferenceGetterFunc;
+        private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
         private static readonly IsUserDefinedGetterDelegate IsUserDefinedGetterFunc;
         private static readonly MethodSymbolGetterDelegate MethodSymbolGetterFunc;
 
@@ -43,6 +45,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             IsNullableGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNullableGetterDelegate>(WrappedType, nameof(IsNullable));
             IsNumericGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsNumericGetterDelegate>(WrappedType, nameof(IsNumeric));
             IsReferenceGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsReferenceGetterDelegate>(WrappedType, nameof(IsReference));
+            IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(WrappedType, nameof(IsUnion));
             IsUserDefinedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUserDefinedGetterDelegate>(WrappedType, nameof(IsUserDefined));
             MethodSymbolGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MethodSymbolGetterDelegate>(WrappedType, nameof(MethodSymbol));
         }
@@ -92,6 +95,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         public global::System.Boolean IsReference
         {
             get { return IsReferenceGetterFunc(wrappedObject); }
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public global::System.Boolean IsUnion
+        {
+            get { return IsUnionGetterFunc(wrappedObject); }
         }
 
         /// <summary>Property added in version 2.6.0.0.</summary>

@@ -394,5 +394,8 @@ namespace Microsoft.CodeAnalysis.Lightup
 
         /// <summary>Added in version 4.9.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.OperationKind Spread = (global::Microsoft.CodeAnalysis.OperationKind)128;
+
+        /// <summary>Added in version 5.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.OperationKind CollectionExpressionElementsPlaceholder = (global::Microsoft.CodeAnalysis.OperationKind)129;
     }
 }
