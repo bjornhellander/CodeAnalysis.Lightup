@@ -162,8 +162,9 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
 
         public static MethodInfo GetPublicMethod(this Type type, string name)
         {
+            // NOTE: This method is always expected to exist, so throw an exception if it doesn't, for clarity
             var result = type.GetTypeInfo().GetDeclaredMethod(name);
-            return result;
+            return result ?? throw new InvalidOperationException("Method not found");
         }
 
         public static MethodInfo GetMethod(this Type type, Func<MethodInfo, bool> predicate)
