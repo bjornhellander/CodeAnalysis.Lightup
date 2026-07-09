@@ -19,7 +19,7 @@ internal class Program
 
         while (folder != null)
         {
-            if (Directory.GetFiles(folder).Any(x => x.EndsWith(".sln")))
+            if (Directory.GetFiles(folder).Any(x => x.EndsWith(".slnx")))
             {
                 return folder;
             }

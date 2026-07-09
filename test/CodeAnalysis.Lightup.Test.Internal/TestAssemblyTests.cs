@@ -69,7 +69,7 @@ public class TestAssemblyTests
         var folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
         Assert.IsNotNull(folder);
 
-        while (!Directory.GetFiles(folder).Any(x => x.EndsWith(".sln")))
+        while (!Directory.GetFiles(folder).Any(x => x.EndsWith(".slnx")))
         {
             var parent = Path.GetDirectoryName(folder);
             Assert.IsNotNull(parent);
