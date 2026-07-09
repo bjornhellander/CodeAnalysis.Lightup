@@ -67,6 +67,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate void VisitUnaryPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node);
         private delegate void VisitVarPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper node);
         private delegate void VisitWhenClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node);
+        private delegate void VisitWithElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithElementSyntaxWrapper node);
         private delegate void VisitWithExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithExpressionSyntaxWrapper node);
 
         private static readonly VisitAllowsConstraintClauseDelegate0 VisitAllowsConstraintClauseFunc0;
@@ -128,6 +129,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly VisitUnaryPatternDelegate0 VisitUnaryPatternFunc0;
         private static readonly VisitVarPatternDelegate0 VisitVarPatternFunc0;
         private static readonly VisitWhenClauseDelegate0 VisitWhenClauseFunc0;
+        private static readonly VisitWithElementDelegate0 VisitWithElementFunc0;
         private static readonly VisitWithExpressionDelegate0 VisitWithExpressionFunc0;
 
         static CSharpSyntaxVisitorEx()
@@ -193,6 +195,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitUnaryPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnaryPatternDelegate0>(wrappedType, "VisitUnaryPattern", "nodeUnaryPatternSyntax");
             VisitVarPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitVarPatternDelegate0>(wrappedType, "VisitVarPattern", "nodeVarPatternSyntax");
             VisitWhenClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWhenClauseDelegate0>(wrappedType, "VisitWhenClause", "nodeWhenClauseSyntax");
+            VisitWithElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithElementDelegate0>(wrappedType, "VisitWithElement", "nodeWithElementSyntax");
             VisitWithExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithExpressionDelegate0>(wrappedType, "VisitWithExpression", "nodeWithExpressionSyntax");
         }
 
@@ -548,6 +551,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static void VisitWhenClause(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node)
         {
             VisitWhenClauseFunc0(_obj, node);
+        }
+
+        /// <summary>Method added in version 5.6.0.0.</summary>
+        public static void VisitWithElement(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithElementSyntaxWrapper node)
+        {
+            VisitWithElementFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.7.0.0.</summary>

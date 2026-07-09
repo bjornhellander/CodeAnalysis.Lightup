@@ -33,6 +33,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String DivisionAssignmentOperatorNameGetterDelegate();
         private delegate global::System.String ExclusiveOrAssignmentOperatorNameGetterDelegate();
         private delegate global::System.String GetAsyncEnumeratorMethodNameGetterDelegate();
+        private delegate global::System.String HasValuePropertyNameGetterDelegate();
         private delegate global::System.String IncrementAssignmentOperatorNameGetterDelegate();
         private delegate global::System.String LeftShiftAssignmentOperatorNameGetterDelegate();
         private delegate global::System.String LengthPropertyNameGetterDelegate();
@@ -45,6 +46,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.String SubtractionAssignmentOperatorNameGetterDelegate();
         private delegate global::System.String TopLevelStatementsEntryPointMethodNameGetterDelegate();
         private delegate global::System.String TopLevelStatementsEntryPointTypeNameGetterDelegate();
+        private delegate global::System.String TryGetValueMethodNameGetterDelegate();
         private delegate global::System.String UnsignedRightShiftAssignmentOperatorNameGetterDelegate();
 
         private static readonly AdditionAssignmentOperatorNameGetterDelegate AdditionAssignmentOperatorNameGetterFunc;
@@ -72,6 +74,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly DivisionAssignmentOperatorNameGetterDelegate DivisionAssignmentOperatorNameGetterFunc;
         private static readonly ExclusiveOrAssignmentOperatorNameGetterDelegate ExclusiveOrAssignmentOperatorNameGetterFunc;
         private static readonly GetAsyncEnumeratorMethodNameGetterDelegate GetAsyncEnumeratorMethodNameGetterFunc;
+        private static readonly HasValuePropertyNameGetterDelegate HasValuePropertyNameGetterFunc;
         private static readonly IncrementAssignmentOperatorNameGetterDelegate IncrementAssignmentOperatorNameGetterFunc;
         private static readonly LeftShiftAssignmentOperatorNameGetterDelegate LeftShiftAssignmentOperatorNameGetterFunc;
         private static readonly LengthPropertyNameGetterDelegate LengthPropertyNameGetterFunc;
@@ -84,6 +87,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly SubtractionAssignmentOperatorNameGetterDelegate SubtractionAssignmentOperatorNameGetterFunc;
         private static readonly TopLevelStatementsEntryPointMethodNameGetterDelegate TopLevelStatementsEntryPointMethodNameGetterFunc;
         private static readonly TopLevelStatementsEntryPointTypeNameGetterDelegate TopLevelStatementsEntryPointTypeNameGetterFunc;
+        private static readonly TryGetValueMethodNameGetterDelegate TryGetValueMethodNameGetterFunc;
         private static readonly UnsignedRightShiftAssignmentOperatorNameGetterDelegate UnsignedRightShiftAssignmentOperatorNameGetterFunc;
 
         static WellKnownMemberNamesEx()
@@ -115,6 +119,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             DivisionAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<DivisionAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(DivisionAssignmentOperatorName));
             ExclusiveOrAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<ExclusiveOrAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(ExclusiveOrAssignmentOperatorName));
             GetAsyncEnumeratorMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<GetAsyncEnumeratorMethodNameGetterDelegate>(wrappedType, nameof(GetAsyncEnumeratorMethodName));
+            HasValuePropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<HasValuePropertyNameGetterDelegate>(wrappedType, nameof(HasValuePropertyName));
             IncrementAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<IncrementAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(IncrementAssignmentOperatorName));
             LeftShiftAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<LeftShiftAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(LeftShiftAssignmentOperatorName));
             LengthPropertyNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<LengthPropertyNameGetterDelegate>(wrappedType, nameof(LengthPropertyName));
@@ -127,6 +132,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             SubtractionAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<SubtractionAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(SubtractionAssignmentOperatorName));
             TopLevelStatementsEntryPointMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointMethodNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointMethodName));
             TopLevelStatementsEntryPointTypeNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TopLevelStatementsEntryPointTypeNameGetterDelegate>(wrappedType, nameof(TopLevelStatementsEntryPointTypeName));
+            TryGetValueMethodNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<TryGetValueMethodNameGetterDelegate>(wrappedType, nameof(TryGetValueMethodName));
             UnsignedRightShiftAssignmentOperatorNameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<UnsignedRightShiftAssignmentOperatorNameGetterDelegate>(wrappedType, nameof(UnsignedRightShiftAssignmentOperatorName));
         }
 
@@ -280,6 +286,12 @@ namespace Microsoft.CodeAnalysis.Lightup
             get { return GetAsyncEnumeratorMethodNameGetterFunc(); }
         }
 
+        /// <summary>Field added in version 5.6.0.0.</summary>
+        public static global::System.String HasValuePropertyName
+        {
+            get { return HasValuePropertyNameGetterFunc(); }
+        }
+
         /// <summary>Field added in version 5.0.0.0.</summary>
         public static global::System.String IncrementAssignmentOperatorName
         {
@@ -350,6 +362,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String TopLevelStatementsEntryPointTypeName
         {
             get { return TopLevelStatementsEntryPointTypeNameGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 5.6.0.0.</summary>
+        public static global::System.String TryGetValueMethodName
+        {
+            get { return TryGetValueMethodNameGetterFunc(); }
         }
 
         /// <summary>Field added in version 5.0.0.0.</summary>

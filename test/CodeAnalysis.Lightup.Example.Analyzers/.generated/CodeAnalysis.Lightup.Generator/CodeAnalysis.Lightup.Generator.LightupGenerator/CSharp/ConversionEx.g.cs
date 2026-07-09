@@ -21,6 +21,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate global::System.Boolean IsThrowGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsTupleConversionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
         private delegate global::System.Boolean IsTupleLiteralConversionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
+        private delegate global::System.Boolean IsUnionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ToCommonConversionDelegate0(global::Microsoft.CodeAnalysis.CSharp.Conversion _obj);
 
@@ -37,6 +38,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly IsThrowGetterDelegate IsThrowGetterFunc;
         private static readonly IsTupleConversionGetterDelegate IsTupleConversionGetterFunc;
         private static readonly IsTupleLiteralConversionGetterDelegate IsTupleLiteralConversionGetterFunc;
+        private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
 
         private static readonly ToCommonConversionDelegate0 ToCommonConversionFunc0;
 
@@ -57,6 +59,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             IsThrowGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsThrowGetterDelegate>(wrappedType, nameof(IsThrow));
             IsTupleConversionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsTupleConversionGetterDelegate>(wrappedType, nameof(IsTupleConversion));
             IsTupleLiteralConversionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsTupleLiteralConversionGetterDelegate>(wrappedType, nameof(IsTupleLiteralConversion));
+            IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(wrappedType, nameof(IsUnion));
 
             ToCommonConversionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<ToCommonConversionDelegate0>(wrappedType, "ToCommonConversion");
         }
@@ -137,6 +140,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static global::System.Boolean IsTupleLiteralConversion(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
         {
             return IsTupleLiteralConversionGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.6.0.0.</summary>
+        public static global::System.Boolean IsUnion(this global::Microsoft.CodeAnalysis.CSharp.Conversion _obj)
+        {
+            return IsUnionGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>

@@ -18183,6 +18183,20 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>IsUnion</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>Boolean</NativeName>
+          <Name>Boolean</Name>
+          <Namespace>System</Namespace>
+          <FullName>System.Boolean</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <HasSetter>false</HasSetter>
+        <IsStatic>false</IsStatic>
+      </PropertyDefinition>
+      <PropertyDefinition>
         <IsRemoved>false</IsRemoved>
         <Name>IsUserDefined</Name>
         <Type xsi:type="NamedTypeReference">
@@ -37654,6 +37668,34 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>VisitWithElement</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxNode</NativeName>
+          <Name>SyntaxNode</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+        </ReturnType>
+        <IsNullable>true</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>node</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>WithElementSyntax</NativeName>
+              <Name>WithElementSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
         <AssemblyVersion>3.7.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>VisitWithExpression</Name>
@@ -44646,6 +44688,28 @@
               <Name>WhileStatementSyntax</Name>
               <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
               <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WhileStatementSyntax</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>VisitWithElement</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>node</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>WithElementSyntax</NativeName>
+              <Name>WithElementSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -135062,6 +135126,207 @@
   </BaseTypeDefinition>
   <BaseTypeDefinition xsi:type="ClassTypeDefinition">
     <AssemblyKind>CSharp</AssemblyKind>
+    <AssemblyVersion>5.6.0.0</AssemblyVersion>
+    <IsRemoved>false</IsRemoved>
+    <Name>WithElementSyntax</Name>
+    <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+    <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+    <Constructors />
+    <Fields />
+    <Events />
+    <Properties>
+      <PropertyDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>ArgumentList</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>ArgumentListSyntax</NativeName>
+          <Name>ArgumentListSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <HasSetter>false</HasSetter>
+        <IsStatic>false</IsStatic>
+      </PropertyDefinition>
+      <PropertyDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithKeyword</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <HasSetter>false</HasSetter>
+        <IsStatic>false</IsStatic>
+      </PropertyDefinition>
+    </Properties>
+    <Indexers />
+    <Methods>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>Accept</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>visitor</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>CSharpSyntaxVisitor</NativeName>
+              <Name>CSharpSyntaxVisitor</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>AddArgumentListArguments</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>items</Name>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>ArgumentSyntax[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>ArgumentSyntax</NativeName>
+                <Name>ArgumentSyntax</Name>
+                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax</FullName>
+              </ElementType>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>Update</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>withKeyword</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>argumentList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ArgumentListSyntax</NativeName>
+              <Name>ArgumentListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithArgumentList</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>argumentList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ArgumentListSyntax</NativeName>
+              <Name>ArgumentListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithWithKeyword</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>withKeyword</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+    </Methods>
+    <BaseClass xsi:type="NamedTypeReference">
+      <NativeName>CollectionElementSyntax</NativeName>
+      <Name>CollectionElementSyntax</Name>
+      <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+      <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.CollectionElementSyntax</FullName>
+    </BaseClass>
+    <IsStatic>false</IsStatic>
+    <IsAbstract>false</IsAbstract>
+  </BaseTypeDefinition>
+  <BaseTypeDefinition xsi:type="ClassTypeDefinition">
+    <AssemblyKind>CSharp</AssemblyKind>
     <AssemblyVersion>3.7.0.0</AssemblyVersion>
     <IsRemoved>false</IsRemoved>
     <Name>WithExpressionSyntax</Name>
@@ -149759,10 +150024,10 @@
             <Name>name</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -149798,10 +150063,10 @@
             <Name>name</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxToken</NativeName>
-              <Name>SyntaxToken</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -161013,10 +161278,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxToken</NativeName>
-              <Name>SyntaxToken</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -161040,10 +161305,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -163806,145 +164071,10 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Decimal</NativeName>
-              <Name>Decimal</Name>
+              <NativeName>Single</NativeName>
+              <Name>Single</Name>
               <Namespace>System</Namespace>
-              <FullName>System.Decimal</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Int64</NativeName>
-              <Name>Int64</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Int64</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Char</NativeName>
-              <Name>Char</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Char</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>UInt64</NativeName>
-              <Name>UInt64</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.UInt64</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>UInt32</NativeName>
-              <Name>UInt32</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.UInt32</FullName>
+              <FullName>System.Single</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -163995,10 +164125,145 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Single</NativeName>
-              <Name>Single</Name>
+              <NativeName>UInt32</NativeName>
+              <Name>UInt32</Name>
               <Namespace>System</Namespace>
-              <FullName>System.Single</FullName>
+              <FullName>System.UInt32</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>UInt64</NativeName>
+              <Name>UInt64</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.UInt64</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Char</NativeName>
+              <Name>Char</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Char</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Int64</NativeName>
+              <Name>Int64</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Int64</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Decimal</NativeName>
+              <Name>Decimal</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Decimal</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -164061,10 +164326,166 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Decimal</NativeName>
-              <Name>Decimal</Name>
+              <NativeName>UInt64</NativeName>
+              <Name>UInt64</Name>
               <Namespace>System</Namespace>
-              <FullName>System.Decimal</FullName>
+              <FullName>System.UInt64</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Double</NativeName>
+              <Name>Double</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Double</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Single</NativeName>
+              <Name>Single</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Single</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Char</NativeName>
+              <Name>Char</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Char</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -164139,10 +164560,10 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Int64</NativeName>
-              <Name>Int64</Name>
+              <NativeName>Decimal</NativeName>
+              <Name>Decimal</Name>
               <Namespace>System</Namespace>
-              <FullName>System.Int64</FullName>
+              <FullName>System.Decimal</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -164217,276 +164638,6 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Char</NativeName>
-              <Name>Char</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Char</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>UInt64</NativeName>
-              <Name>UInt64</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.UInt64</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Single</NativeName>
-              <Name>Single</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Single</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Double</NativeName>
-              <Name>Double</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Double</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>leading</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Char</NativeName>
-              <Name>Char</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Char</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>trailing</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>leading</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
               <NativeName>Int64</NativeName>
               <Name>Int64</Name>
               <Namespace>System</Namespace>
@@ -164495,18 +164646,6 @@
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
           </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>trailing</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
@@ -164550,10 +164689,10 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>Decimal</NativeName>
-              <Name>Decimal</Name>
+              <NativeName>UInt32</NativeName>
+              <Name>UInt32</Name>
               <Namespace>System</Namespace>
-              <FullName>System.Decimal</FullName>
+              <FullName>System.UInt32</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -164617,132 +164756,6 @@
               <Name>UInt64</Name>
               <Namespace>System</Namespace>
               <FullName>System.UInt64</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>trailing</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>leading</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Single</NativeName>
-              <Name>Single</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Single</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>trailing</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>Literal</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxToken</NativeName>
-          <Name>SyntaxToken</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>leading</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxTriviaList</NativeName>
-              <Name>SyntaxTriviaList</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>text</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>value</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Double</NativeName>
-              <Name>Double</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Double</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -164928,10 +164941,262 @@
             <Name>value</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>UInt32</NativeName>
-              <Name>UInt32</Name>
+              <NativeName>Double</NativeName>
+              <Name>Double</Name>
               <Namespace>System</Namespace>
-              <FullName>System.UInt32</FullName>
+              <FullName>System.Double</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>trailing</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>leading</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Decimal</NativeName>
+              <Name>Decimal</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Decimal</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>trailing</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>leading</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Char</NativeName>
+              <Name>Char</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Char</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>trailing</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>leading</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Single</NativeName>
+              <Name>Single</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Single</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>trailing</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>Literal</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxToken</NativeName>
+          <Name>SyntaxToken</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>leading</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTriviaList</NativeName>
+              <Name>SyntaxTriviaList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTriviaList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>text</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>value</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Int64</NativeName>
+              <Name>Int64</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Int64</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -175022,10 +175287,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -175062,10 +175327,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxToken</NativeName>
-              <Name>SyntaxToken</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -178955,6 +179220,211 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>StructDeclaration</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>StructDeclarationSyntax</NativeName>
+          <Name>StructDeclarationSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.StructDeclarationSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>kind</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxKind</NativeName>
+              <Name>SyntaxKind</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.SyntaxKind</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>attributeLists</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>AttributeListSyntax</NativeName>
+                  <Name>AttributeListSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>modifiers</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxTokenList</NativeName>
+              <Name>SyntaxTokenList</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxTokenList</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>keyword</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>identifier</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>typeParameterList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>TypeParameterListSyntax</NativeName>
+              <Name>TypeParameterListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax</FullName>
+            </Type>
+            <IsNullable>true</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>parameterList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ParameterListSyntax</NativeName>
+              <Name>ParameterListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax</FullName>
+            </Type>
+            <IsNullable>true</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>baseList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>BaseListSyntax</NativeName>
+              <Name>BaseListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax</FullName>
+            </Type>
+            <IsNullable>true</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>constraintClauses</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>TypeParameterConstraintClauseSyntax</NativeName>
+                  <Name>TypeParameterConstraintClauseSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>openBraceToken</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>members</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>MemberDeclarationSyntax</NativeName>
+                  <Name>MemberDeclarationSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>closeBraceToken</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>semicolonToken</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>Subpattern</Name>
@@ -180404,23 +180874,15 @@
         <Parameters>
           <ParameterDefinition>
             <Name>tokens</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxToken</NativeName>
-                  <Name>SyntaxToken</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>SyntaxToken[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxToken</NativeName>
+                <Name>SyntaxToken</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -180442,15 +180904,23 @@
         <Parameters>
           <ParameterDefinition>
             <Name>tokens</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>SyntaxToken[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxToken</NativeName>
-                <Name>SyntaxToken</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxToken</NativeName>
+                  <Name>SyntaxToken</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -183565,10 +184035,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -183592,10 +184062,10 @@
             <Name>identifier</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxToken</NativeName>
-              <Name>SyntaxToken</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -184344,6 +184814,74 @@
               <Name>Boolean</Name>
               <Namespace>System</Namespace>
               <FullName>System.Boolean</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithElement</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>argumentList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ArgumentListSyntax</NativeName>
+              <Name>ArgumentListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax</FullName>
+            </Type>
+            <IsNullable>true</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithElement</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>WithElementSyntax</NativeName>
+          <Name>WithElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>withKeyword</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxToken</NativeName>
+              <Name>SyntaxToken</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxToken</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>argumentList</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ArgumentListSyntax</NativeName>
+              <Name>ArgumentListSyntax</Name>
+              <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+              <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186110,23 +186648,15 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>SyntaxList`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxList`1</NativeName>
-                <Name>SyntaxList</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>XmlNodeSyntax</NativeName>
-                  <Name>XmlNodeSyntax</Name>
-                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>XmlNodeSyntax[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>XmlNodeSyntax</NativeName>
+                <Name>XmlNodeSyntax</Name>
+                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186148,15 +186678,23 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>XmlNodeSyntax[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>XmlNodeSyntax</NativeName>
-                <Name>XmlNodeSyntax</Name>
-                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>XmlNodeSyntax</NativeName>
+                  <Name>XmlNodeSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186309,23 +186847,15 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>SyntaxList`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxList`1</NativeName>
-                <Name>SyntaxList</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>XmlNodeSyntax</NativeName>
-                  <Name>XmlNodeSyntax</Name>
-                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>XmlNodeSyntax[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>XmlNodeSyntax</NativeName>
+                <Name>XmlNodeSyntax</Name>
+                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186359,15 +186889,23 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>XmlNodeSyntax[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>XmlNodeSyntax</NativeName>
-                <Name>XmlNodeSyntax</Name>
-                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>XmlNodeSyntax</NativeName>
+                  <Name>XmlNodeSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186693,23 +187231,15 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>SyntaxList`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxList`1</NativeName>
-                <Name>SyntaxList</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>XmlNodeSyntax</NativeName>
-                  <Name>XmlNodeSyntax</Name>
-                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>XmlNodeSyntax[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>XmlNodeSyntax</NativeName>
+                <Name>XmlNodeSyntax</Name>
+                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186731,36 +187261,6 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>XmlNodeSyntax[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>XmlNodeSyntax</NativeName>
-                <Name>XmlNodeSyntax</Name>
-                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-              </ElementType>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>XmlReturnsElement</Name>
-        <IsStatic>true</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>XmlElementSyntax</NativeName>
-          <Name>XmlElementSyntax</Name>
-          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>content</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="GenericTypeReference">
               <NativeName>SyntaxList`1</NativeName>
@@ -186808,6 +187308,44 @@
                 <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
                 <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
               </ElementType>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>XmlReturnsElement</Name>
+        <IsStatic>true</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>XmlElementSyntax</NativeName>
+          <Name>XmlElementSyntax</Name>
+          <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+          <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlElementSyntax</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>content</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>XmlNodeSyntax</NativeName>
+                  <Name>XmlNodeSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186933,23 +187471,15 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>SyntaxList`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxList`1</NativeName>
-                <Name>SyntaxList</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>XmlNodeSyntax</NativeName>
-                  <Name>XmlNodeSyntax</Name>
-                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>XmlNodeSyntax[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>XmlNodeSyntax</NativeName>
+                <Name>XmlNodeSyntax</Name>
+                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -186971,15 +187501,23 @@
         <Parameters>
           <ParameterDefinition>
             <Name>content</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>XmlNodeSyntax[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>XmlNodeSyntax</NativeName>
-                <Name>XmlNodeSyntax</Name>
-                <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
-                <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>SyntaxList`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxList`1</NativeName>
+                <Name>SyntaxList</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxList`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>XmlNodeSyntax</NativeName>
+                  <Name>XmlNodeSyntax</Name>
+                  <Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.CSharp.Syntax.XmlNodeSyntax</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -193049,6 +193587,18 @@
         <Value>8491</Value>
       </EnumValueDefinition>
       <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>UnionDeclaration</Name>
+        <Value>9082</Value>
+      </EnumValueDefinition>
+      <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>UnionKeyword</Name>
+        <Value>8452</Value>
+      </EnumValueDefinition>
+      <EnumValueDefinition>
         <IsRemoved>false</IsRemoved>
         <Name>UnknownAccessorDeclaration</Name>
         <Value>8900</Value>
@@ -193213,6 +193763,12 @@
         <IsRemoved>false</IsRemoved>
         <Name>WhitespaceTrivia</Name>
         <Value>8540</Value>
+      </EnumValueDefinition>
+      <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>WithElement</Name>
+        <Value>9081</Value>
       </EnumValueDefinition>
       <EnumValueDefinition>
         <AssemblyVersion>3.7.0.0</AssemblyVersion>
@@ -249440,6 +249996,12 @@
         <Value>127</Value>
       </EnumValueDefinition>
       <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>CollectionExpressionElementsPlaceholder</Name>
+        <Value>129</Value>
+      </EnumValueDefinition>
+      <EnumValueDefinition>
         <AssemblyVersion>2.6.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>CompoundAssignment</Name>
@@ -250810,6 +251372,20 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>IsUnion</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>Boolean</NativeName>
+          <Name>Boolean</Name>
+          <Namespace>System</Namespace>
+          <FullName>System.Boolean</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <HasSetter>false</HasSetter>
+        <IsStatic>false</IsStatic>
+      </PropertyDefinition>
+      <PropertyDefinition>
         <AssemblyVersion>2.6.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>IsUserDefined</Name>
@@ -251973,6 +252549,26 @@
   </BaseTypeDefinition>
   <BaseTypeDefinition xsi:type="InterfaceTypeDefinition">
     <AssemblyKind>Common</AssemblyKind>
+    <AssemblyVersion>5.6.0.0</AssemblyVersion>
+    <IsRemoved>false</IsRemoved>
+    <Name>ICollectionExpressionElementsPlaceholderOperation</Name>
+    <Namespace>Microsoft.CodeAnalysis.Operations</Namespace>
+    <FullName>Microsoft.CodeAnalysis.Operations.ICollectionExpressionElementsPlaceholderOperation</FullName>
+    <Constructors />
+    <Fields />
+    <Events />
+    <Properties />
+    <Indexers />
+    <Methods />
+    <BaseInterface xsi:type="NamedTypeReference">
+      <NativeName>IOperation</NativeName>
+      <Name>IOperation</Name>
+      <Namespace>Microsoft.CodeAnalysis</Namespace>
+      <FullName>Microsoft.CodeAnalysis.IOperation</FullName>
+    </BaseInterface>
+  </BaseTypeDefinition>
+  <BaseTypeDefinition xsi:type="InterfaceTypeDefinition">
+    <AssemblyKind>Common</AssemblyKind>
     <AssemblyVersion>4.9.0.0</AssemblyVersion>
     <IsRemoved>false</IsRemoved>
     <Name>ICollectionExpressionOperation</Name>
@@ -251982,6 +252578,31 @@
     <Fields />
     <Events />
     <Properties>
+      <PropertyDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>ConstructArguments</Name>
+        <Type xsi:type="GenericTypeReference">
+          <NativeName>ImmutableArray`1</NativeName>
+          <OriginalType xsi:type="NamedTypeReference">
+            <NativeName>ImmutableArray`1</NativeName>
+            <Name>ImmutableArray</Name>
+            <Namespace>System.Collections.Immutable</Namespace>
+            <FullName>System.Collections.Immutable.ImmutableArray`1</FullName>
+          </OriginalType>
+          <TypeArguments>
+            <TypeReference xsi:type="NamedTypeReference">
+              <NativeName>IOperation</NativeName>
+              <Name>IOperation</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.IOperation</FullName>
+            </TypeReference>
+          </TypeArguments>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <HasSetter>false</HasSetter>
+        <IsStatic>false</IsStatic>
+      </PropertyDefinition>
       <PropertyDefinition>
         <AssemblyVersion>4.9.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
@@ -259115,6 +259736,28 @@
               <Name>ICollectionExpressionOperation</Name>
               <Namespace>Microsoft.CodeAnalysis.Operations</Namespace>
               <FullName>Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>VisitCollectionExpressionElementsPlaceholder</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>operation</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>ICollectionExpressionElementsPlaceholderOperation</NativeName>
+              <Name>ICollectionExpressionElementsPlaceholderOperation</Name>
+              <Namespace>Microsoft.CodeAnalysis.Operations</Namespace>
+              <FullName>Microsoft.CodeAnalysis.Operations.ICollectionExpressionElementsPlaceholderOperation</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -299260,6 +299903,18 @@
         <Name>Sha256</Name>
         <Value>2</Value>
       </EnumValueDefinition>
+      <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>Sha384</Name>
+        <Value>3</Value>
+      </EnumValueDefinition>
+      <EnumValueDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>Sha512</Name>
+        <Value>4</Value>
+      </EnumValueDefinition>
     </Values>
   </BaseTypeDefinition>
   <BaseTypeDefinition xsi:type="ClassTypeDefinition">
@@ -303864,6 +304519,20 @@
         <IsStatic>true</IsStatic>
       </FieldDefinition>
       <FieldDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>HasValuePropertyName</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>String</NativeName>
+          <Name>String</Name>
+          <Namespace>System</Namespace>
+          <FullName>System.String</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <IsReadOnly>true</IsReadOnly>
+        <IsStatic>true</IsStatic>
+      </FieldDefinition>
+      <FieldDefinition>
         <IsRemoved>false</IsRemoved>
         <Name>ImplicitConversionName</Name>
         <Type xsi:type="NamedTypeReference">
@@ -304359,6 +305028,20 @@
       <FieldDefinition>
         <IsRemoved>false</IsRemoved>
         <Name>TrueOperatorName</Name>
+        <Type xsi:type="NamedTypeReference">
+          <NativeName>String</NativeName>
+          <Name>String</Name>
+          <Namespace>System</Namespace>
+          <FullName>System.String</FullName>
+        </Type>
+        <IsNullable>false</IsNullable>
+        <IsReadOnly>true</IsReadOnly>
+        <IsStatic>true</IsStatic>
+      </FieldDefinition>
+      <FieldDefinition>
+        <AssemblyVersion>5.6.0.0</AssemblyVersion>
+        <IsRemoved>false</IsRemoved>
+        <Name>TryGetValueMethodName</Name>
         <Type xsi:type="NamedTypeReference">
           <NativeName>String</NativeName>
           <Name>String</Name>

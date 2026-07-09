@@ -31,6 +31,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private delegate void VisitCoalesceAssignmentDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICoalesceAssignmentOperationWrapper operation);
         private delegate void VisitCollectionElementInitializerDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionElementInitializerOperationWrapper operation);
         private delegate void VisitCollectionExpressionDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionOperationWrapper operation);
+        private delegate void VisitCollectionExpressionElementsPlaceholderDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionElementsPlaceholderOperationWrapper operation);
         private delegate void VisitCompoundAssignmentDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.ICompoundAssignmentOperationWrapper operation);
         private delegate void VisitConditionalDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IConditionalOperationWrapper operation);
         private delegate void VisitConditionalAccessDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.Operations.Lightup.IConditionalAccessOperationWrapper operation);
@@ -161,6 +162,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         private static readonly VisitCoalesceAssignmentDelegate0 VisitCoalesceAssignmentFunc0;
         private static readonly VisitCollectionElementInitializerDelegate0 VisitCollectionElementInitializerFunc0;
         private static readonly VisitCollectionExpressionDelegate0 VisitCollectionExpressionFunc0;
+        private static readonly VisitCollectionExpressionElementsPlaceholderDelegate0 VisitCollectionExpressionElementsPlaceholderFunc0;
         private static readonly VisitCompoundAssignmentDelegate0 VisitCompoundAssignmentFunc0;
         private static readonly VisitConditionalDelegate0 VisitConditionalFunc0;
         private static readonly VisitConditionalAccessDelegate0 VisitConditionalAccessFunc0;
@@ -297,6 +299,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
             VisitCoalesceAssignmentFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitCoalesceAssignmentDelegate0>(WrappedType, "VisitCoalesceAssignment", "operationICoalesceAssignmentOperation");
             VisitCollectionElementInitializerFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitCollectionElementInitializerDelegate0>(WrappedType, "VisitCollectionElementInitializer", "operationICollectionElementInitializerOperation");
             VisitCollectionExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitCollectionExpressionDelegate0>(WrappedType, "VisitCollectionExpression", "operationICollectionExpressionOperation");
+            VisitCollectionExpressionElementsPlaceholderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitCollectionExpressionElementsPlaceholderDelegate0>(WrappedType, "VisitCollectionExpressionElementsPlaceholder", "operationICollectionExpressionElementsPlaceholderOperation");
             VisitCompoundAssignmentFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitCompoundAssignmentDelegate0>(WrappedType, "VisitCompoundAssignment", "operationICompoundAssignmentOperation");
             VisitConditionalFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitConditionalDelegate0>(WrappedType, "VisitConditional", "operationIConditionalOperation");
             VisitConditionalAccessFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<VisitConditionalAccessDelegate0>(WrappedType, "VisitConditionalAccess", "operationIConditionalAccessOperation");
@@ -555,6 +558,12 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         public void VisitCollectionExpression(global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionOperationWrapper operation)
         {
             VisitCollectionExpressionFunc0(wrappedObject, operation);
+        }
+
+        /// <summary>Method added in version 5.6.0.0.</summary>
+        public void VisitCollectionExpressionElementsPlaceholder(global::Microsoft.CodeAnalysis.Operations.Lightup.ICollectionExpressionElementsPlaceholderOperationWrapper operation)
+        {
+            VisitCollectionExpressionElementsPlaceholderFunc0(wrappedObject, operation);
         }
 
         /// <summary>Method added in version 2.6.0.0.</summary>

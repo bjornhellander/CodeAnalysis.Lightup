@@ -56,6 +56,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 4.14.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ExtensionKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8451;
 
+        /// <summary>Added in version 5.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnionKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8452;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NullableKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8486;
 
@@ -316,5 +319,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.14.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind IgnoredDirectiveTrivia = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9080;
+
+        /// <summary>Added in version 5.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind WithElement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9081;
+
+        /// <summary>Added in version 5.6.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnionDeclaration = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)9082;
     }
 }
