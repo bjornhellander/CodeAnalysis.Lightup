@@ -693,11 +693,11 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrapperArg1Type = wrapperType.GenericTypeArguments[0];
                 var wrapperArg2Type = wrapperType.GenericTypeArguments[1];
                 var wrapperArg3Type = wrapperType.GenericTypeArguments[2];
-                var wrapperReturnType = wrapperType.GenericTypeArguments[2];
+                var wrapperReturnType = wrapperType.GenericTypeArguments[3];
                 var nativeArg1Type = nativeType.GenericTypeArguments[0];
                 var nativeArg2Type = nativeType.GenericTypeArguments[1];
                 var nativeArg3Type = nativeType.GenericTypeArguments[2];
-                var nativeReturnType = nativeType.GenericTypeArguments[2];
+                var nativeReturnType = nativeType.GenericTypeArguments[3];
 
                 var wrapperInvokeMethod = wrapperType.GetPublicMethod("Invoke");
 
