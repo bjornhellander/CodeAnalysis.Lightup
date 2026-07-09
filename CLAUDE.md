@@ -85,7 +85,7 @@ git config core.longpaths true
 
 ### Four Core Projects
 
-1. **CodeAnalysis.Lightup.Generator** (NuGet package, v5.0.0.0)
+1. **CodeAnalysis.Lightup.Generator** (NuGet package)
    - Type: Incremental Source Generator (IIncrementalGenerator)
    - Target: netstandard2.0
    - Location: `src/CodeAnalysis.Lightup.Generator/`
@@ -94,7 +94,7 @@ git config core.longpaths true
    - Reads config files: `CodeAnalysis.Lightup*.json` (specify baseline version and Roslyn assemblies)
    - Output: Generates `*.g.cs` files with wrapper/extension classes
 
-2. **CodeAnalysis.Lightup.Runtime** (NuGet package, v1.2.0.0)
+2. **CodeAnalysis.Lightup.Runtime** (NuGet package)
    - Type: Support library (zero Roslyn dependencies)
    - Targets: netstandard1.1, netstandard2.0 (maximum compatibility)
    - Location: `src/CodeAnalysis.Lightup.Runtime/`
@@ -142,11 +142,11 @@ Type access at runtime across Roslyn versions
 - **Types.xml** (~12.9MB): Stores complete API metadata for 20+ Roslyn versions
 - **Baseline Version**: Specified per-project in configuration file (e.g., "1.3.2.0", "3.0.0.0", "4.0.0.0")
 - **Generation Scope**: Only types/members added AFTER baseline version are generated
-- **Reference Projects**: `ref/` directory contains 20+ projects (V1_3_2 through V5_0_0) used by Collector
+- **Reference Projects**: `ref/` directory contains multiple projects used by Collector
 
 ## Test Structure
 
-- **Version-Specific Tests**: 18 projects testing each Roslyn version (V1_3_2 → V5_0_0)
+- **Version-Specific Tests**: Multiple projects testing Roslyn versions corresponding to a new C# language version
 - **Generator Tests**: 2 projects (`Test.Generator.V4_0_1`, `Test.Generator.V4_6_0`) testing code generation
 - **Example Projects**: 3 demonstrating analyzer/code-fix/CSharp6 usage
 - **Internal Tests**: `Test.Internal` (LightupHelper), `Test.Support` (shared utilities)
@@ -173,9 +173,9 @@ File: `.github/workflows/dotnet.yml`
 
 **Minimal & Strategic**:
 - Generator: Uses `MarcosLopezC.LightJson` for fast JSON parsing
-- Runtime: Zero Roslyn dependency, uses `System.Collections.Immutable` (1.2.0), `System.Threading.Tasks.Extensions` (4.3.0)
-- Tests: MSTest 4.0.2, Moq 4.20.72, Coverlet for coverage
-- Analyzers: Microsoft.CodeAnalysis.NetAnalyzers (10.0.100), NewStyleCop.Analyzers (1.2.1)
+- Runtime: Zero Roslyn dependency, uses `System.Collections.Immutable`, `System.Threading.Tasks.Extensions`
+- Tests: MSTest, Moq, Coverlet for coverage
+- Analyzers: Microsoft.CodeAnalysis.NetAnalyzers, NewStyleCop.Analyzers
 
 ## Configuration Files
 
@@ -269,11 +269,3 @@ See `HOWTO.md` for detailed publishing guide.
 | `Configuration.schema.json` | JSON schema for config validation |
 | `test/CodeAnalysis.Lightup.Test.V*/` | Version-specific tests |
 | `.github/workflows/dotnet.yml` | CI/CD pipeline |
-
-## Recent Changes & Maintenance
-
-- Recently upgraded to .NET 10 SDK
-- MSTest upgraded to 4.0.2
-- Microsoft.CodeAnalysis.NetAnalyzers at 10.0.100
-- Generator/Runtime versions maintained independently (current: v5.0.0.0 / v1.2.0.0)
-- Active feature branch workflow (feature/* → master via PR)
