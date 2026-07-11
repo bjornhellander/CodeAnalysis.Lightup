@@ -83,7 +83,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         static SeparatedSyntaxListWrapper()
         {
             var wrapperNodeType = typeof(TNode);
-            var wrappedNodeTypeField = wrapperNodeType.GetField(""WrappedType"", global::System.Reflection.BindingFlags.Static | global::System.Reflection.BindingFlags.NonPublic);
+            var wrappedNodeTypeField = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(wrapperNodeType).GetDeclaredField(""WrappedType"");
             var wrappedNodeType = (global::System.Type)wrappedNodeTypeField.GetValue(null);
             var wrappedNodeTypeName = wrappedNodeType?.Name;
             WrappedType = wrappedNodeType != null ? typeof(SeparatedSyntaxList<>).MakeGenericType(wrappedNodeType) : null;
