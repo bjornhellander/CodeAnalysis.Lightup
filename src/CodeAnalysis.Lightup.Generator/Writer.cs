@@ -112,7 +112,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {{
     internal class {name} : global::CodeAnalysis.Lightup.Runtime.LightupHelper
     {{
-        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::{ExampleTypeNames[assemblyKind]}).Assembly;
+        private static readonly global::System.Reflection.Assembly Assembly = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::{ExampleTypeNames[assemblyKind]})).Assembly;
 
         public static global::System.Type{na} FindType(string wrappedTypeName)
         {{
