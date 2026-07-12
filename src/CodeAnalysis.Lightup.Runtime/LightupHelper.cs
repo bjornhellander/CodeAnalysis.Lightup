@@ -5,7 +5,6 @@ namespace CodeAnalysis.Lightup.Runtime
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.Immutable;
     using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
@@ -415,7 +414,7 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrappedEnumValue = Expression.Convert(input, targetType);
                 return wrappedEnumValue;
             }
-            else if (targetType.IsGenericType() && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (ImmutableArrayHelpers.IsImmutableArrayType(targetType))
             {
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
@@ -603,7 +602,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
-            else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (ImmutableArrayHelpers.IsImmutableArrayType(wrapperType))
             {
                 // ImmutableArray<X> where X is a wrapper
                 var wrapperItemType = wrapperType.GenericTypeArguments[0];
