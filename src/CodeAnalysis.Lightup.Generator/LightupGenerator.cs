@@ -13,19 +13,20 @@ public class LightupGenerator : IIncrementalGenerator
         var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
         var configFileContents = configFiles.Select(Helpers.GetConfigurationFileContent);
 
-        var languageVersion = context.CompilationProvider.Select((compilation, cancellationToken) =>
+        var compilationInfo = context.CompilationProvider.Select((compilation, cancellationToken) =>
         {
             var languageVersion = (compilation as CSharpCompilation)?.LanguageVersion;
-            return languageVersion;
+            var hasValueTaskType = compilation.GetTypeByMetadataName("System.Threading.Tasks.ValueTask`1") != null;
+            return (languageVersion, hasValueTaskType);
         });
 
-        var generatorInput = configFileContents.Combine(languageVersion);
+        var generatorInput = configFileContents.Combine(compilationInfo);
         context.RegisterSourceOutput(
             generatorInput,
-            (context, input) => Execute(context, input.Left, input.Right));
+            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType));
     }
 
-    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion)
+    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType)
     {
         if (Helpers.TryParseConfiguration(
             configFileContent,
@@ -42,6 +43,7 @@ public class LightupGenerator : IIncrementalGenerator
                 assemblies,
                 typesToInclude,
                 useNullableAnnotation,
+                hasValueTaskType,
                 useFoldersInFilePaths,
                 types);
         }

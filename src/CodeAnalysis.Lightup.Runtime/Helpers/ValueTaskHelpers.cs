@@ -72,23 +72,5 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
 
             return true;
         }
-
-        public static MethodInfo GetContinueWithMethod(Type sourceItemType, Type resultItemType)
-        {
-            var genericMethod = typeof(TaskContinuation).GetPublicMethod(nameof(TaskContinuation.ContinueWith));
-            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
-            return specializedMethod;
-        }
-
-        // NOTE: Task<T>.ContinueWith is not used here, since letting the continuation access a faulted antecedent's
-        // Result property causes the original exception to end up double-wrapped in AggregateException instances.
-        private static class TaskContinuation
-        {
-            public static async Task<TResult> ContinueWith<TSource, TResult>(Task<TSource> task, Func<TSource, TResult> continuation)
-            {
-                var result = await task.ConfigureAwait(false);
-                return continuation(result);
-            }
-        }
     }
 }

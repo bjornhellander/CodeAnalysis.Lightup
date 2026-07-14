@@ -80,6 +80,7 @@ internal class Writer
         IReadOnlyList<AssemblyKind> assemblyKinds,
         List<string> typesToInclude,
         bool useNullableContext,
+        bool useValueTaskType,
         bool useFoldersInFilePaths,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
@@ -94,7 +95,7 @@ internal class Writer
                 WriteSeparatedSyntaxListWrapper(context, nullableAnnotation);
             }
 
-            Write(context, assemblyKind, typesToInclude, nullableAnnotation, useFoldersInFilePaths, typeDefs);
+            Write(context, assemblyKind, typesToInclude, nullableAnnotation, useValueTaskType, useFoldersInFilePaths, typeDefs);
         }
     }
 
@@ -480,6 +481,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         AssemblyKind assemblyKind,
         List<string> typesToInclude,
         string nullableAnnotation,
+        bool useValueTaskType,
         bool useFoldersInFilePaths,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
@@ -496,7 +498,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             }
 
             var targetNamespace = GetTargetNamespace(typeDef);
-            var source = GenerateType(typeDef, typeDefs, targetNamespace, HelperPrefixes[assemblyKind], nullableAnnotation);
+            var source = GenerateType(typeDef, typeDefs, targetNamespace, HelperPrefixes[assemblyKind], nullableAnnotation, useValueTaskType);
 
             if (source != null)
             {
@@ -518,7 +520,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
         string helperPrefix,
-        string nullableAnnotation)
+        string nullableAnnotation,
+        bool useValueTaskType)
     {
         if (TypesToSkip.Contains(typeDef.FullName))
         {
@@ -544,11 +547,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             if (typeDef.AssemblyVersion != null)
             {
-                return GenerateWrapper(structTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                return GenerateWrapper(structTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
             }
             else if (structTypeDef.IsUpdated)
             {
-                return GenerateExtension(structTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                return GenerateExtension(structTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
             }
             else
             {
@@ -561,16 +564,16 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 if (classTypeDef.IsStatic)
                 {
-                    return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                    return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
                 }
                 else
                 {
-                    return GenerateWrapper(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                    return GenerateWrapper(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
                 }
             }
             else if (classTypeDef.IsUpdated)
             {
-                return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                return GenerateExtension(classTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
             }
             else
             {
@@ -581,11 +584,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             if (typeDef.AssemblyVersion != null)
             {
-                return GenerateWrapper(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                return GenerateWrapper(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
             }
             else if (interfaceTypeDef.IsUpdated)
             {
-                return GenerateExtension(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation);
+                return GenerateExtension(interfaceTypeDef, typeDefs, targetNamespace, helperPrefix, nullableAnnotation, useValueTaskType);
             }
             else
             {
@@ -695,7 +698,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
         string helperPrefix,
-        string nullableAnnotation)
+        string nullableAnnotation,
+        bool useValueTaskType)
     {
         var na = nullableAnnotation;
 
@@ -741,7 +745,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                AppendStaticFieldDelegateDeclarations(sb, field, nullableAnnotation, typeDefs);
+                AppendStaticFieldDelegateDeclarations(sb, field, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceConstructors.Count != 0)
@@ -749,7 +753,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                AppendInstanceConstructorDelegateDeclarations(sb, targetName, constructor, index, nullableAnnotation, typeDefs);
+                AppendInstanceConstructorDelegateDeclarations(sb, targetName, constructor, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -757,7 +761,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                AppendStaticPropertyDelegateDeclarations(sb, property, nullableAnnotation, typeDefs);
+                AppendStaticPropertyDelegateDeclarations(sb, property, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceProperties.Count != 0)
@@ -765,7 +769,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -773,7 +777,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, typeDefs);
+                AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceMethods.Count != 0)
@@ -781,7 +785,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -914,7 +918,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, field);
-            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, typeDefs)} {field.Name}");
+            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, useValueTaskType, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get {{ return {field.Name}GetterFunc(); }}");
             sb.AppendLine($"        }}");
@@ -924,7 +928,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
-            sb.AppendLine($"        public static {targetName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
+            sb.AppendLine($"        public static {targetName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, useValueTaskType, typeDefs)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
             sb.AppendLine($"        }}");
@@ -933,7 +937,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get {{ return {property.Name}GetterFunc(); }}");
             if (property.HasSetter)
@@ -946,7 +950,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}");
+            sb.AppendLine($"        public {GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} {property.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get {{ return {property.Name}GetterFunc(wrappedObject); }}");
             if (property.HasSetter)
@@ -993,7 +997,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
             sb.AppendLine($"        }}");
@@ -1002,7 +1006,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs)})");
+            sb.AppendLine($"        public {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "wrappedObject")});");
             sb.AppendLine($"        }}");
@@ -1047,7 +1051,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         string targetNamespace,
         string helperPrefix,
-        string nullableAnnotation)
+        string nullableAnnotation,
+        bool useValueTaskType)
     {
         var targetName = typeDef.GeneratedName;
 
@@ -1085,7 +1090,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var field in staticFields)
             {
-                AppendStaticFieldDelegateDeclarations(sb, field, nullableAnnotation, typeDefs);
+                AppendStaticFieldDelegateDeclarations(sb, field, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceConstructors.Count != 0)
@@ -1093,7 +1098,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (constructor, index) in GetWithIndex(instanceConstructors))
             {
-                AppendInstanceConstructorDelegateDeclarations(sb, typeDef.FullName, constructor, index, nullableAnnotation, typeDefs);
+                AppendInstanceConstructorDelegateDeclarations(sb, typeDef.FullName, constructor, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (staticProperties.Count != 0)
@@ -1101,7 +1106,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in staticProperties)
             {
-                AppendStaticPropertyDelegateDeclarations(sb, property, nullableAnnotation, typeDefs);
+                AppendStaticPropertyDelegateDeclarations(sb, property, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceProperties.Count != 0)
@@ -1109,7 +1114,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var property in instanceProperties)
             {
-                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, typeDefs);
+                AppendInstancePropertyDelegateDeclarations(sb, property, fullBaseTypeName, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceEvents.Count != 0)
@@ -1117,7 +1122,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var @event in instanceEvents)
             {
-                AppendInstanceEventDelegateDeclarations(sb, @event, fullBaseTypeName, typeDefs);
+                AppendInstanceEventDelegateDeclarations(sb, @event, fullBaseTypeName, useValueTaskType, typeDefs);
             }
         }
         if (staticMethods.Count != 0)
@@ -1125,7 +1130,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (method, index) in GetWithIndex(staticMethods))
             {
-                AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, typeDefs);
+                AppendStaticMethodDelegateDeclaration(sb, method, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (instanceMethods.Count != 0)
@@ -1133,7 +1138,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.AppendLine();
             foreach (var (method, index) in GetWithIndex(instanceMethods))
             {
-                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, typeDefs);
+                AppendInstanceMethodDelegateDeclaration(sb, method, fullBaseTypeName, index, nullableAnnotation, useValueTaskType, typeDefs);
             }
         }
         if (staticFields.Count != 0)
@@ -1278,7 +1283,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             Assert.IsTrue(field.IsReadOnly, "Unexpected non-readonly static field");
             sb.AppendLine();
             AppendMemberSummary(sb, field);
-            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, typeDefs)} {field.Name}");
+            sb.AppendLine($"        public static {GetFieldTypeDeclText(field, nullableAnnotation, useValueTaskType, typeDefs)} {field.Name}");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            get {{ return {field.Name}GetterFunc(); }}");
             sb.AppendLine($"        }}");
@@ -1287,7 +1292,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, constructor);
-            sb.AppendLine($"        public static global::{fullBaseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, typeDefs)})");
+            sb.AppendLine($"        public static global::{fullBaseTypeName} Create({GetParametersDeclText(constructor.Parameters, nullableAnnotation, useValueTaskType, typeDefs)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return ConstructorFunc{index}({GetArgumentsText(constructor.Parameters, null)});");
             sb.AppendLine($"        }}");
@@ -1296,7 +1301,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}()");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} {property.Name}()");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return {property.Name}GetterFunc();");
             sb.AppendLine($"        }}");
@@ -1304,7 +1309,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
-                sb.AppendLine($"        public static void Set{property.Name}({GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} _value)");
+                sb.AppendLine($"        public static void Set{property.Name}({GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} _value)");
                 sb.AppendLine($"        {{");
                 sb.AppendLine($"            {property.Name}SetterFunc(_value);");
                 sb.AppendLine($"        }}");
@@ -1314,7 +1319,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, property);
-            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} {property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj)");
+            sb.AppendLine($"        public static {GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} {property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj)");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            return {property.Name}GetterFunc(_obj);");
             sb.AppendLine($"        }}");
@@ -1322,7 +1327,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 sb.AppendLine();
                 AppendMemberSummary(sb, property);
-                sb.AppendLine($"        public static void Set{property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, nullableAnnotation, typeDefs)} _value)");
+                sb.AppendLine($"        public static void Set{property.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetPropertyTypeDeclText(property, nullableAnnotation, useValueTaskType, typeDefs)} _value)");
                 sb.AppendLine($"        {{");
                 sb.AppendLine($"            {property.Name}SetterFunc(_obj, _value);");
                 sb.AppendLine($"        }}");
@@ -1332,13 +1337,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Add{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Add{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, useValueTaskType, typeDefs)} _delegate)");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {@event.Name}AdderFunc(_obj, _delegate);");
             sb.AppendLine($"        }}");
             sb.AppendLine();
             AppendMemberSummary(sb, @event);
-            sb.AppendLine($"        public static void Remove{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, typeDefs)} _delegate)");
+            sb.AppendLine($"        public static void Remove{@event.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj, {GetEventTypeDeclText(@event, useValueTaskType, typeDefs)} _delegate)");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {@event.Name}RemoverFunc(_obj, _delegate);");
             sb.AppendLine($"        }}");
@@ -1347,7 +1352,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs)} {methodDef.Name}({GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs, isExtensionMethod: methodDef.IsExtensionMethod)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, null)});");
             sb.AppendLine($"        }}");
@@ -1356,7 +1361,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine();
             AppendMemberSummary(sb, methodDef);
-            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs)} {methodDef.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, true)})");
+            sb.AppendLine($"        public static {GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs)} {methodDef.Name}(this global::{typeDef.Namespace}.{typeDef.Name} _obj{GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs, true)})");
             sb.AppendLine($"        {{");
             sb.AppendLine($"            {(methodDef.ReturnType != null ? "return " : "")}{methodDef.Name}Func{index}({GetArgumentsText(methodDef.Parameters, "_obj")});");
             sb.AppendLine($"        }}");
@@ -1582,10 +1587,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         StringBuilder sb,
         FieldDefinition fieldDef,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
-        sb.Append(GetFieldTypeDeclText(fieldDef, nullableAnnotation, typeDefs));
+        sb.Append(GetFieldTypeDeclText(fieldDef, nullableAnnotation, useValueTaskType, typeDefs));
         sb.AppendLine($" {fieldDef.Name}GetterDelegate();");
 
         Assert.IsTrue(fieldDef.IsReadOnly, "Unexpected non-readonly static field");
@@ -1594,10 +1600,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static string GetFieldTypeDeclText(
         FieldDefinition fieldDef,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, fieldDef.Type, typeDefs);
+        AppendTypeDeclText(sb, fieldDef.Type, typeDefs, useValueTaskType);
         AppendNullableAnnotation(sb, fieldDef.Type, fieldDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
@@ -1609,11 +1616,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         ConstructorDefinition constructorDef,
         int index,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate {targetName}");
         sb.Append($" ConstructorDelegate{index}(");
-        sb.Append(GetParametersDeclText(constructorDef.Parameters, nullableAnnotation, typeDefs));
+        sb.Append(GetParametersDeclText(constructorDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs));
         sb.AppendLine($");");
     }
 
@@ -1621,17 +1629,18 @@ namespace Microsoft.CodeAnalysis.Lightup
         StringBuilder sb,
         PropertyDefinition propertyDef,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
-        sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs));
+        sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, useValueTaskType, typeDefs));
         sb.AppendLine($" {propertyDef.Name}GetterDelegate();");
 
         if (propertyDef.HasSetter)
         {
             sb.Append($"        private delegate void ");
             sb.Append($"{propertyDef.Name}SetterDelegate(");
-            sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs)} _value);");
+            sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, useValueTaskType, typeDefs)} _value);");
         }
     }
 
@@ -1640,27 +1649,29 @@ namespace Microsoft.CodeAnalysis.Lightup
         PropertyDefinition propertyDef,
         string fullBaseTypeName,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
-        sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs));
+        sb.Append(GetPropertyTypeDeclText(propertyDef, nullableAnnotation, useValueTaskType, typeDefs));
         sb.AppendLine($" {propertyDef.Name}GetterDelegate(global::{fullBaseTypeName} _obj);");
 
         if (propertyDef.HasSetter)
         {
             sb.Append($"        private delegate void ");
             sb.Append($"{propertyDef.Name}SetterDelegate({fullBaseTypeName} _obj, ");
-            sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, typeDefs)} _value);");
+            sb.AppendLine($"{GetPropertyTypeDeclText(propertyDef, nullableAnnotation, useValueTaskType, typeDefs)} _value);");
         }
     }
 
     private static string GetPropertyTypeDeclText(
         PropertyDefinition propertyDef,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, propertyDef.Type, typeDefs);
+        AppendTypeDeclText(sb, propertyDef.Type, typeDefs, useValueTaskType);
         AppendNullableAnnotation(sb, propertyDef.Type, propertyDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
@@ -1670,21 +1681,23 @@ namespace Microsoft.CodeAnalysis.Lightup
         StringBuilder sb,
         EventDefinition propertyDef,
         string fullBaseTypeName,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}AdderDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}AdderDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, useValueTaskType, typeDefs)} _delegate);");
 
         sb.Append($"        private delegate void");
-        sb.AppendLine($" {propertyDef.Name}RemoverDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, typeDefs)} _delegate);");
+        sb.AppendLine($" {propertyDef.Name}RemoverDelegate(global::{fullBaseTypeName} _obj, {GetEventTypeDeclText(propertyDef, useValueTaskType, typeDefs)} _delegate);");
     }
 
     private static string GetEventTypeDeclText(
         EventDefinition eventDef,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, eventDef.Type, typeDefs);
+        AppendTypeDeclText(sb, eventDef.Type, typeDefs, useValueTaskType);
         var result = sb.ToString();
         return result;
     }
@@ -1694,12 +1707,13 @@ namespace Microsoft.CodeAnalysis.Lightup
         MethodDefinition methodDef,
         int index,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
-        sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs));
+        sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs));
         sb.Append($" {methodDef.Name}Delegate{index}(");
-        sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, addLeadingComma: false));
+        sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs, addLeadingComma: false));
         sb.AppendLine(");");
     }
 
@@ -1709,24 +1723,26 @@ namespace Microsoft.CodeAnalysis.Lightup
         string fullBaseTypeName,
         int index,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         sb.Append($"        private delegate ");
-        sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, typeDefs));
+        sb.Append(GetMethodReturnTypeDeclText(methodDef, nullableAnnotation, useValueTaskType, typeDefs));
         sb.Append($" {methodDef.Name}Delegate{index}(global::{fullBaseTypeName} _obj");
-        sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, typeDefs, addLeadingComma: true));
+        sb.Append(GetParametersDeclText(methodDef.Parameters, nullableAnnotation, useValueTaskType, typeDefs, addLeadingComma: true));
         sb.AppendLine(");");
     }
 
     private static string GetMethodReturnTypeDeclText(
         MethodDefinition methodDef,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var sb = new StringBuilder();
         if (methodDef.ReturnType != null)
         {
-            AppendTypeDeclText(sb, methodDef.ReturnType, typeDefs);
+            AppendTypeDeclText(sb, methodDef.ReturnType, typeDefs, useValueTaskType);
             AppendNullableAnnotation(sb, methodDef.ReturnType, methodDef.IsNullable, nullableAnnotation, typeDefs);
         }
         else
@@ -1740,6 +1756,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static string GetParametersDeclText(
         IEnumerable<ParameterDefinition> parameters,
         string nullableAnnotation,
+        bool useValueTaskType,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
         bool addLeadingComma = false,
         bool isExtensionMethod = false)
@@ -1752,7 +1769,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             sb.Append(isExtensionMethod ? "this " : "");
             sb.Append(parameter.IsParams ? "params " : "");
             sb.Append(ParameterModeText[parameter.Mode]);
-            sb.Append(GetParameterTypeDeclText(parameter, typeDefs, nullableAnnotation));
+            sb.Append(GetParameterTypeDeclText(parameter, typeDefs, nullableAnnotation, useValueTaskType));
             sb.Append(' ');
             sb.Append(GetParameterNameText(parameter.Name));
 
@@ -1766,10 +1783,11 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static string GetParameterTypeDeclText(
         ParameterDefinition parameterDef,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
-        string nullableAnnotation)
+        string nullableAnnotation,
+        bool useValueTaskType)
     {
         var sb = new StringBuilder();
-        AppendTypeDeclText(sb, parameterDef.Type, typeDefs);
+        AppendTypeDeclText(sb, parameterDef.Type, typeDefs, useValueTaskType);
         AppendNullableAnnotation(sb, parameterDef.Type, parameterDef.IsNullable, nullableAnnotation, typeDefs);
         var result = sb.ToString();
         return result;
@@ -1835,7 +1853,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     private static void AppendTypeDeclText(
         StringBuilder sb,
         TypeReference typeRef,
-        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
+        IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs,
+        bool useValueTaskType)
     {
         if (typeRef is GenericTypeReference genericTypeRef)
         {
@@ -1843,9 +1862,14 @@ namespace Microsoft.CodeAnalysis.Lightup
             {
                 sb.Append("global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper");
             }
+            else if (IsValueTask(genericTypeRef) && !useValueTaskType)
+            {
+                // NOTE: System.Threading.Tasks.ValueTask<T> is not available in the consuming project, so Task<T> is used instead
+                sb.Append("global::System.Threading.Tasks.Task");
+            }
             else
             {
-                AppendTypeDeclText(sb, genericTypeRef.OriginalType, typeDefs);
+                AppendTypeDeclText(sb, genericTypeRef.OriginalType, typeDefs, useValueTaskType);
             }
 
             sb.Append("<");
@@ -1855,13 +1879,13 @@ namespace Microsoft.CodeAnalysis.Lightup
                 {
                     sb.Append(", ");
                 }
-                AppendTypeDeclText(sb, genericTypeRef.TypeArguments[i], typeDefs);
+                AppendTypeDeclText(sb, genericTypeRef.TypeArguments[i], typeDefs, useValueTaskType);
             }
             sb.Append('>');
         }
         else if (typeRef is ArrayTypeReference arrayTypeRef)
         {
-            AppendTypeDeclText(sb, arrayTypeRef.ElementType, typeDefs);
+            AppendTypeDeclText(sb, arrayTypeRef.ElementType, typeDefs, useValueTaskType);
             sb.Append("[]");
         }
         else if (typeRef is NamedTypeReference namedTypeRef)
@@ -1952,6 +1976,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         return true;
+    }
+
+    private static bool IsValueTask(GenericTypeReference genericTypeRef)
+    {
+        if (genericTypeRef.OriginalType is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        return namedTypeRef.Namespace == "System.Threading.Tasks" && namedTypeRef.Name == "ValueTask";
     }
 
     private static string GetGeneratedFilePath(BaseTypeDefinition typeDef, bool useFoldersInFilePaths)

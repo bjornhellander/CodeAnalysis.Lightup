@@ -452,21 +452,26 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
 
-                var conversionLambdaParameter = Expression.Parameter(
-                    typeof(Task<>).MakeGenericType(nativeItemType));
+                // NOTE: The wrapped method may natively return either Task<T> or ValueTask<T>. The generated wrapper declares Task<T> for
+                // this member specifically when ValueTask<T> is not available in the consuming project (see the generator's useValueTaskType).
+                var taskInput = ValueTaskHelpers.IsValueTaskType(input.Type)
+                    ? Expression.Call(input, ValueTaskHelpers.GetAsTaskMethod(nativeItemType))
+                    : input;
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
                 var conversionLambda = Expression.Lambda(
-                    GetPossiblyWrappedValue(
-                        Expression.Property(conversionLambdaParameter, "Result"),
-                        wrapperItemType),
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
                 var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
-                var result = Expression.Call(input, continueWithMethod, conversionLambda);
+                var result = Expression.Call(continueWithMethod, taskInput, conversionLambda);
 
                 return result;
             }
             else if (ValueTaskHelpers.IsValueTaskType(targetType))
             {
+                // NOTE: The generator declares wrapper members as returning ValueTask<T> when it's available in the consuming project
+                // (see the generator's useValueTaskType), otherwise it uses Task<T>.
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
 
@@ -478,7 +483,7 @@ namespace CodeAnalysis.Lightup.Runtime
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var continueWithMethod = ValueTaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
+                var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
                 var continuedTask = Expression.Call(continueWithMethod, task, conversionLambda);
 
                 var valueTaskConstructor = ValueTaskHelpers.GetTaskConstructor(wrapperItemType);
