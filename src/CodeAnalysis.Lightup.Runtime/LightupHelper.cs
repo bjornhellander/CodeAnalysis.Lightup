@@ -465,10 +465,13 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
-            else if (targetType.IsGenericType() && targetType.GetGenericTypeDefinition() == typeof(ValueTask<>))
+            else if (ValueTaskHelpers.IsValueTaskType(targetType))
             {
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
+
+                var asTaskMethod = ValueTaskHelpers.GetAsTaskMethod(nativeItemType);
+                var task = Expression.Call(input, asTaskMethod);
 
                 var conversionLambdaParameter = Expression.Parameter(nativeItemType);
                 var conversionLambda = Expression.Lambda(
@@ -476,7 +479,10 @@ namespace CodeAnalysis.Lightup.Runtime
                     conversionLambdaParameter);
 
                 var continueWithMethod = ValueTaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
-                var result = Expression.Call(continueWithMethod, input, conversionLambda);
+                var continuedTask = Expression.Call(continueWithMethod, task, conversionLambda);
+
+                var valueTaskConstructor = ValueTaskHelpers.GetTaskConstructor(wrapperItemType);
+                var result = Expression.New(valueTaskConstructor, continuedTask);
 
                 return result;
             }
