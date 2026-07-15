@@ -34,6 +34,7 @@ public class LightupGenerator : IIncrementalGenerator
             out var baselineVersion,
             out var typesToInclude,
             out var useFoldersInFilePaths,
+            out var useInternalAccessibility,
             out var _))
         {
             var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
@@ -45,6 +46,7 @@ public class LightupGenerator : IIncrementalGenerator
                 useNullableAnnotation,
                 hasValueTaskType,
                 useFoldersInFilePaths,
+                useInternalAccessibility,
                 types);
         }
     }

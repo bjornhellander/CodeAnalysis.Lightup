@@ -318,6 +318,25 @@ public class ConfigurationAnalyzerTests
         await test.RunAsync();
     }
 
+    [TestMethod]
+    [DataRow("")]
+    [DataRow("Xyz")]
+    public async Task TestIncorrectUseInternalAccessibilityAttribute(string useInternalAccessibilityValue)
+    {
+        var content = $@"
+{{
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
+	""baselineVersion"":  ""3.0.0.0"",
+    ""useFoldersInFilePaths"": false,
+    ""useInternalAccessibility"": ""{useInternalAccessibilityValue}""
+}}";
+
+        var test = CreateTest("CodeAnalysis.Lightup.json", content);
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'useInternalAccessibility' attribute value. Expected a boolean.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
     private static VerifyCS.Test CreateTest(string? fileName, string? content = null)
     {
         var test = new VerifyCS.Test();

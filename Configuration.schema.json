@@ -37,6 +37,11 @@
       "description": "If generated files should be added in a folder structure or not. Necessary to set to false when generating using Roslyn versions before 4.6.0.0.",
       "type": "boolean",
       "default": true
+    },
+    "useInternalAccessibility": {
+      "description": "If generated types should be internal instead of public.",
+      "type": "boolean",
+      "default": false
     }
   },
   "required": [

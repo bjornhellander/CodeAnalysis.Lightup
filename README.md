@@ -30,6 +30,7 @@ The configuration file supports these settings:
 * assemblies - Specifies which Roslyn parts that code should be generated for. Expressed using the NuGet package names.
 * includeTypes - Specifies which types to generate code for. All available types will be generated unless this setting is specified.
 * useFoldersInFilePaths - Specifies whether or not to place generated files in a folder structure. Needs to be set to false when compiling using an older Roslyn version than 4.6.0.
+* useInternalAccessibility - Specifies whether generated types should be internal instead of public. Defaults to false.
 
 Example configuration file, appropriate for an analyzer project requiring Roslyn 3.0.0 (Visual Studio 2019 RTM):
 ```json

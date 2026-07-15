@@ -81,6 +81,7 @@ internal class Writer
     private readonly string nullableAnnotation;
     private readonly bool useValueTaskType;
     private readonly bool useFoldersInFilePaths;
+    private readonly string typeAccessibility;
     private readonly IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs;
 
     private Writer(
@@ -89,6 +90,7 @@ internal class Writer
         string nullableAnnotation,
         bool useValueTaskType,
         bool useFoldersInFilePaths,
+        string typeAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         this.context = context;
@@ -96,6 +98,7 @@ internal class Writer
         this.nullableAnnotation = nullableAnnotation;
         this.useValueTaskType = useValueTaskType;
         this.useFoldersInFilePaths = useFoldersInFilePaths;
+        this.typeAccessibility = typeAccessibility;
         this.typeDefs = typeDefs;
     }
 
@@ -106,10 +109,12 @@ internal class Writer
         bool useNullableContext,
         bool useValueTaskType,
         bool useFoldersInFilePaths,
+        bool useInternalAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var nullableAnnotation = useNullableContext ? "?" : "";
-        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useFoldersInFilePaths, typeDefs);
+        var typeAccessibility = useInternalAccessibility ? "internal" : "public";
+        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useFoldersInFilePaths, typeAccessibility, typeDefs);
         writer.Write(assemblyKinds);
     }
 
@@ -169,7 +174,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 
 namespace Microsoft.CodeAnalysis.Lightup
 {{
-    public struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
+    {typeAccessibility} struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
         where TNode : struct
     {{
         public static readonly global::System.Type{na} WrappedType;
@@ -621,7 +626,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
     }
 
-    private static string GenerateNewEnum(
+    private string GenerateNewEnum(
         EnumTypeDefinition typeDef,
         string targetNamespace)
     {
@@ -640,7 +645,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         {
             sb.AppendLine($"    [System.Flags]");
         }
-        sb.AppendLine($"    public enum {targetName} : global::{typeDef.UnderlyingTypeName}");
+        sb.AppendLine($"    {typeAccessibility} enum {targetName} : global::{typeDef.UnderlyingTypeName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {
@@ -679,7 +684,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public static partial class {targetName}");
+        sb.AppendLine($"    {typeAccessibility} static partial class {targetName}");
         sb.AppendLine($"    {{");
         foreach (var value in newValues)
         {
@@ -749,7 +754,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"{{");
         AppendEnclosingTypesStart(sb, typeDef.EnclosingTypeFullName);
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public partial struct {targetName}");
+        sb.AppendLine($"    {typeAccessibility} partial struct {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
@@ -1043,7 +1048,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var enclosingType = typeDefs[enclosingTypeFullName];
             AppendEnclosingTypesStart(sb, enclosingType.EnclosingTypeFullName);
             var typeKeyword = enclosingType.AssemblyVersion != null ? "struct" : "class";
-            sb.AppendLine($"public partial {typeKeyword} {enclosingType.GeneratedName} {{");
+            sb.AppendLine($"{typeAccessibility} partial {typeKeyword} {enclosingType.GeneratedName} {{");
         }
     }
 
@@ -1092,7 +1097,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"namespace {targetNamespace}");
         sb.AppendLine($"{{");
         AppendTypeSummary(sb, typeDef);
-        sb.AppendLine($"    public static partial class {targetName}");
+        sb.AppendLine($"    {typeAccessibility} static partial class {targetName}");
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         if (staticFields.Count != 0)
