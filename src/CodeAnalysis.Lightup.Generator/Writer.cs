@@ -143,7 +143,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     public struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
         where TNode : struct
     {{
-        private static readonly global::System.Type{na} WrappedType;
+        public static readonly global::System.Type{na} WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate int SeparatorCountDelegate(object obj);
@@ -739,7 +739,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         sb.AppendLine($"    {{");
         sb.AppendLine($"        private const string WrappedTypeName = \"{typeDef.FullName}\";");
         sb.AppendLine();
-        sb.AppendLine($"        private static readonly global::System.Type{na} WrappedType;");
+        sb.AppendLine($"        /// <summary>The wrapped type.</summary>");
+        sb.AppendLine($"        public static readonly global::System.Type{na} WrappedType;");
         if (staticFields.Count != 0)
         {
             sb.AppendLine();

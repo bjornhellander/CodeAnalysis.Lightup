@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ErrorLogOptions";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate ErrorLogOptionsWrapper ConstructorDelegate0(global::System.String path, global::Microsoft.CodeAnalysis.Lightup.SarifVersionEx sarifVersion);
 

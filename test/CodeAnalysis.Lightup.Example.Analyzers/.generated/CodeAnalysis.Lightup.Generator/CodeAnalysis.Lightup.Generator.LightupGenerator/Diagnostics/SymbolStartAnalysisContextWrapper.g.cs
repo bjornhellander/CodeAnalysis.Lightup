@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Diagnostics.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Threading.CancellationToken CancellationTokenGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.Compilation CompilationGetterDelegate(global::System.Object _obj);

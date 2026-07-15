@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.OperationVisitor";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate void DefaultVisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation operation);
         private delegate void VisitDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.IOperation? operation);

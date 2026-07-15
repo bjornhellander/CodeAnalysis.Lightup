@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.LoadTextOptions";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate LoadTextOptionsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Text.SourceHashAlgorithm checksumAlgorithm);
 

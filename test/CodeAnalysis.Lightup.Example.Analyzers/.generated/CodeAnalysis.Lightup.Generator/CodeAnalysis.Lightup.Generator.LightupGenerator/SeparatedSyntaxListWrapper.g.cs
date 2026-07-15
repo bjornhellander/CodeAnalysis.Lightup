@@ -8,7 +8,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     public struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
         where TNode : struct
     {
-        private static readonly global::System.Type? WrappedType;
+        public static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate int SeparatorCountDelegate(object obj);

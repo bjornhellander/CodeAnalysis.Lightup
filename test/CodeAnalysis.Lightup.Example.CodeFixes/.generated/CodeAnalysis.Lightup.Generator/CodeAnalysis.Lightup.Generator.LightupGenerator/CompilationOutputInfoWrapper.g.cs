@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CompilationOutputInfo";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::System.Object _obj);

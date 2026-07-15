@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.CodeRefactorings.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CodeRefactorings.RefactorAllProvider";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllProviderWrapper CreateDelegate0(global::System.Func<global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllContextWrapper, global::Microsoft.CodeAnalysis.Document, global::Microsoft.CodeAnalysis.Optional<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Text.TextSpan>>, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> refactorAllAsync);
         private delegate global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllProviderWrapper CreateDelegate1(global::System.Func<global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllContextWrapper, global::Microsoft.CodeAnalysis.Document, global::Microsoft.CodeAnalysis.Optional<global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Text.TextSpan>>, global::System.Threading.Tasks.Task<global::Microsoft.CodeAnalysis.Document>> refactorAllAsync, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CodeRefactorings.Lightup.RefactorAllScopeEx> supportedRefactorAllScopes);

@@ -16,7 +16,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     public struct SeparatedSyntaxListWrapper<TNode> : global::System.Collections.Generic.IEnumerable<TNode>
         where TNode : struct
     {
-        private static readonly global::System.Type? WrappedType;
+        public static readonly global::System.Type? WrappedType;
 
         private delegate int CountDelegate(object obj);
         private delegate int SeparatorCountDelegate(object obj);
@@ -629,7 +629,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.SourceGeneratedDocument"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
@@ -908,7 +909,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.AnalyzerConfigDocument"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private readonly global::Microsoft.CodeAnalysis.TextDocument wrappedObject;
 
@@ -969,7 +971,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.CompilationOutputInfo"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String? AssemblyPathGetterDelegate(global::System.Object _obj);
         private delegate global::System.String? GeneratedFilesOutputDirectoryGetterDelegate(global::System.Object _obj);
@@ -1069,7 +1072,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Host.LanguageServices"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String LanguageGetterDelegate(global::System.Object _obj);
         private delegate global::Microsoft.CodeAnalysis.Host.Lightup.SolutionServicesWrapper SolutionServicesGetterDelegate(global::System.Object _obj);
@@ -1139,7 +1143,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Host.SolutionServices"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguagesGetterDelegate(global::System.Object _obj);
 
@@ -1221,7 +1226,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.SourceGeneratedDocument"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.String HintNameGetterDelegate(global::Microsoft.CodeAnalysis.Document _obj);
 
@@ -1388,7 +1394,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.Operations.IConstructorBodyOperation"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IOperation? InitializerGetterDelegate(global::System.Object _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ILocalSymbol> LocalsGetterDelegate(global::System.Object _obj);
@@ -1472,7 +1479,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.DocumentActiveContextChangedEventArgs"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate DocumentActiveContextChangedEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Solution solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId newActiveContextDocumentId);
 
@@ -1590,7 +1598,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = ""Microsoft.CodeAnalysis.CSharp.Syntax.ListPatternSyntax"";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken CloseBracketTokenGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.VariableDesignationSyntax? DesignationGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax _obj);
