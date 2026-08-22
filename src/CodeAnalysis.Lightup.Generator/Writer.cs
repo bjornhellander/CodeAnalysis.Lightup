@@ -80,6 +80,7 @@ internal class Writer
     private readonly List<string> typesToInclude;
     private readonly string nullableAnnotation;
     private readonly bool useValueTaskType;
+    private readonly bool useReadOnlySpanType;
     private readonly bool useFoldersInFilePaths;
     private readonly string typeAccessibility;
     private readonly IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs;
@@ -89,6 +90,7 @@ internal class Writer
         List<string> typesToInclude,
         string nullableAnnotation,
         bool useValueTaskType,
+        bool useReadOnlySpanType,
         bool useFoldersInFilePaths,
         string typeAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
@@ -97,6 +99,7 @@ internal class Writer
         this.typesToInclude = typesToInclude;
         this.nullableAnnotation = nullableAnnotation;
         this.useValueTaskType = useValueTaskType;
+        this.useReadOnlySpanType = useReadOnlySpanType;
         this.useFoldersInFilePaths = useFoldersInFilePaths;
         this.typeAccessibility = typeAccessibility;
         this.typeDefs = typeDefs;
@@ -108,13 +111,14 @@ internal class Writer
         List<string> typesToInclude,
         bool useNullableContext,
         bool useValueTaskType,
+        bool useReadOnlySpanType,
         bool useFoldersInFilePaths,
         bool useInternalAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var nullableAnnotation = useNullableContext ? "?" : "";
         var typeAccessibility = useInternalAccessibility ? "internal" : "public";
-        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useFoldersInFilePaths, typeAccessibility, typeDefs);
+        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useReadOnlySpanType, useFoldersInFilePaths, typeAccessibility, typeDefs);
         writer.Write(assemblyKinds);
     }
 
@@ -1840,6 +1844,11 @@ namespace Microsoft.CodeAnalysis.Lightup
                 // NOTE: System.Threading.Tasks.ValueTask<T> is not available in the consuming project, so Task<T> is used instead
                 sb.Append("global::System.Threading.Tasks.Task");
             }
+            else if (IsReadOnlySpan(genericTypeRef) && !useReadOnlySpanType)
+            {
+                // NOTE: System.ReadOnlySpan<T> is not available in the consuming project, so List<T> is used instead
+                sb.Append("global::System.Collections.Generic.List");
+            }
             else
             {
                 AppendTypeDeclText(sb, genericTypeRef.OriginalType);
@@ -1957,6 +1966,16 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         return namedTypeRef.Namespace == "System.Threading.Tasks" && namedTypeRef.Name == "ValueTask";
+    }
+
+    private static bool IsReadOnlySpan(GenericTypeReference genericTypeRef)
+    {
+        if (genericTypeRef.OriginalType is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        return namedTypeRef.Namespace == "System" && namedTypeRef.Name == "ReadOnlySpan";
     }
 
     private static string GetGeneratedFilePath(BaseTypeDefinition typeDef, bool useFoldersInFilePaths)

@@ -651,6 +651,28 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
+            else if (ReadOnlySpanHelpers.IsReadOnlySpanType(nativeType))
+            {
+                // List<X> where X is possibly a wrapper, since System.ReadOnlySpan<T> may not be available in the consuming project
+                var wrapperItemType = wrapperType.GenericTypeArguments[0];
+                var nativeItemType = nativeType.GenericTypeArguments[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = EnumerableHelpers.GetSelectMethod(wrapperItemType, nativeItemType);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = EnumerableHelpers.GetToArrayMethod(nativeItemType);
+                var array = Expression.Call(toArrayMethod, temp);
+
+                var spanConstructor = ReadOnlySpanHelpers.GetArrayConstructor(nativeType, nativeItemType);
+                var result = Expression.New(spanConstructor, array);
+
+                return result;
+            }
             else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(EventHandler<>))
             {
                 // EventHandler<X> where X is a wrapper

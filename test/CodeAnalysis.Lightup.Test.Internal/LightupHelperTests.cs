@@ -195,6 +195,41 @@ public class LightupHelperTests
 
         await Assert.ThrowsExactlyAsync<ArgumentException>(async () => await wrapper.Method6(arg));
     }
+
+    // NOTE: Covers wrapping a native ReadOnlySpan<T>-taking method as taking List<T> instead (since ReadOnlySpan<T> is not
+    // guaranteed to be available), where T is a primitive type
+    [TestMethod]
+    [DataRow("")]
+    [DataRow("a")]
+    [DataRow("hello")]
+    public void TestMethodWithParameterReadOnlySpanOfCharAsList(string arg)
+    {
+        var native = new TestClass1();
+        var wrapper = TestClass1Wrapper.Wrap(native);
+        Assert.IsNotNull(wrapper.Unwrap());
+
+        var returnValue = wrapper.Method7(arg.ToList());
+
+        Assert.AreEqual(arg.Length, returnValue);
+    }
+
+    // NOTE: Covers wrapping a native ReadOnlySpan<T>-taking method as taking List<T> instead, where T is itself a wrapper
+    [TestMethod]
+    [DataRow(31)]
+    [DataRow(77)]
+    public void TestMethodWithParameterReadOnlySpanOfWrapperAsList(int value)
+    {
+        var native = new TestClass1();
+        var wrapper = TestClass1Wrapper.Wrap(native);
+        Assert.IsNotNull(wrapper.Unwrap());
+
+        var nativeValue = new TestStruct1 { Value = value };
+        var wrapperValue = TestStruct1Wrapper.Wrap(nativeValue);
+
+        var returnValue = wrapper.Method8([wrapperValue]);
+
+        Assert.AreEqual(value, returnValue);
+    }
 }
 
 #pragma warning disable IDE0251 // Make member 'readonly'
@@ -254,6 +289,16 @@ public class TestClass1
                 throw new NotImplementedException($"Value: {arg1}");
         }
     }
+
+    public int Method7(ReadOnlySpan<char> arg1)
+    {
+        return arg1.Length;
+    }
+
+    public int Method8(ReadOnlySpan<TestStruct1> arg1)
+    {
+        return arg1[0].Value;
+    }
 }
 
 public struct TestStruct1
@@ -306,6 +351,8 @@ public struct TestClass1Wrapper
     private delegate int Method4Delegate(object obj, int arg1, Func<TestStruct1Wrapper, int, int> arg2);
     private delegate ValueTask<TestStruct1Wrapper> Method5Delegate(object obj, string arg1);
     private delegate Task<TestStruct1Wrapper> Method6Delegate(object obj, string arg1);
+    private delegate int Method7Delegate(object obj, List<char> arg1);
+    private delegate int Method8Delegate(object obj, List<TestStruct1Wrapper> arg1);
 
     private static readonly Property1GetterDelegate Property1GetterFunc;
     private static readonly Property2GetterDelegate Property2GetterFunc;
@@ -316,6 +363,8 @@ public struct TestClass1Wrapper
     private static readonly Method4Delegate Methods4Func;
     private static readonly Method5Delegate Methods5Func;
     private static readonly Method6Delegate Methods6Func;
+    private static readonly Method7Delegate Methods7Func;
+    private static readonly Method8Delegate Methods8Func;
 
     private readonly object wrappedObject;
 
@@ -332,6 +381,8 @@ public struct TestClass1Wrapper
         Methods4Func = TestLightupHelper.CreateInstanceMethodAccessor<Method4Delegate>(WrappedType, "Method4", "arg1Int32", "arg2Func`3");
         Methods5Func = TestLightupHelper.CreateInstanceMethodAccessor<Method5Delegate>(WrappedType, "Method5", "arg1String");
         Methods6Func = TestLightupHelper.CreateInstanceMethodAccessor<Method6Delegate>(WrappedType, "Method5", "arg1String");
+        Methods7Func = TestLightupHelper.CreateInstanceMethodAccessor<Method7Delegate>(WrappedType, "Method7", "arg1ReadOnlySpan`1");
+        Methods8Func = TestLightupHelper.CreateInstanceMethodAccessor<Method8Delegate>(WrappedType, "Method8", "arg1ReadOnlySpan`1");
     }
 
     private TestClass1Wrapper(object obj)
@@ -376,6 +427,12 @@ public struct TestClass1Wrapper
 
     public Task<TestStruct1Wrapper> Method6(string arg1)
         => Methods6Func(wrappedObject, arg1);
+
+    public int Method7(List<char> arg1)
+        => Methods7Func(wrappedObject, arg1);
+
+    public int Method8(List<TestStruct1Wrapper> arg1)
+        => Methods8Func(wrappedObject, arg1);
 }
 
 public struct TestStruct1Wrapper

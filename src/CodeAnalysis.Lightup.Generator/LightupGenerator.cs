@@ -17,16 +17,17 @@ public class LightupGenerator : IIncrementalGenerator
         {
             var languageVersion = (compilation as CSharpCompilation)?.LanguageVersion;
             var hasValueTaskType = compilation.GetTypeByMetadataName("System.Threading.Tasks.ValueTask`1") != null;
-            return (languageVersion, hasValueTaskType);
+            var hasReadOnlySpanType = compilation.GetTypeByMetadataName("System.ReadOnlySpan`1") != null;
+            return (languageVersion, hasValueTaskType, hasReadOnlySpanType);
         });
 
         var generatorInput = configFileContents.Combine(compilationInfo);
         context.RegisterSourceOutput(
             generatorInput,
-            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType));
+            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType, input.Right.hasReadOnlySpanType));
     }
 
-    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType)
+    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType, bool hasReadOnlySpanType)
     {
         if (Helpers.TryParseConfiguration(
             configFileContent,
@@ -45,6 +46,7 @@ public class LightupGenerator : IIncrementalGenerator
                 typesToInclude,
                 useNullableAnnotation,
                 hasValueTaskType,
+                hasReadOnlySpanType,
                 useFoldersInFilePaths,
                 useInternalAccessibility,
                 types);
