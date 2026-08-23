@@ -2215,8 +2215,8 @@ namespace Microsoft.CodeAnalysis.Lightup
         });
 
         var configFileContent = $@"{{
-	{(assemblyKind != null ? $@"""assemblies"": [ ""{(assemblyKind != null ? AssemblyKindStrings[assemblyKind.Value] : "")}"" ]," : "")}
-	{(baselineVersion != null ? $@"""baselineVersion"": ""{baselineVersion}""," : "")}
+    {(assemblyKind != null ? $@"""assemblies"": [ ""{(assemblyKind != null ? AssemblyKindStrings[assemblyKind.Value] : "")}"" ]," : "")}
+    {(baselineVersion != null ? $@"""baselineVersion"": ""{baselineVersion}""," : "")}
     ""includeTypes"": [ {string.Join(", ", typesToInclude.Select(x => $@"""{x}"""))} ],
     ""useFoldersInFilePaths"": {(useFoldersInFilePaths.Value ? "true" : "false")},
     ""useInternalAccessibility"": {(useInternalAccessibility ? "true" : "false")}
