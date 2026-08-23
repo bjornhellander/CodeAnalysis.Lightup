@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.ISpreadOperation";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.Operations.Lightup.CommonConversionWrapper ElementConversionGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);
         private delegate global::Microsoft.CodeAnalysis.ITypeSymbol? ElementTypeGetterDelegate(global::Microsoft.CodeAnalysis.IOperation _obj);

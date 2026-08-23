@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.FlowAnalysis.CaptureId";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Boolean EqualsDelegate0(global::System.Object _obj, global::Microsoft.CodeAnalysis.FlowAnalysis.Lightup.CaptureIdWrapper other);
 

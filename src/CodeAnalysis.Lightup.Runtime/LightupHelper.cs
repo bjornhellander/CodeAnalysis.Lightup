@@ -5,7 +5,6 @@ namespace CodeAnalysis.Lightup.Runtime
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.Immutable;
     using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
@@ -415,7 +414,7 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrappedEnumValue = Expression.Convert(input, targetType);
                 return wrappedEnumValue;
             }
-            else if (targetType.IsGenericType() && targetType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (ImmutableArrayHelpers.IsImmutableArrayType(targetType))
             {
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
@@ -453,31 +452,42 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrapperItemType = targetType.GenericTypeArguments[0];
                 var nativeItemType = input.Type.GenericTypeArguments[0];
 
-                var conversionLambdaParameter = Expression.Parameter(
-                    typeof(Task<>).MakeGenericType(nativeItemType));
-                var conversionLambda = Expression.Lambda(
-                    GetPossiblyWrappedValue(
-                        Expression.Property(conversionLambdaParameter, "Result"),
-                        wrapperItemType),
-                    conversionLambdaParameter);
-
-                var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
-                var result = Expression.Call(input, continueWithMethod, conversionLambda);
-
-                return result;
-            }
-            else if (targetType.IsGenericType() && targetType.GetGenericTypeDefinition() == typeof(ValueTask<>))
-            {
-                var wrapperItemType = targetType.GenericTypeArguments[0];
-                var nativeItemType = input.Type.GenericTypeArguments[0];
+                // NOTE: The wrapped method may natively return either Task<T> or ValueTask<T>. The generated wrapper declares Task<T> for
+                // this member specifically when ValueTask<T> is not available in the consuming project (see the generator's useValueTaskType).
+                var taskInput = ValueTaskHelpers.IsValueTaskType(input.Type)
+                    ? Expression.Call(input, ValueTaskHelpers.GetAsTaskMethod(nativeItemType))
+                    : input;
 
                 var conversionLambdaParameter = Expression.Parameter(nativeItemType);
                 var conversionLambda = Expression.Lambda(
                     GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
                     conversionLambdaParameter);
 
-                var continueWithMethod = ValueTaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
-                var result = Expression.Call(continueWithMethod, input, conversionLambda);
+                var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
+                var result = Expression.Call(continueWithMethod, taskInput, conversionLambda);
+
+                return result;
+            }
+            else if (ValueTaskHelpers.IsValueTaskType(targetType))
+            {
+                // NOTE: The generator declares wrapper members as returning ValueTask<T> when it's available in the consuming project
+                // (see the generator's useValueTaskType), otherwise it uses Task<T>.
+                var wrapperItemType = targetType.GenericTypeArguments[0];
+                var nativeItemType = input.Type.GenericTypeArguments[0];
+
+                var asTaskMethod = ValueTaskHelpers.GetAsTaskMethod(nativeItemType);
+                var task = Expression.Call(input, asTaskMethod);
+
+                var conversionLambdaParameter = Expression.Parameter(nativeItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetPossiblyWrappedValue(conversionLambdaParameter, wrapperItemType),
+                    conversionLambdaParameter);
+
+                var continueWithMethod = TaskHelpers.GetContinueWithMethod(nativeItemType, wrapperItemType);
+                var continuedTask = Expression.Call(continueWithMethod, task, conversionLambda);
+
+                var valueTaskConstructor = ValueTaskHelpers.GetTaskConstructor(wrapperItemType);
+                var result = Expression.New(valueTaskConstructor, continuedTask);
 
                 return result;
             }
@@ -603,7 +613,7 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 return result;
             }
-            else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(ImmutableArray<>))
+            else if (ImmutableArrayHelpers.IsImmutableArrayType(wrapperType))
             {
                 // ImmutableArray<X> where X is a wrapper
                 var wrapperItemType = wrapperType.GenericTypeArguments[0];
@@ -638,6 +648,28 @@ namespace CodeAnalysis.Lightup.Runtime
 
                 var toArrayMethod = EnumerableHelpers.GetToArrayMethod(nativeItemType);
                 var result = Expression.Call(toArrayMethod, temp);
+
+                return result;
+            }
+            else if (ReadOnlySpanHelpers.IsReadOnlySpanType(nativeType))
+            {
+                // List<X> where X is possibly a wrapper, since System.ReadOnlySpan<T> may not be available in the consuming project
+                var wrapperItemType = wrapperType.GenericTypeArguments[0];
+                var nativeItemType = nativeType.GenericTypeArguments[0];
+
+                var conversionLambdaParameter = Expression.Parameter(wrapperItemType);
+                var conversionLambda = Expression.Lambda(
+                    GetNativeValue(conversionLambdaParameter, wrapperItemType, nativeItemType),
+                    conversionLambdaParameter);
+
+                var selectMethod = EnumerableHelpers.GetSelectMethod(wrapperItemType, nativeItemType);
+                var temp = Expression.Call(selectMethod, input, conversionLambda);
+
+                var toArrayMethod = EnumerableHelpers.GetToArrayMethod(nativeItemType);
+                var array = Expression.Call(toArrayMethod, temp);
+
+                var spanConstructor = ReadOnlySpanHelpers.GetArrayConstructor(nativeType, nativeItemType);
+                var result = Expression.New(spanConstructor, array);
 
                 return result;
             }

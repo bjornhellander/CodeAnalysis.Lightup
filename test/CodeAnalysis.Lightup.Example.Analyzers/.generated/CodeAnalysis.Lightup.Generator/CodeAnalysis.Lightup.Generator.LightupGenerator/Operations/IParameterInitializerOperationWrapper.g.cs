@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IParameterInitializerOperation";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.IParameterSymbol ParameterGetterDelegate(global::System.Object _obj);
 

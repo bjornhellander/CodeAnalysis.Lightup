@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Operations.IFieldInitializerOperation";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IFieldSymbol> InitializedFieldsGetterDelegate(global::System.Object _obj);
 

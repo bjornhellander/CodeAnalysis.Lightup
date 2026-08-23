@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Host.SolutionServices";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Collections.Generic.IEnumerable<global::System.String> SupportedLanguagesGetterDelegate(global::System.Object _obj);
 

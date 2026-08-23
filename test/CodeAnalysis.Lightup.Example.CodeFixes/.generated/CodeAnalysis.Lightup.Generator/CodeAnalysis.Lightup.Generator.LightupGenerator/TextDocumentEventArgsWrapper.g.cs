@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.TextDocumentEventArgs";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate TextDocumentEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.TextDocument document);
 

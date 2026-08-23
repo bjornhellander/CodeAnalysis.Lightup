@@ -6,7 +6,7 @@ namespace Microsoft.CodeAnalysis.Lightup
 {
     internal class CSharpWorkspacesLightupHelper : global::CodeAnalysis.Lightup.Runtime.LightupHelper
     {
-        private static readonly global::System.Reflection.Assembly Assembly = typeof(global::Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions).Assembly;
+        private static readonly global::System.Reflection.Assembly Assembly = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions)).Assembly;
 
         public static global::System.Type? FindType(string wrappedTypeName)
         {

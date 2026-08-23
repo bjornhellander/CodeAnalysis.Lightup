@@ -15,6 +15,12 @@ namespace CodeAnalysis.Lightup.Runtime.Extensions
             return type != null && (type.GetTypeInfo().IsPublic || type.GetTypeInfo().IsNestedPublic) ? type : null;
         }
 
+        public static Assembly GetAssembly(this Type type)
+        {
+            var result = type.GetTypeInfo().Assembly;
+            return result;
+        }
+
         public static bool IsValueType(this Type type)
         {
             var result = type.GetTypeInfo().IsValueType;

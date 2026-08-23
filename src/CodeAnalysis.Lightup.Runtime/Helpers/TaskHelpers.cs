@@ -1,4 +1,4 @@
-﻿// Copyright © Björn Hellander 2024
+// Copyright © Björn Hellander 2024
 // Licensed under the MIT License. See LICENSE.txt in the repository root for license information.
 
 namespace CodeAnalysis.Lightup.Runtime.Helpers
@@ -12,50 +12,20 @@ namespace CodeAnalysis.Lightup.Runtime.Helpers
     {
         public static MethodInfo GetContinueWithMethod(Type sourceItemType, Type resultItemType)
         {
-            var genericMethod = GetTaskContinueWithMethod(sourceItemType);
-            var specializedMethod = genericMethod.MakeGenericMethod(resultItemType);
+            var genericMethod = typeof(TaskContinuation).GetPublicMethod(nameof(TaskContinuation.ContinueWith));
+            var specializedMethod = genericMethod.MakeGenericMethod(sourceItemType, resultItemType);
             return specializedMethod;
         }
 
-        private static MethodInfo GetTaskContinueWithMethod(Type sourceItemType)
+        // NOTE: Task<T>.ContinueWith is not used here, since letting the continuation access a faulted antecedent's
+        // Result property causes the original exception to end up double-wrapped in AggregateException instances.
+        private static class TaskContinuation
         {
-            var result = typeof(Task<>).MakeGenericType(sourceItemType).GetMethod(x => IsTaskContinueWithMethod(x, sourceItemType));
-            return result;
-        }
-
-        private static bool IsTaskContinueWithMethod(MethodInfo method, Type sourceItemType)
-        {
-            if (method.Name != "ContinueWith")
+            public static async Task<TResult> ContinueWith<TSource, TResult>(Task<TSource> task, Func<TSource, TResult> continuation)
             {
-                return false;
+                var result = await task.ConfigureAwait(false);
+                return continuation(result);
             }
-
-            if (!method.ContainsGenericParameters)
-            {
-                return false;
-            }
-
-            var genericArguments = method.GetGenericArguments();
-            if (genericArguments.Length != 1)
-            {
-                return false;
-            }
-
-            var parameters = method.GetParameters();
-            if (parameters.Length != 1)
-            {
-                return false;
-            }
-
-            var expectedParameterType = typeof(Func<,>).MakeGenericType(
-                typeof(Task<>).MakeGenericType(sourceItemType),
-                genericArguments[0]);
-            if (parameters[0].ParameterType != expectedParameterType)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }

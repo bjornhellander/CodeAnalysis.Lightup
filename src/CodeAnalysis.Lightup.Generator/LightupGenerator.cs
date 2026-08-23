@@ -13,19 +13,21 @@ public class LightupGenerator : IIncrementalGenerator
         var configFiles = context.AdditionalTextsProvider.Where(Helpers.IsConfigurationFile);
         var configFileContents = configFiles.Select(Helpers.GetConfigurationFileContent);
 
-        var languageVersion = context.CompilationProvider.Select((compilation, cancellationToken) =>
+        var compilationInfo = context.CompilationProvider.Select((compilation, cancellationToken) =>
         {
             var languageVersion = (compilation as CSharpCompilation)?.LanguageVersion;
-            return languageVersion;
+            var hasValueTaskType = compilation.GetTypeByMetadataName("System.Threading.Tasks.ValueTask`1") != null;
+            var hasReadOnlySpanType = compilation.GetTypeByMetadataName("System.ReadOnlySpan`1") != null;
+            return (languageVersion, hasValueTaskType, hasReadOnlySpanType);
         });
 
-        var generatorInput = configFileContents.Combine(languageVersion);
+        var generatorInput = configFileContents.Combine(compilationInfo);
         context.RegisterSourceOutput(
             generatorInput,
-            (context, input) => Execute(context, input.Left, input.Right));
+            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType, input.Right.hasReadOnlySpanType));
     }
 
-    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion)
+    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType, bool hasReadOnlySpanType)
     {
         if (Helpers.TryParseConfiguration(
             configFileContent,
@@ -33,6 +35,7 @@ public class LightupGenerator : IIncrementalGenerator
             out var baselineVersion,
             out var typesToInclude,
             out var useFoldersInFilePaths,
+            out var useInternalAccessibility,
             out var _))
         {
             var useNullableAnnotation = languageVersion >= LanguageVersion.CSharp8;
@@ -42,7 +45,10 @@ public class LightupGenerator : IIncrementalGenerator
                 assemblies,
                 typesToInclude,
                 useNullableAnnotation,
+                hasValueTaskType,
+                hasReadOnlySpanType,
                 useFoldersInFilePaths,
+                useInternalAccessibility,
                 types);
         }
     }

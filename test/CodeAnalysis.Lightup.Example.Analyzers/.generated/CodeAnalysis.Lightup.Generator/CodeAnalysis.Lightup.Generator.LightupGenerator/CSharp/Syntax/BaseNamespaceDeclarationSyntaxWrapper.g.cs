@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.BaseNamespaceDeclarationSyntax";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.ExternAliasDirectiveSyntax> ExternsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax> MembersGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax _obj);

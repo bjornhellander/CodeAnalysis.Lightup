@@ -9,7 +9,8 @@ public partial class IOperationEx {
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.IOperation+OperationList";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::System.Int32 CountGetterDelegate(global::System.Object _obj);
 

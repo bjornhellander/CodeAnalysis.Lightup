@@ -34,18 +34,14 @@ public class ConfigurationAnalyzerTests
     }
 
     [TestMethod]
-    public async Task TestEmptyConfigurationFile()
+    [DataRow("")]
+    [DataRow("false")]
+    [DataRow("Xyz")]
+    [DataRow("\"Xyz\"")]
+    [DataRow("[]")]
+    public async Task TestIncorrectConfigurationFile(string content)
     {
-        var test = CreateTest("CodeAnalysis.Lightup.json", content: "");
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
-        test.ExpectedDiagnostics.Add(diagnostic);
-        await test.RunAsync();
-    }
-
-    [TestMethod]
-    public async Task TestConfigurationFileWithEmptyArray()
-    {
-        var test = CreateTest("CodeAnalysis.Lightup.json", content: "[]");
+        var test = CreateTest("CodeAnalysis.Lightup.json", content: content);
         var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Failed to parse file");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
@@ -57,7 +53,7 @@ public class ConfigurationAnalyzerTests
         var content = $@"
 {{
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
@@ -73,27 +69,11 @@ public class ConfigurationAnalyzerTests
 {{
 	""assemblies"": [],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
         var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Empty 'assemblies' attribute.");
-        test.ExpectedDiagnostics.Add(diagnostic);
-        await test.RunAsync();
-    }
-
-    [TestMethod]
-    public async Task TestEmptyAssembliesAttributeValue()
-    {
-        var content = $@"
-{{
-	""assemblies"": [ """" ],
-	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
-}}";
-
-        var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: ''. Expected one of these: Microsoft.CodeAnalysis.Common, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Workspaces.Common, Microsoft.CodeAnalysis.CSharp.Workspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -105,7 +85,7 @@ public class ConfigurationAnalyzerTests
 {{
 	""assemblies"": ""Xyz"",
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
@@ -115,17 +95,19 @@ public class ConfigurationAnalyzerTests
     }
 
     [TestMethod]
-    public async Task TestIncorrectAssembliesAttributeValue()
+    [DataRow("")]
+    [DataRow("Xyz")]
+    public async Task TestIncorrectAssembliesAttributeValue(string assemblyValue)
     {
         var content = $@"
 {{
-	""assemblies"": [ ""Xyz"" ],
+	""assemblies"": [ ""{assemblyValue}"" ],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'assemblies' attribute value: 'Xyz'. Expected one of these: Microsoft.CodeAnalysis.Common, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Workspaces.Common, Microsoft.CodeAnalysis.CSharp.Workspaces.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments($"Incorrect 'assemblies' attribute value: '{assemblyValue}'. Expected one of these: Microsoft.CodeAnalysis.Common, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Workspaces.Common, Microsoft.CodeAnalysis.CSharp.Workspaces.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -136,7 +118,7 @@ public class ConfigurationAnalyzerTests
         var content = $@"
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
@@ -146,33 +128,19 @@ public class ConfigurationAnalyzerTests
     }
 
     [TestMethod]
-    public async Task TestEmptyBaselineVersionAttribute()
+    [DataRow("")]
+    [DataRow("Xyz")]
+    public async Task TestIncorrectBaselineVersionAttribute(string baselineVersionValue)
     {
         var content = $@"
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
-	""baselineVersion"":  """",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+	""baselineVersion"":  ""{baselineVersionValue}"",
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'baselineVersion' attribute value: ''.");
-        test.ExpectedDiagnostics.Add(diagnostic);
-        await test.RunAsync();
-    }
-
-    [TestMethod]
-    public async Task TestIncorrectBaselineVersionAttribute()
-    {
-        var content = $@"
-{{
-	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
-	""baselineVersion"":  ""Xyz"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
-}}";
-
-        var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'baselineVersion' attribute value: 'Xyz'.");
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments($"Incorrect 'baselineVersion' attribute value: '{baselineVersionValue}'.");
         test.ExpectedDiagnostics.Add(diagnostic);
         await test.RunAsync();
     }
@@ -185,7 +153,7 @@ public class ConfigurationAnalyzerTests
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
 	""baselineVersion"":  ""3.8.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")}
+    ""useFoldersInFilePaths"": false
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
@@ -201,7 +169,7 @@ public class ConfigurationAnalyzerTests
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
+    ""useFoldersInFilePaths"": false,
     ""includeTypes"": """"
 }}";
 
@@ -218,7 +186,7 @@ public class ConfigurationAnalyzerTests
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
+    ""useFoldersInFilePaths"": false,
     ""includeTypes"": [false]
 }}";
 
@@ -249,29 +217,15 @@ public class ConfigurationAnalyzerTests
     }
 
     [TestMethod]
-    public async Task TestEmptyUseFoldersInFilePathsAttribute()
+    [DataRow("")]
+    [DataRow("Xyz")]
+    public async Task TestIncorrectUseFoldersInFilePathsAttribute(string useFoldersInFilePathsValue)
     {
         var content = $@"
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": """"
-}}";
-
-        var test = CreateTest("CodeAnalysis.Lightup.json", content);
-        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'useFoldersInFilePaths' attribute value. Expected a boolean.");
-        test.ExpectedDiagnostics.Add(diagnostic);
-        await test.RunAsync();
-    }
-
-    [TestMethod]
-    public async Task TestIncorrectUseFoldersInFilePathsAttribute()
-    {
-        var content = $@"
-{{
-	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
-	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": ""Xyz""
+    ""useFoldersInFilePaths"": ""{useFoldersInFilePathsValue}""
 }}";
 
         var test = CreateTest("CodeAnalysis.Lightup.json", content);
@@ -318,6 +272,25 @@ public class ConfigurationAnalyzerTests
         await test.RunAsync();
     }
 
+    [TestMethod]
+    [DataRow("")]
+    [DataRow("Xyz")]
+    public async Task TestIncorrectUseInternalAccessibilityAttribute(string useInternalAccessibilityValue)
+    {
+        var content = $@"
+{{
+	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"" ],
+	""baselineVersion"":  ""3.0.0.0"",
+    ""useFoldersInFilePaths"": false,
+    ""useInternalAccessibility"": ""{useInternalAccessibilityValue}""
+}}";
+
+        var test = CreateTest("CodeAnalysis.Lightup.json", content);
+        var diagnostic = CreateDiagnostic(ConfigurationAnalyzer.BadFileDiagnosticId).WithArguments("Incorrect 'useInternalAccessibility' attribute value. Expected a boolean.");
+        test.ExpectedDiagnostics.Add(diagnostic);
+        await test.RunAsync();
+    }
+
     private static VerifyCS.Test CreateTest(string? fileName, string? content = null)
     {
         var test = new VerifyCS.Test();
@@ -329,7 +302,7 @@ public class ConfigurationAnalyzerTests
 {{
 	""assemblies"": [ ""Microsoft.CodeAnalysis.Common"", ""Microsoft.CodeAnalysis.CSharp"", ""Microsoft.CodeAnalysis.Workspaces.Common"", ""Microsoft.CodeAnalysis.CSharp.Workspaces"" ],
 	""baselineVersion"":  ""3.0.0.0"",
-    ""useFoldersInFilePaths"": {(Helpers.RoslynSupportsFoldersInGeneratedFilePaths ? "true" : "false")},
+    ""useFoldersInFilePaths"": false,
     ""includeTypes"": [ ""abc"" ]
 }}";
             test.TestState.AdditionalFiles.Add((fileName, configFileContent));

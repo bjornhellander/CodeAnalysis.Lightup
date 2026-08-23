@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Emit.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Emit.RuntimeRudeEdit";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate RuntimeRudeEditWrapper ConstructorDelegate0(global::System.String message);
         private delegate RuntimeRudeEditWrapper ConstructorDelegate1(global::System.String message, global::System.Int32 errorCode);

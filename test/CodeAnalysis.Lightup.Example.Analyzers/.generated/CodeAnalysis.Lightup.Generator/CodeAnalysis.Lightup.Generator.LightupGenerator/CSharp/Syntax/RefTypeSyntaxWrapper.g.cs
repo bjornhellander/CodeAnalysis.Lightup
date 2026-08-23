@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.RefTypeSyntax";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken ReadOnlyKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);
         private delegate global::Microsoft.CodeAnalysis.SyntaxToken RefKeywordGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.TypeSyntax _obj);

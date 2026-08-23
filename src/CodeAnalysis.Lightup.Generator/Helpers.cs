@@ -36,12 +36,14 @@ internal static class Helpers
         out Version baselineVersion,
         out List<string> typesToInclude,
         out bool useFoldersInFilePaths,
+        out bool useInternalAccessibility,
         out string errorMessage)
     {
         assemblies = NoAssemblies;
         baselineVersion = new Version();
         typesToInclude = NoTypes;
         useFoldersInFilePaths = false;
+        useInternalAccessibility = false;
 
         try
         {
@@ -62,6 +64,7 @@ internal static class Helpers
             baselineVersion = GetBaselineVersion(root);
             typesToInclude = GetTypesToInclude(root);
             useFoldersInFilePaths = GetUseFoldersInFilePaths(root);
+            useInternalAccessibility = GetUseInternalAccessibility(root);
 
             errorMessage = "";
             return true;
@@ -167,6 +170,21 @@ internal static class Helpers
         }
 
         return useFoldersInFilePaths;
+    }
+
+    private static bool GetUseInternalAccessibility(JsonObject root)
+    {
+        if (root.ContainsKey("useInternalAccessibility", out var useInternalAccessibilityToken))
+        {
+            if (useInternalAccessibilityToken.Type == JsonValueType.Boolean)
+            {
+                return (bool)useInternalAccessibilityToken;
+            }
+
+            throw new ConfigurationException($"Incorrect 'useInternalAccessibility' attribute value. Expected a boolean.");
+        }
+
+        return false;
     }
 
     private static Version GetRoslynVersion()

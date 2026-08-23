@@ -8,7 +8,8 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.DocumentActiveContextChangedEventArgs";
 
-        private static readonly global::System.Type? WrappedType;
+        /// <summary>The wrapped type.</summary>
+        public static readonly global::System.Type? WrappedType;
 
         private delegate DocumentActiveContextChangedEventArgsWrapper ConstructorDelegate0(global::Microsoft.CodeAnalysis.Solution solution, global::Microsoft.CodeAnalysis.Text.SourceTextContainer sourceTextContainer, global::Microsoft.CodeAnalysis.DocumentId oldActiveContextDocumentId, global::Microsoft.CodeAnalysis.DocumentId newActiveContextDocumentId);
 
