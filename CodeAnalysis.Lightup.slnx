@@ -63,6 +63,7 @@
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V5_0_0/CodeAnalysis.Lightup.Reference.V5_0_0.csproj" />
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V5_3_0/CodeAnalysis.Lightup.Reference.V5_3_0.csproj" />
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V5_6_0/CodeAnalysis.Lightup.Reference.V5_6_0.csproj" />
+    <Project Path="ref/CodeAnalysis.Lightup.Reference.V5_9_0/CodeAnalysis.Lightup.Reference.V5_9_0.csproj" />
   </Folder>
   <Folder Name="/3 - src/">
     <Project Path="src/CodeAnalysis.Lightup.Collector/CodeAnalysis.Lightup.Collector.csproj" />

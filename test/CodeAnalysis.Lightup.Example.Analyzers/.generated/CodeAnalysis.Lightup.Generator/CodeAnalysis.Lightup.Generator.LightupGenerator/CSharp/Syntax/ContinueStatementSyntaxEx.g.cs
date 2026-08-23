@@ -9,32 +9,47 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax";
 
         private delegate global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeListsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? NameGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj);
 
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax AddAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, params global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax[] items);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax UpdateDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken continueKeyword, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax UpdateDelegate1(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken continueKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken);
         private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithAttributeListsDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists);
+        private delegate global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithNameDelegate0(global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name);
 
         private static readonly AttributeListsGetterDelegate AttributeListsGetterFunc;
+        private static readonly NameGetterDelegate NameGetterFunc;
 
         private static readonly AddAttributeListsDelegate0 AddAttributeListsFunc0;
         private static readonly UpdateDelegate0 UpdateFunc0;
+        private static readonly UpdateDelegate1 UpdateFunc1;
         private static readonly WithAttributeListsDelegate0 WithAttributeListsFunc0;
+        private static readonly WithNameDelegate0 WithNameFunc0;
 
         static ContinueStatementSyntaxEx()
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.FindType(WrappedTypeName);
 
             AttributeListsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<AttributeListsGetterDelegate>(wrappedType, nameof(AttributeLists));
+            NameGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<NameGetterDelegate>(wrappedType, nameof(Name));
 
             AddAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<AddAttributeListsDelegate0>(wrappedType, "AddAttributeLists", "itemsAttributeListSyntax[]");
             UpdateFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate0>(wrappedType, "Update", "attributeListsSyntaxList`1", "continueKeywordSyntaxToken", "semicolonTokenSyntaxToken");
+            UpdateFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<UpdateDelegate1>(wrappedType, "Update", "attributeListsSyntaxList`1", "continueKeywordSyntaxToken", "nameIdentifierNameSyntax", "semicolonTokenSyntaxToken");
             WithAttributeListsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithAttributeListsDelegate0>(wrappedType, "WithAttributeLists", "attributeListsSyntaxList`1");
+            WithNameFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNameDelegate0>(wrappedType, "WithName", "nameIdentifierNameSyntax");
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> AttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj)
         {
             return AttributeListsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? Name(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj)
+        {
+            return NameGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
@@ -49,10 +64,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
             return UpdateFunc0(_obj, attributeLists, continueKeyword, semicolonToken);
         }
 
+        /// <summary>Method added in version 5.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax Update(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists, global::Microsoft.CodeAnalysis.SyntaxToken continueKeyword, global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, global::Microsoft.CodeAnalysis.SyntaxToken semicolonToken)
+        {
+            return UpdateFunc1(_obj, attributeLists, continueKeyword, name, semicolonToken);
+        }
+
         /// <summary>Method added in version 3.6.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithAttributeLists(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.SyntaxList<global::Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax> attributeLists)
         {
             return WithAttributeListsFunc0(_obj, attributeLists);
+        }
+
+        /// <summary>Method added in version 5.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax WithName(this global::Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name)
+        {
+            return WithNameFunc0(_obj, name);
         }
     }
 }

@@ -8,36 +8,42 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
     {
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.Editing.DeclarationModifiers";
 
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers ClosedGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers ExternGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers FileGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers RefGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers RequiredGetterDelegate();
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers VolatileGetterDelegate();
 
+        private delegate global::System.Boolean IsClosedGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsExternGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsFileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsRefGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsRequiredGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
         private delegate global::System.Boolean IsVolatileGetterDelegate(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsClosedDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isClosed);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsExternDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isExtern);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsFileDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isFile);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRefDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRef);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsRequiredDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isRequired);
         private delegate global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsVolatileDelegate0(global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isVolatile);
 
+        private static readonly ClosedGetterDelegate ClosedGetterFunc;
         private static readonly ExternGetterDelegate ExternGetterFunc;
         private static readonly FileGetterDelegate FileGetterFunc;
         private static readonly RefGetterDelegate RefGetterFunc;
         private static readonly RequiredGetterDelegate RequiredGetterFunc;
         private static readonly VolatileGetterDelegate VolatileGetterFunc;
 
+        private static readonly IsClosedGetterDelegate IsClosedGetterFunc;
         private static readonly IsExternGetterDelegate IsExternGetterFunc;
         private static readonly IsFileGetterDelegate IsFileGetterFunc;
         private static readonly IsRefGetterDelegate IsRefGetterFunc;
         private static readonly IsRequiredGetterDelegate IsRequiredGetterFunc;
         private static readonly IsVolatileGetterDelegate IsVolatileGetterFunc;
 
+        private static readonly WithIsClosedDelegate0 WithIsClosedFunc0;
         private static readonly WithIsExternDelegate0 WithIsExternFunc0;
         private static readonly WithIsFileDelegate0 WithIsFileFunc0;
         private static readonly WithIsRefDelegate0 WithIsRefFunc0;
@@ -48,23 +54,32 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         {
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.FindType(WrappedTypeName);
 
+            ClosedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<ClosedGetterDelegate>(wrappedType, nameof(Closed));
             ExternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<ExternGetterDelegate>(wrappedType, nameof(Extern));
             FileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<FileGetterDelegate>(wrappedType, nameof(File));
             RefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<RefGetterDelegate>(wrappedType, nameof(Ref));
             RequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<RequiredGetterDelegate>(wrappedType, nameof(Required));
             VolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateStaticGetAccessor<VolatileGetterDelegate>(wrappedType, nameof(Volatile));
 
+            IsClosedGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsClosedGetterDelegate>(wrappedType, nameof(IsClosed));
             IsExternGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsExternGetterDelegate>(wrappedType, nameof(IsExtern));
             IsFileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsFileGetterDelegate>(wrappedType, nameof(IsFile));
             IsRefGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRefGetterDelegate>(wrappedType, nameof(IsRef));
             IsRequiredGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsRequiredGetterDelegate>(wrappedType, nameof(IsRequired));
             IsVolatileGetterFunc = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceGetAccessor<IsVolatileGetterDelegate>(wrappedType, nameof(IsVolatile));
 
+            WithIsClosedFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsClosedDelegate0>(wrappedType, "WithIsClosed", "isClosedBoolean");
             WithIsExternFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsExternDelegate0>(wrappedType, "WithIsExtern", "isExternBoolean");
             WithIsFileFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsFileDelegate0>(wrappedType, "WithIsFile", "isFileBoolean");
             WithIsRefFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRefDelegate0>(wrappedType, "WithIsRef", "isRefBoolean");
             WithIsRequiredFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsRequiredDelegate0>(wrappedType, "WithIsRequired", "isRequiredBoolean");
             WithIsVolatileFunc0 = global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.CreateInstanceMethodAccessor<WithIsVolatileDelegate0>(wrappedType, "WithIsVolatile", "isVolatileBoolean");
+        }
+
+        /// <summary>Property added in version 5.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers Closed()
+        {
+            return ClosedGetterFunc();
         }
 
         /// <summary>Property added in version 3.6.0.0.</summary>
@@ -97,6 +112,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
             return VolatileGetterFunc();
         }
 
+        /// <summary>Property added in version 5.9.0.0.</summary>
+        public static global::System.Boolean IsClosed(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
+        {
+            return IsClosedGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 3.6.0.0.</summary>
         public static global::System.Boolean IsExtern(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
@@ -125,6 +146,12 @@ namespace Microsoft.CodeAnalysis.Editing.Lightup
         public static global::System.Boolean IsVolatile(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj)
         {
             return IsVolatileGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 5.9.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers WithIsClosed(this global::Microsoft.CodeAnalysis.Editing.DeclarationModifiers _obj, global::System.Boolean isClosed)
+        {
+            return WithIsClosedFunc0(_obj, isClosed);
         }
 
         /// <summary>Method added in version 3.6.0.0.</summary>
