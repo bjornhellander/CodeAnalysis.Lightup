@@ -9,9 +9,11 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.WellKnownGeneratorOutputs";
 
         private delegate global::System.String ImplementationSourceOutputGetterDelegate();
+        private delegate global::System.String PreCompilationSourceOutputGetterDelegate();
         private delegate global::System.String SourceOutputGetterDelegate();
 
         private static readonly ImplementationSourceOutputGetterDelegate ImplementationSourceOutputGetterFunc;
+        private static readonly PreCompilationSourceOutputGetterDelegate PreCompilationSourceOutputGetterFunc;
         private static readonly SourceOutputGetterDelegate SourceOutputGetterFunc;
 
         static WellKnownGeneratorOutputsEx()
@@ -19,6 +21,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             ImplementationSourceOutputGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<ImplementationSourceOutputGetterDelegate>(wrappedType, nameof(ImplementationSourceOutput));
+            PreCompilationSourceOutputGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<PreCompilationSourceOutputGetterDelegate>(wrappedType, nameof(PreCompilationSourceOutput));
             SourceOutputGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateStaticReadAccessor<SourceOutputGetterDelegate>(wrappedType, nameof(SourceOutput));
         }
 
@@ -26,6 +29,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.String ImplementationSourceOutput
         {
             get { return ImplementationSourceOutputGetterFunc(); }
+        }
+
+        /// <summary>Field added in version 5.9.0.0.</summary>
+        public static global::System.String PreCompilationSourceOutput
+        {
+            get { return PreCompilationSourceOutputGetterFunc(); }
         }
 
         /// <summary>Field added in version 4.1.0.0.</summary>

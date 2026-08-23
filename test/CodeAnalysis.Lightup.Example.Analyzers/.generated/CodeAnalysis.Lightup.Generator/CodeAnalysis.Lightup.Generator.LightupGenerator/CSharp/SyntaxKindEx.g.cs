@@ -59,6 +59,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         /// <summary>Added in version 5.6.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnionKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8452;
 
+        /// <summary>Added in version 5.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind ClosedKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8453;
+
+        /// <summary>Added in version 5.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind SafeKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8454;
+
         /// <summary>Added in version 3.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind NullableKeyword = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8486;
 
@@ -130,6 +136,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
 
         /// <summary>Added in version 4.12.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind FieldExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8757;
+
+        /// <summary>Added in version 5.9.0.0.</summary>
+        public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind UnsafeExpression = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8769;
 
         /// <summary>Added in version 2.0.0.0.</summary>
         public const global::Microsoft.CodeAnalysis.CSharp.SyntaxKind LocalFunctionStatement = (global::Microsoft.CodeAnalysis.CSharp.SyntaxKind)8830;

@@ -65,6 +65,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate void VisitTupleTypeDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TupleTypeSyntaxWrapper node);
         private delegate void VisitTypePatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.TypePatternSyntaxWrapper node);
         private delegate void VisitUnaryPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node);
+        private delegate void VisitUnionDeclarationDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnionDeclarationSyntaxWrapper node);
+        private delegate void VisitUnsafeExpressionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnsafeExpressionSyntaxWrapper node);
         private delegate void VisitVarPatternDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.VarPatternSyntaxWrapper node);
         private delegate void VisitWhenClauseDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WhenClauseSyntaxWrapper node);
         private delegate void VisitWithElementDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.WithElementSyntaxWrapper node);
@@ -127,6 +129,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly VisitTupleTypeDelegate0 VisitTupleTypeFunc0;
         private static readonly VisitTypePatternDelegate0 VisitTypePatternFunc0;
         private static readonly VisitUnaryPatternDelegate0 VisitUnaryPatternFunc0;
+        private static readonly VisitUnionDeclarationDelegate0 VisitUnionDeclarationFunc0;
+        private static readonly VisitUnsafeExpressionDelegate0 VisitUnsafeExpressionFunc0;
         private static readonly VisitVarPatternDelegate0 VisitVarPatternFunc0;
         private static readonly VisitWhenClauseDelegate0 VisitWhenClauseFunc0;
         private static readonly VisitWithElementDelegate0 VisitWithElementFunc0;
@@ -193,6 +197,8 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             VisitTupleTypeFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTupleTypeDelegate0>(wrappedType, "VisitTupleType", "nodeTupleTypeSyntax");
             VisitTypePatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitTypePatternDelegate0>(wrappedType, "VisitTypePattern", "nodeTypePatternSyntax");
             VisitUnaryPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnaryPatternDelegate0>(wrappedType, "VisitUnaryPattern", "nodeUnaryPatternSyntax");
+            VisitUnionDeclarationFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnionDeclarationDelegate0>(wrappedType, "VisitUnionDeclaration", "nodeUnionDeclarationSyntax");
+            VisitUnsafeExpressionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitUnsafeExpressionDelegate0>(wrappedType, "VisitUnsafeExpression", "nodeUnsafeExpressionSyntax");
             VisitVarPatternFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitVarPatternDelegate0>(wrappedType, "VisitVarPattern", "nodeVarPatternSyntax");
             VisitWhenClauseFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWhenClauseDelegate0>(wrappedType, "VisitWhenClause", "nodeWhenClauseSyntax");
             VisitWithElementFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<VisitWithElementDelegate0>(wrappedType, "VisitWithElement", "nodeWithElementSyntax");
@@ -539,6 +545,18 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         public static void VisitUnaryPattern(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnaryPatternSyntaxWrapper node)
         {
             VisitUnaryPatternFunc0(_obj, node);
+        }
+
+        /// <summary>Method added in version 5.9.0.0.</summary>
+        public static void VisitUnionDeclaration(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnionDeclarationSyntaxWrapper node)
+        {
+            VisitUnionDeclarationFunc0(_obj, node);
+        }
+
+        /// <summary>Method added in version 5.9.0.0.</summary>
+        public static void VisitUnsafeExpression(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor _obj, global::Microsoft.CodeAnalysis.CSharp.Syntax.Lightup.UnsafeExpressionSyntaxWrapper node)
+        {
+            VisitUnsafeExpressionFunc0(_obj, node);
         }
 
         /// <summary>Method added in version 3.0.0.0.</summary>
