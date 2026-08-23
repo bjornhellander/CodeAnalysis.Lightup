@@ -81,6 +81,7 @@ internal class Writer
     private readonly string nullableAnnotation;
     private readonly bool useValueTaskType;
     private readonly bool useReadOnlySpanType;
+    private readonly bool useHashAlgorithmNameType;
     private readonly bool useFoldersInFilePaths;
     private readonly string typeAccessibility;
     private readonly IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs;
@@ -91,6 +92,7 @@ internal class Writer
         string nullableAnnotation,
         bool useValueTaskType,
         bool useReadOnlySpanType,
+        bool useHashAlgorithmNameType,
         bool useFoldersInFilePaths,
         string typeAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
@@ -100,6 +102,7 @@ internal class Writer
         this.nullableAnnotation = nullableAnnotation;
         this.useValueTaskType = useValueTaskType;
         this.useReadOnlySpanType = useReadOnlySpanType;
+        this.useHashAlgorithmNameType = useHashAlgorithmNameType;
         this.useFoldersInFilePaths = useFoldersInFilePaths;
         this.typeAccessibility = typeAccessibility;
         this.typeDefs = typeDefs;
@@ -112,13 +115,14 @@ internal class Writer
         bool useNullableContext,
         bool useValueTaskType,
         bool useReadOnlySpanType,
+        bool useHashAlgorithmNameType,
         bool useFoldersInFilePaths,
         bool useInternalAccessibility,
         IReadOnlyDictionary<string, BaseTypeDefinition> typeDefs)
     {
         var nullableAnnotation = useNullableContext ? "?" : "";
         var typeAccessibility = useInternalAccessibility ? "internal" : "public";
-        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useReadOnlySpanType, useFoldersInFilePaths, typeAccessibility, typeDefs);
+        var writer = new Writer(context, typesToInclude, nullableAnnotation, useValueTaskType, useReadOnlySpanType, useHashAlgorithmNameType, useFoldersInFilePaths, typeAccessibility, typeDefs);
         writer.Write(assemblyKinds);
     }
 
@@ -1835,6 +1839,13 @@ namespace Microsoft.CodeAnalysis.Lightup
     {
         if (typeRef is GenericTypeReference genericTypeRef)
         {
+            if (IsNullableOfHashAlgorithmName(genericTypeRef) && !useHashAlgorithmNameType)
+            {
+                sb.Append("global::System.Object");
+                sb.Append(nullableAnnotation);
+                return;
+            }
+
             if (IsSeparatedSyntaxList(genericTypeRef) && IsNewType(genericTypeRef.TypeArguments[0]))
             {
                 sb.Append("global::Microsoft.CodeAnalysis.Lightup.SeparatedSyntaxListWrapper");
@@ -1872,6 +1883,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
         else if (typeRef is NamedTypeReference namedTypeRef)
         {
+            if (IsHashAlgorithmName(namedTypeRef) && !useHashAlgorithmNameType)
+            {
+                sb.Append("global::System.Object");
+                return;
+            }
+
             var isNew = IsNewType(namedTypeRef);
             var isNewEnum = isNew && IsEnumType(namedTypeRef);
             sb.Append($"global::{namedTypeRef.Namespace}");
@@ -1976,6 +1993,28 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         return namedTypeRef.Namespace == "System" && namedTypeRef.Name == "ReadOnlySpan";
+    }
+
+    private static bool IsHashAlgorithmName(NamedTypeReference namedTypeRef)
+    {
+        return namedTypeRef.Namespace == "System.Security.Cryptography" && namedTypeRef.Name == "HashAlgorithmName";
+    }
+
+    private static bool IsNullableOfHashAlgorithmName(GenericTypeReference genericTypeRef)
+    {
+        if (genericTypeRef.OriginalType is not NamedTypeReference namedTypeRef)
+        {
+            return false;
+        }
+
+        if (namedTypeRef.Namespace != "System" || namedTypeRef.Name != "Nullable")
+        {
+            return false;
+        }
+
+        return genericTypeRef.TypeArguments.Count == 1 &&
+            genericTypeRef.TypeArguments[0] is NamedTypeReference innerNamedTypeRef &&
+            IsHashAlgorithmName(innerNamedTypeRef);
     }
 
     private static string GetGeneratedFilePath(BaseTypeDefinition typeDef, bool useFoldersInFilePaths)
