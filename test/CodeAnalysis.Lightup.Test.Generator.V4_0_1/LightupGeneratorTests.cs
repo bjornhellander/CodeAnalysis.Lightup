@@ -159,7 +159,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         //     throw new global::System.NotImplementedException();
         //}
 
-        public static bool Is(object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
@@ -948,7 +948,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.Document? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.Document? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1216,7 +1216,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.TextDocument? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.TextDocument? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1299,7 +1299,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1388,7 +1388,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1459,7 +1459,7 @@ namespace Microsoft.CodeAnalysis.Host.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1545,7 +1545,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.Document? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.Document? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1710,7 +1710,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1787,7 +1787,7 @@ namespace Microsoft.CodeAnalysis.Operations.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.Object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.Object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }
@@ -1914,7 +1914,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::System.EventArgs? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::System.EventArgs? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.WorkspacesCommonLightupHelper.Is(obj, WrappedType);
         }
@@ -2045,7 +2045,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.CSharp.Syntax.PatternSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }
@@ -2196,6 +2196,24 @@ namespace Microsoft.CodeAnalysis.Lightup
             },
             ReferenceAssemblies = CreateReferenceAssemblies(includeValueTaskSupport),
         };
+
+        if (!includeValueTaskSupport)
+        {
+            // NotNullWhenAttribute isn't part of netstandard2.0, so a real consuming project targeting it would need to
+            // bring the type in some way (e.g. via the "Nullable" NuGet package). Mimic that here for this reference set.
+            test.TestState.Sources.Add(@"
+namespace System.Diagnostics.CodeAnalysis
+{
+    [System.AttributeUsage(System.AttributeTargets.Parameter)]
+    internal sealed class NotNullWhenAttribute : System.Attribute
+    {
+        public NotNullWhenAttribute(bool returnValue) => ReturnValue = returnValue;
+
+        public bool ReturnValue { get; }
+    }
+}
+");
+        }
 
         if (shouldGeneratedFiles)
         {

@@ -151,7 +151,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         //     throw new global::System.NotImplementedException();
         //}
 
-        public static bool Is(object? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] object? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }

@@ -45,7 +45,7 @@ namespace Microsoft.CodeAnalysis.FlowAnalysis.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.IOperation? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.IOperation? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.Is(obj, WrappedType);
         }

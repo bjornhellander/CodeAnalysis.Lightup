@@ -96,7 +96,7 @@ namespace Microsoft.CodeAnalysis.CSharp.Syntax.Lightup
         }
 
         /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>
-        public static bool Is(global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax? obj)
+        public static bool Is([global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] global::Microsoft.CodeAnalysis.CSharp.Syntax.SwitchLabelSyntax? obj)
         {
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }

@@ -174,6 +174,7 @@ namespace Microsoft.CodeAnalysis.Lightup
     private void WriteSeparatedSyntaxListWrapper()
     {
         var na = nullableAnnotation;
+        var notNullWhenAttr = na != "" ? "[global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] " : "";
 
         // TODO: Build line by line, so we don't hardcode a newline sequence
         // TODO: Check if the implicit conversion members can be added and implemented
@@ -330,7 +331,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         //     throw new global::System.NotImplementedException();
         //}}
 
-        public static bool Is(object{na} obj)
+        public static bool Is({notNullWhenAttr}object{na} obj)
         {{
             return global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.Is(obj, WrappedType);
         }}
@@ -731,6 +732,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         string helperPrefix)
     {
         var na = nullableAnnotation;
+        var notNullWhenAttr = na != "" ? "[global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)] " : "";
 
         var targetName = typeDef.GeneratedName;
 
@@ -1006,7 +1008,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         }
         sb.AppendLine();
         sb.AppendLine($"        /// <summary>Returns true if the specified object is compatible with this wrapper.</summary>");
-        sb.AppendLine($"        public static bool Is(global::{fullBaseTypeName}{na} obj)");
+        sb.AppendLine($"        public static bool Is({notNullWhenAttr}global::{fullBaseTypeName}{na} obj)");
         sb.AppendLine($"        {{");
         sb.AppendLine($"            return global::{fullHelperName}.Is(obj, WrappedType);");
         sb.AppendLine($"        }}");
