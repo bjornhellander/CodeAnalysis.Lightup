@@ -18,16 +18,17 @@ public class LightupGenerator : IIncrementalGenerator
             var languageVersion = (compilation as CSharpCompilation)?.LanguageVersion;
             var hasValueTaskType = compilation.GetTypeByMetadataName("System.Threading.Tasks.ValueTask`1") != null;
             var hasReadOnlySpanType = compilation.GetTypeByMetadataName("System.ReadOnlySpan`1") != null;
-            return (languageVersion, hasValueTaskType, hasReadOnlySpanType);
+            var hasHashAlgorithmNameType = compilation.GetTypeByMetadataName("System.Security.Cryptography.HashAlgorithmName") != null;
+            return (languageVersion, hasValueTaskType, hasReadOnlySpanType, hasHashAlgorithmNameType);
         });
 
         var generatorInput = configFileContents.Combine(compilationInfo);
         context.RegisterSourceOutput(
             generatorInput,
-            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType, input.Right.hasReadOnlySpanType));
+            (context, input) => Execute(context, input.Left, input.Right.languageVersion, input.Right.hasValueTaskType, input.Right.hasReadOnlySpanType, input.Right.hasHashAlgorithmNameType));
     }
 
-    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType, bool hasReadOnlySpanType)
+    private static void Execute(SourceProductionContext context, string? configFileContent, LanguageVersion? languageVersion, bool hasValueTaskType, bool hasReadOnlySpanType, bool hasHashAlgorithmNameType)
     {
         if (Helpers.TryParseConfiguration(
             configFileContent,
@@ -47,6 +48,7 @@ public class LightupGenerator : IIncrementalGenerator
                 useNullableAnnotation,
                 hasValueTaskType,
                 hasReadOnlySpanType,
+                hasHashAlgorithmNameType,
                 useFoldersInFilePaths,
                 useInternalAccessibility,
                 types);

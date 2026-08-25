@@ -414,6 +414,13 @@ namespace CodeAnalysis.Lightup.Runtime
                 var wrappedEnumValue = Expression.Convert(input, targetType);
                 return wrappedEnumValue;
             }
+            else if (targetType == typeof(object) && input.Type.IsValueType())
+            {
+                // A value type that isn't available in the consuming project is represented as object instead
+                // Nullable<T> will result in either a boxed value of T or null.
+                var boxedValue = Expression.Convert(input, targetType);
+                return boxedValue;
+            }
             else if (ImmutableArrayHelpers.IsImmutableArrayType(targetType))
             {
                 var wrapperItemType = targetType.GenericTypeArguments[0];
@@ -597,7 +604,13 @@ namespace CodeAnalysis.Lightup.Runtime
                 return input;
             }
 
-            if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            if (wrapperType == typeof(object) && nativeType.IsValueType())
+            {
+                // A value type that isn't available in the consuming project is represented as object instead
+                var unboxedValue = Expression.Convert(input, nativeType);
+                return unboxedValue;
+            }
+            else if (wrapperType.IsGenericType() && wrapperType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
             {
                 // IEnumerable<X> where X is a wrapper
                 var wrapperItemType = wrapperType.GenericTypeArguments[0];

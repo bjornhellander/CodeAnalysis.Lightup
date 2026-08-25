@@ -230,6 +230,38 @@ public class LightupHelperTests
 
         Assert.AreEqual(value, returnValue);
     }
+
+    [TestMethod]
+    public void TestMethodWithParameterAndReturnValueTypeAsObject()
+    {
+        var native = new TestClass1();
+        var wrapper = TestClass1Wrapper.Wrap(native);
+        Assert.IsNotNull(wrapper.Unwrap());
+
+        object wrapperValue = HashAlgorithmName.SHA256;
+
+        var returnValue = wrapper.Method9(wrapperValue);
+
+        Assert.AreEqual(wrapperValue, returnValue);
+    }
+
+    // NOTE: Covers wrapping a native Nullable<HashAlgorithmName>-taking/returning method as taking/returning object instead
+    // (rather than the illegal Nullable<object>), for both a present and an absent value
+    [TestMethod]
+    [DataRow(true)]
+    [DataRow(false)]
+    public void TestMethodWithParameterAndReturnNullableValueTypeAsObject(bool hasValue)
+    {
+        var native = new TestClass1();
+        var wrapper = TestClass1Wrapper.Wrap(native);
+        Assert.IsNotNull(wrapper.Unwrap());
+
+        object? wrapperValue = hasValue ? HashAlgorithmName.SHA256 : null;
+
+        var returnValue = wrapper.Method10(wrapperValue);
+
+        Assert.AreEqual(wrapperValue, returnValue);
+    }
 }
 
 #pragma warning disable IDE0251 // Make member 'readonly'
@@ -299,6 +331,16 @@ public class TestClass1
     {
         return arg1[0].Value;
     }
+
+    public HashAlgorithmName Method9(HashAlgorithmName arg1)
+    {
+        return arg1;
+    }
+
+    public HashAlgorithmName? Method10(HashAlgorithmName? arg1)
+    {
+        return arg1;
+    }
 }
 
 public struct TestStruct1
@@ -353,6 +395,8 @@ public struct TestClass1Wrapper
     private delegate Task<TestStruct1Wrapper> Method6Delegate(object obj, string arg1);
     private delegate int Method7Delegate(object obj, List<char> arg1);
     private delegate int Method8Delegate(object obj, List<TestStruct1Wrapper> arg1);
+    private delegate object Method9Delegate(object obj, object arg1);
+    private delegate object? Method10Delegate(object obj, object? arg1);
 
     private static readonly Property1GetterDelegate Property1GetterFunc;
     private static readonly Property2GetterDelegate Property2GetterFunc;
@@ -365,6 +409,8 @@ public struct TestClass1Wrapper
     private static readonly Method6Delegate Methods6Func;
     private static readonly Method7Delegate Methods7Func;
     private static readonly Method8Delegate Methods8Func;
+    private static readonly Method9Delegate Methods9Func;
+    private static readonly Method10Delegate Methods10Func;
 
     private readonly object wrappedObject;
 
@@ -383,6 +429,8 @@ public struct TestClass1Wrapper
         Methods6Func = TestLightupHelper.CreateInstanceMethodAccessor<Method6Delegate>(WrappedType, "Method5", "arg1String");
         Methods7Func = TestLightupHelper.CreateInstanceMethodAccessor<Method7Delegate>(WrappedType, "Method7", "arg1ReadOnlySpan`1");
         Methods8Func = TestLightupHelper.CreateInstanceMethodAccessor<Method8Delegate>(WrappedType, "Method8", "arg1ReadOnlySpan`1");
+        Methods9Func = TestLightupHelper.CreateInstanceMethodAccessor<Method9Delegate>(WrappedType, "Method9", "arg1HashAlgorithmName");
+        Methods10Func = TestLightupHelper.CreateInstanceMethodAccessor<Method10Delegate>(WrappedType, "Method10", "arg1Nullable`1");
     }
 
     private TestClass1Wrapper(object obj)
@@ -433,6 +481,12 @@ public struct TestClass1Wrapper
 
     public int Method8(List<TestStruct1Wrapper> arg1)
         => Methods8Func(wrappedObject, arg1);
+
+    public object Method9(object arg1)
+        => Methods9Func(wrappedObject, arg1);
+
+    public object? Method10(object? arg1)
+        => Methods10Func(wrappedObject, arg1);
 }
 
 public struct TestStruct1Wrapper
