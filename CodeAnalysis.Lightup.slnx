@@ -22,7 +22,7 @@
   <Folder Name="/2 - ref/">
     <File Path="ref/Directory.Build.props" />
     <File Path="ref/Program.cs" />
-    <Project Path="ref/CodeAnalysis.Lightup.Reference.V1_3_2/CodeAnalysis.Lightup.Reference.V1_3_2.csproj" />
+    <Project Path="ref/CodeAnalysis.Lightup.Reference.V1_3_0/CodeAnalysis.Lightup.Reference.V1_3_0.csproj" />
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V2_0_0/CodeAnalysis.Lightup.Reference.V2_0_0.csproj" />
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V2_10_0/CodeAnalysis.Lightup.Reference.V2_10_0.csproj" />
     <Project Path="ref/CodeAnalysis.Lightup.Reference.V2_1_0/CodeAnalysis.Lightup.Reference.V2_1_0.csproj" />
