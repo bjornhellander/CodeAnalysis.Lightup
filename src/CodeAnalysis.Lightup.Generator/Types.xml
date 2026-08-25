@@ -199713,6 +199713,7 @@
   </BaseTypeDefinition>
   <BaseTypeDefinition xsi:type="ClassTypeDefinition">
     <AssemblyKind>Common</AssemblyKind>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <IsRemoved>false</IsRemoved>
     <Name>AnalysisResult</Name>
     <Namespace>Microsoft.CodeAnalysis.Diagnostics</Namespace>
@@ -199781,6 +199782,7 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>Analyzers</Name>
         <Type xsi:type="GenericTypeReference">
@@ -199805,6 +199807,7 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>AnalyzerTelemetryInfo</Name>
         <Type xsi:type="GenericTypeReference">
@@ -199835,6 +199838,7 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>CompilationDiagnostics</Name>
         <Type xsi:type="GenericTypeReference">
@@ -199876,6 +199880,7 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>SemanticDiagnostics</Name>
         <Type xsi:type="GenericTypeReference">
@@ -199934,6 +199939,7 @@
         <IsStatic>false</IsStatic>
       </PropertyDefinition>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>SyntaxDiagnostics</Name>
         <Type xsi:type="GenericTypeReference">
@@ -199995,6 +200001,7 @@
     <Indexers />
     <Methods>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetAllDiagnostics</Name>
         <IsStatic>false</IsStatic>
@@ -200020,6 +200027,7 @@
         <Parameters />
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetAllDiagnostics</Name>
         <IsStatic>false</IsStatic>
@@ -202680,6 +202688,7 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetAnalysisResultAsync</Name>
         <IsStatic>false</IsStatic>
@@ -202718,6 +202727,7 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetAnalysisResultAsync</Name>
         <IsStatic>false</IsStatic>
@@ -204460,6 +204470,7 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetEffectiveDiagnostics</Name>
         <IsStatic>true</IsStatic>
@@ -211530,6 +211541,7 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>TryParse</Name>
         <IsStatic>true</IsStatic>
@@ -220910,15 +220922,23 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>attributes</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>SyntaxNode[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxNode</NativeName>
-                <Name>SyntaxNode</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxNode</NativeName>
+                  <Name>SyntaxNode</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -220964,68 +220984,6 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>attributes</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxNode</NativeName>
-                  <Name>SyntaxNode</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-                </TypeReference>
-              </TypeArguments>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>InsertMembers</Name>
-        <IsStatic>false</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxNode</NativeName>
-          <Name>SyntaxNode</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>declaration</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxNode</NativeName>
-              <Name>SyntaxNode</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>index</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>Int32</NativeName>
-              <Name>Int32</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.Int32</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>members</Name>
             <IsParams>true</IsParams>
             <Type xsi:type="ArrayTypeReference">
               <NativeName>SyntaxNode[]</NativeName>
@@ -221097,6 +221055,60 @@
                   <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
                 </TypeReference>
               </TypeArguments>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>InsertMembers</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxNode</NativeName>
+          <Name>SyntaxNode</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>declaration</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxNode</NativeName>
+              <Name>SyntaxNode</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>index</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>Int32</NativeName>
+              <Name>Int32</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.Int32</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>members</Name>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>SyntaxNode[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxNode</NativeName>
+                <Name>SyntaxNode</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -221444,15 +221456,23 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>attributes</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>SyntaxNode[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxNode</NativeName>
-                <Name>SyntaxNode</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxNode</NativeName>
+                  <Name>SyntaxNode</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -221498,23 +221518,15 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>attributes</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxNode</NativeName>
-                  <Name>SyntaxNode</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>SyntaxNode[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxNode</NativeName>
+                <Name>SyntaxNode</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -221813,10 +221825,10 @@
             <Name>type</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxNode</NativeName>
-              <Name>SyntaxNode</Name>
+              <NativeName>ITypeSymbol</NativeName>
+              <Name>ITypeSymbol</Name>
               <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              <FullName>Microsoft.CodeAnalysis.ITypeSymbol</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -221844,6 +221856,45 @@
               <Name>SyntaxNode</Name>
               <Namespace>Microsoft.CodeAnalysis</Namespace>
               <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>type</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxNode</NativeName>
+              <Name>SyntaxNode</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>LambdaParameter</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxNode</NativeName>
+          <Name>SyntaxNode</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>identifier</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -221897,45 +221948,6 @@
               <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
             </Type>
             <IsNullable>true</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>LambdaParameter</Name>
-        <IsStatic>false</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxNode</NativeName>
-          <Name>SyntaxNode</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>identifier</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>type</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>ITypeSymbol</NativeName>
-              <Name>ITypeSymbol</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.ITypeSymbol</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
             <Mode>None</Mode>
           </ParameterDefinition>
         </Parameters>
@@ -222395,10 +222407,10 @@
             <Name>memberName</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxNode</NativeName>
-              <Name>SyntaxNode</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              <NativeName>String</NativeName>
+              <Name>String</Name>
+              <Namespace>System</Namespace>
+              <FullName>System.String</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -222434,10 +222446,10 @@
             <Name>memberName</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
-              <NativeName>String</NativeName>
-              <Name>String</Name>
-              <Namespace>System</Namespace>
-              <FullName>System.String</FullName>
+              <NativeName>SyntaxNode</NativeName>
+              <Name>SyntaxNode</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -222761,6 +222773,7 @@
         </Parameters>
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>NameOfExpression</Name>
         <IsStatic>false</IsStatic>
@@ -222854,6 +222867,56 @@
             <Name>name</Name>
             <IsParams>false</IsParams>
             <Type xsi:type="NamedTypeReference">
+              <NativeName>SyntaxNode</NativeName>
+              <Name>SyntaxNode</Name>
+              <Namespace>Microsoft.CodeAnalysis</Namespace>
+              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+          <ParameterDefinition>
+            <Name>declarations</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxNode</NativeName>
+                  <Name>SyntaxNode</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+                </TypeReference>
+              </TypeArguments>
+            </Type>
+            <IsNullable>false</IsNullable>
+            <Mode>None</Mode>
+          </ParameterDefinition>
+        </Parameters>
+      </MethodDefinition>
+      <MethodDefinition>
+        <IsRemoved>false</IsRemoved>
+        <Name>NamespaceDeclaration</Name>
+        <IsStatic>false</IsStatic>
+        <IsExtensionMethod>false</IsExtensionMethod>
+        <ReturnType xsi:type="NamedTypeReference">
+          <NativeName>SyntaxNode</NativeName>
+          <Name>SyntaxNode</Name>
+          <Namespace>Microsoft.CodeAnalysis</Namespace>
+          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+        </ReturnType>
+        <IsNullable>false</IsNullable>
+        <Parameters>
+          <ParameterDefinition>
+            <Name>name</Name>
+            <IsParams>false</IsParams>
+            <Type xsi:type="NamedTypeReference">
               <NativeName>String</NativeName>
               <Name>String</Name>
               <Namespace>System</Namespace>
@@ -222915,56 +222978,6 @@
                 <Namespace>Microsoft.CodeAnalysis</Namespace>
                 <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
               </ElementType>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-        </Parameters>
-      </MethodDefinition>
-      <MethodDefinition>
-        <IsRemoved>false</IsRemoved>
-        <Name>NamespaceDeclaration</Name>
-        <IsStatic>false</IsStatic>
-        <IsExtensionMethod>false</IsExtensionMethod>
-        <ReturnType xsi:type="NamedTypeReference">
-          <NativeName>SyntaxNode</NativeName>
-          <Name>SyntaxNode</Name>
-          <Namespace>Microsoft.CodeAnalysis</Namespace>
-          <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-        </ReturnType>
-        <IsNullable>false</IsNullable>
-        <Parameters>
-          <ParameterDefinition>
-            <Name>name</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="NamedTypeReference">
-              <NativeName>SyntaxNode</NativeName>
-              <Name>SyntaxNode</Name>
-              <Namespace>Microsoft.CodeAnalysis</Namespace>
-              <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-            </Type>
-            <IsNullable>false</IsNullable>
-            <Mode>None</Mode>
-          </ParameterDefinition>
-          <ParameterDefinition>
-            <Name>declarations</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxNode</NativeName>
-                  <Name>SyntaxNode</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-                </TypeReference>
-              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -224470,15 +224483,23 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>sections</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>SyntaxNode[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxNode</NativeName>
-                <Name>SyntaxNode</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxNode</NativeName>
+                  <Name>SyntaxNode</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -224512,23 +224533,15 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>sections</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxNode</NativeName>
-                  <Name>SyntaxNode</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>SyntaxNode[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxNode</NativeName>
+                <Name>SyntaxNode</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -226603,15 +226616,23 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>typeArguments</Name>
-            <IsParams>true</IsParams>
-            <Type xsi:type="ArrayTypeReference">
-              <NativeName>SyntaxNode[]</NativeName>
-              <ElementType xsi:type="NamedTypeReference">
-                <NativeName>SyntaxNode</NativeName>
-                <Name>SyntaxNode</Name>
-                <Namespace>Microsoft.CodeAnalysis</Namespace>
-                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-              </ElementType>
+            <IsParams>false</IsParams>
+            <Type xsi:type="GenericTypeReference">
+              <NativeName>IEnumerable`1</NativeName>
+              <OriginalType xsi:type="NamedTypeReference">
+                <NativeName>IEnumerable`1</NativeName>
+                <Name>IEnumerable</Name>
+                <Namespace>System.Collections.Generic</Namespace>
+                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
+              </OriginalType>
+              <TypeArguments>
+                <TypeReference xsi:type="NamedTypeReference">
+                  <NativeName>SyntaxNode</NativeName>
+                  <Name>SyntaxNode</Name>
+                  <Namespace>Microsoft.CodeAnalysis</Namespace>
+                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+                </TypeReference>
+              </TypeArguments>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -226645,23 +226666,15 @@
           </ParameterDefinition>
           <ParameterDefinition>
             <Name>typeArguments</Name>
-            <IsParams>false</IsParams>
-            <Type xsi:type="GenericTypeReference">
-              <NativeName>IEnumerable`1</NativeName>
-              <OriginalType xsi:type="NamedTypeReference">
-                <NativeName>IEnumerable`1</NativeName>
-                <Name>IEnumerable</Name>
-                <Namespace>System.Collections.Generic</Namespace>
-                <FullName>System.Collections.Generic.IEnumerable`1</FullName>
-              </OriginalType>
-              <TypeArguments>
-                <TypeReference xsi:type="NamedTypeReference">
-                  <NativeName>SyntaxNode</NativeName>
-                  <Name>SyntaxNode</Name>
-                  <Namespace>Microsoft.CodeAnalysis</Namespace>
-                  <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
-                </TypeReference>
-              </TypeArguments>
+            <IsParams>true</IsParams>
+            <Type xsi:type="ArrayTypeReference">
+              <NativeName>SyntaxNode[]</NativeName>
+              <ElementType xsi:type="NamedTypeReference">
+                <NativeName>SyntaxNode</NativeName>
+                <Name>SyntaxNode</Name>
+                <Namespace>Microsoft.CodeAnalysis</Namespace>
+                <FullName>Microsoft.CodeAnalysis.SyntaxNode</FullName>
+              </ElementType>
             </Type>
             <IsNullable>false</IsNullable>
             <Mode>None</Mode>
@@ -246504,6 +246517,7 @@
   </BaseTypeDefinition>
   <BaseTypeDefinition xsi:type="InterfaceTypeDefinition">
     <AssemblyKind>Common</AssemblyKind>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
     <IsRemoved>false</IsRemoved>
     <Name>ISourceAssemblySymbol</Name>
     <Namespace>Microsoft.CodeAnalysis</Namespace>
@@ -246513,6 +246527,7 @@
     <Events />
     <Properties>
       <PropertyDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>Compilation</Name>
         <Type xsi:type="NamedTypeReference">
@@ -251660,6 +251675,7 @@
         <Parameters />
       </MethodDefinition>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetMetadataReader</Name>
         <IsStatic>false</IsStatic>
@@ -265519,6 +265535,7 @@
     <Indexers />
     <Methods>
       <MethodDefinition>
+        <AssemblyVersion>1.3.0.0</AssemblyVersion>
         <IsRemoved>false</IsRemoved>
         <Name>GetMetadata</Name>
         <IsStatic>false</IsStatic>
