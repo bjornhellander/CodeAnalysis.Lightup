@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # These packages are intentionally pinned to exact versions to build/test
+    # against specific Roslyn baselines (see ref/ and test/*.Test.V* projects).
+    # Bumping them would defeat the purpose of the compatibility matrix.
+    ignore:
+      - dependency-name: "Microsoft.CodeAnalysis"
+      - dependency-name: "Microsoft.CodeAnalysis.Common"
+      - dependency-name: "Microsoft.CodeAnalysis.CSharp"
+      - dependency-name: "Microsoft.CodeAnalysis.CSharp.Workspaces"
+      - dependency-name: "Microsoft.Composition"
+      - dependency-name: "System.Memory"
+      - dependency-name: "System.Threading.Tasks.Extensions"
+    groups:
+      analyzers:
+        patterns:
+          - "Microsoft.CodeAnalysis.Analyzers"
+          - "Microsoft.CodeAnalysis.NetAnalyzers"
+          - "NewStyleCop.Analyzers"
+      test:
+        patterns:
+          - "MSTest"
+          - "Moq"
+          - "coverlet.collector"
+          - "TestInheritanceGenerator"
+          - "TestInheritanceGenerator.Annotations"
+          - "Microsoft.CodeAnalysis.*.Testing"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
