@@ -1,12 +1,6 @@
 # Create and publish nuget package
 
-Make sure that package version is updated
-
-	git clean -fdx
-	dotnet build -c Release
-	dotnet nuget push FILE --api-key APIKEY
-	git tag TAG
-	git push origin TAG
+powershell .\ReleaseNuget.ps1 -Runtime -Generator -ApiKey XYZ
 
 # Troubleshooting
 
