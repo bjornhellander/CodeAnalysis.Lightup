@@ -31,7 +31,7 @@ public class TestAssemblyTests
     [TestMethod]
     public void TestCompleteAssemblyList()
     {
-        var testAssemblyNames = TestAssemblies.Select(x => x.GetName().Name).ToList();
+        var testAssemblyNames = TestAssemblies.Select(x => x.GetName().Name ?? throw new NullReferenceException()).ToList();
 
         var testProjectNames = GetTestProjectNames();
         foreach (var testProjectName in testProjectNames)
