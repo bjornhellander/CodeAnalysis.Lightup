@@ -15,6 +15,7 @@ public class CodeActionExtensionsTests
         Assert.ThrowsExactly<InvalidOperationException>(() => CodeActionEx.Create("title", CreateDocumentAsync, null, priority));
     }
 
+    [ExcludeFromCodeCoverage]
     protected static Task<Document> CreateDocumentAsync(CancellationToken ct)
     {
         throw new InvalidOperationException();
