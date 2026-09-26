@@ -16,19 +16,9 @@ updates:
       - dependency-name: "System.Memory"
       - dependency-name: "System.Threading.Tasks.Extensions"
     groups:
-      analyzers:
+      nuget:
         patterns:
-          - "Microsoft.CodeAnalysis.Analyzers"
-          - "Microsoft.CodeAnalysis.NetAnalyzers"
-          - "NewStyleCop.Analyzers"
-      test:
-        patterns:
-          - "MSTest"
-          - "Moq"
-          - "coverlet.collector"
-          - "TestInheritanceGenerator"
-          - "TestInheritanceGenerator.Annotations"
-          - "Microsoft.CodeAnalysis.*.Testing"
+          - "*"
 
   - package-ecosystem: "github-actions"
     directory: "/"

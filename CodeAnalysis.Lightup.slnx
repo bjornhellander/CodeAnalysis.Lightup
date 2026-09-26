@@ -2,6 +2,7 @@
   <Folder Name="/0 - Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
+    <File Path=".github/dependabot.yml" />
     <File Path=".github/workflows/dotnet.yml" />
     <File Path=".gitignore" />
     <File Path="codecov.yml" />
