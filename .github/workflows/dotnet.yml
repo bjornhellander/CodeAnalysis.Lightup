@@ -35,7 +35,13 @@ jobs:
     - name: Build again
       run: dotnet build -c ${{matrix.configuration}} --no-restore
     - name: Check that generated files did not change
-      run: git diff --quiet HEAD
+      shell: bash
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Build produced changes. Please run the build locally and commit the results."
+          git status --untracked-files=all
+          exit 1
+        fi
     - name: Test
       run: dotnet test -c ${{matrix.configuration}} --no-build --verbosity normal --collect:"XPlat Code Coverage" --settings runsettings.xml
     - name: Upload coverage
