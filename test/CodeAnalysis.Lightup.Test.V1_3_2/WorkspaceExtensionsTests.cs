@@ -25,6 +25,7 @@ public class WorkspaceExtensionsTests
         return new AdhocWorkspace();
     }
 
+    [ExcludeFromCodeCoverage]
     protected static void HandleTextDocumentClosed(object? sender, TextDocumentEventArgsWrapper e)
     {
     }

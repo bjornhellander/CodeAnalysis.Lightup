@@ -11,8 +11,6 @@ public class WrapperTests
     [DataRow(typeof(FixAllScopeEx))] // From the Example.CodeFixes project
     public void TestStaticConstructor(Type exampleType)
     {
-        var dummyObj = new object();
-
         var assembly = exampleType.Assembly;
         var types = assembly.GetTypes();
         foreach (var type in types.Where(IsRelevantType))
@@ -41,13 +39,6 @@ public class WrapperTests
             return false;
         }
 
-        switch (type.Name)
-        {
-            case "LightupHelperBase":
-                return false;
-
-            default:
-                return true;
-        }
+        return true;
     }
 }

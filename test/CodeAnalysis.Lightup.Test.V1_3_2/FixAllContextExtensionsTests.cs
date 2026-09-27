@@ -42,6 +42,7 @@ public class FixAllContextExtensionsTests
         }
     }
 
+    [ExcludeFromCodeCoverage]
     private class MyCodeFixProvider : CodeFixProvider
     {
         public override ImmutableArray<string> FixableDiagnosticIds => [];
@@ -52,6 +53,7 @@ public class FixAllContextExtensionsTests
         }
     }
 
+    [ExcludeFromCodeCoverage]
     private class MyDiagnosticProvider : FixAllContext.DiagnosticProvider
     {
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously

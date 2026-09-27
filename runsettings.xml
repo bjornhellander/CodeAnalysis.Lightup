@@ -10,6 +10,7 @@
         <Configuration>
           <Format>cobertura</Format>
           <ExcludeByFile>**/.generated/**/*</ExcludeByFile>
+          <IncludeTestAssembly>true</IncludeTestAssembly>
         </Configuration>
       </DataCollector>
     </DataCollectors>
