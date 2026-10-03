@@ -33,7 +33,7 @@
 		<Compile Include="..\TestConfiguration.cs" />
 		<PackageReference Include="MSTest" Version="4.4.1" />
 		<PackageReference Include="Moq" Version="4.21.0" />
-		<PackageReference Include="coverlet.collector" Version="10.0.1" />
+		<PackageReference Include="coverlet.collector" Version="10.1.0" />
 	</ItemGroup>
 
 </Project>
