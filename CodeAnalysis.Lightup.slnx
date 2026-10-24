@@ -95,5 +95,6 @@
     <Project Path="test/CodeAnalysis.Lightup.Test.V4_4_0/CodeAnalysis.Lightup.Test.V4_4_0.csproj" />
     <Project Path="test/CodeAnalysis.Lightup.Test.V4_8_0/CodeAnalysis.Lightup.Test.V4_8_0.csproj" />
     <Project Path="test/CodeAnalysis.Lightup.Test.V5_0_0/CodeAnalysis.Lightup.Test.V5_0_0.csproj" />
+    <Project Path="test/CodeAnalysis.Lightup.Test.V5_12_0/CodeAnalysis.Lightup.Test.V5_12_0.csproj" />
   </Folder>
 </Solution>
