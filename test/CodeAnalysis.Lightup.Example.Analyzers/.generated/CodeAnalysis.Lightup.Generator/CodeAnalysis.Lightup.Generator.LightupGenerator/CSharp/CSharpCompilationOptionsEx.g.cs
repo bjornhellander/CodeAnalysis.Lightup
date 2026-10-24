@@ -12,8 +12,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private delegate Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions ConstructorDelegate1(global::Microsoft.CodeAnalysis.OutputKind outputKind, global::System.Boolean reportSuppressedDiagnostics, global::System.String? moduleName, global::System.String? mainTypeName, global::System.String? scriptClassName, global::System.Collections.Generic.IEnumerable<global::System.String>? usings, global::Microsoft.CodeAnalysis.OptimizationLevel optimizationLevel, global::System.Boolean checkOverflow, global::System.Boolean allowUnsafe, global::System.String? cryptoKeyContainer, global::System.String? cryptoKeyFile, global::System.Collections.Immutable.ImmutableArray<global::System.Byte> cryptoPublicKey, global::System.Nullable<global::System.Boolean> delaySign, global::Microsoft.CodeAnalysis.Platform platform, global::Microsoft.CodeAnalysis.ReportDiagnostic generalDiagnosticOption, global::System.Int32 warningLevel, global::System.Collections.Generic.IEnumerable<global::System.Collections.Generic.KeyValuePair<global::System.String, global::Microsoft.CodeAnalysis.ReportDiagnostic>>? specificDiagnosticOptions, global::System.Boolean concurrentBuild, global::System.Boolean deterministic, global::Microsoft.CodeAnalysis.XmlReferenceResolver? xmlReferenceResolver, global::Microsoft.CodeAnalysis.SourceReferenceResolver? sourceReferenceResolver, global::Microsoft.CodeAnalysis.MetadataReferenceResolver? metadataReferenceResolver, global::Microsoft.CodeAnalysis.AssemblyIdentityComparer? assemblyIdentityComparer, global::Microsoft.CodeAnalysis.StrongNameProvider? strongNameProvider, global::System.Boolean publicSign, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx metadataImportOptions, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx nullableContextOptions);
 
         private delegate global::System.String LanguageGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.MemorySafetyRulesVersionEx MemorySafetyRulesVersionGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptionsGetterDelegate(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj);
 
+        private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithMemorySafetyRulesVersionDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MemorySafetyRulesVersionEx version);
         private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithMetadataImportOptionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MetadataImportOptionsEx value);
         private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithNullableContextOptionsDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx options);
         private delegate global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithSyntaxTreeOptionsProviderDelegate0(global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.SyntaxTreeOptionsProviderWrapper? provider);
@@ -22,8 +24,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
         private static readonly ConstructorDelegate1 ConstructorFunc1;
 
         private static readonly LanguageGetterDelegate LanguageGetterFunc;
+        private static readonly MemorySafetyRulesVersionGetterDelegate MemorySafetyRulesVersionGetterFunc;
         private static readonly NullableContextOptionsGetterDelegate NullableContextOptionsGetterFunc;
 
+        private static readonly WithMemorySafetyRulesVersionDelegate0 WithMemorySafetyRulesVersionFunc0;
         private static readonly WithMetadataImportOptionsDelegate0 WithMetadataImportOptionsFunc0;
         private static readonly WithNullableContextOptionsDelegate0 WithNullableContextOptionsFunc0;
         private static readonly WithSyntaxTreeOptionsProviderDelegate0 WithSyntaxTreeOptionsProviderFunc0;
@@ -36,8 +40,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             ConstructorFunc1 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceConstructorAccessor<ConstructorDelegate1>(wrappedType, "outputKindOutputKind", "reportSuppressedDiagnosticsBoolean", "moduleNameString", "mainTypeNameString", "scriptClassNameString", "usingsIEnumerable`1", "optimizationLevelOptimizationLevel", "checkOverflowBoolean", "allowUnsafeBoolean", "cryptoKeyContainerString", "cryptoKeyFileString", "cryptoPublicKeyImmutableArray`1", "delaySignNullable`1", "platformPlatform", "generalDiagnosticOptionReportDiagnostic", "warningLevelInt32", "specificDiagnosticOptionsIEnumerable`1", "concurrentBuildBoolean", "deterministicBoolean", "xmlReferenceResolverXmlReferenceResolver", "sourceReferenceResolverSourceReferenceResolver", "metadataReferenceResolverMetadataReferenceResolver", "assemblyIdentityComparerAssemblyIdentityComparer", "strongNameProviderStrongNameProvider", "publicSignBoolean", "metadataImportOptionsMetadataImportOptions", "nullableContextOptionsNullableContextOptions");
 
             LanguageGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<LanguageGetterDelegate>(wrappedType, nameof(Language));
+            MemorySafetyRulesVersionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<MemorySafetyRulesVersionGetterDelegate>(wrappedType, nameof(MemorySafetyRulesVersion));
             NullableContextOptionsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceGetAccessor<NullableContextOptionsGetterDelegate>(wrappedType, nameof(NullableContextOptions));
 
+            WithMemorySafetyRulesVersionFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithMemorySafetyRulesVersionDelegate0>(wrappedType, "WithMemorySafetyRulesVersion", "versionMemorySafetyRulesVersion");
             WithMetadataImportOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithMetadataImportOptionsDelegate0>(wrappedType, "WithMetadataImportOptions", "valueMetadataImportOptions");
             WithNullableContextOptionsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithNullableContextOptionsDelegate0>(wrappedType, "WithNullableContextOptions", "optionsNullableContextOptions");
             WithSyntaxTreeOptionsProviderFunc0 = global::Microsoft.CodeAnalysis.Lightup.CSharpLightupHelper.CreateInstanceMethodAccessor<WithSyntaxTreeOptionsProviderDelegate0>(wrappedType, "WithSyntaxTreeOptionsProvider", "providerSyntaxTreeOptionsProvider");
@@ -61,10 +67,22 @@ namespace Microsoft.CodeAnalysis.CSharp.Lightup
             return LanguageGetterFunc(_obj);
         }
 
+        /// <summary>Property added in version 5.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.MemorySafetyRulesVersionEx MemorySafetyRulesVersion(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj)
+        {
+            return MemorySafetyRulesVersionGetterFunc(_obj);
+        }
+
         /// <summary>Property added in version 3.3.0.0.</summary>
         public static global::Microsoft.CodeAnalysis.Lightup.NullableContextOptionsEx NullableContextOptions(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj)
         {
             return NullableContextOptionsGetterFunc(_obj);
+        }
+
+        /// <summary>Method added in version 5.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions WithMemorySafetyRulesVersion(this global::Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions _obj, global::Microsoft.CodeAnalysis.Lightup.MemorySafetyRulesVersionEx version)
+        {
+            return WithMemorySafetyRulesVersionFunc0(_obj, version);
         }
 
         /// <summary>Method added in version 2.8.0.0.</summary>

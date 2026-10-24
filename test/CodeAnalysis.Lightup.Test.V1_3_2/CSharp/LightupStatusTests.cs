@@ -37,5 +37,6 @@ public class LightupStatusTests
         Assert.AreEqual(version >= 12, LightupStatus.SupportsCSharp12);
         Assert.AreEqual(version >= 13, LightupStatus.SupportsCSharp13);
         Assert.AreEqual(version >= 14, LightupStatus.SupportsCSharp14);
+        Assert.AreEqual(version >= 15, LightupStatus.SupportsCSharp15);
     }
 }

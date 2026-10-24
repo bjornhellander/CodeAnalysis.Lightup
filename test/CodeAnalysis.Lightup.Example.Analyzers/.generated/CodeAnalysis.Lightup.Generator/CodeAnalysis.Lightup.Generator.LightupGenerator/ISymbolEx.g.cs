@@ -9,10 +9,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         private const string WrappedTypeName = "Microsoft.CodeAnalysis.ISymbol";
 
         private delegate global::System.Int32 MetadataTokenGetterDelegate(global::Microsoft.CodeAnalysis.ISymbol _obj);
+        private delegate global::System.Boolean RequiresUnsafeContextGetterDelegate(global::Microsoft.CodeAnalysis.ISymbol _obj);
 
         private delegate global::System.Boolean EqualsDelegate0(global::Microsoft.CodeAnalysis.ISymbol _obj, global::Microsoft.CodeAnalysis.ISymbol? other, global::Microsoft.CodeAnalysis.Lightup.SymbolEqualityComparerWrapper equalityComparer);
 
         private static readonly MetadataTokenGetterDelegate MetadataTokenGetterFunc;
+        private static readonly RequiresUnsafeContextGetterDelegate RequiresUnsafeContextGetterFunc;
 
         private static readonly EqualsDelegate0 EqualsFunc0;
 
@@ -21,6 +23,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             var wrappedType = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.FindType(WrappedTypeName);
 
             MetadataTokenGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<MetadataTokenGetterDelegate>(wrappedType, nameof(MetadataToken));
+            RequiresUnsafeContextGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<RequiresUnsafeContextGetterDelegate>(wrappedType, nameof(RequiresUnsafeContext));
 
             EqualsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<EqualsDelegate0>(wrappedType, "Equals", "otherISymbol", "equalityComparerSymbolEqualityComparer");
         }
@@ -29,6 +32,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Int32 MetadataToken(this global::Microsoft.CodeAnalysis.ISymbol _obj)
         {
             return MetadataTokenGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.12.0.0.</summary>
+        public static global::System.Boolean RequiresUnsafeContext(this global::Microsoft.CodeAnalysis.ISymbol _obj)
+        {
+            return RequiresUnsafeContextGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
