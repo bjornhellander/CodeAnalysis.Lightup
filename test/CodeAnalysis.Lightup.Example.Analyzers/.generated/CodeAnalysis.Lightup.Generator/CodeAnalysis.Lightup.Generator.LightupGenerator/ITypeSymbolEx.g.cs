@@ -19,6 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Boolean IsUnionGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::System.Boolean IsUnmanagedTypeGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotationGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
+        private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> UnionCaseTypesGetterDelegate(global::Microsoft.CodeAnalysis.ITypeSymbol _obj);
 
         private delegate global::Microsoft.CodeAnalysis.Lightup.ClosedDerivedTypeInfoWrapper GetClosedDerivedTypeInfoDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::System.Threading.CancellationToken cancellationToken);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.SymbolDisplayPart> ToDisplayPartsDelegate0(global::Microsoft.CodeAnalysis.ITypeSymbol _obj, global::Microsoft.CodeAnalysis.Lightup.NullableFlowStateEx topLevelNullability, global::Microsoft.CodeAnalysis.SymbolDisplayFormat? format);
@@ -38,6 +39,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly IsUnionGetterDelegate IsUnionGetterFunc;
         private static readonly IsUnmanagedTypeGetterDelegate IsUnmanagedTypeGetterFunc;
         private static readonly NullableAnnotationGetterDelegate NullableAnnotationGetterFunc;
+        private static readonly UnionCaseTypesGetterDelegate UnionCaseTypesGetterFunc;
 
         private static readonly GetClosedDerivedTypeInfoDelegate0 GetClosedDerivedTypeInfoFunc0;
         private static readonly ToDisplayPartsDelegate0 ToDisplayPartsFunc0;
@@ -61,6 +63,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             IsUnionGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnionGetterDelegate>(wrappedType, nameof(IsUnion));
             IsUnmanagedTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<IsUnmanagedTypeGetterDelegate>(wrappedType, nameof(IsUnmanagedType));
             NullableAnnotationGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<NullableAnnotationGetterDelegate>(wrappedType, nameof(NullableAnnotation));
+            UnionCaseTypesGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<UnionCaseTypesGetterDelegate>(wrappedType, nameof(UnionCaseTypes));
 
             GetClosedDerivedTypeInfoFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetClosedDerivedTypeInfoDelegate0>(wrappedType, "GetClosedDerivedTypeInfo", "cancellationTokenCancellationToken");
             ToDisplayPartsFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ToDisplayPartsDelegate0>(wrappedType, "ToDisplayParts", "topLevelNullabilityNullableFlowState", "formatSymbolDisplayFormat");
@@ -134,6 +137,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx NullableAnnotation(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
         {
             return NullableAnnotationGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.12.0.0.</summary>
+        public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> UnionCaseTypes(this global::Microsoft.CodeAnalysis.ITypeSymbol _obj)
+        {
+            return UnionCaseTypesGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 5.9.0.0.</summary>

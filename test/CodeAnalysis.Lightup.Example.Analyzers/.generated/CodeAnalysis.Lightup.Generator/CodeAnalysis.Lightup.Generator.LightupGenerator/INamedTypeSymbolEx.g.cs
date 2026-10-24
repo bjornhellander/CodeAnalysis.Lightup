@@ -19,6 +19,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.IFieldSymbol> TupleElementsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol? TupleUnderlyingTypeGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotationsGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
+        private delegate global::Microsoft.CodeAnalysis.Lightup.TypeLayoutWrapper TypeLayoutGetterDelegate(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj);
 
         private delegate global::Microsoft.CodeAnalysis.INamedTypeSymbol ConstructDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.ITypeSymbol> typeArguments, global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> typeArgumentNullableAnnotations);
         private delegate global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.CustomModifier> GetTypeArgumentCustomModifiersDelegate0(global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj, global::System.Int32 ordinal);
@@ -34,6 +35,7 @@ namespace Microsoft.CodeAnalysis.Lightup
         private static readonly TupleElementsGetterDelegate TupleElementsGetterFunc;
         private static readonly TupleUnderlyingTypeGetterDelegate TupleUnderlyingTypeGetterFunc;
         private static readonly TypeArgumentNullableAnnotationsGetterDelegate TypeArgumentNullableAnnotationsGetterFunc;
+        private static readonly TypeLayoutGetterDelegate TypeLayoutGetterFunc;
 
         private static readonly ConstructDelegate0 ConstructFunc0;
         private static readonly GetTypeArgumentCustomModifiersDelegate0 GetTypeArgumentCustomModifiersFunc0;
@@ -53,6 +55,7 @@ namespace Microsoft.CodeAnalysis.Lightup
             TupleElementsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TupleElementsGetterDelegate>(wrappedType, nameof(TupleElements));
             TupleUnderlyingTypeGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TupleUnderlyingTypeGetterDelegate>(wrappedType, nameof(TupleUnderlyingType));
             TypeArgumentNullableAnnotationsGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TypeArgumentNullableAnnotationsGetterDelegate>(wrappedType, nameof(TypeArgumentNullableAnnotations));
+            TypeLayoutGetterFunc = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceGetAccessor<TypeLayoutGetterDelegate>(wrappedType, nameof(TypeLayout));
 
             ConstructFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<ConstructDelegate0>(wrappedType, "Construct", "typeArgumentsImmutableArray`1", "typeArgumentNullableAnnotationsImmutableArray`1");
             GetTypeArgumentCustomModifiersFunc0 = global::Microsoft.CodeAnalysis.Lightup.CommonLightupHelper.CreateInstanceMethodAccessor<GetTypeArgumentCustomModifiersDelegate0>(wrappedType, "GetTypeArgumentCustomModifiers", "ordinalInt32");
@@ -122,6 +125,12 @@ namespace Microsoft.CodeAnalysis.Lightup
         public static global::System.Collections.Immutable.ImmutableArray<global::Microsoft.CodeAnalysis.Lightup.NullableAnnotationEx> TypeArgumentNullableAnnotations(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
         {
             return TypeArgumentNullableAnnotationsGetterFunc(_obj);
+        }
+
+        /// <summary>Property added in version 5.12.0.0.</summary>
+        public static global::Microsoft.CodeAnalysis.Lightup.TypeLayoutWrapper TypeLayout(this global::Microsoft.CodeAnalysis.INamedTypeSymbol _obj)
+        {
+            return TypeLayoutGetterFunc(_obj);
         }
 
         /// <summary>Method added in version 3.3.0.0.</summary>
