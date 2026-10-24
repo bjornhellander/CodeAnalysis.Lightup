@@ -16,9 +16,9 @@ namespace CodeAnalysis.Lightup.Runtime
             this.convert = convert;
         }
 
-        public void Report(TSource sourceValue)
+        public void Report(TSource value)
         {
-            var targetValue = convert(sourceValue);
+            var targetValue = convert(value);
             actual.Report(targetValue);
         }
     }
