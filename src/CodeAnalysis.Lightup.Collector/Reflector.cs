@@ -15,24 +15,31 @@ internal class Reflector
     private static readonly EnumValueComparer enumValueComparer = new();
 #pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
 
-    private static readonly Dictionary<AssemblyKind, string> AssemblyNames = new()
+    // NOTE: The package ids must match the RoslynPackage items in the project file
+    private static readonly Dictionary<AssemblyKind, (string PackageId, string AssemblyName)> AssemblyInfos = new()
     {
-        [AssemblyKind.Common] = "Microsoft.CodeAnalysis",
-        [AssemblyKind.CSharp] = "Microsoft.CodeAnalysis.CSharp",
-        [AssemblyKind.WorkspacesCommon] = "Microsoft.CodeAnalysis.Workspaces",
-        [AssemblyKind.CSharpWorkspaces] = "Microsoft.CodeAnalysis.CSharp.Workspaces",
+        [AssemblyKind.Common] = ("Microsoft.CodeAnalysis.Common", "Microsoft.CodeAnalysis"),
+        [AssemblyKind.CSharp] = ("Microsoft.CodeAnalysis.CSharp", "Microsoft.CodeAnalysis.CSharp"),
+        [AssemblyKind.WorkspacesCommon] = ("Microsoft.CodeAnalysis.Workspaces.Common", "Microsoft.CodeAnalysis.Workspaces"),
+        [AssemblyKind.CSharpWorkspaces] = ("Microsoft.CodeAnalysis.CSharp.Workspaces", "Microsoft.CodeAnalysis.CSharp.Workspaces"),
     };
 
+    // NOTE: Select package assets the same way as NuGet would for a project targeting this framework,
+    // including the default AssetTargetFallback that the .NET SDK uses (needed for the oldest Roslyn versions)
+    private static readonly List<NuGetFramework> TargetFrameworks = new[] { "net10.0", "net461", "net462", "net47", "net471", "net472", "net48", "net481" }
+        .Select(NuGetFramework.Parse)
+        .ToList();
+
     public static Dictionary<string, BaseTypeDefinition> CollectTypes(
-        IReadOnlyList<string> referenceProjectNames,
-        string rootFolder)
+        IReadOnlyList<string> roslynVersions,
+        string packageRoot)
     {
         var isFirst = true;
         var types = new Dictionary<string, BaseTypeDefinition>();
-        foreach (var referenceProjectName in referenceProjectNames)
+        foreach (var roslynVersion in roslynVersions)
         {
-            Console.WriteLine($"Reading {referenceProjectName}");
-            CollectTypes(referenceProjectName, rootFolder, types, isFirst);
+            Console.WriteLine($"Reading Roslyn {roslynVersion}");
+            CollectTypes(roslynVersion, packageRoot, types, isFirst);
             isFirst = false;
         }
 
@@ -40,34 +47,50 @@ internal class Reflector
     }
 
     private static void CollectTypes(
-        string referenceProjectName,
-        string rootFolder,
+        string roslynVersion,
+        string packageRoot,
         Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion)
     {
-        var referenceProjectFolder = Path.Combine(rootFolder, "ref", referenceProjectName, "bin");
-        var referenceAssemblyPaths = Directory.GetFiles(referenceProjectFolder, $"{referenceProjectName}.dll", SearchOption.AllDirectories);
-        var referenceAssemblyPath = referenceAssemblyPaths.SingleOrDefault();
-        Assert.IsTrue(referenceAssemblyPath != null, $"Could not find reference assembly in {referenceProjectFolder}");
-        var referenceProjectBinFolder = Path.GetDirectoryName(referenceAssemblyPath);
-        Assert.IsTrue(referenceProjectBinFolder != null, "Could not get reference projects's bin folder");
+        var assemblyPaths = Enum.GetValues<AssemblyKind>().ToDictionary(x => x, x => GetAssemblyPath(packageRoot, roslynVersion, x));
 
-        var assemblyLoadContext = new AssemblyLoadContext(referenceProjectName);
-        assemblyLoadContext.Resolving += ResolveAssembly;
+        // NOTE: Roslyn's own assemblies are taken from the packages and everything else (mostly framework assemblies)
+        // from the current runtime or from this program's folder. Versions are ignored, since only metadata is inspected.
+        var runtimeFolder = Path.GetDirectoryName(typeof(object).Assembly.Location)!;
+        var searchPaths = assemblyPaths.Values
+            .Concat(Directory.GetFiles(runtimeFolder, "*.dll"))
+            .Concat(Directory.GetFiles(AppContext.BaseDirectory, "*.dll"));
+        var resolver = new SimpleNameAssemblyResolver(searchPaths);
+        using var metadataLoadContext = new MetadataLoadContext(resolver, "System.Private.CoreLib");
 
         MarkTypesMembersAsRemoved(typeDefs.Values);
 
         foreach (var assemblyKind in Enum.GetValues<AssemblyKind>())
         {
-            CollectTypes(assemblyLoadContext, typeDefs, isBaselineVersion, assemblyKind);
+            var assembly = metadataLoadContext.LoadFromAssemblyPath(assemblyPaths[assemblyKind]);
+            CollectTypes(assembly, typeDefs, isBaselineVersion, assemblyKind);
         }
+    }
 
-        Assembly? ResolveAssembly(AssemblyLoadContext context, AssemblyName assemblyName)
-        {
-            var assemblyPath = Path.Combine(referenceProjectBinFolder, assemblyName.Name + ".dll");
-            var assembly = context.LoadFromAssemblyPath(assemblyPath);
-            return assembly;
-        }
+    private static string GetAssemblyPath(string packageRoot, string roslynVersion, AssemblyKind assemblyKind)
+    {
+        var (packageId, assemblyName) = AssemblyInfos[assemblyKind];
+
+        var packageFolder = Path.Combine(packageRoot, packageId.ToLowerInvariant(), roslynVersion.ToLowerInvariant());
+        var libFolder = Path.Combine(packageFolder, "lib");
+        Assert.IsTrue(Directory.Exists(libFolder), $"Could not find package folder {libFolder}. Has the Collector project been restored?");
+
+        var frameworkFolders = Directory.GetDirectories(libFolder)
+            .Where(x => File.Exists(Path.Combine(x, assemblyName + ".dll")))
+            .ToDictionary(x => NuGetFramework.ParseFolder(Path.GetFileName(x)), x => x);
+        var frameworkReducer = new FrameworkReducer();
+        var nearestFramework = TargetFrameworks
+            .Select(x => frameworkReducer.GetNearest(x, frameworkFolders.Keys))
+            .FirstOrDefault(x => x != null);
+        Assert.IsTrue(nearestFramework != null, $"Could not find a compatible framework in {libFolder}");
+
+        var assemblyPath = Path.Combine(frameworkFolders[nearestFramework], assemblyName + ".dll");
+        return assemblyPath;
     }
 
     private static void MarkTypesMembersAsRemoved(IEnumerable<BaseTypeDefinition> typeDefs)
@@ -135,14 +158,11 @@ internal class Reflector
     }
 
     private static void CollectTypes(
-        AssemblyLoadContext assemblyLoadContext,
+        Assembly assembly,
         Dictionary<string, BaseTypeDefinition> typeDefs,
         bool isBaselineVersion,
         AssemblyKind assemblyKind)
     {
-        var assemblyName = AssemblyNames[assemblyKind];
-
-        var assembly = assemblyLoadContext.LoadFromAssemblyName(new AssemblyName(assemblyName));
         var assemblyVersion = assembly.GetName().Version;
         Assert.IsTrue(assemblyVersion != null, "Could not get assembly version");
 
@@ -237,7 +257,7 @@ internal class Reflector
         var underlyingTypeName = type.GetEnumUnderlyingType().FullName;
         Assert.IsTrue(underlyingTypeName != null, "Could not get enum's underlying type");
 
-        var isFlagsEnum = type.GetCustomAttribute<FlagsAttribute>() != null;
+        var isFlagsEnum = HasAttribute(type.CustomAttributes, "System.FlagsAttribute");
 
         return new EnumTypeDefinition(
             assemblyKind,
@@ -343,7 +363,7 @@ internal class Reflector
         foreach (var field in fields)
         {
             var name = field.Name;
-            var value = Convert.ToInt32(field.GetValue(null));
+            var value = Convert.ToInt32(field.GetRawConstantValue());
 
             var duplicateValueDef = enumTypeDef.Values.SingleOrDefault(x => x.Name == name);
             if (duplicateValueDef != null)
@@ -522,7 +542,7 @@ internal class Reflector
                     {
                         if (!method.Attributes.HasFlag(MethodAttributes.SpecialName) &&
                             !method.IsGenericMethod &&
-                            method.GetBaseDefinition().DeclaringType != typeof(object))
+                            GetBaseDefinition(method).DeclaringType?.FullName != "System.Object")
                         {
                             var methodDef = CreateMethodDefinition(method);
                             AddOrUpdate(typeDef.Methods, methodDef, AreEqual, assemblyVersion, methodComparer);
@@ -545,6 +565,32 @@ internal class Reflector
                     break;
             }
         }
+    }
+
+    // NOTE: MethodInfo.GetBaseDefinition() is not supported by MetadataLoadContext, so this is a simplified version of it
+    private static MethodInfo GetBaseDefinition(MethodInfo method)
+    {
+        var result = method;
+        while (result.IsVirtual && !result.Attributes.HasFlag(MethodAttributes.NewSlot))
+        {
+            var parameterTypes = result.GetParameters().Select(x => x.ParameterType).ToArray();
+            var overriddenMethod = default(MethodInfo);
+            for (var baseType = result.DeclaringType?.BaseType; baseType != null && overriddenMethod == null; baseType = baseType.BaseType)
+            {
+                overriddenMethod = baseType
+                    .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                    .SingleOrDefault(x => x.IsVirtual && x.Name == result.Name && x.GetParameters().Select(x => x.ParameterType).SequenceEqual(parameterTypes));
+            }
+
+            if (overriddenMethod == null)
+            {
+                break;
+            }
+
+            result = overriddenMethod;
+        }
+
+        return result;
     }
 
     private static void AddOrUpdate<T>(
@@ -762,9 +808,9 @@ internal class Reflector
     private static MethodDefinition CreateMethodDefinition(MethodInfo method)
     {
         // NOTE: This might be somewhat over-simplified, but probably good enough for this
-        var isExtensionMethod = method.GetCustomAttribute<ExtensionAttribute>() != null;
+        var isExtensionMethod = HasAttribute(method.CustomAttributes, "System.Runtime.CompilerServices.ExtensionAttribute");
 
-        var returnTypeRef = method.ReturnType != typeof(void) ? CreateTypeReference(method.ReturnType) : null;
+        var returnTypeRef = method.ReturnType.FullName != "System.Void" ? CreateTypeReference(method.ReturnType) : null;
 
         var nullabilityInfoContext = new NullabilityInfoContext();
         var nullabilityInfo = nullabilityInfoContext.Create(method.ReturnParameter);
@@ -788,7 +834,7 @@ internal class Reflector
         var name = parameter.Name;
         Assert.IsTrue(name != null, "Could not get parameter name");
 
-        var isParams = parameter.IsDefined(typeof(ParamArrayAttribute));
+        var isParams = HasAttribute(parameter.CustomAttributes, "System.ParamArrayAttribute");
 
         GetParameterModeAndProperType(parameter, out var parameterMode, out var parameterType);
 
@@ -873,6 +919,12 @@ internal class Reflector
         }
 
         return true;
+    }
+
+    // NOTE: Types loaded into a MetadataLoadContext can't be compared with runtime types, so compare names instead
+    private static bool HasAttribute(IEnumerable<CustomAttributeData> attributes, string attributeTypeFullName)
+    {
+        return attributes.Any(x => x.AttributeType.FullName == attributeTypeFullName);
     }
 
     private static TypeReference CreateTypeReference(Type type)
@@ -975,6 +1027,27 @@ internal class Reflector
     private static bool AreEqual(ArrayTypeReference x, ArrayTypeReference y)
     {
         return AreEqual(x.ElementType, y.ElementType);
+    }
+
+    private class SimpleNameAssemblyResolver : MetadataAssemblyResolver
+    {
+        private readonly Dictionary<string, string> pathsByName = new(StringComparer.OrdinalIgnoreCase);
+
+        public SimpleNameAssemblyResolver(IEnumerable<string> assemblyPaths)
+        {
+            // NOTE: The first path found for a given name wins
+            foreach (var assemblyPath in assemblyPaths)
+            {
+                pathsByName.TryAdd(Path.GetFileNameWithoutExtension(assemblyPath), assemblyPath);
+            }
+        }
+
+        public override Assembly? Resolve(MetadataLoadContext context, AssemblyName assemblyName)
+        {
+            return assemblyName.Name != null && pathsByName.TryGetValue(assemblyName.Name, out var assemblyPath)
+                ? context.LoadFromAssemblyPath(assemblyPath)
+                : null;
+        }
     }
 
     private class FieldComparer : IComparer<FieldDefinition>

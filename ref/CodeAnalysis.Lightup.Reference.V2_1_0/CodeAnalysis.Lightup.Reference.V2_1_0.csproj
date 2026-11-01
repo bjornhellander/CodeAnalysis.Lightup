@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis" Version="2.1.0" />
-		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
-	</ItemGroup>
-
-</Project>

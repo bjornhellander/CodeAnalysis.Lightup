@@ -104,8 +104,8 @@ git config core.longpaths true
 
 3. **CodeAnalysis.Lightup.Collector** (CLI tool, net10.0)
    - Location: `src/CodeAnalysis.Lightup.Collector/`
-   - Purpose: Reflects on reference projects to generate/update Types.xml
-   - Process: Scans `ref/CodeAnalysis.Lightup.Reference.V*/` projects for each Roslyn version
+   - Purpose: Reflects on all supported Roslyn versions to generate/update Types.xml
+   - Process: The Roslyn versions are listed as `RoslynVersion` items in the Collector's `.csproj`. Restore downloads each one with `PackageDownload` into the NuGet global packages folder. The Collector then picks the lib folder NuGet would pick for net10.0 and inspects the assemblies with `MetadataLoadContext` (metadata only, nothing is executed)
    - Run: `dotnet run -c Release --project src/CodeAnalysis.Lightup.Collector`
    - Output: Updates `src/CodeAnalysis.Lightup.Generator/Types.xml`
 
@@ -142,7 +142,7 @@ Type access at runtime across Roslyn versions
 - **Types.xml** (~12.9MB): Stores complete API metadata for 20+ Roslyn versions
 - **Baseline Version**: Specified per-project in configuration file (e.g., "1.3.2.0", "3.0.0.0", "4.0.0.0")
 - **Generation Scope**: Only types/members added AFTER baseline version are generated
-- **Reference Projects**: `ref/` directory contains multiple projects used by Collector
+- **Collected Roslyn Versions**: `RoslynVersion` items in `src/CodeAnalysis.Lightup.Collector/CodeAnalysis.Lightup.Collector.csproj` (the lowest one is the baseline)
 
 ## Test Structure
 
@@ -213,7 +213,7 @@ StyleCop and code formatting rules. Enforced in CI via `EnforceCodeStyleInBuild=
 
 ### When Types.xml Needs Updating
 
-1. Add/update reference project in `ref/` (Roslyn version support)
+1. Add/update a `RoslynVersion` item in the Collector's `.csproj`
 2. Run Collector: `dotnet run -c Release --project src/CodeAnalysis.Lightup.Collector`
 3. Commit updated `Types.xml`
 4. Rebuild to regenerate consumer projects
@@ -222,11 +222,10 @@ StyleCop and code formatting rules. Enforced in CI via `EnforceCodeStyleInBuild=
 
 ### Adding Support for New Roslyn Version
 
-1. Create reference project in `ref/CodeAnalysis.Lightup.Reference.V{version}/` with target Roslyn package
-2. Update Collector project list (manually or auto-detect)
-3. Run Collector to reflect on new version
-4. Create test project `test/CodeAnalysis.Lightup.Test.V{version}/`
-5. Update GitHub Actions matrix (if needed)
+1. Add the package version as a `RoslynVersion` item in `src/CodeAnalysis.Lightup.Collector/CodeAnalysis.Lightup.Collector.csproj`
+2. Run Collector to reflect on new version (restore downloads the packages)
+3. Create test project `test/CodeAnalysis.Lightup.Test.V{version}/`
+4. Update GitHub Actions matrix (if needed)
 
 ### Fixing Generated Code Issues
 
