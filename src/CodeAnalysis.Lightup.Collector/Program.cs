@@ -8,7 +8,7 @@ internal class Program
     private static void Main()
     {
         var rootFolder = GetRepositoryRoot();
-        var types = CollectTypes(rootFolder);
+        var types = CollectTypes();
         WriteTypesFile(rootFolder, types);
         RemoveGeneratedFolders(rootFolder);
     }
@@ -31,11 +31,31 @@ internal class Program
         return null;
     }
 
-    private static Dictionary<string, BaseTypeDefinition> CollectTypes(string rootFolder)
+    private static Dictionary<string, BaseTypeDefinition> CollectTypes()
     {
-        var referenceProjectNames = GetReferenceProjectNames(rootFolder).OrderBy(x => x, new ProjectNameComparer()).ToList();
-        var types = Reflector.CollectTypes(referenceProjectNames, rootFolder);
+        var packageRoot = GetAssemblyMetadata("NuGetPackageRoot");
+        var roslynVersions = GetAssemblyMetadata("RoslynVersions")
+            .Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .OrderBy(GetVersionWithoutSuffix)
+            .ToList();
+        var types = Reflector.CollectTypes(roslynVersions, packageRoot);
         return types;
+    }
+
+    private static string GetAssemblyMetadata(string key)
+    {
+        var value = Assembly.GetExecutingAssembly()
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .SingleOrDefault(x => x.Key == key)?.Value;
+        Assert.IsTrue(!string.IsNullOrEmpty(value), $"Could not find assembly metadata '{key}'");
+        return value;
+    }
+
+    private static Version GetVersionWithoutSuffix(string packageVersion)
+    {
+        var index = packageVersion.IndexOf('-');
+        var versionText = index >= 0 ? packageVersion[..index] : packageVersion;
+        return Version.Parse(versionText);
     }
 
     private static FileStream WriteTypesFile(string rootFolder, Dictionary<string, BaseTypeDefinition> types)
@@ -46,13 +66,6 @@ internal class Program
         var typesList = types.Values.OrderBy(x => x.FullName).ToList();
         serializer.Serialize(stream, typesList);
         return stream;
-    }
-
-    private static List<string> GetReferenceProjectNames(string rootFolder)
-    {
-        var testFolder = Path.Combine(rootFolder, "ref");
-        var referenceProjectNames = Directory.GetDirectories(testFolder).Select(x => Path.GetFileName(x)).ToList();
-        return referenceProjectNames;
     }
 
     private static void RemoveGeneratedFolders(string rootFolder)
@@ -68,27 +81,6 @@ internal class Program
             {
                 Directory.Delete(generatedFoldPath, true);
             }
-        }
-    }
-
-    private class ProjectNameComparer : IComparer<string>
-    {
-        private static readonly Regex TestProjectNameRegex = new("V(\\d+)_(\\d+)_(\\d+)$");
-
-        public int Compare(string? x, string? y)
-        {
-            var xVersion = GetVersion(x!);
-            var yVersion = GetVersion(y!);
-            return xVersion.CompareTo(yVersion);
-        }
-
-        private static Version GetVersion(string name)
-        {
-            var match = TestProjectNameRegex.Match(name);
-            var major = int.Parse(match.Groups[1].Value);
-            var minor = int.Parse(match.Groups[2].Value);
-            var patch = int.Parse(match.Groups[3].Value);
-            return new Version(major, minor, patch);
         }
     }
 }
