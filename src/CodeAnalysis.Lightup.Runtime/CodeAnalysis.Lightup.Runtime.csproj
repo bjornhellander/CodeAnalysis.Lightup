@@ -24,4 +24,10 @@
 		<NoPackageAnalysis>true</NoPackageAnalysis>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<!-- Advisories for packages implicitly referenced via NETStandard.Library 1.6.1 (netstandard1.1 target). The affected APIs are not used. -->
+		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-7jgj-8wvc-jh57" /><!-- System.Net.Http 4.3.0 -->
+		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-cmhx-cq75-c4mj" /><!-- System.Text.RegularExpressions 4.3.0 -->
+	</ItemGroup>
+
 </Project>
