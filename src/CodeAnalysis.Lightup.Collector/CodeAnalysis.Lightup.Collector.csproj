@@ -10,9 +10,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NuGet.Frameworks" Version="6.14.0" />
-		<PackageReference Include="System.Composition" Version="10.0.1" />
-		<PackageReference Include="System.Reflection.MetadataLoadContext" Version="10.0.1" />
+		<PackageReference Include="NuGet.Frameworks" Version="7.9.0" />
+		<PackageReference Include="System.Composition" Version="10.0.14" />
+		<PackageReference Include="System.Reflection.MetadataLoadContext" Version="10.0.14" />
 	</ItemGroup>
 
 	<!-- The Roslyn versions to collect type information from -->
