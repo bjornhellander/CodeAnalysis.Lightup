@@ -2,6 +2,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="3.3.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.9.0" />
 	</ItemGroup>
 
 </Project>
