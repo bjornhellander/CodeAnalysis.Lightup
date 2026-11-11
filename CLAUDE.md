@@ -102,10 +102,10 @@ git config core.longpaths true
    - Purpose: Provides reflection utilities for safely accessing runtime features
    - Used by: All generated code at runtime
 
-3. **CodeAnalysis.Lightup.Collector** (CLI tool, net10.0)
+3. **CodeAnalysis.Lightup.Collector** (CLI tool)
    - Location: `src/CodeAnalysis.Lightup.Collector/`
    - Purpose: Reflects on all supported Roslyn versions to generate/update Types.xml
-   - Process: The Roslyn versions are listed as `RoslynVersion` items in the Collector's `.csproj`. Restore downloads each one with `PackageDownload` into the NuGet global packages folder. The Collector then picks the lib folder NuGet would pick for net10.0 and inspects the assemblies with `MetadataLoadContext` (metadata only, nothing is executed)
+   - Process: The Roslyn versions are listed as `RoslynVersion` items in the Collector's `.csproj`. Restore downloads each one with `PackageDownload` into the NuGet global packages folder. The Collector then picks the lib folder NuGet would pick for net11.0 and inspects the assemblies with `MetadataLoadContext` (metadata only, nothing is executed)
    - Run: `dotnet run -c Release --project src/CodeAnalysis.Lightup.Collector`
    - Output: Updates `src/CodeAnalysis.Lightup.Generator/Types.xml`
 
@@ -160,7 +160,7 @@ File: `.github/workflows/dotnet.yml`
 **Trigger**: Pushes/PRs to master, Matrix: Debug + Release
 
 **Key Steps**:
-1. Checkout + Setup .NET 10
+1. Checkout + Setup .NET
 2. `dotnet restore` → `dotnet build`
 3. **Run Collector**: `dotnet run -c Release --project src/CodeAnalysis.Lightup.Collector`
 4. Verify no generated files changed: `git diff --quiet HEAD`
