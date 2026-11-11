@@ -14,7 +14,7 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing" Version="1.1.4" />
 		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
 		<!-- Overrides vulnerable transitive version (via the analyzer testing packages and NuGet.Packaging) -->
-		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="11.0.0" />
 	</ItemGroup>
 
 </Project>
