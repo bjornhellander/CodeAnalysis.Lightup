@@ -25,6 +25,7 @@
 		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
 		<PackageReference Include="Nullable" Version="1.3.1" PrivateAssets="all" />
 		<!-- Overrides vulnerable transitive version (via Microsoft.CodeAnalysis 1.3.2) -->
+		<PackageReference Include="System.Composition" Version="11.0.0" />
 		<PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
 		<!-- Needed since Solution.GetSourceGeneratedDocumentAsync (added after the baseline version) returns ValueTask<> -->
 		<PackageReference Include="System.Threading.Tasks.Extensions" Version="4.3.0" />
