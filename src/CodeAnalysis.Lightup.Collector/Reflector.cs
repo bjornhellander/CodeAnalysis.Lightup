@@ -26,7 +26,7 @@ internal class Reflector
 
     // NOTE: Select package assets the same way as NuGet would for a project targeting this framework,
     // including the default AssetTargetFallback that the .NET SDK uses (needed for the oldest Roslyn versions)
-    private static readonly List<NuGetFramework> TargetFrameworks = new[] { "net10.0", "net461", "net462", "net47", "net471", "net472", "net48", "net481" }
+    private static readonly List<NuGetFramework> TargetFrameworks = new[] { "net11.0", "net461", "net462", "net47", "net471", "net472", "net48", "net481" }
         .Select(NuGetFramework.Parse)
         .ToList();
 
@@ -1031,7 +1031,7 @@ internal class Reflector
 
     private class SimpleNameAssemblyResolver : MetadataAssemblyResolver
     {
-        private readonly Dictionary<string, string> pathsByName = new(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, string> pathsByName = [with(StringComparer.OrdinalIgnoreCase)];
 
         public SimpleNameAssemblyResolver(IEnumerable<string> assemblyPaths)
         {
